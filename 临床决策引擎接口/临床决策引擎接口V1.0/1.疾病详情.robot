@@ -12,9 +12,9 @@ Library           RequestsLibrary
 # '{u'error': 0}'
 
 
-1.2疾病详情diseaseId输入错误,详情显示失败
-    [Documentation]    断言errorMsg:"message=程序异常"
-    疾病详情1    程序异常！    diseaseId=8457C0ACE01333
+# 1.2疾病详情diseaseId输入错误,详情显示失败
+#     [Documentation]    断言errorMsg:"message=程序异常"
+#     疾病详情1    程序异常！    diseaseId=8457C0ACE01333
 
 
 1.3疾病详情diseaseId输入错误,详情显示失败
