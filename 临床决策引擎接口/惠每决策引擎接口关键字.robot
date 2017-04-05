@@ -37,7 +37,6 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${base_url}    ${dict}
     ${data}    Create Dictionary    diseaseId=${diseaseId}
-    # log    ${data}
     ${addr}    Post Request    api    v_2_0/disease/detail    data=${data}
     ${responsedata}    To Json    ${addr.content}
     log    ${addr.content}
@@ -52,7 +51,6 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${base_url}    ${dict}
     ${data}    Create Dictionary    diseaseId=${diseaseId}
-    # diseaseId=${diseaseId}
     ${addr}    Post Request    api    v_2_0/disease/detail    data=${data}
     ${responsedata}    To Json    ${addr.content}
     ${str}    Get From Dictionary    ${responsedata}    head
