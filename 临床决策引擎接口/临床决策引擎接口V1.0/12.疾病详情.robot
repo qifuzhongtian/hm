@@ -26,4 +26,3 @@ Library           RequestsLibrary
 #     [Documentation]    断言errorMsg:"message=程序异常"
 #     疾病详情2    程序异常！    diseaseId=8457C0ACE01333
 
-
