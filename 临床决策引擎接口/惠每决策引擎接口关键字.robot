@@ -15,6 +15,23 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
 # ${version}      1.0
 
 *** Keywords ***
+
+常见症状
+    [Arguments]    ${msg}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary
+    ${addr}    Post Request    api    v_2_0/common_symptom    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    ${str}    Get From Dictionary    ${responsedata}    head
+    ${str1}    Get From Dictionary    ${str}    error
+    Should Be Equal As Strings    ${str1}    ${msg}
+    Delete All Sessions
+
+
+
+
+
 疾病详情2
     [Arguments]    ${msg}    ${diseaseId}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
