@@ -17,7 +17,6 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
 # ${version}      1.0
 
 *** Keywords ***
-
 常见症状
     [Arguments]    ${msg}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -257,29 +256,10 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     ${data}    Create Dictionary    symptom=${symptom}    previousHistory=${previousHistory}    personalHistory=${personalHistory}    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}    weight=${weight}    gender=${gender}    bodyTempr=${bodyTempr}    lowBldPress=${lowBldPress}    highBldPress=${highBldPress}    examInfo=${examInfo}    heartRate=${heartRate}    age=${age}    ageType=${ageType}
     ...    confirmDiagnosis=${confirmDiagnosis}    confirmDiagnosisMap[]=${confirmDiagnosisMap}
     # ...    examItems[]=${examItems}
-    ${addr}    Post Request    api    v_2_2/diagnose_through_interrogation    data=${data}
+    ${addr}    Post Request    api    v_2_0/diagnose_through_interrogation    data=${data}
     ${responsedata}    To Json    ${addr.content}
     ${str}    Get From Dictionary    ${responsedata}    head
     ${str1}    Get From Dictionary    ${str}    error
     Should Be Equal As Strings    ${str1}    ${msg}
-
-
-
-
-智能诊断1
-    [Arguments]    ${msg}    ${symptom}
-    # ...    ${examItems}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
-    ${data}    Create Dictionary    symptom=${symptom}
-    ${addr}    Post Request    api    v_2_2/diagnose_through_interrogation    data=${data}
-    ${responsedata}    To Json    ${addr.content}
-    ${str}    Get From Dictionary    ${responsedata}    head
-    ${str1}    Get From Dictionary    ${str}    error
-    Should Be Equal As Strings    ${str1}    ${msg}
-
-
-
-
 
 
