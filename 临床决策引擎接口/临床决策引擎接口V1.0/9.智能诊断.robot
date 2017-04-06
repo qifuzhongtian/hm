@@ -33,7 +33,6 @@ Library           RequestsLibrary
 
 
 
-
 2.2智能诊断接口_只填性别
     [Documentation]    断言error:""
     智能诊断    0    symptom=发热    previousHistory=
