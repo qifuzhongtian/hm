@@ -1,5 +1,5 @@
 *** Settings ***
-Resource          ../惠每决策引擎接口关键字.robot
+Resource          ../cdss接口关键字.robot
 Library           Collections
 Library           RequestsLibrary
 

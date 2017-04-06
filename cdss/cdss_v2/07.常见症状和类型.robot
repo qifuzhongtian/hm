@@ -1,5 +1,5 @@
 *** Settings ***
-Resource          ../惠每决策引擎接口关键字.robot
+Resource          ../cdss接口关键字.robot
 Library           Collections
 Library           RequestsLibrary
 
@@ -8,6 +8,8 @@ Library           RequestsLibrary
 
 
 *** Test Cases ***
-5.1常见家族史
+6.1常见症状和类型
     [Documentation]    断言error:"error=0"
-    常见家族史    0
+    常见症状和类型    0
+
+

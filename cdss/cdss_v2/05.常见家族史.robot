@@ -1,5 +1,5 @@
 *** Settings ***
-Resource          ../惠每决策引擎接口关键字.robot
+Resource          ../cdss接口关键字.robot
 Library           Collections
 Library           RequestsLibrary
 
@@ -8,8 +8,6 @@ Library           RequestsLibrary
 
 
 *** Test Cases ***
-6.1常见体格检查
+5.1常见家族史
     [Documentation]    断言error:"error=0"
-    常见体格检查    0
-
-
+    常见家族史    0

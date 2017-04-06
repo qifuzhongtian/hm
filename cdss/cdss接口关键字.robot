@@ -30,8 +30,6 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     Delete All Sessions
 
 
-
-
 常见诊断
     [Arguments]    ${msg}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
