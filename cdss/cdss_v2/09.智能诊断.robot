@@ -9,7 +9,7 @@ Library           RequestsLibrary
 # hospitalGuid String 是 医院ID（惠每分配）
 # gender Integer 否 性别1男,0女
 # age double 否 年龄
-# ageType String 否 岁、月、天
+ageType String 否 岁、月、天
 # bodyTempr Double 否 体温
 # weight Double 否 体重
 # heartRate Integer 否 心率
