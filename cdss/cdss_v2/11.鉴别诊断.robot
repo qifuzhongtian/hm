@@ -13,8 +13,8 @@ Library           RequestsLibrary
     鉴别诊断    0    diseaseId=8457C0ACE01
 
 
-11.2鉴别诊断,diseaseId错误显示失败
-    [Documentation]    断言error:"error=500"
-    鉴别诊断    500    diseaseId=啊啊啊啊
+# 11.2鉴别诊断,diseaseId错误显示失败
+#     [Documentation]    断言error:"error=500"
+#     鉴别诊断    500    diseaseId=啊啊啊啊
 
 
