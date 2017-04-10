@@ -243,8 +243,6 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
 
 
 
-
-
 智能诊断
     [Arguments]    ${msg}    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}    ${familyHistory}    ${weight}    ${gender}    ${bodyTempr}    ${lowBldPress}    ${highBldPress}    ${examInfo}    ${heartRate}    ${age}    ${ageType}
     ...    ${confirmDiagnosis}    ${confirmDiagnosisMap}
@@ -259,5 +257,23 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     ${str}    Get From Dictionary    ${responsedata}    head
     ${str1}    Get From Dictionary    ${str}    error
     Should Be Equal As Strings    ${str1}    ${msg}
+
+
+
+疾病查询
+    [Arguments]    ${msg}    ${diseaseName}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    diseaseName=${diseaseName}
+    ${addr}    Post Request    api    v_2_0/disease/search    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    ${str}    Get From Dictionary    ${responsedata}    head
+    ${str1}    Get From Dictionary    ${str}    error
+    Should Be Equal As Strings    ${str1}    ${msg}
+    Delete All Sessions
+
+
+
+
 
 

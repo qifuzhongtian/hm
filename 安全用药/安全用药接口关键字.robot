@@ -1,5 +1,6 @@
 *** Variables ***
-${base_url}       http://apollo.huimeionline.com/
+# ${base_url}       http://apollo.huimeionline.com/
+${base_url}       http://192.168.2.7:8099/
 ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
 # ${base_url_common}    http://test2.common.wmiweb.com/v1
 # ${base_url_base}    http://doctor-dev.api.wmiweb.com/

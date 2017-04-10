@@ -11,9 +11,6 @@ Library           RequestsLibrary
     [Documentation]    断言error:""
     药品查询    0    drugName=二甲双胍
 
-2.1药品查询,不输入药品名称提交失败
-    [Documentation]    断言error:""
-    药品查询    0    drugName=
-
-
-
+# 2.1药品查询,不输入药品名称提交失败
+#     [Documentation]    断言error:""
+#     药品查询    0    drugName=
