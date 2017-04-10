@@ -166,14 +166,3 @@ Library           RequestsLibrary
     # ...    examItems=[{id:1,value:},{id:2,value:},{id:3,value:},{id:4,value:},{id:5,value:},{id:6,value:},{id:7,value:},{id:8,value:},{id:9,value:},{id:10,value:},{id:11,value:},{id:12,value:},{id:13,value:},{id:14,value:},{id:15,value:},{id:16,value:},{id:17,value:},{id:18,value:}]
 
 
-
-
-2.18智能诊断接口_体格检查_心率>100,心率过快
-    [Documentation]    断言error:""
-    智能诊断_数字指标    7977    symptom=    previousHistory=
-    ...    personalHistory=    allergyHistory=    familyHistory=    weight=    gender=    bodyTempr=    lowBldPress=    highBldPress=    examInfo=    heartRate=101    age=    ageType=
-    ...    confirmDiagnosis=    confirmDiagnosisMap=
-    # ...    examItems=[{id:1,value:},{id:2,value:},{id:3,value:},{id:4,value:},{id:5,value:},{id:6,value:},{id:7,value:},{id:8,value:},{id:9,value:},{id:10,value:},{id:11,value:},{id:12,value:},{id:13,value:},{id:14,value:},{id:15,value:},{id:16,value:},{id:17,value:},{id:18,value:}]
-
-
-
