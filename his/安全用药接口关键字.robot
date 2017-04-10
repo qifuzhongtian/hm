@@ -21,7 +21,7 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     [Arguments]    ${msg}    ${gender}    ${age}    ${ageType}    ${drugIds}    ${symptom}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${base_url}    ${dict}
-    ${data}    Create Dictionary    gender=${gender}    age=${age}    ageType=${ageType}    drugIds=${drugIds}    symptom=${symptom}
+    ${data}    Create Dictionary    gender=${gender}    age=${age}    ageType=${ageType}    drugIds[]=${drugIds}    symptom=${symptom}
     ${addr}    Post Request    api    hmsm/v_1_0/safe_medication    data=${data}
     ${responsedata}    To Json    ${addr.content}
     ${str}    Get From Dictionary    ${responsedata}    head

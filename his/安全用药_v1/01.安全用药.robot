@@ -10,10 +10,32 @@ Library           RequestsLibrary
 # symptom String 否 患者主诉
 
 *** Test Cases ***
-1.1安全用药,填写药品id提交成功
+1.1安全用药,填写药品id,通过
     [Documentation]    断言error:""
     安全用药    0    gender=    age=
     ...    ageType=    drugIds=1    symptom=
+
+
+
+1.安全用药,填写药品id,不通过
+    [Documentation]    断言error:""
+    安全用药    0    gender=    age=
+    ...    ageType=    drugIds=1,2    symptom=
+
+
+1.安全用药,填写药品id,待审核
+    [Documentation]    断言error:""
+    安全用药    0    gender=    age=
+    ...    ageType=    drugIds=1,3    symptom=
+
+
+
+
+
+
+
+
+
 
 1.2安全用药,不填写药品id提交失败
     [Documentation]    断言error:""
@@ -52,4 +74,5 @@ Library           RequestsLibrary
     [Documentation]    断言error:""
     安全用药    0    gender=1    age=22
     ...    ageType=岁    drugIds=1    symptom=头疼
+
 
