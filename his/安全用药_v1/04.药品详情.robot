@@ -9,9 +9,11 @@ Library           RequestsLibrary
 *** Test Cases ***
 4.1药品详情
     [Documentation]    断言error:""
-    药品详情    0    drugId=二甲双胍
+    药品详情    ['body']['safeStatus']    0
+    ...    drugId=8753C7AEE8
 
-4.2药品详情,不输入药品id提交失败
-    [Documentation]    断言error:""
-    药品详情    0    drugId=
+# 4.2药品详情,不输入药品id提交失败
+#     [Documentation]    断言error:""
+#     药品详情    ['body']['safeStatus']    0
+#     ...    drugId=
 
