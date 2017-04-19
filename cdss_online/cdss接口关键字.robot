@@ -252,8 +252,8 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     # ...    examItems[]=${examItems}
     ${addr}    Post Request    api    v_2_0/diagnose_through_interrogation    data=${data}
     ${responsedata}    To Json    ${addr.content}
-    ${str}    Get From Dictionary    ${responsedata}    head
-    ${str1}    Get From Dictionary    ${str}    error
+    # ${str}    Get From Dictionary    ${responsedata}    head
+    # ${str1}    Get From Dictionary    ${str}    error
     Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
     Delete All Sessions
 
