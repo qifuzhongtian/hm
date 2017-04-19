@@ -57,7 +57,7 @@ Library           RequestsLibrary
 
 案例四
     [Documentation]    断言error:"急性胰腺炎id=36"
-    智能诊断    ['body']['suspectedDiseases'][5]['id']    36    symptom=突发上腹部疼痛,阵发性加剧,伴恶心,呕吐10小时,既往主动脉夹层手术史,腹平坦,上腹部压痛明显,无肌紧张,反跳痛,肝脾区无叩击痛,移动性浊音阴性,双侧桡动脉,股动脉搏动可    previousHistory=
+    智能诊断    ['body']['suspectedDiseases'][3]['id']    36    symptom=突发上腹部疼痛,阵发性加剧,伴恶心,呕吐10小时,既往主动脉夹层手术史,腹平坦,上腹部压痛明显,无肌紧张,反跳痛,肝脾区无叩击痛,移动性浊音阴性,双侧桡动脉,股动脉搏动可    previousHistory=
     ...    personalHistory=    allergyHistory=    familyHistory=    weight=    gender=1    bodyTempr=    lowBldPress=80    highBldPress=130    examInfo=    heartRate=    age=38    ageType=岁
     ...    confirmDiagnosis=    confirmDiagnosisMap=
     ...    presentHistory=
