@@ -26,8 +26,8 @@ Library           RequestsLibrary
 
 案例一
     [Documentation]    断言error:"上气道梗阻id=35015"
-    智能诊断    ['body']['suspectedDiseases'][4]['id']    35015    symptom=间断喘憋5年,哮喘5年,吸入激素治疗,疗效不明显,扔发作喘憋,有时自行缓解,颈部局限性哮鸣音CXR,CT-气管新生物    previousHistory=
-    ...    personalHistory=    allergyHistory=    familyHistory=    weight=    gender=    bodyTempr=    lowBldPress=    highBldPress=    examInfo=    heartRate=    age=    ageType=
+    智能诊断    ['body']['suspectedDiseases'][7]['id']    35015    symptom=间断喘憋5年,哮喘5年,吸入激素治疗,疗效不明显,扔发作喘憋,有时自行缓解,颈部局限性哮鸣音CXR,CT-气管新生物    previousHistory=
+    ...    personalHistory=    allergyHistory=    familyHistory=    weight=    gender=    bodyTempr=    lowBldPress=100    highBldPress=160    examInfo=    heartRate=    age=    ageType=
     ...    confirmDiagnosis=    confirmDiagnosisMap=
     ...    presentHistory=
     # ...    examItems=[{id:1,value:},{id:2,value:},{id:3,value:},{id:4,value:},{id:5,value:},{id:6,value:},{id:7,value:},{id:8,value:},{id:9,value:},{id:10,value:},{id:11,value:},{id:12,value:},{id:13,value:},{id:14,value:},{id:15,value:},{id:16,value:},{id:17,value:},{id:18,value:}]

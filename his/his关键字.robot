@@ -114,21 +114,6 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     # Delete All Sessions
 
 
-
-患者查询
-    [Arguments]    ${slice}    ${msg}    ${patientName}
-    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    # Create Session    api    ${base_url}    ${dict}
-    ${data}    Create Dictionary    patientName=${patientName}
-    ${addr}    Post Request    api    his/outpatient/searchPatient    data=${data}
-    ${responsedata}    To Json    ${addr.content}
-    # Should Be Equal As Strings    ${responsedata['body']['suspectedDiseases'][0]['id']}    ${msg}
-    Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
-    # Delete All Sessions
-
-
-
-
 检查搜索
     [Arguments]    ${slice}    ${msg}    ${examName}
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -142,18 +127,6 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
 
 
 
-诊断搜索
-    [Arguments]    ${slice}    ${msg}    ${diseaseName}
-    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    # Create Session    api    ${base_url}    ${dict}
-    ${data}    Create Dictionary    diseaseName=${diseaseName}
-    ${addr}    Post Request    api    his/outpatient/searchDisease    data=${data}
-    ${responsedata}    To Json    ${addr.content}
-    # Should Be Equal As Strings    ${responsedata['body']['suspectedDiseases'][0]['id']}    ${msg}
-    Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
-    # Delete All Sessions
-
-
 
 保存患者信息
     [Arguments]    ${slice}    ${msg}    ${patientId}    ${patientName}    ${gender}    ${age}    ${ageType}    ${idCardNo}    ${phoneNo}    ${linkman}    ${linkmanPhone}    ${comment}    ${address}    ${occupation}
@@ -163,20 +136,20 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     ${addr}    Post Request    api    his/outpatient/savePatientInfo    data=${data}
     ${responsedata}    To Json    ${addr.content}
     # Should Be Equal As Strings    ${responsedata['body']['suspectedDiseases'][0]['id']}    ${msg}
-    Should Contain    ${responsedata${slice}}    ${msg}
+    Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
     # Delete All Sessions
 
 
 
 医生病患列表
-    [Arguments]    ${msg}    ${patientConditions}    ${diagnosis}    ${currentPage}    ${pageSize}
+    [Arguments]    ${slice}    ${msg}    ${patientConditions}    ${diagnosis}    ${currentPage}    ${pageSize}
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${base_url}    ${dict}
     ${data}    Create Dictionary    patientConditions=${patientConditions}    diagnosis=${diagnosis}    currentPage=${currentPage}    pageSize=${pageSize}
     ${addr}    Post Request    api    his/outpatient/getMyPatients    data=${data}
     ${responsedata}    To Json    ${addr.content}
     # Should Be Equal As Strings    ${responsedata['body']['suspectedDiseases'][0]['id']}    ${msg}
-    Should Contain    ${responsedata['body']['patientList'][0]}    ${msg}
+    Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
     # Delete All Sessions
 
 
@@ -186,10 +159,10 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${base_url}    ${dict}
     ${data}    Create Dictionary    patientId=${patientId}
-    ${addr}    Post Request    api    his/outpatient/getMyPatients    data=${data}
+    ${addr}    Post Request    api    his/outpatient/getPatientInfo    data=${data}
     ${responsedata}    To Json    ${addr.content}
     # Should Be Equal As Strings    ${responsedata['body']['suspectedDiseases'][0]['id']}    ${msg}
-    Should Contain    ${responsedata${slice}}    ${msg}
+    Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
     # Delete All Sessions
 
 
@@ -201,7 +174,7 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     ${addr}    Post Request    api    his/outpatient/getPatientRecord    data=${data}
     ${responsedata}    To Json    ${addr.content}
     # Should Be Equal As Strings    ${responsedata['body']['suspectedDiseases'][0]['id']}    ${msg}
-    Should Contain    ${responsedata${slice}}    ${msg}
+    Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
     # Delete All Sessions
 
 
