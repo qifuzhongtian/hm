@@ -1,7 +1,8 @@
 *** Settings ***
 Resource          ../安全用药接口关键字.robot
 Library           Collections
-Library           RequestsLibrary    # 字段名 类型 是否必须 说明    # gender Integer 否 性别1.男，0.女    # age Double 否 年龄    # ageType String 否 岁/月/天/    # drugIds List 是 药品ID集合    # symptom String 否 患者主诉
+Library           RequestsLibrary
+# 字段名 类型 是否必须 说明    # gender Integer 否 性别1.男，0.女    # age Double 否 年龄    # ageType String 否 岁/月/天/    # drugIds List 是 药品ID集合    # symptom String 否 患者主诉
 # 字段名 类型  是否必须    说明
 # gender  Integer 否   性别1.男，0.女
 # age Double  否   年龄
@@ -217,7 +218,7 @@ Library           RequestsLibrary    # 字段名 类型 是否必须 说明    #
 1.23.5高血压用药重复,用药审核结果为'待审核'
     [Documentation]    断言:"repetitionList--diseaseName=高血压"
     安全用药    ['body']['safeStatus']    2
-    ...    gender=1    age=    ageType=    drugIds=${drugIds_repetitionList1}    symptom=    confirmDiagnosis=
+    ...    gender=1    age=50    ageType=岁    drugIds=${drugIds_repetitionList1}    symptom=    confirmDiagnosis=
 
 1.23.6无高血压用药重复,用药审核结果为'待审核'
     [Documentation]    断言:"repetitionList--diseaseName=高血压"
@@ -308,12 +309,12 @@ Library           RequestsLibrary    # 字段名 类型 是否必须 说明    #
 1.37 相互作用=2,高血压用药重复,用药审核结果为'待审核'
     [Documentation]    断言:"safeStatus=2"
     安全用药    ['body']['safeStatus']    2
-    ...    gender=1    age=    ageType=    drugIds=${drugIds_interactionList_grade2_drugIds_repetitionList1}    symptom=    confirmDiagnosis=
+    ...    gender=1    age=50    ageType=岁    drugIds=${drugIds_interactionList_grade2_drugIds_repetitionList1}    symptom=    confirmDiagnosis=
 
 1.38 相互作用=2,人群禁忌=2,高血压用药重复,用药审核结果为'待审核'
     [Documentation]    断言:"safeStatus=2"
     安全用药    ['body']['safeStatus']    2
-    ...    gender=0    age=    ageType=    drugIds=${drugIds_interactionList_grade1_tabooList2_repetitionList1}    symptom=    confirmDiagnosis=
+    ...    gender=0    age=50    ageType=岁    drugIds=${drugIds_interactionList_grade1_tabooList2_repetitionList1}    symptom=    confirmDiagnosis=
 
 1.39 人群禁忌等级grade为'2不适用'的药,用药审核结果为'待审核'
     [Documentation]    断言:"safeStatus=2"

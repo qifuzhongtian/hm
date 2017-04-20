@@ -171,7 +171,7 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${base_url}    ${dict}
     ${data}    Create Dictionary    patientId=${patientId}
-    ${addr}    Post Request    api    his/outpatient/getPatientRecord    data=${data}
+    ${addr}    Post Request    api    his/outpatient/getPatientRecords    data=${data}
     ${responsedata}    To Json    ${addr.content}
     # Should Be Equal As Strings    ${responsedata['body']['suspectedDiseases'][0]['id']}    ${msg}
     Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
@@ -179,14 +179,14 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
 
 
 病历详细
-    [Arguments]    ${msg}    ${patientId}    ${recordId}
+    [Arguments]    ${slice}    ${msg}    ${patientId}    ${recordId}
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${base_url}    ${dict}
     ${data}    Create Dictionary    patientId=${patientId}    recordId=${recordId}
     ${addr}    Post Request    api    his/outpatient/getRecordInfo    data=${data}
     ${responsedata}    To Json    ${addr.content}
     # Should Be Equal As Strings    ${responsedata['body']['suspectedDiseases'][0]['id']}    ${msg}
-    Should Be Equal As Strings    ${responsedata['body']['patientId']}    ${msg}
+    Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
     # Delete All Sessions
 
 
