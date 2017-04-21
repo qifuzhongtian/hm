@@ -1,5 +1,6 @@
 *** Variables ***
-${base_url}     http://his.huimei.com/api
+# ${base_url}     http://his.huimei.com/api
+${base_url}       http://10.117.64.153
 # ${base_url}       http://api.huimeionline.com
 ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
 # ${SESSION}    6fa8ddef-c9d2-4957-9edb-78094ee09c3c

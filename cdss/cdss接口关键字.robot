@@ -269,8 +269,7 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     ...    confirmDiagnosis=${confirmDiagnosis}    confirmDiagnosisMap[]=${confirmDiagnosisMap}
     # ...    examItems[]=${examItems}
     ${addr}    Post Request    api    v_2_0/diagnose_through_interrogation    data=${data}
-    ${responsedata}    To Json    ${addr.content}
-    # log    ${responsedata['body']['suspectedDiseases'][0]}
+his    # log    ${responsedata['body']['suspectedDiseases'][0]}
     # log    ${responsedata['body']['suspectedDiseases'][0]['id']}
     Should Be Equal As Strings    ${responsedata['body']['suspectedDiseases'][0]['id']}    ${msg}
     # Should Be Equal As Strings    ${str1}    ${msg}
