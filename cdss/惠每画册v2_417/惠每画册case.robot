@@ -46,12 +46,11 @@ Library           RequestsLibrary
 
 案例三
     [Documentation]    断言error:"甲状腺功能减退症id=4888"
-    智能诊断    ['body']['suspectedDiseases'][12]['id']    4888    symptom=便秘1年余就诊,大便由平常每日1次渐至每周1次,且伴有体重增加(约10kg),纳差,腹胀,易疲劳等症,病人曾在多家医院诊治,被诊断为慢性结肠炎,功能性消化不良等,单治疗未见好转,TSH明显增高    previousHistory=
+    智能诊断    ['body']['suspectedDiseases'][11]['id']    4888    symptom=便秘1年余就诊,大便由平常每日1次渐至每周1次,且伴有体重增加(约10kg),纳差,腹胀,易疲劳等症,病人曾在多家医院诊治,被诊断为慢性结肠炎,功能性消化不良等,单治疗未见好转,TSH明显增高    previousHistory=
     ...    personalHistory=    allergyHistory=    familyHistory=    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=    examInfo=    heartRate=    age=28    ageType=岁
     ...    confirmDiagnosis=    confirmDiagnosisMap=
     ...    presentHistory=
     # ...    examItems=[{id:1,value:},{id:2,value:},{id:3,value:},{id:4,value:},{id:5,value:},{id:6,value:},{id:7,value:},{id:8,value:},{id:9,value:},{id:10,value:},{id:11,value:},{id:12,value:},{id:13,value:},{id:14,value:},{id:15,value:},{id:16,value:},{id:17,value:},{id:18,value:}]
-
 
 
 
@@ -62,7 +61,6 @@ Library           RequestsLibrary
     ...    confirmDiagnosis=    confirmDiagnosisMap=
     ...    presentHistory=
     # ...    examItems=[{id:1,value:},{id:2,value:},{id:3,value:},{id:4,value:},{id:5,value:},{id:6,value:},{id:7,value:},{id:8,value:},{id:9,value:},{id:10,value:},{id:11,value:},{id:12,value:},{id:13,value:},{id:14,value:},{id:15,value:},{id:16,value:},{id:17,value:},{id:18,value:}]
-
 
 
 

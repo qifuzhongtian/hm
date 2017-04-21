@@ -2,13 +2,12 @@
 Resource          ../安全用药接口关键字.robot
 Library           Collections
 Library           RequestsLibrary
-# 字段名 类型 是否必须 说明    # gender Integer 否 性别1.男，0.女    # age Double 否 年龄    # ageType String 否 岁/月/天/    # drugIds List 是 药品ID集合    # symptom String 否 患者主诉
 # 字段名 类型  是否必须    说明
-# gender  Integer 否   性别1.男，0.女
-# age Double  否   年龄
-# ageType String  否   岁/月/天/
+# gender  Integer     性别1.男，0.女
+# age Double      年龄
+# ageType String      岁/月/天/
 # drugIds List    是   药品ID集合
-# symptom String  否   患者主诉
+# symptom String      患者主诉
 
 *** Variables ***
 #drugIds 相互作用的两种药,grade=0 ,element=966,524
@@ -100,7 +99,7 @@ Library           RequestsLibrary
     ...    gender=    age=    ageType=    drugIds=${drugIds_interactionList_grade1}    symptom=    confirmDiagnosis=
 
 1.2相互作用等级为'禁用'的两种药,grade=1
-    [Documentation]    断言:"grade=2"
+    [Documentation]    断言:"grade=1"
     安全用药    ['body']['interactionList'][0]['grade']    1
     ...    gender=    age=    ageType=    drugIds=${drugIds_interactionList_grade2}    symptom=    confirmDiagnosis=
 
@@ -161,7 +160,7 @@ Library           RequestsLibrary
     ...    gender=    age=    ageType=    drugIds=${drugIds_tabooList_symptom1}    symptom=妊娠    confirmDiagnosis=
 
 1.14人群禁忌等级,'性别'为女的药+主诉=备孕,结果正确
-    [Documentation]    断言:"crowd": "gender=0"
+    [Documentation]    断言:"crowd": "crowd=备孕妇女"
     安全用药    ['body']['tabooList'][0]['crowd']    备孕妇女
     ...    gender=0    age=4381    ageType=天    drugIds=${drugIds_tabooList_gender1}    symptom=备孕    confirmDiagnosis=
 
@@ -199,7 +198,7 @@ Library           RequestsLibrary
 
 
 1.21人群禁忌等级,年龄+性别+病症,结果正确
-    [Documentation]    断言:"crowd=93",description=未婚妇女不宜使用"
+    [Documentation]    断言:"description=未婚妇女不宜使用,crowd=93""
     安全用药    ['body']['tabooList'][0]['description']    未婚妇女不宜使用
     ...    gender=0    age=43800    ageType=天     drugIds=${drugIds_tabooList_age7}    symptom=未婚    confirmDiagnosis=
 
@@ -211,17 +210,17 @@ Library           RequestsLibrary
 
 ################################高血压
 1.23高血压用药重复,repetitionList_diseaseName显示为'高血压用药重复'
-    [Documentation]    断言:"repetitionList--diseaseName=高血压"
+    [Documentation]    断言:"safeStatus=2"
     安全用药    ['body']['repetitionList'][0]['diseaseName']    高血压
     ...    gender=1    age=    ageType=    drugIds=${drugIds_repetitionList1}    symptom=    confirmDiagnosis=
 
 1.23.5高血压用药重复,用药审核结果为'待审核'
-    [Documentation]    断言:"repetitionList--diseaseName=高血压"
+    [Documentation]    断言:"safeStatus=2"
     安全用药    ['body']['safeStatus']    2
     ...    gender=1    age=50    ageType=岁    drugIds=${drugIds_repetitionList1}    symptom=    confirmDiagnosis=
 
-1.23.6无高血压用药重复,用药审核结果为'待审核'
-    [Documentation]    断言:"repetitionList--diseaseName=高血压"
+1.23.6无高血压用药重复,用药审核结果为'通过'
+    [Documentation]    断言:"safeStatus=3"
     安全用药    ['body']['safeStatus']    3
     ...    gender=1    age=    ageType=    drugIds=${drugIds_repetitionList2}    symptom=    confirmDiagnosis=
 
@@ -253,33 +252,33 @@ Library           RequestsLibrary
 
 
 1.28 相互作用grade=1,人群禁忌grade=2,的药,用药审核结果为'不通过'
-    [Documentation]    断言:"safeStatus=2"
+    [Documentation]    断言:"safeStatus=1"
     安全用药    ['body']['safeStatus']    1
     ...    gender=    age=    ageType=    drugIds=${drugIds_interactionList_grade1_tabooList_grade2}    symptom=    confirmDiagnosis=
 
 
 1.29 相互作用grade=2,人群禁忌grade=1,的药,用药审核结果为'不通过'
-    [Documentation]    断言:"safeStatus=2"
+    [Documentation]    断言:"safeStatus=1"
     安全用药    ['body']['safeStatus']    1
     ...    gender=    age=    ageType=    drugIds=${drugIds_interactionList_grade2_tabooList_grade1}    symptom=    confirmDiagnosis=
 
 1.30 相互作用grade=2,人群禁忌grade=1,的药,用药审核结果为'不通过'
-    [Documentation]    断言:"safeStatus=2"
+    [Documentation]    断言:"safeStatus=1"
     安全用药    ['body']['safeStatus']    1
     ...    gender=    age=    ageType=    drugIds=${drugIds_interactionList_grade2_tabooList_grade1}    symptom=    confirmDiagnosis=
 
 1.31 相互作用grade=1,人群禁忌grade=0,的药,用药审核结果为'不通过'
-    [Documentation]    断言:"safeStatus=2"
+    [Documentation]    断言:"safeStatus=1"
     安全用药    ['body']['safeStatus']    1
     ...    gender=    age=    ageType=    drugIds=${drugIds_interactionList_grade1_tabooList_grade0}    symptom=    confirmDiagnosis=
 
 1.32 相互作用grade=0,人群禁忌grade=1,的药,用药审核结果为'不通过'
-    [Documentation]    断言:"safeStatus=2"
+    [Documentation]    断言:"safeStatus=1"
     安全用药    ['body']['safeStatus']    1
     ...    gender=    age=    ageType=    drugIds=${drugIds_interactionList_grade0_tabooList_grade1}    symptom=    confirmDiagnosis=
 
 1.33 相互作用grade1,人群禁忌grade=0,有高血压用药重复的药,用药审核结果为'不通过'
-    [Documentation]    断言:"safeStatus=2"
+    [Documentation]    断言:"safeStatus=1"
     安全用药    ['body']['safeStatus']    1
     ...    gender=    age=    ageType=    drugIds=${drugIds_interactionList_grade1_tabooList_grade0_repetitionList1}    symptom=    confirmDiagnosis=
 
