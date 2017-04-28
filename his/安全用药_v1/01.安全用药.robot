@@ -15,7 +15,7 @@ Library           RequestsLibrary
 #drugIds 相互作用的两种药,grade=2
 @{drugIds_interactionList_grade1}        8126    5714
 #drugIds 相互作用的两种药,grade=1
-@{drugIds_interactionList_grade2}        1255    3525
+@{drugIds_interactionList_grade2}        4498    8603
 #drugIds 可以合用的两种药,grade=3
 @{drugIds_interactionList_grade3}        8    9
 #drugIds 人群禁忌'没有禁忌'的药,grade=0
@@ -71,11 +71,11 @@ Library           RequestsLibrary
 ##相互作用=0,人群禁忌=1,不通过
 @{drugIds_interactionList_grade0_tabooList_grade1}        1360    742    551
 ##相互作用grade=1,人群禁忌grade=2-9
-@{drugIds_interactionList_grade1_tabooList_grade2}        1255    3525    3517
+@{drugIds_interactionList_grade1_tabooList_grade2}        4498    8603    3517
 ##相互作用=2,人群禁忌=1
 @{drugIds_interactionList_grade2_tabooList_grade1}        8126    5714    551
 ##相互作用=1,人群禁忌=0
-@{drugIds_interactionList_grade1_tabooList_grade0}        1255    3525    581
+@{drugIds_interactionList_grade1_tabooList_grade0}        4498    8603    581
 #相互作用=1,人群禁忌=0,有高血压
 @{drugIds_interactionList_grade1_tabooList_grade0_repetitionList1}        1255    3525    581    2726    2391
 #人群禁忌-2,高血压用药重复
@@ -97,7 +97,7 @@ Library           RequestsLibrary
     [Documentation]    断言:"grade=2"
     安全用药    ['body']['interactionList'][0]['grade']    2
     ...    gender=    age=    ageType=    drugIds=${drugIds_interactionList_grade1}    symptom=    confirmDiagnosis=
-
+#
 1.2相互作用等级为'禁用'的两种药,grade=1
     [Documentation]    断言:"grade=1"
     安全用药    ['body']['interactionList'][0]['grade']    1

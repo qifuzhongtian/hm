@@ -1,6 +1,6 @@
 *** Variables ***
 # ${base_url}     http://his.huimei.com/api
-${base_url}       http://10.117.64.153
+${base_url}       http://10.117.64.153:8080
 # ${base_url}       http://api.huimeionline.com
 ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
 # ${SESSION}    6fa8ddef-c9d2-4957-9edb-78094ee09c3c
@@ -15,6 +15,23 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     # ${responsedata}    To Json    ${addr.content}
     # Should Be Equal As Strings    ${responsedata['head']['error']}    ${msg}
     # Delete All Sessions
+
+
+新建病历接口
+    [Arguments]    ${patientId}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    patientId=${patientId}
+    ${addr}    Post Request    api    his/outpatient/newRecord    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # Should Be Equal As Strings    ${responsedata['body']['suspectedDiseases'][0]['id']}    ${msg}
+    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    # Delete All Sessions
+    ${recordId}    Get From Dictionary    ${responsedata["body"]}    recordId
+    Return From Keyword    ${recordId}
+
+# $response["body"]["recordId"]
+先转换成json   然后 ${response["body"]["recordId"]}
 
 诊所注册
     [Arguments]    ${msg}    ${userName}    ${realName}    ${phone}    ${registerInvitation}    ${hospitalName}
