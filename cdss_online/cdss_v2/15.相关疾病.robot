@@ -9,13 +9,13 @@ Library           RequestsLibrary
 
 *** Test Cases ***
 15.1相关疾病
-    [Documentation]    断言error:"error=0"
-    相关疾病    0    diseaseId=8457C0ACE01
+    [Documentation]    断言error:"diseaseName=急性咽炎"
+    相关疾病    ['body'][0]['diseaseName']    急性咽炎    diseaseId=8457C0ACE01
 
 
 15.2相关疾病,diseaseId错误显示失败
     [Documentation]    断言error:"error=500"
-    相关疾病    500    diseaseId=啊啊啊啊
+    相关疾病    ['head']['error']    500    diseaseId=啊啊啊啊
 
 
 

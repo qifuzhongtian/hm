@@ -9,12 +9,12 @@ Library           RequestsLibrary
 
 *** Test Cases ***
 3.1常见个人史
-    [Documentation]    断言error:"error=0"
-    常见个人史    0    gender=1
+    [Documentation]    断言:"historyType"
+    常见个人史    ['body']['personalHistoryList'][0]['historyType']    用药史    gender=1
 
 
 3.2常见个人史,gender错误显示失败
-    [Documentation]    断言error:"error=400"
-    常见个人史    400    gender=啊啊啊啊
+    [Documentation]    断言:"message=你输入的错误！请检查你的输入格式！"
+    常见个人史    ['head']['message']    你输入的错误！请检查你的输入格式！    gender=啊啊啊啊
 
 

@@ -9,8 +9,8 @@ Library           RequestsLibrary
 
 *** Test Cases ***
 11.1鉴别诊断
-    [Documentation]    断言error:"error=0"
-    鉴别诊断    0    diseaseId=8457C0ACE01
+    [Documentation]    断言:"diseaseName="
+    鉴别诊断    ['body'][0]['diseaseName']    过敏性鼻炎    diseaseId=8457C0ACE01
 
 
 # 11.2鉴别诊断,diseaseId错误显示失败

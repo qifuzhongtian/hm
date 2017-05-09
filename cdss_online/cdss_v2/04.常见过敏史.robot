@@ -9,8 +9,8 @@ Library           RequestsLibrary
 
 *** Test Cases ***
 4.1常见过敏史
-    [Documentation]    断言error:"error=0"
-    常见过敏史    0
+    [Documentation]    断言:"historyType=吸入过敏原"
+    常见过敏史    ['body']['allergyHistoryList'][0]['historyType']    吸入过敏原
 
 
 
