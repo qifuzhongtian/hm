@@ -9,5 +9,5 @@ Library           RequestsLibrary
 
 *** Test Cases ***
 5.1常见家族史
-    [Documentation]    断言error:"error=0"
-    常见家族史    0
+    [Documentation]    断言:"historyType=常见"
+    常见家族史    ['body']['familyHistoryList'][0]['historyType']    常见

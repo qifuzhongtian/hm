@@ -9,7 +9,7 @@ Library           RequestsLibrary
 
 *** Test Cases ***
 6.1常见症状和类型
-    [Documentation]    断言error:"error=0"
-    常见症状和类型    0
+    [Documentation]    断言:"error=发热"
+    常见症状和类型    ['body']['commonSymptom'][0]['name']    发热
 
 

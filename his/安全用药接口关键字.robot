@@ -53,6 +53,19 @@ ${Huimei_id}      C3B844493A477BCF3D7B73A5E902B269
     ${responsedata}    To Json    ${addr.content}
     Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
 
+
+
+诊断依据
+    [Arguments]    ${slice}    ${msg}    ${diseaseId}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    diseaseId=${diseaseId}
+    ${addr}    Post Request    api    v_2_0/disease/basis    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+
+
+
 # 安全用药1
 #     [Arguments]    ${msg}    ${gender}    ${age}    ${ageType}    ${symptom}
 #     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}

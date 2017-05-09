@@ -7,12 +7,13 @@ Library           RequestsLibrary
 
 
 *** Test Cases ***
-# 4.1药品详情
-#     [Documentation]    断言error:""
-#     药品详情    ['body']['safeStatus']    0
-#     ...    drugId=8754C7AAE2
+4.1药品详情
+    [Documentation]    断言error:""
+    药品详情    ['body']['docName']    曲克芦丁注射剂
+    ...    drugId=1CDF42A1CB
 
 # 4.2药品详情,不输入药品id提交失败
 #     [Documentation]    断言error:""
 #     药品详情    ['body']['safeStatus']    0
 #     ...    drugId=
+

@@ -16,7 +16,6 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     # Should Be Equal As Strings    ${responsedata['head']['error']}    ${msg}
     # Delete All Sessions
 
-
 新建病历接口
     [Arguments]    ${patientId}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -28,10 +27,15 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
     # Delete All Sessions
     ${recordId}    Get From Dictionary    ${responsedata["body"]}    recordId
-    Return From Keyword    ${recordId}
+    Set Global Variable    ${recordId}
+    # Return From Keyword    ${recordId}
+
+    # ${str}    Get From Dictionary    ${responsedata}    head
+
 
 # $response["body"]["recordId"]
-先转换成json   然后 ${response["body"]["recordId"]}
+# 先转换成json   然后 ${response["body"]["recordId"]}
+    # ${diagnosis}    evaluate    [${diagnosis}]
 
 诊所注册
     [Arguments]    ${msg}    ${userName}    ${realName}    ${phone}    ${registerInvitation}    ${hospitalName}
@@ -272,6 +276,26 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     ${data}    Create Dictionary    recordId=${recordId}    patientId=${patientId}    patientName=${patientName}    gender=${gender}    age=${age}    ageType=${ageType}    phoneNo=${phoneNo}    temperature=${temperature}    sbp=${sbp}    dbp=${dbp}    heartRate=${heartRate}    height=${height}    weight=${weight}    otherPhysique=${otherPhysique}
     ...    symptom=${symptom}    previousHistory=${previousHistory}    personalHistory=${personalHistory}    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}    modle=${modle}
     ...    examList=${examList}    diagnosis=${diagnosis}    a=${a}
+    # ${examList}    evaluate    [{"examId":"843","examName":"抗RA33抗体","total":"1","patientExamId":"","price":"0","isCharged":"0","dataSource":"1"}]
+    ${addr}    Post Request    api    his/outpatient/addPatinetRecordFirst    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+
+
+
+
+保存病历5
+    [Arguments]    ${slice}    ${msg}    ${recordId}    ${patientId}    ${patientName}    ${gender}    ${age}    ${ageType}    ${phoneNo}    ${temperature}    ${sbp}    ${dbp}    ${heartRate}    ${height}    ${weight}    ${otherPhysique}
+    ...    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}    ${familyHistory}    ${modle}
+    ...    ${examList}    ${diagnosis}
+    # ...    ${a}
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${base_url}    ${dict}
+    ${diagnosis}    evaluate    [${diagnosis}]
+    ${examList}    evaluate    [{"examId":"843","examName":"抗RA33抗体","total":"1","patientExamId":"","price":"0","isCharged":"0","dataSource":"1"}]
+    ${data}    Create Dictionary    recordId=${recordId}    patientId=${patientId}    patientName=${patientName}    gender=${gender}    age=${age}    ageType=${ageType}    phoneNo=${phoneNo}    temperature=${temperature}    sbp=${sbp}    dbp=${dbp}    heartRate=${heartRate}    height=${height}    weight=${weight}    otherPhysique=${otherPhysique}
+    ...    symptom=${symptom}    previousHistory=${previousHistory}    personalHistory=${personalHistory}    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}    modle=${modle}
+    ...    examList=${examList}    diagnosis=${diagnosis}
     # ${examList}    evaluate    [{"examId":"843","examName":"抗RA33抗体","total":"1","patientExamId":"","price":"0","isCharged":"0","dataSource":"1"}]
     ${addr}    Post Request    api    his/outpatient/addPatinetRecordFirst    data=${data}
     ${responsedata}    To Json    ${addr.content}

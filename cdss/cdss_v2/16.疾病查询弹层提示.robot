@@ -8,11 +8,11 @@ Library           RequestsLibrary
 
 *** Test Cases ***
 15.1 疾病查询弹层提示
-    [Documentation]    断言error:"error=0"
-    疾病查询弹层提示    0    diseaseName=感冒
+    [Documentation]    断言error:"diseaseName=病毒性上呼吸道感染(感冒)""
+    疾病查询弹层提示    ['body']['diseaseList'][0]['diseaseName']    病毒性上呼吸道感染(感冒)    diseaseName=感冒
 
 
 # 15.2疾病查询弹层提示,diseaseName错误显示失败
 #     [Documentation]    断言error:"error=500"
-#     疾病查询弹层提示    500    diseaseName=111
+#     疾病查询弹层提示    ['body']['diseaseList'][0]['diseaseName']    500    diseaseName=111111
 

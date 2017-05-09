@@ -9,7 +9,7 @@ Library           RequestsLibrary
 
 *** Test Cases ***
 6.1常见体格检查
-    [Documentation]    断言error:"error=0"
-    常见体格检查    0
+    [Documentation]    断言:"bodyPart=一般检查"
+    常见体格检查    ['body']['commonPhysicalMore'][0]['bodyPart']    一般检查
 
 

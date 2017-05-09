@@ -8,12 +8,12 @@ Library           RequestsLibrary
 
 *** Test Cases ***
 17.1 疾病查询
-    [Documentation]    断言error:"error=0"
-    疾病查询    0    diseaseName=糖尿病
+    [Documentation]    断言error:"糖尿病id=34470"
+    疾病查询    ['body']['diseaseList'][0]['id']    34470    diseaseName=糖尿病
 
 
 # 15.2疾病查询,diseaseName错误显示失败
 #     [Documentation]    断言error:"error=500"
-#     疾病查询    500    diseaseName=111
+#     疾病查询    ['body']['diseaseList'][0]['id']    500    diseaseName=1111111111
 
 
