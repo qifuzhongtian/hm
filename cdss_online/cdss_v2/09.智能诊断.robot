@@ -25,7 +25,7 @@ Library           RequestsLibrary
 *** Test Cases ***
 2.1智能诊断接口_只填症状
     [Documentation]    断言:""
-    智能诊断2.2    ['body']['suspectedDiseases'][0]['id']    34386    symptom=发热,胃痛,腹胀,腹痛,高热    previousHistory=    personalHistory=    allergyHistory=    familyHistory=
+    智能诊断2.2    ['body']['suspectedDiseases'][0]['id']    17060    symptom=发热,胃痛,腹胀,腹痛,高热    previousHistory=    personalHistory=    allergyHistory=    familyHistory=
     ...    weight=    gender=    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
     ...    heartRate=    age=    ageType=    confirmDiagnosis=    confirmDiagnosisMap=    presentHistory=
     # ...    examItems=[{id:1,value:},{id:2,value:},{id:3,value:},{id:4,value:},{id:5,value:},{id:6,value:},{id:7,value:},{id:8,value:},{id:9,value:},{id:10,value:},{id:11,value:},{id:12,value:},{id:13,value:},{id:14,value:},{id:15,value:},{id:16,value:},{id:17,value:},{id:18,value:}]
@@ -34,7 +34,7 @@ Library           RequestsLibrary
 
 2.2智能诊断接口_体格检查_体温>=37.5
     [Documentation]    断言:"断言急性上呼吸道感染id"
-    智能诊断2.2    ['body']['suspectedDiseases'][0]['id']    34386    symptom=    previousHistory=
+    智能诊断2.2    ['body']['suspectedDiseases'][0]['id']    17060    symptom=    previousHistory=
     ...    personalHistory=    allergyHistory=    familyHistory=    weight=    gender=    bodyTempr=37.5    lowBldPress=    highBldPress=    examInfo=    heartRate=    age=    ageType=
     ...    confirmDiagnosis=    confirmDiagnosisMap=    presentHistory=
     # ...    examItems=[{id:1,value:},{id:2,value:},{id:3,value:},{id:4,value:},{id:5,value:},{id:6,value:},{id:7,value:},{id:8,value:},{id:9,value:},{id:10,value:},{id:11,value:},{id:12,value:},{id:13,value:},{id:14,value:},{id:15,value:},{id:16,value:},{id:17,value:},{id:18,value:}]
@@ -44,7 +44,7 @@ Library           RequestsLibrary
 
 2.3智能诊断接口_体格检查_体温>39
     [Documentation]    断言:"胆石病id"
-    智能诊断2.2    ['body']['suspectedDiseases'][0]['id']    34386    symptom=    previousHistory=
+    智能诊断2.2    ['body']['suspectedDiseases'][0]['id']    17060    symptom=    previousHistory=
     ...    personalHistory=    allergyHistory=    familyHistory=    weight=    gender=    bodyTempr=39.1    lowBldPress=    highBldPress=    examInfo=    heartRate=    age=    ageType=
     ...    confirmDiagnosis=    confirmDiagnosisMap=    presentHistory=
     # ...    examItems=[{id:1,value:},{id:2,value:},{id:3,value:},{id:4,value:},{id:5,value:},{id:6,value:},{id:7,value:},{id:8,value:},{id:9,value:},{id:10,value:},{id:11,value:},{id:12,value:},{id:13,value:},{id:14,value:},{id:15,value:},{id:16,value:},{id:17,value:},{id:18,value:}]
