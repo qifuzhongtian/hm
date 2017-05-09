@@ -17,5 +17,3 @@ Library           RequestsLibrary
     [Documentation]    断言error:"error=500"
     相关疾病    ['head']['error']    500    diseaseId=啊啊啊啊
 
-
-
