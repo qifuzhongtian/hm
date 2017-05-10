@@ -221,7 +221,7 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     Should Contain    ${addr.text}    ${msg}
     Delete All Sessions
 
-智能诊断前
+智能诊断
     [Arguments]    ${slice}    ${msg}    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}
     ...    ${familyHistory}    ${weight}    ${gender}    ${bodyTempr}    ${lowBldPress}    ${highBldPress}
     ...    ${examInfo}    ${heartRate}    ${age}    ${ageType}    ${confirmDiagnosis}    ${confirmDiagnosisMap}
@@ -238,9 +238,8 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     ${aj}    Evaluate    [aj${slice} for aj in $responsedata['body']['suspectedDiseases']]
     log    ${aj}
     log    ${aj[:3]}
-    Run Keyword If
-    Should Contain    ${aj[:3]}    ${msg}
-    Should Contain    ${aj[:15]}    ${msg}
+    Should Contain    ${aj}    ${msg}
+    # Should Contain    ${aj[:15]}    ${msg}
     Delete All Sessions
     # 测试一下
     # ${ajson}    Evaluate    {"api": "api.name","v": "1.0","code": "10000","error_msg": "success","data": {"userlist": [{"uid": "94901","nickName": "test1",}, {"uid": "1010640","nickName": "test2",}, {"uid": "1012130","nickName": "test3",}]}}
