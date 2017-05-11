@@ -1,6 +1,6 @@
 *** Variables ***
-${base_url}     http://apollo.huimeionline.com
-# ${base_url}       http://10.117.64.153:8080
+${base_url}       http://apollo.huimeionline.com
+# ${base_url}     http://10.117.64.153:8080
 ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
 # ${base_url_common}    http://test2.common.wmiweb.com/v1
 # ${base_url_base}    http://doctor-dev.api.wmiweb.com/
@@ -52,6 +52,19 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     # ${str1}    Get From Dictionary    ${str}    error
     Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
     Delete All Sessions
+
+常见个人史1
+    [Arguments]    ${gender}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    gender=${gender}
+    ${addr}    Post Request    api    v_2_0/common_personal_history    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # ${str}    Get From Dictionary    ${responsedata}    head
+    # ${str1}    Get From Dictionary    ${str}    error
+    Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    Delete All Sessions
+    [Return]    ${responsedata}
 
 常见过敏史
     [Arguments]    ${slice}    ${msg}
@@ -246,8 +259,7 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     # log    ${ajson['data']['userlist'][0]['nickName']}
     # ${nicks}    Evaluate    [nicks['nickName'] for nicks $ajson['data']['userlist']]
 
-
-智能诊断top3
+智能诊断top5
     [Arguments]    ${slice}    ${msg}    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}
     ...    ${familyHistory}    ${weight}    ${gender}    ${bodyTempr}    ${lowBldPress}    ${highBldPress}
     ...    ${examInfo}    ${heartRate}    ${age}    ${ageType}    ${confirmDiagnosis}    ${confirmDiagnosisMap}
@@ -263,13 +275,11 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     ${responsedata}    To Json    ${addr.content}
     ${aj}    Evaluate    [aj${slice} for aj in $responsedata['body']['suspectedDiseases']]
     log    ${aj}
-    log    ${aj[:3]}
+    log    ${aj[:5]}
     # Run Keyword If
-    Should Contain    ${aj[:3]}    ${msg}
-    Should Contain    ${aj[:15]}    ${msg}
+    Should Contain    ${aj[:5]}    ${msg}
+    # Should Contain    ${aj[:15]}    ${msg}
     Delete All Sessions
-
-
 
 智能诊断前top15
     [Arguments]    ${slice}    ${msg}    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}
@@ -292,9 +302,6 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     # Should Contain    ${aj[:3]}    ${msg}
     Should Contain    ${aj[:15]}    ${msg}
     Delete All Sessions
-
-
-
     # 测试一下
     # ${ajson}    Evaluate    {"api": "api.name","v": "1.0","code": "10000","error_msg": "success","data": {"userlist": [{"uid": "94901","nickName": "test1",}, {"uid": "1010640","nickName": "test2",}, {"uid": "1012130","nickName": "test3",}]}}
     # log    ${ajson['data']['userlist'][0]['nickName']}
