@@ -1,6 +1,6 @@
 *** Variables ***
-${base_url}     http://apollo.huimeionline.com
-# ${base_url}     http://10.117.64.153:8080
+# ${base_url}     http://apollo.huimeionline.com
+${base_url}     http://10.117.64.153:8080
 # ${base_url}       http://192.168.2.7:8080
 #彭宇开发环境huimeiId
 ${Huimei_id}      C3B844493A477BCF3D7B73A5E902B269
