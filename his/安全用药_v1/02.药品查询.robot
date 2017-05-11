@@ -7,7 +7,7 @@ Library           RequestsLibrary
 
 
 *** Test Cases ***
-2.1药品查询,输入存在的药品名称,查询成功
+# 2.1药品查询,输入存在的药品名称,查询成功
     # [Documentation]    断言error:"drugId=1"
     # 药品查询    ['body']['drugList'][0]['drugId']    1
     # ...    drugName=18种氨基酸注射液
