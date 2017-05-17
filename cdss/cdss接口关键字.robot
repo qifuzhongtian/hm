@@ -1,6 +1,7 @@
 *** Variables ***
-${base_url}       http://apollo.huimeionline.com
-# ${base_url}     http://10.117.64.153:8080
+# ${base_url}     http://apollo.huimeionline.com
+${base_url}       http://10.117.64.153:8080
+# ${base_url}     http://10.46.74.95:8080
 ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
 # ${base_url_common}    http://test2.common.wmiweb.com/v1
 # ${base_url_base}    http://doctor-dev.api.wmiweb.com/
@@ -16,6 +17,14 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
 # ${version}      1.0
 
 *** Keywords ***
+随机字符-1
+    [Arguments]    ${arg1}    ${arg2}=123    @{arg3}
+    log    ${arg1}
+    log    ${arg2}
+    log    =@{arg3}=
+    ${arg1}    set variable    1111111
+    [Return]    ${arg1}
+
 常见症状
     [Arguments]    ${slice}    ${msg}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -60,10 +69,6 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     ${data}    Create Dictionary    gender=${gender}
     ${addr}    Post Request    api    v_2_0/common_personal_history    data=${data}
     ${responsedata}    To Json    ${addr.content}
-    # ${str}    Get From Dictionary    ${responsedata}    head
-    # ${str1}    Get From Dictionary    ${str}    error
-    Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
-    Delete All Sessions
     [Return]    ${responsedata}
 
 常见过敏史
@@ -254,11 +259,6 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     Should Contain    ${aj}    ${msg}
     # Should Contain    ${aj[:15]}    ${msg}
     Delete All Sessions
-
-
-
-
-
     # 测试一下
     # ${ajson}    Evaluate    {"api": "api.name","v": "1.0","code": "10000","error_msg": "success","data": {"userlist": [{"uid": "94901","nickName": "test1",}, {"uid": "1010640","nickName": "test2",}, {"uid": "1012130","nickName": "test3",}]}}
     # log    ${ajson['data']['userlist'][0]['nickName']}
@@ -281,6 +281,28 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     ${aj}    Evaluate    [aj${slice} for aj in $responsedata['body']['suspectedDiseases']]
     log    ${aj}
     log    ${aj[:5]}
+    # Run Keyword If
+    Should Contain    ${aj[:5]}    ${msg}
+    # Should Contain    ${aj[:15]}    ${msg}
+    Delete All Sessions
+
+智能诊断top6
+    [Arguments]    ${slice}    ${msg}    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}
+    ...    ${familyHistory}    ${weight}    ${gender}    ${bodyTempr}    ${lowBldPress}    ${highBldPress}
+    ...    ${examInfo}    ${heartRate}    ${age}    ${ageType}    ${confirmDiagnosis}    ${confirmDiagnosisMap}
+    ...    ${presentHistory}
+    # ...    ${examItems}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    symptom=${symptom}    previousHistory=${previousHistory}    personalHistory=${personalHistory}    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}
+    ...    weight=${weight}    gender=${gender}    bodyTempr=${bodyTempr}    lowBldPress=${lowBldPress}    highBldPress=${highBldPress}    examInfo=${examInfo}
+    ...    heartRate=${heartRate}    age=${age}    ageType=${ageType}    confirmDiagnosis=${confirmDiagnosis}    confirmDiagnosisMap[]=${confirmDiagnosisMap}    presentHistory=${presentHistory}
+    # ...    examItems[]=${examItems}
+    ${addr}    Post Request    api    v_2_2/diagnose_through_interrogation    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    ${aj}    Evaluate    [aj${slice} for aj in $responsedata['body']['suspectedDiseases']]
+    log    ${aj}
+    log    ${aj[:6]}
     # Run Keyword If
     Should Contain    ${aj[:5]}    ${msg}
     # Should Contain    ${aj[:15]}    ${msg}
@@ -366,25 +388,31 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     ...    weight=${weight}    gender=${gender}    bodyTempr=${bodyTempr}    lowBldPress=${lowBldPress}    highBldPress=${highBldPress}    examInfo=${examInfo}
     ...    heartRate=${heartRate}    age=${age}    ageType=${ageType}    confirmDiagnosis=${confirmDiagnosis}    confirmDiagnosisMap[]=${confirmDiagnosisMap}    presentHistory=${presentHistory}
     # ...    examItems[]=${examItems}
-    ${addr}    Post Request    api    v_2_2/diagnose_through_interrogation    data=${data}
+    ${addr}    Post Request    api    v_2_3/diagnose_through_interrogation    data=${data}
     ${responsedata}    To Json    ${addr.content}
-    # ${str}    Get From Dictionary    ${responsedata}    head
-    # ${str1}    Get From Dictionary    ${str}    error
-    Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    ${aj}    Evaluate    [aj${slice} for aj in $responsedata['body']['diseaseGroups'][0]['diseases']]
+    log    ${aj}
+    log    ${aj[:3]}
+    Should Contain    ${aj}    ${msg}
+    # Should Contain    ${aj[:15]}    ${msg}
     Delete All Sessions
 
-智能诊断_数字指标
-    [Arguments]    ${msg}    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}    ${familyHistory}
-    ...    ${weight}    ${gender}    ${bodyTempr}    ${lowBldPress}    ${highBldPress}    ${examInfo}
-    ...    ${heartRate}    ${age}    ${ageType}    ${confirmDiagnosis}    ${confirmDiagnosisMap}
+智能诊断2.33
+    [Arguments]    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}    ${familyHistory}    ${weight}
+    ...    ${gender}    ${bodyTempr}    ${lowBldPress}    ${highBldPress}    ${examInfo}    ${heartRate}
+    ...    ${age}    ${ageType}    ${confirmDiagnosis}    ${confirmDiagnosisMap}    ${presentHistory}
     # ...    ${examItems}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${base_url}    ${dict}
     ${data}    Create Dictionary    symptom=${symptom}    previousHistory=${previousHistory}    personalHistory=${personalHistory}    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}
     ...    weight=${weight}    gender=${gender}    bodyTempr=${bodyTempr}    lowBldPress=${lowBldPress}    highBldPress=${highBldPress}    examInfo=${examInfo}
-    ...    heartRate=${heartRate}    age=${age}    ageType=${ageType}    confirmDiagnosis=${confirmDiagnosis}    confirmDiagnosisMap[]=${confirmDiagnosisMap}
+    ...    heartRate=${heartRate}    age=${age}    ageType=${ageType}    confirmDiagnosis=${confirmDiagnosis}    confirmDiagnosisMap[]=${confirmDiagnosisMap}    presentHistory=${presentHistory}
     # ...    examItems[]=${examItems}
-    ${addr}    Post Request    api    v_2_0/diagnose_through_interrogation    data=${data}
+    ${addr}    Post Request    api    v_2_3/diagnose_through_interrogation    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # Should Contain    ${aj[:15]}    ${msg}
+    # Delete All Sessions
+    [Return]    ${responsedata}
 
 his
     # log    ${responsedata['body']['suspectedDiseases'][0]}
@@ -417,3 +445,32 @@ his
     # ${str1}    Get From Dictionary    ${str}    error
     Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
     Delete All Sessions
+
+随机字符-2
+    [Arguments]    ${arg1}    ${arg2}=123    @{arg3}
+    log    ${arg1}
+    log    ${arg2}
+    log    =@{arg3}=
+    [Return]    ${arg1}    ${arg2}
+
+随机字符-3
+    [Arguments]    ${arg1}    ${arg2}=123    @{arg3}
+    log    ${arg1}
+    log    ${arg2}
+    log    =@{arg3}=
+    [Return]    ${arg1}
+
+test
+    [Arguments]    ${symptom}
+    [Documentation]    主诉:腰痛、下肢疼痛、尿潴留,出现'腰椎间盘突出症'.期望诊断结果返回的diseaseName含有'腰椎间盘突出症'
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=78D211AA892A8155EF18F4CDB967043A
+    Create Session    api    http://apollo.huimeionline.com    ${dict}
+    ${data}    Create Dictionary    symptom=${symptom}    previousHistory=    personalHistory=    allergyHistory=    familyHistory=
+    ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
+    ...    heartRate=    age=30    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap[]=    presentHistory=
+    ${addr}    Post Request    api    v_2_2/diagnose_through_interrogation    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    ${aj}    Evaluate    [aj['diseaseName'] for aj in $responsedata['body']['suspectedDiseases']]
+    #Should Contain    ${aj}    null
+    #Should Not Be Empty    ${aj}
+    Should Be Empty    ${aj}
