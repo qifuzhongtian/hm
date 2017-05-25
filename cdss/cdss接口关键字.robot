@@ -25,21 +25,33 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     ${arg1}    set variable    1111111
     [Return]    ${arg1}
 
+# 常见症状
+#     [Arguments]    ${slice}    ${msg}
+#     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+#     Create Session    api    ${base_url}    ${dict}
+#     ${data}    Create Dictionary
+#     ${addr}    Post Request    api    v_2_0/common_symptom    data=${data}
+#     ${responsedata}    To Json    ${addr.content}
+#     # ${str}    Get From Dictionary    ${responsedata}    head
+#     # ${str1}    Get From Dictionary    ${str}    error
+#     # Should Be Equal As Strings    ${str1}    ${msg}
+#     Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+#     Delete All Sessions
+
+
 常见症状
-    [Arguments]    ${slice}    ${msg}
+    [Arguments]
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${base_url}    ${dict}
     ${data}    Create Dictionary
     ${addr}    Post Request    api    v_2_0/common_symptom    data=${data}
     ${responsedata}    To Json    ${addr.content}
-    # ${str}    Get From Dictionary    ${responsedata}    head
-    # ${str1}    Get From Dictionary    ${str}    error
-    # Should Be Equal As Strings    ${str1}    ${msg}
-    Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
-    Delete All Sessions
+    [Return]    ${responsedata}
+
+
 
 常见诊断
-    [Arguments]    ${slice}    ${msg}
+    [Arguments]
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${base_url}    ${dict}
     ${data}    Create Dictionary
@@ -47,22 +59,12 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     ${responsedata}    To Json    ${addr.content}
     # ${str}    Get From Dictionary    ${responsedata}    head
     # ${str1}    Get From Dictionary    ${str}    error
-    Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
-    Delete All Sessions
+    [Return]    ${responsedata}
+    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    # Delete All Sessions
+
 
 常见个人史
-    [Arguments]    ${slice}    ${msg}    ${gender}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
-    ${data}    Create Dictionary    gender=${gender}
-    ${addr}    Post Request    api    v_2_0/common_personal_history    data=${data}
-    ${responsedata}    To Json    ${addr.content}
-    # ${str}    Get From Dictionary    ${responsedata}    head
-    # ${str1}    Get From Dictionary    ${str}    error
-    Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
-    Delete All Sessions
-
-常见个人史1
     [Arguments]    ${gender}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${base_url}    ${dict}
@@ -72,31 +74,27 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     [Return]    ${responsedata}
 
 常见过敏史
-    [Arguments]    ${slice}    ${msg}
+    [Arguments]
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${base_url}    ${dict}
     ${data}    Create Dictionary
     ${addr}    Post Request    api    v_2_0/common_allergy_history    data=${data}
     ${responsedata}    To Json    ${addr.content}
-    # ${str}    Get From Dictionary    ${responsedata}    head
-    # ${str1}    Get From Dictionary    ${str}    error
-    Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
-    Delete All Sessions
+    [Return]    ${responsedata}
+
 
 常见家族史
-    [Arguments]    ${slice}    ${msg}
+    [Arguments]
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${base_url}    ${dict}
     ${data}    Create Dictionary
     ${addr}    Post Request    api    v_2_0/common_family_history    data=${data}
     ${responsedata}    To Json    ${addr.content}
-    # ${str}    Get From Dictionary    ${responsedata}    head
-    # ${str1}    Get From Dictionary    ${str}    error
-    Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
-    Delete All Sessions
+    [Return]    ${responsedata}
+
 
 常见体格检查
-    [Arguments]    ${slice}    ${msg}
+    [Arguments]
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${base_url}    ${dict}
     ${data}    Create Dictionary
@@ -104,11 +102,11 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     ${responsedata}    To Json    ${addr.content}
     # ${str}    Get From Dictionary    ${responsedata}    head
     # ${str1}    Get From Dictionary    ${str}    error
-    Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
-    Delete All Sessions
+    [Return]    ${responsedata}
+
 
 常见症状和类型
-    [Arguments]    ${slice}    ${msg}
+    [Arguments]
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${base_url}    ${dict}
     ${data}    Create Dictionary
@@ -116,26 +114,11 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     ${responsedata}    To Json    ${addr.content}
     # ${str}    Get From Dictionary    ${responsedata}    head
     # ${str1}    Get From Dictionary    ${str}    error
-    Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
-    Delete All Sessions
+    [Return]    ${responsedata}
 
-辅助问诊
-    [Arguments]    ${slice}    ${msg}    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}
-    ...    ${familyHistory}    ${weight}    ${gender}    ${bodyTempr}    ${lowBldPress}    ${highBldPress}
-    ...    ${examInfo}    ${heartRate}    ${age}    ${ageType}    ${confirmDiagnosis}    ${confirmDiagnosisMap}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
-    ${data}    Create Dictionary    symptom=${symptom}    previousHistory=${previousHistory}    personalHistory=${personalHistory}    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}
-    ...    weight=${weight}    gender=${gender}    bodyTempr=${bodyTempr}    lowBldPress=${lowBldPress}    highBldPress=${highBldPress}    examInfo=${examInfo}
-    ...    heartRate=${heartRate}    age=${age}    ageType=${ageType}    confirmDiagnosis=${confirmDiagnosis}    confirmDiagnosisMap[]=${confirmDiagnosisMap}
-    ${addr}    Post Request    api    v_2_0/assist_inquiry    data=${data}
-    ${responsedata}    To Json    ${addr.content}
-    # ${str}    Get From Dictionary    ${responsedata}    head
-    # ${str1}    Get From Dictionary    ${str}    error
-    Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
 
 鉴别诊断
-    [Arguments]    ${slice}    ${msg}    ${diseaseId}
+    [Arguments]    ${diseaseId}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${base_url}    ${dict}
     ${data}    Create Dictionary    diseaseId=${diseaseId}
@@ -143,11 +126,11 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     ${responsedata}    To Json    ${addr.content}
     # ${str}    Get From Dictionary    ${responsedata}    head
     # ${str1}    Get From Dictionary    ${str}    error
-    Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
-    Delete All Sessions
+    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    [Return]    ${responsedata}
 
 疾病详情
-    [Arguments]    ${slice}    ${msg}    ${diseaseId}
+    [Arguments]    ${diseaseId}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${base_url}    ${dict}
     ${data}    Create Dictionary    diseaseId=${diseaseId}
@@ -155,8 +138,8 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     ${responsedata}    To Json    ${addr.content}
     # ${str}    Get From Dictionary    ${responsedata}    head
     # ${str1}    Get From Dictionary    ${str}    error
-    Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
-    Delete All Sessions
+    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    [Return]    ${responsedata}
 
 疾病详情2
     [Arguments]    ${slice}    ${msg}    ${diseaseId}
@@ -171,9 +154,10 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     # Should Be Equal As Strings    ${responsedata['head']['message']}    ${msg}
     # log    ${responsedata['head']['message']}
     Delete All Sessions
+    [Return]    ${responsedata}
 
 梅奥疾病详情
-    [Arguments]    ${slice}    ${msg}    ${diseaseId}
+    [Arguments]    ${diseaseId}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${base_url}    ${dict}
     ${data}    Create Dictionary    diseaseId=${diseaseId}
@@ -181,11 +165,12 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     ${responsedata}    To Json    ${addr.content}
     # ${str}    Get From Dictionary    ${responsedata}    head
     # ${str1}    Get From Dictionary    ${str}    error
-    Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
-    Delete All Sessions
+    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    # Delete All Sessions
+    [Return]    ${responsedata}
 
 疾病处置详细
-    [Arguments]    ${slice}    ${msg}    ${diseaseId}
+    [Arguments]    ${diseaseId}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${base_url}    ${dict}
     ${data}    Create Dictionary    diseaseId=${diseaseId}
@@ -193,11 +178,12 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     ${responsedata}    To Json    ${addr.content}
     # ${str}    Get From Dictionary    ${responsedata}    head
     # ${str1}    Get From Dictionary    ${str}    error
-    Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
-    Delete All Sessions
+    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    # Delete All Sessions
+    [Return]    ${responsedata}
 
 相关疾病
-    [Arguments]    ${slice}    ${msg}    ${diseaseId}
+    [Arguments]    ${diseaseId}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${base_url}    ${dict}
     ${data}    Create Dictionary    diseaseId=${diseaseId}
@@ -205,11 +191,12 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     ${responsedata}    To Json    ${addr.content}
     # ${str}    Get From Dictionary    ${responsedata}    head
     # ${str1}    Get From Dictionary    ${str}    error
-    Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
-    Delete All Sessions
+    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    # Delete All Sessions
+    [Return]    ${responsedata}
 
 疾病查询弹层提示
-    [Arguments]    ${slice}    ${msg}    ${diseaseName}
+    [Arguments]    ${diseaseName}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${base_url}    ${dict}
     ${data}    Create Dictionary    diseaseName=${diseaseName}
@@ -217,8 +204,9 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     ${responsedata}    To Json    ${addr.content}
     # ${str}    Get From Dictionary    ${responsedata}    head
     # ${str1}    Get From Dictionary    ${str}    error
-    Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
-    Delete All Sessions
+    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    # Delete All Sessions
+    [Return]    ${responsedata}
 
 智能诊断0
     [Arguments]    ${msg}    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}    ${familyHistory}
@@ -263,6 +251,35 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     # ${ajson}    Evaluate    {"api": "api.name","v": "1.0","code": "10000","error_msg": "success","data": {"userlist": [{"uid": "94901","nickName": "test1",}, {"uid": "1010640","nickName": "test2",}, {"uid": "1012130","nickName": "test3",}]}}
     # log    ${ajson['data']['userlist'][0]['nickName']}
     # ${nicks}    Evaluate    [nicks['nickName'] for nicks $ajson['data']['userlist']]
+
+
+
+智能诊断2.2
+    [Arguments]    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}
+    ...    ${familyHistory}    ${weight}    ${gender}    ${bodyTempr}    ${lowBldPress}    ${highBldPress}
+    ...    ${examInfo}    ${heartRate}    ${age}    ${ageType}    ${confirmDiagnosis}    ${confirmDiagnosisMap}
+    ...    ${presentHistory}
+    # ...    ${examItems}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    symptom=${symptom}    previousHistory=${previousHistory}    personalHistory=${personalHistory}    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}
+    ...    weight=${weight}    gender=${gender}    bodyTempr=${bodyTempr}    lowBldPress=${lowBldPress}    highBldPress=${highBldPress}    examInfo=${examInfo}
+    ...    heartRate=${heartRate}    age=${age}    ageType=${ageType}    confirmDiagnosis=${confirmDiagnosis}    confirmDiagnosisMap[]=${confirmDiagnosisMap}    presentHistory=${presentHistory}
+    # ...    examItems[]=${examItems}
+    ${addr}    Post Request    api    v_2_2/diagnose_through_interrogation    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # ${aj}    Evaluate    [aj${slice} for aj in $responsedata['body']['suspectedDiseases']]
+    # log    ${aj}
+    # log    ${aj[:3]}
+    # Should Contain    ${aj}    ${msg}
+    # Should Contain    ${aj[:15]}    ${msg}
+    Delete All Sessions
+    # 测试一下
+    # ${ajson}    Evaluate    {"api": "api.name","v": "1.0","code": "10000","error_msg": "success","data": {"userlist": [{"uid": "94901","nickName": "test1",}, {"uid": "1010640","nickName": "test2",}, {"uid": "1012130","nickName": "test3",}]}}
+    # log    ${ajson['data']['userlist'][0]['nickName']}
+    # ${nicks}    Evaluate    [nicks['nickName'] for nicks $ajson['data']['userlist']]
+
+
 
 智能诊断top5
     [Arguments]    ${slice}    ${msg}    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}
@@ -326,78 +343,61 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     log    ${aj}
     log    ${aj[:3]}
     # Run Keyword If
-    # Should Contain    ${aj[:3]}    ${msg}
-    Should Contain    ${aj[:15]}    ${msg}
-    Delete All Sessions
-    # 测试一下
-    # ${ajson}    Evaluate    {"api": "api.name","v": "1.0","code": "10000","error_msg": "success","data": {"userlist": [{"uid": "94901","nickName": "test1",}, {"uid": "1010640","nickName": "test2",}, {"uid": "1012130","nickName": "test3",}]}}
-    # log    ${ajson['data']['userlist'][0]['nickName']}
-    # ${nicks}    Evaluate    [nicks['nickName'] for nicks $ajson['data']['userlist']]
-
-智能诊断1
-    [Arguments]    ${slice}    ${msg}    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}
-    ...    ${familyHistory}    ${weight}    ${gender}    ${bodyTempr}    ${lowBldPress}    ${highBldPress}
-    ...    ${examInfo}    ${heartRate}    ${age}    ${ageType}    ${confirmDiagnosis}    ${confirmDiagnosisMap}
-    ...    ${presentHistory}
-    # ...    ${examItems}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
-    ${data}    Create Dictionary    symptom=${symptom}    previousHistory=${previousHistory}    personalHistory=${personalHistory}    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}
-    ...    weight=${weight}    gender=${gender}    bodyTempr=${bodyTempr}    lowBldPress=${lowBldPress}    highBldPress=${highBldPress}    examInfo=${examInfo}
-    ...    heartRate=${heartRate}    age=${age}    ageType=${ageType}    confirmDiagnosis=${confirmDiagnosis}    confirmDiagnosisMap[]=${confirmDiagnosisMap}    presentHistory=${presentHistory}
-    # ...    examItems[]=${examItems}
-    ${addr}    Post Request    api    v_2_2/diagnose_through_interrogation    data=${data}
-    ${responsedata}    To Json    ${addr.content}
-    ${aj}    Evaluate    [aj${slice} for aj in $responsedata['body']['suspectedDiseases']]
-    log    ${aj[:3]}
-    Should Contain    ${aj[:3]}    ${msg}
-    Delete All Sessions
-    # 测试一下
-    # ${ajson}    Evaluate    {"api": "api.name","v": "1.0","code": "10000","error_msg": "success","data": {"userlist": [{"uid": "94901","nickName": "test1",}, {"uid": "1010640","nickName": "test2",}, {"uid": "1012130","nickName": "test3",}]}}
-    # log    ${ajson['data']['userlist'][0]['nickName']}
-    # ${nicks}    Evaluate    [nicks['nickName'] for nicks $ajson['data']['userlist']]
-
-智能诊断2.2
-    [Arguments]    ${slice}    ${msg}    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}
-    ...    ${familyHistory}    ${weight}    ${gender}    ${bodyTempr}    ${lowBldPress}    ${highBldPress}
-    ...    ${examInfo}    ${heartRate}    ${age}    ${ageType}    ${confirmDiagnosis}    ${confirmDiagnosisMap}
-    ...    ${presentHistory}
-    # ...    ${examItems}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
-    ${data}    Create Dictionary    symptom=${symptom}    previousHistory=${previousHistory}    personalHistory=${personalHistory}    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}
-    ...    weight=${weight}    gender=${gender}    bodyTempr=${bodyTempr}    lowBldPress=${lowBldPress}    highBldPress=${highBldPress}    examInfo=${examInfo}
-    ...    heartRate=${heartRate}    age=${age}    ageType=${ageType}    confirmDiagnosis=${confirmDiagnosis}    confirmDiagnosisMap[]=${confirmDiagnosisMap}    presentHistory=${presentHistory}
-    # ...    examItems[]=${examItems}
-    ${addr}    Post Request    api    v_2_2/diagnose_through_interrogation    data=${data}
-    ${responsedata}    To Json    ${addr.content}
-    # ${str}    Get From Dictionary    ${responsedata}    head
-    # ${str1}    Get From Dictionary    ${str}    error
-    Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
-    Delete All Sessions
-
-智能诊断2.3
-    [Arguments]    ${slice}    ${msg}    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}
-    ...    ${familyHistory}    ${weight}    ${gender}    ${bodyTempr}    ${lowBldPress}    ${highBldPress}
-    ...    ${examInfo}    ${heartRate}    ${age}    ${ageType}    ${confirmDiagnosis}    ${confirmDiagnosisMap}
-    ...    ${presentHistory}
-    # ...    ${examItems}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
-    ${data}    Create Dictionary    symptom=${symptom}    previousHistory=${previousHistory}    personalHistory=${personalHistory}    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}
-    ...    weight=${weight}    gender=${gender}    bodyTempr=${bodyTempr}    lowBldPress=${lowBldPress}    highBldPress=${highBldPress}    examInfo=${examInfo}
-    ...    heartRate=${heartRate}    age=${age}    ageType=${ageType}    confirmDiagnosis=${confirmDiagnosis}    confirmDiagnosisMap[]=${confirmDiagnosisMap}    presentHistory=${presentHistory}
-    # ...    examItems[]=${examItems}
-    ${addr}    Post Request    api    v_2_3/diagnose_through_interrogation    data=${data}
-    ${responsedata}    To Json    ${addr.content}
-    ${aj}    Evaluate    [aj${slice} for aj in $responsedata['body']['diseaseGroups'][0]['diseases']]
-    log    ${aj}
-    log    ${aj[:3]}
     Should Contain    ${aj}    ${msg}
     # Should Contain    ${aj[:15]}    ${msg}
     Delete All Sessions
+    # 测试一下
+    # ${ajson}    Evaluate    {"api": "api.name","v": "1.0","code": "10000","error_msg": "success","data": {"userlist": [{"uid": "94901","nickName": "test1",}, {"uid": "1010640","nickName": "test2",}, {"uid": "1012130","nickName": "test3",}]}}
+    # log    ${ajson['data']['userlist'][0]['nickName']}
+    # ${nicks}    Evaluate    [nicks['nickName'] for nicks $ajson['data']['userlist']]
 
-智能诊断2.33
+# 智能诊断1
+#     [Arguments]    ${slice}    ${msg}    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}
+#     ...    ${familyHistory}    ${weight}    ${gender}    ${bodyTempr}    ${lowBldPress}    ${highBldPress}
+#     ...    ${examInfo}    ${heartRate}    ${age}    ${ageType}    ${confirmDiagnosis}    ${confirmDiagnosisMap}
+#     ...    ${presentHistory}
+#     # ...    ${examItems}
+#     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+#     Create Session    api    ${base_url}    ${dict}
+#     ${data}    Create Dictionary    symptom=${symptom}    previousHistory=${previousHistory}    personalHistory=${personalHistory}    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}
+#     ...    weight=${weight}    gender=${gender}    bodyTempr=${bodyTempr}    lowBldPress=${lowBldPress}    highBldPress=${highBldPress}    examInfo=${examInfo}
+#     ...    heartRate=${heartRate}    age=${age}    ageType=${ageType}    confirmDiagnosis=${confirmDiagnosis}    confirmDiagnosisMap[]=${confirmDiagnosisMap}    presentHistory=${presentHistory}
+#     # ...    examItems[]=${examItems}
+#     ${addr}    Post Request    api    v_2_2/diagnose_through_interrogation    data=${data}
+#     ${responsedata}    To Json    ${addr.content}
+#     ${aj}    Evaluate    [aj${slice} for aj in $responsedata['body']['suspectedDiseases']]
+#     log    ${aj[:3]}
+#     Should Contain    ${aj[:3]}    ${msg}
+#     Delete All Sessions
+#     # 测试一下
+#     # ${ajson}    Evaluate    {"api": "api.name","v": "1.0","code": "10000","error_msg": "success","data": {"userlist": [{"uid": "94901","nickName": "test1",}, {"uid": "1010640","nickName": "test2",}, {"uid": "1012130","nickName": "test3",}]}}
+#     # log    ${ajson['data']['userlist'][0]['nickName']}
+#     # ${nicks}    Evaluate    [nicks['nickName'] for nicks $ajson['data']['userlist']]
+
+
+
+# 智能诊断2.33
+#     [Arguments]    ${slice}    ${msg}    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}
+#     ...    ${familyHistory}    ${weight}    ${gender}    ${bodyTempr}    ${lowBldPress}    ${highBldPress}
+#     ...    ${examInfo}    ${heartRate}    ${age}    ${ageType}    ${confirmDiagnosis}    ${confirmDiagnosisMap}
+#     ...    ${presentHistory}
+#     # ...    ${examItems}
+#     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+#     Create Session    api    ${base_url}    ${dict}
+#     ${data}    Create Dictionary    symptom=${symptom}    previousHistory=${previousHistory}    personalHistory=${personalHistory}    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}
+#     ...    weight=${weight}    gender=${gender}    bodyTempr=${bodyTempr}    lowBldPress=${lowBldPress}    highBldPress=${highBldPress}    examInfo=${examInfo}
+#     ...    heartRate=${heartRate}    age=${age}    ageType=${ageType}    confirmDiagnosis=${confirmDiagnosis}    confirmDiagnosisMap[]=${confirmDiagnosisMap}    presentHistory=${presentHistory}
+#     # ...    examItems[]=${examItems}
+#     ${addr}    Post Request    api    v_2_3/diagnose_through_interrogation    data=${data}
+#     ${responsedata}    To Json    ${addr.content}
+#     ${aj}    Evaluate    [aj${slice} for aj in $responsedata['body']['diseaseGroups'][0]['diseases']]
+#     log    ${aj}
+#     log    ${aj[:3]}
+#     Should Contain    ${aj}    ${msg}
+#     # Should Contain    ${aj[:15]}    ${msg}
+#     Delete All Sessions
+
+智能诊断2.3
     [Arguments]    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}    ${familyHistory}    ${weight}
     ...    ${gender}    ${bodyTempr}    ${lowBldPress}    ${highBldPress}    ${examInfo}    ${heartRate}
     ...    ${age}    ${ageType}    ${confirmDiagnosis}    ${confirmDiagnosisMap}    ${presentHistory}
@@ -414,12 +414,12 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     # Delete All Sessions
     [Return]    ${responsedata}
 
-his
+# his
     # log    ${responsedata['body']['suspectedDiseases'][0]}
     # log    ${responsedata['body']['suspectedDiseases'][0]['id']}
-    Should Be Equal As Strings    ${responsedata['body']['suspectedDiseases'][0]['id']}    ${msg}
+    # Should Be Equal As Strings    ${responsedata['body']['suspectedDiseases'][0]['id']}    ${msg}
     # Should Be Equal As Strings    ${str1}    ${msg}
-    Delete All Sessions
+    # Delete All Sessions
     # 疾病详情2
     #    [Arguments]    ${msg}    ${diseaseId}
     #    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -435,7 +435,7 @@ his
     #    Delete All Sessions
 
 疾病查询
-    [Arguments]    ${slice}    ${msg}    ${diseaseName}
+    [Arguments]    ${diseaseName}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${base_url}    ${dict}
     ${data}    Create Dictionary    diseaseName=${diseaseName}
@@ -443,8 +443,9 @@ his
     ${responsedata}    To Json    ${addr.content}
     # ${str}    Get From Dictionary    ${responsedata}    head
     # ${str1}    Get From Dictionary    ${str}    error
-    Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
-    Delete All Sessions
+    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    # Delete All Sessions
+    [Return]    ${responsedata}
 
 随机字符-2
     [Arguments]    ${arg1}    ${arg2}=123    @{arg3}

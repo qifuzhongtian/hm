@@ -1,16 +1,17 @@
 *** Variables ***
-# ${base_url}     http://apollo.huimeionline.com
-${base_url}     http://10.117.64.153:8080
+${base_url}     http://apollo.huimeionline.com
+# ${base_url}     http://10.117.64.153:8080
 # ${base_url}       http://192.168.2.7:8080
 #彭宇开发环境huimeiId
 ${Huimei_id}      C3B844493A477BCF3D7B73A5E902B269
+
 #吕医生Huimei_id
 # ${Huimei_id}      8FBAB76D49264016BEA5651093B00DD9
 
 *** Keywords ***
 安全用药
     [Arguments]    ${slice}    ${msg}    ${gender}    ${age}    ${ageType}    ${drugIds}    ${symptom}    ${confirmDiagnosis}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id_safe_medication}
     Create Session    api    ${base_url}    ${dict}
     ${data}    Create Dictionary    gender=${gender}    age=${age}    ageType=${ageType}
     ...    drugIds=${drugIds}    symptom=${symptom}    confirmDiagnosis=${confirmDiagnosis}
@@ -24,7 +25,7 @@ ${Huimei_id}      C3B844493A477BCF3D7B73A5E902B269
 
 药品查询
     [Arguments]    ${slice}    ${msg}    ${drugName}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id_safe_medication}
     Create Session    api    ${base_url}    ${dict}
     ${data}    Create Dictionary    drugName=${drugName}
     ${addr}    Post Request    api    hmsm/v_1_0/drug/search    data=${data}
@@ -36,7 +37,7 @@ ${Huimei_id}      C3B844493A477BCF3D7B73A5E902B269
 
 查询药品与诊断
     [Arguments]    ${slice}    ${msg}    ${name}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id_safe_medication}
     Create Session    api    ${base_url}    ${dict}
     ${data}    Create Dictionary    name=${name}
     ${addr}    Post Request    api    v_2_0/search/all    data=${data}
@@ -46,7 +47,7 @@ ${Huimei_id}      C3B844493A477BCF3D7B73A5E902B269
 
 药品详情
     [Arguments]    ${slice}    ${msg}    ${drugId}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id_safe_medication}
     Create Session    api    ${base_url}    ${dict}
     ${data}    Create Dictionary    drugId=${drugId}
     ${addr}    Post Request    api    hmsm/v_1_0/drug/detail    data=${data}
@@ -57,7 +58,7 @@ ${Huimei_id}      C3B844493A477BCF3D7B73A5E902B269
 
 诊断依据
     [Arguments]    ${slice}    ${msg}    ${diseaseId}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id_safe_medication}
     Create Session    api    ${base_url}    ${dict}
     ${data}    Create Dictionary    diseaseId=${diseaseId}
     ${addr}    Post Request    api    v_2_0/disease/basis    data=${data}

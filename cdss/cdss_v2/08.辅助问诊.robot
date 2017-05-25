@@ -2,6 +2,7 @@
 Resource          ../cdss接口关键字.robot
 Library           Collections
 Library           RequestsLibrary
+Suite Teardown    Delete All Sessions
 #接口作废
 
 

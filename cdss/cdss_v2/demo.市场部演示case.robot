@@ -2,6 +2,8 @@
 Resource          ../cdss接口关键字.robot
 Library           Collections
 Library           RequestsLibrary
+Suite Teardown    Delete All Sessions
+
 # 字段名 类型 是否必须 说明
 # userGuid String 是 患者ID（接入放定义）
 # doctorGuid String 是 医生ID（接入放定义）
@@ -31,8 +33,8 @@ Library           RequestsLibrary
     ...    presentHistory=
 
 市场部案例二
-    [Documentation]    主诉:妊娠26周，先兆子痫住产科。凌晨1点突感胸痛,低压100,高压160.期望诊断结果返回的diseaseName含有'主动脉夹层'
-    智能诊断top5    ['diseaseName']    主动脉夹层    symptom=妊娠26周，先兆子痫住产科。凌晨1点突感胸痛    previousHistory=
+    [Documentation]    主诉:妊娠26周，先兆子痫住产科。突感胸痛,低压100,高压160.期望诊断结果返回的diseaseName含有'主动脉夹层'
+    智能诊断top5    ['diseaseName']    主动脉夹层    symptom=妊娠26周，先兆子痫住产科。突感胸痛    previousHistory=
     ...    personalHistory=    allergyHistory=    familyHistory=    weight=    gender=0    bodyTempr=    lowBldPress=100
     ...    highBldPress=160    examInfo=    heartRate=    age=35    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=
     ...    presentHistory=
@@ -40,7 +42,7 @@ Library           RequestsLibrary
 
 市场部案例三
     [Documentation]    主诉:查体颈部局限性哮鸣音间断喘憋5年，咳嗽，与体位有关，有时可自行缓解.期望诊断结果返回的diseaseName含有'上气道梗阻'
-    智能诊断top5    ['diseaseName']    上气道梗阻    symptom=查体颈部局限性哮鸣音间断喘憋5年，咳嗽，与体位有关，有时可自行缓解    previousHistory=
+    智能诊断top6    ['diseaseName']    上气道梗阻    symptom=查体颈部局限性哮鸣音间断喘憋5年，咳嗽，与体位有关，有时可自行缓解,查体颈部局限性哮鸣音CXR(-),CT-气管新生物    previousHistory=
     ...    personalHistory=    allergyHistory=    familyHistory=    weight=    gender=0    bodyTempr=    lowBldPress=
     ...    highBldPress=    examInfo=    heartRate=    age=14    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=
     ...    presentHistory=
@@ -81,7 +83,7 @@ Library           RequestsLibrary
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=78D211AA892A8155EF18F4CDB967043A
     Create Session    api    http://apollo.huimeionline.com    ${dict}
     ${data}    Create Dictionary    symptom=腰痛、下肢疼痛、尿潴留    previousHistory=    personalHistory=    allergyHistory=    familyHistory=
-    ...    weight=    gender=    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
+    ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
     ...    heartRate=    age=38    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap[]=    presentHistory=
     ${addr}    Post Request    api    v_2_2/diagnose_through_interrogation    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -89,7 +91,23 @@ Library           RequestsLibrary
     Should Not Contain    ${aj[:5]}    前列腺增生
     Delete All Sessions
 
-惠每医疗宣传手册案例:
+
+
+# 惠每医疗宣传手册案例三
+#     [Documentation]    主诉:腰痛、下肢疼痛、尿潴留,性别女,4岁.诊断结果返回的diseaseName不会出现'前列腺增生'
+#     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=78D211AA892A8155EF18F4CDB967043A
+#     Create Session    api    http://apollo.huimeionline.com    ${dict}
+#     ${data}    Create Dictionary    symptom=腰痛、下肢疼痛、尿潴留    previousHistory=    personalHistory=    allergyHistory=    familyHistory=
+#     ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
+#     ...    heartRate=    age=4    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap[]=    presentHistory=
+#     ${addr}    Post Request    api    v_2_2/diagnose_through_interrogation    data=${data}
+#     ${responsedata}    To Json    ${addr.content}
+#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $responsedata['body']['suspectedDiseases']]
+#     Should Not Contain    ${aj[:5]}    腰椎间盘突出症
+#     Delete All Sessions
+
+
+惠每医疗宣传手册案例三
     [Documentation]    主诉:腰痛、下肢疼痛、尿潴留,4岁,诊断结果返回的diseaseName不出现'腰椎间盘突出症'
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=78D211AA892A8155EF18F4CDB967043A
     Create Session    api    http://apollo.huimeionline.com    ${dict}
