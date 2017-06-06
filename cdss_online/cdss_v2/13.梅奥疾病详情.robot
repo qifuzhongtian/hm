@@ -8,7 +8,7 @@ Suite Teardown    Delete All Sessions
 13.1梅奥疾病详情
     [Documentation]    断言:"原发性高血压 基础知识 titleId"
     ${getRes}    梅奥疾病详情    diseaseId=8754C7AAE2
-    Should Be Equal As Strings    ${getRes['body']['catalogueList'][0]['titleId']}    147881
+    Should Be Equal As Strings    ${getRes['body']['catalogueList'][0]['titleId']}    277409
 
 13.2 梅奥疾病详情
     [Documentation]    断言:"原发性高血压 基础知识 titleId"
