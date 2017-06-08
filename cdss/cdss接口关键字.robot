@@ -351,51 +351,6 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     # log    ${ajson['data']['userlist'][0]['nickName']}
     # ${nicks}    Evaluate    [nicks['nickName'] for nicks $ajson['data']['userlist']]
 
-# 智能诊断1
-#     [Arguments]    ${slice}    ${msg}    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}
-#     ...    ${familyHistory}    ${weight}    ${gender}    ${bodyTempr}    ${lowBldPress}    ${highBldPress}
-#     ...    ${examInfo}    ${heartRate}    ${age}    ${ageType}    ${confirmDiagnosis}    ${confirmDiagnosisMap}
-#     ...    ${presentHistory}
-#     # ...    ${examItems}
-#     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-#     Create Session    api    ${base_url}    ${dict}
-#     ${data}    Create Dictionary    symptom=${symptom}    previousHistory=${previousHistory}    personalHistory=${personalHistory}    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}
-#     ...    weight=${weight}    gender=${gender}    bodyTempr=${bodyTempr}    lowBldPress=${lowBldPress}    highBldPress=${highBldPress}    examInfo=${examInfo}
-#     ...    heartRate=${heartRate}    age=${age}    ageType=${ageType}    confirmDiagnosis=${confirmDiagnosis}    confirmDiagnosisMap[]=${confirmDiagnosisMap}    presentHistory=${presentHistory}
-#     # ...    examItems[]=${examItems}
-#     ${addr}    Post Request    api    v_2_2/diagnose_through_interrogation    data=${data}
-#     ${responsedata}    To Json    ${addr.content}
-#     ${aj}    Evaluate    [aj${slice} for aj in $responsedata['body']['suspectedDiseases']]
-#     log    ${aj[:3]}
-#     Should Contain    ${aj[:3]}    ${msg}
-#     Delete All Sessions
-#     # 测试一下
-#     # ${ajson}    Evaluate    {"api": "api.name","v": "1.0","code": "10000","error_msg": "success","data": {"userlist": [{"uid": "94901","nickName": "test1",}, {"uid": "1010640","nickName": "test2",}, {"uid": "1012130","nickName": "test3",}]}}
-#     # log    ${ajson['data']['userlist'][0]['nickName']}
-#     # ${nicks}    Evaluate    [nicks['nickName'] for nicks $ajson['data']['userlist']]
-
-
-
-# 智能诊断2.33
-#     [Arguments]    ${slice}    ${msg}    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}
-#     ...    ${familyHistory}    ${weight}    ${gender}    ${bodyTempr}    ${lowBldPress}    ${highBldPress}
-#     ...    ${examInfo}    ${heartRate}    ${age}    ${ageType}    ${confirmDiagnosis}    ${confirmDiagnosisMap}
-#     ...    ${presentHistory}
-#     # ...    ${examItems}
-#     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-#     Create Session    api    ${base_url}    ${dict}
-#     ${data}    Create Dictionary    symptom=${symptom}    previousHistory=${previousHistory}    personalHistory=${personalHistory}    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}
-#     ...    weight=${weight}    gender=${gender}    bodyTempr=${bodyTempr}    lowBldPress=${lowBldPress}    highBldPress=${highBldPress}    examInfo=${examInfo}
-#     ...    heartRate=${heartRate}    age=${age}    ageType=${ageType}    confirmDiagnosis=${confirmDiagnosis}    confirmDiagnosisMap[]=${confirmDiagnosisMap}    presentHistory=${presentHistory}
-#     # ...    examItems[]=${examItems}
-#     ${addr}    Post Request    api    v_2_3/diagnose_through_interrogation    data=${data}
-#     ${responsedata}    To Json    ${addr.content}
-#     ${aj}    Evaluate    [aj${slice} for aj in $responsedata['body']['diseaseGroups'][0]['diseases']]
-#     log    ${aj}
-#     log    ${aj[:3]}
-#     Should Contain    ${aj}    ${msg}
-#     # Should Contain    ${aj[:15]}    ${msg}
-#     Delete All Sessions
 
 智能诊断2.3
     [Arguments]    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}    ${familyHistory}    ${weight}
