@@ -27,7 +27,7 @@ Suite Teardown    Delete All Sessions
 @{drugIds_tabooList_grade1}        551
 #drugIds 人群禁忌的两种药,grade=2
 @{drugIds_tabooList_grade2}        3517
-#drugIds 人群禁忌的两种药,grade=3w
+#drugIds 人群禁忌的两种药,grade=3
 @{drugIds_tabooList_grade3}        579
 #drugIds 人群禁忌的两种药,grade=4
 @{drugIds_tabooList_grade4}        3850
@@ -93,7 +93,8 @@ Suite Teardown    Delete All Sessions
 @{drugIds_interactionList_grade2_drugIds_repetitionList1}        8126    5714    5323    5647
 #drugIds 相互作用的两种药,grade=1 ,#高血压用药重复
 @{drugIds_interactionList_symptom}        930
-
+#肾病审核结果
+@{drugIds_kidney}      16553
 
 *** Test Cases ***
 1.1相互作用等级为'谨慎'的两种药,grade=2
@@ -193,7 +194,7 @@ Suite Teardown    Delete All Sessions
 
 1.19人群禁忌等级,年龄+症状,结果正确
     [Documentation]    断言:"crowd=41",description=3个月以上孕妇慎用"
-    ${getRes}    安全用药    gender=    age=91    ageType=天    drugIds=${drugIds_tabooList_age5}    symptom=妊娠    confirmDiagnosis=
+    ${getRes}    安全用药    gender=0    age=22    ageType=岁    drugIds=${drugIds_tabooList_age5}    symptom=妊娠    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['tabooList'][0]['description']}    3个月以上孕妇慎用
 
 
@@ -388,8 +389,8 @@ Suite Teardown    Delete All Sessions
 
 
 1.51 药物禁忌与confirmDiagnosis不匹配,不显示禁忌
-    [Documentation]    断言:"['tabooList']为空"
-    ${getRes}    安全用药    gender=0    age=    ageType=    drugIds=${drugIds_interactionList_symptom}    symptom=    confirmDiagnosis=13895
+    [Documentation]    断言:"confirmDiagnosis=痛经,['tabooList']为空"
+    ${getRes}    安全用药    gender=0    age=22    ageType=    drugIds=${drugIds_interactionList_symptom}    symptom=    confirmDiagnosis=13895
     Should Be Equal As Strings    ${getRes['body']['tabooList']}    []
 
 
@@ -408,52 +409,17 @@ Suite Teardown    Delete All Sessions
 
 
 1.54 药物禁忌与主诉不匹配,不显示禁忌
-    [Documentation]    断言:"safeStatus=3"
-    ${getRes}    安全用药    gender=0    age=    ageType=    drugIds=${drugIds_interactionList_symptom}    symptom=痛经    confirmDiagnosis=
+    [Documentation]    断言:"safeStatus=3,制霉菌素片"
+    ${getRes}    安全用药    gender=0    age=22    ageType=    drugIds=${drugIds_interactionList_symptom}    symptom=痛经    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['tabooList']}    []
 
+1.55 肾病审核结果
+    [Documentation]    断言:"主诉:严重肾功能损害（GFR<30ml/min）慎用 ,药品id16553 ,非洛地平缓释片(Ⅱ)"
+    ${getRes}    安全用药    gender=1    age=    ageType=    drugIds=${drugIds_kidney}    symptom=严重肾功能损害（GFR<30ml/min）慎用    confirmDiagnosis=
+    Should Be Equal As Strings    ${getRes['body']['tabooList'][0]['description']}    严重肾功能损害（GFR<30ml/min）慎用
 
 
 
 
 
-# 1.51安全用药,填写药品id,通过
-#        [Documentation]    断言:""
-#     安全用药    ['body']['safeStatus']    3
-#        ...    gender=    age=    ageType=    drugIds=${drugIds_tabooList_grade0}   symptom=    confirmDiagnosis=
-# 1.52安全用药,填写药品id,不通过
-#        [Documentation]    断言:""
-#     安全用药    ['body']['safeStatus']    3
-#        ...    gender=    age=    ageType=    drugIds=${drugIds_tabooList_grade0}   symptom=    confirmDiagnosis=
-# 1.53安全用药,填写药品id,待审核
-#        [Documentation]    断言:""
-#     安全用药    ['body']['safeStatus']    3
-#        ...    gender=    age=    ageType=    drugIds=${drugIds_tabooList_grade0}   symptom=    confirmDiagnosis=
-# 1.54安全用药,不填写药品id提交失败
-#        [Documentation]    断言:""
-#     安全用药    ['body']['safeStatus']    3
-#        ...    gender=    age=    ageType=    drugIds=${drugIds_tabooList_grade0}   symptom=    confirmDiagnosis=
-# 1.55安全用药,填写性别提交成功
-#        [Documentation]    断言:""
-#     安全用药    ['body']['safeStatus']    3
-#        ...    gender=    age=    ageType=    drugIds=${drugIds_tabooList_grade0}   symptom=    confirmDiagnosis=
-# 1.56安全用药,填写年龄:岁,提交成功
-#        [Documentation]    断言:""
-#     安全用药    ['body']['safeStatus']    3
-#        ...    gender=    age=    ageType=岁    drugIds=${drugIds_tabooList_grade0}   symptom=    confirmDiagnosis=
-# 1.57安全用药,填写年龄:月,提交成功
-#        [Documentation]    断言:""
-#     安全用药    ['body']['safeStatus']    3
-#        ...    gender=    age=    ageType=月    drugIds=${drugIds_tabooList_grade0}   symptom=    confirmDiagnosis=
-# 1.58安全用药,填写年龄:天,提交成功
-#        [Documentation]    断言:""
-#     安全用药    ['body']['safeStatus']    3
-#        ...    gender=    age=    ageType=天    drugIds=${drugIds_tabooList_grade0}   symptom=    confirmDiagnosis=
-# 1.59安全用药,填写患者主诉提交成功
-#        [Documentation]    断言:""
-#     安全用药    ['body']['safeStatus']    3
-#        ...    gender=    age=    ageType=    drugIds=${drugIds_tabooList_grade0}   symptom=头疼    confirmDiagnosis=
-# 1.60安全用药,全部填写提交成功
-#        [Documentation]    断言:""
-#     安全用药    ['body']['safeStatus']    3
-#        ...    gender=    age=    ageType=岁    drugIds=${drugIds_tabooList_grade0}    symptom=头疼    confirmDiagnosis=
+

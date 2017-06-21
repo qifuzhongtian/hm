@@ -1,6 +1,7 @@
 *** Variables ***
 # ${base_url}     http://his.huimei.com/api
 ${base_url}       http://10.117.64.153:8080
+
 ${base_url_jl}    http://192.168.1.18:8080
 # ${base_url}     http://api.huimeionline.com
 ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
@@ -143,10 +144,10 @@ ${Huimei_id_safe_medication}    C3B844493A477BCF3D7B73A5E902B269
     [Return]    ${responsedata}
 
 修改密码
-    [Arguments]    ${olduserName}    ${userName}    ${newPassword}
+    [Arguments]    ${oldPassword}    ${userName}    ${newPassword}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
-    ${data}    Create Dictionary    olduserName=${olduserName}    userName=${userName}    newPassword=${newPassword}
+    # Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    oldPassword=${oldPassword}    userName=${userName}    newPassword=${newPassword}
     ${addr}    Post Request    api    his/user/updateUserPassword    data=${data}
     ${responsedata}    To Json    ${addr.content}
     # Should Be Equal As Strings    ${responsedata['head']['error']}    ${msg}
@@ -792,10 +793,10 @@ ${Huimei_id_safe_medication}    C3B844493A477BCF3D7B73A5E902B269
     [Return]    ${responsedata}
 
 获取载入常用处方列表
-    [Arguments]    ${tempName}    ${tempType}
+    [Arguments]    ${tempName}    ${tempAuthority}
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${base_url}    ${dict}
-    ${data}    Create Dictionary    tempName=${tempName}    tempType=${tempType}
+    ${data}    Create Dictionary    tempName=${tempName}    tempAuthority=${tempAuthority}
     ${addr}    Post Request    api    his/template/loadRecipeTemplateList    data=${data}
     ${responsedata}    To Json    ${addr.content}
     # Should Be Equal As Strings    ${responsedata['body']['suspectedDiseases'][0]['id']}    ${msg}
@@ -814,3 +815,95 @@ ${Huimei_id_safe_medication}    C3B844493A477BCF3D7B73A5E902B269
     # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
     # Delete All Sessions
     [Return]    ${addr}
+
+
+
+自定义分类sug
+    [Arguments]    ${customType}
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    customType=${customType}
+    ${addr}    Post Request    api    his/inventory/searchDrugCustomType    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # Should Be Equal As Strings    ${responsedata['body']['suspectedDiseases'][0]['id']}    ${msg}
+    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    # Delete All Sessions
+    [Return]    ${responsedata}
+
+
+待收费订单列表
+    [Arguments]    ${startDate}    ${endDate}    ${currentPage}    ${pageSize}
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    startDate=${startDate}    endDate=${endDate}    currentPage=${currentPage}    pageSize=${pageSize}
+    ${addr}    Post Request    api    his/order/getToChargeOrders    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # Should Be Equal As Strings    ${responsedata['body']['suspectedDiseases'][0]['id']}    ${msg}
+    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    # Delete All Sessions
+    [Return]    ${responsedata}
+
+
+
+已收费列表订单列表
+    [Arguments]    ${startDate}    ${endDate}    ${patientName}    ${doctorId}    ${currentPage}    ${pageSize}
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    startDate=${startDate}    endDate=${endDate}    patientName=${patientName}    doctorId=${doctorId}    currentPage=${currentPage}    pageSize=${pageSize}
+    ${addr}    Post Request    api    his/order/getChargedOrders    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # Should Be Equal As Strings    ${responsedata['body']['suspectedDiseases'][0]['id']}    ${msg}
+    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    # Delete All Sessions
+    [Return]    ${responsedata}
+
+
+已退费列表订单列表
+    [Arguments]    ${startDate}    ${endDate}    ${patientName}    ${doctorId}    ${currentPage}    ${pageSize}
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    startDate=${startDate}    endDate=${endDate}    patientName=${patientName}    doctorId=${doctorId}    currentPage=${currentPage}    pageSize=${pageSize}
+    ${addr}    Post Request    api    his/order/getRefundedOrders    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # Should Be Equal As Strings    ${responsedata['body']['suspectedDiseases'][0]['id']}    ${msg}
+    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    # Delete All Sessions
+    [Return]    ${responsedata}
+
+
+获取待收费订单详情
+    [Arguments]    ${orderNo}
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    orderNo=${orderNo}
+    ${addr}    Post Request    api    his/order/getToChargeOrders    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # Should Be Equal As Strings    ${responsedata['body']['suspectedDiseases'][0]['id']}    ${msg}
+    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    # Delete All Sessions
+    [Return]    ${responsedata}
+
+收费
+    [Arguments]    ${orderNo}    ${orderExamListId}    ${orderPrescriptionIds}    ${orderAdditionAmtListId}
+    ...    ${actualAmt}    ${recordVersion}    ${debtorsName}    ${debtorsPhone}    ${debtAmt}
+    ...    ${medicalInsurance}    ${commercialInsurance}
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    orderNo=${orderNo}    orderExamListId=${orderExamListId}    orderPrescriptionIds=${orderPrescriptionIds}    orderAdditionAmtListId=${orderAdditionAmtListId}    actualAmt=${actualAmt}    recordVersion=${recordVersion}    debtorsName=${debtorsName}    debtorsPhone=${debtorsPhone}    debtAmt=${debtAmt}    medicalInsurance=${medicalInsurance}    commercialInsurance=${commercialInsurance}
+    ${addr}    Post Request    api    his/order/charge    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+获取已收费列表订单详情
+    [Arguments]    ${orderNo}
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    orderNo=${orderNo}
+    ${addr}    Post Request    api    his/order/getChargedOrderInfo    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # Delete All Sessions
+    [Return]    ${responsedata}
+
+

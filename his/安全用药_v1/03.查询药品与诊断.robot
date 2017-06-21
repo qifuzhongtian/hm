@@ -9,7 +9,7 @@ Suite Teardown    Delete All Sessions
 
 
 *** Test Cases ***
-3.1查询药品与诊断
+3.1 查询药品与诊断
     [Documentation]    断言error:""
     # 查询药品与诊断    ['body']['diseaseList'][0]['id']    5048
     # ...    name=高血糖

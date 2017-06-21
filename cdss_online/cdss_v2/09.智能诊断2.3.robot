@@ -3,6 +3,8 @@ Resource          ../cdss接口关键字.robot
 Library           Collections
 Library           RequestsLibrary
 Suite Setup    Delete All Sessions
+Suite Teardown    Delete All Sessions
+
 *** Test Cases ***
 2.1智能诊断接口_只填症状
     [Documentation]    断言:"胆石病"
@@ -79,88 +81,25 @@ Suite Setup    Delete All Sessions
     Should Contain    ${aj}    心律失常
 
 
-
-    # # 2.2智能诊断接口_只填性别
-    # #    [Documentation]    断言:""
-    # #    智能诊断    0    symptom=发热    previousHistory=
-    # #    ...    personalHistory=    allergyHistory=    familyHistory=    weight=    gender=1
-    ...    # bodyTempr=    lowBldPress=    highBldPress=    examInfo=    heartRate=    age=
-    ...    # ageType=
-    # #    ...    confirmDiagnosis=    confirmDiagnosisMap=
-    # #    # ...    examItems=[{id:1,value:},{id:2,value:},{id:3,value:},{id:4,value:},{id:5,value:},{id:6,value:},{id:7,value:},{id:8,value:},{id:9,value:},{id:10,value:},{id:11,value:},{id:12,value:},{id:13,value:},{id:14,value:},{id:15,value:},{id:16,value:},{id:17,value:},{id:18,value:}]
-    # # 2.3智能诊断接口_只填症状
-    # #    [Documentation]    断言:""
-    # #    智能诊断    0    symptom=发热    previousHistory=
-    # #    ...    personalHistory=    allergyHistory=    familyHistory=    weight=    gender=
-    ...    # bodyTempr=    lowBldPress=    highBldPress=    examInfo=    heartRate=    age=
-    ...    # ageType=
-    # #    ...    confirmDiagnosis=    confirmDiagnosisMap=
-    # #    # ...    examItems=[{id:1,value:},{id:2,value:},{id:3,value:},{id:4,value:},{id:5,value:},{id:6,value:},{id:7,value:},{id:8,value:},{id:9,value:},{id:10,value:},{id:11,value:},{id:12,value:},{id:13,value:},{id:14,value:},{id:15,value:},{id:16,value:},{id:17,value:},{id:18,value:}]
-    # # 2.4智能诊断接口_只填既往史
-    # #    [Documentation]    断言:""
-    # #    智能诊断    0    symptom=发热    previousHistory=头疼
-    # #    ...    personalHistory=    allergyHistory=    familyHistory=    weight=    gender=
-    ...    # bodyTempr=    lowBldPress=    highBldPress=    examInfo=    heartRate=    age=
-    ...    # ageType=
-    # #    ...    confirmDiagnosis=    confirmDiagnosisMap=
-    # #    # ...    examItems=[{id:1,value:},{id:2,value:},{id:3,value:},{id:4,value:},{id:5,value:},{id:6,value:},{id:7,value:},{id:8,value:},{id:9,value:},{id:10,value:},{id:11,value:},{id:12,value:},{id:13,value:},{id:14,value:},{id:15,value:},{id:16,value:},{id:17,value:},{id:18,value:}]
-    # # 2.5智能诊断接口_只填个人史
-    # #    [Documentation]    断言:""
-    # #    智能诊断    0    symptom=发热    previousHistory=
-    # #    ...    personalHistory=鼻塞    allergyHistory=    familyHistory=    weight=    gender=
-    ...    # bodyTempr=    lowBldPress=    highBldPress=    examInfo=    heartRate=    age=
-    ...    # ageType=
-    # #    ...    confirmDiagnosis=    confirmDiagnosisMap=
-    # #    # ...    examItems=[{id:1,value:},{id:2,value:},{id:3,value:},{id:4,value:},{id:5,value:},{id:6,value:},{id:7,value:},{id:8,value:},{id:9,value:},{id:10,value:},{id:11,value:},{id:12,value:},{id:13,value:},{id:14,value:},{id:15,value:},{id:16,value:},{id:17,value:},{id:18,value:}]
-    # # 2.6智能诊断接口_只填过敏史
-    # #    [Documentation]    断言:""
-    # #    智能诊断    0    symptom=发热    previousHistory=
-    # #    ...    personalHistory=    allergyHistory=流涕    familyHistory=    weight=    gender=
-    ...    # bodyTempr=    lowBldPress=    highBldPress=    examInfo=    heartRate=    age=
-    ...    # ageType=
-    # #    ...    confirmDiagnosis=    confirmDiagnosisMap=
-    # #    # ...    examItems=[{id:1,value:},{id:2,value:},{id:3,value:},{id:4,value:},{id:5,value:},{id:6,value:},{id:7,value:},{id:8,value:},{id:9,value:},{id:10,value:},{id:11,value:},{id:12,value:},{id:13,value:},{id:14,value:},{id:15,value:},{id:16,value:},{id:17,value:},{id:18,value:}]
-    # # 2.7智能诊断接口_只填家族史
-    # #    [Documentation]    断言:""
-    # #    智能诊断    0    symptom=发热    previousHistory=
-    # #    ...    personalHistory=    allergyHistory=    familyHistory=咳嗽    weight=    gender=
-    ...    # bodyTempr=    lowBldPress=    highBldPress=    examInfo=    heartRate=    age=
-    ...    # ageType=
-    # #    ...    confirmDiagnosis=    confirmDiagnosisMap=
-    # #    # ...    examItems=[{id:1,value:},{id:2,value:},{id:3,value:},{id:4,value:},{id:5,value:},{id:6,value:},{id:7,value:},{id:8,value:},{id:9,value:},{id:10,value:},{id:11,value:},{id:12,value:},{id:13,value:},{id:14,value:},{id:15,value:},{id:16,value:},{id:17,value:},{id:18,value:}]
-    # # 2.8智能诊断接口_只填体重
-    # #    [Documentation]    断言:""
-    # #    智能诊断    0    symptom=发热    previousHistory=
-    # #    ...    personalHistory=    allergyHistory=    familyHistory=    weight=355    gender=
-    ...    # bodyTempr=    lowBldPress=    highBldPress=    examInfo=    heartRate=    age=
-    ...    # ageType=
-    # #    ...    confirmDiagnosis=    confirmDiagnosisMap=
-    # #    # ...    examItems=[{id:1,value:},{id:2,value:},{id:3,value:},{id:4,value:},{id:5,value:},{id:6,value:},{id:7,value:},{id:8,value:},{id:9,value:},{id:10,value:},{id:11,value:},{id:12,value:},{id:13,value:},{id:14,value:},{id:15,value:},{id:16,value:},{id:17,value:},{id:18,value:}]
-    # # 2.9智能诊断接口_心率正常
-    # #    [Documentation]    断言:""
-    # #    智能诊断    0    symptom=发热    previousHistory=
-    # #    ...    personalHistory=    allergyHistory=    familyHistory=    weight=    gender=
-    ...    # bodyTempr=    lowBldPress=    highBldPress=    examInfo=    heartRate=66    age=
-    ...    # ageType=
-    # #    ...    confirmDiagnosis=    confirmDiagnosisMap=
-    # #    # ...    examItems=[{id:1,value:},{id:2,value:},{id:3,value:},{id:4,value:},{id:5,value:},{id:6,value:},{id:7,value:},{id:8,value:},{id:9,value:},{id:10,value:},{id:11,value:},{id:12,value:},{id:13,value:},{id:14,value:},{id:15,value:},{id:16,value:},{id:17,value:},{id:18,value:}]
-    # # 2.0智能诊断接口_只填收缩压
-    # #    [Documentation]    断言:""
-    # #    智能诊断    0    symptom=发热    previousHistory=
-    # #    ...    personalHistory=    allergyHistory=    familyHistory=    weight=    gender=
-    ...    # bodyTempr=    lowBldPress=100    highBldPress=    examInfo=    heartRate=    age=
-    ...    # ageType=
-    # #    ...    confirmDiagnosis=    confirmDiagnosisMap=
-    # #    # ...    examItems=[{id:1,value:},{id:2,value:},{id:3,value:},{id:4,value:},{id:5,value:},{id:6,value:},{id:7,value:},{id:8,value:},{id:9,value:},{id:10,value:},{id:11,value:},{id:12,value:},{id:13,value:},{id:14,value:},{id:15,value:},{id:16,value:},{id:17,value:},{id:18,value:}]
-    # # 2.11智能诊断接口_只填舒张压
-    # #    [Documentation]    断言:""
-    # #    智能诊断    0    symptom=发热    previousHistory=
-    # #    ...    personalHistory=    allergyHistory=    familyHistory=    weight=    gender=
-    ...    # bodyTempr=    lowBldPress=    highBldPress=60    examInfo=    heartRate=    age=
-    ...    # ageType=
-    # #    ...    confirmDiagnosis=    confirmDiagnosisMap=
-    # #    # ...    examItems=[{id:1,value:},{id:2,value:},{id:3,value:},{id:4,value:},{id:5,value:},{id:6,value:},{id:7,value:},{id:8,value:},{id:9,value:},{id:10,value:},{id:11,value:},{id:12,value:},{id:13,value:},{id:14,value:},{id:15,value:},{id:16,value:},{id:17,value:},{id:18,value:}]
+2.8 推出的子诊断是危重疾病，则单独在危重疾病中显示，在其父疾病的相关疾病中不再显示
+    [Documentation]    '中暑痉挛'分数比'中暑'低,因为是危重疾病,所以单独在危重疾病中显示,不用显示在相关疾病中
+    ${getRes}    智能诊断2.3    symptom=高温环境，头晕，中暑    previousHistory=    personalHistory=    allergyHistory=
+    ...    familyHistory=    weight=    gender=    bodyTempr=    lowBldPress=    highBldPress=
+    ...    examInfo=    heartRate=    age=    ageType=    confirmDiagnosis=    confirmDiagnosisMap=
+    ...    presentHistory=
+    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][1]['diseases']]
+    log    ${aj}
+    Should Contain    ${aj}    中暑痉挛
 
 
 
-    [Teardown]    Delete All Sessions
+2.9 推出的子疾病召回得分高于父疾病，则在第一页面中显示，，在其父疾病的相关疾病中不再显示
+    [Documentation]    该case中'原发性高血压'分数比'高血压'高,所以单独在危重疾病中显示,不用显示在相关疾病中
+    ${getRes}    智能诊断2.3    symptom=A2＞P2，主动脉瓣区收缩期吹风样杂音，心尖部收缩期吹风样杂音，心界向左下扩大    previousHistory=    personalHistory=    allergyHistory=
+    ...    familyHistory=    weight=    gender=    bodyTempr=    lowBldPress=    highBldPress=
+    ...    examInfo=    heartRate=    age=    ageType=    confirmDiagnosis=    confirmDiagnosisMap=
+    ...    presentHistory=
+    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
+    log    ${aj}
+    Should Contain    ${aj}    原发性高血压
+
