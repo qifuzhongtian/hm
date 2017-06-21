@@ -55,7 +55,7 @@ Suite Teardown    Delete All Sessions
     ...    familyHistory=    weight=    gender=    bodyTempr=    lowBldPress=    highBldPress=
     ...    examInfo=    heartRate=101    age=    ageType=    confirmDiagnosis=    confirmDiagnosisMap=
     ...    presentHistory=
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
+    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases'][0]['subDiseases']]
     log    ${aj}
     Should Contain    ${aj}    心动过速
 
