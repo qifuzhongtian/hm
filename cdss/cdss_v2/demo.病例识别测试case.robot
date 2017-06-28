@@ -13,7 +13,6 @@ Suite Teardown    Delete All Sessions
     ${aj}    Evaluate    [aj for aj in $getRes['body']['allCallbackWords']]
     Should Contain    ${aj[:3]}    血氧饱和度降低
 
-
 2.嗜酸性粒细胞计数1.03×10^9／L -> 嗜酸性粒细胞增多
     [Documentation]    断言:"[allCallbackWords]包含:嗜酸性粒细胞增多"
     ${getRes}    病例识别    symptom=嗜酸性粒细胞计数1.03×10^9／L
@@ -36,8 +35,6 @@ Suite Teardown    Delete All Sessions
     ${aj}    Evaluate    [aj for aj in $getRes['body']['allCallbackWords']]
     Should Contain    ${aj[:3]}    C反应蛋白升高
 
-
-
 5.PPD试验：局部硬结直径5mm（+） -> PPD阳性
     [Documentation]    断言:"[allCallbackWords]包含: PPD阳性"
     ${getRes}    病例识别    symptom=PPD试验：局部硬结直径5mm（+）
@@ -52,7 +49,6 @@ Suite Teardown    Delete All Sessions
     ...    gender=    age=    ageType=
     ${aj}    Evaluate    [aj for aj in $getRes['body']['allCallbackWords']]
     Should Contain    ${aj[:3]}     血清总胆红素升高
-
 
 
 7.空腹血糖:3mmol／L->空腹血糖降低
@@ -85,14 +81,12 @@ Suite Teardown    Delete All Sessions
     ${aj}    Evaluate    [aj for aj in $getRes['body']['allCallbackWords']]
     Should Contain    ${aj[:3]}     高密度脂蛋白胆固醇降低
 
-
 11.高密度脂蛋白胆固醇为3mmol/L->高密度脂蛋白胆固醇增高
     [Documentation]    断言:"[allCallbackWords]包含: 高密度脂蛋白胆固醇增高"
     ${getRes}    病例识别    symptom=高密度脂蛋白胆固醇为3mmol/L
     ...    gender=    age=    ageType=
     ${aj}    Evaluate    [aj for aj in $getRes['body']['allCallbackWords']]
     Should Contain    ${aj[:3]}     高密度脂蛋白胆固醇增高
-
 
 12.PLT:90-血小板计数减少
     [Documentation]    断言:"[allCallbackWords]包含: 血小板计数减少"
@@ -107,4 +101,3 @@ Suite Teardown    Delete All Sessions
     ...    gender=    age=    ageType=
     ${aj}    Evaluate    [aj for aj in $getRes['body']['allCallbackWords']]
     Should Contain    ${aj[:3]}     血清肌酐升高
-

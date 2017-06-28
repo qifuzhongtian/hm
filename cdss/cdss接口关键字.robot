@@ -370,18 +370,6 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     [Return]    ${responsedata}
 
 
-病例识别
-    [Arguments]    ${symptom}    ${gender}    ${age}    ${ageType}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
-    ${data}    Create Dictionary    symptom=${symptom}    gender=${gender}    age=${age}   ageType=${ageType}
-    ${addr}    Post Request    api    /recognize    data=${data}
-    ${responsedata}    To Json    ${addr.content}
-    # Should Contain    ${aj[:15]}    ${msg}
-    # Delete All Sessions
-    [Return]    ${responsedata}
-
-
 # his
     # log    ${responsedata['body']['suspectedDiseases'][0]}
     # log    ${responsedata['body']['suspectedDiseases'][0]['id']}
@@ -401,6 +389,19 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     #    Should Be Equal As Strings    ${responsedata['head']['message']}    ${msg}
     #    # log    ${responsedata['head']['message']}
     #    Delete All Sessions
+病例识别
+    [Arguments]    ${symptom}    ${gender}    ${age}    ${ageType}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    symptom=${symptom}    gender=${gender}    age=${age}   ageType=${ageType}
+    ${addr}    Post Request    api    /recognize    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # Should Contain    ${aj[:15]}    ${msg}
+    # Delete All Sessions
+    [Return]    ${responsedata}
+
+
+
 
 疾病查询
     [Arguments]    ${diseaseName}
