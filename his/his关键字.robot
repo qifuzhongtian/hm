@@ -460,6 +460,7 @@ ${loginStatus}    1
     # Should Be Equal As Strings    ${responsedata['body']['suspectedDiseases'][0]['id']}    ${msg}
     # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
     # Delete All Sessions
+    # ${}
     [Return]    ${responsedata}
 
 科室信息查询
@@ -472,6 +473,8 @@ ${loginStatus}    1
     # Should Be Equal As Strings    ${responsedata['body']['suspectedDiseases'][0]['id']}    ${msg}
     # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
     # Delete All Sessions
+    ${laboratoryId}    Get From Dictionary    ${responsedata['body']['laboratoryList'][0]}    laboratoryId
+    Set Global Variable    ${laboratoryId}
     [Return]    ${responsedata}
 
 检查删除
@@ -743,6 +746,22 @@ ${loginStatus}    1
     [Return]    ${responsedata}
     # [Return]    ${addr}
 
+
+
+药品入库
+    [Arguments]    ${supplier}    ${batchInstockList}    ${purchaseOrderId}    ${createDate}
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${base_url}    ${dict}
+    ${batchInstockList}    evaluate    [${batchInstockList}]
+    # ${batchInstockList}    evaluate    [{"drugId":"148349","instockCount":"1","purchasePrice":"1.00","prescriptionPrice":"88.11","validityDate":4070880000000,"expirationOptions":"","instockUnit":"盒"}]
+    ${data}    Create Dictionary    supplier=${supplier}    batchInstockList=${batchInstockList}    purchaseOrderId=${purchaseOrderId}    createDate=${createDate}
+    ${addr}    Post Request    api    his/instock/submitDrugInsock    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+
 药品入库日志
     [Arguments]    ${startDate}    ${endDate}    ${drugBatchNo}    ${drugName}    ${supplier}
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -754,19 +773,6 @@ ${loginStatus}    1
     # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
     # Delete All Sessions
     [Return]    ${responsedata}
-
-
-
-药品入库
-    [Arguments]    ${supplier}    ${batchInstockList}    ${purchaseOrderId}    ${createDate}
-    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    # Create Session    api    ${base_url}    ${dict}
-    ${batchInstockList}    evaluate    [{"drugId":"148349","instockCount":"1","purchasePrice":"1.00","prescriptionPrice":"88.11","validityDate":4070880000000,"expirationOptions":"","instockUnit":"盒"}]
-    ${data}    Create Dictionary    supplier=${supplier}    batchInstockList=${batchInstockList}    purchaseOrderId=${purchaseOrderId}    createDate=${createDate}
-    ${addr}    Post Request    api    his/instock/submitDrugInsock    data=${data}
-    ${responsedata}    To Json    ${addr.content}
-    [Return]    ${responsedata}
-
 
 
 
@@ -832,6 +838,7 @@ ${loginStatus}    1
     # Delete All Sessions
     ${orderNo}    Get From Dictionary    ${responsedata['body']['orders'][0]}    orderNo
     Set Global Variable    ${orderNo}
+
     [Return]    ${responsedata}
 
 已收费列表订单列表
@@ -870,8 +877,18 @@ ${loginStatus}    1
     # Should Be Equal As Strings    ${responsedata['body']['suspectedDiseases'][0]['id']}    ${msg}
     # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
     # Delete All Sessions
+
     ${orderExamListId}    Get From Dictionary    ${responsedata['body']['orderExamList']}    orderExamListId
     Set Global Variable    ${orderExamListId}
+    #获取应收金额
+    ${receivableAmt}    Get From Dictionary    ${responsedata['body']}    receivableAmt
+    Set Global Variable    ${receivableAmt}
+    #获取订单版本号
+    ${recordVersion}    Get From Dictionary    ${responsedata['body']}    recordVersion
+    Set Global Variable    ${recordVersion}
+    #获取处方集合数组
+    ${orderPrescriptionId}    Get From Dictionary    ${responsedata['body']['orderPrescriptions'][0]}    orderPrescriptionId
+    Set Global Variable    ${orderPrescriptionId}
     [Return]    ${responsedata}
 
 收费
