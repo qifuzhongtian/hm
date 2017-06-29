@@ -982,7 +982,7 @@ ${loginStatus}    1
     ...    # ${tempAuthority}
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${base_url}    ${dict}
-    ${tempName}    Generate Random String    22    1234567890abcdefghijklmnopkrst成药处方
+    # ${tempName}    Generate Random String    22    1234567890abcdefghijklmnopkrst成药处方
     ${patentPrescriptionList}    evaluate    [{"patentDrugList":[{"assId":"","dataSource":"0","dosage":"1","dosageUnit":"粒","drugId":"148307","drugName":"阿莫西林片[益萨林]","frequency":"1日3次(tid)","totalDosage":"1","totalDosageUnit":"盒","usage":"外用","specification":"0.25g/片*12/盒","manufacturer":"哈药总厂"},{"assId":"","dataSource":"0","dosage":"2","dosageUnit":"粒","drugId":"148306","drugName":"安乐片","frequency":"1日2次(bid)","totalDosage":"1","totalDosageUnit":"盒","usage":"口服","specification":"片*24/盒","manufacturer":"广西邦琪药业集团有限公司"}]}]
     ${data}    Create Dictionary    id=${id}    tempName=${tempName}    tempType=${tempType}    linkId=${linkId}    patentPrescriptionList=${patentPrescriptionList}
     ...    # ...    tempAuthority=${tempAuthority}

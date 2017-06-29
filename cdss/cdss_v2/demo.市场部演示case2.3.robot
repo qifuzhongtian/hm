@@ -139,7 +139,7 @@ Library           RequestsLibrary
     ${getRes}    智能诊断2.3    symptom=阴道分泌物增多并有异味4个月，偶有性交后出血1个月.妇科查体：阴道内分泌物多、色白、阴道无充血，宫颈中度糜烂，触之有少许出血    previousHistory=    personalHistory=G2P1    allergyHistory=    familyHistory=
     ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
     ...    heartRate=    age=44    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=    presentHistory=
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases'][0]['subDiseases']]
+    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
     log    ${aj}
     Should Contain    ${aj[:10]}    宫颈原位癌
 
@@ -327,8 +327,8 @@ Library           RequestsLibrary
        Should Contain    ${aj[:15]}    细菌性肺炎
 
 30.体格检查case-4
-       [Documentation]    主诉:'小板计数减少 PC:90'
-       ${getRes}    智能诊断2.3    symptom=小板计数减少 PC:90
+       [Documentation]    主诉:'小板计数减少 PLT:90'
+       ${getRes}    智能诊断2.3    symptom=小板计数减少 PLT:90
        ...    previousHistory=    personalHistory=
        ...    allergyHistory=    familyHistory=
        ...    weight=    gender=1    bodyTempr=    lowBldPress=    highBldPress=

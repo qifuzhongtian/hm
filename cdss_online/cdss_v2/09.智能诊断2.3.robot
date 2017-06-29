@@ -2,8 +2,12 @@
 Resource          ../cdss接口关键字.robot
 Library           Collections
 Library           RequestsLibrary
-Suite Setup    Delete All Sessions
+# Suite Setup    Delete All Sessions
 Suite Teardown    Delete All Sessions
+
+*** Variables ***
+# ${assert}
+
 
 *** Test Cases ***
 2.1智能诊断接口_只填症状
@@ -55,7 +59,7 @@ Suite Teardown    Delete All Sessions
     ...    familyHistory=    weight=    gender=    bodyTempr=    lowBldPress=    highBldPress=
     ...    examInfo=    heartRate=101    age=    ageType=    confirmDiagnosis=    confirmDiagnosisMap=
     ...    presentHistory=
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
+    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases'][0]['subDiseases']]
     log    ${aj}
     Should Contain    ${aj}    心动过速
 
@@ -81,25 +85,5 @@ Suite Teardown    Delete All Sessions
     Should Contain    ${aj}    心律失常
 
 
-2.8 推出的子诊断是危重疾病，则单独在危重疾病中显示，在其父疾病的相关疾病中不再显示
-    [Documentation]    '中暑痉挛'分数比'中暑'低,因为是危重疾病,所以单独在危重疾病中显示,不用显示在相关疾病中
-    ${getRes}    智能诊断2.3    symptom=高温环境，头晕，中暑    previousHistory=    personalHistory=    allergyHistory=
-    ...    familyHistory=    weight=    gender=    bodyTempr=    lowBldPress=    highBldPress=
-    ...    examInfo=    heartRate=    age=    ageType=    confirmDiagnosis=    confirmDiagnosisMap=
-    ...    presentHistory=
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][1]['diseases']]
-    log    ${aj}
-    Should Contain    ${aj}    中暑痉挛
 
-
-
-2.9 推出的子疾病召回得分高于父疾病，则在第一页面中显示，，在其父疾病的相关疾病中不再显示
-    [Documentation]    该case中'原发性高血压'分数比'高血压'高,所以单独在危重疾病中显示,不用显示在相关疾病中
-    ${getRes}    智能诊断2.3    symptom=A2＞P2，主动脉瓣区收缩期吹风样杂音，心尖部收缩期吹风样杂音，心界向左下扩大    previousHistory=    personalHistory=    allergyHistory=
-    ...    familyHistory=    weight=    gender=    bodyTempr=    lowBldPress=    highBldPress=
-    ...    examInfo=    heartRate=    age=    ageType=    confirmDiagnosis=    confirmDiagnosisMap=
-    ...    presentHistory=
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
-    log    ${aj}
-    Should Contain    ${aj}    原发性高血压
 
