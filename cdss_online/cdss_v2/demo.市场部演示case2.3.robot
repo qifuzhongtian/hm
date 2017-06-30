@@ -134,7 +134,7 @@ Library           RequestsLibrary
     #    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
     #    Should Contain    ${aj[:10]}    宫颈原位癌
 
-12.妇产科室演示病例15例-3-子疾病
+12.妇产科室演示病例15例-3
     [Documentation]    主诉:阴道分泌物增多并有异味4个月，偶有性交后出血1个月.妇科查体：阴道内分泌物多、色白、阴道无充血，宫颈中度糜烂，触之有少许出血'
     ${getRes}    智能诊断2.3    symptom=阴道分泌物增多并有异味4个月，偶有性交后出血1个月.妇科查体：阴道内分泌物多、色白、阴道无充血，宫颈中度糜烂，触之有少许出血    previousHistory=    personalHistory=G2P1    allergyHistory=    familyHistory=
     ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
@@ -327,8 +327,8 @@ Library           RequestsLibrary
        Should Contain    ${aj[:15]}    细菌性肺炎
 
 30.体格检查case-4
-       [Documentation]    主诉:'小板计数减少 PLT:90'
-       ${getRes}    智能诊断2.3    symptom=小板计数减少 PLT:90
+       [Documentation]    主诉:'血小板计数减少 PLT:90'
+       ${getRes}    智能诊断2.3    symptom=血小板计数减少 PLT:90
        ...    previousHistory=    personalHistory=
        ...    allergyHistory=    familyHistory=
        ...    weight=    gender=1    bodyTempr=    lowBldPress=    highBldPress=

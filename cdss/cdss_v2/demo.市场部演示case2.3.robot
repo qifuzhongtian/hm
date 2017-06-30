@@ -327,8 +327,8 @@ Library           RequestsLibrary
        Should Contain    ${aj[:15]}    细菌性肺炎
 
 30.体格检查case-4
-       [Documentation]    主诉:'小板计数减少 PLT:90'
-       ${getRes}    智能诊断2.3    symptom=小板计数减少 PLT:90
+       [Documentation]    主诉:'血小板计数减少 PLT:90'
+       ${getRes}    智能诊断2.3    symptom=血小板计数减少 PLT:90
        ...    previousHistory=    personalHistory=
        ...    allergyHistory=    familyHistory=
        ...    weight=    gender=1    bodyTempr=    lowBldPress=    highBldPress=

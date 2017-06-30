@@ -3,6 +3,11 @@
 ${base_url}       http://10.117.64.153:8080
 # ${base_url}     http://10.46.74.95:8080
 ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
+#妇产科诊断性别_测试环境
+${base_url_95}     http://10.46.74.95:9200
+#妇产科诊断性别_线上环境
+${base_url_72}     http://10.252.128.72:9200
+
 # ${base_url_common}    http://test2.common.wmiweb.com/v1
 # ${base_url_base}    http://doctor-dev.api.wmiweb.com/
 # ${base_url_gy}    http://60.205.93.39
@@ -444,3 +449,17 @@ test
     #Should Contain    ${aj}    null
     #Should Not Be Empty    ${aj}
     Should Be Empty    ${aj}
+
+
+妇产科诊断性别
+    [Arguments]    ${query}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${base_url_95}    ${dict}
+    ${object}    Set Variable    {"bool":{"must":[{"term":{"department":"妇产科"}}],"filter":{"bool":{"should":[{"term":{"gender":0}},{"term":{"gender":1}}]}}}}
+    ${query}    Evaluate    dict(${object})
+    ${data}    Create Dictionary    query=${query}
+    ${addr}    Post Request    api    /disease/disease/_search?_source=false    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # Should Contain    ${aj[:15]}    ${msg}
+    # Delete All Sessions
+    [Return]    ${responsedata}
