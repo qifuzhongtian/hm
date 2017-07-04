@@ -328,6 +328,7 @@ ${loginStatus}    1
     ...    ${phoneNo}    ${temperature}    ${sbp}    ${dbp}    ${heartRate}    ${height}
     ...    ${weight}    ${otherPhysique}    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}
     ...    ${familyHistory}    ${modle}    ${examList}    ${diagnosis}    ${patentPrescriptionList}
+    # ...    ${additionalList}
     # ...    ${a}
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${base_url}    ${dict}
@@ -335,10 +336,12 @@ ${loginStatus}    1
     ${examList}    evaluate    [${examList}]
     # ${examList}    evaluate    [{"examId":"843","examName":"抗RA33抗体","total":"1","patientExamId":"","price":"0","isCharged":"0","dataSource":"1"}]
     ${patentPrescriptionList}    Evaluate    [${patentPrescriptionList}]
+    # ${additionalList}    Evaluate    [${additionalList}]
     ${data}    Create Dictionary    recordId=${recordId}    patientId=${patientId}    patientName=${patientName}    gender=${gender}    age=${age}
     ...    ageType=${ageType}    phoneNo=${phoneNo}    temperature=${temperature}    sbp=${sbp}    dbp=${dbp}    heartRate=${heartRate}
     ...    height=${height}    weight=${weight}    otherPhysique=${otherPhysique}    symptom=${symptom}    previousHistory=${previousHistory}    personalHistory=${personalHistory}
     ...    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}    modle=${modle}    examList=${examList}    diagnosis=${diagnosis}    patentPrescriptionList=${patentPrescriptionList}
+    # ...    additionalList=${additionalList}
     # ${examList}    evaluate    [{"examId":"843","examName":"抗RA33抗体","total":"1","patientExamId":"","price":"0","isCharged":"0","dataSource":"1"}]
     ${addr}    Post Request    api    his/outpatient/addPatinetRecordFirst    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -652,6 +655,7 @@ ${loginStatus}    1
     # Delete All Sessions
     [Return]    ${addr}
 
+
 导入药品excel
     [Arguments]    ${hospitalId}    ${excelFile}
     ${file}    Evaluate    open(/Users/yinbo/Downloads/drug_import_template_with_branch.xls)
@@ -852,6 +856,8 @@ ${loginStatus}    1
     # Should Be Equal As Strings    ${responsedata['body']['suspectedDiseases'][0]['id']}    ${msg}
     # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
     # Delete All Sessions
+    ${orderNo}    Get From Dictionary    ${responsedata['body']['orders'][0]}    orderNo
+    Set Global Variable    ${orderNo}
     [Return]    ${responsedata}
 
 已退费列表订单列表
@@ -889,17 +895,11 @@ ${loginStatus}    1
     #获取处方集合数组
     ${orderPrescriptionId}    Get From Dictionary    ${responsedata['body']['orderPrescriptions'][0]}    orderPrescriptionId
     Set Global Variable    ${orderPrescriptionId}
-    [Return]    ${responsedata}
 
-收费
-    [Arguments]    ${orderNo}    ${orderExamListId}    ${orderPrescriptionIds}    ${orderAdditionAmtListId}    ${actualAmt}    ${recordVersion}
-    ...    ${debtorsName}    ${debtorsPhone}    ${debtAmt}    ${medicalInsurance}    ${commercialInsurance}
-    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    # Create Session    api    ${base_url}    ${dict}
-    ${data}    Create Dictionary    orderNo=${orderNo}    orderExamListId=${orderExamListId}    orderPrescriptionIds=${orderPrescriptionIds}    orderAdditionAmtListId=${orderAdditionAmtListId}    actualAmt=${actualAmt}
-    ...    recordVersion=${recordVersion}    debtorsName=${debtorsName}    debtorsPhone=${debtorsPhone}    debtAmt=${debtAmt}    medicalInsurance=${medicalInsurance}    commercialInsurance=${commercialInsurance}
-    ${addr}    Post Request    api    his/order/charge    data=${data}
-    ${responsedata}    To Json    ${addr.content}
+    #获取附加费用单对象
+    # ${object}    Get From Dictionary    ${responsedata['body']}    orderAdditionAmtList
+    # ${orderAdditionAmtList}    Evaluate    dict(${object})
+    # Set Global Variable    ${orderAdditionAmtList}
     [Return]    ${responsedata}
 
 获取已收费列表订单详情
@@ -910,6 +910,27 @@ ${loginStatus}    1
     ${addr}    Post Request    api    his/order/getChargedOrderInfo    data=${data}
     ${responsedata}    To Json    ${addr.content}
     # Delete All Sessions
+    #获取订单金额
+    ${actualAmt}    Get From Dictionary    ${responsedata['body']}    actualAmt
+    Set Global Variable    ${actualAmt}
+    #获取订单版本号
+    ${recordVersion}    Get From Dictionary    ${responsedata['body']}    recordVersion
+    Set Global Variable    ${recordVersion}
+    #获取检查单id
+    ${orderExamListId}    Get From Dictionary    ${responsedata['body']['orderExamList']}    orderExamListId
+    Set Global Variable    ${orderExamListId}
+    [Return]    ${responsedata}
+
+
+收费
+    [Arguments]    ${orderNo}    ${orderExamListId}    ${orderPrescriptionIds}    ${orderAdditionAmtListId}    ${actualAmt}    ${recordVersion}
+    ...    ${debtorsName}    ${debtorsPhone}    ${debtAmt}    ${medicalInsurance}    ${commercialInsurance}
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    orderNo=${orderNo}    orderExamListId=${orderExamListId}    orderPrescriptionIds=${orderPrescriptionIds}    orderAdditionAmtListId=${orderAdditionAmtListId}    actualAmt=${actualAmt}
+    ...    recordVersion=${recordVersion}    debtorsName=${debtorsName}    debtorsPhone=${debtorsPhone}    debtAmt=${debtAmt}    medicalInsurance=${medicalInsurance}    commercialInsurance=${commercialInsurance}
+    ${addr}    Post Request    api    his/order/charge    data=${data}
+    ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
 获取模板列表
