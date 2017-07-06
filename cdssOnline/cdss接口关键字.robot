@@ -2,27 +2,80 @@
 ${base_url}     http://apollo.huimeionline.com
 # ${base_url}       http://10.117.64.153:8080
 # ${base_url}     http://10.46.74.95:8080
+
 #妇产科诊断性别_测试环境
 ${base_url_95}     http://10.46.74.95:9200
 #妇产科诊断性别_线上环境
 ${base_url_72}     http://10.252.128.72:9200
-
-
 ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
-# ${base_url_common}    http://test2.common.wmiweb.com/v1
-# ${base_url_base}    http://doctor-dev.api.wmiweb.com/
-# ${base_url_gy}    http://60.205.93.39
-# U-TOKEN 医生 U-TOKEN-A 患者    U-TOKEN-b 医助
-# ${U-TOKEN}      DDDDDD
-# ${U-TOKEN-A}    PPPPPP
-# ${U-TOKEN-B}    AAAAAA
-# ${app-type}     999
-# ${device-code}    163FE899-3267-43B1-9465-82B5ADC712DA
-# ${timestamp}    123456789
-# ${sign}         c54533230ee50db2cff7c7d6226d5aa1
-# ${version}      1.0
+${Huimei_id_safe_medication}      C3B844493A477BCF3D7B73A5E902B269
 
 *** Keywords ***
+################安全用药################
+安全用药
+    [Arguments]    ${gender}    ${age}    ${ageType}    ${drugIds}    ${symptom}    ${confirmDiagnosis}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id_safe_medication}
+    Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    gender=${gender}    age=${age}    ageType=${ageType}
+    ...    drugIds=${drugIds}    symptom=${symptom}    confirmDiagnosis=${confirmDiagnosis}
+    ${addr}    Post Request    api    hmsm/v_1_0/safe_medication    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # ${str}    Get From Dictionary    ${responsedata}    head
+    # ${str1}    Get From Dictionary    ${str}    error
+    # Should Be Equal As Strings    ${str1}    ${msg}
+    # Should Be Equal As Strings    ${responsedata['body']['interactionList'][0]['grade']}    ${msg}
+    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    [Return]    ${responsedata}
+
+药品查询
+    [Arguments]    ${drugName}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id_safe_medication}
+    Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    drugName=${drugName}
+    ${addr}    Post Request    api    hmsm/v_1_0/drug/search    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # ${str}    Get From Dictionary    ${responsedata}    head
+    # ${str1}    Get From Dictionary    ${str}    error
+    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    [Return]    ${responsedata}
+
+
+查询药品与诊断
+    [Arguments]    ${name}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id_safe_medication}
+    Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    name=${name}
+    ${addr}    Post Request    api    v_2_0/search/all    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    [Return]    ${responsedata}
+
+药品详情
+    [Arguments]    ${drugId}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id_safe_medication}
+    Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    drugId=${drugId}
+    ${addr}    Post Request    api    hmsm/v_1_0/drug/detail    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    [Return]    ${responsedata}
+
+
+诊断依据
+    [Arguments]    ${diseaseId}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id_safe_medication}
+    Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    diseaseId=${diseaseId}
+    ${addr}    Post Request    api    v_2_0/disease/basis    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    [Return]    ${responsedata}
+
+
+
+
+
+
 随机字符-1
     [Arguments]    ${arg1}    ${arg2}=123    @{arg3}
     log    ${arg1}

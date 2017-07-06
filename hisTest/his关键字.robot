@@ -8,7 +8,6 @@ ${base_url}       http://10.117.64.153:8080
 ${base_url_jl}    http://192.168.1.18:8080
 # ${base病历详细_url}    http://api.huimeionline.com
 ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
-${Huimei_id_safe_medication}    C3B844493A477BCF3D7B73A5E902B269
 # ${SESSION}      6fa8ddef-c9d2-4957-9edb-78094ee09c3c
 ${empty}
 # ${tempN Random String    22    接口自动添加饮片处方
@@ -63,81 +62,6 @@ ${null}    null
     # Delete All Sessions
     [Return]    ${responsedata}
 
-
-
-安全用药
-    [Arguments]    ${gender}    ${age}    ${ageType}    ${drugIds}    ${symptom}    ${confirmDiagnosis}
-    ...    # 安全用药    #    [Arguments]    ${slice}    ${msg}    ${gender}
-    ...    # ${age}    ${ageType}    # ${drugIds}    ${symptom}    ${confirmDiagnosis}
-    # 获取时间戳
-    #    Set Global Variable    ${secs}
-    #    ${secs}    Get Time    epoch
-    #    log    ${secs}
-    #    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id_safe_medication}
-    #    Create Session    api    ${base_url}    ${dict}
-    #    ${data}    Create Dictionary    gender=${gender}    age=${age}    ageType=${ageType}
-    #    ...    drugIds=${drugIds}    symptom=${symptom}    confirmDiagnosis=${confirmDiagnosis}
-    #    ${addr}    Post Request    api    hmsm/v_1_0/safe_medication    data=${data}
-    #    ${responsedata}    To Json    ${addr.content}
-    #    # ${str}    Get From Dictionary    ${responsedata}    head
-    #    # ${str1}    Get From Dictionary    ${str}    error
-    #    # Should Be Equal As Strings    ${str1}    ${msg}
-    #    # Should Be Equal As Strings    ${responsedata['body']['interactionList'][0]['grade']}    ${msg}
-    #    Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id_safe_medication}
-    Create Session    api    ${base_url}    ${dict}
-    ${data}    Create Dictionary    gender=${gender}    age=${age}    ageType=${ageType}    drugIds=${drugIds}    symptom=${symptom}
-    ...    confirmDiagnosis=${confirmDiagnosis}
-    ${addr}    Post Request    api    hmsm/v_1_0/safe_medication    data=${data}
-    ${responsedata}    To Json    ${addr.content}
-    # ${str}    Get From Dictionary    ${responsedata}    head
-    # ${str1}    Get From Dictionary    ${str}    error
-    # Should Be Equal As Strings    ${str1}    ${msg}
-    # Should Be Equal As Strings    ${responsedata['body']['interactionList'][0]['grade']}    ${msg}
-    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
-    [Return]    ${responsedata}
-
-药品查询
-    [Arguments]    ${drugName}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id_safe_medication}
-    Create Session    api    ${base_url}    ${dict}
-    ${data}    Create Dictionary    drugName=${drugName}
-    ${addr}    Post Request    api    hmsm/v_1_0/drug/search    data=${data}
-    ${responsedata}    To Json    ${addr.content}
-    # ${str}    Get From Dictionary    ${responsedata}    head
-    # ${str1}    Get From Dictionary    ${str}    error
-    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
-    [Return]    ${responsedata}
-
-查询药品与诊断
-    [Arguments]    ${name}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id_safe_medication}
-    Create Session    api    ${base_url}    ${dict}
-    ${data}    Create Dictionary    name=${name}
-    ${addr}    Post Request    api    v_2_0/search/all    data=${data}
-    ${responsedata}    To Json    ${addr.content}
-    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
-    [Return]    ${responsedata}
-
-药品详情
-    [Arguments]    ${drugId}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id_safe_medication}
-    Create Session    api    ${base_url}    ${dict}
-    ${data}    Create Dictionary    drugId=${drugId}
-    ${addr}    Post Request    api    hmsm/v_1_0/drug/detail    data=${data}
-    ${responsedata}    To Json    ${addr.content}
-    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
-    [Return]    ${responsedata}
-
-诊断依据
-    [Arguments]    ${diseaseId}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id_safe_medication}
-    Create Session    api    ${base_url}    ${dict}
-    ${data}    Create Dictionary    diseaseId=${diseaseId}
-    ${addr}    Post Request    api    v_2_0/disease/basis    data=${data}
-    ${responsedata}    To Json    ${addr.content}
-    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
-    [Return]    ${responsedata}
 
 新建病历接口
     [Arguments]    ${patientId}
@@ -1115,8 +1039,41 @@ ${null}    null
     # ${examList}    Evaluate    [{"examId":"843","examName":"抗RA33抗体","total":"1","patientExamId":"","price":"0","isCharged":"0","dataSource":"1"}]
     ${addr}    Post Request    api    his/outpatient/addPatinetRecordFirst    data=${data}
     ${responsedata}    To Json    ${addr.content}
+    ${recordId}    Get From Dictionary    ${responsedata['body']}    recordId
+    Set Global Variable    ${recordId}
     # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
     [Return]    ${responsedata}
+
+
+
+修改病历_输液卡
+    [Arguments]    ${recordId}    ${patientId}    ${patientName}    ${gender}    ${age}    ${ageType}
+    ...    ${phoneNo}    ${temperature}    ${sbp}    ${dbp}    ${heartRate}    ${height}
+    ...    ${weight}    ${otherPhysique}    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}
+    ...    ${familyHistory}    ${modle}    ${examList}    ${diagnosis}    ${patentPrescriptionList}
+    # ...    ${additionalList}
+    ...    ${infusionList}
+    # ...    ${a}
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${base_url}    ${dict}
+    ${diagnosis}    Evaluate    [${diagnosis}]
+    ${examList}    Evaluate    [${examList}]
+    # ${examList}    Evaluate    [{"examId":"843","examName":"抗RA33抗体","total":"1","patientExamId":"","price":"0","isCharged":"0","dataSource":"1"}]
+    ${patentPrescriptionList}    Evaluate    [${patentPrescriptionList}]
+    # ${additionalList}    Evaluate    [${additionalList}]
+    ${infusionList}    Evaluate    [${infusionList}]
+    ${data}    Create Dictionary    recordId=${recordId}    patientId=${patientId}    patientName=${patientName}    gender=${gender}    age=${age}
+    ...    ageType=${ageType}    phoneNo=${phoneNo}    temperature=${temperature}    sbp=${sbp}    dbp=${dbp}    heartRate=${heartRate}
+    ...    height=${height}    weight=${weight}    otherPhysique=${otherPhysique}    symptom=${symptom}    previousHistory=${previousHistory}    personalHistory=${personalHistory}
+    ...    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}    modle=${modle}    examList=${examList}    diagnosis=${diagnosis}    patentPrescriptionList=${patentPrescriptionList}
+    # ...    additionalList=${additionalList}
+    ...    infusionList=${infusionList}
+    # ${examList}    Evaluate    [{"examId":"843","examName":"抗RA33抗体","total":"1","patientExamId":"","price":"0","isCharged":"0","dataSource":"1"}]
+    ${addr}    Post Request    api    his/outpatient/modifyPatinetRecord    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    [Return]    ${responsedata}
+
 
 
 
