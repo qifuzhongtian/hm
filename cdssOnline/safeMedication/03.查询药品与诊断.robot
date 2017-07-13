@@ -75,3 +75,12 @@ Suite Teardown    Delete All Sessions
     Should Contain    ${aj}    乌拉地尔氯化钠注射液
 
 
+
+3.8 常用exin简拼,查询成功
+    [Documentation]    name简拼=exin 断言商品名=乌拉地尔氯化钠注射液
+    # 查询药品与诊断    ['body']['drugList'][0]['id']    5048
+    # ...    name=高血糖
+    ${getRes}    查询药品与诊断    name=exin
+    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseList']]
+    Should Contain    ${aj}    恶性肿瘤
+

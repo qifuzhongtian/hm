@@ -226,6 +226,8 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     # Should Be Equal As Strings    ${responsedata['body']['suspectedDiseases'][0]['id']}    ${msg}
     # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
     # Delete All Sessions
+    ${recordVersion}    Get From Dictionary    ${responsedata['body']}    recordVersion
+    Set Global Variable     ${recordVersion}
     [Return]    ${responsedata}
 
 保存病历

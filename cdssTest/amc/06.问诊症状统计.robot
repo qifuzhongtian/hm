@@ -10,7 +10,7 @@ Library           RequestsLibrary
 
 
 *** Test Cases ***
-4.1 问诊症状统计
+6.1 问诊症状统计
     [Documentation]    断言error:"symptom存在 睡眠问题"
     ${getRes}    amc管理端_问诊症状统计
     ${aj}    Evaluate    [aj['symptom'] for aj in $getRes['body']]

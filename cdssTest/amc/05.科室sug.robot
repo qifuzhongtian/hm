@@ -9,7 +9,7 @@ Library           RequestsLibrary
 # password  String  是   密码
 
 *** Test Cases ***
-3.1 科室sug
+5.1 科室sug
     [Documentation]    断言error:"subject存在口腔科"
     ${getRes}    amc管理端_科室sug    subject=
     ${aj}    Evaluate    [aj['subject'] for aj in $getRes['body']]

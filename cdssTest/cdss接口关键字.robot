@@ -639,7 +639,6 @@ amc管理端_问诊记录列表详情
     [Return]    ${responsedata}
 
 
-
 amc进入
     [Arguments]    ${AlgoID}    ${age}    ${ageStyle}    ${gender}    ${symptomId}    ${patientName}    ${patientPhone}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -652,8 +651,6 @@ amc进入
     Set Global Variable    ${hms}
     log    ${hms}
     [Return]    ${responsedata}
-
-
 
 amc下一题
     [Arguments]    ${incoming_ids}    ${question}    ${answers}

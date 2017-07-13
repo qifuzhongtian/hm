@@ -11,7 +11,7 @@ Library           RequestsLibrary
 
 
 *** Test Cases ***
-5.1 问诊科室统计
+7.1 问诊科室统计
     [Documentation]    断言:"subject存在 急诊医学科"
     ${getRes}    amc管理端_问诊科室统计
     ${aj}    Evaluate    [aj['subject'] for aj in $getRes['body'][0]]

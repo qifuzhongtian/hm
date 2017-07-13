@@ -19,10 +19,8 @@ Library           RequestsLibrary
 *** Variables ***
 
 *** Test Cases ***
-12.amc下一题
+1.2 amc下一题
    # [Documentation]    断言:"error=0 成功"
     ${getRes}    amc下一题    incoming_ids=13    question={"NODE_ID": 292}    answers={"index": 1,"value": 1}
     Should Be Equal As Strings    ${getRes['head']['error']}    0
-
-
 

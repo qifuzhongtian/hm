@@ -9,7 +9,7 @@ Library           RequestsLibrary
 # password  String  是   密码
 
 *** Test Cases ***
-1.1 症状sug
+4.1 症状sug
     [Documentation]    断言error:"SYMP_NAME 存在腹痛"
     ${getRes}    amc管理端_症状sug    symptomName=
     ${aj}    Evaluate    [aj['SYMP_NAME'] for aj in $getRes['body']]
