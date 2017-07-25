@@ -32,15 +32,15 @@ Suite Teardown    Delete All Sessions
     log    ${aj}
     Should Contain    ${aj}    急性上呼吸道感染
 
-2.3 体格检查_体温>39
-    [Documentation]    断言:"diseaseName=败血症"
-    ${getRes}    智能诊断2.3    symptom=    previousHistory=    personalHistory=    allergyHistory=
-    ...    familyHistory=    weight=    gender=    bodyTempr=39.1    lowBldPress=    highBldPress=
-    ...    examInfo=    heartRate=    age=    ageType=    confirmDiagnosis=    confirmDiagnosisMap=
-    ...    presentHistory=
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][1]['diseases']]
-    log    ${aj}
-    Should Contain    ${aj}    败血症
+# 2.3 体格检查_体温>39
+#     [Documentation]    断言:"diseaseName=败血症"
+#     ${getRes}    智能诊断2.3    symptom=    previousHistory=    personalHistory=    allergyHistory=
+#     ...    familyHistory=    weight=    gender=    bodyTempr=39.1    lowBldPress=    highBldPress=
+#     ...    examInfo=    heartRate=    age=    ageType=    confirmDiagnosis=    confirmDiagnosisMap=
+#     ...    presentHistory=
+#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][1]['diseases']]
+#     log    ${aj}
+#     Should Contain    ${aj}    败血症
 
 
 2. 4体格检查_心率<60,心率过慢
