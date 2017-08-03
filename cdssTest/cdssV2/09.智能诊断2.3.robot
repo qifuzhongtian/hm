@@ -53,15 +53,15 @@ Suite Teardown    Delete All Sessions
     log    ${aj}
     Should Contain    ${aj}    心律失常
 
-2.5 体格检查_心率>100,心率过快
-    [Documentation]    断言:"diseaseName=心动过速"
-    ${getRes}    智能诊断2.3    symptom=    previousHistory=    personalHistory=    allergyHistory=
-    ...    familyHistory=    weight=    gender=    bodyTempr=    lowBldPress=    highBldPress=
-    ...    examInfo=    heartRate=101    age=    ageType=    confirmDiagnosis=    confirmDiagnosisMap=
-    ...    presentHistory=
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases'][0]['subDiseases']]
-    log    ${aj}
-    Should Contain    ${aj}    心动过速
+# 2.5 体格检查_心率>100,心率过快
+#     [Documentation]    断言:"diseaseName=心动过速"
+#     ${getRes}    智能诊断2.3    symptom=    previousHistory=    personalHistory=    allergyHistory=
+#     ...    familyHistory=    weight=    gender=    bodyTempr=    lowBldPress=    highBldPress=
+#     ...    examInfo=    heartRate=101    age=    ageType=    confirmDiagnosis=    confirmDiagnosisMap=
+#     ...    presentHistory=
+#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases'][0]['subDiseases']]
+#     log    ${aj}
+#     Should Contain    ${aj}    心动过速
 
 
 2.6 体格检查_收缩压>=140/90,高血压
