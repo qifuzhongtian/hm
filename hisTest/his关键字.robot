@@ -15,7 +15,6 @@ ${null}    null
 
 
 *** Keywords ***
-
 登录接口
     # [Arguments]    ${doctorName}    ${password}    ${loginStatus}
     ${dict}    Create Dictionary    Content-Type=application/json
@@ -42,8 +41,6 @@ ${null}    null
 获取日期
     ${today}    Get Current Date    result_format=%Y-%m-%d
     Set Global Variable    ${today}
-
-
 
 登录接口.bak
     [Arguments]    ${doctorName}    ${password}    ${loginStatus}
@@ -276,13 +273,24 @@ ${null}    null
     ${recordVersion}    Get From Dictionary    ${responsedata['body']}    recordVersion
     Set Global Variable    ${recordVersion}
     #获取成药处方编号
-    ${prescription_prescription}    Get From Dictionary    ${responsedata['body']['patentPrescriptionList'][0]['patentDrugList'][0]}    prescription
+    ${prescription_prescription}    Get From Dictionary    ${responsedata['body']['patentPrescriptionList'][0]}    prescription
     Set Global Variable    ${prescription_prescription}
-    #获取输液卡处方编号
-    # ${infusionList_prescription}    Get From Dictionary    ${responsedata['body']['infusionList'][0]}    prescription
-    # Set Global Variable    ${infusionList_prescription}
+    #获取成药处方编号
+    # ${chinesePrescriptionList_prescription}    Get From Dictionary    ${responsedata['body']['chinesePrescriptionList'][0]}    prescription
+    # Set Global Variable    ${chinesePrescriptionList_prescription}
     ${examList_patientExamId}    Get From Dictionary    ${responsedata['body']['examList'][0]}    patientExamId
     Set Global Variable    ${examList_patientExamId}
+    ${recordVersion}    Get From Dictionary    ${responsedata['body']}    recordVersion
+    Set Global Variable    ${recordVersion}
+    #输液卡药品drugId
+    ${drugId}    Get From Dictionary    ${responsedata['body']['infusionList'][0]}    id
+    Set Global Variable    ${drugId}
+    #输液卡处方编号
+    ${infusion_prescription}    Get From Dictionary    ${responsedata['body']['infusionList'][0]}    prescription
+    Set Global Variable    ${infusion_prescription}
+    #输液卡获取病历id
+    # ${recordId}    Get From Dictionary    ${responsedata['body']['infusionList'][0]}    recordId
+    # Set Global Variable    ${recordId}
     [Return]    ${responsedata}
 
 保存病历
@@ -732,6 +740,26 @@ ${null}    null
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
+财务查询
+    [Arguments]    ${startDate}    ${endDate}    ${doctorName}    ${operateType}    ${payMode}    ${currentPage}    ${pageSize}
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    startDate=${startDate}    endDate=${endDate}    doctorName=${doctorName}    operateType=${operateType}    payMode=${payMode}
+    ...    currentPage=${currentPage}    pageSize=${pageSize}
+    ${addr}    Post Request    api    his/statistics/chargeRecords    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+门诊日志
+    [Arguments]    ${startDate}    ${endDate}    ${doctorName}    ${patientName}    ${orderType}    ${payMode}    ${currentPage}    ${pageSize}
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    startDate=${startDate}    endDate=${endDate}    doctorName=${doctorName}    patientName=${patientName}    orderType=${orderType}    payMode=${payMode}
+    ...    currentPage=${currentPage}    pageSize=${pageSize}
+    ${addr}    Post Request    api    his/statistics/orderLogStatistics    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
 
 药品入库日志
     [Arguments]    ${startDate}    ${endDate}    ${drugBatchNo}    ${drugName}    ${supplier}
@@ -746,8 +774,26 @@ ${null}    null
     [Return]    ${responsedata}
 
 
+销售明细
+    [Arguments]    ${startDate}    ${endDate}    ${doctorName}    ${patientName}    ${type}    ${itemName}    ${customType}    ${currentPage}    ${pageSize}
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    startDate=${startDate}    endDate=${endDate}    doctorName=${doctorName}    patientName=${patientName}    type=${type}    itemName=${itemName}
+    ...    customType=${customType}    currentPage=${currentPage}    pageSize=${pageSize}
+    ${addr}    Post Request    api    his/statistics/orderSaleStatistics    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
 
 
+医生工作统计
+    [Arguments]    ${startDate}    ${endDate}    ${doctorName}    ${drugType}    ${itemName}    ${customType}    ${currentPage}    ${pageSize}
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    startDate=${startDate}    endDate=${endDate}    doctorName=${doctorName}    drugType=${drugType}    itemName=${itemName}
+    ...    customType=${customType}    currentPage=${currentPage}    pageSize=${pageSize}
+    ${addr}    Post Request    api    his/statistics/workloadStatistics    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
 
 药品搜索sug批次入库模块
     [Arguments]    ${dataSource}    ${drugName}    ${version}
@@ -910,11 +956,11 @@ ${null}    null
     [Return]    ${responsedata}
 
 收费
-    [Arguments]    ${orderNo}    ${orderExamListId}    ${orderPrescriptionIds}    ${orderAdditionAmtListId}    ${actualAmt}    ${recordVersion}
+    [Arguments]    ${orderNo}    ${orderExamListId}    ${orderPrescriptionIds}    ${payMode}    ${orderAdditionAmtListId}    ${actualAmt}    ${recordVersion}
     ...    ${debtorsName}    ${debtorsPhone}    ${debtAmt}    ${medicalInsurance}    ${commercialInsurance}
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${base_url}    ${dict}
-    ${data}    Create Dictionary    orderNo=${orderNo}    orderExamListId=${orderExamListId}    orderPrescriptionIds=${orderPrescriptionIds}    orderAdditionAmtListId=${orderAdditionAmtListId}    actualAmt=${actualAmt}
+    ${data}    Create Dictionary    orderNo=${orderNo}    orderExamListId=${orderExamListId}    orderPrescriptionIds=${orderPrescriptionIds}    payMode=${payMode}    orderAdditionAmtListId=${orderAdditionAmtListId}    actualAmt=${actualAmt}
     ...    recordVersion=${recordVersion}    debtorsName=${debtorsName}    debtorsPhone=${debtorsPhone}    debtAmt=${debtAmt}    medicalInsurance=${medicalInsurance}    commercialInsurance=${commercialInsurance}
     ${addr}    Post Request    api    his/order/charge    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -926,7 +972,7 @@ ${null}    null
     ...    ${orderPrescriptions}    ${balanceId}    ${refundAmt}
     # ...        ${orderPrescriptionIds}
     ...    ${recordVersion}
-    ...    ${debtAmt}
+    ...    ${debtAmt}    ${payMode}
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${base_url}    ${dict}
     ${orderExamList}    Evaluate    dict(${orderExamList})
@@ -935,7 +981,7 @@ ${null}    null
     # ...    orderExamListId=${orderExamListId}
     ...    orderPrescriptions=${orderPrescriptions}    balanceId=${balanceId}    refundAmt=${refundAmt}
     # ...    orderPrescriptionIds=${orderPrescriptionIds}
-    ...    recordVersion=${recordVersion}    debtAmt=${debtAmt}
+    ...    recordVersion=${recordVersion}    debtAmt=${debtAmt}    payMode=${payMode}
     ${addr}    Post Request    api    his/order/refund    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
@@ -1114,7 +1160,7 @@ ${null}    null
 
 
 保存病历_输液卡
-    [Arguments]    ${recordId}    ${patientId}    ${patientName}    ${gender}    ${age}    ${ageType}
+    [Arguments]    ${inquiryType}    ${address}    ${recordId}    ${patientId}    ${patientName}    ${gender}    ${age}    ${ageType}
     ...    ${phoneNo}    ${temperature}    ${sbp}    ${dbp}    ${heartRate}    ${height}
     ...    ${weight}    ${otherPhysique}    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}
     ...    ${familyHistory}    ${modle}    ${doctorAdvice}    ${examList}    ${diagnosis}    ${patentPrescriptionList}
@@ -1131,7 +1177,7 @@ ${null}    null
     ${chinesePrescriptionList}    Evaluate    [${chinesePrescriptionList}]
     # ${additionalList}    Evaluate    [${additionalList}]
     ${infusionList}    Evaluate    [${infusionList}]
-    ${data}    Create Dictionary    recordId=${recordId}    patientId=${patientId}    patientName=${patientName}    gender=${gender}    age=${age}
+    ${data}    Create Dictionary    inquiryType=${inquiryType}    address=${address}    recordId=${recordId}    patientId=${patientId}    patientName=${patientName}    gender=${gender}    age=${age}
     ...    ageType=${ageType}    phoneNo=${phoneNo}    temperature=${temperature}    sbp=${sbp}    dbp=${dbp}    heartRate=${heartRate}
     ...    height=${height}    weight=${weight}    otherPhysique=${otherPhysique}    symptom=${symptom}    previousHistory=${previousHistory}    personalHistory=${personalHistory}
     ...    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}    modle=${modle}    doctorAdvice=${doctorAdvice}    examList=${examList}    diagnosis=${diagnosis}    patentPrescriptionList=${patentPrescriptionList}
@@ -1147,6 +1193,39 @@ ${null}    null
     [Return]    ${responsedata}
 
 
+修改病历_输液卡
+    [Arguments]    ${inquiryType}    ${address}    ${recordId}    ${patientId}    ${patientName}    ${gender}    ${age}    ${ageType}
+    ...    ${phoneNo}    ${temperature}    ${sbp}    ${dbp}    ${heartRate}    ${height}
+    ...    ${weight}    ${otherPhysique}    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}
+    ...    ${familyHistory}    ${modle}    ${doctorAdvice}    ${examList}    ${diagnosis}    ${patentPrescriptionList}
+    ...    ${chinesePrescriptionList}
+    # ...    ${additionalList}
+    ...    ${infusionList}    ${recordVersion}
+    # ...    ${a}
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${base_url}    ${dict}
+    ${diagnosis}    Evaluate    [${diagnosis}]
+    ${examList}    Evaluate    [${examList}]
+    # ${examList}    Evaluate    [{"examId":"843","examName":"抗RA33抗体","total":"1","patientExamId":"","price":"0","isCharged":"0","dataSource":"1"}]
+    ${patentPrescriptionList}    Evaluate    [${patentPrescriptionList}]
+    ${chinesePrescriptionList}    Evaluate    [${chinesePrescriptionList}]
+    # ${additionalList}    Evaluate    [${additionalList}]
+    ${infusionList}    Evaluate    [${infusionList}]
+    ${data}    Create Dictionary    inquiryType=${inquiryType}    address=${address}    recordId=${recordId}    patientId=${patientId}    patientName=${patientName}    gender=${gender}    age=${age}
+    ...    ageType=${ageType}    phoneNo=${phoneNo}    temperature=${temperature}    sbp=${sbp}    dbp=${dbp}    heartRate=${heartRate}
+    ...    height=${height}    weight=${weight}    otherPhysique=${otherPhysique}    symptom=${symptom}    previousHistory=${previousHistory}    personalHistory=${personalHistory}
+    ...    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}    modle=${modle}    doctorAdvice=${doctorAdvice}    examList=${examList}    diagnosis=${diagnosis}    patentPrescriptionList=${patentPrescriptionList}
+    ...    chinesePrescriptionList=${chinesePrescriptionList}
+    # ...    additionalList=${additionalList}
+    ...    infusionList=${infusionList}
+    ...    recordVersion=${recordVersion}
+    # ${examList}    Evaluate    [{"examId":"843","examName":"抗RA33抗体","total":"1","patientExamId":"","price":"0","isCharged":"0","dataSource":"1"}]
+    ${addr}    Post Request    api    his/outpatient/modifyPatinetRecord    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    ${recordId}    Get From Dictionary    ${responsedata['body']}    recordId
+    Set Global Variable    ${recordId}
+    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    [Return]    ${responsedata}
 
 输液卡_收费
     [Arguments]    ${orderNo}    ${orderExamListId}    ${orderPrescriptionIds}    ${orderAdditionAmtListId}    ${actualAmt}    ${recordVersion}
@@ -1158,6 +1237,20 @@ ${null}    null
     ${addr}    Post Request    api    his/order/charge    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+
+
+打印输液卡
+    [Arguments]    ${recordId}
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    recordId=${recordId}
+    ${addr}    Post Request    api    his/infusion/printInfusion    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # Should Be Equal As Strings    ${responsedata['body']['suspectedDiseases'][0]['id']}    ${msg}
+    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    # Delete All Sessions
+    [Return]    ${responsedata}
+
 
 
 
