@@ -33,7 +33,6 @@ Suite Teardown    Delete All Sessions
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['drugList']]
     Should Contain    ${aj}    阿司匹林片
 
-
 3.5 通用名,查询成功
     [Documentation]    name=阿司匹林片 断言:"阿司匹林片"
     # 查询药品与诊断    ['body']['drugList'][0]['id']    5048
@@ -68,8 +67,7 @@ Suite Teardown    Delete All Sessions
     Should Contain    ${aj}    乌拉地尔氯化钠注射液
 
 
-
-3.8 常用exin简拼,查询成功
+3.9 常用exin简拼,查询成功
     [Documentation]    name简拼=exin 断言商品名=乌拉地尔氯化钠注射液
     # 查询药品与诊断    ['body']['drugList'][0]['id']    5048
     # ...    name=高血糖
