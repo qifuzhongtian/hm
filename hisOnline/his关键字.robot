@@ -7,7 +7,6 @@ ${base_apollo}     http://apollo.huimeionline.com
 ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
 # ${SESSION}    6fa8ddef-c9d2-4957-9edb-78094ee09c3c
 *** Keywords ***
-
 登录接口
     # [Arguments]    ${doctorName}    ${password}    ${loginStatus}
     ${dict}    Create Dictionary    Content-Type=application/json
@@ -34,8 +33,6 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
 获取日期
     ${today}    Get Current Date    result_format=%Y-%m-%d
     Set Global Variable    ${today}
-
-
 
 登录接口.bak
     [Arguments]    ${doctorName}    ${password}    ${loginStatus}
@@ -70,7 +67,7 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     # ${str}    Get From Dictionary    ${responsedata}    head
     # $response["body"]["recordId"]
     # 先转换成json    然后 ${response["body"]["recordId"]}
-    # ${diagnosis}    evaluate    [${diagnosis}]
+    # ${diagnosis}    Evaluate    [${diagnosis}]
 
 诊所注册
     [Arguments]    ${userName}    ${realName}    ${phone}    ${registerInvitation}    ${hospitalName}    ${hospitalLicense}
@@ -151,6 +148,8 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     # Should Be Equal As Strings    ${responsedata['body']['suspectedDiseases'][0]['id']}    ${msg}
     # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
     # Delete All Sessions
+    ${recordId}    Get From Dictionary    ${responsedata['body']['patientList'][0]}    recordId
+    Set Global Variable    ${recordId}
     [Return]    ${responsedata}
 
 患者Sug查询
@@ -164,6 +163,28 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
     # Delete All Sessions
     [Return]    ${responsedata}
+
+
+
+药品搜索sug
+    [Arguments]    ${drugName}    ${dataSource}    ${saleChannel}    ${drugType}    ${version}
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    drugName=${drugName}    dataSource=${dataSource}    saleChannel=${saleChannel}    drugType=${drugType}    version=${version}
+    ${addr}    Post Request    api    his/inventory/searchDrugByNameForSaleDrug    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # Should Be Equal As Strings    ${responsedata['body']['suspectedDiseases'][0]['id']}    ${msg}
+    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    # Delete All Sessions
+    ${drugName}    get From Dictionary    ${responsedata['body']['drugList'][0]}    drugName
+    Set Global Variable    ${drugName}
+    ${manufacturer}    get From Dictionary    ${responsedata['body']['drugList'][0]}    manufacturer
+    Set Global Variable    ${manufacturer}
+    ${drugId}    get From Dictionary    ${responsedata['body']['drugList'][0]}    id
+    Set Global Variable    ${drugId}
+    [Return]    ${responsedata}
+
+
 
 检查搜索
     [Arguments]    ${examName}
@@ -206,6 +227,8 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     # Delete All Sessions
     ${patientId}    Get From Dictionary    ${responsedata['body']['patientList'][0]}    patientId
     Set Global Variable    ${patientId}
+    # ${recordId}    Get From Dictionary    ${responsedata['body']['patientList'][0]}    recordId
+    # Set Global Variable    ${recordId}
     [Return]    ${responsedata}
 
 获取患者信息
@@ -242,13 +265,24 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     ${recordVersion}    Get From Dictionary    ${responsedata['body']}    recordVersion
     Set Global Variable    ${recordVersion}
     #获取成药处方编号
-    ${prescription_prescription}    Get From Dictionary    ${responsedata['body']['patentPrescriptionList'][0]['patentDrugList'][0]}    prescription
+    ${prescription_prescription}    Get From Dictionary    ${responsedata['body']['patentPrescriptionList'][0]}    prescription
     Set Global Variable    ${prescription_prescription}
-    #获取输液卡处方编号
-    # ${infusionList_prescription}    Get From Dictionary    ${responsedata['body']['infusionList'][0]}    prescription
-    # Set Global Variable    ${infusionList_prescription}
+    #获取成药处方编号
+    # ${chinesePrescriptionList_prescription}    Get From Dictionary    ${responsedata['body']['chinesePrescriptionList'][0]}    prescription
+    # Set Global Variable    ${chinesePrescriptionList_prescription}
     ${examList_patientExamId}    Get From Dictionary    ${responsedata['body']['examList'][0]}    patientExamId
     Set Global Variable    ${examList_patientExamId}
+    ${recordVersion}    Get From Dictionary    ${responsedata['body']}    recordVersion
+    Set Global Variable    ${recordVersion}
+    #输液卡药品drugId
+    ${drugId}    Get From Dictionary    ${responsedata['body']['infusionList'][0]}    id
+    Set Global Variable    ${drugId}
+    #输液卡处方编号
+    ${infusion_prescription}    Get From Dictionary    ${responsedata['body']['infusionList'][0]}    prescription
+    Set Global Variable    ${infusion_prescription}
+    #输液卡获取病历id
+    # ${recordId}    Get From Dictionary    ${responsedata['body']['infusionList'][0]}    recordId
+    # Set Global Variable    ${recordId}
     [Return]    ${responsedata}
 
 保存病历
@@ -260,9 +294,9 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     # ...    ${a}
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${base_url}    ${dict}
-    ${diagnosis}    evaluate    [${diagnosis}]
-    ${examList}    evaluate    [${examList}]
-    # ${examList}    evaluate    [{"examId":"843","examName":"抗RA33抗体","total":"1","patientExamId":"","price":"0","isCharged":"0","dataSource":"1"}]
+    ${diagnosis}    Evaluate    [${diagnosis}]
+    ${examList}    Evaluate    [${examList}]
+    # ${examList}    Evaluate    [{"examId":"843","examName":"抗RA33抗体","total":"1","patientExamId":"","price":"0","isCharged":"0","dataSource":"1"}]
     ${patentPrescriptionList}    Evaluate    [${patentPrescriptionList}]
     # ${additionalList}    Evaluate    [${additionalList}]
     ${data}    Create Dictionary    recordId=${recordId}    patientId=${patientId}    patientName=${patientName}    gender=${gender}    age=${age}
@@ -270,7 +304,7 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     ...    height=${height}    weight=${weight}    otherPhysique=${otherPhysique}    symptom=${symptom}    previousHistory=${previousHistory}    personalHistory=${personalHistory}
     ...    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}    modle=${modle}    doctorAdvice=${doctorAdvice}    examList=${examList}    diagnosis=${diagnosis}    patentPrescriptionList=${patentPrescriptionList}
     # ...    additionalList=${additionalList}
-    # ${examList}    evaluate    [{"examId":"843","examName":"抗RA33抗体","total":"1","patientExamId":"","price":"0","isCharged":"0","dataSource":"1"}]
+    # ${examList}    Evaluate    [{"examId":"843","examName":"抗RA33抗体","total":"1","patientExamId":"","price":"0","isCharged":"0","dataSource":"1"}]
     ${addr}    Post Request    api    his/outpatient/addPatinetRecordFirst    data=${data}
     ${responsedata}    To Json    ${addr.content}
     # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
@@ -341,7 +375,7 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     ...    ${verification}    ${functionId}
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${base_url}    ${dict}
-    ${function}    evaluate    {${function}}
+    ${function}    Evaluate    {${function}}
     # ${doctorName}    Generate Random String    10    接口自动添加登录账号
     ${data}    Create Dictionary    doctorId=${doctorId}    doctorName=${doctorName}    password=${password}    realName=${realName}    gender=${gender}
     ...    realName=${realName}    phone=${phone}    mail=${mail}    laboratoryId=${laboratoryId}    function=${function}    first=${first}
@@ -472,7 +506,7 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
 科室重名
     [Arguments]    ${laboratoryName}
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    # Create Session    api    ${base_url}    ${dict}
+    # Create Session    a药品入库pi    ${base_url}    ${dict}
     ${data}    Create Dictionary    laboratoryName=${laboratoryName}
     ${addr}    Post Request    api    his/manage/verifyLaboratoryName    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -531,6 +565,7 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     # Delete All Sessions
     ${drugId}    get From Dictionary    ${responsedata['body']}    drugId
     Set Global Variable    ${drugId}
+
     # ${barCode}    get From Dictionary    ${responsedata['body']}    barCode
     # Set Global Variable    ${barCode}
     [Return]    ${responsedata}
@@ -559,6 +594,12 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     # Delete All Sessions
     ${barCode}    get From Dictionary    ${responsedata['body']}    barCode
     Set Global Variable    ${barCode}
+    ${drugName}    get From Dictionary    ${responsedata['body']}    drugName
+    Set Global Variable    ${drugName}
+    ${manufacturer}    get From Dictionary    ${responsedata['body']}    manufacturer
+    Set Global Variable    ${manufacturer}
+    ${drugId}    get From Dictionary    ${responsedata['body']}    id
+    Set Global Variable    ${drugId}
     [Return]    ${responsedata}
 
 导出药品excel,批次管理
@@ -680,21 +721,37 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     [Return]    ${responsedata}
     # [Return]    ${addr}
 
-
-
 药品入库
     [Arguments]    ${supplier}    ${batchInstockList}    ${purchaseOrderId}    ${createDate}
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${base_url}    ${dict}
-    ${batchInstockList}    evaluate    [${batchInstockList}]
-    # ${batchInstockList}    evaluate    [{"drugId":"148349","instockCount":"1","purchasePrice":"1.00","prescriptionPrice":"88.11","validityDate":4070880000000,"expirationOptions":"","instockUnit":"盒"}]
+    ${batchInstockList}    Evaluate    [${batchInstockList}]
+    # ${batchInstockList}    Evaluate    [{"drugId":"148349","instockCount":"1","purchasePrice":"1.00","prescriptionPrice":"88.11","validityDate":4070880000000,"expirationOptions":"","instockUnit":"盒"}]
     ${data}    Create Dictionary    supplier=${supplier}    batchInstockList=${batchInstockList}    purchaseOrderId=${purchaseOrderId}    createDate=${createDate}
     ${addr}    Post Request    api    his/instock/submitDrugInsock    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
+财务查询
+    [Arguments]    ${startDate}    ${endDate}    ${doctorName}    ${operateType}    ${payMode}    ${currentPage}    ${pageSize}
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    startDate=${startDate}    endDate=${endDate}    doctorName=${doctorName}    operateType=${operateType}    payMode=${payMode}
+    ...    currentPage=${currentPage}    pageSize=${pageSize}
+    ${addr}    Post Request    api    his/statistics/chargeRecords    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
 
 
+门诊日志
+    [Arguments]    ${startDate}    ${endDate}    ${doctorName}    ${patientName}    ${orderType}    ${payMode}    ${currentPage}    ${pageSize}
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    startDate=${startDate}    endDate=${endDate}    doctorName=${doctorName}    patientName=${patientName}    orderType=${orderType}    payMode=${payMode}
+    ...    currentPage=${currentPage}    pageSize=${pageSize}
+    ${addr}    Post Request    api    his/statistics/orderLogStatistics    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
 
 药品入库日志
     [Arguments]    ${startDate}    ${endDate}    ${drugBatchNo}    ${drugName}    ${supplier}
@@ -709,10 +766,28 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     [Return]    ${responsedata}
 
 
+销售明细
+    [Arguments]    ${startDate}    ${endDate}    ${doctorName}    ${patientName}    ${type}    ${itemName}    ${customType}    ${currentPage}    ${pageSize}
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    startDate=${startDate}    endDate=${endDate}    doctorName=${doctorName}    patientName=${patientName}    type=${type}    itemName=${itemName}
+    ...    customType=${customType}    currentPage=${currentPage}    pageSize=${pageSize}
+    ${addr}    Post Request    api    his/statistics/orderSaleStatistics    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
 
 
+医生工作统计
+    [Arguments]    ${startDate}    ${endDate}    ${doctorName}    ${drugType}    ${itemName}    ${customType}    ${currentPage}    ${pageSize}
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    startDate=${startDate}    endDate=${endDate}    doctorName=${doctorName}    drugType=${drugType}    itemName=${itemName}
+    ...    customType=${customType}    currentPage=${currentPage}    pageSize=${pageSize}
+    ${addr}    Post Request    api    his/statistics/workloadStatistics    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
 
-药品搜索sug
+药品搜索sug批次入库模块
     [Arguments]    ${dataSource}    ${drugName}    ${version}
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${base_url}    ${dict}
@@ -873,11 +948,11 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     [Return]    ${responsedata}
 
 收费
-    [Arguments]    ${orderNo}    ${orderExamListId}    ${orderPrescriptionIds}    ${orderAdditionAmtListId}    ${actualAmt}    ${recordVersion}
+    [Arguments]    ${orderNo}    ${orderExamListId}    ${orderPrescriptionIds}    ${payMode}    ${orderAdditionAmtListId}    ${actualAmt}    ${recordVersion}
     ...    ${debtorsName}    ${debtorsPhone}    ${debtAmt}    ${medicalInsurance}    ${commercialInsurance}
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${base_url}    ${dict}
-    ${data}    Create Dictionary    orderNo=${orderNo}    orderExamListId=${orderExamListId}    orderPrescriptionIds=${orderPrescriptionIds}    orderAdditionAmtListId=${orderAdditionAmtListId}    actualAmt=${actualAmt}
+    ${data}    Create Dictionary    orderNo=${orderNo}    orderExamListId=${orderExamListId}    orderPrescriptionIds=${orderPrescriptionIds}    payMode=${payMode}    orderAdditionAmtListId=${orderAdditionAmtListId}    actualAmt=${actualAmt}
     ...    recordVersion=${recordVersion}    debtorsName=${debtorsName}    debtorsPhone=${debtorsPhone}    debtAmt=${debtAmt}    medicalInsurance=${medicalInsurance}    commercialInsurance=${commercialInsurance}
     ${addr}    Post Request    api    his/order/charge    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -889,7 +964,7 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     ...    ${orderPrescriptions}    ${balanceId}    ${refundAmt}
     # ...        ${orderPrescriptionIds}
     ...    ${recordVersion}
-    ...    ${debtAmt}
+    ...    ${debtAmt}    ${payMode}
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${base_url}    ${dict}
     ${orderExamList}    Evaluate    dict(${orderExamList})
@@ -898,7 +973,7 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     # ...    orderExamListId=${orderExamListId}
     ...    orderPrescriptions=${orderPrescriptions}    balanceId=${balanceId}    refundAmt=${refundAmt}
     # ...    orderPrescriptionIds=${orderPrescriptionIds}
-    ...    recordVersion=${recordVersion}    debtAmt=${debtAmt}
+    ...    recordVersion=${recordVersion}    debtAmt=${debtAmt}    payMode=${payMode}
     ${addr}    Post Request    api    his/order/refund    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
@@ -953,14 +1028,14 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     # Should Be Equal As Strings    ${responsedata['body']['suspectedDiseases'][0]['id']}    ${msg}
     # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
     # Delete All Sessions
-    # ${tempIds}    evaluate    [${tempIds}]
+    # ${tempIds}    Evaluate    [${tempIds}]
     [Return]    ${responsedata}
 
 保存中药饮片处方模板
     [Arguments]    ${id}    ${tempName}    ${tempType}    ${tempAuthority}    ${linkId}    ${chinesePrescriptionList}
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${base_url}    ${dict}
-    ${chinesePrescriptionList}    evaluate    [{"dailyDosage":"1","decoctionPiecesList":[{"drugId":"148321","drugName":"淡竹叶","value":"10","unit":"g","comment":"后下","dataSource":"0","specification":"1.0g/g*1/g"},{"drugId":"148319","drugName":"葛根","value":"11","unit":"g","comment":"先煎","dataSource":"0","specification":"1.0g/g*1/g"}],"frequency":"1日1次(qd)","prescription":"","requirement":"水煎400ml；分早晚两次饭前温服","totalDosage":"1","usage":"口服"}]
+    ${chinesePrescriptionList}    Evaluate    [{"dailyDosage":"1","decoctionPiecesList":[{"drugId":"148321","drugName":"淡竹叶","value":"10","unit":"g","comment":"后下","dataSource":"0","specification":"1.0g/g*1/g"},{"drugId":"148319","drugName":"葛根","value":"11","unit":"g","comment":"先煎","dataSource":"0","specification":"1.0g/g*1/g"}],"frequency":"1日1次(qd)","prescription":"","requirement":"水煎400ml；分早晚两次饭前温服","totalDosage":"1","usage":"口服"}]
     ${data}    Create Dictionary    id=${id}    tempName=${tempName}    tempType=${tempType}    tempAuthority=${tempAuthority}    linkId=${linkId}
     ...    chinesePrescriptionList=${chinesePrescriptionList}
     ${addr}    Post Request    api    his/template/saveHerbalTemplate    data=${data}
@@ -988,7 +1063,7 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${base_url}    ${dict}
     # ${tempName}    Generate Random String    22    1234567890abcdefghijklmnopkrst成药处方
-    ${patentPrescriptionList}    evaluate    [{"patentDrugList":[{"assId":"","dataSource":"0","dosage":"1","dosageUnit":"粒","drugId":"148307","drugName":"阿莫西林片[益萨林]","frequency":"1日3次(tid)","totalDosage":"1","totalDosageUnit":"盒","usage":"外用","specification":"0.25g/片*12/盒","manufacturer":"哈药总厂"},{"assId":"","dataSource":"0","dosage":"2","dosageUnit":"粒","drugId":"148306","drugName":"安乐片","frequency":"1日2次(bid)","totalDosage":"1","totalDosageUnit":"盒","usage":"口服","specification":"片*24/盒","manufacturer":"广西邦琪药业集团有限公司"}]}]
+    ${patentPrescriptionList}    Evaluate    [{"patentDrugList":[{"assId":"","dataSource":"0","dosage":"1","dosageUnit":"粒","drugId":"148307","drugName":"阿莫西林片[益萨林]","frequency":"1日3次(tid)","totalDosage":"1","totalDosageUnit":"盒","usage":"外用","specification":"0.25g/片*12/盒","manufacturer":"哈药总厂"},{"assId":"","dataSource":"0","dosage":"2","dosageUnit":"粒","drugId":"148306","drugName":"安乐片","frequency":"1日2次(bid)","totalDosage":"1","totalDosageUnit":"盒","usage":"口服","specification":"片*24/盒","manufacturer":"广西邦琪药业集团有限公司"}]}]
     ${data}    Create Dictionary    id=${id}    tempName=${tempName}    tempType=${tempType}    linkId=${linkId}    patentPrescriptionList=${patentPrescriptionList}
     ...    tempAuthority=${tempAuthority}
     ${addr}    Post Request    api    his/template/savePatentPrescriptionTemplate    data=${data}
@@ -1032,24 +1107,31 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     # Should Be Equal As Strings    ${responsedata['body']['suspectedDiseases'][0]['id']}    ${msg}
     # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
     # Delete All Sessions
-    ${id}    get From Dictionary    ${responsedata['body']}    id
+    ${id}    Get From Dictionary    ${responsedata['body']}    id
     Set Global Variable    ${id}
     [Return]    ${responsedata}
 
 
 
 保存输液卡模板
-    [Arguments]    ${id}    ${tempName}    ${tempType}    ${tempAuthority}    ${linkId}    ${infusionList}
+    [Arguments]    ${id}    ${tempName}    ${tempType}    ${tempAuthority}    ${linkId}
+    ...    ${infusionList}
+    # ...    ${infusionGroupList}
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${base_url}    ${dict}
-    ${infusionList}    evaluate    [${infusionList}]
+    ${infusionList}    Evaluate    [${infusionList}]
+    # ${infusionGroupList}    Evaluate    [${infusionGroupList}]
+    # Create List    ${infusionList}    ${infusionList}
     ${data}    Create Dictionary    id=${id}    tempName=${tempName}    tempType=${tempType}    tempAuthority=${tempAuthority}    linkId=${linkId}
     ...    infusionList=${infusionList}
+    # ...    infusionGroupList=${infusionGroupList}
     ${addr}    Post Request    api    his/template/saveOrUpdateInfusionTemplate    data=${data}
     ${responsedata}    To Json    ${addr.content}
     # Should Be Equal As Strings    ${responsedata['body']['suspectedDiseases'][0]['id']}    ${msg}
     # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
     # Delete All Sessions
+    ${templateId}    Get From Dictionary    ${responsedata['body']}    templateId
+    Set Global Variable    ${templateId}
     [Return]    ${responsedata}
 
 
@@ -1070,10 +1152,11 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
 
 
 保存病历_输液卡
-    [Arguments]    ${recordId}    ${patientId}    ${patientName}    ${gender}    ${age}    ${ageType}
+    [Arguments]    ${inquiryType}    ${address}    ${recordId}    ${patientId}    ${patientName}    ${gender}    ${age}    ${ageType}
     ...    ${phoneNo}    ${temperature}    ${sbp}    ${dbp}    ${heartRate}    ${height}
     ...    ${weight}    ${otherPhysique}    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}
     ...    ${familyHistory}    ${modle}    ${doctorAdvice}    ${examList}    ${diagnosis}    ${patentPrescriptionList}
+    ...    ${chinesePrescriptionList}
     # ...    ${additionalList}
     ...    ${infusionList}
     # ...    ${a}
@@ -1083,12 +1166,14 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     ${examList}    Evaluate    [${examList}]
     # ${examList}    Evaluate    [{"examId":"843","examName":"抗RA33抗体","total":"1","patientExamId":"","price":"0","isCharged":"0","dataSource":"1"}]
     ${patentPrescriptionList}    Evaluate    [${patentPrescriptionList}]
+    ${chinesePrescriptionList}    Evaluate    [${chinesePrescriptionList}]
     # ${additionalList}    Evaluate    [${additionalList}]
     ${infusionList}    Evaluate    [${infusionList}]
-    ${data}    Create Dictionary    recordId=${recordId}    patientId=${patientId}    patientName=${patientName}    gender=${gender}    age=${age}
+    ${data}    Create Dictionary    inquiryType=${inquiryType}    address=${address}    recordId=${recordId}    patientId=${patientId}    patientName=${patientName}    gender=${gender}    age=${age}
     ...    ageType=${ageType}    phoneNo=${phoneNo}    temperature=${temperature}    sbp=${sbp}    dbp=${dbp}    heartRate=${heartRate}
     ...    height=${height}    weight=${weight}    otherPhysique=${otherPhysique}    symptom=${symptom}    previousHistory=${previousHistory}    personalHistory=${personalHistory}
     ...    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}    modle=${modle}    doctorAdvice=${doctorAdvice}    examList=${examList}    diagnosis=${diagnosis}    patentPrescriptionList=${patentPrescriptionList}
+    ...    chinesePrescriptionList=${chinesePrescriptionList}
     # ...    additionalList=${additionalList}
     ...    infusionList=${infusionList}
     # ${examList}    Evaluate    [{"examId":"843","examName":"抗RA33抗体","total":"1","patientExamId":"","price":"0","isCharged":"0","dataSource":"1"}]
@@ -1100,6 +1185,63 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
     [Return]    ${responsedata}
 
 
+修改病历_输液卡
+    [Arguments]    ${inquiryType}    ${address}    ${recordId}    ${patientId}    ${patientName}    ${gender}    ${age}    ${ageType}
+    ...    ${phoneNo}    ${temperature}    ${sbp}    ${dbp}    ${heartRate}    ${height}
+    ...    ${weight}    ${otherPhysique}    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}
+    ...    ${familyHistory}    ${modle}    ${doctorAdvice}    ${examList}    ${diagnosis}    ${patentPrescriptionList}
+    ...    ${chinesePrescriptionList}
+    # ...    ${additionalList}
+    ...    ${infusionList}    ${recordVersion}
+    # ...    ${a}
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${base_url}    ${dict}
+    ${diagnosis}    Evaluate    [${diagnosis}]
+    ${examList}    Evaluate    [${examList}]
+    # ${examList}    Evaluate    [{"examId":"843","examName":"抗RA33抗体","total":"1","patientExamId":"","price":"0","isCharged":"0","dataSource":"1"}]
+    ${patentPrescriptionList}    Evaluate    [${patentPrescriptionList}]
+    ${chinesePrescriptionList}    Evaluate    [${chinesePrescriptionList}]
+    # ${additionalList}    Evaluate    [${additionalList}]
+    ${infusionList}    Evaluate    [${infusionList}]
+    ${data}    Create Dictionary    inquiryType=${inquiryType}    address=${address}    recordId=${recordId}    patientId=${patientId}    patientName=${patientName}    gender=${gender}    age=${age}
+    ...    ageType=${ageType}    phoneNo=${phoneNo}    temperature=${temperature}    sbp=${sbp}    dbp=${dbp}    heartRate=${heartRate}
+    ...    height=${height}    weight=${weight}    otherPhysique=${otherPhysique}    symptom=${symptom}    previousHistory=${previousHistory}    personalHistory=${personalHistory}
+    ...    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}    modle=${modle}    doctorAdvice=${doctorAdvice}    examList=${examList}    diagnosis=${diagnosis}    patentPrescriptionList=${patentPrescriptionList}
+    ...    chinesePrescriptionList=${chinesePrescriptionList}
+    # ...    additionalList=${additionalList}
+    ...    infusionList=${infusionList}
+    ...    recordVersion=${recordVersion}
+    # ${examList}    Evaluate    [{"examId":"843","examName":"抗RA33抗体","total":"1","patientExamId":"","price":"0","isCharged":"0","dataSource":"1"}]
+    ${addr}    Post Request    api    his/outpatient/modifyPatinetRecord    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    ${recordId}    Get From Dictionary    ${responsedata['body']}    recordId
+    Set Global Variable    ${recordId}
+    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    [Return]    ${responsedata}
+
+输液卡_收费
+    [Arguments]    ${orderNo}    ${orderExamListId}    ${orderPrescriptionIds}    ${orderAdditionAmtListId}    ${actualAmt}    ${recordVersion}
+    ...    ${debtorsName}    ${debtorsPhone}    ${debtAmt}    ${medicalInsurance}    ${commercialInsurance}
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    orderNo=${orderNo}    orderExamListId=${orderExamListId}    orderPrescriptionIds=${orderPrescriptionIds}    orderAdditionAmtListId=${orderAdditionAmtListId}    actualAmt=${actualAmt}
+    ...    recordVersion=${recordVersion}    debtorsName=${debtorsName}    debtorsPhone=${debtorsPhone}    debtAmt=${debtAmt}    medicalInsurance=${medicalInsurance}    commercialInsurance=${commercialInsurance}
+    ${addr}    Post Request    api    his/order/charge    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+打印输液卡
+    [Arguments]    ${recordId}
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    recordId=${recordId}
+    ${addr}    Post Request    api    his/infusion/printInfusion    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # Should Be Equal As Strings    ${responsedata['body']['suspectedDiseases'][0]['id']}    ${msg}
+    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    # Delete All Sessions
+    [Return]    ${responsedata}
 
 
 

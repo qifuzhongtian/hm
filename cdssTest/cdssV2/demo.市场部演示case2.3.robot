@@ -347,3 +347,14 @@ Library           RequestsLibrary
        ...    confirmDiagnosisMap=    presentHistory=
        ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
        Should Contain    ${aj[:15]}    肾衰竭
+
+31.董洁ppt演示
+       [Documentation]    主诉:'口渴、多饮、多尿、多食43年，间断腹泻10余年，心悸，憋气伴恶心1天入院。'
+       ${getRes}    智能诊断2.3    symptom=口渴、多饮、多尿、多食43年，间断腹泻10余年，心悸，憋气伴恶心1天入院。
+       ...    previousHistory=1年前相继出现双足、双手麻木。此期间继续胰岛素治疗，血糖控制不佳    personalHistory=既往14年前换肺结核,规律治疗2年后停药,两性前列腺增生症4年余
+       ...    allergyHistory=无    familyHistory=否认家族遗传病史。
+       ...    weight=    gender=1    bodyTempr=    lowBldPress=    highBldPress=
+       ...    examInfo=    heartRate=    age=68    ageType=岁    confirmDiagnosis=
+       ...    confirmDiagnosisMap=    presentHistory=
+       ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
+       Should Contain    ${aj[:10]}    2型糖尿病
