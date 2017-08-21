@@ -17,13 +17,13 @@ Suite Teardown    Delete All Sessions
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseList']]
     Should Contain    ${aj}    高血压
 
-3.2 输入拼音缩写,查询成功
-    [Documentation]    断言:""
-    # 查询药品与诊断    ['body']['diseaseList'][0]['id']    5048
-    # ...    name=高血糖
-    ${getRes}    查询药品与诊断    name=asplp
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['drugList']]
-    Should Contain    ${aj}    阿司匹林片
+# 3.2 输入拼音缩写,查询成功
+#     [Documentation]    断言:""
+#     # 查询药品与诊断    ['body']['diseaseList'][0]['id']    5048
+#     # ...    name=高血糖
+#     ${getRes}    查询药品与诊断    name=asplp
+#     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['drugList']]
+#     Should Contain    ${aj}    阿司匹林片
 
 3.3 药品查询,输入存在的药品名称,查询成功
     [Documentation]    name=阿司匹林片 断言:""阿司匹林片
