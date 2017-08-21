@@ -1,6 +1,9 @@
 *** Variables ***
 # ${base_url}     http://apollo.huimeionline.com
 ${base_url}       http://10.117.64.153:8080
+#95
+# ${base_url}       http://10.46.74.95:9200
+
 # ${base_url}     http://10.46.74.95:8080
 ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
 ${Huimei_id_safe_medication}    C3B844493A477BCF3D7B73A5E902B269
@@ -13,28 +16,17 @@ ${base_url_72}     http://10.252.128.72:9200
 #amc管理端
 ${base_url_amca}     http://amca.huimeionline.com
 
-# ${base_url_common}    http://test2.common.wmiweb.com/v1
-# ${base_url_base}    http://doctor-dev.api.wmiweb.com/
-# ${base_url_gy}    http://60.205.93.39
-# U-TOKEN 医生 U-TOKEN-A 患者    U-TOKEN-b 医助
-# ${U-TOKEN}      DDDDDD
-# ${U-TOKEN-A}    PPPPPP
-# ${U-TOKEN-B}    AAAAAA
-# ${app-type}     999
-# ${device-code}    163FE899-3267-43B1-9465-82B5ADC712DA
-# ${timestamp}    123456789
-# ${sign}         c54533230ee50db2cff7c7d6226d5aa1
-# ${version}      1.0
 ${empty}
 ${null}    null
+# ${progressMessage}   "<?xml version=\"1.0\" encoding=\"utf-8\"?><XTextDocument><BodyText>急性胸痛。胸痛。濒死感。胸部撕裂样痛。背部撕裂样痛。呼吸困难。肌钙蛋白升高。cTnI升高。cTnT升高。ST段不抬高。非ST段压低。非T波低平。非T波倒置。呼吸困难。心脏杂音。室壁瘤。乳头肌功能失调。心力衰竭。水肿。急性非ST段抬高型心肌梗塞。GRACE评分：130。GRACE评分中危。GRACE评分低危。急性ST段抬高型心肌梗塞。出血高危。未评估出血风险</BodyText></XTextDocument>"
 *** Keywords ***
-随机字符-1
-    [Arguments]    ${arg1}    ${arg2}=123    @{arg3}
-    log    ${arg1}
-    log    ${arg2}
-    log    =@{arg3}=
-    ${arg1}    set variable    1111111
-    [Return]    ${arg1}
+# 随机字符-1
+#     [Arguments]    ${arg1}    ${arg2}=123    @{arg3}
+#     log    ${arg1}
+#     log    ${arg2}
+#     log    =@{arg3}=
+#     ${arg1}    set variable    1111111
+#     [Return]    ${arg1}
 
 
 ################安全用药################
@@ -94,12 +86,6 @@ ${null}    null
     ${responsedata}    To Json    ${addr.content}
     # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
     [Return]    ${responsedata}
-
-
-
-
-
-
 
 
 
@@ -467,6 +453,7 @@ ${null}    null
     #    Should Be Equal As Strings    ${responsedata['head']['message']}    ${msg}
     #    # log    ${responsedata['head']['message']}
     #    Delete All Sessions
+
 病例识别
     [Arguments]    ${symptom}    ${gender}    ${age}    ${ageType}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -666,8 +653,40 @@ amc下一题
     [Return]    ${responsedata}
 
 
+########################################################################################################################
+########Mayson######
+
+智能推荐
+    [Arguments]    ${userGuid}    ${serialNumber}
+    ...    ${patientInfo}
+    ...    ${definiteDiagnosis}
+    ...    ${progressNoteList}
+    ...    ${deleteProgressNoteList}
+    ...    ${labTestList}
+    ...    ${examinationList}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${base_url}    ${dict}
+    ${patientInfo}    Evaluate    dict(${patientInfo})
+    ${definiteDiagnosis}    Evaluate    [${definiteDiagnosis}]
+    ${progressNoteList}    Evaluate    [${progressNoteList}]
+    ${deleteProgressNoteList}    Evaluate    [${deleteProgressNoteList}]
+    ${labTestList}    Evaluate    [${labTestList}]
+    ${examinationList}    Evaluate    [${examinationList}]
+    ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    patientInfo=${patientInfo}
+    ...    definiteDiagnosis=${definiteDiagnosis}    progressNoteList=${progressNoteList}
+    ...    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}    examinationList=${examinationList}
+    ${addr}    Post Request    api    mayson/v_1_0/intelligent_recommendation    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+
+    [Return]    ${responsedata}
 
 
-
-
-
+用药推荐
+    [Arguments]    ${userGuid}    ${serialNumber}    ${patientInfo}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${base_url}    ${dict}
+    ${patientInfo}    Evaluate    dict(${patientInfo})
+    ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    patientInfo=${patientInfo}
+    ${addr}    Post Request    api    mayson/v_1_0/medication_regimen    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}

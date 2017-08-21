@@ -10,7 +10,6 @@ ${base_url}       http://10.117.64.153:8080
 ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
 # ${SESSION}      6fa8ddef-c9d2-4957-9edb-78094ee09c3c
 ${empty}
-# ${tempN Random String    22    接口自动添加饮片处方
 ${null}    null
 
 
@@ -57,7 +56,6 @@ ${null}    null
     # Should Be Equal As Strings    ${responsedata['head']['error']}    ${msg}
     # Delete All Sessions
     [Return]    ${responsedata}
-
 
 新建病历接口
     [Arguments]    ${patientId}
@@ -191,8 +189,6 @@ ${null}    null
     ${drugId}    get From Dictionary    ${responsedata['body']['drugList'][0]}    id
     Set Global Variable    ${drugId}
     [Return]    ${responsedata}
-
-
 
 检查搜索
     [Arguments]    ${examName}
@@ -1119,8 +1115,6 @@ ${null}    null
     Set Global Variable    ${id}
     [Return]    ${responsedata}
 
-
-
 保存输液卡模板
     [Arguments]    ${id}    ${tempName}    ${tempType}    ${tempAuthority}    ${linkId}
     ...    ${infusionList}
@@ -1142,8 +1136,6 @@ ${null}    null
     Set Global Variable    ${templateId}
     [Return]    ${responsedata}
 
-
-
 获取输液卡模板详情
     [Arguments]    ${tempAuthority}    ${id}
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -1155,9 +1147,6 @@ ${null}    null
     # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
     # Delete All Sessions
     [Return]    ${responsedata}
-
-
-
 
 保存病历_输液卡
     [Arguments]    ${inquiryType}    ${address}    ${recordId}    ${patientId}    ${patientName}    ${gender}    ${age}    ${ageType}
@@ -1238,7 +1227,6 @@ ${null}    null
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-
 打印输液卡
     [Arguments]    ${recordId}
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -1250,8 +1238,4 @@ ${null}    null
     # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
     # Delete All Sessions
     [Return]    ${responsedata}
-
-
-
-
 
