@@ -33,13 +33,6 @@ Suite Teardown    Delete All Sessions
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['drugList']]
     Should Contain    ${aj}    阿司匹林片
 
-# 3.4 输入拼音缩写,查询成功
-#     [Documentation]    name=阿司匹林简拼 'asplp' 断言:""
-#     # 查询药品与诊断    ['body']['drugList'][0]['id']    5048
-#     # ...    name=高血糖
-#     ${getRes}    查询药品与诊断    name=asplp
-#     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['drugList']]
-#     Should Contain    ${aj}    阿司匹林片
 
 3.5 通用名,查询成功
     [Documentation]    name=阿司匹林片 断言:"阿司匹林片"
