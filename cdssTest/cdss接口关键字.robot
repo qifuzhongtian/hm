@@ -15,6 +15,8 @@ ${base_url_95}     http://10.46.74.95:9200
 ${base_url_72}     http://10.252.128.72:9200
 #amc管理端
 ${base_url_amca}     http://amca.huimeionline.com
+#ame苏悦电脑
+${base_url_ame}     http://10.100.20.13:8092
 
 ${empty}
 ${null}    null
@@ -525,18 +527,18 @@ test
     [Return]    ${responsedata}
 
 
-妇产科诊断性别1
-    [Arguments]    ${query}    ${department}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url_95}    ${dict}
-    ${object}    Set Variable    {"bool":{"must":[{"term":{"department":"${department}"}}],"filter":{"bool":{"should":[{"term":{"gender":0}},{"term":{"gender":1}}]}}}}
-    ${query}    Evaluate    dict(${object})
-    ${data}    Create Dictionary    query=${query}
-    ${addr}    Post Request    api    /disease/disease/_search?_source=false    data=${data}
-    ${responsedata}    To Json    ${addr.content}
-    # Should Contain    ${aj[:15]}    ${msg}
-    # Delete All Sessions
-    [Return]    ${responsedata}
+# 妇产科诊断性别1
+#     [Arguments]    ${query}    ${department}
+#     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+#     Create Session    api    ${base_url_95}    ${dict}
+#     ${object}    Set Variable    {"bool":{"must":[{"term":{"department":"${department}"}}],"filter":{"bool":{"should":[{"term":{"gender":0}},{"term":{"gender":1}}]}}}}
+#     ${query}    Evaluate    dict(${object})
+#     ${data}    Create Dictionary    query=${query}
+#     ${addr}    Post Request    api    /disease/disease/_search?_source=false    data=${data}
+#     ${responsedata}    To Json    ${addr.content}
+#     # Should Contain    ${aj[:15]}    ${msg}
+#     # Delete All Sessions
+#     [Return]    ${responsedata}
 
 
 
@@ -639,6 +641,7 @@ amc进入
     log    ${hms}
     [Return]    ${responsedata}
 
+#旧的
 amc下一题
     [Arguments]    ${incoming_ids}    ${question}    ${answers}
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -651,6 +654,86 @@ amc下一题
     ${responsedata}    To Json    ${addr.content}
     # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
     [Return]    ${responsedata}
+
+#新版
+amc下一题1
+    [Arguments]
+    ...    ${answers}
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${base_url}    ${dict}
+    # ${answers}    Set Variable    {"questionId": 292,"type": "option","answer":[5]}
+    # ${answers}    Evaluate    dict({"questionId": 292,"type": "option","answer":[5]})
+    ${answers}    Evaluate    [{"questionId": 292,"type": "option","answer":[5]}]
+    ${data}    Create Dictionary    answers=${answers}
+    ${addr}    Post Request    api    amc/next_question?_hms=${hms}    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    [Return]    ${responsedata}
+
+
+#########AME##################
+ame登录
+    [Arguments]    ${userName}    ${password}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${base_url_ame}    ${dict}
+    ${data}    Create Dictionary    userName=${userName}    password=${password}
+    ${addr}    Post Request    api    ame/login    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # Should Be Equal As Strings    ${responsedata['head']['error']}    ${msg}
+    # Delete All Sessions
+    [Return]    ${responsedata}
+
+ame查询
+    [Arguments]    ${name}
+    ${dict}    Create Dictionary    Content-Type=application/json
+    # Create Session    api    ${base_url_ame}    ${dict}
+    ${data}    Create Dictionary    name=${name}
+    ${addr}    Post Request    api    ame/search    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # Should Be Equal As Strings    ${responsedata['head']['error']}    ${msg}
+    # Delete All Sessions
+    [Return]    ${responsedata}
+
+
+
+ame管理_用户登录
+    [Arguments]    ${doctorName}    ${password}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${base_url_ame}    ${dict}
+    ${data}    Create Dictionary    doctorName=${doctorName}    password=${password}
+    ${addr}    Post Request    api    role/userLogin    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # Should Be Equal As Strings    ${responsedata['head']['error']}    ${msg}
+    # Delete All Sessions
+    [Return]    ${responsedata}
+
+ame管理_文档关联诊断sug
+    [Arguments]    ${diseaseName}
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${base_url_ame}    ${dict}
+    ${params}    Create Dictionary    diseaseName=${diseaseName}
+    ${addr}    Get Request    api    /etXml/queryXmlDiseaseSug?pId=22943,11    params=${params}
+    ${responsedata}    To Json    ${addr.content}
+    # Should Be Equal As Strings    ${responsedata['head']['error']}    ${msg}
+    # Delete All Sessions
+    [Return]    ${responsedata}
+
+
+ame管理_文档列表查询
+    [Arguments]    ${zhName}    ${enName}    ${languageType}    ${type}    ${modifyStart}    ${modifyEnd}    ${index}    ${pageSize}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${base_url_ame}    ${dict}
+    ${data}    Create Dictionary    zhName=${zhName}    enName=${enName}
+    ...    languageType=${languageType}    type=${type}    modifyStart=${modifyStart}    modifyEnd=${modifyEnd}
+    ...    index=${index}    pageSize=${pageSize}
+    ${addr}    Post Request    api    /etXml/queryEtXmlList    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # Should Be Equal As Strings    ${responsedata['head']['error']}    ${msg}
+    # Delete All Sessions
+    [Return]    ${responsedata}
+
+
+
 
 
 ########################################################################################################################

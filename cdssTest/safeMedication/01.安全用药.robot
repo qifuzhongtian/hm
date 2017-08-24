@@ -444,10 +444,10 @@ Suite Teardown    Delete All Sessions
     Should Be Equal As Strings    ${getRes['body']['tabooList']}    []
 
 1.55 肾病审核结果
-    [Documentation]    断言:"主诉:严重肾功能损害（GFR<30ml/min）慎用 ,药品id16553 ,非洛地平缓释片(Ⅱ)"
+    [Documentation]    断言:"主诉:严重肾功能损害（GFR=20ml/min）慎用 ,药品id16553 ,非洛地平缓释片(Ⅱ)"
     ${drugIds}    Create List    16553
     ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=1    age=    ageType=    drugIds=${drugIds}    symptom=肌酐清除率<30ml/min    confirmDiagnosis=
+    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=1    age=    ageType=    drugIds=${drugIds}    symptom=肌酐清除率=20ml/min    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['tabooList'][0]['description']}    严重肾功能损害（GFR<30ml/min）慎用
 
 1.56 通用名
@@ -477,5 +477,4 @@ Suite Teardown    Delete All Sessions
     ${drugCommonNames}    Create List
     ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=肌酐清除率<25ml/分    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['tabooList'][0]['grade']}    1
-
 
