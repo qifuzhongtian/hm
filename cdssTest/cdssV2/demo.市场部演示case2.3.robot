@@ -229,7 +229,7 @@ Library           RequestsLibrary
        ...    examInfo=    heartRate=    age=45    ageType=岁    confirmDiagnosis=
        ...    confirmDiagnosisMap=    presentHistory=
        ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
-       Should Contain    ${aj[:10]}    子宫平滑肌瘤
+       Should Contain    ${aj[:10]}    子宫肌瘤
 
 21.妇产科室演示病例15例-12
        [Documentation]    主诉:'停经70日，反复阴道流血1个月余现病史：停经45日时出现恶心，呕吐，每日10余次，呕吐物为胃内容物。入院30日前无诱因下阴道少量流血，伴小血块查体：妇科检查为外阴已婚已产式，阴道少量血，无紫蓝色结节，宫颈软，轻糜，子宫前位，如孕3+个月大，质中，活动好，无压痛，双附件未及包块及压痛'
