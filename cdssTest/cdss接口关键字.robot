@@ -20,16 +20,7 @@ ${base_url_ame}     http://10.100.20.13:8092
 
 ${empty}
 ${null}    null
-# ${progressMessage}   "<?xml version=\"1.0\" encoding=\"utf-8\"?><XTextDocument><BodyText>急性胸痛。胸痛。濒死感。胸部撕裂样痛。背部撕裂样痛。呼吸困难。肌钙蛋白升高。cTnI升高。cTnT升高。ST段不抬高。非ST段压低。非T波低平。非T波倒置。呼吸困难。心脏杂音。室壁瘤。乳头肌功能失调。心力衰竭。水肿。急性非ST段抬高型心肌梗塞。GRACE评分：130。GRACE评分中危。GRACE评分低危。急性ST段抬高型心肌梗塞。出血高危。未评估出血风险</BodyText></XTextDocument>"
 *** Keywords ***
-# 随机字符-1
-#     [Arguments]    ${arg1}    ${arg2}=123    @{arg3}
-#     log    ${arg1}
-#     log    ${arg2}
-#     log    =@{arg3}=
-#     ${arg1}    set variable    1111111
-#     [Return]    ${arg1}
-
 
 ################安全用药################
 安全用药
@@ -641,33 +632,43 @@ amc进入
     log    ${hms}
     [Return]    ${responsedata}
 
-#旧的
-amc下一题
-    [Arguments]    ${incoming_ids}    ${question}    ${answers}
-    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    # Create Session    api    ${base_url}    ${dict}
-    ${object}    Set Variable    {"NODE_ID": 292}
-    ${question}    Evaluate    dict(${object})
-    ${answers}    Evaluate    [${answers}]
-    ${data}    Create Dictionary    incoming_ids=${incoming_ids}    question=${question}    answers=${answers}
-    ${addr}    Post Request    api    amc/next_question?_hms=${hms}    data=${data}
-    ${responsedata}    To Json    ${addr.content}
-    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
-    [Return]    ${responsedata}
+# #旧的
+# amc下一题
+#     [Arguments]    ${incoming_ids}    ${question}    ${answers}
+#     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+#     # Create Session    api    ${base_url}    ${dict}
+#     ${object}    Set Variable    {"NODE_ID": 292}
+#     ${question}    Evaluate    dict(${object})
+#     ${answers}    Evaluate    [${answers}]
+#     ${data}    Create Dictionary    incoming_ids=${incoming_ids}    question=${question}    answers=${answers}
+#     ${addr}    Post Request    api    amc/next_question?_hms=${hms}    data=${data}
+#     ${responsedata}    To Json    ${addr.content}
+#     # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+#     [Return]    ${responsedata}
 
 #新版
-amc下一题1
-    [Arguments]
-    ...    ${answers}
+amc下一题
+    [Arguments]    ${questionId}    ${type}    ${answer}
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${base_url}    ${dict}
-    # ${answers}    Set Variable    {"questionId": 292,"type": "option","answer":[5]}
-    # ${answers}    Evaluate    dict({"questionId": 292,"type": "option","answer":[5]})
-    ${answers}    Evaluate    [{"questionId": 292,"type": "option","answer":[5]}]
-    ${data}    Create Dictionary    answers=${answers}
-    ${addr}    Post Request    api    amc/next_question?_hms=${hms}    data=${data}
+    ${answer}    Create List    ${answer}
+    # ${data}    Create Dictionary    questionId=${questionId}    type=${type}    answer=${answer}
+    ${data}    Create Dictionary    questionId=${questionId}    type=${type}    answer=${answer}
+    ${dataList}    Create List    ${data}
+    ${addr}    Post Request    api    amc/next_question?_hms=${hms}    data=${dataList}
     ${responsedata}    To Json    ${addr.content}
-    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    ${number}    Get from Dictionary    ${responsedata["body"]}    number
+    Set Global variable    ${number}
+    [Return]    ${responsedata}
+
+
+amc问诊记录
+    [Arguments]    ${number}
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    number=${number}
+    ${addr}    Post Request    api    amc/record_info    data=${data}
+    ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
 
@@ -693,7 +694,6 @@ ame查询
     # Should Be Equal As Strings    ${responsedata['head']['error']}    ${msg}
     # Delete All Sessions
     [Return]    ${responsedata}
-
 
 
 ame管理_用户登录
@@ -760,7 +760,6 @@ ame管理_文档列表查询
     ...    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}    examinationList=${examinationList}
     ${addr}    Post Request    api    mayson/v_1_0/intelligent_recommendation    data=${data}
     ${responsedata}    To Json    ${addr.content}
-
     [Return]    ${responsedata}
 
 
