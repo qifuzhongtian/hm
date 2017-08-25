@@ -134,7 +134,7 @@ Library           RequestsLibrary
     #    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
     #    Should Contain    ${aj[:10]}    宫颈原位癌
 
-12.妇产科室演示病例15例-3
+12.妇产科室演示病例15例-3-子疾病
     [Documentation]    主诉:阴道分泌物增多并有异味4个月，偶有性交后出血1个月.妇科查体：阴道内分泌物多、色白、阴道无充血，宫颈中度糜烂，触之有少许出血'
     ${getRes}    智能诊断2.3    symptom=阴道分泌物增多并有异味4个月，偶有性交后出血1个月.妇科查体：阴道内分泌物多、色白、阴道无充血，宫颈中度糜烂，触之有少许出血    previousHistory=    personalHistory=G2P1    allergyHistory=    familyHistory=
     ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
@@ -229,7 +229,7 @@ Library           RequestsLibrary
        ...    examInfo=    heartRate=    age=45    ageType=岁    confirmDiagnosis=
        ...    confirmDiagnosisMap=    presentHistory=
        ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
-       Should Contain    ${aj[:10]}    子宫平滑肌瘤
+       Should Contain    ${aj[:10]}    子宫肌瘤
 
 21.妇产科室演示病例15例-12
        [Documentation]    主诉:'停经70日，反复阴道流血1个月余现病史：停经45日时出现恶心，呕吐，每日10余次，呕吐物为胃内容物。入院30日前无诱因下阴道少量流血，伴小血块查体：妇科检查为外阴已婚已产式，阴道少量血，无紫蓝色结节，宫颈软，轻糜，子宫前位，如孕3+个月大，质中，活动好，无压痛，双附件未及包块及压痛'
@@ -347,3 +347,14 @@ Library           RequestsLibrary
        ...    confirmDiagnosisMap=    presentHistory=
        ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
        Should Contain    ${aj[:15]}    肾衰竭
+
+31.董洁ppt演示
+       [Documentation]    主诉:'口渴、多饮、多尿、多食43年，间断腹泻10余年，心悸，憋气伴恶心1天入院。'
+       ${getRes}    智能诊断2.3    symptom=口渴、多饮、多尿、多食43年，间断腹泻10余年，心悸，憋气伴恶心1天入院。
+       ...    previousHistory=1年前相继出现双足、双手麻木。此期间继续胰岛素治疗，血糖控制不佳    personalHistory=既往14年前换肺结核,规律治疗2年后停药,两性前列腺增生症4年余
+       ...    allergyHistory=无    familyHistory=否认家族遗传病史。
+       ...    weight=    gender=1    bodyTempr=    lowBldPress=    highBldPress=
+       ...    examInfo=    heartRate=    age=68    ageType=岁    confirmDiagnosis=
+       ...    confirmDiagnosisMap=    presentHistory=
+       ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
+       Should Contain    ${aj[:10]}    2型糖尿病
