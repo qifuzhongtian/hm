@@ -443,12 +443,12 @@ Suite Teardown    Delete All Sessions
     ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=0    age=22    ageType=    drugIds=${drugIds}    symptom=痛经    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['tabooList']}    []
 
-# 1.55 肾病审核结果
-#     [Documentation]    断言:"主诉:严重肾功能损害（GFR<30ml/min）慎用 ,药品id16553 ,非洛地平缓释片(Ⅱ)"
-#     ${drugIds}    Create List    16553
-#     ${drugCommonNames}    Create List
-#     ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=1    age=    ageType=    drugIds=${drugIds}    symptom=肌酐清除率<30ml/min    confirmDiagnosis=
-#     Should Be Equal As Strings    ${getRes['body']['tabooList'][0]['description']}    严重肾功能损害（GFR<30ml/min）慎用
+1.55 肾病审核结果
+    [Documentation]    断言:"主诉:严重肾功能损害（GFR=20ml/min）慎用 ,药品id16553 ,非洛地平缓释片(Ⅱ)"
+    ${drugIds}    Create List    16553
+    ${drugCommonNames}    Create List
+    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=1    age=    ageType=    drugIds=${drugIds}    symptom=肌酐清除率=20ml/min    confirmDiagnosis=
+    Should Be Equal As Strings    ${getRes['body']['tabooList'][0]['description']}    严重肾功能损害（GFR<30ml/min）慎用
 
 1.56 通用名
     [Documentation]    添加drugCommonNames,断言:"3个月以上孕妇慎用"
@@ -456,3 +456,25 @@ Suite Teardown    Delete All Sessions
     ${drugCommonNames}    Create List    阿立哌唑片    盐酸氟西汀分散片    赖诺普利片    利福平片    赖诺普利胶囊
     ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=0    age=23    ageType=    drugIds=${drugIds}    symptom=妊娠4个月    confirmDiagnosis=1,3,4
     Should Be Equal As Strings    ${getRes['body']['tabooList'][0]['description']}    3个月以上孕妇慎用
+
+1.57 新增用药 症状:Roemhelo综合症 药品:8054 grade=1
+    [Documentation]    断言:"grade=2"
+    ${drugIds}    Create List    8054
+    ${drugCommonNames}    Create List
+    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=Roemhelo综合症    confirmDiagnosis=
+    Should Be Equal As Strings    ${getRes['body']['tabooList'][0]['grade']}    1
+
+1.58 新增用药 症状:咯血 药品:7421 grade=1
+    [Documentation]    断言:"grade=2"
+    ${drugIds}    Create List    7421
+    ${drugCommonNames}    Create List
+    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=咯血    confirmDiagnosis=
+    Should Be Equal As Strings    ${getRes['body']['tabooList'][0]['grade']}    1
+
+1.59 新增用药 症状:肌酐清除率<25ml/分 药品:8054 grade=1
+    [Documentation]    断言:"grade=2"
+    ${drugIds}    Create List    8054
+    ${drugCommonNames}    Create List
+    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=肌酐清除率<25ml/分    confirmDiagnosis=
+    Should Be Equal As Strings    ${getRes['body']['tabooList'][0]['grade']}    1
+

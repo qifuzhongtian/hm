@@ -9,7 +9,7 @@ Suite Teardown    Delete All Sessions
 
 
 *** Test Cases ***
-4.1药品详情
+4.1 药品详情
     [Documentation]    断言error:"docName=曲克芦丁注射剂"
     ${getRes}    药品详情    drugId=1CDF42A1CB
     Should Be Equal As Strings    ${getRes['body']['docName']}    曲克芦丁注射剂
