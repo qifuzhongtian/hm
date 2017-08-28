@@ -1,5 +1,5 @@
 *** Settings ***
-Suite Setup    Run Keywords    amc进入    AlgoID=2959    age=44    ageStyle=岁    gender=88    symptomId=10    patientName=接口发    patientPhone=13810578454
+Suite Setup    Run Keywords    amc进入    AlgoID=2960    age=44    ageStyle=岁    gender=88    symptomId=12    patientName=接口发    patientPhone=13810578454
 ...    AND    amc下一题    questionId=${292}    type=option     answer=1
 Suite Teardown    Delete All Sessions
 Resource          ../cdss接口关键字.robot

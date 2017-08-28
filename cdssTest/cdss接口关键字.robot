@@ -14,7 +14,10 @@ ${base_url_95}     http://10.46.74.95:9200
 #妇产科诊断性别_线上环境
 ${base_url_72}     http://10.252.128.72:9200
 #amc管理端
-${base_url_amca}     http://amca.huimeionline.com
+#测试
+${base_url_amca}     http://10.117.64.153:3002
+#线上
+# ${base_url_amca}     http://amca.huimeionline.com
 #ame苏悦电脑
 ${base_url_ame}     http://10.100.20.13:8092
 
@@ -265,10 +268,11 @@ ${null}    null
     # Delete All Sessions
     [Return]    ${responsedata}
 
-智能诊断0
-    [Arguments]    ${msg}    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}    ${familyHistory}
-    ...    ${weight}    ${gender}    ${bodyTempr}    ${lowBldPress}    ${highBldPress}    ${examInfo}
-    ...    ${heartRate}    ${age}    ${ageType}    ${confirmDiagnosis}    ${confirmDiagnosisMap}    ${presentHistory}
+智能诊断2.0
+    [Arguments]    ${slice}    ${msg}    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}
+    ...    ${familyHistory}    ${weight}    ${gender}    ${bodyTempr}    ${lowBldPress}    ${highBldPress}
+    ...    ${examInfo}    ${heartRate}    ${age}    ${ageType}    ${confirmDiagnosis}    ${confirmDiagnosisMap}
+    ...    ${presentHistory}
     # ...    ${examItems}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${base_url}    ${dict}
@@ -276,13 +280,15 @@ ${null}    null
     ...    weight=${weight}    gender=${gender}    bodyTempr=${bodyTempr}    lowBldPress=${lowBldPress}    highBldPress=${highBldPress}    examInfo=${examInfo}
     ...    heartRate=${heartRate}    age=${age}    ageType=${ageType}    confirmDiagnosis=${confirmDiagnosis}    confirmDiagnosisMap[]=${confirmDiagnosisMap}    presentHistory=${presentHistory}
     # ...    examItems[]=${examItems}
-    ${addr}    Post Request    api    v_2_2/diagnose_through_interrogation    data=${data}
-    # ${responsedata}    To Json    ${addr.content}
-    # ${con}    Get Dict List    ${responsedata['body']}    suspectedDiseases
-    # List Should Contain Value    ${con}    ${responsedata${slice}}    ${msg}
-    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
-    Should Contain    ${addr.text}    ${msg}
+    ${addr}    Post Request    api    v_2_0/diagnose_through_interrogation    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    ${aj}    Evaluate    [aj${slice} for aj in $responsedata['body']['suspectedDiseases']]
+    log    ${aj}
+    log    ${aj[:3]}
+    Should Contain    ${aj}    ${msg}
+    # Should Contain    ${aj[:15]}    ${msg}
     Delete All Sessions
+
 
 智能诊断
     [Arguments]    ${slice}    ${msg}    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}
@@ -304,10 +310,7 @@ ${null}    null
     Should Contain    ${aj}    ${msg}
     # Should Contain    ${aj[:15]}    ${msg}
     Delete All Sessions
-    # 测试一下
-    # ${ajson}    Evaluate    {"api": "api.name","v": "1.0","code": "10000","error_msg": "success","data": {"userlist": [{"uid": "94901","nickName": "test1",}, {"uid": "1010640","nickName": "test2",}, {"uid": "1012130","nickName": "test3",}]}}
-    # log    ${ajson['data']['userlist'][0]['nickName']}
-    # ${nicks}    Evaluate    [nicks['nickName'] for nicks $ajson['data']['userlist']]
+
 
 
 
@@ -533,6 +536,44 @@ test
 
 
 
+################################
+########慢病##########
+################################
+
+查询常用药品
+    [Arguments]
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary
+    ${addr}    Post Request    api    ncds/v_1_0/open/routine/medicine    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # Should Be Equal As Strings    ${responsedata['head']['error']}    ${msg}
+    # Delete All Sessions
+    [Return]    ${responsedata}
+
+查询病种列表
+    [Arguments]
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary
+    ${addr}    Post Request    api    ncds/v_1_0/open/disease   data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # Should Be Equal As Strings    ${responsedata['head']['error']}    ${msg}
+    # Delete All Sessions
+    [Return]    ${responsedata}
+
+查询病种下药品信息
+    [Arguments]    ${id}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    id=${id}
+    ${addr}    Post Request    api    ncds/v_1_0/open/disease/medicine   data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # Should Be Equal As Strings    ${responsedata['head']['error']}    ${msg}
+    # Delete All Sessions
+    [Return]    ${responsedata}
+
+
 ########amc管理后台######
 
 amc管理端_用户登录
@@ -540,7 +581,7 @@ amc管理端_用户登录
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${base_url_amca}    ${dict}
     ${data}    Create Dictionary    name=${name}    password=${password}
-    ${addr}    Post Request    api    node/user/login    data=${data}
+    ${addr}    Post Request    api    /user/login    data=${data}
     ${responsedata}    To Json    ${addr.content}
     # Should Be Equal As Strings    ${responsedata['head']['error']}    ${msg}
     # Delete All Sessions
@@ -551,7 +592,7 @@ amc管理端_症状sug
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${base_url_amca}    ${dict}
     ${params}    Create Dictionary    symptomName=${symptomName}
-    ${addr}    Get Request    api    node/amcRecord/amcSymptomQuerySug    params=${params}
+    ${addr}    Get Request    api    /amcRecord/amcSymptomQuerySug    params=${params}
     ${responsedata}    To Json    ${addr.content}
     # Should Be Equal As Strings    ${responsedata['head']['error']}    ${msg}
     # Delete All Sessions
@@ -562,7 +603,7 @@ amc管理端_科室sug
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${base_url_amca}    ${dict}
     ${params}    Create Dictionary    subject=${subject}
-    ${addr}    Get Request    api    node/amcRecord/subjectQuerySug    params=${params}
+    ${addr}    Get Request    api    /amcRecord/subjectQuerySug    params=${params}
     ${responsedata}    To Json    ${addr.content}
     # Should Be Equal As Strings    ${responsedata['head']['error']}    ${msg}
     # Delete All Sessions
@@ -573,7 +614,7 @@ amc管理端_问诊症状统计
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${base_url}    ${dict}
     ${data}    Create Dictionary
-    ${addr}    Post Request    api    node/amcRecord/tAmcRecordQuerySymptom    data=${data}
+    ${addr}    Post Request    api    /amcRecord/tAmcRecordQuerySymptom    data=${data}
     ${responsedata}    To Json    ${addr.content}
     # Should Be Equal As Strings    ${responsedata['head']['error']}    ${msg}
     # Delete All Sessions
@@ -584,7 +625,7 @@ amc管理端_问诊科室统计
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${base_url}    ${dict}
     ${data}    Create Dictionary
-    ${addr}    Post Request    api    node/amcRecord/tAmcRecordQuerySubject    data=${data}
+    ${addr}    Post Request    api    /amcRecord/tAmcRecordQuerySubject    data=${data}
     ${responsedata}    To Json    ${addr.content}
     # Should Be Equal As Strings    ${responsedata['head']['error']}    ${msg}
     # Delete All Sessions
@@ -596,7 +637,7 @@ amc管理端_问诊记录列表
     # Create Session    api    ${base_url}    ${dict}
     ${data}    Create Dictionary    recordStart=${recordStart}    recordEnd=${recordEnd}    symptom=${symptom}    patient_gender=${patient_gender}    subject=${subject}    index=${index}
     ...    pageSize=${pageSize}
-    ${addr}    Post Request    api    node/amcRecord/tAmcRecordQueryList    data=${data}
+    ${addr}    Post Request    api    /amcRecord/tAmcRecordQueryList    data=${data}
     ${responsedata}    To Json    ${addr.content}
     # Should Be Equal As Strings    ${responsedata['body']['suspectedDiseases'][0]['id']}    ${msg}
     # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
@@ -611,7 +652,7 @@ amc管理端_问诊记录列表详情
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${base_url}    ${dict}
     ${data}    Create Dictionary    id=${id}
-    ${addr}    Post Request    api    node/amcRecord/tAmcRecordQueryDetial    data=${data}
+    ${addr}    Post Request    api    /amcRecord/tAmcRecordQueryDetial    data=${data}
     ${responsedata}    To Json    ${addr.content}
     # Should Be Equal As Strings    ${responsedata['body']['suspectedDiseases'][0]['id']}    ${msg}
     # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}

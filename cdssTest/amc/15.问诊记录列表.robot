@@ -14,7 +14,7 @@ Library           RequestsLibrary
     ...    patient_gender=88    subject=    index=${1}    pageSize=${10}
     # Should Be Equal As Strings    ${getRes['head']['error']}    0
     ${aj}    Evaluate    [aj['symptom'] for aj in $getRes['body']['rows']]
-    Should Contain    ${aj}    睡眠问题（指南）
+    Should Contain    ${aj}    体重问题（指南）
 
 
 # 6.2 就诊时间搜索
