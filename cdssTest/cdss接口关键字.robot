@@ -780,9 +780,34 @@ ame管理_文档列表查询
 ########################################################################################################################
 ########Mayson######
 
+# 智能推荐
+#     [Arguments]    ${userGuid}    ${serialNumber}
+#     ...    ${patientInfo}
+#     ...    ${definiteDiagnosis}
+#     ...    ${progressNoteList}
+#     ...    ${deleteProgressNoteList}
+#     ...    ${labTestList}
+#     ...    ${examinationList}
+#     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+#     Create Session    api    ${base_url}    ${dict}
+#     ${patientInfo}    Evaluate    dict(${patientInfo})
+#     ${definiteDiagnosis}    Evaluate    [${definiteDiagnosis}]
+#     ${progressNoteList}    Evaluate    [${progressNoteList}]
+#     ${deleteProgressNoteList}    Evaluate    [${deleteProgressNoteList}]
+#     ${labTestList}    Evaluate    [${labTestList}]
+#     ${examinationList}    Evaluate    [${examinationList}]
+#     ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    patientInfo=${patientInfo}
+#     ...    definiteDiagnosis=${definiteDiagnosis}    progressNoteList=${progressNoteList}
+#     ...    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}    examinationList=${examinationList}
+#     ${addr}    Post Request    api    mayson/v_1_0/intelligent_recommendation    data=${data}
+#     ${responsedata}    To Json    ${addr.content}
+#     [Return]    ${responsedata}
+
+
 智能推荐
     [Arguments]    ${userGuid}    ${serialNumber}
     ...    ${patientInfo}
+    ...    ${physicalSign}
     ...    ${definiteDiagnosis}
     ...    ${progressNoteList}
     ...    ${deleteProgressNoteList}
@@ -791,13 +816,14 @@ ame管理_文档列表查询
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${base_url}    ${dict}
     ${patientInfo}    Evaluate    dict(${patientInfo})
+    ${physicalSign}    Evaluate    dict(${physicalSign})
     ${definiteDiagnosis}    Evaluate    [${definiteDiagnosis}]
     ${progressNoteList}    Evaluate    [${progressNoteList}]
     ${deleteProgressNoteList}    Evaluate    [${deleteProgressNoteList}]
     ${labTestList}    Evaluate    [${labTestList}]
     ${examinationList}    Evaluate    [${examinationList}]
     ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    patientInfo=${patientInfo}
-    ...    definiteDiagnosis=${definiteDiagnosis}    progressNoteList=${progressNoteList}
+    ...    physicalSign=${physicalSign}    definiteDiagnosis=${definiteDiagnosis}    progressNoteList=${progressNoteList}
     ...    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}    examinationList=${examinationList}
     ${addr}    Post Request    api    mayson/v_1_0/intelligent_recommendation    data=${data}
     ${responsedata}    To Json    ${addr.content}
