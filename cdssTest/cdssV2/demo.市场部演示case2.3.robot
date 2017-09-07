@@ -286,7 +286,7 @@ Library           RequestsLibrary
        Should Contain    ${aj[:15]}    子宫粘连
 26.体格检查case-1
        [Documentation]    主诉:'空腹血糖: 6.6mmol／L    ->    空腹血糖升高    -> 慢性肾衰竭'
-       ${getRes}    智能诊断2.3    symptom=腹血糖升高 空腹血糖: 6.6mmol／L
+       ${getRes}    智能诊断2.3    symptom=空腹血糖升高 空腹血糖: 6.6mmol／L
        ...    previousHistory=    personalHistory=
        ...    allergyHistory=    familyHistory=
        ...    weight=    gender=1    bodyTempr=    lowBldPress=    highBldPress=

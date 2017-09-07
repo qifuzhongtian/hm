@@ -133,87 +133,6 @@ Library           RequestsLibrary
     Should Contain    ${aj}    D-二聚体
 
 
-推荐检查1.3 胸痛+Wells评分:2分,推荐检查"不"包含:D-二聚体
-    [Documentation]    胸痛+Wells评分:2分,断言:"推荐检查examination=D-二聚体"
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 Wells评分:2 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    D-二聚体
-
-
-推荐检查1.4 胸痛+Wells评分:1分+否定条件,推荐检查"不"包含:D-二聚体
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 Wells评分:1 严重心动过缓 心率:39次/分 脉搏细弱 脉搏消失 无脉 低氧血症 呼吸窘迫 休克 持续性低血压 血压:89/80mmHg SPO2:89% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    D-二聚体
-
-推荐检查1.5 只有胸痛 "无"Wells评分低度可能急性肺栓塞｜Wells评分<2分,推荐检查"不"包含:D-二聚体
-    [Documentation]    胸痛+Wells评分低度可能急性肺栓塞,断言:"推荐检查examination=D-二聚体"
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    D-二聚体
-
-推荐检查1.6 胸痛+Wells评分:1分+否定条件:严重心动过缓,推荐检查"不"包含:D-二聚体
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 Wells评分:1 严重心动过缓 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    D-二聚体
-
-推荐检查1.7 胸痛+Wells评分:1分+否定条件:心率:39次/分,推荐检查"不"包含:D-二聚体
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 Wells评分:1 心率:39次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    D-二聚体
-
 推荐检查1.8 胸痛+Wells评分:1分+否定条件:心率:>=40次/分,推荐检查包含:D-二聚体
     [Documentation]    断言:""
     #执行删除病程
@@ -230,38 +149,6 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Contain    ${aj}    D-二聚体
 
-
-推荐检查1.9 胸痛+Wells评分:1分+否定条件:脉搏细弱,推荐检查"不"包含:D-二聚体
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 Wells评分:1 脉搏细弱 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    D-二聚体
-
-推荐检查1.9 胸痛+Wells评分:1分+否定条件:脉搏消失,推荐检查"不"包含:D-二聚体
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 Wells评分:1 脉搏消失 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    D-二聚体
 
 推荐检查1.10 胸痛+Wells评分:1分+否定条件:无脉,推荐检查"不"包含:D-二聚体
     [Documentation]    断言:""
@@ -472,37 +359,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Not Contain    ${aj}    肺动脉CTA
 
-推荐检查2.4 胸痛+Wells评分:1分&D-二聚体阳性+否定条件,推荐检查"不"包含:肺动脉CTA
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 Wells评分:1 血浆-D-二聚体增高 严重心动过缓 心率:39次/分 脉搏细弱 脉搏消失 无脉 低氧血症 呼吸窘迫 休克 持续性低血压 血压:89/80mmHg SPO2:89% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    肺动脉CTA
 
-推荐检查2.5 只有胸痛 没有Wells评分低度可能急性肺栓塞｜Wells评分<2分,推荐检查"不"包含:肺动脉CTA
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 血浆-D-二聚体增高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    肺动脉CTA
 
 #####27L 急性胸痛｜胸痛｜濒死感｜胸部撕裂样痛｜背部撕裂样痛｜呼吸困难&Wells评分低度可能急性肺栓塞｜Wells评分<2分&D-二聚体阳性 "CTA禁忌: 碘造影剂过敏｜妊娠｜中度肾功能不全｜重度肾功能不全｜肌酐清除率<30ml/min｜肾小球滤过率eGFR<45mL/min/1.73m2｜造影剂肾病｜甲状腺功能亢进"  严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉｜低氧血症｜呼吸窘迫｜休克｜持续性低血压｜收缩压<90mmHg｜SPO2<90%    放射性核素肺通气灌注扫描    如有CTA检查禁忌，推荐进行放射性核素肺通气灌注扫描检查来确诊肺栓塞  紧急检查        是
 推荐检查3.1 胸痛+Wells评分低度可能急性肺栓塞&D-二聚体阳性,推荐检查包含:放射性核素肺通气灌注扫描
@@ -537,21 +394,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Contain    ${aj}    放射性核素肺通气灌注扫描
 
-推荐检查3.3 胸痛+Wells:2分评分&D-二聚体阳性,推荐检查"不"包含:放射性核素肺通气灌注扫描
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 Wells评分:2 血浆-D-二聚体增高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    放射性核素肺通气灌注扫描
+
 
 推荐检查3.4 胸痛+Wells评分:1分&D-二聚体阳性+否定条件,推荐检查"不"包含:放射性核素肺通气灌注扫描
     [Documentation]    断言:""
@@ -764,21 +607,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Contain    ${aj}    选择性肺动脉造影
 
-推荐检查4.3 胸痛+Wells评分:2分&D-二聚体阳性& V/Q升高,推荐检查"不"包含:选择性肺动脉造影
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 Wells评分:2 血浆-D-二聚体增高 V/Q升高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    选择性肺动脉造影
+
 
 推荐检查4.4 胸痛+Wells评分:1分&D-二聚体阳性& V/Q升高+否定条件,推荐检查"不"包含:选择性肺动脉造影
     [Documentation]    断言:""
@@ -1026,21 +855,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Contain    ${aj}    加压超声检查
 
-推荐检查6.3 胸痛+Wells评分:2分&D-二聚体阳性& V/Q升高,推荐检查"不"包含:加压超声检查
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 Wells评分:2 血浆-D-二聚体增高 V/Q升高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    加压超声检查
+
 
 推荐检查6.4 胸痛+Wells评分:1分&D-二聚体阳性& V/Q升高+否定条件,推荐检查"不"包含:加压超声检查
     [Documentation]    断言:""
@@ -1206,21 +1021,6 @@ Library           RequestsLibrary
     Should Not Contain    ${aj}    肺动脉CTA
 
 
-推荐检查7.6 胸痛+Wells评分:7分,推荐检查"不"包含:肺动脉CTA
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 Wells评分:7 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    肺动脉CTA
 
 推荐检查7.7 胸痛+无Wells评分,推荐检查"不"包含:肺动脉CTA
     [Documentation]    断言:""
@@ -2995,21 +2795,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Contain    ${aj}    肌钙蛋白
 
-推荐检查20.3 心力衰竭症状｜心力衰竭+否定条件:心动过速,推荐检查"不应"包含:肌钙蛋白
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心动过速 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    肌钙蛋白
+
 
 推荐检查20.4 心力衰竭症状｜心力衰竭+否定条件:心率>120次/分,推荐检查"不应"包含:肌钙蛋白
     [Documentation]    断言:""
@@ -4337,21 +4123,6 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Contain    ${aj}    血电解质
 
-推荐检查27.3 心力衰竭症状｜心力衰竭+否定条件:心动过速,推荐检查"不应"包含:血电解质
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心动过速 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    血电解质
 
 推荐检查27.4 心力衰竭症状｜心力衰竭+否定条件:心率>120次/分,推荐检查"不应"包含:血电解质
     [Documentation]    断言:""
@@ -5458,22 +5229,6 @@ Library           RequestsLibrary
     Should Contain    ${aj}    血电解质
 
 
-推荐检查33.2 房颤+否定条件:呼吸困难,推荐检查"不应"包含:血电解质
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 呼吸困难 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    血电解质
-
 推荐检查33.3 房颤+否定条件:胸痛,推荐检查"不应"包含:血电解质
     [Documentation]    断言:""
     #执行删除病程
@@ -5643,21 +5398,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Contain    ${aj}    血常规
 
-推荐检查34.2 房颤+否定条件:呼吸困难,推荐检查"不应"包含:血常规
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 呼吸困难 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    血常规
+
 
 推荐检查34.3 房颤+否定条件:胸痛,推荐检查"不应"包含:血常规
     [Documentation]    断言:""
@@ -6519,9 +6260,9 @@ Library           RequestsLibrary
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
-    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    Should Not Contain    ${aj}     门静脉高压
-
+    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+    # Should Not Contain    ${aj}     门静脉高压
+    Should Not Contain    ${getRes['body']}    examinationInterpretList
 
 #######################################检查解读################################
 ####         腹水&黑便   红细胞减少｜白细胞总数降低｜血小板减少&白/球蛋白比例倒置       门静脉高压   支持门静脉高压的诊断，建议结合超声、CT、上消化道造影、内镜检查，必要时可做骨髓穿刺结果明确  诊断依据    是
@@ -6808,22 +6549,7 @@ Library           RequestsLibrary
     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     # Should Not Contain    ${aj}     门静脉高压
     Should Not Contain    ${getRes['body']}    examinationInterpretList
-检查解读5.5 病历内容:脾肿大 没有腹水+检查结果:血清总胆红素增高,推荐"不应"诊断包含:门静脉高压
-    [Documentation]    断言:""
-    #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 脾肿大 红细胞数减少 白细胞计数降低 血小板计数减少 血清总胆红素增高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    # Should Not Contain    ${aj}     门静脉高压
-    Should Not Contain    ${getRes['body']}    examinationInterpretList
+
 
 ########################################检查解读################################
 #####                  腹痛&寒战&发热&黄疸&右上腹深压痛  谷草转氨酶>=100U/L｜谷丙转氨酶>=100U/L｜碱性磷酸酶升高     急性胆囊炎、胆管炎   支持急性胆囊炎和胆管炎的诊断，建议结合B超、CT或MR检查排除结石   诊断依据    是
@@ -9675,7 +9401,7 @@ Library           RequestsLibrary
 #####尿白细胞:4个／HP 尿液外观血尿 尿红细胞:2个／HP 细胞管型:白细胞管型 清洁中段尿沉渣涂片:0个细菌 清洁中段尿细菌定量培养:104/ml
 #####尿白细胞>=5个／HP 尿液外观血尿 尿红细胞3~10个／HP 白细胞管型 清洁中段尿沉渣涂片>=1个细菌 清洁中段尿细菌定量培养>=105/ml
 
-检查解读44.1 病历内容:尿频｜尿急｜尿痛｜排尿困难｜下腹部疼痛｜腰痛｜发热｜心动过速｜全身肌肉压痛｜肋脊角压痛｜输尿管点压痛｜肾区叩击+痛检查结果:尿白细胞:5个／HP 尿液外观血尿 尿红细胞:3个／HP 细胞管型:白细胞管型 清洁中段尿沉渣涂片:1个细菌 清洁中段尿细菌定量培养:105/ml ,推荐诊断包含:急性肾盂肾炎
+检查解读44.1 病历内容:尿频｜尿急｜尿痛｜排尿困难｜下腹部疼痛｜腰痛｜发热｜心动过速｜全身肌肉压痛｜肋脊角压痛｜输尿管点压痛｜肾区叩击+检查结果:尿白细胞:5个／HP 尿液外观血尿 尿红细胞:3个／HP 细胞管型:白细胞管型 清洁中段尿沉渣涂片:1个细菌 清洁中段尿细菌定量培养:105/ml ,推荐诊断包含:急性肾盂肾炎
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -9795,7 +9521,7 @@ Library           RequestsLibrary
 #####尿蛋白阳性 检查  尿蛋白阳性
 #####血肌酐升高 检查  血清肌酐升高
 
-检查解读45.1 病历内容:血压高+痛检查结果:尿红细胞管型&尿蛋白阳性 ,推荐诊断包含:慢性肾炎综合征
+检查解读45.1 病历内容:血压高+检查结果:尿红细胞管型&尿蛋白阳性 ,推荐诊断包含:慢性肾炎综合征
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -9811,7 +9537,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     慢性肾炎综合征
 
-检查解读45.2 病历内容:血压高+痛检查结果:尿红细胞管型&血肌酐升高 ,推荐诊断包含:慢性肾炎综合征
+检查解读45.2 病历内容:血压高+检查结果:尿红细胞管型&血肌酐升高 ,推荐诊断包含:慢性肾炎综合征
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -9851,7 +9577,7 @@ Library           RequestsLibrary
 ######血肌酐升高 检查  血清肌酐升高
 ######尿蛋白阳性 血清肌酐升高
 
-检查解读46.1 病历内容:血压高&血尿+痛检查结果:尿蛋白阳性｜血肌酐升高 ,推荐诊断包含:慢性肾炎综合征
+检查解读46.1 病历内容:血压高&血尿+检查结果:尿蛋白阳性｜血肌酐升高 ,推荐诊断包含:慢性肾炎综合征
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -9867,7 +9593,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     慢性肾炎综合征
 
-检查解读46.2 病历内容:血压高&畸形红细胞尿+痛检查结果:尿蛋白阳性｜血肌酐升高 ,推荐诊断包含:慢性肾炎综合征
+检查解读46.2 病历内容:血压高&畸形红细胞尿+检查结果:尿蛋白阳性｜血肌酐升高 ,推荐诊断包含:慢性肾炎综合征
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -9905,7 +9631,7 @@ Library           RequestsLibrary
 #####尿频｜尿急｜尿痛
 #####尿白细胞阳性    检查  尿白细胞阳性
 
-检查解读47.1 病历内容:尿频｜尿急｜尿痛+痛检查结果:尿白细胞阳性 ,推荐诊断包含:尿路感染
+检查解读47.1 病历内容:尿频｜尿急｜尿痛+检查结果:尿白细胞阳性 ,推荐诊断包含:尿路感染
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -9932,7 +9658,7 @@ Library           RequestsLibrary
 ##### EV716中和抗体有4倍以上的升高    检查  EV716中和抗体>4倍
 ##### CoxA16特异性核酸检测阳性 EV71特异性核酸检测阳性 CoxA16中和抗体:5倍 EV716中和抗体:5倍
 
-检查解读47.1 病历内容:null+痛检查结果:CoxA16特异性核酸检测阳性 EV71特异性核酸检测阳性 CoxA16中和抗体:5倍 EV716中和抗体:5倍 ,推荐诊断包含:手足口病
+检查解读47.1 病历内容:null+检查结果:CoxA16特异性核酸检测阳性 EV71特异性核酸检测阳性 CoxA16中和抗体:5倍 EV716中和抗体:5倍 ,推荐诊断包含:手足口病
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -9949,7 +9675,7 @@ Library           RequestsLibrary
     Should Contain    ${aj}     手足口病
 
 
-检查解读47.2 病历内容:null+痛检查结果:CoxA16特异性核酸检测阳性 ,推荐诊断包含:手足口病
+检查解读47.2 病历内容:null+检查结果:CoxA16特异性核酸检测阳性 ,推荐诊断包含:手足口病
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -9965,7 +9691,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     手足口病
 
-检查解读47.3 病历内容:null+痛检查结果:EV71特异性核酸检测阳性 ,推荐诊断包含:手足口病
+检查解读47.3 病历内容:null+检查结果:EV71特异性核酸检测阳性 ,推荐诊断包含:手足口病
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -9981,7 +9707,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     手足口病
 
-检查解读47.4 病历内容:null+痛检查结果:CoxA16中和抗体:5倍,推荐诊断包含:手足口病
+检查解读47.4 病历内容:null+检查结果:CoxA16中和抗体:5倍,推荐诊断包含:手足口病
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -9997,7 +9723,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     手足口病
 
-检查解读47.5 病历内容:null+痛检查结果:EV716中和抗体:5倍,推荐诊断包含:手足口病
+检查解读47.5 病历内容:null+检查结果:EV716中和抗体:5倍,推荐诊断包含:手足口病
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10021,7 +9747,7 @@ Library           RequestsLibrary
 ##### 中性粒细胞升高  检查  中性粒细胞增高
 #####白细胞计数升高 中性粒细胞增高
 
-检查解读48.1 病历内容:急性发热｜全身中毒症状&皮疹&肝脾肿大&胆道感染｜尿路感染｜皮肤感染创伤｜挤压疮疖｜感染性心内膜炎 +痛检查结果:白细胞总数升高｜中性粒细胞升高 ,推荐诊断包含:败血症
+检查解读48.1 病历内容:急性发热｜全身中毒症状&皮疹&肝脾肿大&胆道感染｜尿路感染｜皮肤感染创伤｜挤压疮疖｜感染性心内膜炎 +检查结果:白细胞总数升高｜中性粒细胞升高 ,推荐诊断包含:败血症
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10037,7 +9763,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     败血症
 
-检查解读48.2 病历内容:缺少急性发热｜全身中毒症状,皮疹&肝脾肿大&胆道感染｜尿路感染｜皮肤感染创伤｜挤压疮疖｜感染性心内膜炎 +痛检查结果:白细胞总数升高｜中性粒细胞升高 ,推荐诊断"不应"包含:败血症
+检查解读48.2 病历内容:缺少急性发热｜全身中毒症状,皮疹&肝脾肿大&胆道感染｜尿路感染｜皮肤感染创伤｜挤压疮疖｜感染性心内膜炎 +检查结果:白细胞总数升高｜中性粒细胞升高 ,推荐诊断"不应"包含:败血症
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10061,7 +9787,7 @@ Library           RequestsLibrary
 ##### 血白细胞正常   检查  白细胞计数正常
 #####白细胞计数升高 白细胞计数正常
 
-检查解读49.1 病历内容:畏寒｜发热&咳嗽｜脓性痰｜脓臭痰&吸入史｜口腔疾病 +痛检查结果:白细胞总数升高｜血白细胞正常 ,推荐诊断包含:肺脓肿
+检查解读49.1 病历内容:畏寒｜发热&咳嗽｜脓性痰｜脓臭痰&吸入史｜口腔疾病 +检查结果:白细胞总数升高｜血白细胞正常 ,推荐诊断包含:肺脓肿
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10083,7 +9809,7 @@ Library           RequestsLibrary
 ##### 血白细胞正常   检查  白细胞计数正常
 #####白细胞计数升高 白细胞计数正常
 
-检查解读50.1 病历内容:脓臭痰&吸入史｜口腔疾病 +痛检查结果:白细胞总数升高｜血白细胞正常 ,推荐诊断包含:肺脓肿
+检查解读50.1 病历内容:脓臭痰&吸入史｜口腔疾病 +检查结果:白细胞总数升高｜血白细胞正常 ,推荐诊断包含:肺脓肿
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10099,7 +9825,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     肺脓肿
 
-检查解读50.2 病历内容:缺少脓臭痰,有 吸入史 口腔疾病 +痛检查结果:白细胞总数升高｜血白细胞正常 ,推荐诊断"不应"包含:肺脓肿
+检查解读50.2 病历内容:缺少脓臭痰,有 吸入史 口腔疾病 +检查结果:白细胞总数升高｜血白细胞正常 ,推荐诊断"不应"包含:肺脓肿
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10123,7 +9849,7 @@ Library           RequestsLibrary
 ##### 血白细胞升高  检查  白细胞计数升高
 ##### 以中性粒细胞为主
 ##### 白细胞计数升高 以中性粒细胞为主
-检查解读51.1 病历内容:发热&头痛&脑膜刺激征 +痛检查结果:白细胞总数升高｜血白细胞正常 ,推荐诊断包含:化脓性脑膜炎
+检查解读51.1 病历内容:发热&头痛&脑膜刺激征 +检查结果:白细胞总数升高｜血白细胞正常 ,推荐诊断包含:化脓性脑膜炎
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10139,7 +9865,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     化脓性脑膜炎
 
-检查解读51.2 病历内容:缺少发热,有头痛&脑膜刺激征 +痛检查结果:白细胞总数升高｜血白细胞正常 ,推荐诊断"不应"包含:化脓性脑膜炎
+检查解读51.2 病历内容:缺少发热,有头痛&脑膜刺激征 +检查结果:白细胞总数升高｜血白细胞正常 ,推荐诊断"不应"包含:化脓性脑膜炎
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10165,7 +9891,7 @@ Library           RequestsLibrary
 ##### 白细胞计数升高 以中性粒细胞为主
 ##### 发热 头痛 颅内压增高 惊厥 意识障碍 白细胞计数升高 以中性粒细胞为主
 
-检查解读51.1 病历内容:发热&头痛&颅内压增高&惊厥｜意识障碍 +痛检查结果:白细胞总数升高&血白细胞正常 ,推荐诊断包含:化脓性脑膜炎
+检查解读51.1 病历内容:发热&头痛&颅内压增高&惊厥｜意识障碍 +检查结果:白细胞总数升高&血白细胞正常 ,推荐诊断包含:化脓性脑膜炎
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10181,7 +9907,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     化脓性脑膜炎
 
-检查解读51.2 病历内容:发热&头痛&颅内压增高&惊厥｜意识障碍+痛检查结果:缺少白细胞总数升高,有血白细胞正常 ,推荐诊断"不应"包含:化脓性脑膜炎
+检查解读51.2 病历内容:发热&头痛&颅内压增高&惊厥｜意识障碍+检查结果:缺少白细胞总数升高,有血白细胞正常 ,推荐诊断"不应"包含:化脓性脑膜炎
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10207,7 +9933,7 @@ Library           RequestsLibrary
 ##### 白细胞计数升高 以中性粒细胞为主
 ##### 发热 哭闹不安 拒食 呕吐 惊厥 前囟门饱满 白细胞计数升高 以中性粒细胞为主
 
-检查解读53.1 2岁+病历内容:发热&哭闹不安｜拒食&呕吐&惊厥&前囟门饱满 +痛检查结果:白细胞总数升高&血白细胞正常 ,推荐诊断包含:化脓性脑膜炎
+检查解读53.1 2岁+病历内容:发热&哭闹不安｜拒食&呕吐&惊厥&前囟门饱满 +检查结果:白细胞总数升高&血白细胞正常 ,推荐诊断包含:化脓性脑膜炎
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10223,7 +9949,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     化脓性脑膜炎
 
-检查解读53.2 1岁+病历内容:发热&哭闹不安｜拒食&呕吐&惊厥&前囟门饱满 +痛检查结果:白细胞总数升高&血白细胞正常 ,推荐诊断包含:化脓性脑膜炎
+检查解读53.2 1岁+病历内容:发热&哭闹不安｜拒食&呕吐&惊厥&前囟门饱满 +检查结果:白细胞总数升高&血白细胞正常 ,推荐诊断包含:化脓性脑膜炎
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10240,7 +9966,7 @@ Library           RequestsLibrary
     Should Contain    ${aj}     化脓性脑膜炎
 
 
-检查解读53.3 2岁+病历内容:发热&哭闹不安｜拒食&呕吐&惊厥&前囟门饱满+痛检查结果:缺少白细胞总数升高,有血白细胞正常 ,推荐诊断"不应"包含:化脓性脑膜炎
+检查解读53.3 2岁+病历内容:发热&哭闹不安｜拒食&呕吐&惊厥&前囟门饱满+检查结果:缺少白细胞总数升高,有血白细胞正常 ,推荐诊断"不应"包含:化脓性脑膜炎
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10257,7 +9983,7 @@ Library           RequestsLibrary
     # Should Not Contain    ${aj}     化脓性脑膜炎
     Should Not Contain    ${getRes['body']}    examinationInterpretList
 
-检查解读53.4 3岁+病历内容:发热&哭闹不安｜拒食&呕吐&惊厥&前囟门饱满+痛检查结果:白细胞总数升高&有血白细胞正常 ,推荐诊断"不应"包含:化脓性脑膜炎
+检查解读53.4 3岁+病历内容:发热&哭闹不安｜拒食&呕吐&惊厥&前囟门饱满+检查结果:白细胞总数升高&有血白细胞正常 ,推荐诊断"不应"包含:化脓性脑膜炎
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10287,7 +10013,7 @@ Library           RequestsLibrary
 #####血红蛋白:120=g/L 血清铁蛋白:11 μg/L 血清铁:8.94μmol/L 血清铁:49μg/dl 检查血清总铁结合力:64.45μmol/L 血清总铁结合力:64.45μmol/L 转铁蛋白饱和度:14%
 #####血红蛋白:121=g/L 血清铁蛋白:12 μg/L 血清铁:8.95μmol/L 血清铁:50μg/dl 检查血清总铁结合力:64.44μmol/L 血清总铁结合力:64.44μmol/L 转铁蛋白饱和度:15%
 
-检查解读54.1 病历内容:男性 +痛检查结果:血红蛋白<120g/L&血清铁蛋白(SF)低于12μg/L&血清铁(S1)<8.95μmol/L｜血清铁(S1)<50μg/dl｜总铁结合力(TIBC)>64.44μmol/L｜总铁结合力(TIBC)>360μg/dl&转铁蛋白饱和度(TS)低于15％ ,推荐诊断包含:缺铁性贫血
+检查解读54.1 病历内容:男性 +检查结果:血红蛋白<120g/L&血清铁蛋白(SF)低于12μg/L&血清铁(S1)<8.95μmol/L｜血清铁(S1)<50μg/dl｜总铁结合力(TIBC)>64.44μmol/L｜总铁结合力(TIBC)>360μg/dl&转铁蛋白饱和度(TS)低于15％ ,推荐诊断包含:缺铁性贫血
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10303,7 +10029,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     缺铁性贫血
 
-检查解读54.2 病历内容:男性 +痛检查结果:血红蛋白:121=g/L 血清铁蛋白:12 μg/L 血清铁:8.95μmol/L 血清铁:50μg/dl 检查血清总铁结合力:64.44μmol/L 血清总铁结合力:64.44μmol/L 转铁蛋白饱和度:15% ,推荐诊断包含:缺铁性贫血
+检查解读54.2 病历内容:男性 +检查结果:血红蛋白:121=g/L 血清铁蛋白:12 μg/L 血清铁:8.95μmol/L 血清铁:50μg/dl 检查血清总铁结合力:64.44μmol/L 血清总铁结合力:64.44μmol/L 转铁蛋白饱和度:15% ,推荐诊断包含:缺铁性贫血
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10333,7 +10059,7 @@ Library           RequestsLibrary
 #####血红蛋白:109g/L 血清铁蛋白:11 μg/L 血清铁:8.94μmol/L 血清铁:49μg/dl 检查血清总铁结合力:64.45μmol/L 血清总铁结合力:64.45μmol/L 转铁蛋白饱和度:14%
 #####血红蛋白:110g/L 血清铁蛋白:12 μg/L 血清铁:8.95μmol/L 血清铁:50μg/dl 检查血清总铁结合力:64.44μmol/L 血清总铁结合力:64.44μmol/L 转铁蛋白饱和度:15%
 
-检查解读55.1 病历内容:女性 +痛检查结果:血红蛋白<120g/L&血清铁蛋白(SF)低于12μg/L&血清铁(S1)<8.95μmol/L｜血清铁(S1)<50μg/dl｜总铁结合力(TIBC)>64.44μmol/L｜总铁结合力(TIBC)>360μg/dl&转铁蛋白饱和度(TS)低于15％ ,推荐诊断包含:缺铁性贫血
+检查解读55.1 病历内容:女性 +检查结果:血红蛋白<120g/L&血清铁蛋白(SF)低于12μg/L&血清铁(S1)<8.95μmol/L｜血清铁(S1)<50μg/dl｜总铁结合力(TIBC)>64.44μmol/L｜总铁结合力(TIBC)>360μg/dl&转铁蛋白饱和度(TS)低于15％ ,推荐诊断包含:缺铁性贫血
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10349,7 +10075,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     缺铁性贫血
 
-检查解读55.2 病历内容:女性 +痛检查结果:血红蛋白:121=g/L 血清铁蛋白:12 μg/L 血清铁:8.95μmol/L 血清铁:50μg/dl 检查血清总铁结合力:64.44μmol/L 血清总铁结合力:64.44μmol/L 转铁蛋白饱和度:15% ,推荐诊断包含:缺铁性贫血
+检查解读55.2 病历内容:女性 +检查结果:血红蛋白:121=g/L 血清铁蛋白:12 μg/L 血清铁:8.95μmol/L 血清铁:50μg/dl 检查血清总铁结合力:64.44μmol/L 血清总铁结合力:64.44μmol/L 转铁蛋白饱和度:15% ,推荐诊断包含:缺铁性贫血
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10379,7 +10105,7 @@ Library           RequestsLibrary
 #####血红蛋白:99g/L 血清铁蛋白:11 μg/L 血清铁:8.94μmol/L 血清铁:49μg/dl 检查血清总铁结合力:64.45μmol/L 血清总铁结合力:64.45μmol/L 转铁蛋白饱和度:14%
 #####血红蛋白:100g/L 血清铁蛋白:12 μg/L 血清铁:8.95μmol/L 血清铁:50μg/dl 检查血清总铁结合力:64.44μmol/L 血清总铁结合力:64.44μmol/L 转铁蛋白饱和度:15%
 
-检查解读56.1 病历内容:女性&妊娠 +痛检查结果:血红蛋白<120g/L&血清铁蛋白(SF)低于12μg/L&血清铁(S1)<8.95μmol/L｜血清铁(S1)<50μg/dl｜总铁结合力(TIBC)>64.44μmol/L｜总铁结合力(TIBC)>360μg/dl&转铁蛋白饱和度(TS)低于15％ ,推荐诊断包含:缺铁性贫血
+检查解读56.1 病历内容:女性&妊娠 +检查结果:血红蛋白<120g/L&血清铁蛋白(SF)低于12μg/L&血清铁(S1)<8.95μmol/L｜血清铁(S1)<50μg/dl｜总铁结合力(TIBC)>64.44μmol/L｜总铁结合力(TIBC)>360μg/dl&转铁蛋白饱和度(TS)低于15％ ,推荐诊断包含:缺铁性贫血
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10395,7 +10121,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     缺铁性贫血
 
-检查解读56.2 病历内容:女性&妊娠 +痛检查结果:血红蛋白:121=g/L 血清铁蛋白:12 μg/L 血清铁:8.95μmol/L 血清铁:50μg/dl 检查血清总铁结合力:64.44μmol/L 血清总铁结合力:64.44μmol/L 转铁蛋白饱和度:15% ,推荐诊断包含:缺铁性贫血
+检查解读56.2 病历内容:女性&妊娠 +检查结果:血红蛋白:121=g/L 血清铁蛋白:12 μg/L 血清铁:8.95μmol/L 血清铁:50μg/dl 检查血清总铁结合力:64.44μmol/L 血清总铁结合力:64.44μmol/L 转铁蛋白饱和度:15% ,推荐诊断包含:缺铁性贫血
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10420,7 +10146,7 @@ Library           RequestsLibrary
 ##### 抗HAVIgM阳性    检查  甲型肝炎病毒抗体IgM阳性
 #####畏寒 发热 乏力 恶心 呕吐 厌油 腹胀 谷丙转氨酶升高 甲型肝炎病毒抗体IgM阳性
 
-检查解读57.1 病历内容:畏寒｜发热｜乏力｜恶心｜呕吐｜厌油｜腹胀 +痛检查结果:ALT升高&抗HAVIgM阳性 ,推荐诊断包含:急性甲型病毒性肝炎
+检查解读57.1 病历内容:畏寒｜发热｜乏力｜恶心｜呕吐｜厌油｜腹胀 +检查结果:ALT升高&抗HAVIgM阳性 ,推荐诊断包含:急性甲型病毒性肝炎
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10436,7 +10162,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     急性甲型病毒性肝炎
 
-检查解读57.2 病历内容:畏寒｜发热｜乏力｜恶心｜呕吐｜厌油｜腹胀 +痛检查结果:缺少ALT升高,&抗HAVIgM阳性,推荐诊断包含:急性甲型病毒性肝炎
+检查解读57.2 病历内容:畏寒｜发热｜乏力｜恶心｜呕吐｜厌油｜腹胀 +检查结果:缺少ALT升高,&抗HAVIgM阳性,推荐诊断包含:急性甲型病毒性肝炎
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10462,7 +10188,7 @@ Library           RequestsLibrary
 ##### 抗HAVIgG阳性    检查  甲型肝炎病毒抗体IgG阳性
 #####畏寒 发热 乏力 恶心 呕吐 厌油 腹胀 谷丙转氨酶升高 甲型肝炎病毒抗体IgG阳性
 
-检查解读58.1 病历内容:畏寒｜发热｜乏力｜恶心｜呕吐｜厌油｜腹胀 +痛检查结果:ALT升高&抗HAVIgM阳性 ,推荐诊断包含:急性甲型病毒性肝炎
+检查解读58.1 病历内容:畏寒｜发热｜乏力｜恶心｜呕吐｜厌油｜腹胀 +检查结果:ALT升高&抗HAVIgM阳性 ,推荐诊断包含:急性甲型病毒性肝炎
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10478,7 +10204,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     急性甲型病毒性肝炎
 
-检查解读58.2 病历内容:畏寒｜发热｜乏力｜恶心｜呕吐｜厌油｜腹胀 +痛检查结果:缺少ALT升高,&抗HAVIgM阳性,推荐诊断包含:急性甲型病毒性肝炎
+检查解读58.2 病历内容:畏寒｜发热｜乏力｜恶心｜呕吐｜厌油｜腹胀 +检查结果:缺少ALT升高,&抗HAVIgM阳性,推荐诊断包含:急性甲型病毒性肝炎
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10503,7 +10229,7 @@ Library           RequestsLibrary
 ##### 粪便中检出HAV颗粒   检查  大便甲型肝炎病毒阳性
 #####畏寒 发热 乏力 恶心 呕吐 厌油 腹胀 谷丙转氨酶升高 甲型肝炎病毒抗体IgG阳性
 
-检查解读59.1 病历内容:畏寒｜发热｜乏力｜恶心｜呕吐｜厌油｜腹胀 +痛检查结果:ALT升高&粪便中检出HAV颗粒 ,推荐诊断包含:急性甲型病毒性肝炎
+检查解读59.1 病历内容:畏寒｜发热｜乏力｜恶心｜呕吐｜厌油｜腹胀 +检查结果:ALT升高&粪便中检出HAV颗粒 ,推荐诊断包含:急性甲型病毒性肝炎
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10519,7 +10245,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     急性甲型病毒性肝炎
 
-检查解读59.2 病历内容:畏寒｜发热｜乏力｜恶心｜呕吐｜厌油｜腹胀 +痛检查结果:缺少ALT升高,&粪便中检出HAV颗粒,推荐诊断包含:急性甲型病毒性肝炎
+检查解读59.2 病历内容:畏寒｜发热｜乏力｜恶心｜呕吐｜厌油｜腹胀 +检查结果:缺少ALT升高,&粪便中检出HAV颗粒,推荐诊断包含:急性甲型病毒性肝炎
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10544,7 +10270,7 @@ Library           RequestsLibrary
 ##### 粪便中检出HAVAg   检查  大便甲型肝炎病毒抗原阳性
 #####畏寒 发热 乏力 恶心 呕吐 厌油 腹胀 谷丙转氨酶升高 甲型肝炎病毒抗体IgG阳性
 
-检查解读60.1 病历内容:畏寒｜发热｜乏力｜恶心｜呕吐｜厌油｜腹胀 +痛检查结果:ALT升高&粪便中检出HAVAg ,推荐诊断包含:急性甲型病毒性肝炎
+检查解读60.1 病历内容:畏寒｜发热｜乏力｜恶心｜呕吐｜厌油｜腹胀 +检查结果:ALT升高&粪便中检出HAVAg ,推荐诊断包含:急性甲型病毒性肝炎
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10560,7 +10286,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     急性甲型病毒性肝炎
 
-检查解读60.2 病历内容:畏寒｜发热｜乏力｜恶心｜呕吐｜厌油｜腹胀 +痛检查结果:缺少ALT升高,&粪便中检出HAVAg,推荐诊断包含:急性甲型病毒性肝炎
+检查解读60.2 病历内容:畏寒｜发热｜乏力｜恶心｜呕吐｜厌油｜腹胀 +检查结果:缺少ALT升高,&粪便中检出HAVAg,推荐诊断包含:急性甲型病毒性肝炎
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10585,7 +10311,7 @@ Library           RequestsLibrary
 ##### 粪便中检出HAVRNA  检查  大便甲型肝炎病毒RNA阳性
 #####畏寒 发热 乏力 恶心 呕吐 厌油 腹胀 谷丙转氨酶升高 甲型肝炎病毒抗体IgG阳性
 
-检查解读61.1 病历内容:畏寒｜发热｜乏力｜恶心｜呕吐｜厌油｜腹胀 +痛检查结果:ALT升高&粪便中检出HAVRNA ,推荐诊断包含:急性甲型病毒性肝炎
+检查解读61.1 病历内容:畏寒｜发热｜乏力｜恶心｜呕吐｜厌油｜腹胀 +检查结果:ALT升高&粪便中检出HAVRNA ,推荐诊断包含:急性甲型病毒性肝炎
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10601,7 +10327,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     急性甲型病毒性肝炎
 
-检查解读61.2 病历内容:畏寒｜发热｜乏力｜恶心｜呕吐｜厌油｜腹胀 +痛检查结果:缺少ALT升高,&粪便中检出HAVRNA,推荐诊断包含:急性甲型病毒性肝炎
+检查解读61.2 病历内容:畏寒｜发热｜乏力｜恶心｜呕吐｜厌油｜腹胀 +检查结果:缺少ALT升高,&粪便中检出HAVRNA,推荐诊断包含:急性甲型病毒性肝炎
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10633,7 +10359,7 @@ Library           RequestsLibrary
 ##### 高热 头痛 周身酸痛 流感病毒核酸检测阳性 流感病毒 血清流感病毒特异性抗体:4倍
 
 
-检查解读62.1 病历内容:高热｜头痛｜周身酸痛 +痛检查结果:流感病毒核酸检测阳性｜流感病毒｜双份血清流感病毒的特异性抗体水平呈4倍或4倍以上升高,推荐诊断包含:流行性感冒
+检查解读62.1 病历内容:高热｜头痛｜周身酸痛 +检查结果:流感病毒核酸检测阳性｜流感病毒｜双份血清流感病毒的特异性抗体水平呈4倍或4倍以上升高,推荐诊断包含:流行性感冒
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10649,7 +10375,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     流行性感冒
 
-检查解读62.2 病历内容:高热｜头痛｜周身酸痛 +痛检查结果:流感病毒核酸检测阳性｜流感病毒｜双份血清流感病毒的特异性抗体水平呈5倍以上升高,推荐诊断包含:流行性感冒
+检查解读62.2 病历内容:高热｜头痛｜周身酸痛 +检查结果:流感病毒核酸检测阳性｜流感病毒｜双份血清流感病毒的特异性抗体水平呈5倍以上升高,推荐诊断包含:流行性感冒
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10665,7 +10391,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     流行性感冒
 
-检查解读62.3 病历内容:高热｜头痛｜周身酸痛 +痛检查结果:缺少 流感病毒核酸检测阳性｜流感病毒｜双份血清流感病毒的特异性抗体水平呈4倍以上升高,推荐诊断包含:流行性感冒
+检查解读62.3 病历内容:高热｜头痛｜周身酸痛 +检查结果:缺少 流感病毒核酸检测阳性｜流感病毒｜双份血清流感病毒的特异性抗体水平呈4倍以上升高,推荐诊断包含:流行性感冒
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10689,7 +10415,7 @@ Library           RequestsLibrary
 #####血清EPO水平低于正常参考值水平  检查  促红细胞生成素降低
 #####血红蛋白>185g/L 促红细胞生成素降低
 
-检查解读63.1 病历内容:男性 +痛检查结果:Hb>185g/L&血清EPO水平低于正常参考值水平,推荐诊断包含:真性红细胞增多症
+检查解读63.1 病历内容:男性 +检查结果:Hb>185g/L&血清EPO水平低于正常参考值水平,推荐诊断包含:真性红细胞增多症
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10705,7 +10431,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     真性红细胞增多症
 
-检查解读63.2 病历内容:男性 +痛检查结果:Hb==185g/L&血清EPO水平低于正常参考值水平,推荐诊断包含:真性红细胞增多症
+检查解读63.2 病历内容:男性 +检查结果:Hb==185g/L&血清EPO水平低于正常参考值水平,推荐诊断包含:真性红细胞增多症
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10728,7 +10454,7 @@ Library           RequestsLibrary
 #####血清EPO水平低于正常参考值水平  检查  促红细胞生成素降低
 #####血红蛋白>165g/L 促红细胞生成素降低
 
-检查解读64.1 病历内容:女性 +痛检查结果:Hb>165g/L&血清EPO水平低于正常参考值水平,推荐诊断包含:真性红细胞增多症
+检查解读64.1 病历内容:女性 +检查结果:Hb>165g/L&血清EPO水平低于正常参考值水平,推荐诊断包含:真性红细胞增多症
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10744,7 +10470,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     真性红细胞增多症
 
-检查解读64.2 病历内容:女性 +痛检查结果:Hb==165g/L&血清EPO水平低于正常参考值水平,推荐诊断包含:真性红细胞增多症
+检查解读64.2 病历内容:女性 +检查结果:Hb==165g/L&血清EPO水平低于正常参考值水平,推荐诊断包含:真性红细胞增多症
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10771,7 +10497,7 @@ Library           RequestsLibrary
 #####咳嗽 咳痰 发热 湿啰音 白细胞计数:11 109/L 白细胞计数:3 109/L
 #####咳嗽 咳痰 发热 湿啰音 白细胞计数:9 109/L 白细胞计数:4 109/L
 
-检查解读65.1 病历内容:咳嗽&咳痰｜发热&湿啰音 +痛检查结果:白细胞数量>10×109/L｜白细胞数量<4×109/L,推荐诊断包含:肺炎
+检查解读65.1 病历内容:咳嗽&咳痰｜发热&湿啰音 +检查结果:白细胞数量>10×109/L｜白细胞数量<4×109/L,推荐诊断包含:肺炎
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10787,7 +10513,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     肺炎
 
-检查解读65.2 病历内容:咳嗽&咳痰｜发热&湿啰音 +痛检查结果:白细胞数量==10×109/L｜白细胞数量==4×109/L,推荐诊断包含:肺炎
+检查解读65.2 病历内容:咳嗽&咳痰｜发热&湿啰音 +检查结果:白细胞数量==10×109/L｜白细胞数量==4×109/L,推荐诊断包含:肺炎
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10813,7 +10539,7 @@ Library           RequestsLibrary
 #####咳嗽 咳痰 脓性痰 发热 湿啰 白细胞计数:11 109/L
 #####咳嗽 咳痰 脓性痰 发热 湿啰 白细胞计数:10 109/L
 
-检查解读66.1 病历内容:咳嗽&咳痰｜脓性痰｜发热&湿啰音 +痛检查结果:白细胞数量>10×109/L,推荐诊断包含:肺炎
+检查解读66.1 病历内容:咳嗽&咳痰｜脓性痰｜发热&湿啰音 +检查结果:白细胞数量>10×109/L,推荐诊断包含:肺炎
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10829,7 +10555,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     肺炎
 
-检查解读66.2 病历内容:咳嗽&咳痰｜脓性痰｜发热&湿啰音 +痛检查结果:白细胞数量==10×109/L,推荐诊断包含:肺炎
+检查解读66.2 病历内容:咳嗽&咳痰｜脓性痰｜发热&湿啰音 +检查结果:白细胞数量==10×109/L,推荐诊断包含:肺炎
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10852,7 +10578,7 @@ Library           RequestsLibrary
 #####胃灼热 反流
 #####胃灼热 反流 PPI试验阳性
 
-检查解读67.1 病历内容:胃灼热&反流 +痛检查结果:PPI试验阳性,推荐诊断包含:胃食管反流病
+检查解读67.1 病历内容:胃灼热&反流 +检查结果:PPI试验阳性,推荐诊断包含:胃食管反流病
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10868,7 +10594,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     胃食管反流病
 
-检查解读67.2 病历内容:胃灼热,缺少反流 +痛检查结果:PPI试验阳性,推荐诊断包含:胃食管反流病
+检查解读67.2 病历内容:胃灼热,缺少反流 +检查结果:PPI试验阳性,推荐诊断包含:胃食管反流病
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10887,7 +10613,7 @@ Library           RequestsLibrary
 
 #####检查解读85L 粪便隐血阳性      消化道出血   排除假阳性，支持消化道出血的诊断    诊断依据    是
 
-检查解读68.1 病历内容:null +痛检查结果:粪便隐血阳性,推荐诊断包含:消化道出血
+检查解读68.1 病历内容:null +检查结果:粪便隐血阳性,推荐诊断包含:消化道出血
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10913,7 +10639,7 @@ Library           RequestsLibrary
 
 #####腹痛 腹泻 粘液血便 脓血便 大便红细胞阳性 大便白细胞阳性 大便隐血阳性
 
-检查解读69.1 病历内容:腹痛&腹泻&粘液血便｜脓血便 +痛检查结果:便常规可见红细胞｜便常规可见白细胞｜便潜血阳性,推荐诊断包含:溃疡性结肠炎
+检查解读69.1 病历内容:腹痛&腹泻&粘液血便｜脓血便 +检查结果:便常规可见红细胞｜便常规可见白细胞｜便潜血阳性,推荐诊断包含:溃疡性结肠炎
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10940,7 +10666,7 @@ Library           RequestsLibrary
 
 #####腹泻 大便白细胞阳性 大便脓细胞阳性 大便红细胞阳性 大便隐血阳性
 
-检查解读70.1 病历内容:腹泻 +痛检查结果:便常规有白细胞&便常规有脓细胞｜便常规有红细胞｜便潜血阳性,推荐诊断包含:感染性腹泻
+检查解读70.1 病历内容:腹泻 +检查结果:便常规有白细胞&便常规有脓细胞｜便常规有红细胞｜便潜血阳性,推荐诊断包含:感染性腹泻
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10966,7 +10692,7 @@ Library           RequestsLibrary
 
 #####腹泻 大便白细胞阳性 大便脓细胞阳性 大便红细胞阳性 大便隐血阳性
 
-检查解读71.1 病历内容:腹泻 +痛检查结果:便常规有脓细胞,推荐诊断包含:感染性腹泻
+检查解读71.1 病历内容:腹泻 +检查结果:便常规有脓细胞,推荐诊断包含:感染性腹泻
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -10994,7 +10720,7 @@ Library           RequestsLibrary
 
 #####腹泻 大便白细胞阳性 大便脓细胞阳性 大便红细胞阳性 大便隐血阳性
 
-检查解读72.1 病历内容:null +痛检查结果:TSH水平升高&甲状腺素水平降低｜游离甲状腺素水平降低,推荐诊断包含:原发性甲状腺功能减退症
+检查解读72.1 病历内容:null +检查结果:TSH水平升高&甲状腺素水平降低｜游离甲状腺素水平降低,推荐诊断包含:原发性甲状腺功能减退症
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11010,7 +10736,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     原发性甲状腺功能减退症
 
-检查解读72.2 病历内容:null +痛检查结果:TSH水平升高 缺少 甲状腺素水平降低｜游离甲状腺素水平降低,推荐诊断"不应"包含:原发性甲状腺功能减退症
+检查解读72.2 病历内容:null +检查结果:TSH水平升高 缺少 甲状腺素水平降低｜游离甲状腺素水平降低,推荐诊断"不应"包含:原发性甲状腺功能减退症
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11038,7 +10764,7 @@ Library           RequestsLibrary
 
 ######腹泻 大便白细胞阳性 大便脓细胞阳性 大便红细胞阳性 大便隐血阳性
 
-检查解读73.1 病历内容:null +痛检查结果:TSH水平降低&甲状腺素水平降低｜游离甲状腺素水平降低,推荐诊断包含:垂体性甲状腺功能减退
+检查解读73.1 病历内容:null +检查结果:TSH水平降低&甲状腺素水平降低｜游离甲状腺素水平降低,推荐诊断包含:垂体性甲状腺功能减退
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11054,7 +10780,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     垂体性甲状腺功能减退
 
-检查解读73.2 病历内容:null +痛检查结果:TSH水平降低 缺少 甲状腺素水平降低｜游离甲状腺素水平降低,推荐诊断"不应"包含:垂体性甲状腺功能减退
+检查解读73.2 病历内容:null +检查结果:TSH水平降低 缺少 甲状腺素水平降低｜游离甲状腺素水平降低,推荐诊断"不应"包含:垂体性甲状腺功能减退
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11084,7 +10810,7 @@ Library           RequestsLibrary
 
 #####腹泻 大便白细胞阳性 大便脓细胞阳性 大便红细胞阳性 大便隐血阳性
 
-检查解读74.1 病历内容:null +痛检查结果:TSH水平升高&甲状腺素水平正常｜游离甲状腺素水平正常,推荐诊断包含:亚临床甲状腺功能减退
+检查解读74.1 病历内容:null +检查结果:TSH水平升高&甲状腺素水平正常｜游离甲状腺素水平正常,推荐诊断包含:亚临床甲状腺功能减退
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11093,14 +10819,14 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 总甲状腺素升高 总甲状腺素正常 游离型甲状腺素正常 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 促甲状腺素增高 总甲状腺素正常 游离型甲状腺素正常 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     亚临床甲状腺功能减退
 
-检查解读74.2 病历内容:null +痛检查结果:缺少TSH水平升高 ,有&甲状腺素水平正常｜游离甲状腺素水平正常,推荐诊断"不应"包含:亚临床甲状腺功能减退
+检查解读74.2 病历内容:null +检查结果:缺少TSH水平升高 ,有&甲状腺素水平正常｜游离甲状腺素水平正常,推荐诊断"不应"包含:亚临床甲状腺功能减退
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11131,7 +10857,7 @@ Library           RequestsLibrary
 #####黏液性水肿 乏力 便秘 心动过缓 怕冷 促甲状腺素减低 促甲状腺素正常 总甲状腺素升高 游离型甲状腺素增高
 
 
-检查解读75.1 病历内容:黏液性水肿&乏力｜便秘｜心动过缓｜怕冷 +痛检查结果:TSH水平升高｜TSH水平正常&甲状腺素水平升高｜游离甲状腺素水平升高,推荐诊断包含:甲状腺激素抵抗综合征
+检查解读75.1 病历内容:黏液性水肿&乏力｜便秘｜心动过缓｜怕冷 +检查结果:TSH水平升高｜TSH水平正常&甲状腺素水平升高｜游离甲状腺素水平升高,推荐诊断包含:甲状腺激素抵抗综合征
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11147,7 +10873,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     甲状腺激素抵抗综合征
 
-检查解读75.2 病历内容:黏液性水肿&乏力｜便秘｜心动过缓｜怕冷 +痛检查结果:TSH水平升高｜TSH水平正常 缺少 &甲状腺素水平升高｜游离甲状腺素水平升高,推荐诊断"不应"包含:甲状腺激素抵抗综合征
+检查解读75.2 病历内容:黏液性水肿&乏力｜便秘｜心动过缓｜怕冷 +检查结果:TSH水平升高｜TSH水平正常 缺少 &甲状腺素水平升高｜游离甲状腺素水平升高,推荐诊断"不应"包含:甲状腺激素抵抗综合征
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11174,7 +10900,7 @@ Library           RequestsLibrary
 #####血渗透压增高    检查  血渗透压增高
 #####多尿 烦渴 多饮 24小时尿量增多 尿比重降低 尿渗透压降低 血渗透压增高
 
-检查解读76.1 病历内容:多尿&烦渴｜多饮 +痛检查结果:24小时尿量显著增加&尿比重降低&尿渗透压降低｜血渗透压增高,推荐诊断包含:尿崩症
+检查解读76.1 病历内容:多尿&烦渴｜多饮 +检查结果:24小时尿量显著增加&尿比重降低&尿渗透压降低｜血渗透压增高,推荐诊断包含:尿崩症
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11190,7 +10916,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     尿崩症
 
-检查解读76.2 病历内容:多尿&烦渴｜多饮 +痛检查结果:24小时尿量显著增加&尿比重降低,缺少&尿渗透压降低｜血渗透压增高,推荐诊断"不应"包含:尿崩症
+检查解读76.2 病历内容:多尿&烦渴｜多饮 +检查结果:24小时尿量显著增加&尿比重降低,缺少&尿渗透压降低｜血渗透压增高,推荐诊断"不应"包含:尿崩症
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11220,7 +10946,7 @@ Library           RequestsLibrary
 
 
 
-检查解读77.1 病历内容:多食｜体重下降｜怕热｜出汗｜心悸｜心动过速｜失眠｜情绪波动｜焦虑｜甲状腺弥漫性肿大｜眼球突出｜胫前粘液性水肿 +痛检查结果:血清TSH浓度降低&甲状腺激素浓度升高&甲状腺TSH受体抗体(TRAb)阳性｜甲状腺TSH受体抗体(TSAb)阳性,推荐诊断包含:原发性甲状腺机能亢进症
+检查解读77.1 病历内容:多食｜体重下降｜怕热｜出汗｜心悸｜心动过速｜失眠｜情绪波动｜焦虑｜甲状腺弥漫性肿大｜眼球突出｜胫前粘液性水肿 +检查结果:血清TSH浓度降低&甲状腺激素浓度升高&甲状腺TSH受体抗体(TRAb)阳性｜甲状腺TSH受体抗体(TSAb)阳性,推荐诊断包含:原发性甲状腺机能亢进症
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11236,7 +10962,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     原发性甲状腺机能亢进症
 
-检查解读77.2 病历内容:多食｜体重下降｜怕热｜出汗｜心悸｜心动过速｜失眠｜情绪波动｜焦虑｜甲状腺弥漫性肿大｜眼球突出｜胫前粘液性水肿 +痛检查结果:血清TSH浓度降低&甲状腺激素浓度升高 缺少,&甲状腺TSH受体抗体(TRAb)阳性｜甲状腺TSH受体抗体(TSAb)阳性,推荐诊断"不应"包含:原发性甲状腺机能亢进症
+检查解读77.2 病历内容:多食｜体重下降｜怕热｜出汗｜心悸｜心动过速｜失眠｜情绪波动｜焦虑｜甲状腺弥漫性肿大｜眼球突出｜胫前粘液性水肿 +检查结果:血清TSH浓度降低&甲状腺激素浓度升高 缺少,&甲状腺TSH受体抗体(TRAb)阳性｜甲状腺TSH受体抗体(TSAb)阳性,推荐诊断"不应"包含:原发性甲状腺机能亢进症
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11263,7 +10989,7 @@ Library           RequestsLibrary
 #####颈部肿物 声音嘶哑 呼吸困难 吞咽困难 甲状腺结节 甲状腺素结合球蛋白:61ng/ml
 #####颈部肿物 声音嘶哑 呼吸困难 吞咽困难 甲状腺结节 甲状腺素结合球蛋白:59ng/ml
 
-检查解读78.1 病历内容:颈部肿物&声音嘶哑｜呼吸困难｜吞咽困难&甲状腺结节 +痛检查结果:甲状腺球蛋白(TG)>=60ng/ml,推荐诊断包含:甲状腺癌
+检查解读78.1 病历内容:颈部肿物&声音嘶哑｜呼吸困难｜吞咽困难&甲状腺结节 +检查结果:甲状腺球蛋白(TG)>=60ng/ml,推荐诊断包含:甲状腺癌
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11279,7 +11005,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     甲状腺癌
 
-检查解读78.2 病历内容:颈部肿物&声音嘶哑｜呼吸困难｜吞咽困难&甲状腺结节 +痛检查结果:甲状腺球蛋白(TG)>=60ng/ml,推荐诊断包含:甲状腺癌
+检查解读78.2 病历内容:颈部肿物&声音嘶哑｜呼吸困难｜吞咽困难&甲状腺结节 +检查结果:甲状腺球蛋白(TG)>=60ng/ml,推荐诊断包含:甲状腺癌
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11295,7 +11021,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     甲状腺癌
 
-检查解读78.2 病历内容:颈部肿物&声音嘶哑｜呼吸困难｜吞咽困难&甲状腺结节 +痛检查结果:甲状腺球蛋白(TG)<60ng/ml,推荐诊断"不应"包含:甲状腺癌
+检查解读78.2 病历内容:颈部肿物&声音嘶哑｜呼吸困难｜吞咽困难&甲状腺结节 +检查结果:甲状腺球蛋白(TG)<60ng/ml,推荐诊断"不应"包含:甲状腺癌
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11320,7 +11046,7 @@ Library           RequestsLibrary
 #####甲状腺结节 降钙素:101ng/L
 #####甲状腺结节 降钙素:100ng/L
 
-检查解读79.1 病历内容:颈部肿物&声音嘶哑｜呼吸困难｜吞咽困难&甲状腺结节 +痛检查结果:血清降钙素>100ng/L,推荐诊断包含:甲状腺癌
+检查解读79.1 病历内容:颈部肿物&声音嘶哑｜呼吸困难｜吞咽困难&甲状腺结节 +检查结果:血清降钙素>100ng/L,推荐诊断包含:甲状腺癌
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11336,7 +11062,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     甲状腺癌
 
-检查解读79.2 病历内容:颈部肿物&声音嘶哑｜呼吸困难｜吞咽困难&甲状腺结节 +痛检查结果:血清降钙素=100ng/L,推荐诊断"不应"包含:甲状腺癌
+检查解读79.2 病历内容:颈部肿物&声音嘶哑｜呼吸困难｜吞咽困难&甲状腺结节 +检查结果:血清降钙素=100ng/L,推荐诊断"不应"包含:甲状腺癌
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11363,7 +11089,7 @@ Library           RequestsLibrary
 #####高热 肝区疼痛 肝脏肿大 白细胞计数升高 中性粒细胞核象变化核左移
 
 
-检查解读80.1 病历内容:高热&肝区疼痛｜肝脏肿大 +痛检查结果:血白细胞计数增高&核左移,推荐诊断包含:细菌性肝脓肿
+检查解读80.1 病历内容:高热&肝区疼痛｜肝脏肿大 +检查结果:血白细胞计数增高&核左移,推荐诊断包含:细菌性肝脓肿
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11379,7 +11105,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     细菌性肝脓肿
 
-检查解读80.2 病历内容:高热&肝区疼痛｜肝脏肿大 +痛检查结果:血白细胞计数增高,缺少&核左移,推荐诊断"不应"包含:细菌性肝脓肿
+检查解读80.2 病历内容:高热&肝区疼痛｜肝脏肿大 +检查结果:血白细胞计数增高,缺少&核左移,推荐诊断"不应"包含:细菌性肝脓肿
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11406,7 +11132,7 @@ Library           RequestsLibrary
 #####核左移   检查  中性粒细胞核象变化核左移
 #####发热 恶心 呕吐 食欲不振 周身乏力 肝脏肿大 肝区压痛 白细胞计数升高 中性粒细胞核象变化核左移
 
-检查解读81.1 病历内容:发热&恶心｜呕吐｜食欲不振｜周身乏力&肝脏肿大&肝区压痛 +痛检查结果:血白细胞计数增高&核左移,推荐诊断包含:细菌性肝脓肿
+检查解读81.1 病历内容:发热&恶心｜呕吐｜食欲不振｜周身乏力&肝脏肿大&肝区压痛 +检查结果:血白细胞计数增高&核左移,推荐诊断包含:细菌性肝脓肿
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11422,7 +11148,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     细菌性肝脓肿
 
-检查解读81.2 病历内容:发热&恶心｜呕吐｜食欲不振｜周身乏力&肝脏肿大&肝区压痛 +痛检查结果:血白细胞计数增高,缺少&核左移,推荐诊断"不应"包含:细菌性肝脓肿
+检查解读81.2 病历内容:发热&恶心｜呕吐｜食欲不振｜周身乏力&肝脏肿大&肝区压痛 +检查结果:血白细胞计数增高,缺少&核左移,推荐诊断"不应"包含:细菌性肝脓肿
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11452,7 +11178,7 @@ Library           RequestsLibrary
 #####肿瘤标记物升高(CA242)    检查  癌抗原242增高
 #####胃部不适 血红蛋白降低 大便隐血阳性 癌胚抗原增高 糖链抗原199增高 癌抗原724增高 癌抗原242增高
 
-检查解读82.1 病历内容:胃部不适 +痛检查结果:血红蛋白下降&大便潜血阳性&肿瘤标记物升高(CEA)｜肿瘤标记物升高(CA199)｜肿瘤标记物升高(CA72.4)｜肿瘤标记物升高(CA242),推荐诊断包含:胃癌
+检查解读82.1 病历内容:胃部不适 +检查结果:血红蛋白下降&大便潜血阳性&肿瘤标记物升高(CEA)｜肿瘤标记物升高(CA199)｜肿瘤标记物升高(CA72.4)｜肿瘤标记物升高(CA242),推荐诊断包含:胃癌
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11468,7 +11194,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     胃癌
 
-检查解读82.2 病历内容:胃部不适 +痛检查结果:缺少血红蛋白下降 ,&大便潜血阳性&肿瘤标记物升高(CEA)｜肿瘤标记物升高(CA199)｜肿瘤标记物升高(CA72.4)｜肿瘤标记物升高(CA242),推荐诊断"不应"包含:胃癌
+检查解读82.2 病历内容:胃部不适 +检查结果:缺少血红蛋白下降 ,&大便潜血阳性&肿瘤标记物升高(CEA)｜肿瘤标记物升高(CA199)｜肿瘤标记物升高(CA72.4)｜肿瘤标记物升高(CA242),推荐诊断"不应"包含:胃癌
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11499,7 +11225,7 @@ Library           RequestsLibrary
 #####幽门螺杆菌感染 血红蛋白降低 大便隐血阳性 癌胚抗原增高 糖链抗原199增高 癌抗原724增高 癌抗原242增高
 
 
-检查解读83.1 病历内容:幽门螺杆菌感染 +痛检查结果:血红蛋白下降&大便潜血阳性&肿瘤标记物升高(CEA)｜肿瘤标记物升高(CA199)｜肿瘤标记物升高(CA72.4)｜肿瘤标记物升高(CA242),推荐诊断包含:胃癌
+检查解读83.1 病历内容:幽门螺杆菌感染 +检查结果:血红蛋白下降&大便潜血阳性&肿瘤标记物升高(CEA)｜肿瘤标记物升高(CA199)｜肿瘤标记物升高(CA72.4)｜肿瘤标记物升高(CA242),推荐诊断包含:胃癌
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11515,7 +11241,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     胃癌
 
-检查解读83.2 病历内容:幽门螺杆菌感染 +痛检查结果:缺少血红蛋白下降 ,&大便潜血阳性&肿瘤标记物升高(CEA)｜肿瘤标记物升高(CA199)｜肿瘤标记物升高(CA72.4)｜肿瘤标记物升高(CA242),推荐诊断"不应"包含:胃癌
+检查解读83.2 病历内容:幽门螺杆菌感染 +检查结果:缺少血红蛋白下降 ,&大便潜血阳性&肿瘤标记物升高(CEA)｜肿瘤标记物升高(CA199)｜肿瘤标记物升高(CA72.4)｜肿瘤标记物升高(CA242),推荐诊断"不应"包含:胃癌
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11544,7 +11270,7 @@ Library           RequestsLibrary
 #####停止排气排便 腹痛 腹胀 呕吐 肠型 蠕动波 腹部压痛 腹部叩诊鼓音 肠鸣音活跃 腹部气过水声 腹部高调金属音 腹部振水音 白细胞计数升高 血红蛋白升高 红细胞比容增高 尿比重增高
 
 
-检查解读84.1 病历内容:停止排气排便&腹痛&腹胀｜呕吐｜肠型｜蠕动波｜腹部压痛｜腹部叩诊鼓音｜肠鸣音活跃｜腹部气过水声｜腹部高调金属音｜腹部振水音 +痛检查结果:白细胞计数增高&血红蛋白增高｜红细胞比容增高｜尿比重增高,推荐诊断包含:肠梗阻
+检查解读84.1 病历内容:停止排气排便&腹痛&腹胀｜呕吐｜肠型｜蠕动波｜腹部压痛｜腹部叩诊鼓音｜肠鸣音活跃｜腹部气过水声｜腹部高调金属音｜腹部振水音 +检查结果:白细胞计数增高&血红蛋白增高｜红细胞比容增高｜尿比重增高,推荐诊断包含:肠梗阻
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11560,7 +11286,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     肠梗阻
 
-检查解读84.2 病历内容:停止排气排便&腹痛&腹胀｜呕吐｜肠型｜蠕动波｜腹部压痛｜腹部叩诊鼓音｜肠鸣音活跃｜腹部气过水声｜腹部高调金属音｜腹部振水音 +痛检查结果:白细胞计数增高 缺少&血红蛋白增高｜红细胞比容增高｜尿比重增高,推荐诊断"不应"包含:肠梗阻
+检查解读84.2 病历内容:停止排气排便&腹痛&腹胀｜呕吐｜肠型｜蠕动波｜腹部压痛｜腹部叩诊鼓音｜肠鸣音活跃｜腹部气过水声｜腹部高调金属音｜腹部振水音 +检查结果:白细胞计数增高 缺少&血红蛋白增高｜红细胞比容增高｜尿比重增高,推荐诊断"不应"包含:肠梗阻
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11589,7 +11315,7 @@ Library           RequestsLibrary
 #####停止排气排便 腹痛 腹胀 呕吐 肠型 蠕动波 腹部压痛 腹部叩诊鼓音 肠鸣音活跃 腹部气过水声 腹部高调金属音 腹部振水音 白细胞计数升高 血红蛋白升高 红细胞比容增高 尿比重增高
 
 
-检查解读85.1 病历内容:停止排气排便&腹胀&呕吐｜肠型｜蠕动波｜腹部压痛｜腹部叩诊鼓音｜肠鸣音活跃｜腹部气过水声｜腹部高调金属音｜腹部振水音 +痛检查结果:白细胞计数增高&血红蛋白增高｜红细胞比容增高｜尿比重增高,推荐诊断包含:肠梗阻
+检查解读85.1 病历内容:停止排气排便&腹胀&呕吐｜肠型｜蠕动波｜腹部压痛｜腹部叩诊鼓音｜肠鸣音活跃｜腹部气过水声｜腹部高调金属音｜腹部振水音 +检查结果:白细胞计数增高&血红蛋白增高｜红细胞比容增高｜尿比重增高,推荐诊断包含:肠梗阻
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11605,7 +11331,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     肠梗阻
 
-检查解读85.2 病历内容:停止排气排便&腹胀&呕吐｜肠型｜蠕动波｜腹部压痛｜腹部叩诊鼓音｜肠鸣音活跃｜腹部气过水声｜腹部高调金属音｜腹部振水音 +痛检查结果:白细胞计数增高 缺少&血红蛋白增高｜红细胞比容增高｜尿比重增高,推荐诊断"不应"包含:肠梗阻
+检查解读85.2 病历内容:停止排气排便&腹胀&呕吐｜肠型｜蠕动波｜腹部压痛｜腹部叩诊鼓音｜肠鸣音活跃｜腹部气过水声｜腹部高调金属音｜腹部振水音 +检查结果:白细胞计数增高 缺少&血红蛋白增高｜红细胞比容增高｜尿比重增高,推荐诊断"不应"包含:肠梗阻
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11634,7 +11360,7 @@ Library           RequestsLibrary
 #####停止排气排便 腹痛 腹胀 呕吐 肠型 蠕动波 腹部压痛 腹部叩诊鼓音 肠鸣音活跃 腹部气过水声 腹部高调金属音 腹部振水音 白细胞计数升高 血红蛋白升高 红细胞比容增高 尿比重增高
 
 
-检查解读86.1 病历内容:腹胀&呕吐&腹部高调金属音｜肠型&蠕动波｜腹部振水音｜腹部气过水声 +痛检查结果:白细胞计数增高&血红蛋白增高｜红细胞比容增高｜尿比重增高,推荐诊断包含:肠梗阻
+检查解读86.1 病历内容:腹胀&呕吐&腹部高调金属音｜肠型&蠕动波｜腹部振水音｜腹部气过水声 +检查结果:白细胞计数增高&血红蛋白增高｜红细胞比容增高｜尿比重增高,推荐诊断包含:肠梗阻
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11650,7 +11376,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     肠梗阻
 
-检查解读86.2 病历内容:腹胀&呕吐&腹部高调金属音｜肠型&蠕动波｜腹部振水音｜腹部气过水声 +痛检查结果:白细胞计数增高 缺少&血红蛋白增高｜红细胞比容增高｜尿比重增高,推荐诊断"不应"包含:肠梗阻
+检查解读86.2 病历内容:腹胀&呕吐&腹部高调金属音｜肠型&蠕动波｜腹部振水音｜腹部气过水声 +检查结果:白细胞计数增高 缺少&血红蛋白增高｜红细胞比容增高｜尿比重增高,推荐诊断"不应"包含:肠梗阻
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11676,7 +11402,7 @@ Library           RequestsLibrary
 #####脓尿 尿蛋白阳性 血尿
 #####尿频 尿急 尿痛 血尿 消瘦 发热 盗汗 乏力 脓尿 尿蛋白阳性 血尿
 
-检查解读87.1 病历内容:尿频｜尿急｜尿痛｜血尿&消瘦&发热｜盗汗｜乏力 +痛检查结果:脓尿&蛋白尿&血尿,推荐诊断包含:肾结核
+检查解读87.1 病历内容:尿频｜尿急｜尿痛｜血尿&消瘦&发热｜盗汗｜乏力 +检查结果:脓尿&蛋白尿&血尿,推荐诊断包含:肾结核
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11692,7 +11418,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     肾结核
 
-检查解读87.2 病历内容:尿频｜尿急｜尿痛｜血尿&消瘦&发热｜盗汗｜乏力 +痛检查结果:脓尿&蛋白尿 缺少 &血尿,推荐诊断"不应"包含:肾结核
+检查解读87.2 病历内容:尿频｜尿急｜尿痛｜血尿&消瘦&发热｜盗汗｜乏力 +检查结果:脓尿&蛋白尿 缺少 &血尿,推荐诊断"不应"包含:肾结核
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11719,7 +11445,7 @@ Library           RequestsLibrary
 #####脓尿 尿蛋白阳性 血尿
 #####血尿 消瘦 乏力 盗汗 尿频 尿急 尿痛 脓尿 尿蛋白阳性
 
-检查解读88.1 病历内容:血尿&消瘦｜乏力&盗汗&尿频｜尿急｜尿痛 +痛检查结果:脓尿&蛋白尿&血尿,推荐诊断包含:肾结核
+检查解读88.1 病历内容:血尿&消瘦｜乏力&盗汗&尿频｜尿急｜尿痛 +检查结果:脓尿&蛋白尿&血尿,推荐诊断包含:肾结核
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11735,7 +11461,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     肾结核
 
-检查解读88.2 病历内容:血尿&消瘦｜乏力&盗汗&尿频｜尿急｜尿痛 +痛检查结果:血尿&消瘦｜乏力&盗汗 缺少&尿频｜尿急｜尿痛,推荐诊断"不应"包含:肾结核
+检查解读88.2 病历内容:血尿&消瘦｜乏力&盗汗&尿频｜尿急｜尿痛 +检查结果:血尿&消瘦｜乏力&盗汗 缺少&尿频｜尿急｜尿痛,推荐诊断"不应"包含:肾结核
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11761,7 +11487,7 @@ Library           RequestsLibrary
 ###### 尿频 尿急 尿痛 盗汗 脓尿 血尿
 
 
-检查解读89.1 病历内容:尿频｜尿急｜尿痛&盗汗 +痛检查结果:脓尿&血尿,推荐诊断包含:肾结核
+检查解读89.1 病历内容:尿频｜尿急｜尿痛&盗汗 +检查结果:脓尿&血尿,推荐诊断包含:肾结核
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11777,7 +11503,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     肾结核
 
-检查解读89.2 病历内容:尿频｜尿急｜尿痛&盗汗 +痛检查结果:脓尿 ,缺少&血尿,推荐诊断"不应"包含:肾结核
+检查解读89.2 病历内容:尿频｜尿急｜尿痛&盗汗 +检查结果:脓尿 ,缺少&血尿,推荐诊断"不应"包含:肾结核
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11808,7 +11534,7 @@ Library           RequestsLibrary
 #####盗汗 乏力 消瘦 发热 尿蛋白阳性 血尿
 
 
-检查解读90.1 病历内容:盗汗&乏力&消瘦&发热｜乏力&尿频｜尿急｜尿痛 +痛检查结果:蛋白尿&血尿,推荐诊断包含:肾结核
+检查解读90.1 病历内容:盗汗&乏力&消瘦&发热｜乏力&尿频｜尿急｜尿痛 +检查结果:蛋白尿&血尿,推荐诊断包含:肾结核
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11824,7 +11550,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     肾结核
 
-检查解读90.2 病历内容:盗汗&乏力&消瘦&发热｜乏力&尿频｜尿急｜尿痛 +痛检查结果:缺少&血尿,推荐诊断"不应"包含:肾结核
+检查解读90.2 病历内容:盗汗&乏力&消瘦&发热｜乏力&尿频｜尿急｜尿痛 +检查结果:缺少&血尿,推荐诊断"不应"包含:肾结核
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11851,7 +11577,7 @@ Library           RequestsLibrary
 #####盗汗 乏力 消瘦 发热 尿蛋白阳性 血尿
 
 
-检查解读91.1 病历内容:盗汗&乏力&消瘦&发热｜乏力&尿频｜尿急｜尿痛 +痛检查结果:蛋白尿&血尿,推荐诊断包含:肾结核
+检查解读91.1 病历内容:盗汗&乏力&消瘦&发热｜乏力&尿频｜尿急｜尿痛 +检查结果:蛋白尿&血尿,推荐诊断包含:肾结核
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11867,7 +11593,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     肾结核
 
-检查解读91.2 病历内容:盗汗&乏力&消瘦&发热｜乏力&尿频｜尿急｜尿痛 +痛检查结果:蛋白尿,缺少&血尿,推荐诊断"不应"包含:肾结核
+检查解读91.2 病历内容:盗汗&乏力&消瘦&发热｜乏力&尿频｜尿急｜尿痛 +检查结果:蛋白尿,缺少&血尿,推荐诊断"不应"包含:肾结核
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11891,7 +11617,7 @@ Library           RequestsLibrary
 #####脓尿 血尿
 #####尿频 尿急 尿痛 盗汗 脓尿 血尿
 
-检查解读92.1 病历内容:尿频｜尿急｜尿痛&盗汗 +痛检查结果:脓尿&血尿,推荐诊断包含:肾结核
+检查解读92.1 病历内容:尿频｜尿急｜尿痛&盗汗 +检查结果:脓尿&血尿,推荐诊断包含:肾结核
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11907,7 +11633,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     肾结核
 
-检查解读92.2 病历内容:尿频｜尿急｜尿痛&盗汗 +痛检查结果:脓尿,缺少&血尿,推荐诊断"不应"包含:肾结核
+检查解读92.2 病历内容:尿频｜尿急｜尿痛&盗汗 +检查结果:脓尿,缺少&血尿,推荐诊断"不应"包含:肾结核
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11932,7 +11658,7 @@ Library           RequestsLibrary
 #####妊娠  空腹血糖:7.1mmol/L
 #####妊娠  空腹血糖:6.9mmol/L
 
-检查解读93.1 病历内容:妊娠 +痛检查结果:空腹血糖==7.0mmol/L,推荐诊断包含:妊娠伴糖尿病
+检查解读93.1 病历内容:妊娠 +检查结果:空腹血糖==7.0mmol/L,推荐诊断包含:妊娠伴糖尿病
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11948,7 +11674,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     妊娠伴糖尿病
 
-检查解读93.2 病历内容:妊娠 +痛检查结果:空腹血糖>7.0mmol/L,推荐诊断包含:妊娠伴糖尿病
+检查解读93.2 病历内容:妊娠 +检查结果:空腹血糖>7.0mmol/L,推荐诊断包含:妊娠伴糖尿病
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11964,7 +11690,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     妊娠伴糖尿病
 
-检查解读93.3 病历内容:妊娠 +痛检查结果:空腹血糖<7.0mmol/L,推荐诊断"不应"包含:妊娠伴糖尿病
+检查解读93.3 病历内容:妊娠 +检查结果:空腹血糖<7.0mmol/L,推荐诊断"不应"包含:妊娠伴糖尿病
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11988,7 +11714,7 @@ Library           RequestsLibrary
 #####妊娠 OGTT(75g)2h:11.2mmol/L
 #####妊娠 OGTT(75g)2h:11.0mmol/L
 
-检查解读94.1 病历内容:妊娠 +痛检查结果:空腹血糖==7.0mmol/L,推荐诊断包含:妊娠伴糖尿病
+检查解读94.1 病历内容:妊娠 +检查结果:空腹血糖==7.0mmol/L,推荐诊断包含:妊娠伴糖尿病
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -12004,7 +11730,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     妊娠伴糖尿病
 
-检查解读94.2 病历内容:妊娠 +痛检查结果:空腹血糖>7.0mmol/L,推荐诊断包含:妊娠伴糖尿病
+检查解读94.2 病历内容:妊娠 +检查结果:空腹血糖>7.0mmol/L,推荐诊断包含:妊娠伴糖尿病
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -12020,7 +11746,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     妊娠伴糖尿病
 
-检查解读94.3 病历内容:妊娠 +痛检查结果:空腹血糖<7.0mmol/L,推荐诊断"不应"包含:妊娠伴糖尿病
+检查解读94.3 病历内容:妊娠 +检查结果:空腹血糖<7.0mmol/L,推荐诊断"不应"包含:妊娠伴糖尿病
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -12045,7 +11771,7 @@ Library           RequestsLibrary
 #####烦渴 多饮 多尿 体重下降 妊娠 OGTT(75g)2h:11.2mmol/L
 #####烦渴 多饮 多尿 体重下降 妊娠 OGTT(75g)2h:11.0mmol/L
 
-检查解读95.1 病历内容:烦渴｜多饮&多尿&体重下降&妊娠 +痛检查结果:随机血糖>=11.1mmol/L,推荐诊断包含:妊娠伴糖尿病
+检查解读95.1 病历内容:烦渴｜多饮&多尿&体重下降&妊娠 +检查结果:随机血糖>=11.1mmol/L,推荐诊断包含:妊娠伴糖尿病
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -12061,7 +11787,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     妊娠伴糖尿病
 
-检查解读95.2 病历内容:烦渴｜多饮&多尿&体重下降&妊娠 +痛检查结果:随机血糖>11.1mmol/L,推荐诊断包含:妊娠伴糖尿病
+检查解读95.2 病历内容:烦渴｜多饮&多尿&体重下降&妊娠 +检查结果:随机血糖>11.1mmol/L,推荐诊断包含:妊娠伴糖尿病
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -12077,7 +11803,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     妊娠伴糖尿病
 
-检查解读95.3 病历内容:烦渴｜多饮&多尿&体重下降&妊娠 +痛检查结果:随机血糖<11.1mmol/L,推荐诊断"不应"包含:妊娠伴糖尿病
+检查解读95.3 病历内容:烦渴｜多饮&多尿&体重下降&妊娠 +检查结果:随机血糖<11.1mmol/L,推荐诊断"不应"包含:妊娠伴糖尿病
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -12102,7 +11828,7 @@ Library           RequestsLibrary
 #####妊娠 糖化血红蛋白:6.6%
 #####妊娠 糖化血红蛋白:6.4%
 
-检查解读96.1 病历内容:妊娠 +痛检查结果:糖化血红蛋白==6.5%,推荐诊断包含:妊娠伴糖尿病
+检查解读96.1 病历内容:妊娠 +检查结果:糖化血红蛋白==6.5%,推荐诊断包含:妊娠伴糖尿病
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -12118,7 +11844,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     妊娠伴糖尿病
 
-检查解读96.2 病历内容:妊娠 +痛检查结果:糖化血红蛋白>6.5%,推荐诊断包含:妊娠伴糖尿病
+检查解读96.2 病历内容:妊娠 +检查结果:糖化血红蛋白>6.5%,推荐诊断包含:妊娠伴糖尿病
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -12134,7 +11860,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     妊娠伴糖尿病
 
-检查解读96.3 病历内容:妊娠 +痛检查结果:糖化血红蛋白<6.5%,推荐诊断"不应"包含:妊娠伴糖尿病
+检查解读96.3 病历内容:妊娠 +检查结果:糖化血红蛋白<6.5%,推荐诊断"不应"包含:妊娠伴糖尿病
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -12161,7 +11887,7 @@ Library           RequestsLibrary
 #####妊娠 随机血糖:11.2mmol/L妊娠
 #####妊娠 随机血糖:11.0mmol/L妊娠
 
-检查解读97.1 病历内容:妊娠 +痛检查结果:随机血糖==11.1mmol/L,推荐诊断包含:妊娠伴糖尿病
+检查解读97.1 病历内容:妊娠 +检查结果:随机血糖==11.1mmol/L,推荐诊断包含:妊娠伴糖尿病
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -12177,7 +11903,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     妊娠伴糖尿病
 
-检查解读97.2 病历内容:妊娠 +痛检查结果:随机血糖>11.1mmol/L,推荐诊断包含:妊娠伴糖尿病
+检查解读97.2 病历内容:妊娠 +检查结果:随机血糖>11.1mmol/L,推荐诊断包含:妊娠伴糖尿病
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -12193,7 +11919,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     妊娠伴糖尿病
 
-检查解读97.3 病历内容:妊娠 +痛检查结果:随机血糖<11.1mmol/L,推荐诊断"不应"包含:妊娠伴糖尿病
+检查解读97.3 病历内容:妊娠 +检查结果:随机血糖<11.1mmol/L,推荐诊断"不应"包含:妊娠伴糖尿病
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -12222,7 +11948,7 @@ Library           RequestsLibrary
 #####持续性右下腹痛 食欲减退 恶心 呕吐 发热 白细胞计数升高 中性粒细胞增高 C反应蛋白升高
 
 
-检查解读98.1 病历内容:持续性右下腹痛&食欲减退｜恶心｜呕吐｜发热 +痛检查结果:血白细胞总数增多&中性粒细胞增多｜Ｃ反应蛋白可升高,推荐诊断包含:急性化脓性阑尾炎
+检查解读98.1 病历内容:持续性右下腹痛&食欲减退｜恶心｜呕吐｜发热 +检查结果:血白细胞总数增多&中性粒细胞增多｜Ｃ反应蛋白可升高,推荐诊断包含:急性化脓性阑尾炎
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -12238,7 +11964,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     急性化脓性阑尾炎
 
-检查解读98.2 病历内容:持续性右下腹痛&食欲减退｜恶心｜呕吐｜发热 +痛检查结果:血白细胞总数增多 缺少&中性粒细胞增多｜Ｃ反应蛋白可升高,推荐诊断"不应"包含:急性化脓性阑尾炎
+检查解读98.2 病历内容:持续性右下腹痛&食欲减退｜恶心｜呕吐｜发热 +检查结果:血白细胞总数增多 缺少&中性粒细胞增多｜Ｃ反应蛋白可升高,推荐诊断"不应"包含:急性化脓性阑尾炎
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -12267,7 +11993,7 @@ Library           RequestsLibrary
 #####白细胞计数升高
 #####持续性右下腹痛 右下腹有固定压痛 肌紧张 白细胞计数升高 中性粒细胞增高 C反应蛋白升高
 
-检查解读99.1 病历内容:持续性右下腹痛&右下腹有固定压痛&肌紧张 +痛检查结果:血白细胞总数增多｜中性粒细胞增多｜Ｃ反应蛋白可升高,推荐诊断包含:急性化脓性阑尾炎
+检查解读99.1 病历内容:持续性右下腹痛&右下腹有固定压痛&肌紧张 +检查结果:血白细胞总数增多｜中性粒细胞增多｜Ｃ反应蛋白可升高,推荐诊断包含:急性化脓性阑尾炎
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -12283,7 +12009,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     急性化脓性阑尾炎
 
-检查解读99.2 病历内容:持续性右下腹痛&右下腹有固定压痛 缺少&肌紧张 +痛检查结果:血白细胞总数增多｜中性粒细胞增多｜Ｃ反应蛋白可升高,推荐诊断"不应"包含:急性化脓性阑尾炎
+检查解读99.2 病历内容:持续性右下腹痛&右下腹有固定压痛 缺少&肌紧张 +检查结果:血白细胞总数增多｜中性粒细胞增多｜Ｃ反应蛋白可升高,推荐诊断"不应"包含:急性化脓性阑尾炎
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -12312,7 +12038,7 @@ Library           RequestsLibrary
 #####白细胞计数升高
 #####持续性右下腹痛 右下腹有固定压痛 食欲减退 恶心 呕吐 发热 白细胞计数升高 中性粒细胞增高 C反应蛋白升高
 
-检查解读100.1 病历内容:持续性右下腹痛&右下腹有固定压痛&食欲减退｜恶心｜呕吐｜发热 +痛检查结果:血白细胞总数增多｜中性粒细胞增多｜Ｃ反应蛋白可升高,推荐诊断包含:急性化脓性阑尾炎
+检查解读100.1 病历内容:持续性右下腹痛&右下腹有固定压痛&食欲减退｜恶心｜呕吐｜发热 +检查结果:血白细胞总数增多｜中性粒细胞增多｜Ｃ反应蛋白可升高,推荐诊断包含:急性化脓性阑尾炎
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -12328,7 +12054,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     急性化脓性阑尾炎
 
-检查解读100.2 病历内容:持续性右下腹痛&右下腹有固定压痛 缺少&食欲减退｜恶心｜呕吐｜发热 +痛检查结果:血白细胞总数增多｜中性粒细胞增多｜Ｃ反应蛋白可升高,推荐诊断"不应"包含:急性化脓性阑尾炎
+检查解读100.2 病历内容:持续性右下腹痛&右下腹有固定压痛 缺少&食欲减退｜恶心｜呕吐｜发热 +检查结果:血白细胞总数增多｜中性粒细胞增多｜Ｃ反应蛋白可升高,推荐诊断"不应"包含:急性化脓性阑尾炎
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -12356,7 +12082,7 @@ Library           RequestsLibrary
 
 
 
-检查解读101.1 病历内容:直肠指检发现前列腺结节｜前列腺肿物｜排尿困难｜尿潴留+痛检查结果:总前列腺特异性抗原(TPSA)升高&游离前列腺特异性抗原(FPSA)升高,推荐诊断包含:前列腺癌
+检查解读101.1 病历内容:直肠指检发现前列腺结节｜前列腺肿物｜排尿困难｜尿潴留+检查结果:总前列腺特异性抗原(TPSA)升高&游离前列腺特异性抗原(FPSA)升高,推荐诊断包含:前列腺癌
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -12372,7 +12098,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     前列腺癌
 
-检查解读101.2 病历内容:直肠指检发现前列腺结节｜前列腺肿物｜排尿困难｜尿潴留 +痛检查结果:总前列腺特异性抗原(TPSA)升高 缺少&游离前列腺特异性抗原(FPSA)升高,推荐诊断"不应"包含:前列腺癌
+检查解读101.2 病历内容:直肠指检发现前列腺结节｜前列腺肿物｜排尿困难｜尿潴留 +检查结果:总前列腺特异性抗原(TPSA)升高 缺少&游离前列腺特异性抗原(FPSA)升高,推荐诊断"不应"包含:前列腺癌
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -12398,7 +12124,7 @@ Library           RequestsLibrary
 #####游离前列腺特异性抗原(FPSA)升高    检查  游离前列腺特异抗原增高
 #####前列腺结节质地坚硬 前列腺特异抗原增高 游离前列腺特异抗原增高
 
-检查解读102.1 病历内容:前列腺结节质地坚硬+痛检查结果:总前列腺特异性抗原(TPSA)升高&游离前列腺特异性抗原(FPSA)升高,推荐诊断包含:前列腺癌
+检查解读102.1 病历内容:前列腺结节质地坚硬+检查结果:总前列腺特异性抗原(TPSA)升高&游离前列腺特异性抗原(FPSA)升高,推荐诊断包含:前列腺癌
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -12423,7 +12149,7 @@ Library           RequestsLibrary
 #####游离前列腺特异性抗原(FPSA)升高    检查  游离前列腺特异抗原增高
 #####骨痛 直肠指检发现前列腺结节 前列腺肿物 前列腺特异抗原增高 游离前列腺特异抗原增高
 
-检查解读103.1 病历内容:骨痛&直肠指检发现前列腺结节｜前列腺肿物+痛检查结果:总前列腺特异性抗原(TPSA)升高&游离前列腺特异性抗原(FPSA)升高,推荐诊断包含:前列腺癌
+检查解读103.1 病历内容:骨痛&直肠指检发现前列腺结节｜前列腺肿物+检查结果:总前列腺特异性抗原(TPSA)升高&游离前列腺特异性抗原(FPSA)升高,推荐诊断包含:前列腺癌
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -12439,7 +12165,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     前列腺癌
 
-检查解读103.2 病历内容:骨痛 缺少&直肠指检发现前列腺结节｜前列腺肿物 +痛检查结果:总前列腺特异性抗原(TPSA)升高 缺少&游离前列腺特异性抗原(FPSA)升高,推荐诊断"不应"包含:前列腺癌
+检查解读103.2 病历内容:骨痛 缺少&直肠指检发现前列腺结节｜前列腺肿物 +检查结果:总前列腺特异性抗原(TPSA)升高 缺少&游离前列腺特异性抗原(FPSA)升高,推荐诊断"不应"包含:前列腺癌
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -12465,7 +12191,7 @@ Library           RequestsLibrary
 #####游离前列腺特异性抗原(FPSA)升高    检查  游离前列腺特异抗原增高
 #####尿频 尿急 夜尿增多 尿失禁 便秘 血精 血尿 阳痿 骨痛 前列腺特异抗原增高 游离前列腺特异抗原增高
 
-检查解读104.1 病历内容:尿频｜尿急｜夜尿增多｜尿失禁&便秘｜血精｜血尿｜阳痿｜骨痛+痛检查结果:总前列腺特异性抗原(TPSA)升高&游离前列腺特异性抗原(FPSA)升高,推荐诊断包含:前列腺癌
+检查解读104.1 病历内容:尿频｜尿急｜夜尿增多｜尿失禁&便秘｜血精｜血尿｜阳痿｜骨痛+检查结果:总前列腺特异性抗原(TPSA)升高&游离前列腺特异性抗原(FPSA)升高,推荐诊断包含:前列腺癌
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -12481,7 +12207,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     前列腺癌
 
-检查解读104.2 病历内容:尿频｜尿急｜夜尿增多｜尿失禁&便秘｜血精｜血尿｜阳痿｜骨痛+痛检查结果:总前列腺特异性抗原(TPSA)升高 缺少&游离前列腺特异性抗原(FPSA)升高,推荐诊断"不应"包含:前列腺癌
+检查解读104.2 病历内容:尿频｜尿急｜夜尿增多｜尿失禁&便秘｜血精｜血尿｜阳痿｜骨痛+检查结果:总前列腺特异性抗原(TPSA)升高 缺少&游离前列腺特异性抗原(FPSA)升高,推荐诊断"不应"包含:前列腺癌
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -12507,7 +12233,7 @@ Library           RequestsLibrary
 #####尿蛋白阳性 检查  尿蛋白阳性
 #####高血压 水肿 头痛 视力改变 上腹不适 妊娠140天 尿蛋白阳性
 
-检查解读105.1 病历内容:高血压&水肿&头痛｜视力改变｜上腹不适&妊娠==20周+痛检查结果:尿蛋白,推荐诊断包含:子痫前期
+检查解读105.1 病历内容:高血压&水肿&头痛｜视力改变｜上腹不适&妊娠==20周+检查结果:尿蛋白,推荐诊断包含:子痫前期
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -12523,7 +12249,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     子痫前期
 
-检查解读105.2 病历内容:高血压&水肿&头痛｜视力改变｜上腹不适&妊娠<20周+痛检查结果:尿蛋白,推荐诊断"不应"包含:子痫前期
+检查解读105.2 病历内容:高血压&水肿&头痛｜视力改变｜上腹不适&妊娠<20周+检查结果:尿蛋白,推荐诊断"不应"包含:子痫前期
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -12550,7 +12276,7 @@ Library           RequestsLibrary
 #####LDH升高 检查  血乳酸脱氢酶增高
 #####睾丸肿块 阴囊钝痛 下腹坠胀不适 甲胎蛋白增高 血人绒毛膜促性腺激素升高 血乳酸脱氢酶增高
 
-检查解读106.1 病历内容:睾丸肿块&阴囊钝痛｜下腹坠胀不适 +痛检查结果:AFP升高｜HCG升高&LDH升高,推荐诊断包含:睾丸肿瘤
+检查解读106.1 病历内容:睾丸肿块&阴囊钝痛｜下腹坠胀不适 +检查结果:AFP升高｜HCG升高&LDH升高,推荐诊断包含:睾丸肿瘤
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -12566,7 +12292,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     睾丸肿瘤
 
-检查解读106.2 病历内容:睾丸肿块&阴囊钝痛｜下腹坠胀不适 +痛检查结果:AFP升高｜HCG升高 缺少&LDH升高,推荐诊断"不应"包含:睾丸肿瘤
+检查解读106.2 病历内容:睾丸肿块&阴囊钝痛｜下腹坠胀不适 +检查结果:AFP升高｜HCG升高 缺少&LDH升高,推荐诊断"不应"包含:睾丸肿瘤
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -12588,7 +12314,7 @@ Library           RequestsLibrary
 #####撕裂样胸痛 D-二聚体明显升高
 
 
-检查解读107.1 病历内容:撕裂样胸痛+痛检查结果:D-二聚体明显升高,推荐诊断包含:主动脉夹层
+检查解读107.1 病历内容:撕裂样胸痛+检查结果:D-二聚体明显升高,推荐诊断包含:主动脉夹层
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -12604,7 +12330,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     主动脉夹层
 
-检查解读107.2 病历内容:撕裂样胸痛+痛检查结果:缺少D-二聚体明显升高,推荐诊断"不应"包含:主动脉夹层
+检查解读107.2 病历内容:撕裂样胸痛+检查结果:缺少D-二聚体明显升高,推荐诊断"不应"包含:主动脉夹层
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -12629,7 +12355,7 @@ Library           RequestsLibrary
 #####C反应蛋白升高   检查  C反应蛋白升高
 #####撕裂样胸痛 血沉升高 C反应蛋白升高
 
-检查解读108.1 病历内容:撕裂样胸痛+痛检查结果:血沉升高&C反应蛋白升高,推荐诊断包含:主动脉夹层
+检查解读108.1 病历内容:撕裂样胸痛+检查结果:血沉升高&C反应蛋白升高,推荐诊断包含:主动脉夹层
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -12645,7 +12371,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     主动脉夹层
 
-检查解读108.2 病历内容:撕裂样胸痛+痛检查结果:血沉升高 缺少&C反应蛋白升高 ,推荐诊断"不应"包含:主动脉夹层
+检查解读108.2 病历内容:撕裂样胸痛+检查结果:血沉升高 缺少&C反应蛋白升高 ,推荐诊断"不应"包含:主动脉夹层
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -12671,7 +12397,7 @@ Library           RequestsLibrary
 #####急性胸痛 胸痛 V/Q升高 血浆-D-二聚体增高
 
 
-检查解读109.1 病历内容:急性胸痛｜胸痛 +痛检查结果:V/Q升高&D-二聚体阳性,推荐诊断包含:急性肺栓塞
+检查解读109.1 病历内容:急性胸痛｜胸痛 +检查结果:V/Q升高&D-二聚体阳性,推荐诊断包含:急性肺栓塞
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -12687,7 +12413,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     急性肺栓塞
 
-检查解读109.2 病历内容:急性胸痛｜胸痛 +痛检查结果:V/Q升高 缺少&D-二聚体阳性,推荐诊断"不应"包含:急性肺栓塞
+检查解读109.2 病历内容:急性胸痛｜胸痛 +检查结果:V/Q升高 缺少&D-二聚体阳性,推荐诊断"不应"包含:急性肺栓塞
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -12711,7 +12437,7 @@ Library           RequestsLibrary
 #####Wells评分:1 V/Q升高 血浆-D-二聚体增高
 #####Wells评分:2 V/Q升高 血浆-D-二聚体增高
 
-检查解读110.1 病历内容:Wells评分<2分+痛检查结果:V/Q正常&D-二聚体阳性,推荐诊断包含:排除急性肺栓塞，考虑其他引起D-二聚体阳性的疾病
+检查解读110.1 病历内容:Wells评分<2分+检查结果:V/Q正常&D-二聚体阳性,推荐诊断包含:排除急性肺栓塞，考虑其他引起D-二聚体阳性的疾病
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -12727,7 +12453,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     排除急性肺栓塞，考虑其他引起D-二聚体阳性的疾病
 
-检查解读110.2 病历内容:Wells评分==2分+痛检查结果:V/Q正常 缺少&D-二聚体阳性,推荐诊断"不应"包含:排除急性肺栓塞，考虑其他引起D-二聚体阳性的疾病
+检查解读110.2 病历内容:Wells评分==2分+检查结果:V/Q正常 缺少&D-二聚体阳性,推荐诊断"不应"包含:排除急性肺栓塞，考虑其他引起D-二聚体阳性的疾病
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -13155,23 +12881,6 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     急性肺栓塞
 
-检查解读119.2 病历内容:胸痛｜急性胸痛｜下肢肿胀｜下肢疼痛｜呼吸困难+检查结果:缺少肺动脉CTA阳性,推荐诊断"不应"包含:急性肺栓塞
-    [Documentation]    ""
-    #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 胸痛 急性胸痛 下肢肿胀 下肢疼痛 呼吸困难 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    Should Not Contain    ${aj}     急性肺栓塞
-    # Should Not Contain    ${getRes['body']}    examinationInterpretList
-
 ########################################推荐评分表##########################################################
 #####推荐评分表6L         急性胸痛｜胸痛｜濒死感｜胸部撕裂样痛｜背部撕裂样痛｜呼吸困难    严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉｜低氧血症｜呼吸窘迫｜休克｜持续性低血压｜收缩压<90mmHg｜SPO2<90%    Wells评估表(梅奥版)   评估急性肺栓塞临床的可能性   是
 推荐评分表1.1 病历内容:急性胸痛｜胸痛｜濒死感｜胸部撕裂样痛｜背部撕裂样痛｜呼吸困难,推荐诊断包含:Wells评估表(梅奥版)
@@ -13238,7 +12947,7 @@ Library           RequestsLibrary
 ##### Wells评分:7
 ##### Wells评分:1 不过
 
-推荐评分表4.1 病历内容:Wells评分:2,推荐诊断包含:抗凝禁忌评估
+推荐评分表4.1 病历内容:Wells评分:2,推荐诊断包含:肺栓塞抗凝禁忌评估
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -13252,9 +12961,9 @@ Library           RequestsLibrary
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    Should Contain    ${aj}     抗凝禁忌评估
+    Should Contain    ${aj}     肺栓塞抗凝禁忌评估
 
-推荐评分表4.2 病历内容:Wells评分:6,推荐诊断包含:抗凝禁忌评估
+推荐评分表4.2 病历内容:Wells评分:6,推荐诊断包含:肺栓塞抗凝禁忌评估
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -13268,9 +12977,9 @@ Library           RequestsLibrary
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    Should Contain    ${aj}     抗凝禁忌评估
+    Should Contain    ${aj}     肺栓塞抗凝禁忌评估
 
-推荐评分表4.3 病历内容:Wells评分:7,推荐诊断包含:抗凝禁忌评估
+推荐评分表4.3 病历内容:Wells评分:7,推荐诊断包含:肺栓塞抗凝禁忌评估
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -13284,9 +12993,9 @@ Library           RequestsLibrary
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    Should Contain    ${aj}     抗凝禁忌评估
+    Should Contain    ${aj}     肺栓塞抗凝禁忌评估
 
-推荐评分表4.4 病历内容:Wells评分:1,推荐诊断包含:抗凝禁忌评估
+推荐评分表4.4 病历内容:Wells评分:1,推荐诊断包含:肺栓塞抗凝禁忌评估
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -13300,14 +13009,14 @@ Library           RequestsLibrary
     ...    labTestList=
     ...    examinationList=
     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    # Should Not Contain    ${aj}     抗凝禁忌评估
+    # Should Not Contain    ${aj}     肺栓塞抗凝禁忌评估
     Should Not Contain    ${getRes['body']}    examinationInterpretList
 
 
 #####推荐评分表10L 急性肺栓塞｜肺栓塞 抗凝禁忌    抗凝禁忌评估      是
 #####急性肺栓塞 肺栓塞
 
-推荐评分表5.1 病历内容:急性肺栓塞 肺栓塞,推荐诊断包含:抗凝禁忌评估
+推荐评分表5.1 病历内容:急性肺栓塞 肺栓塞,推荐诊断包含:肺栓塞抗凝禁忌评估
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -13321,7 +13030,7 @@ Library           RequestsLibrary
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    Should Contain    ${aj}     抗凝禁忌评估
+    Should Contain    ${aj}     肺栓塞抗凝禁忌评估
 
 
 
@@ -13346,7 +13055,7 @@ Library           RequestsLibrary
 #####心率:39次/分
 #####心率:40次/分
 
-推荐评分表6.1 病历内容:休克｜持续性低血压｜收缩压<90mmHg｜低氧血症｜呼吸窘迫｜SPO2<90%｜严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉&肺栓塞｜急性肺栓塞 肺栓塞,推荐诊断包含:溶栓禁忌评估
+推荐评分表6.1 病历内容:休克｜持续性低血压｜收缩压<90mmHg｜低氧血症｜呼吸窘迫｜SPO2<90%｜严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉&肺栓塞｜急性肺栓塞 肺栓塞,推荐诊断包含:肺栓塞抗凝禁忌评估
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -13360,10 +13069,10 @@ Library           RequestsLibrary
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    Should Contain    ${aj}     溶栓禁忌评估
+    Should Contain    ${aj}     肺栓塞抗凝禁忌评估
 
 
-推荐评分表6.2 病历内容:收缩压:89mmHg &肺栓塞｜急性肺栓塞,推荐诊断包含:溶栓禁忌评估
+推荐评分表6.2 病历内容:收缩压:89mmHg &肺栓塞｜急性肺栓塞,推荐诊断包含:肺栓塞抗凝禁忌评估
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -13377,10 +13086,10 @@ Library           RequestsLibrary
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    Should Contain    ${aj}     溶栓禁忌评估
+    Should Contain    ${aj}     肺栓塞抗凝禁忌评估
 
 
-推荐评分表6.3 病历内容:血氧饱和度:89％ &肺栓塞｜急性肺栓塞,推荐诊断包含:溶栓禁忌评估
+推荐评分表6.3 病历内容:血氧饱和度:89％ &肺栓塞｜急性肺栓塞,推荐诊断包含:肺栓塞抗凝禁忌评估
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -13394,9 +13103,9 @@ Library           RequestsLibrary
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    Should Contain    ${aj}     溶栓禁忌评估
+    Should Contain    ${aj}     肺栓塞抗凝禁忌评估
 
-推荐评分表6.4 病历内容:心率:39次/分 肺栓塞 急性肺栓塞,推荐诊断"不应"包含:溶栓禁忌评估
+推荐评分表6.4 病历内容:心率:39次/分 肺栓塞 急性肺栓塞,推荐诊断"不应"包含:肺栓塞抗凝禁忌评估
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -13410,9 +13119,9 @@ Library           RequestsLibrary
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    Should Contain    ${aj}     溶栓禁忌评估
+    Should Contain    ${aj}     肺栓塞抗凝禁忌评估
 
-推荐评分表6.5 病历内容:收缩压:90mmHg 肺栓塞 急性肺栓塞,推荐诊断"不应"包含:溶栓禁忌评估
+推荐评分表6.5 病历内容:收缩压:90mmHg 肺栓塞 急性肺栓塞,推荐诊断"不应"包含:肺栓塞抗凝禁忌评估
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -13426,9 +13135,9 @@ Library           RequestsLibrary
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    Should Not Contain    ${aj}     溶栓禁忌评估
+    Should Not Contain    ${aj}     肺栓塞抗凝禁忌评估
 
-推荐评分表6.6 病历内容:血氧饱和度:90％ 肺栓塞 急性肺栓塞,推荐诊断"不应"包含:溶栓禁忌评估
+推荐评分表6.6 病历内容:血氧饱和度:90％ 肺栓塞 急性肺栓塞,推荐诊断"不应"包含:肺栓塞抗凝禁忌评估
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -13442,9 +13151,9 @@ Library           RequestsLibrary
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    Should Not Contain    ${aj}     溶栓禁忌评估
+    Should Not Contain    ${aj}     肺栓塞抗凝禁忌评估
 
-推荐评分表6.7 病历内容:心率:40次/分 肺栓塞 急性肺栓塞,推荐诊断包含:溶栓禁忌评估
+推荐评分表6.7 病历内容:心率:40次/分 肺栓塞 急性肺栓塞,推荐诊断包含:肺栓塞抗凝禁忌评估
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -13458,9 +13167,9 @@ Library           RequestsLibrary
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    Should Not Contain    ${aj}     溶栓禁忌评估
+    Should Not Contain    ${aj}     肺栓塞抗凝禁忌评估
 
-推荐评分表6.8 病历内容:休克｜持续性低血压｜收缩压<90mmHg｜低氧血症｜呼吸窘迫｜SPO2<90%｜严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉,缺少&肺栓塞｜急性肺栓塞 肺栓塞,推荐诊断"不应"包含:溶栓禁忌评估
+推荐评分表6.8 病历内容:休克｜持续性低血压｜收缩压<90mmHg｜低氧血症｜呼吸窘迫｜SPO2<90%｜严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉,缺少&肺栓塞｜急性肺栓塞 肺栓塞,推荐诊断"不应"包含:肺栓塞抗凝禁忌评估
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -13474,7 +13183,7 @@ Library           RequestsLibrary
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    Should Not Contain    ${aj}     溶栓禁忌评估
+    Should Not Contain    ${aj}     肺栓塞抗凝禁忌评估
 
 
 #####推荐评分表12L 大面积肺栓塞｜肺血管栓塞面积>=50%  溶栓禁忌    溶栓禁忌评估      是
@@ -13504,7 +13213,7 @@ Library           RequestsLibrary
 #####心率:39次/分
 #####心率:40次/分
 
-推荐评分表7.1 病历内容:大面积肺栓塞｜肺血管栓塞面积==50%,推荐诊断包含:溶栓禁忌评估
+推荐评分表7.1 病历内容:大面积肺栓塞｜肺血管栓塞面积==50%,推荐诊断包含:肺栓塞抗凝禁忌评估
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -13518,9 +13227,9 @@ Library           RequestsLibrary
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    Should Contain    ${aj}     溶栓禁忌评估
+    Should Contain    ${aj}     肺栓塞抗凝禁忌评估
 
-推荐评分表7.2 病历内容:大面积肺栓塞｜肺血管栓塞面积>50%,推荐诊断包含:溶栓禁忌评估
+推荐评分表7.2 病历内容:大面积肺栓塞｜肺血管栓塞面积>50%,推荐诊断包含:肺栓塞抗凝禁忌评估
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -13534,10 +13243,10 @@ Library           RequestsLibrary
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    Should Contain    ${aj}     溶栓禁忌评估
+    Should Contain    ${aj}     肺栓塞抗凝禁忌评估
 
 
-推荐评分表7.3 病历内容:大面积肺栓塞｜肺血管栓塞面积<50%,推荐诊断"不应"包含:溶栓禁忌评估
+推荐评分表7.3 病历内容:大面积肺栓塞｜肺血管栓塞面积<50%,推荐诊断"不应"包含:肺栓塞抗凝禁忌评估
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -13551,7 +13260,7 @@ Library           RequestsLibrary
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    Should Not Contain    ${aj}     溶栓禁忌评估
+    Should Not Contain    ${aj}     肺栓塞抗凝禁忌评估
     # Should Not Contain    ${getRes['body']}    examinationInterpretList
 
 
