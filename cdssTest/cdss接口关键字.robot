@@ -5,7 +5,10 @@ ${base_url}       http://10.117.64.153:8080
 # ${base_url}       http://10.46.74.95:9200
 
 # ${base_url}     http://10.46.74.95:8080
-${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
+##旧
+# ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
+##新
+${Huimei_id}      C3E74C229156E6B31534E946BCDEBA94
 ${Huimei_id_safe_medication}    C3B844493A477BCF3D7B73A5E902B269
 
 
@@ -24,6 +27,9 @@ ${base_url_ame}     http://10.100.20.13:8092
 ${empty}
 ${null}    null
 *** Keywords ***
+获取时间戳
+    ${timestamp}    Get Time    epoch
+    Set Global Variable    ${timestamp}
 
 ################安全用药################
 安全用药
