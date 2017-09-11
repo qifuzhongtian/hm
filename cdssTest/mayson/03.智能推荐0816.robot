@@ -9177,7 +9177,7 @@ Library           RequestsLibrary
     Should Not Contain    ${getRes['body']}    examinationInterpretList
 
 
-检查解读41.1 病历内容:胸痛>30分钟｜含NTG不缓解｜出汗｜恶心｜呕吐｜面色苍白+检查结果:肌酸激酶同工酶（CK-MB）升高,推荐诊断包含:多发性肌炎
+检查解读41.1 病历内容:胸痛>30分钟｜含NTG不缓解｜出汗｜恶心｜呕吐｜面色苍白+检查结果:肌钙蛋白升高(至少超过99%参考值上限),推荐诊断包含:急性心肌梗死
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -9186,14 +9186,14 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 胸痛:31分钟 含NTG不缓解 出汗 恶心 呕吐 面色苍白 心肌肌钙蛋白增高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 胸痛:31分钟 含NTG不缓解 出汗 恶心 呕吐 面色苍白 心肌肌钙蛋白T增高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    Should Contain    ${aj}     多发性肌炎
+    Should Contain    ${aj}     急性心肌梗死
 
-检查解读41.2 病历内容:胸痛<=30分钟｜含NTG不缓解｜出汗｜恶心｜呕吐｜面色苍白+检查结果:缺少肌酸激酶同工酶（CK-MB）升高,推荐诊断"不应"包含:多发性肌炎
+检查解读41.2 病历内容:胸痛<=30分钟｜含NTG不缓解｜出汗｜恶心｜呕吐｜面色苍白+检查结果:缺少肌酸激酶同工酶（CK-MB）升高,推荐诊断"不应"包含:急性心肌梗死
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
