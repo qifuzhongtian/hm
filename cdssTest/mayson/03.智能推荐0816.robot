@@ -99,10 +99,11 @@ Library           RequestsLibrary
 
 ### 主要条件                                                                                      次要条件    否定条件    推荐检查    备注文案，包括注意及推荐理由  推荐检查类型  检查ID    是否新增
 #######25L 急性胸痛｜胸痛｜濒死感｜胸部撕裂样痛｜背部撕裂样痛｜呼吸困难&Wells评分低度可能急性肺栓塞｜Wells评分<2分      严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉｜低氧血症｜呼吸窘迫｜休克｜持续性低血压｜收缩压<90mmHg｜SPO2<90%    D-二聚体   Wells评分低度可能肺栓塞患者首先进行急性肺栓塞初筛 紧急检查        是
+#######25L Wells评分低度可能急性肺栓塞｜Wells评分<2分｜疑似肺栓塞  急性胸痛｜胸痛｜濒死感｜胸部撕裂样痛｜背部撕裂样痛｜呼吸困难  严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉｜低氧血症｜呼吸窘迫｜休克｜持续性低血压｜收缩压<90mmHg｜SPO2<90%｜肺栓塞｜急性肺栓塞  D-二聚体       Wells评分低度可能肺栓塞患者首先进行急性肺栓塞初筛 紧急检查    9   是
 推荐检查1.1 胸痛+Wells评分低度可能急性肺栓塞,推荐检查包含:D-二聚体
     [Documentation]    胸痛+Wells评分低度可能急性肺栓塞,断言:"推荐检查examination=D-二聚体"
     #执行删除病程
-    [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
+    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
@@ -115,17 +116,32 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Contain    ${aj}    D-二聚体
 
-
 推荐检查1.2 胸痛+Wells评分:1分,推荐检查包含:D-二聚体
     [Documentation]    胸痛+Wells评分:1分,断言:"推荐检查examination=D-二聚体"
     #执行删除病程
-    [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
+    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 Wells评分:1 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+    ...    labTestList=
+    ...    examinationList=
+    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    Should Contain    ${aj}    D-二聚体
+
+推荐检查1.3 胸痛+疑似肺栓塞,推荐检查包含:D-二聚体
+    [Documentation]    胸痛+Wells评分:1分,断言:"推荐检查examination=D-二聚体"
+    #执行删除病程
+    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
+    ${timestamp}    Get Time    epoch
+    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+    ...    definiteDiagnosis=
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 胸痛 疑似肺栓塞 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -150,167 +166,10 @@ Library           RequestsLibrary
     Should Contain    ${aj}    D-二聚体
 
 
-推荐检查1.10 胸痛+Wells评分:1分+否定条件:无脉,推荐检查"不"包含:D-二聚体
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 Wells评分:1 无脉 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    D-二聚体
-
-推荐检查1.11 胸痛+Wells评分:1分+否定条件:低氧血症,推荐检查"不"包含:D-二聚体
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 Wells评分:1 低氧血症 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    D-二聚体
-
-
-推荐检查1.12 胸痛+Wells评分:1分+否定条件:呼吸窘迫,推荐检查"不"包含:D-二聚体
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 Wells评分:1 呼吸窘迫 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    D-二聚体
-
-推荐检查1.13 胸痛+Wells评分:1分+否定条件:休克,推荐检查"不"包含:D-二聚体
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 Wells评分:1 休克 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    D-二聚体
-
-推荐检查1.14 胸痛+Wells评分:1分+否定条件:持续性低血压,推荐检查"不"包含:D-二聚体
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 Wells评分:1 持续性低血压 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    D-二聚体
-
-推荐检查1.15 胸痛+Wells评分:1分+否定条件:收缩压<90mmHg,推荐检查"不"包含:D-二聚体
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 Wells评分:1 血压:89/80mmHg </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    D-二聚体
-
-
-推荐检查1.16 胸痛+Wells评分:1分+否定条件:收缩压>=90mmHg,推荐检查包含:D-二聚体
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 Wells评分:1 收缩压:90mmHg </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    D-二聚体
-
-
-
-
-
-
-
-
-
-
-
-
-推荐检查1.17 胸痛+Wells评分:1分+否定条件:SPO2<90%,推荐检查"不"包含:D-二聚体
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 Wells评分:1 SPO2:89% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    D-二聚体
-
-推荐检查1.18 胸痛+Wells评分:1分+否定条件:SPO2>=90mmHg,推荐检查包含:D-二聚体
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 Wells评分:1 SPO2:90mmHg </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    D-二聚体
-
-
 
 
 #####26L 急性胸痛｜胸痛｜濒死感｜胸部撕裂样痛｜背部撕裂样痛｜呼吸困难&Wells评分低度可能急性肺栓塞｜Wells评分<2分&D-二聚体阳性     严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉｜低氧血症｜呼吸窘迫｜休克｜持续性低血压｜收缩压<90mmHg｜SPO2<90%｜CTA禁忌  肺动脉CTA  进行CTA检查来确诊肺栓塞   紧急检查        是
+#####26L 改:Wells评分低度可能急性肺栓塞｜Wells评分<2分｜疑似肺栓塞&D-二聚体阳性  急性胸痛｜胸痛｜濒死感｜胸部撕裂样痛｜背部撕裂样痛｜呼吸困难  严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉｜低氧血症｜呼吸窘迫｜休克｜持续性低血压｜收缩压<90mmHg｜SPO2<90%｜CTA禁忌｜肺栓塞｜急性肺栓塞    肺动脉CTA      进行CTA检查来确诊肺栓塞   紧急检查    6   是
 推荐检查2.1 胸痛+Wells评分低度可能急性肺栓塞&D-二聚体阳性,推荐检查包含:肺动脉CTA
     [Documentation]    胸痛+Wells评分低度可能急性肺栓塞,断言:"推荐检查examination=肺动脉CTA"
     #执行删除病程
@@ -343,7 +202,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Contain    ${aj}    肺动脉CTA
 
-推荐检查2.3 胸痛+Wells评分不小于2 &D-二聚体阳性:2分,推荐检查"不"包含:肺动脉CTA
+推荐检查2.2.5 胸痛+疑似肺栓塞&D-二聚体阳性,推荐检查包含:肺动脉CTA
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -352,16 +211,17 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 Wells评分:1 血浆-D-二聚体增高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 疑似肺栓塞 血浆-D-二聚体增高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    肺动脉CTA
+    Should Contain    ${aj}    肺动脉CTA
 
 
 
 #####27L 急性胸痛｜胸痛｜濒死感｜胸部撕裂样痛｜背部撕裂样痛｜呼吸困难&Wells评分低度可能急性肺栓塞｜Wells评分<2分&D-二聚体阳性 "CTA禁忌: 碘造影剂过敏｜妊娠｜中度肾功能不全｜重度肾功能不全｜肌酐清除率<30ml/min｜肾小球滤过率eGFR<45mL/min/1.73m2｜造影剂肾病｜甲状腺功能亢进"  严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉｜低氧血症｜呼吸窘迫｜休克｜持续性低血压｜收缩压<90mmHg｜SPO2<90%    放射性核素肺通气灌注扫描    如有CTA检查禁忌，推荐进行放射性核素肺通气灌注扫描检查来确诊肺栓塞  紧急检查        是
+#####27L Wells评分低度可能急性肺栓塞｜Wells评分<2分｜疑似肺栓塞&D-二聚体阳性  CTA禁忌&急性胸痛｜胸痛｜濒死感｜胸部撕裂样痛｜背部撕裂样痛｜呼吸困难    严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉｜低氧血症｜呼吸窘迫｜休克｜持续性低血压｜收缩压<90mmHg｜SPO2<90%｜肺栓塞｜急性肺栓塞  放射性核素肺通气灌注扫描        CTA检查禁忌者，推荐进行放射性核素肺通气灌注扫描检查来确诊肺栓塞   紧急检查    24  是
 推荐检查3.1 胸痛+Wells评分低度可能急性肺栓塞&D-二聚体阳性,推荐检查包含:放射性核素肺通气灌注扫描
     [Documentation]    胸痛+Wells评分低度可能急性肺栓塞,断言:"推荐检查examination=放射性核素肺通气灌注扫描"
     #执行删除病程
@@ -388,6 +248,23 @@ Library           RequestsLibrary
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 Wells评分:1 血浆-D-二聚体增高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+    ...    labTestList=
+    ...    examinationList=
+    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    Should Contain    ${aj}    放射性核素肺通气灌注扫描
+
+
+推荐检查3.3 胸痛+疑似肺栓塞&D-二聚体阳性,推荐检查包含:放射性核素肺通气灌注扫描
+    [Documentation]    断言:""
+    #执行删除病程
+    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
+    ${timestamp}    Get Time    epoch
+    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+    ...    definiteDiagnosis=
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 疑似肺栓塞 血浆-D-二聚体增高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -575,6 +452,7 @@ Library           RequestsLibrary
     Should Not Contain    ${aj}    放射性核素肺通气灌注扫描
 
 #####28L 急性胸痛｜胸痛｜濒死感｜胸部撕裂样痛｜背部撕裂样痛｜呼吸困难&Wells评分低度可能急性肺栓塞｜Wells评分<2分&D-二聚体阳性 "CTA禁忌: 碘造影剂过敏｜妊娠｜中度肾功能不全｜重度肾功能不全｜肌酐清除率<30ml/min｜肾小球滤过率eGFR<45mL/min/1.73m2｜造影剂肾病｜甲状腺功能亢进"  严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉｜低氧血症｜呼吸窘迫｜休克｜持续性低血压｜收缩压<90mmHg｜SPO2<90%    选择性肺动脉造影    如有CTA检查禁忌，推荐进行选择性肺动脉造影检查来确诊肺栓塞  紧急检查        是
+#####28L Wells评分低度可能急性肺栓塞｜Wells评分<2分｜疑似肺栓塞&D-二聚体阳性&V/Q升高    CTA禁忌&急性胸痛｜胸痛｜濒死感｜胸部撕裂样痛｜背部撕裂样痛｜呼吸困难    严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉｜低氧血症｜呼吸窘迫｜休克｜持续性低血压｜收缩压<90mmHg｜SPO2<90%｜肺栓塞｜急性肺栓塞  选择性肺动脉造影            确诊检查    25  是
 推荐检查4.1 胸痛+Wells评分低度可能急性肺栓塞&D-二聚体阳性&V/Q升高,推荐检查包含:选择性肺动脉造影
     [Documentation]    胸痛+Wells评分低度可能急性肺栓塞,断言:"推荐检查examination=选择性肺动脉造影"
     #执行删除病程
@@ -601,6 +479,22 @@ Library           RequestsLibrary
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 Wells评分:1 血浆-D-二聚体增高 V/Q升高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+    ...    labTestList=
+    ...    examinationList=
+    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    Should Contain    ${aj}    选择性肺动脉造影
+
+推荐检查4.3 胸痛+疑似肺栓塞&D-二聚体阳性& V/Q升高,推荐检查包含:选择性肺动脉造影
+    [Documentation]    断言:""
+    #执行删除病程
+    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
+    ${timestamp}    Get Time    epoch
+    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+    ...    definiteDiagnosis=
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 疑似肺栓塞 血浆-D-二聚体增高 V/Q升高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -693,6 +587,7 @@ Library           RequestsLibrary
 
 
 #####29L 急性胸痛｜胸痛｜濒死感｜胸部撕裂样痛｜背部撕裂样痛｜呼吸困难&Wells评分低度可能急性肺栓塞｜Wells评分<2分&D-二聚体阳性 "CTA禁忌: 碘造影剂过敏｜妊娠｜中度肾功能不全｜重度肾功能不全｜肌酐清除率<30ml/min｜肾小球滤过率eGFR<45mL/min/1.73m2｜造影剂肾病｜甲状腺功能亢进"  严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉｜低氧血症｜呼吸窘迫｜休克｜持续性低血压｜收缩压<90mmHg｜SPO2<90%    下肢血管超声    如有CTA检查禁忌，推荐进行下肢血管超声检查来确诊肺栓塞  紧急检查        是
+#####29L 改:Wells评分低度可能急性肺栓塞｜Wells评分<2分｜疑似肺栓塞&D-二聚体阳性&V/Q升高    CTA禁忌&急性胸痛｜胸痛｜濒死感｜胸部撕裂样痛｜背部撕裂样痛｜呼吸困难    严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉｜低氧血症｜呼吸窘迫｜休克｜持续性低血压｜收缩压<90mmHg｜SPO2<90%｜肺栓塞｜急性肺栓塞  下肢血管超声          确诊检查    26  是
 推荐检查5.1 胸痛+Wells评分低度可能急性肺栓塞&D-二聚体阳性&V/Q升高,推荐检查包含:下肢血管超声
     [Documentation]    胸痛+Wells评分低度可能急性肺栓塞,断言:"推荐检查examination=下肢血管超声"
     #执行删除病程
@@ -725,7 +620,8 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Contain    ${aj}    下肢血管超声
 
-推荐检查5.3 胸痛+Wells评分:2分&D-二聚体阳性& V/Q升高,推荐检查"不"包含:下肢血管超声
+
+推荐检查5.2.5 胸痛+疑似肺栓塞&D-二聚体阳性& V/Q升高,推荐检查包含:下肢血管超声
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -734,12 +630,14 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 Wells评分:2 血浆-D-二聚体增高 V/Q升高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 疑似肺栓塞 血浆-D-二聚体增高 V/Q升高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    下肢血管超声
+    Should Contain    ${aj}    下肢血管超声
+
+
 
 推荐检查5.4 胸痛+Wells评分:1分&D-二聚体阳性& V/Q升高+否定条件,推荐检查"不"包含:下肢血管超声
     [Documentation]    断言:""
@@ -823,6 +721,7 @@ Library           RequestsLibrary
     Should Not Contain    ${aj}    下肢血管超声
 
 #####30L 急性胸痛｜胸痛｜濒死感｜胸部撕裂样痛｜背部撕裂样痛｜呼吸困难&Wells评分低度可能急性肺栓塞｜Wells评分<2分&D-二聚体阳性 "CTA禁忌: 碘造影剂过敏｜妊娠｜中度肾功能不全｜重度肾功能不全｜肌酐清除率<30ml/min｜肾小球滤过率eGFR<45mL/min/1.73m2｜造影剂肾病｜甲状腺功能亢进"  严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉｜低氧血症｜呼吸窘迫｜休克｜持续性低血压｜收缩压<90mmHg｜SPO2<90%    加压超声检查    如有CTA检查禁忌，推荐进行加压超声检查检查来确诊肺栓塞  紧急检查        是
+#####30L Wells评分低度可能急性肺栓塞｜Wells评分<2分｜疑似肺栓塞&D-二聚体阳性&V/Q升高    CTA禁忌&急性胸痛｜胸痛｜濒死感｜胸部撕裂样痛｜背部撕裂样痛｜呼吸困难    严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉｜低氧血症｜呼吸窘迫｜休克｜持续性低血压｜收缩压<90mmHg｜SPO2<90%｜肺栓塞｜急性肺栓塞  加压超声检查          确诊检查    27  是
 推荐检查6.1 胸痛+Wells评分低度可能急性肺栓塞&D-二聚体阳性&V/Q升高,推荐检查包含:加压超声检查
     [Documentation]    胸痛+Wells评分低度可能急性肺栓塞,断言:"推荐检查examination=加压超声检查"
     #执行删除病程
@@ -849,6 +748,22 @@ Library           RequestsLibrary
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 Wells评分:1 血浆-D-二聚体增高 V/Q升高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+    ...    labTestList=
+    ...    examinationList=
+    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    Should Contain    ${aj}    加压超声检查
+
+推荐检查6.3 胸痛+疑似肺栓塞&D-二聚体阳性& V/Q升高,推荐检查包含:加压超声检查
+    [Documentation]    断言:""
+    #执行删除病程
+    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
+    ${timestamp}    Get Time    epoch
+    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+    ...    definiteDiagnosis=
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 疑似肺栓塞 血浆-D-二聚体增高 V/Q升高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -938,7 +853,8 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Not Contain    ${aj}    加压超声检查
 
-#####31L 急性胸痛｜胸痛｜濒死感｜胸部撕裂样痛｜背部撕裂样痛｜呼吸困难&Wells评分中度可能急性肺栓塞｜Wells评分[2-6]分｜Wells评分高度可能急性肺栓塞｜Wells评分>6分      严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉｜低氧血症｜呼吸窘迫｜休克｜持续性低血压｜收缩压<90mmHg｜SPO2<90%｜CTA禁忌  肺动脉CTA      紧急检查        是
+#####31L Wells评分中度可能急性肺栓塞｜Wells评分[2-6]分｜Wells评分高度可能急性肺栓塞｜Wells评分>6分&急性胸痛｜胸痛｜濒死感｜胸部撕裂样痛｜背部撕裂样痛｜呼吸困难&      严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉｜低氧血症｜呼吸窘迫｜休克｜持续性低血压｜收缩压<90mmHg｜SPO2<90%｜CTA禁忌  肺动脉CTA      紧急检查        是
+#####31L Wells评分中度可能急性肺栓塞｜Wells评分[2-6]分｜Wells评分高度可能急性肺栓塞｜Wells评分>6分     急性胸痛｜胸痛｜濒死感｜胸部撕裂样痛｜背部撕裂样痛｜呼吸困难  严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉｜低氧血症｜呼吸窘迫｜休克｜持续性低血压｜收缩压<90mmHg｜SPO2<90%｜CTA禁忌｜肺栓塞｜急性肺栓塞    肺动脉CTA          紧急检查    6   是
 推荐检查7.1 胸痛+Wells评分中度可能急性肺栓塞,推荐检查包含:肺动脉CTA
     [Documentation]    断言:""
     #执行删除病程
@@ -1004,40 +920,6 @@ Library           RequestsLibrary
     Should Contain    ${aj}    肺动脉CTA
 
 
-推荐检查7.5 胸痛+Wells评分:1分,推荐检查"不"包含:肺动脉CTA
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 Wells评分:1 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    肺动脉CTA
-
-
-
-推荐检查7.7 胸痛+无Wells评分,推荐检查"不"包含:肺动脉CTA
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    肺动脉CTA
-
 ##########+否定条件 cta禁忌
 推荐检查7.8 胸痛+Wells评分中度可能急性肺栓塞& +cta禁忌+否定条件,推荐检查"不"包含:肺动脉CTA
     [Documentation]    断言:""
@@ -1058,6 +940,7 @@ Library           RequestsLibrary
 ##########
 
 #####32L 急性胸痛｜胸痛｜濒死感｜胸部撕裂样痛｜背部撕裂样痛｜呼吸困难&Wells评分中度可能急性肺栓塞｜Wells评分[2-6]分｜Wells评分高度可能急性肺栓塞｜Wells评分>6分  CTA禁忌   严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉｜低氧血症｜呼吸窘迫｜休克｜持续性低血压｜收缩压<90mmHg｜SPO2<90%    放射性核素肺通气灌注扫描        紧急检查        是
+#####32L                                                   Wells评分中度可能急性肺栓塞｜Wells评分[2-6]分｜Wells评分高度可能急性肺栓塞｜Wells评分>6分
 推荐检查8.1 胸痛+Wells评分中度可能急性肺栓塞,推荐检查包含:放射性核素肺通气灌注扫描
     [Documentation]    断言:""
     #执行删除病程
@@ -1524,22 +1407,6 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Not Contain    ${aj}    下肢血管超声
 
-推荐检查10.10 胸痛+Wells评分低度可能急性肺栓塞+无 V/Q升高,推荐检查"不"包含:下肢血管超声
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 Wells评分:1 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Contain    ${aj}    下肢血管超声
-
 
 #####35L 11急性胸痛｜胸痛｜濒死感｜胸部撕裂样痛｜背部撕裂样痛｜呼吸困难&Wells评分中度可能急性肺栓塞｜Wells评分[2-6]分｜Wells评分高度可能急性肺栓塞｜Wells评分>6分&V/Q升高   CTA禁忌   严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉｜低氧血症｜呼吸窘迫｜休克｜持续性低血压｜收缩压<90mmHg｜SPO2<90%    加压超声检查        确诊检查    25
 推荐检查11.1 胸痛+Wells评分中度可能急性肺栓塞,推荐检查包含:加压超声检查
@@ -1717,7 +1584,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -1749,7 +1616,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心动过速 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心动过速 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -1765,7 +1632,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心率:121次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心率:121次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -1781,7 +1648,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心率:120次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心率:120次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -1797,7 +1664,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 呼吸急促 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 呼吸急促 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -1813,7 +1680,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 缺氧 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 缺氧 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -1829,7 +1696,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心源性休克 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心源性休克 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -1848,7 +1715,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -1880,7 +1747,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心动过速 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心动过速 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -1896,28 +1763,12 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心率:121次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心率:121次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    脑利钠肽BNP
-
-推荐检查13.5 心力衰竭症状｜心力衰竭+否定条件:心率=120次/分,推荐检查包含:脑利钠肽BNP
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心率:120次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Contain    ${aj}    脑利钠肽BNP
+    Should Not Contain    ${aj}    脑利钠
 
 推荐检查13.6 心力衰竭症状｜心力衰竭+否定条件:呼吸急促,推荐检查"不应"包含:脑利钠肽BNP
     [Documentation]    断言:""
@@ -1928,7 +1779,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 呼吸急促 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 呼吸急促 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -1944,7 +1795,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 缺氧 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 缺氧 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -1960,7 +1811,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心源性休克 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心源性休克 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -1978,7 +1829,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2010,7 +1861,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心动过速 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心动过速 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2026,7 +1877,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心率:121次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心率:121次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2042,7 +1893,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心率:120次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心率:120次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2058,7 +1909,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 呼吸急促 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 呼吸急促 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2074,7 +1925,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 缺氧 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 缺氧 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2090,7 +1941,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心源性休克 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心源性休克 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2108,7 +1959,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2131,38 +1982,6 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Contain    ${aj}    超声心动图
 
-推荐检查16.3 心力衰竭症状｜心力衰竭+否定条件:心动过速,推荐检查"不应"包含:超声心动图
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心动过速 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    超声心动图
-
-推荐检查16.4 心力衰竭症状｜心力衰竭+否定条件:心率>120次/分,推荐检查"不应"包含:超声心动图
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心率:121次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    超声心动图
-
 推荐检查16.5 心力衰竭症状｜心力衰竭+否定条件:心率=120次/分,推荐检查包含:超声心动图
     [Documentation]    断言:""
     #执行删除病程
@@ -2172,60 +1991,12 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心率:120次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心率:120次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Contain    ${aj}    超声心动图
-
-推荐检查16.6 心力衰竭症状｜心力衰竭+否定条件:呼吸急促,推荐检查"不应"包含:超声心动图
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 呼吸急促 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    超声心动图
-
-推荐检查16.7 心力衰竭症状｜心力衰竭+否定条件:缺氧,推荐检查"不应"包含:超声心动图
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 缺氧 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    超声心动图
-
-推荐检查16.8 心力衰竭症状｜心力衰竭+否定条件:心源性休克,推荐检查"不应"包含:超声心动图
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心源性休克 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    超声心动图
 
 
 ####41 心力衰竭症状｜心力衰竭     心动过速｜心率>120次/分｜呼吸急促｜缺氧｜心源性休克｜EF<50%｜射血分数降低  血常规     一般检查    13  是
@@ -2238,7 +2009,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2262,22 +2033,6 @@ Library           RequestsLibrary
     Should Contain    ${aj}    血常规
 
 
-推荐检查17.4 心力衰竭症状｜心力衰竭+否定条件:心率>120次/分,推荐检查"不应"包含:血常规
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心率:121次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    血常规
-
 推荐检查17.5 心力衰竭症状｜心力衰竭+否定条件:心率=120次/分,推荐检查包含:血常规
     [Documentation]    断言:""
     #执行删除病程
@@ -2287,76 +2042,13 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心率:120次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心率:120次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Contain    ${aj}    血常规
 
-推荐检查17.6 心力衰竭症状｜心力衰竭+否定条件:呼吸急促,推荐检查"不应"包含:血常规
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 呼吸急促 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    血常规
-
-推荐检查17.7 心力衰竭症状｜心力衰竭+否定条件:缺氧,推荐检查"不应"包含:血常规
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 缺氧 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    血常规
-
-推荐检查17.8 心力衰竭症状｜心力衰竭+否定条件:心源性休克,推荐检查"不应"包含:血常规
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心源性休克 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    血常规
-
-推荐检查17.9 心力衰竭症状｜心力衰竭+否定条件:EF<50%,推荐检查"不应"包含:血常规
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:49% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    血常规
 
 推荐检查17.10 心力衰竭症状｜心力衰竭+无效的否定条件:EF=50%,推荐检查包含:血常规
     [Documentation]    断言:""
@@ -2367,28 +2059,12 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:50% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 射血分数:50% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Contain    ${aj}    血常规
-
-推荐检查17.11 心力衰竭症状｜心力衰竭+否定条件:射血分数降低,推荐检查"不应"包含:血常规
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数降低 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    血常规
 
 
 ####42L 心力衰竭症状｜心力衰竭     心动过速｜心率>120次/分｜呼吸急促｜缺氧｜心源性休克｜EF<50%｜射血分数降低  血电解质     一般检查    13  是
@@ -2401,7 +2077,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2426,22 +2102,6 @@ Library           RequestsLibrary
 
 
 
-推荐检查18.4 心力衰竭症状｜心力衰竭+否定条件:心率>120次/分,推荐检查"不应"包含:血电解质
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心率:121次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    血电解质
-
 推荐检查18.5 心力衰竭症状｜心力衰竭+否定条件:心率=120次/分,推荐检查包含:血电解质
     [Documentation]    断言:""
     #执行删除病程
@@ -2451,76 +2111,12 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心率:120次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心率:120次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Contain    ${aj}    血电解质
-
-推荐检查18.6 心力衰竭症状｜心力衰竭+否定条件:呼吸急促,推荐检查"不应"包含:血电解质
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 呼吸急促 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    血电解质
-
-推荐检查18.7 心力衰竭症状｜心力衰竭+否定条件:缺氧,推荐检查"不应"包含:血电解质
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 缺氧 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    血电解质
-
-推荐检查18.8 心力衰竭症状｜心力衰竭+否定条件:心源性休克,推荐检查"不应"包含:血电解质
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心源性休克 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    血电解质
-
-推荐检查18.9 心力衰竭症状｜心力衰竭+否定条件:EF<50%,推荐检查"不应"包含:血电解质
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:49% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    血电解质
 
 推荐检查18.10 心力衰竭症状｜心力衰竭+无效的否定条件:EF=50%,推荐检查包含:血电解质
     [Documentation]    断言:""
@@ -2531,28 +2127,13 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:50% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 射血分数:50% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Contain    ${aj}    血电解质
 
-推荐检查18.11 心力衰竭症状｜心力衰竭+否定条件:射血分数降低,推荐检查"不应"包含:血电解质
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数降低 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    血电解质
 
 
 ####43 心力衰竭症状｜心力衰竭     心动过速｜心率>120次/分｜呼吸急促｜缺氧｜心源性休克｜EF<50%｜射血分数降低  肾功能     一般检查    13  是
@@ -2565,7 +2146,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2588,37 +2169,6 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Contain    ${aj}    肾功能
 
-推荐检查19.3 心力衰竭症状｜心力衰竭+否定条件:心动过速,推荐检查"不应"包含:肾功能
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心动过速 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    肾功能
-
-推荐检查19.4 心力衰竭症状｜心力衰竭+否定条件:心率>120次/分,推荐检查"不应"包含:肾功能
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心率:121次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    肾功能
 
 推荐检查19.5 心力衰竭症状｜心力衰竭+否定条件:心率=120次/分,推荐检查包含:肾功能
     [Documentation]    断言:""
@@ -2629,76 +2179,12 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心率:120次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心率:120次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Contain    ${aj}    肾功能
-
-推荐检查19.6 心力衰竭症状｜心力衰竭+否定条件:呼吸急促,推荐检查"不应"包含:肾功能
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 呼吸急促 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    肾功能
-
-推荐检查19.7 心力衰竭症状｜心力衰竭+否定条件:缺氧,推荐检查"不应"包含:肾功能
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 缺氧 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    肾功能
-
-推荐检查19.8 心力衰竭症状｜心力衰竭+否定条件:心源性休克,推荐检查"不应"包含:肾功能
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心源性休克 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    肾功能
-
-推荐检查19.9 心力衰竭症状｜心力衰竭+否定条件:EF<50%,推荐检查"不应"包含:肾功能
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:49% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    肾功能
 
 推荐检查19.10 心力衰竭症状｜心力衰竭+无效的否定条件:EF=50%,推荐检查包含:肾功能
     [Documentation]    断言:""
@@ -2709,28 +2195,13 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:50% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 射血分数:50% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Contain    ${aj}    肾功能
 
-推荐检查19.11 心力衰竭症状｜心力衰竭+否定条件:射血分数降低,推荐检查"不应"包含:肾功能
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数降低 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    肾功能
 
 
 ####44L 心力衰竭症状｜心力衰竭     心动过速｜心率>120次/分｜呼吸急促｜缺氧｜心源性休克｜EF<50%｜射血分数降低  肌钙蛋白     一般检查    13  是
@@ -2743,7 +2214,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2768,21 +2239,7 @@ Library           RequestsLibrary
 
 
 
-推荐检查20.4 心力衰竭症状｜心力衰竭+否定条件:心率>120次/分,推荐检查"不应"包含:肌钙蛋白
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心率:121次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    肌钙蛋白
+
 
 推荐检查20.5 心力衰竭症状｜心力衰竭+否定条件:心率=120次/分,推荐检查包含:肌钙蛋白
     [Documentation]    断言:""
@@ -2793,76 +2250,12 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心率:120次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心率:120次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Contain    ${aj}    肌钙蛋白
-
-推荐检查20.6 心力衰竭症状｜心力衰竭+否定条件:呼吸急促,推荐检查"不应"包含:肌钙蛋白
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 呼吸急促 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    肌钙蛋白
-
-推荐检查20.7 心力衰竭症状｜心力衰竭+否定条件:缺氧,推荐检查"不应"包含:肌钙蛋白
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 缺氧 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    肌钙蛋白
-
-推荐检查20.8 心力衰竭症状｜心力衰竭+否定条件:心源性休克,推荐检查"不应"包含:肌钙蛋白
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心源性休克 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    肌钙蛋白
-
-推荐检查20.9 心力衰竭症状｜心力衰竭+否定条件:EF<50%,推荐检查"不应"包含:肌钙蛋白
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:49% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    肌钙蛋白
 
 推荐检查20.10 心力衰竭症状｜心力衰竭+无效的否定条件:EF=50%,推荐检查包含:肌钙蛋白
     [Documentation]    断言:""
@@ -2873,28 +2266,12 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:50% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 射血分数:50% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Contain    ${aj}    肌钙蛋白
-
-推荐检查20.11 心力衰竭症状｜心力衰竭+否定条件:射血分数降低,推荐检查"不应"包含:肌钙蛋白
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数降低 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    肌钙蛋白
 
 
 ####45 21心力衰竭症状｜心力衰竭       心动过速｜心率>120次/分｜呼吸急促｜缺氧｜心源性休克｜EF>=50%｜射血分数保留 血常规     一般检查    13  是
@@ -2907,7 +2284,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2930,38 +2307,6 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Contain    ${aj}    血常规
 
-推荐检查21.3 心力衰竭症状｜心力衰竭+否定条件:心动过速,推荐检查"不应"包含:血常规
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心动过速 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    血常规
-
-推荐检查21.4 心力衰竭症状｜心力衰竭+否定条件:心率>120次/分,推荐检查"不应"包含:血常规
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心率:121次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    血常规
-
 推荐检查21.5 心力衰竭症状｜心力衰竭+否定条件:心率=120次/分,推荐检查包含:血常规
     [Documentation]    断言:""
     #执行删除病程
@@ -2971,76 +2316,12 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心率:120次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心率:120次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Contain    ${aj}    血常规
-
-推荐检查21.6 心力衰竭症状｜心力衰竭+否定条件:呼吸急促,推荐检查"不应"包含:血常规
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 呼吸急促 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    血常规
-
-推荐检查21.7 心力衰竭症状｜心力衰竭+否定条件:缺氧,推荐检查"不应"包含:血常规
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 缺氧 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    血常规
-
-推荐检查21.8 心力衰竭症状｜心力衰竭+否定条件:心源性休克,推荐检查"不应"包含:血常规
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心源性休克 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    血常规
-
-推荐检查21.9 心力衰竭症状｜心力衰竭+否定条件:EF=50%,推荐检查"不应"包含:血常规
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:50% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    血常规
 
 推荐检查21.10 心力衰竭症状｜心力衰竭+否定条件:EF=51%,推荐检查包含:血常规
     [Documentation]    断言:""
@@ -3051,7 +2332,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:51% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 射血分数:51% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -3067,29 +2348,12 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:49% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 射血分数:49% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Contain    ${aj}    血常规
-
-推荐检查21.12 心力衰竭症状｜心力衰竭+否定条件:射血分数保留,推荐检查"不应"包含:血常规
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数保留 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    血常规
-
 
 ####46L 21心力衰竭症状｜心力衰竭       心动过速｜心率>120次/分｜呼吸急促｜缺氧｜心源性休克｜EF>=50%｜射血分数保留 尿常规     一般检查    13  是
 推荐检查22.1 心力衰竭症状,推荐检查包含:尿常规
@@ -3101,7 +2365,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -3133,7 +2397,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心动过速 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心动过速 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -3149,7 +2413,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心率:121次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心率:121次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -3165,7 +2429,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心率:120次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心率:120次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -3181,7 +2445,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 呼吸急促 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 呼吸急促 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -3197,7 +2461,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 缺氧 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 缺氧 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -3213,7 +2477,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心源性休克 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心源性休克 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -3229,28 +2493,13 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:50% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 射血分数:50% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Not Contain    ${aj}    尿常规
 
-推荐检查22.10 心力衰竭症状｜心力衰竭+否定条件:EF=51%,推荐检查包含:尿常规
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:51% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Contain    ${aj}    尿常规
 
 推荐检查22.11 心力衰竭症状｜心力衰竭+无效的否定条件:EF=49%,推荐检查包含:尿常规
     [Documentation]    断言:""
@@ -3261,7 +2510,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:49% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 射血分数:49% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -3277,7 +2526,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数保留 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 射血分数保留 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -3286,23 +2535,7 @@ Library           RequestsLibrary
 
 
 ####47L 21心力衰竭症状｜心力衰竭       心动过速｜心率>120次/分｜呼吸急促｜缺氧｜心源性休克｜EF>=50%｜射血分数保留 肾功能(血尿素氮、肌酐、尿酸)     一般检查    13  是
-推荐检查23.1 心力衰竭症状,推荐检查包含:肾功能(血尿素氮、肌酐、尿酸)
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Contain    ${aj}    肾功能(血尿素氮、肌酐、尿酸)
-
-推荐检查23.2 心力衰竭,推荐检查包含:肾功能(血尿素氮、肌酐、尿酸)
+推荐检查23.1 心力衰竭症状,推荐检查包含:肾功能
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -3316,9 +2549,9 @@ Library           RequestsLibrary
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Contain    ${aj}    肾功能(血尿素氮、肌酐、尿酸)
+    Should Contain    ${aj}    肾功能
 
-推荐检查23.3 心力衰竭症状｜心力衰竭+否定条件:心动过速,推荐检查"不应"包含:肾功能(血尿素氮、肌酐、尿酸)
+推荐检查23.2 心力衰竭,推荐检查包含:肾功能
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -3327,14 +2560,14 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心动过速 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    肾功能(血尿素氮、肌酐、尿酸)
+    Should Contain    ${aj}    肾功能
 
-推荐检查23.4 心力衰竭症状｜心力衰竭+否定条件:心率>120次/分,推荐检查"不应"包含:肾功能(血尿素氮、肌酐、尿酸)
+推荐检查23.3 心力衰竭症状｜心力衰竭+否定条件:心动过速,推荐检查"不应"包含:肾功能
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -3343,14 +2576,14 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心率:121次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心动过速 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    肾功能(血尿素氮、肌酐、尿酸)
+    Should Not Contain    ${aj}    肾功能
 
-推荐检查23.5 心力衰竭症状｜心力衰竭+否定条件:心率=120次/分,推荐检查包含:肾功能(血尿素氮、肌酐、尿酸)
+推荐检查23.4 心力衰竭症状｜心力衰竭+否定条件:心率>120次/分,推荐检查"不应"包含:肾功能
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -3359,14 +2592,14 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心率:120次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心率:121次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Contain    ${aj}    肾功能(血尿素氮、肌酐、尿酸)
+    Should Not Contain    ${aj}    肾功能
 
-推荐检查23.6 心力衰竭症状｜心力衰竭+否定条件:呼吸急促,推荐检查"不应"包含:肾功能(血尿素氮、肌酐、尿酸)
+推荐检查23.5 心力衰竭症状｜心力衰竭+否定条件:心率=120次/分,推荐检查包含:肾功能
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -3375,14 +2608,14 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 呼吸急促 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心率:120次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    肾功能(血尿素氮、肌酐、尿酸)
+    Should Contain    ${aj}    肾功能
 
-推荐检查23.7 心力衰竭症状｜心力衰竭+否定条件:缺氧,推荐检查"不应"包含:肾功能(血尿素氮、肌酐、尿酸)
+推荐检查23.6 心力衰竭症状｜心力衰竭+否定条件:呼吸急促,推荐检查"不应"包含:肾功能
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -3391,14 +2624,14 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 缺氧 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 呼吸急促 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    肾功能(血尿素氮、肌酐、尿酸)
+    Should Not Contain    ${aj}    肾功能
 
-推荐检查23.8 心力衰竭症状｜心力衰竭+否定条件:心源性休克,推荐检查"不应"包含:肾功能(血尿素氮、肌酐、尿酸)
+推荐检查23.7 心力衰竭症状｜心力衰竭+否定条件:缺氧,推荐检查"不应"包含:肾功能
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -3407,14 +2640,14 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心源性休克 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 缺氧 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    肾功能(血尿素氮、肌酐、尿酸)
+    Should Not Contain    ${aj}    肾功能
 
-推荐检查23.9 心力衰竭症状｜心力衰竭+否定条件:EF=50%,推荐检查"不应"包含:肾功能(血尿素氮、肌酐、尿酸)
+推荐检查23.8 心力衰竭症状｜心力衰竭+否定条件:心源性休克,推荐检查"不应"包含:肾功能
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -3423,14 +2656,14 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:50% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心源性休克 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    肾功能(血尿素氮、肌酐、尿酸)
+    Should Not Contain    ${aj}    肾功能
 
-推荐检查23.10 心力衰竭症状｜心力衰竭+否定条件:EF=51%,推荐检查包含:肾功能(血尿素氮、肌酐、尿酸)
+推荐检查23.9 心力衰竭症状｜心力衰竭+否定条件:EF=50%,推荐检查"不应"包含:肾功能
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -3439,14 +2672,14 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:51% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 射血分数:50% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Contain    ${aj}    肾功能(血尿素氮、肌酐、尿酸)
+    Should Not Contain    ${aj}    肾功能
 
-推荐检查23.11 心力衰竭症状｜心力衰竭+无效的否定条件:EF=49%,推荐检查包含:肾功能(血尿素氮、肌酐、尿酸)
+推荐检查23.10 心力衰竭症状｜心力衰竭+否定条件:EF=51%,推荐检查包含:肾功能
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -3455,14 +2688,14 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:49% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 射血分数:51% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Contain    ${aj}    肾功能(血尿素氮、肌酐、尿酸)
+    Should Contain    ${aj}    肾功能
 
-推荐检查23.12 心力衰竭症状｜心力衰竭+否定条件:射血分数保留,推荐检查"不应"包含:肾功能(血尿素氮、肌酐、尿酸)
+推荐检查23.11 心力衰竭症状｜心力衰竭+无效的否定条件:EF=49%,推荐检查包含:肾功能
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -3471,12 +2704,28 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数保留 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 射血分数:49% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    肾功能(血尿素氮、肌酐、尿酸)
+    Should Contain    ${aj}    肾功能
+
+推荐检查23.12 心力衰竭症状｜心力衰竭+否定条件:射血分数保留,推荐检查"不应"包含:肾功能
+    [Documentation]    断言:""
+    #执行删除病程
+    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
+    ${timestamp}    Get Time    epoch
+    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+    ...    definiteDiagnosis=
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 射血分数保留 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+    ...    labTestList=
+    ...    examinationList=
+    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    Should Not Contain    ${aj}    肾功能
 
 
 ###48L 21心力衰竭症状｜心力衰竭       心动过速｜心率>120次/分｜呼吸急促｜缺氧｜心源性休克｜EF>=50%｜射血分数保留 血糖     一般检查    13  是
@@ -3489,7 +2738,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -3521,7 +2770,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心动过速 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心动过速 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -3537,7 +2786,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心率:121次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心率:121次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -3553,7 +2802,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心率:120次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心率:120次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -3569,7 +2818,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 呼吸急促 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 呼吸急促 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -3585,7 +2834,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 缺氧 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 缺氧 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -3601,7 +2850,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心源性休克 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心源性休克 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -3617,28 +2866,13 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:50% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 射血分数:50% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Not Contain    ${aj}    血糖
 
-推荐检查24.10 心力衰竭症状｜心力衰竭+否定条件:EF=51%,推荐检查包含:血糖
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:51% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Contain    ${aj}    血糖
 
 推荐检查24.11 心力衰竭症状｜心力衰竭+无效的否定条件:EF=49%,推荐检查包含:血糖
     [Documentation]    断言:""
@@ -3649,7 +2883,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:49% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 射血分数:49% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -3665,7 +2899,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数保留 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 射血分数保留 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -3674,23 +2908,7 @@ Library           RequestsLibrary
 
 
 ###49L 21心力衰竭症状｜心力衰竭       心动过速｜心率>120次/分｜呼吸急促｜缺氧｜心源性休克｜EF>=50%｜射血分数保留 肝功能(ALT、AST、白蛋白)     一般检查    13  是
-推荐检查25.1 心力衰竭症状,推荐检查包含:肝功能(ALT、AST、白蛋白)
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Contain    ${aj}    肝功能(ALT、AST、白蛋白)
-
-推荐检查25.2 心力衰竭,推荐检查包含:肝功能(ALT、AST、白蛋白)
+推荐检查25.1 心力衰竭症状,推荐检查包含:肝功能
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -3704,9 +2922,9 @@ Library           RequestsLibrary
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Contain    ${aj}    肝功能(ALT、AST、白蛋白)
+    Should Contain    ${aj}    肝功能
 
-推荐检查25.3 心力衰竭症状｜心力衰竭+否定条件:心动过速,推荐检查"不应"包含:肝功能(ALT、AST、白蛋白)
+推荐检查25.2 心力衰竭,推荐检查包含:肝功能
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -3715,14 +2933,14 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心动过速 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    肝功能(ALT、AST、白蛋白)
+    Should Contain    ${aj}    肝功能
 
-推荐检查25.4 心力衰竭症状｜心力衰竭+否定条件:心率>120次/分,推荐检查"不应"包含:肝功能(ALT、AST、白蛋白)
+推荐检查25.3 心力衰竭症状｜心力衰竭+否定条件:心动过速,推荐检查"不应"包含:肝功能
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -3731,14 +2949,14 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心率:121次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心动过速 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    肝功能(ALT、AST、白蛋白)
+    Should Not Contain    ${aj}    肝功能
 
-推荐检查25.5 心力衰竭症状｜心力衰竭+否定条件:心率=120次/分,推荐检查包含:肝功能(ALT、AST、白蛋白)
+推荐检查25.4 心力衰竭症状｜心力衰竭+否定条件:心率>120次/分,推荐检查"不应"包含:肝功能
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -3747,14 +2965,14 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心率:120次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心率:121次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Contain    ${aj}    肝功能(ALT、AST、白蛋白)
+    Should Not Contain    ${aj}    肝功能
 
-推荐检查25.6 心力衰竭症状｜心力衰竭+否定条件:呼吸急促,推荐检查"不应"包含:肝功能(ALT、AST、白蛋白)
+推荐检查25.5 心力衰竭症状｜心力衰竭+否定条件:心率=120次/分,推荐检查包含:肝功能
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -3763,14 +2981,14 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 呼吸急促 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心率:120次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    肝功能(ALT、AST、白蛋白)
+    Should Contain    ${aj}    肝功能
 
-推荐检查25.7 心力衰竭症状｜心力衰竭+否定条件:缺氧,推荐检查"不应"包含:肝功能(ALT、AST、白蛋白)
+推荐检查25.6 心力衰竭症状｜心力衰竭+否定条件:呼吸急促,推荐检查"不应"包含:肝功能
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -3779,14 +2997,14 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 缺氧 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 呼吸急促 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    肝功能(ALT、AST、白蛋白)
+    Should Not Contain    ${aj}    肝功能
 
-推荐检查25.8 心力衰竭症状｜心力衰竭+否定条件:心源性休克,推荐检查"不应"包含:肝功能(ALT、AST、白蛋白)
+推荐检查25.7 心力衰竭症状｜心力衰竭+否定条件:缺氧,推荐检查"不应"包含:肝功能
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -3795,14 +3013,14 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心源性休克 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 缺氧 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    肝功能(ALT、AST、白蛋白)
+    Should Not Contain    ${aj}    肝功能
 
-推荐检查25.9 心力衰竭症状｜心力衰竭+否定条件:EF=50%,推荐检查"不应"包含:肝功能(ALT、AST、白蛋白)
+推荐检查25.8 心力衰竭症状｜心力衰竭+否定条件:心源性休克,推荐检查"不应"包含:肝功能
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -3811,14 +3029,14 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:50% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心源性休克 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    肝功能(ALT、AST、白蛋白)
+    Should Not Contain    ${aj}    肝功能
 
-推荐检查25.10 心力衰竭症状｜心力衰竭+否定条件:EF=51%,推荐检查包含:肝功能(ALT、AST、白蛋白)
+推荐检查25.9 心力衰竭症状｜心力衰竭+否定条件:EF=50%,推荐检查"不应"包含:肝功能
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -3827,14 +3045,14 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:51% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 射血分数:50% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Contain    ${aj}    肝功能(ALT、AST、白蛋白)
+    Should Not Contain    ${aj}    肝功能
 
-推荐检查25.11 心力衰竭症状｜心力衰竭+无效的否定条件:EF=49%,推荐检查包含:肝功能(ALT、AST、白蛋白)
+推荐检查25.10 心力衰竭症状｜心力衰竭+否定条件:EF=51%,推荐检查包含:肝功能
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -3843,14 +3061,14 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:49% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 射血分数:51% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Contain    ${aj}    肝功能(ALT、AST、白蛋白)
+    Should Contain    ${aj}    肝功能
 
-推荐检查25.12 心力衰竭症状｜心力衰竭+否定条件:射血分数保留,推荐检查"不应"包含:肝功能(ALT、AST、白蛋白)
+推荐检查25.11 心力衰竭症状｜心力衰竭+无效的否定条件:EF=49%,推荐检查包含:肝功能
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -3859,12 +3077,28 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数保留 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 射血分数:49% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    肝功能(ALT、AST、白蛋白)
+    Should Contain    ${aj}    肝功能
+
+推荐检查25.12 心力衰竭症状｜心力衰竭+否定条件:射血分数保留,推荐检查"不应"包含:肝功能
+    [Documentation]    断言:""
+    #执行删除病程
+    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
+    ${timestamp}    Get Time    epoch
+    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+    ...    definiteDiagnosis=
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 射血分数保留 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+    ...    labTestList=
+    ...    examinationList=
+    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    Should Not Contain    ${aj}    肝功能
 
 
 ####50L 21心力衰竭症状｜心力衰竭       心动过速｜心率>120次/分｜呼吸急促｜缺氧｜心源性休克｜EF>=50%｜射血分数保留 超敏促甲状腺激素     一般检查    13  是
@@ -3877,7 +3111,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -3909,7 +3143,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心动过速 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心动过速 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -3925,7 +3159,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心率:121次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心率:121次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -3941,7 +3175,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心率:120次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心率:120次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -3957,7 +3191,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 呼吸急促 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 呼吸急促 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -3973,7 +3207,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 缺氧 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 缺氧 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -3989,7 +3223,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心源性休克 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心源性休克 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -4005,28 +3239,13 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:50% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 射血分数:50% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Not Contain    ${aj}    超敏促甲状腺激素
 
-推荐检查26.10 心力衰竭症状｜心力衰竭+否定条件:EF=51%,推荐检查包含:超敏促甲状腺激素
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:51% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Contain    ${aj}    超敏促甲状腺激素
 
 推荐检查26.11 心力衰竭症状｜心力衰竭+无效的否定条件:EF=49%,推荐检查包含:超敏促甲状腺激素
     [Documentation]    断言:""
@@ -4037,7 +3256,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:49% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 射血分数:49% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -4053,7 +3272,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数保留 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 射血分数保留 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -4071,7 +3290,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -4095,22 +3314,6 @@ Library           RequestsLibrary
     Should Contain    ${aj}    血电解质
 
 
-推荐检查27.4 心力衰竭症状｜心力衰竭+否定条件:心率>120次/分,推荐检查"不应"包含:血电解质
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心率:121次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    血电解质
-
 推荐检查27.5 心力衰竭症状｜心力衰竭+否定条件:心率=120次/分,推荐检查包含:血电解质
     [Documentation]    断言:""
     #执行删除病程
@@ -4120,76 +3323,12 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心率:120次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心率:120次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Contain    ${aj}    血电解质
-
-推荐检查27.6 心力衰竭症状｜心力衰竭+否定条件:呼吸急促,推荐检查"不应"包含:血电解质
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 呼吸急促 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    血电解质
-
-推荐检查27.7 心力衰竭症状｜心力衰竭+否定条件:缺氧,推荐检查"不应"包含:血电解质
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 缺氧 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    血电解质
-
-推荐检查27.8 心力衰竭症状｜心力衰竭+否定条件:心源性休克,推荐检查"不应"包含:血电解质
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心源性休克 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    血电解质
-
-推荐检查27.9 心力衰竭症状｜心力衰竭+否定条件:EF=50%,推荐检查"不应"包含:血电解质
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:50% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    血电解质
 
 推荐检查27.10 心力衰竭症状｜心力衰竭+否定条件:EF=51%,推荐检查包含:血电解质
     [Documentation]    断言:""
@@ -4200,7 +3339,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:51% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 射血分数:51% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -4216,28 +3355,12 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:49% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 射血分数:49% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Contain    ${aj}    血电解质
-
-推荐检查27.12 心力衰竭症状｜心力衰竭+否定条件:射血分数保留,推荐检查"不应"包含:血电解质
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数保留 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    血电解质
 
 
 ####52L 21心力衰竭症状｜心力衰竭       心动过速｜心率>120次/分｜呼吸急促｜缺氧｜心源性休克｜EF>=50%｜射血分数保留 动脉血气PH     一般检查    13  是
@@ -4250,7 +3373,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -4282,7 +3405,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心动过速 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心动过速 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -4298,7 +3421,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心率:121次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心率:121次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -4314,7 +3437,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心率:120次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心率:120次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -4330,7 +3453,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 呼吸急促 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 呼吸急促 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -4346,7 +3469,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 缺氧 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 缺氧 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -4362,7 +3485,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心源性休克 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心源性休克 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -4378,7 +3501,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:50% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 射血分数:50% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -4394,7 +3517,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:51% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 射血分数:51% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -4410,7 +3533,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:49% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 射血分数:49% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -4426,7 +3549,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数保留 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 射血分数保留 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -6077,7 +5200,6 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Contain    ${aj}    过夜血氧饱和度监测
 
-
 #########################################检查解读################################
 ######    外周血B淋巴细胞>=5×109/L       慢性淋巴细胞白血病   若外周血B淋巴细胞持续3个月高于≥5×109/L，支持慢性淋巴细胞白血病的可能 诊断依据    是
 检查解读1.1 病历内容:+检查结果:外周血B淋巴细胞=5×109/L,推荐诊断包含:慢性淋巴细胞白血病
@@ -6644,21 +5766,6 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     急性胆囊炎、胆管炎
 
-检查解读6.8 病历内容:腹痛&寒战&发热&黄疸&缺少:右上腹深压痛+检查结果:碱性磷酸酶升高,推荐诊断"不应"包含:急性胆囊炎、胆管炎
-    [Documentation]    断言:"、胆管炎"
-    #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 腹痛 寒战 发热 黄疸 碱性磷酸酶升高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    Should Not Contain    ${aj}     急性胆囊炎、胆管炎
 
 ########################################检查解读################################
 #####          腹痛｜右上腹深压痛   血白细胞总数升高&中性粒细胞百分比升高&血清总胆红素增高｜结合胆红素增高｜碱性磷酸酶升高｜谷草转氨酶>=100U/L｜谷丙转氨酶>=100U/L        急性胆囊炎、胆管炎   支持急性胆囊炎和胆管炎的诊断，建议结合B超、CT或MR检查排除结石   诊断依据    是
@@ -7078,21 +6185,6 @@ Library           RequestsLibrary
     # Should Not Contain    ${aj}     急性胆囊炎、胆管炎
     Should Not Contain    ${getRes['body']}    examinationInterpretList
 
-检查解读9.4 病历内容:腹痛｜右上腹深压痛&黄疸 缺少发热&检查结果:碱性磷酸酶升高 ,推荐诊断"不应"包含:急性胆囊炎、胆管炎
-    [Documentation]    断言:"、胆管炎"
-    #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 腹痛 右上腹深压痛 黄疸 碱性磷酸酶升高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    Should Not Contain    ${aj}     急性胆囊炎、胆管炎
 
 
 #####检查解读26L 右上腹深压痛&发热   血清总胆红素增高｜结合胆红素增高｜碱性磷酸酶升高        急性胆囊炎、胆管炎   支持急性胆囊炎和胆管炎的诊断，建议结合B超、CT或MR检查排除结石   诊断依据    是
@@ -12467,9 +11559,9 @@ Library           RequestsLibrary
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
-    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    Should Not Contain    ${aj}     急性肺栓塞
-    # Should Not Contain    ${getRes['body']}    examinationInterpretList
+    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+    # Should Not Contain    ${aj}     急性肺栓塞
+    Should Not Contain    ${getRes['body']}    examinationInterpretList
 
 
 #####检查解读135L      胸痛｜急性胸痛｜下肢肿胀｜下肢疼痛｜呼吸困难｜Wells评分>=2分  加压超声阳性&肺动脉CTA不能排除肺栓塞        选择性肺动脉造影阳性   肺动脉CTA不能排除肺栓塞结合具有DVT表现确诊选择性肺动脉造影阳性(PTE)  AME－肺栓塞 是
@@ -12779,21 +11871,6 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
     Should Contain    ${aj}     肺栓塞抗凝禁忌评估
 
-推荐评分表6.5 病历内容:收缩压:90mmHg 肺栓塞 急性肺栓塞,推荐诊断"不应"包含:肺栓塞抗凝禁忌评估
-    [Documentation]    ""
-    #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "222222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 收缩压:90mmHg 肺栓塞 急性肺栓塞 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    Should Not Contain    ${aj}     肺栓塞抗凝禁忌评估
 
 推荐评分表6.6 病历内容:血氧饱和度:90％ 肺栓塞 急性肺栓塞,推荐诊断"不应"包含:肺栓塞抗凝禁忌评估
     [Documentation]    ""
@@ -12805,38 +11882,6 @@ Library           RequestsLibrary
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "222222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 血氧饱和度:90％ 肺栓塞 急性肺栓塞 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    Should Not Contain    ${aj}     肺栓塞抗凝禁忌评估
-
-推荐评分表6.7 病历内容:心率:40次/分 肺栓塞 急性肺栓塞,推荐诊断包含:肺栓塞抗凝禁忌评估
-    [Documentation]    ""
-    #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "222222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心率:40次/分 肺栓塞 急性肺栓塞 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    Should Not Contain    ${aj}     肺栓塞抗凝禁忌评估
-
-推荐评分表6.8 病历内容:休克｜持续性低血压｜收缩压<90mmHg｜低氧血症｜呼吸窘迫｜SPO2<90%｜严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉,缺少&肺栓塞｜急性肺栓塞 肺栓塞,推荐诊断"不应"包含:肺栓塞抗凝禁忌评估
-    [Documentation]    ""
-    #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "222222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 休克 持续性低血压 收缩压:89mmHg 低氧血症 呼吸窘迫 血氧饱和度:90％ 严重心动过缓 心率:40次/分 脉搏细弱 脉搏消失 无脉 肺栓塞 急性肺栓塞 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12904,25 +11949,6 @@ Library           RequestsLibrary
     Should Contain    ${aj}     肺栓塞抗凝禁忌评估
 
 
-推荐评分表7.3 病历内容:大面积肺栓塞｜肺血管栓塞面积<50%,推荐诊断"不应"包含:肺栓塞抗凝禁忌评估
-    [Documentation]    ""
-    #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "222222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 大面积肺栓塞 肺血管栓塞面积:49％ </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    Should Not Contain    ${aj}     肺栓塞抗凝禁忌评估
-    # Should Not Contain    ${getRes['body']}    examinationInterpretList
-
-
-
 #####推荐评分表13L 8 房颤｜非瓣膜性房颤    呼吸困难｜胸痛｜晕厥｜无法达到心率控制｜急性短暂性脑缺血发作｜卒中｜心率<40次/分｜心率>150次/分    房颤卒中危险评估(CHA2DS2-VASc)  评估脑卒中风险，脑卒中风险高考虑抗凝，抗凝治疗前评估抗凝获益和出血风险 是
 #####大面积肺栓塞｜肺血管栓塞面积>=50%
 #####肺血管栓塞面积>=50%  检查  肺血管栓塞面积>=50％
@@ -12968,24 +11994,6 @@ Library           RequestsLibrary
     ...    examinationList=
     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
     Should Contain    ${aj}     房颤抗凝出血危险评估(HAS-BLED)
-
-推荐评分表9.2 病历内容:男性+房颤+CHA2DS2-VASc评分!=1,推荐诊断"不应"包含:房颤抗凝出血危险评估(HAS-BLED)
-    [Documentation]    ""
-    #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":1,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "222222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 非瓣膜性房颤 CHA2DS2-VASc评分:2 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    Should Not Contain    ${aj}     房颤抗凝出血危险评估(HAS-BLED)
-    # Should Not Contain    ${getRes['body']}    examinationInterpretList
-
 
 #####推荐评分表15L 房颤|非瓣膜性房颤&CHA2DS2-VASc评分=1&男性   呼吸困难｜胸痛｜晕厥｜无法达到心率控制｜急性短暂性脑缺血发作｜卒中｜心率<40次/分｜心率>150次/分    HAS-BLED评分表 男性患者CHA2DS2-VASc评分=1，应权衡口服抗凝药的风险和获益 是
 #####房颤&CHA2DS2-VASc评分=1&男性
@@ -13417,7 +12425,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> Wells评分:6 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> Wells评分:6 出血性脑卒中 颅内肿瘤活动期 创伤:60天 颅内手术:60天 消化道出血:180天 膀胱出血:180天 心包填塞:180天 主动脉夹层 出血体质 出血倾向 收缩压:181mmHg 舒张压:111mmHg 外科手术(10天内):10天 缺血性脑卒中:60天 血小板减少症 血小板计数:99 109/L </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -13437,9 +12445,9 @@ Library           RequestsLibrary
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    # Should Contain    ${aj}     转诊
-    Should Not Contain    ${getRes['body']}    therapeuticPlanList
+    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+    Should Contain    ${aj}     转诊
+    # Should Not Contain    ${getRes['body']}    therapeuticPlanList
 
 推荐治疗方案7.4 Wells评分:1&抗凝禁忌, 推荐血运重建方案"不应包含":转诊
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"

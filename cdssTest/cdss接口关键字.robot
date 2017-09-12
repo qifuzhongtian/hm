@@ -334,17 +334,7 @@ ${null}    null
     # ...    examItems[]=${examItems}
     ${addr}    Post Request    api    v_2_2/diagnose_through_interrogation    data=${data}
     ${responsedata}    To Json    ${addr.content}
-    # ${aj}    Evaluate    [aj${slice} for aj in $responsedata['body']['suspectedDiseases']]
-    # log    ${aj}
-    # log    ${aj[:3]}
-    # Should Contain    ${aj}    ${msg}
-    # Should Contain    ${aj[:15]}    ${msg}
     Delete All Sessions
-    # 测试一下
-    # ${ajson}    Evaluate    {"api": "api.name","v": "1.0","code": "10000","error_msg": "success","data": {"userlist": [{"uid": "94901","nickName": "test1",}, {"uid": "1010640","nickName": "test2",}, {"uid": "1012130","nickName": "test3",}]}}
-    # log    ${ajson['data']['userlist'][0]['nickName']}
-    # ${nicks}    Evaluate    [nicks['nickName'] for nicks $ajson['data']['userlist']]
-
 
 
 智能诊断top5
@@ -408,14 +398,8 @@ ${null}    null
     ${aj}    Evaluate    [aj${slice} for aj in $responsedata['body']['suspectedDiseases']]
     log    ${aj}
     log    ${aj[:3]}
-    # Run Keyword If
     Should Contain    ${aj}    ${msg}
-    # Should Contain    ${aj[:15]}    ${msg}
     Delete All Sessions
-    # 测试一下
-    # ${ajson}    Evaluate    {"api": "api.name","v": "1.0","code": "10000","error_msg": "success","data": {"userlist": [{"uid": "94901","nickName": "test1",}, {"uid": "1010640","nickName": "test2",}, {"uid": "1012130","nickName": "test3",}]}}
-    # log    ${ajson['data']['userlist'][0]['nickName']}
-    # ${nicks}    Evaluate    [nicks['nickName'] for nicks $ajson['data']['userlist']]
 
 
 智能诊断2.3
