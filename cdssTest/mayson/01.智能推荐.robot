@@ -243,8 +243,8 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Contain    ${aj}    心肌酶
 
-推荐检查1.4 急性胸痛,推荐检查包含:主动脉CTA
-    [Documentation]    急性胸痛,断言:"推荐检查examination=主动脉CTA"
+推荐检查1.4 胸部撕裂样痛,推荐检查包含:主动脉CTA
+    [Documentation]    胸部撕裂样痛,断言:"推荐检查examination=主动脉CTA"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
@@ -252,7 +252,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 胸部撕裂样痛 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -756,8 +756,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     急性非ST段抬高型心肌梗死
 
-
-4.2 病历内容:急性胸痛+检查结果:cTnI:升高:0.2ug/L +ST段不抬高+CK-MB升高超过参考值2倍 CK-MB:10%, 推荐诊断包含:急性心肌梗死
+4.2 病历内容:急性胸痛+检查结果:cTnI:升高:0.2ug/L +ST段不抬高+CK-MB升高超过参考值2倍 CK-MB:10%, 推荐诊断包含:急性非ST段抬高型心肌梗塞
     [Documentation]    急性胸痛+ 检查结果:肌钙蛋白升高｜cTnI升高(<0.2)｜cTnT升高&ST段抬高,断言:"diagnosticSuggest=急性ST段抬高型心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -771,9 +770,9 @@ Library           RequestsLibrary
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    Should Contain    ${aj}     急性非ST段抬高型心肌梗死
+    Should Contain    ${aj}     急性非ST段抬高型心肌梗塞
 
-4.3 病历内容:急性胸痛+检查结果:cTnT升高:0.14ug/L +ST段不抬高+CK-MB升高超过参考值2倍 CK-MB:10%, 推荐诊断包含:急性心肌梗死
+4.3 病历内容:急性胸痛+检查结果:cTnT升高:0.14ug/L +ST段不抬高+CK-MB升高超过参考值2倍 CK-MB:10%, 推荐诊断包含:急性非ST段抬高型心肌梗塞
     [Documentation]    急性胸痛+检查结果:肌钙蛋白升高｜cTnI升高｜cTnT升高&ST段抬高,断言:"diagnosticSuggest=急性心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -787,10 +786,10 @@ Library           RequestsLibrary
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    Should Contain    ${aj}     急性非ST段抬高型心肌梗死
+    Should Contain    ${aj}     急性非ST段抬高型心肌梗塞
 
-4.4 病历内容:急性胸痛+检查结果:心肌肌钙蛋白I:0.14ug/L +ST段不抬高+CK-MB升高超过参考值2倍 CK-MB:10% , 推荐诊断包含:急性ST段抬高型心肌梗塞
-#     [Documentation]    急性胸痛+检查结果:肌钙蛋白升高｜cTnT升高｜cTnT升高&ST段抬高,断言:"diagnosticSuggest=急性ST段抬高型心肌梗塞"
+4.4 病历内容:急性胸痛+检查结果:心肌肌钙蛋白I:0.14ug/L +ST段不抬高+CK-MB升高超过参考值2倍 CK-MB:10% , 推荐诊断包含:急性非ST段抬高型心肌梗塞
+    [Documentation]    急性胸痛+检查结果:肌钙蛋白升高｜cTnT升高｜cTnT升高&ST段抬高,断言:"diagnosticSuggest=急性ST段抬高型心肌梗塞"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
@@ -803,7 +802,7 @@ Library           RequestsLibrary
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    Should Contain    ${aj}     急性非ST段抬高型心肌梗死
+    Should Contain    ${aj}     急性非ST段抬高型心肌梗塞
 
 
 
@@ -873,8 +872,6 @@ Library           RequestsLibrary
     ...    examinationList=
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     急性非ST段抬高型心肌梗塞
-
-
 
 
 检查解读5.5 急性胸痛+检查结果: 心肌肌钙蛋白T(升高):0.14ug/L+T波低平 ,推荐诊断包含:急性非ST段抬高型心肌梗塞
@@ -1227,6 +1224,8 @@ Library           RequestsLibrary
     Should Contain    ${aj}     室间隔穿孔
 
 
+
+
 #########检查解读8 提示存在心源性休克、心力衰竭     推荐结果:心力衰竭   提示存在心源性休克、心力衰竭
 
 检查解读8.1 面色苍白+湿啰音+颈静脉怒张 , 推荐诊断包含:心力衰竭
@@ -1381,77 +1380,6 @@ Library           RequestsLibrary
 
 
 
-#########肌钙蛋白升高｜cTnI升高｜cTnT升高&ST段压低>＝0.1mV  心肌损伤    提示存在心肌损伤、心肌缺血
-
-检查解读11.1 肌钙蛋白升高+ST段压低>＝0.1mV ,推荐诊断包含:心律失常
-    [Documentation]    推荐检查:肌钙蛋白升高+ST段压低 ,断言:"diagnosticSuggest=心肌损伤"
-    #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心肌肌钙蛋白T:0.14ug/L ST段压低>＝0.1mV </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    Should Contain    ${aj}     心肌损伤
-
-
-
-检查解读11.2 cTnI:0.2ug/L+ST段压低>＝0.1mV ,推荐诊断包含:心律失常
-    [Documentation]    +推荐检查:cTnI:0.2ug/L+ST段压低>＝0.1mV ,断言:"diagnosticSuggest=心肌损伤"
-    #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText></BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> cTnI:0.2ug/L ST段压低>＝0.1mV </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    Should Contain    ${aj}     心肌损伤
-
-
-检查解读11.3 检查结果:cTnT升高:0.14ug/L +ST段压低>＝0.1mV, 推荐诊断包含:心肌损伤
-    [Documentation]     检查结果: cTnT升高&ST段压低>＝0.1mV｜ ,断言:"diagnosticSuggest=心肌损伤"
-    #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText></BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> cTnT:0.14ug/L ST段压低>＝0.1mV </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    Should Contain    ${aj}     心肌损伤
-
-检查解读11.4 检查结果:心肌肌钙蛋白I:0.14ug/L +ST段压低>＝0.1mV , 推荐诊断包含:心肌损伤
-    [Documentation]    检查结果: ST段压低>＝0.1mV｜T波低平｜T波倒置,断言:"diagnosticSuggest=心肌损伤"
-    #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText></BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心肌肌钙蛋白I:0.2ug/L ST段压低>＝0.1mV </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    Should Contain    ${aj}     心肌损伤
-
-
-
 
 ####检查解读12 急性胸痛   一过性ST段抬高&肌钙蛋白阴性｜cTnI阴性｜cTnT阴性｜CK－MB升高   变异性心绞痛  提示存在变异性心绞痛
 检查解读12.1 急性胸痛+一过性ST段抬高+肌钙蛋白阴性 , 推荐诊断包含:变异性心绞痛
@@ -1520,9 +1448,9 @@ Library           RequestsLibrary
     Should Contain    ${aj}     变异性心绞痛
 
 
-#######检查解读13 新出现的左束支传导阻滞   急性ST段抬高型心肌梗死    新出现的左束支传导阻滞提示存在STEMI
-检查解读13.1 新出现的左束支传导阻滞, 推荐诊断包含:急性ST段抬高型心肌梗死
-    [Documentation]     推荐检查:新出现的左束支传导阻滞,断言:"diagnosticSuggest=急性ST段抬高型心肌梗死"
+#######检查解读13 新出现的左束支传导阻滞   急性ST段抬高型心肌梗塞    新出现的左束支传导阻滞提示存在STEMI
+检查解读13.1 新出现的左束支传导阻滞, 推荐诊断包含:急性ST段抬高型心肌梗塞
+    [Documentation]     推荐检查:新出现的左束支传导阻滞,断言:"diagnosticSuggest=急性ST段抬高型心肌梗塞"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText></BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
@@ -1537,155 +1465,9 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     急性ST段抬高型心肌梗死
 
-#######检查解读14 男性&［0－40岁） V2和V3导联ST段抬高>=0.25mV    急性ST段抬高型心肌梗死    提示存在STEMI
-检查解读14.1 男性40岁+V2和V3导联ST段抬高>=0.25mV, 推荐诊断包含:急性ST段抬高型心肌梗死
-    [Documentation]     男性40岁+V2和V3导联ST段抬高>=0.25mV,断言:"diagnosticSuggest=急性ST段抬高型心肌梗死"
-    #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText></BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":1,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> V2和V3导联ST段抬高:0.26mV </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    Should Contain    ${aj}     急性ST段抬高型心肌梗死
-
-检查解读14.2 男性39岁+V2和V3导联ST段抬高>=0.25mV, 推荐诊断包含:急性ST段抬高型心肌梗死
-    [Documentation]     男性40岁+V2和V3导联ST段抬高>=0.25mV,断言:"diagnosticSuggest=急性ST段抬高型心肌梗死"
-    #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText></BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":1,"age":"39","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> V2和V3导联ST段抬高:0.26mV </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    Should Contain    ${aj}     急性ST段抬高型心肌梗死
-
-检查解读14.3 男性40岁+V2和V3导联ST段抬高>=0.25mV, 推荐诊断'不'包含:急性ST段抬高型心肌梗死
-    [Documentation]     男性40岁+V2和V3导联ST段抬高>=0.25mV,断言:"diagnosticSuggest=急性ST段抬高型心肌梗死"
-    #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText></BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":1,"age":"39","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> V2和V3导联ST段抬高:0.26mV </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    Should Not Contain    ${aj}     急性ST段抬高型心肌梗死
 
 
-#####检查解读15
-检查解读15.1 男性0岁+V2和V3导联ST段抬高>=0.2mV, 推荐诊断包含:急性ST段抬高型心肌梗死
-    [Documentation]     男性0岁+V2和V3导联ST段抬高>=0.2mV,断言:"diagnosticSuggest=急性ST段抬高型心肌梗死"
-    #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText></BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":1,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> V2和V3导联ST段抬高:0.2mV </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    Should Contain    ${aj}     急性ST段抬高型心肌梗死
 
-检查解读15.2 男性119岁+V2和V3导联ST段抬高>=0.2mV, 推荐诊断包含:急性ST段抬高型心肌梗死
-    [Documentation]     男性119岁+V2和V3导联ST段抬高>=0.2mV,断言:"diagnosticSuggest=急性ST段抬高型心肌梗死"
-    #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText></BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":1,"age":"119","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> V2和V3导联ST段抬高:0.2mV </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    Should Contain    ${aj}     急性ST段抬高型心肌梗死
-
-检查解读15.3 男性120岁+V2和V3导联ST段抬高>=0.2mV, 推荐诊断'不'包含:急性ST段抬高型心肌梗死
-    [Documentation]     男性120岁+V2和V3导联ST段抬高>=0.2mV,断言:"diagnosticSuggest=急性ST段抬高型心肌梗死"
-    #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText></BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":1,"age":"120","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> V2和V3导联ST段抬高:0.2mV </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    Should Not Contain    ${aj}     急性ST段抬高型心肌梗死
-
-#####检查解读16   女性  V2和V3导联ST段抬高>=0.15mV    急性ST段抬高型心肌梗死    提示存在STEMI
-检查解读16.1 女性+V2和V3导联ST段抬高>=0.15mV, 推荐诊断包含:急性ST段抬高型心肌梗死
-    [Documentation]     女性+V2和V3导联ST段抬高>=0.15mV,断言:"diagnosticSuggest=急性ST段抬高型心肌梗死"
-    #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText></BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"22","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> V2和V3导联ST段抬高:0.15mV </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    Should Not Contain    ${aj}     急性ST段抬高型心肌梗死
-
-#####检查解读17    胸痛未发作心电图T波倒置&胸痛发作时T波正常   急性冠脉综合征 提示存在ACS，目前胸痛心电图T波“伪正常化”
-检查解读17.1 胸痛未发作心电图T波倒置+胸痛发作时T波正常, 推荐诊断包含:急性冠脉综合征
-    [Documentation]     胸痛未发作心电图T波倒置+胸痛发作时T波正常,断言:"diagnosticSuggest=急性冠脉综合征"
-    #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText></BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"22","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 胸痛未发作心电图T波倒置 胸痛发作时T波正常 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    Should Not Contain    ${aj}     急性冠脉综合征
-
-#####检查解读18    aVR导联ST段抬高>＝0.1mV    冠状动脉左主干或三支血管病变  提示冠状动脉左主干或三支血管病变
-检查解读18.1 aVR导联ST段抬高>＝0.1mV, 推荐诊断包含:提示冠状动脉左主干或三支血管病变
-    [Documentation]     aVR导联ST段抬高>＝0.1mV,断言:"diagnosticSuggest=提示冠状动脉左主干或三支血管病变"
-    #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText></BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"22","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> aVR导联ST段抬高>＝0.1mV </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    Should Not Contain    ${aj}     提示冠状动脉左主干或三支血管病变
 
 
 #####检查解读19    急性胸痛   T波改变&肌钙蛋白阴性&CK－MB升高（不超过正常上限2倍）  不稳定心绞痛  提示不稳定心绞痛（UA）发作，有发生心肌损伤UA演变为NSTEMI可能，动态观察胸痛演变及心电图和肌钙蛋白心肌酶学变化
