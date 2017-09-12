@@ -284,16 +284,9 @@ Library           RequestsLibrary
        ...    confirmDiagnosisMap=    presentHistory=
        ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
        Should Contain    ${aj[:15]}    子宫粘连
-26.体格检查case-1
-       [Documentation]    主诉:'空腹血糖: 6.6mmol／L    ->    空腹血糖升高    -> 慢性肾衰竭'
-       ${getRes}    智能诊断2.3    symptom=空腹血糖升高 空腹血糖: 6.6mmol／L
-       ...    previousHistory=    personalHistory=
-       ...    allergyHistory=    familyHistory=
-       ...    weight=    gender=1    bodyTempr=    lowBldPress=    highBldPress=
-       ...    examInfo=    heartRate=    age=    ageType=岁    confirmDiagnosis=
-       ...    confirmDiagnosisMap=    presentHistory=
-       ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
-       Should Contain    ${aj[:15]}    慢性肾衰竭
+
+
+
 27.体格检查case-2.1
        [Documentation]    主诉:'血红蛋白: 170g／L    ->    血红蛋白增高    -> 血红蛋白增高,法洛四联症 断言:血红蛋白增高'
        ${getRes}    智能诊断2.3    symptom=红蛋白增高 血红蛋白: 170g／L

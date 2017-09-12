@@ -810,6 +810,21 @@ ame管理_文档列表查询
 #     [Return]    ${responsedata}
 
 
+识别接口
+    [Arguments]    ${bodyTempr}    ${age}    ${ageType}    ${highBldPress}    ${lowBldPress}    ${pregnancyStatus}    ${recordInfo}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    ${recordInfo}    Evaluate    dict(${recordInfo})
+    Create Session    api    http://10.117.64.153:8099    ${dict}
+    ${data}    Create Dictionary    bodyTempr=${bodyTempr}    age=${age}   ageType=${ageType}    highBldPress=${highBldPress}    lowBldPress=${lowBldPress}    pregnancyStatus=${pregnancyStatus}    recordInfo=${recordInfo}
+    ${addr}    Post Request    api    apollo/v_3_0/recognize    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # Should Contain    ${aj[:15]}    ${msg}
+    # Delete All Sessions
+    [Return]    ${responsedata}
+
+
+
+
 智能推荐
     [Arguments]    ${userGuid}    ${serialNumber}
     ...    ${patientInfo}

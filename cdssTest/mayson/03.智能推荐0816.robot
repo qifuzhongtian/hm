@@ -2261,21 +2261,6 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Contain    ${aj}    血常规
 
-推荐检查17.3 心力衰竭症状｜心力衰竭+否定条件:心动过速,推荐检查"不应"包含:血常规
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心动过速 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    血常规
 
 推荐检查17.4 心力衰竭症状｜心力衰竭+否定条件:心率>120次/分,推荐检查"不应"包含:血常规
     [Documentation]    断言:""
@@ -2439,21 +2424,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Contain    ${aj}    血电解质
 
-推荐检查18.3 心力衰竭症状｜心力衰竭+否定条件:心动过速,推荐检查"不应"包含:血电解质
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 心动过速 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    血电解质
+
 
 推荐检查18.4 心力衰竭症状｜心力衰竭+否定条件:心率>120次/分,推荐检查"不应"包含:血电解质
     [Documentation]    断言:""
@@ -7336,7 +7307,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     肺炎支原体性肺炎
 
-检查解读12.3 6个月+病历内容:咳嗽+检查结果:肺炎支原体血清冷凝集滴度==1:32 ,推荐诊断"不应"包含:肺炎支原体性肺炎
+检查解读12.3 6个月+病历内容:咳嗽+检查结果:肺炎支原体血清冷凝集滴度==1:33 ,推荐诊断"不应"包含:肺炎支原体性肺炎
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"6","ageType":"月","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -7345,47 +7316,13 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"6","ageType":"月","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 咳嗽 肺炎支原体血清冷凝集滴度 1:32 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 咳嗽 肺炎支原体血清冷凝集滴度 1:33 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
-    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    Should Not Contain    ${aj}     肺炎支原体性肺炎
-
-
-检查解读12.4 <6个月,病历内容:咳嗽+检查结果:肺炎支原体血清冷凝集滴度 1:31 ,推荐诊断"不"包含:肺炎支原体性肺炎
-    [Documentation]    ""
-    #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"5","ageType":"月","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"5","ageType":"月","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 咳嗽 肺炎支原体血清冷凝集滴度 1:31 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    Should Not Contain    ${aj}     肺炎支原体性肺炎
-
-
-检查解读12.6 >168个月,病历内容:咳嗽+检查结果:碱性磷酸酶升高 ,推荐诊断"不"包含:肺炎支原体性肺炎
-    [Documentation]    ""
-    #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"169","ageType":"月","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"169","ageType":"月","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 咳嗽 肺炎支原体血清冷凝集滴度 1:31 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    Should Not Contain    ${aj}     肺炎支原体性肺炎
-
+    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+    # Should Not Contain    ${aj}     肺炎支原体性肺炎
+    Should Not Contain    ${getRes['body']}    examinationInterpretList
 
 #####检查解读29L       [6-168] 月   咳嗽  血清肺炎支原体IgM抗体阳性      肺炎支原体性肺炎    支持确诊肺炎支原体性肺炎    诊断依据    是
 #####咳嗽
@@ -7924,21 +7861,6 @@ Library           RequestsLibrary
     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Not Contain    ${getRes['body']}    examinationInterpretList
 
-检查解读19.4 >28个天,病历内容:null+检查结果:血培养出现阳性结果,推荐诊断"不"包含:新生儿败血症
-    [Documentation]    ""
-    #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"29","ageType":"天","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 血培养出现阳性结果 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    Should Not Contain    ${getRes['body']}    examinationInterpretList
 
 
 
@@ -12431,270 +12353,6 @@ Library           RequestsLibrary
     Should Not Contain    ${getRes['body']}    examinationInterpretList
 
 
-# #####检查解读127L              Wells评分<2分  V/Q正常&D-二聚体阳性       排除排除急性肺栓塞，考虑其他引起D-二聚体阳性的疾病，考虑其他引起D-二聚体阳性的疾病    D-二聚体检测诊断排除急性肺栓塞，考虑其他引起D-二聚体阳性的疾病的阴性预测价值很高，但其他情况如手术、肿瘤、炎症、感染、组织坏死等情况也可使D-二聚体水平升高   AME－肺栓塞 是
-# #####Wells评分<2分    评分结果    Wells评分<2
-# #####Wells评分:1
-# #####Wells评分:1 V/Q升高 血浆-D-二聚体增高
-# #####Wells评分:2 V/Q升高 血浆-D-二聚体增高
-
-# 检查解读110.1 病历内容:Wells评分<2分+检查结果:V/Q正常&D-二聚体阳性,推荐诊断包含:排除急性肺栓塞，考虑其他引起D-二聚体阳性的疾病
-#     [Documentation]    ""
-#     #执行删除操作
-#     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-#     ${timestamp}    Get Time    epoch
-#     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-#     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-#     ...    definiteDiagnosis=
-#     ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> Wells评分:1 V/Q正常 血浆-D-二聚体增高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-#     ...    labTestList=
-#     ...    examinationList=
-#     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-#     Should Contain    ${aj}     排除急性肺栓塞，考虑其他引起D-二聚体阳性的疾病
-
-# 检查解读110.2 病历内容:Wells评分==2分+检查结果:V/Q正常 缺少&D-二聚体阳性,推荐诊断"不应"包含:排除急性肺栓塞，考虑其他引起D-二聚体阳性的疾病
-#     [Documentation]    ""
-#     #执行删除操作
-#     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-#     ${timestamp}    Get Time    epoch
-#     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-#     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-#     ...    definiteDiagnosis=
-#     ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> Wells评分:2 V/Q正常 血浆-D-二聚体增高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-#     ...    labTestList=
-#     ...    examinationList=
-#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-#     # Should Not Contain    ${aj}     胃食管反流病
-#     Should Not Contain    ${getRes['body']}    examinationInterpretList
-
-
-# #####检查解读128L              急性胸痛｜胸痛&Wells评分<2分  D-二聚体阴性     排除急性肺栓塞，考虑其他引起胸痛症状疾病如心包炎、胸膜炎、大叶性肺炎、反流性食管炎等  Wells评分<2分且D-二聚体阴性患者可排除急性肺栓塞，考虑其他引起胸痛症状疾病如心包炎、胸膜炎、大叶性肺炎、反流性食管炎等 AME－肺栓塞 是
-# #####Wells评分<2分    评分结果    Wells评分<2
-# #####Wells评分:1
-# #####Wells评分:1 血浆-D-二聚体增高
-# #####Wells评分:2 血浆-D-二聚体增高
-
-# 检查解读111.1 病历内容:急性胸痛 胸痛 Wells评分<2分+检查结果:D-二聚体阴性,推荐诊断包含:排除急性肺栓塞，考虑其他引起胸痛症状疾病如心包炎、胸膜炎、大叶性肺炎、反流性食管炎等
-#     [Documentation]    ""
-#     #执行删除操作
-#     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-#     ${timestamp}    Get Time    epoch
-#     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-#     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-#     ...    definiteDiagnosis=
-#     ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 Wells评分:1 血浆-D-二聚体正常 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-#     ...    labTestList=
-#     ...    examinationList=
-#     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-#     Should Contain    ${aj}     排除急性肺栓塞，考虑其他引起胸痛症状疾病如心包炎、胸膜炎、大叶性肺炎、反流性食管炎等
-
-# 检查解读111.2 病历内容:急性胸痛 胸痛 Wells评分==2分+检查结果:缺少&D-二聚体阴性,推荐诊断"不应"包含:排除急性肺栓塞，考虑其他引起胸痛症状疾病如心包炎、胸膜炎、大叶性肺炎、反流性食管炎等
-#     [Documentation]    ""
-#     #执行删除操作
-#     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-#     ${timestamp}    Get Time    epoch
-#     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-#     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-#     ...    definiteDiagnosis=
-#     ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 Wells评分:2 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-#     ...    labTestList=
-#     ...    examinationList=
-#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-#     # Should Not Contain    ${aj}     胃食管反流病
-#     Should Not Contain    ${getRes['body']}    examinationInterpretList
-
-
-# #####检查解读129L              1Wells评分<2分   肺动脉CTA阴性&D-二聚体阳性        排除急性肺栓塞，考虑其他可引起D-二聚体阳性的疾病   D-二聚体检测诊断急性肺栓塞的阴性预测价值很高，但其他情况如手术、肿瘤、炎症、感染、组织坏死等情况也可使D-二聚体水平升高   AME－肺栓塞 是
-# #####Wells评分<2分    评分结果    Wells评分<2
-# #####Wells评分:1
-# #####Wells评分:1 肺动脉CTA阴性 血浆-D-二聚体增高
-# #####Wells评分:2 肺动脉CTA阴性 血浆-D-二聚体增高
-# #####肺动脉CTA阴性 D-二聚体阳性
-
-# 检查解读112.1 病历内容:Wells评分<2分+检查结果:肺动脉CTA阴性&D-二聚体阳性,推荐诊断包含:排除急性肺栓塞，考虑其他可引起D-二聚体阳性的疾病
-#     [Documentation]    ""
-#     #执行删除操作
-#     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-#     ${timestamp}    Get Time    epoch
-#     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-#     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-#     ...    definiteDiagnosis=
-#     ...    progressNoteList={"progressGuid": "222222","progressType":"3","progressMessage":"<XTextDocument><BodyText> Wells评分:1 肺动脉CTA阴性 血浆-D-二聚体增高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-#     ...    labTestList=
-#     ...    examinationList=
-#     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-#     Should Contain    ${aj}     排除急性肺栓塞，考虑其他可引起D-二聚体阳性的疾病
-
-# 检查解读112.2 病历内容:Wells评分==2分+检查结果:肺动脉CTA阴性&D-二聚体阳性,推荐诊断"不应"包含:排除急性肺栓塞，考虑其他可引起D-二聚体阳性的疾病
-#     [Documentation]    ""
-#     #执行删除操作
-#     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-#     ${timestamp}    Get Time    epoch
-#     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-#     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-#     ...    definiteDiagnosis=
-#     ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> Wells评分:2 肺动脉CTA阴性 血浆-D-二聚体增高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-#     ...    labTestList=
-#     ...    examinationList=
-#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-#     # Should Not Contain    ${aj}     胃食管反流病
-#     Should Not Contain    ${getRes['body']}    examinationInterpretList
-
-
-# #####检查解读130L                  Wells评分>=2分 肺动脉CTA阴性        排除急性肺栓塞，考虑其他胸痛性疾病   与急性肺栓塞鉴别疾病如主动脉夹层、心肌梗死、心包炎、反流性食管炎等   AME－肺栓塞 是
-# #####Wells评分>=2分    评分结果    Wells评分>=2
-# #####Wells评分:2
-# #####Wells评分:2 肺动脉CTA阴性
-# #####Wells评分:3 肺动脉CTA阴性
-# #####Wells评分:1 肺动脉CTA阴性
-
-# 检查解读113.1 病历内容:Wells评分==2分+检查结果:肺动脉CTA阴性&D-二聚体阳性,推荐诊断包含:排除急性肺栓塞，考虑其他胸痛性疾病
-#     [Documentation]    ""
-#     #执行删除操作
-#     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-#     ${timestamp}    Get Time    epoch
-#     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-#     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-#     ...    definiteDiagnosis=
-#     ...    progressNoteList={"progressGuid": "222222","progressType":"3","progressMessage":"<XTextDocument><BodyText> Wells评分:2 肺动脉CTA阴性 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-#     ...    labTestList=
-#     ...    examinationList=
-#     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-#     Should Contain    ${aj}     排除急性肺栓塞，考虑其他胸痛性疾病
-
-# 检查解读113.2 病历内容:Wells评分>2分+检查结果:肺动脉CTA阴性&D-二聚体阳性,推荐诊断包含:排除急性肺栓塞，考虑其他胸痛性疾病
-#     [Documentation]    ""
-#     #执行删除操作
-#     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-#     ${timestamp}    Get Time    epoch
-#     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-#     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-#     ...    definiteDiagnosis=
-#     ...    progressNoteList={"progressGuid": "222222","progressType":"3","progressMessage":"<XTextDocument><BodyText> Wells评分:2 肺动脉CTA阴性 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-#     ...    labTestList=
-#     ...    examinationList=
-#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-#     # Should Contain    ${aj}     排除急性肺栓塞，考虑其他胸痛性疾病
-#     Should Not Contain    ${getRes['body']}    examinationInterpretList
-
-# 检查解读113.3 病历内容:Wells评分==1分+检查结果:肺动脉CTA阴性&D-二聚体阳性,推荐诊断"不应"包含:排除急性肺栓塞，考虑其他胸痛性疾病
-#     [Documentation]    ""
-#     #执行删除操作
-#     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-#     ${timestamp}    Get Time    epoch
-#     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-#     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-#     ...    definiteDiagnosis=
-#     ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> Wells评分:1 肺动脉CTA阴性 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-#     ...    labTestList=
-#     ...    examinationList=
-#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-#     # Should Not Contain    ${aj}     胃食管反流病
-#     Should Not Contain    ${getRes['body']}    examinationInterpretList
-
-
-# #####检查解读131L              心力衰竭症状  BNP<100pg/ml        排除心力衰竭  与心力衰竭鉴别疾病如心肌淀粉样变性、肥厚型心肌病、肺动脉高压、贫血、肥胖、未控制的高血压、睡眠呼吸暂停、甲状腺疾病等  AME－心力衰竭    是
-# #####心力衰竭症状
-# #####劳力性呼吸困难｜端坐呼吸｜阵发性夜间呼吸困难｜静息性咳嗽｜劳力性咳嗽｜水肿｜水肿加重｜体重增加｜颈静脉压升高｜第三心音奔马律｜心尖搏动侧移｜淤血性肝大｜肝颈静脉反流征持续存在｜腹胀｜腹水｜胸腔积液｜左束支传导阻滞｜心肌梗死
-# #####劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死
-# #####BNP<100pg/ml  检查  脑利钠肽<100pg/ml
-# #####劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 脑利钠肽:99pg/ml
-# #####劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 脑利钠肽:100pg/ml
-
-# 检查解读114.1 病历内容:心力衰竭症状+检查结果:BNP<100pg/ml,推荐诊断包含:排除心力衰竭
-#     [Documentation]    ""
-#     #执行删除操作
-#     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-#     ${timestamp}    Get Time    epoch
-#     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-#     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-#     ...    definiteDiagnosis=
-#     ...    progressNoteList={"progressGuid": "222222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 脑利钠肽:99pg/ml </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-#     ...    labTestList=
-#     ...    examinationList=
-#     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-#     Should Contain    ${aj}     排除心力衰竭
-
-# 检查解读114.2 病历内容:心力衰竭症状+检查结果:BNP==100pg/ml,推荐诊断"不应"包含:排除心力衰竭
-#     [Documentation]    ""
-#     #执行删除操作
-#     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-#     ${timestamp}    Get Time    epoch
-#     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-#     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-#     ...    definiteDiagnosis=
-#     ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 脑利钠肽:99pg/ml </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-#     ...    labTestList=
-#     ...    examinationList=
-#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-#     # Should Not Contain    ${aj}     胃食管反流病
-#     Should Not Contain    ${getRes['body']}    examinationInterpretList
-
-
-# #####检查解读132L      心力衰竭症状  NT-proBNP<300       排除心力衰竭  与心力衰竭鉴别疾病如心肌淀粉样变性、肥厚型心肌病、肺动脉高压、贫血、肥胖、未控制的高血压、睡眠呼吸暂停、甲状腺疾病等  AME－心力衰竭    是
-# #####心力衰竭症状
-# #####劳力性呼吸困难｜端坐呼吸｜阵发性夜间呼吸困难｜静息性咳嗽｜劳力性咳嗽｜水肿｜水肿加重｜体重增加｜颈静脉压升高｜第三心音奔马律｜心尖搏动侧移｜淤血性肝大｜肝颈静脉反流征持续存在｜腹胀｜腹水｜胸腔积液｜左束支传导阻滞｜心肌梗死
-# #####劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死
-# #####NT-proNT-proBNP<300 检查  N末端B型N末端B型脑利钠肽前体前体<300pg/ml
-# #####劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 N末端B型脑利钠肽前体:99pg/ml
-# #####劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 N末端B型脑利钠肽前体:100pg/ml
-
-# 检查解读115.1 病历内容:心力衰竭症状+检查结果:NT-proBNP<300pg/ml,推荐诊断包含:排除心力衰竭
-#     [Documentation]    ""
-#     #执行删除操作
-#     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-#     ${timestamp}    Get Time    epoch
-#     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-#     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-#     ...    definiteDiagnosis=
-#     ...    progressNoteList={"progressGuid": "222222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 N末端B型脑利钠肽前体:299pg/ml </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-#     ...    labTestList=
-#     ...    examinationList=
-#     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-#     Should Contain    ${aj}     排除心力衰竭
-
-# 检查解读115.2 病历内容:心力衰竭症状+检查结果:NT-proBNP==300pg/ml,推荐诊断"不应"包含:排除心力衰竭
-#     [Documentation]    ""
-#     #执行删除操作
-#     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-#     ${timestamp}    Get Time    epoch
-#     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-#     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-#     ...    definiteDiagnosis=
-#     ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 N末端B型脑利钠肽前体:300pg/ml </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-#     ...    labTestList=
-#     ...    examinationList=
-#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-#     # Should Not Contain    ${aj}     胃食管反流病
-#     Should Not Contain    ${getRes['body']}    examinationInterpretList
-
-
-
 
 #####检查解读133L          胸痛｜急性胸痛｜下肢肿胀｜下肢疼痛｜呼吸困难｜Wells评分>=2分  下肢血管超声阳性&肺动脉CTA不能排除肺栓塞      急性肺栓塞   肺动脉CTA深静脉血栓形成(DVT)表现确诊急性肺栓塞(PTE)    AME－肺栓塞 是
 #####胸痛 急性胸痛 下肢肿胀 下肢疼痛 呼吸困难 Wells评分>=2分
@@ -12882,8 +12540,8 @@ Library           RequestsLibrary
     Should Contain    ${aj}     急性肺栓塞
 
 ########################################推荐评分表##########################################################
-#####推荐评分表6L         急性胸痛｜胸痛｜濒死感｜胸部撕裂样痛｜背部撕裂样痛｜呼吸困难    严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉｜低氧血症｜呼吸窘迫｜休克｜持续性低血压｜收缩压<90mmHg｜SPO2<90%    Wells评估表(梅奥版)   评估急性肺栓塞临床的可能性   是
-推荐评分表1.1 病历内容:急性胸痛｜胸痛｜濒死感｜胸部撕裂样痛｜背部撕裂样痛｜呼吸困难,推荐诊断包含:Wells评估表(梅奥版)
+#####推荐评分表6L         急性胸痛｜胸痛｜濒死感｜胸部撕裂样痛｜背部撕裂样痛｜呼吸困难&肺栓塞危险因素 严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉｜低氧血症｜呼吸窘迫｜休克｜持续性低血压｜收缩压<90mmHg｜SPO2<90%｜肺栓塞｜急性肺栓塞  Wells评估表(梅奥版)   评估急性肺栓塞临床的可能性   是
+推荐评分表1.1 病历内容:急性胸痛｜胸痛｜濒死感｜胸部撕裂样痛｜背部撕裂样痛｜呼吸困难&肺栓塞危险因素,推荐诊断包含:Wells评估表(梅奥版)
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -12892,7 +12550,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "222222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "222222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 长期卧床 瘫痪 血管炎 持续卧床4天 手术90天 近3个月曾接受90天 静脉血栓栓塞家族史 遗传性凝血障碍家族史 心力衰竭史 静脉血栓栓塞史 下肢深静脉血栓形成史 有肺栓塞既往史 恶性肿瘤史 卒中史 目前正接受化疗 目前使用雌激素治疗 目前正服用他莫昔芬 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -13265,13 +12923,13 @@ Library           RequestsLibrary
 
 
 
-#####推荐评分表13L 8房颤  呼吸困难｜胸痛｜晕厥｜无法达到心率控制｜急性短暂性脑缺血发作｜卒中｜心率<40次/分｜心率>150次/分    CHA2DS2-VASc评分表 评估脑卒中风险，脑卒中风险高考虑抗凝，抗凝治疗前评估抗凝获益和出血风险 是
+#####推荐评分表13L 8 房颤｜非瓣膜性房颤    呼吸困难｜胸痛｜晕厥｜无法达到心率控制｜急性短暂性脑缺血发作｜卒中｜心率<40次/分｜心率>150次/分    房颤卒中危险评估(CHA2DS2-VASc)  评估脑卒中风险，脑卒中风险高考虑抗凝，抗凝治疗前评估抗凝获益和出血风险 是
 #####大面积肺栓塞｜肺血管栓塞面积>=50%
 #####肺血管栓塞面积>=50%  检查  肺血管栓塞面积>=50％
 #####大面积肺栓塞 肺血管栓塞面积:50％
 #####大面积肺栓塞 肺血管栓塞面积:51％
 
-推荐评分表8.1 病历内容:房颤,推荐诊断包含:房颤卒中危险评估(CHA2DS2-VASc)
+推荐评分表8.1 病历内容:房颤|非瓣膜性房颤,推荐诊断包含:房颤卒中危险评估(CHA2DS2-VASc)
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -13280,7 +12938,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "222222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "222222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 非瓣膜性房颤 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -13289,13 +12947,13 @@ Library           RequestsLibrary
 
 
 
-#####推荐评分表14L 房颤&CHA2DS2-VASc评分=1&男性   呼吸困难｜胸痛｜晕厥｜无法达到心率控制｜急性短暂性脑缺血发作｜卒中｜心率<40次/分｜心率>150次/分    HAS-BLED评分表 男性患者CHA2DS2-VASc评分=1，应权衡口服抗凝药的风险和获益 是
+#####推荐评分表14L 房颤｜非瓣膜性房颤&CHA2DS2-VASc评分>=1&男性   呼吸困难｜胸痛｜晕厥｜无法达到心率控制｜急性短暂性脑缺血发作｜卒中｜心率<40次/分｜心率>150次/分    HAS-BLED评分表 男性患者CHA2DS2-VASc评分=1，应权衡口服抗凝药的风险和获益 是
 #####房颤&CHA2DS2-VASc评分=1&男性
 #####CHA2DS2-VASc评分>1  评分结果    CHA2DS2-VASc评分>1
 #####房颤 CHA2DS2-VASc评分:2
 #####CHA2DS2-VASc评分:1
 
-推荐评分表9.1 病历内容:男性+房颤+CHA2DS2-VASc评分==1,推荐诊断包含:房颤抗凝出血危险评估(HAS-BLED)
+推荐评分表9.1 病历内容:男性+房颤|非瓣膜性房颤+CHA2DS2-VASc评分==1,推荐诊断包含:房颤抗凝出血危险评估(HAS-BLED)
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -13304,7 +12962,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":1,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "222222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 CHA2DS2-VASc评分:1 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "222222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 非瓣膜性房颤 CHA2DS2-VASc评分:1 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -13320,7 +12978,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":1,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "222222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 CHA2DS2-VASc评分:2 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "222222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 非瓣膜性房颤 CHA2DS2-VASc评分:2 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -13329,13 +12987,13 @@ Library           RequestsLibrary
     # Should Not Contain    ${getRes['body']}    examinationInterpretList
 
 
-#####推荐评分表15L 房颤&CHA2DS2-VASc评分=1&男性   呼吸困难｜胸痛｜晕厥｜无法达到心率控制｜急性短暂性脑缺血发作｜卒中｜心率<40次/分｜心率>150次/分    HAS-BLED评分表 男性患者CHA2DS2-VASc评分=1，应权衡口服抗凝药的风险和获益 是
+#####推荐评分表15L 房颤|非瓣膜性房颤&CHA2DS2-VASc评分=1&男性   呼吸困难｜胸痛｜晕厥｜无法达到心率控制｜急性短暂性脑缺血发作｜卒中｜心率<40次/分｜心率>150次/分    HAS-BLED评分表 男性患者CHA2DS2-VASc评分=1，应权衡口服抗凝药的风险和获益 是
 #####房颤&CHA2DS2-VASc评分=1&男性
 #####CHA2DS2-VASc评分>1  评分结果    CHA2DS2-VASc评分>1
 #####房颤 CHA2DS2-VASc评分:2
 #####CHA2DS2-VASc评分:1
 
-推荐评分表10.1 病历内容:男性+房颤+CHA2DS2-VASc评分>1,推荐诊断包含:房颤抗凝出血危险评估(HAS-BLED)
+推荐评分表10.1 病历内容:男性+房颤|非瓣膜性房颤+CHA2DS2-VASc评分>1,推荐诊断包含:房颤抗凝出血危险评估(HAS-BLED)
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -13344,7 +13002,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "222222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 CHA2DS2-VASc评分:2 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "222222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 非瓣膜性房颤 CHA2DS2-VASc评分:2 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -13369,6 +13027,24 @@ Library           RequestsLibrary
     # Should Not Contain    ${getRes['body']}    examinationInterpretList
 
 
+
+
+#####推荐评分表 新7L 疑似肺栓塞 严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉｜低氧血症｜呼吸窘迫｜休克｜持续性低血压｜收缩压<90mmHg｜SPO2<90%｜肺栓塞｜急性肺栓塞  Wells评估表(梅奥版)   评估急性肺栓塞临床的可能性   是
+推荐评分表11.1 病历内容:疑似肺栓塞,推荐诊断包含:Wells评估表(梅奥版)
+    [Documentation]    ""
+    #执行删除操作
+    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
+    ${timestamp}    Get Time    epoch
+    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+    ...    definiteDiagnosis=
+    ...    progressNoteList={"progressGuid": "222222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 疑似肺栓塞 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+    ...    labTestList=
+    ...    examinationList=
+    ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+    Should Contain    ${aj}     Wells评估表(梅奥版)
 
 
 
@@ -14389,14 +14065,11 @@ Library           RequestsLibrary
 
 #######46L 心力衰竭症状｜心力衰竭&EF<50%｜射血分数降低&心功能III级｜心功能IV级            严重心衰处理          是
 
+
 #######心力衰竭症状｜心力衰竭&EF<50%｜射血分数降低 心功能III级｜心功能IV级
 #######心力衰竭症状 心力衰竭:49% 射血分数降低 心功能评级:III 心功能评级:IV
 #######劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭:49% 射血分数降低 心功能评级:III 心功能评级:IV
-
-
-
 #######收缩压:121mmHg 高血压
-
 #######心力衰竭症状
 #######劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死
 #######EF>=50% 检查  射血分数>=50％
@@ -14404,6 +14077,23 @@ Library           RequestsLibrary
 #######EF>=50% 检查  射血分数:51％
 #######EF>=50% 检查  射血分数:49％
 #######心率:121次/分
+推荐治疗方案新增28.1 心力衰竭症状｜心力衰竭&EF<50%｜射血分数降低&心功能III级｜心功能IV级+次要条件:,推荐血运重建方案:严重心衰处理
+
+    [Documentation]    断言:""
+    #执行删除操作
+    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
+    ${timestamp}    Get Time    epoch
+    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+    ...    definiteDiagnosis=
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:49% 射血分数降低 心功能评级III 心功能评级IV 严重心力衰竭 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+    ...    labTestList=
+    ...    examinationList=
+    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+    Should Contain    ${aj}     严重心衰处理
+
 
 推荐治疗方案29.1 心力衰竭症状｜心力衰竭&EF<50%｜射血分数降低+次要条件:,推荐血运重建方案:对症治疗
     [Documentation]    断言:""
@@ -15116,7 +14806,6 @@ Library           RequestsLibrary
     ...    examinationList=
     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
     Should Contain    ${aj}     迷宫手术
-
 
 
 #######54L 房颤       心率<110次/分｜心率>=110次/分｜呼吸困难｜胸痛｜晕厥｜无法达到心率控制｜急性短暂性脑缺血发作｜卒中｜心率<40次/分｜心率>150次/分   左心耳封堵术  血栓栓塞风险增加伴出血风险或没有有效的抗凝方案时，应考虑进行左心耳封堵术    无   是
