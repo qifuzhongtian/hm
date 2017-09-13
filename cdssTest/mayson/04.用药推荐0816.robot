@@ -36,12 +36,12 @@ Library           RequestsLibrary
     Lists should Be Equal    ${aj}    ${assert}
     [Teardown]    sleep    0.2s
 
-####3L 经验性抗凝治疗 肠道外抗凝(一线治疗药物)   大面积肺栓塞｜肺栓塞｜急性肺栓塞            30  是
-2.经验性抗凝治疗:肠道外抗凝(一线治疗药物):主诉:大面积肺栓塞｜肺栓塞｜急性肺栓塞,用药推荐包含:肝素钠注射液 肝素钙注射液 注射用肝素钙 依诺肝素钠注射液 注射用依诺肝素钠 达肝素钠注射液 那屈肝素钙注射液 那曲肝素钙注射液 注射用那屈肝素钙 贝米肝素钠注射液 磺达肝癸钠注射液
+####3L 经验性抗凝治疗 肠道外抗凝(一线治疗药物)   Wells评分中度可能急性肺栓塞｜Wells评分>=2分｜Wells评分高度可能急性肺栓塞            30  是
+2.经验性抗凝治疗:肠道外抗凝(一线治疗药物):主诉:Wells评分中度可能急性肺栓塞｜Wells评分>=2分｜Wells评分高度可能急性肺栓塞,用药推荐包含:肝素钠注射液 肝素钙注射液 注射用肝素钙 依诺肝素钠注射液 注射用依诺肝素钠 达肝素钠注射液 那屈肝素钙注射液 那曲肝素钙注射液 注射用那屈肝素钙 贝米肝素钠注射液 磺达肝癸钠注射液
     [Documentation]    断言:""
     ${assert}    Create List    肝素钠注射液    肝素钙注射液    注射用肝素钙    依诺肝素钠注射液    注射用依诺肝素钠    达肝素钠注射液    那屈肝素钙注射液    那曲肝素钙注射液    注射用那屈肝素钙    贝米肝素钠注射液    磺达肝癸钠注射液
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 大面积肺栓塞 肺栓塞 急性肺栓塞 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
+    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> Wells评分:2 Wells评分:6 Wells评分:7 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
 
     ${getRes}    用药推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
@@ -51,12 +51,12 @@ Library           RequestsLibrary
     [Teardown]    sleep    0.2s
 
 
-####4L 经验性抗凝治疗 传统口服抗凝药(与肠道外抗凝剂重叠使用5日)  大面积肺栓塞｜肺栓塞｜急性肺栓塞            31  是
-3.经验性抗凝治疗:传统口服抗凝药(与肠道外抗凝剂重叠使用5日):主诉:大面积肺栓塞｜肺栓塞｜急性肺栓塞,用药推荐包含:华法林钠片
+####4L 经验性抗凝治疗 传统口服抗凝药(与肠道外抗凝剂重叠使用5日)  Wells评分中度可能急性肺栓塞｜Wells评分>=2分｜Wells评分高度可能急性肺栓塞            31  是
+3.经验性抗凝治疗:传统口服抗凝药(与肠道外抗凝剂重叠使用5日):主诉:Wells评分中度可能急性肺栓塞｜Wells评分>=2分｜Wells评分高度可能急性肺栓塞,用药推荐包含:华法林钠片
     [Documentation]    断言:""
     ${assert}    Create List    华法林钠片
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 大面积肺栓塞 肺栓塞 急性肺栓塞 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
+    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> Wells评分:2 Wells评分:6 Wells评分:7 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
 
     ${getRes}    用药推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
@@ -66,26 +66,26 @@ Library           RequestsLibrary
     [Teardown]    sleep    0.2s
 
 
-####5L 经验性抗凝治疗 新型口服抗凝药(不需要与肝素重叠使用) 大面积肺栓塞｜肺栓塞｜急性肺栓塞            32  是
-4.经验性抗凝治疗:新型口服抗凝药(不需要与肝素重叠使用):主诉:大面积肺栓塞｜肺栓塞｜急性肺栓塞,用药推荐包含:利伐沙班片 阿哌沙班片 达比加群酯胶囊
+####5L 经验性抗凝治疗 新型口服抗凝药(不需要与肝素重叠使用) Wells评分中度可能急性肺栓塞｜Wells评分>=2分｜Wells评分高度可能急性肺栓塞            32  是
+4.经验性抗凝治疗:新型口服抗凝药(不需要与肝素重叠使用):主诉:Wells评分中度可能急性肺栓塞｜Wells评分>=2分｜Wells评分高度可能急性肺栓塞,用药推荐包含:利伐沙班片 阿哌沙班片 达比加群酯胶囊
     [Documentation]    断言:""
     ${assert}    Create List    利伐沙班片   阿哌沙班片   达比加群酯胶囊
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 大面积肺栓塞 肺栓塞 急性肺栓塞 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
+    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> Wells评分:2 Wells评分:6 Wells评分:7 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
 
     ${getRes}    用药推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     [Teardown]    sleep    0.2s
 
-####6L 抗凝治疗    肠道外抗凝(一线治疗药物)   大面积肺栓塞｜肺栓塞｜急性肺栓塞            55  是
-5.抗凝治疗:v:主诉:大面积肺栓塞｜肺栓塞｜急性肺栓塞,用药推荐包含:富马酸伊布利特注射液 肝素钠注射液 肝素钙注射液 注射用肝素钙 依诺肝素钠注射液 注射用依诺肝素钠 达肝素钠注射液 那屈肝素钙注射液 那曲肝素钙注射液 注射用那屈肝素钙 贝米肝素钠注射液 磺达肝癸钠注射液
+####6L 抗凝治疗    肠道外抗凝(一线治疗药物)   大面积肺栓塞｜肺栓塞｜急性肺栓塞｜肺血管栓塞面积>=50%           55  是
+5.抗凝治疗:肠道外抗凝(一线治疗药物):主诉:大面积肺栓塞｜肺栓塞｜急性肺栓塞｜肺血管栓塞面积>=50%,用药推荐包含:富马酸伊布利特注射液 肝素钠注射液 肝素钙注射液 注射用肝素钙 依诺肝素钠注射液 注射用依诺肝素钠 达肝素钠注射液 那屈肝素钙注射液 那曲肝素钙注射液 注射用那屈肝素钙 贝米肝素钠注射液 磺达肝癸钠注射液
     [Documentation]    断言:""
     ${assert}    Create List    富马酸伊布利特注射液    肝素钠注射液    肝素钙注射液    注射用肝素钙    依诺肝素钠注射液    注射用依诺肝素钠    达肝素钠注射液    那屈肝素钙注射液    那曲肝素钙注射液    注射用那屈肝素钙    贝米肝素钠注射液    磺达肝癸钠注射液
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 大面积肺栓塞 肺栓塞 急性肺栓塞 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
+    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 大面积肺栓塞 肺栓塞 急性肺栓塞 肺血管栓塞面积:50% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
 
     ${getRes}    用药推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
@@ -94,12 +94,12 @@ Library           RequestsLibrary
     Lists should Be Equal    ${aj}    ${assert}
     [Teardown]    sleep    0.2s
 
-####7L 抗凝治疗    传统口服抗凝药(与肠道外抗凝剂重叠使用5日)  大面积肺栓塞｜肺栓塞｜急性肺栓塞            56  是
-6.经验性抗凝治疗:传统口服抗凝药(与肠道外抗凝剂重叠使用5日):主诉:大面积肺栓塞｜肺栓塞｜急性肺栓塞,用药推荐包含:华法林钠片
+####7L 抗凝治疗    传统口服抗凝药(与肠道外抗凝剂重叠使用5日)  大面积肺栓塞｜肺栓塞｜急性肺栓塞｜肺血管栓塞面积>=50%           56  是
+6.经验性抗凝治疗:传统口服抗凝药(与肠道外抗凝剂重叠使用5日):主诉:大面积肺栓塞｜肺栓塞｜急性肺栓塞｜肺血管栓塞面积>=50%,用药推荐包含:华法林钠片
     [Documentation]    断言:""
     ${assert}    Create List    华法林钠片
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 大面积肺栓塞 肺栓塞 急性肺栓塞 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
+    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 大面积肺栓塞 肺栓塞 急性肺栓塞 肺血管栓塞面积:50% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
 
     ${getRes}    用药推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
@@ -108,26 +108,26 @@ Library           RequestsLibrary
     Lists should Be Equal    ${aj}    ${assert}
     [Teardown]    sleep    0.2s
 
-####8L 抗凝治疗    新型口服抗凝药(不需要与肝素重叠使用) 大面积肺栓塞｜肺栓塞｜急性肺栓塞            57  是
-7.经验性抗凝治疗:传统口服抗凝药(与肠道外抗凝剂重叠使用5日):主诉:大面积肺栓塞｜肺栓塞｜急性肺栓塞,用药推荐包含:利伐沙班片 阿哌沙班片 达比加群酯胶囊
+
+####8L 抗凝治疗    新型口服抗凝药(不需要与肝素重叠使用) 大面积肺栓塞｜肺栓塞｜急性肺栓塞｜肺血管栓塞面积>=50%            57  是
+7.经验性抗凝治疗:传统口服抗凝药(与肠道外抗凝剂重叠使用5日):主诉:大面积肺栓塞｜肺栓塞｜急性肺栓塞｜肺血管栓塞面积>=50%,用药推荐包含:利伐沙班片 阿哌沙班片 达比加群酯胶囊
     [Documentation]    断言:""
     ${assert}    Create List    利伐沙班片    阿哌沙班片    达比加群酯胶囊
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 大面积肺栓塞 肺栓塞 急性肺栓塞 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-
+    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 大面积肺栓塞 肺栓塞 急性肺栓塞 肺血管栓塞面积:50% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     [Teardown]    sleep    0.2s
 
-####9L 门诊抗凝治疗  肠道外抗凝(一线治疗药物)   大面积肺栓塞｜肺栓塞｜急性肺栓塞            58  是
-8.门诊抗凝治疗:肠道外抗凝(一线治疗药物):主诉:大面积肺栓塞｜肺栓塞｜急性肺栓塞,用药推荐包含:肝素钠注射液 肝素钙注射液 注射用肝素钙 依诺肝素钠注射液 注射用依诺肝素钠 达肝素钠注射液 那屈肝素钙注射液 那曲肝素钙注射液 注射用那屈肝素钙 贝米肝素钠注射液 磺达肝癸钠注射液
+####9L 门诊抗凝治疗  肠道外抗凝(一线治疗药物)   大面积肺栓塞｜肺栓塞｜急性肺栓塞｜肺血管栓塞面积>=50%            58  是
+8.门诊抗凝治疗:肠道外抗凝(一线治疗药物):主诉:大面积肺栓塞｜肺栓塞｜急性肺栓塞｜肺血管栓塞面积>=50%,用药推荐包含:肝素钠注射液 肝素钙注射液 注射用肝素钙 依诺肝素钠注射液 注射用依诺肝素钠 达肝素钠注射液 那屈肝素钙注射液 那曲肝素钙注射液 注射用那屈肝素钙 贝米肝素钠注射液 磺达肝癸钠注射液
     [Documentation]    断言:""
     ${assert}    Create List    肝素钠注射液    肝素钙注射液    注射用肝素钙    依诺肝素钠注射液    注射用依诺肝素钠    达肝素钠注射液    那屈肝素钙注射液    那曲肝素钙注射液    注射用那屈肝素钙    贝米肝素钠注射液    磺达肝癸钠注射液
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 大面积肺栓塞 肺栓塞 急性肺栓塞 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
+    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 大面积肺栓塞 肺栓塞 急性肺栓塞 肺血管栓塞面积:50% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
 
     ${getRes}    用药推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
@@ -136,12 +136,12 @@ Library           RequestsLibrary
     Lists should Be Equal    ${aj}    ${assert}
     [Teardown]    sleep    0.2s
 
-#### 10l 门诊抗凝治疗10门诊抗凝治疗    传统口服抗凝药(与肠道外抗凝剂重叠使用5日)  大面积肺栓塞｜肺栓塞｜急性肺栓塞            59  是
-9.门诊抗凝治疗:传统口服抗凝药(与肠道外抗凝剂重叠使用5日):主诉:大面积肺栓塞｜肺栓塞｜急性肺栓塞,用药推荐包含:华法林钠片
+#### 10l 门诊抗凝治疗10门诊抗凝治疗    传统口服抗凝药(与肠道外抗凝剂重叠使用5日)  大面积肺栓塞｜肺栓塞｜急性肺栓塞｜肺血管栓塞面积>=50%            59  是
+9.门诊抗凝治疗:传统口服抗凝药(与肠道外抗凝剂重叠使用5日):主诉:大面积肺栓塞｜肺栓塞｜急性肺栓塞｜肺血管栓塞面积>=50%,用药推荐包含:华法林钠片
     [Documentation]    断言:""
     ${assert}    Create List    华法林钠片
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 大面积肺栓塞 肺栓塞 急性肺栓塞 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
+    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 大面积肺栓塞 肺栓塞 急性肺栓塞 肺血管栓塞面积:50% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
 
     ${getRes}    用药推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
@@ -150,12 +150,12 @@ Library           RequestsLibrary
     Lists should Be Equal    ${aj}    ${assert}
     [Teardown]    sleep    0.2s
 
-####11L 门诊抗凝治疗 新型口服抗凝药(不需要与肝素重叠使用) 大面积肺栓塞｜肺栓塞｜急性肺栓塞            60  是
-10.门诊抗凝治疗:新型口服抗凝药(不需要与肝素重叠使用):主诉:大面积肺栓塞｜肺栓塞｜急性肺栓塞,用药推荐包含:利伐沙班片 阿哌沙班片 达比加群酯胶囊
+####11L 门诊抗凝治疗 新型口服抗凝药(不需要与肝素重叠使用) 大面积肺栓塞｜肺栓塞｜急性肺栓塞｜肺血管栓塞面积>=50%            60  是
+10.门诊抗凝治疗:新型口服抗凝药(不需要与肝素重叠使用):主诉:大面积肺栓塞｜肺栓塞｜急性肺栓塞｜肺血管栓塞面积>=50%,用药推荐包含:利伐沙班片 阿哌沙班片 达比加群酯胶囊
     [Documentation]    断言:""
     ${assert}    Create List    利伐沙班片    阿哌沙班片    达比加群酯胶囊
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 大面积肺栓塞 肺栓塞 急性肺栓塞 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
+    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 大面积肺栓塞 肺栓塞 急性肺栓塞 肺血管栓塞面积:50% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
 
     ${getRes}    用药推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
@@ -164,12 +164,12 @@ Library           RequestsLibrary
     Lists should Be Equal    ${aj}    ${assert}
     [Teardown]    sleep    0.2s
 
-####12L 住院抗凝治疗 肠道外抗凝(一线治疗药物)   大面积肺栓塞｜肺栓塞｜急性肺栓塞            61  是
-11.住院抗凝治疗:肠道外抗凝(一线治疗药物):主诉:大面积肺栓塞｜肺栓塞｜急性肺栓塞,用药推荐包含:肝素钠注射液 肝素钙注射液 注射用肝素钙 依诺肝素钠注射液 注射用依诺肝素钠 达肝素钠注射液 那屈肝素钙注射液 那曲肝素钙注射液 注射用那屈肝素钙 贝米肝素钠注射液 磺达肝癸钠注射液
+####12L 住院抗凝治疗 肠道外抗凝(一线治疗药物)   大面积肺栓塞｜肺栓塞｜急性肺栓塞｜肺血管栓塞面积>=50%            61  是
+11.住院抗凝治疗:肠道外抗凝(一线治疗药物):主诉:大面积肺栓塞｜肺栓塞｜急性肺栓塞｜肺血管栓塞面积>=50%,用药推荐包含:肝素钠注射液 肝素钙注射液 注射用肝素钙 依诺肝素钠注射液 注射用依诺肝素钠 达肝素钠注射液 那屈肝素钙注射液 那曲肝素钙注射液 注射用那屈肝素钙 贝米肝素钠注射液 磺达肝癸钠注射液
     [Documentation]    断言:""
     ${assert}    Create List    肝素钠注射液    肝素钙注射液    注射用肝素钙    依诺肝素钠注射液    注射用依诺肝素钠    达肝素钠注射液    那屈肝素钙注射液    那曲肝素钙注射液    注射用那屈肝素钙    贝米肝素钠注射液    磺达肝癸钠注射液
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 大面积肺栓塞 肺栓塞 急性肺栓塞 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
+    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 大面积肺栓塞 肺栓塞 急性肺栓塞 肺血管栓塞面积:50% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
 
     ${getRes}    用药推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
@@ -179,12 +179,12 @@ Library           RequestsLibrary
     [Teardown]    sleep    0.2s
 
 
-#####13L 住院抗凝治疗 传统口服抗凝药(与肠道外抗凝剂重叠使用5日)  大面积肺栓塞｜肺栓塞｜急性肺栓塞            62  是
-12.住院抗凝治疗:传统口服抗凝药(与肠道外抗凝剂重叠使用5日):主诉:大面积肺栓塞｜肺栓塞｜急性肺栓塞,用药推荐包含:华法林钠片
+#####13L 住院抗凝治疗 传统口服抗凝药(与肠道外抗凝剂重叠使用5日)  大面积肺栓塞｜肺栓塞｜急性肺栓塞｜肺血管栓塞面积>=50%            62  是
+12.住院抗凝治疗:传统口服抗凝药(与肠道外抗凝剂重叠使用5日):主诉:大面积肺栓塞｜肺栓塞｜急性肺栓塞｜肺血管栓塞面积>=50%,用药推荐包含:华法林钠片
     [Documentation]    断言:""
     ${assert}    Create List    华法林钠片
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 大面积肺栓塞 肺栓塞 急性肺栓塞 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
+    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 大面积肺栓塞 肺栓塞 急性肺栓塞 肺血管栓塞面积:50% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
 
     ${getRes}    用药推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
@@ -193,12 +193,12 @@ Library           RequestsLibrary
     Lists should Be Equal    ${aj}    ${assert}
     [Teardown]    sleep    0.2s
 
-####14L 住院抗凝治疗 新型口服抗凝药(不需要与肝素重叠使用) 大面积肺栓塞｜肺栓塞｜急性肺栓塞            63  是
-13.住院抗凝治疗:新型口服抗凝药(不需要与肝素重叠使用):主诉:大面积肺栓塞｜肺栓塞｜急性肺栓塞,用药推荐包含:利伐沙班片 阿哌沙班片 达比加群酯胶囊
+####14L 住院抗凝治疗 新型口服抗凝药(不需要与肝素重叠使用) 大面积肺栓塞｜肺栓塞｜急性肺栓塞｜肺血管栓塞面积>=50%            63  是
+13.住院抗凝治疗:新型口服抗凝药(不需要与肝素重叠使用):主诉:大面积肺栓塞｜肺栓塞｜急性肺栓塞｜肺血管栓塞面积>=50%,用药推荐包含:利伐沙班片 阿哌沙班片 达比加群酯胶囊
     [Documentation]    断言:""
     ${assert}    Create List    利伐沙班片    阿哌沙班片    达比加群酯胶囊
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 大面积肺栓塞 肺栓塞 急性肺栓塞 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
+    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 大面积肺栓塞 肺栓塞 急性肺栓塞 肺血管栓塞面积:50% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
 
     ${getRes}    用药推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
@@ -207,12 +207,12 @@ Library           RequestsLibrary
     Lists should Be Equal    ${aj}    ${assert}
     [Teardown]    sleep    0.2s
 
-####15L ICU抗凝治疗    肠道外抗凝(一线治疗药物)   大面积肺栓塞｜肺栓塞｜急性肺栓塞            64  是
-14.ICU抗凝治疗:肠道外抗凝(一线治疗药物):主诉:大面积肺栓塞｜肺栓塞｜急性肺栓塞,用药推荐包含:肝素钠注射液 肝素钙注射液 注射用肝素钙 依诺肝素钠注射液 注射用依诺肝素钠 达肝素钠注射液 那屈肝素钙注射液 那曲肝素钙注射液 注射用那屈肝素钙 贝米肝素钠注射液 磺达肝癸钠注射液
+####15L ICU抗凝治疗    肠道外抗凝(一线治疗药物)   大面积肺栓塞｜肺栓塞｜急性肺栓塞｜肺血管栓塞面积>=50%            64  是
+14.ICU抗凝治疗:肠道外抗凝(一线治疗药物):主诉:大面积肺栓塞｜肺栓塞｜急性肺栓塞｜肺血管栓塞面积>=50%,用药推荐包含:肝素钠注射液 肝素钙注射液 注射用肝素钙 依诺肝素钠注射液 注射用依诺肝素钠 达肝素钠注射液 那屈肝素钙注射液 那曲肝素钙注射液 注射用那屈肝素钙 贝米肝素钠注射液 磺达肝癸钠注射液
     [Documentation]    断言:""
     ${assert}    Create List    肝素钠注射液    肝素钙注射液    注射用肝素钙    依诺肝素钠注射液    注射用依诺肝素钠    达肝素钠注射液    那屈肝素钙注射液    那曲肝素钙注射液    注射用那屈肝素钙    贝米肝素钠注射液    磺达肝癸钠注射液
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 大面积肺栓塞 肺栓塞 急性肺栓塞 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
+    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 大面积肺栓塞 肺栓塞 急性肺栓塞 肺血管栓塞面积:50% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
 
     ${getRes}    用药推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
@@ -221,12 +221,12 @@ Library           RequestsLibrary
     Lists should Be Equal    ${aj}    ${assert}
     [Teardown]    sleep    0.2s
 
-####16L ICU抗凝治疗 传统口服抗凝药(与肠道外抗凝剂重叠使用5日)  大面积肺栓塞｜肺栓塞｜急性肺栓塞            65  是
-15.ICU抗凝治疗:传统口服抗凝药(与肠道外抗凝剂重叠使用5日):主诉:大面积肺栓塞｜肺栓塞｜急性肺栓塞,用药推荐包含:华法林钠片
+####16L ICU抗凝治疗 传统口服抗凝药(与肠道外抗凝剂重叠使用5日)  大面积肺栓塞｜肺栓塞｜急性肺栓塞｜肺血管栓塞面积>=50%            65  是
+15.ICU抗凝治疗:传统口服抗凝药(与肠道外抗凝剂重叠使用5日):主诉:大面积肺栓塞｜肺栓塞｜急性肺栓塞｜肺血管栓塞面积>=50%,用药推荐包含:华法林钠片
     [Documentation]    断言:""
     ${assert}    Create List    华法林钠片
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 大面积肺栓塞 肺栓塞 急性肺栓塞 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
+    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 大面积肺栓塞 肺栓塞 急性肺栓塞 肺血管栓塞面积:50% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
 
     ${getRes}    用药推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
@@ -235,12 +235,12 @@ Library           RequestsLibrary
     Lists should Be Equal    ${aj}    ${assert}
     [Teardown]    sleep    0.2s
 
-####17L ICU抗凝治疗    新型口服抗凝药(不需要与肝素重叠使用) 大面积肺栓塞｜肺栓塞｜急性肺栓塞            66  是
-16.ICU抗凝治疗:新型口服抗凝药(不需要与肝素重叠使用):主诉:大面积肺栓塞｜肺栓塞｜急性肺栓塞,用药推荐包含:利伐沙班片 阿哌沙班片 达比加群酯胶囊
+####17L ICU抗凝治疗    新型口服抗凝药(不需要与肝素重叠使用) 大面积肺栓塞｜肺栓塞｜急性肺栓塞｜肺血管栓塞面积>=50%            66  是
+16.ICU抗凝治疗:新型口服抗凝药(不需要与肝素重叠使用):主诉:大面积肺栓塞｜肺栓塞｜急性肺栓塞｜肺血管栓塞面积>=50%,用药推荐包含:利伐沙班片 阿哌沙班片 达比加群酯胶囊
     [Documentation]    断言:""
     ${assert}    Create List    利伐沙班片    阿哌沙班片    达比加群酯胶囊
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 大面积肺栓塞 肺栓塞 急性肺栓塞 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
+    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 大面积肺栓塞 肺栓塞 急性肺栓塞 肺血管栓塞面积:50% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
 
     ${getRes}    用药推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
@@ -517,24 +517,27 @@ Library           RequestsLibrary
     Lists should Be Equal    ${aj}    ${assert}
     [Teardown]    sleep    0.2s
 
-# #####26L 房颤控制 控制房颤心室率 心力衰竭症状｜心力衰竭&EF>=50%｜射血分数保留          35  是
+
+# #####26L 房颤控制 控制房颤心室率 心力衰竭症状｜心力衰竭&EF>=50%｜射血分数保留    心力衰竭症状｜心力衰竭&EF>=50%｜射血分数保留&房颤&心率>110次/分       35  是
 25.1 房颤控制:控制房颤心室率:主诉:心力衰竭症状｜心力衰竭&EF>=50%｜射血分数保留 ,用药推荐包含:酒石酸美托洛尔片 酒石酸美托洛尔胶囊 酒石酸美托洛尔控释片 酒石酸美托洛尔缓释片 琥珀酸美托洛尔缓释片 盐酸普萘洛尔片 盐酸普萘洛尔缓释片 盐酸普萘洛尔缓释胶囊 阿替洛尔片
     [Documentation]    断言:""
     ${assert}    Create List    酒石酸美托洛尔片    酒石酸美托洛尔胶囊    酒石酸美托洛尔控释片    酒石酸美托洛尔缓释片    琥珀酸美托洛尔缓释片    盐酸普萘洛尔片    盐酸普萘洛尔缓释片    盐酸普萘洛尔缓释胶囊    阿替洛尔片
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:50% 射血分数保留 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
+    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 射血分数:50% 射血分数保留 房颤 心率:111次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     [Teardown]    sleep    0.2s
+
+
 
 25.2 房颤控制:控制房颤心室率:主诉:心力衰竭症状｜心力衰竭&EF>=50%｜射血分数保留 ,用药推荐包含:盐酸地尔硫卓片 盐酸地尔硫卓缓释胶囊 盐酸地尔硫卓缓释胶囊(Ⅱ) 盐酸地尔硫卓缓释片 盐酸地尔硫卓控释胶囊 盐酸维拉帕米片 盐酸维拉帕米缓释片 盐酸维拉帕米缓释胶囊 注射用盐酸地尔硫卓 盐酸维拉帕米注射液 地高辛片 地高辛注射液 盐酸胺碘酮片 盐酸胺碘酮胶囊
     [Documentation]    断言:""
     ${assert}    Create List    盐酸地尔硫卓片    盐酸地尔硫卓缓释胶囊    盐酸地尔硫卓缓释胶囊(Ⅱ)    盐酸地尔硫卓缓释片    盐酸地尔硫卓控释胶囊    盐酸维拉帕米片    盐酸维拉帕米缓释片    盐酸维拉帕米缓释胶囊    注射用盐酸地尔硫卓    盐酸维拉帕米注射液    地高辛片    地高辛注射液    盐酸胺碘酮片    盐酸胺碘酮胶囊
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:50% 射血分数保留 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
+    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 射血分数:50% 射血分数保留 房颤 心率:111次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
@@ -549,10 +552,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     ${assert}    Create List    注射用盐酸胺碘酮    盐酸胺碘酮注射液    盐酸胺碘酮片    盐酸胺碘酮胶囊
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:50% 射血分数保留 胸痛 心绞痛 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
+    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 射血分数:50% 射血分数保留 房颤 心率:111次/分 胸痛 心绞痛 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     [Teardown]    sleep    0.2s
@@ -561,14 +564,13 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     ${assert}    Create List    盐酸普罗帕酮注射液    盐酸普罗帕酮片    富马酸伊布利特注射液
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:50% 射血分数保留 胸痛 心绞痛 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
+    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 射血分数:50% 射血分数保留 房颤 心率:111次/分 胸痛 心绞痛 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][1]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     [Teardown]    sleep    0.2s
-
 
 
 ######28L 对症治疗 利尿剂 心力衰竭症状｜心力衰竭&EF>=50%｜射血分数保留&肺淤血｜周围性水肿｜液体潴留｜容量超负荷         39  是
@@ -800,59 +802,33 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     ${assert}    Create List    盐酸多巴胺注射液    注射用盐酸多巴酚丁胺    盐酸多巴酚丁胺注射液    盐酸多巴酚丁胺葡萄糖注射液
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:49% 射血分数降低 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
+    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:49% 射血分数降低 心功能III级 心功能IV级 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][3]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     List Should Contain Sub List    ${aj}    ${assert}
     [Teardown]    sleep    0.2s
-
 
 #####38L 严重心衰处理 血管扩张剂   心力衰竭症状｜心力衰竭&EF<50%｜射血分数降低           48  是
-37.1 严重心衰处理:血管扩张剂:主诉:心力衰竭症状｜心力衰竭&EF>=50%｜射血分数保留&呼吸困难,用药推荐包含:去乙酰毛花苷注射液 毒毛花苷K注射液 地高辛片 地高辛注射液
+37.1 严重心衰处理:血管扩张剂:主诉:心力衰竭症状｜心力衰竭&EF>=50%｜射血分数保留&呼吸困难,用药推荐包含:注射用硝普钠 复方硫酸双肼屈嗪片
     [Documentation]    断言:""
-    ${assert}    Create List    去乙酰毛花苷注射液    毒毛花苷K注射液    地高辛片    地高辛注射液
+    ${assert}    Create List    注射用硝普钠    复方硫酸双肼屈嗪片
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:49% 射血分数降低 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
+    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 射血分数:49% 射血分数降低 心功能评级III 心功能评级IV 严重心力衰竭 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][3]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     List Should Contain Sub List    ${aj}    ${assert}
     [Teardown]    sleep    0.2s
-
-37.2 严重心衰处理:血管扩张剂:主诉:心力衰竭症状｜心力衰竭&EF>=50%｜射血分数保留&呼吸困难,用药推荐包含:乳酸米力农注射液 乳酸米力农葡萄糖注射液
-    [Documentation]    断言:""
-    ${assert}    Create List    乳酸米力农注射液    乳酸米力农葡萄糖注射液
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:49% 射血分数降低 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
-    # List should contain sub list    ${aj}     ${assert}
-    List Should Contain Sub List    ${aj}    ${assert}
-    [Teardown]    sleep    0.2s
-
-37.3 严重心衰处理:血管扩张剂:主诉:心力衰竭症状｜心力衰竭&EF>=50%｜射血分数保留&呼吸困难,用药推荐包含:盐酸多巴胺注射液 注射用盐酸多巴酚丁胺 盐酸多巴酚丁胺注射液 盐酸多巴酚丁胺葡萄糖注射液
-    [Documentation]    断言:""
-    ${assert}    Create List    盐酸多巴胺注射液    注射用盐酸多巴酚丁胺    盐酸多巴酚丁胺注射液    盐酸多巴酚丁胺葡萄糖注射液
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:49% 射血分数降低 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
-    # List should contain sub list    ${aj}     ${assert}
-    List Should Contain Sub List    ${aj}    ${assert}
-    [Teardown]    sleep    0.2s
-
 
 #####39L 抗凝治疗   抗凝治疗    房颤          53  是
-38.1 抗凝治疗:抗凝治疗:主诉:房颤,用药推荐包含:阿司匹林缓释片 阿司匹林肠溶片 阿司匹林肠溶缓释片 阿司匹林肠溶胶囊 阿司匹林缓释胶囊
+38.1 抗凝治疗:抗凝治疗:主诉:房颤｜非瓣膜性房颤｜CHA2DS2-VASc评分>=1,用药推荐包含:阿司匹林缓释片 阿司匹林肠溶片 阿司匹林肠溶缓释片 阿司匹林肠溶胶囊 阿司匹林缓释胶囊
     [Documentation]    断言:""
     ${assert}    Create List    阿司匹林缓释片    阿司匹林肠溶片    阿司匹林肠溶缓释片    阿司匹林肠溶胶囊    阿司匹林缓释胶囊
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
+    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 非瓣膜性房颤 CHA2DS2-VASc评分:2 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
@@ -860,11 +836,11 @@ Library           RequestsLibrary
     Lists should Be Equal    ${aj}    ${assert}
     [Teardown]    sleep    0.2s
 
-38.2 抗凝治疗:抗凝治疗:主诉:房颤,用药推荐包含:硫酸氢氯吡格雷片 硫酸氢氯吡格雷颗粒
+38.2 抗凝治疗:抗凝治疗:主诉:房颤｜非瓣膜性房颤｜CHA2DS2-VASc评分>=1,用药推荐包含:硫酸氢氯吡格雷片 硫酸氢氯吡格雷颗粒
     [Documentation]    断言:""
     ${assert}    Create List    硫酸氢氯吡格雷片    硫酸氢氯吡格雷颗粒
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
+    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 非瓣膜性房颤 CHA2DS2-VASc评分:2 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
@@ -872,11 +848,11 @@ Library           RequestsLibrary
     Lists should Be Equal    ${aj}    ${assert}
     [Teardown]    sleep    0.2s
 
-38.3 抗凝治疗:抗凝治疗:主诉:房颤,用药推荐包含:华法林钠片
+38.3 抗凝治疗:抗凝治疗:主诉:房颤｜非瓣膜性房颤｜CHA2DS2-VASc评分>=1,用药推荐包含:华法林钠片
     [Documentation]    断言:""
     ${assert}    Create List    华法林钠片
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
+    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 非瓣膜性房颤 CHA2DS2-VASc评分:2 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
@@ -884,11 +860,11 @@ Library           RequestsLibrary
     Lists should Be Equal    ${aj}    ${assert}
     [Teardown]    sleep    0.2s
 
-38.4 抗凝治疗:抗凝治疗:主诉:房颤,用药推荐包含:达比加群酯胶囊 利伐沙班片 阿哌沙班片
+38.4 抗凝治疗:抗凝治疗:主诉:房颤｜非瓣膜性房颤｜CHA2DS2-VASc评分>=1,用药推荐包含:达比加群酯胶囊 利伐沙班片 阿哌沙班片
     [Documentation]    断言:""
     ${assert}    Create List    达比加群酯胶囊    利伐沙班片    阿哌沙班片
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
+    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 非瓣膜性房颤 CHA2DS2-VASc评分:2 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][3]['drugDetailList']]
@@ -896,11 +872,11 @@ Library           RequestsLibrary
     Lists should Be Equal    ${aj}    ${assert}
     [Teardown]    sleep    0.2s
 
-38.5 抗凝治疗:抗凝治疗:主诉:房颤|非瓣膜性房颤,用药推荐包含:注射用比伐芦定 注射用依诺肝素钠 低分子肝素钙注射液 注射用低分子量肝素钙 低分子量肝素钙注射液 低分子肝素钠注射液 注射用低分子量肝素钠 低分子量肝素钠注射液 依诺肝素钠注射液 那屈肝素钙注射液 注射用那屈肝素钙 贝米肝素钠注射液 肝素钙注射液 肝素钠注射液
+38.5 抗凝治疗:抗凝治疗:主诉:房颤｜非瓣膜性房颤｜CHA2DS2-VASc评分>=1,用药推荐包含:注射用比伐芦定 注射用依诺肝素钠 低分子肝素钙注射液 注射用低分子量肝素钙 低分子量肝素钙注射液 低分子肝素钠注射液 注射用低分子量肝素钠 低分子量肝素钠注射液 依诺肝素钠注射液 那屈肝素钙注射液 注射用那屈肝素钙 贝米肝素钠注射液 肝素钙注射液 肝素钠注射液
     [Documentation]    断言:""
     ${assert}    Create List    注射用比伐芦定    注射用依诺肝素钠    低分子肝素钙注射液    注射用低分子量肝素钙    低分子量肝素钙注射液    低分子肝素钠注射液    注射用低分子量肝素钠    低分子量肝素钠注射液    依诺肝素钠注射液    那屈肝素钙注射液    注射用那屈肝素钙    贝米肝素钠注射液    肝素钙注射液    肝素钠注射液
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 非瓣膜性房颤 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
+    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 非瓣膜性房颤 CHA2DS2-VASc评分:2 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][4]['drugDetailList']]
@@ -922,6 +898,7 @@ Library           RequestsLibrary
     Lists should Be Equal    ${aj}    ${assert}
     [Teardown]    sleep    0.2s
 
+
 #####41L ß受体阻滞剂/非二氢吡啶CCB    非二氢吡啶CCB    房颤          52  是
 40.1 非二氢吡啶CCB:主诉:房颤|非瓣膜性房颤,用药推荐包含:盐酸维拉帕米注射液 注射用盐酸维拉帕米 盐酸维拉帕米片 盐酸维拉帕米缓释片 盐酸维拉帕米缓释胶囊 盐酸维拉帕米缓释小丸 注射用盐酸地尔硫卓 盐酸地尔硫卓注射液 盐酸地尔硫卓控释胶囊 盐酸地尔硫卓片 盐酸地尔硫卓缓释片 盐酸地尔硫卓缓释胶囊 盐酸地尔硫卓缓释胶囊(Ⅱ) 盐酸地尔硫卓缓释微丸
     [Documentation]    断言:""
@@ -930,11 +907,10 @@ Library           RequestsLibrary
     ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 非瓣膜性房颤 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     List Should Contain Sub List    ${aj}    ${assert}
     [Teardown]    sleep    0.2s
-
 
 
 #####42L 抗心律失常药 抗心律失常药  房颤          38  是
@@ -945,7 +921,7 @@ Library           RequestsLibrary
     ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 非瓣膜性房颤 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     [Teardown]    sleep    0.2s
@@ -957,7 +933,7 @@ Library           RequestsLibrary
     ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 非瓣膜性房颤 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     [Teardown]    sleep    0.2s
