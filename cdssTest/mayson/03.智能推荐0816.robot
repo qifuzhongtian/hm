@@ -1620,8 +1620,9 @@ Library           RequestsLibrary
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    心电图
+    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    # Should Not Contain    ${aj}    心电图
+    should Not Contain    ${getRes['body']}    examinationRecommendList
 
 推荐检查12.5 心力衰竭症状｜心力衰竭+否定条件:心率=120次/分,推荐检查包含:心电图
     [Documentation]    断言:""
@@ -1688,8 +1689,9 @@ Library           RequestsLibrary
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    BNP
+    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    # Should Not Contain    ${aj}    BNP
+    should Not Contain    ${getRes['body']}    examinationRecommendList
 
 推荐检查13.4 心力衰竭症状｜心力衰竭+否定条件:心率>120次/分,推荐检查"不应"包含:BNP
     [Documentation]    断言:""
@@ -1704,8 +1706,9 @@ Library           RequestsLibrary
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    BNP
+    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    # Should Not Contain    ${aj}    BNP
+    should Not Contain    ${getRes['body']}    examinationRecommendList
 
 推荐检查13.6 心力衰竭症状｜心力衰竭+否定条件:呼吸急促,推荐检查"不应"包含:BNP
     [Documentation]    断言:""
@@ -1720,8 +1723,9 @@ Library           RequestsLibrary
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    BNP
+    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    # Should Not Contain    ${aj}    BNP
+    should Not Contain    ${getRes['body']}    examinationRecommendList
 
 推荐检查13.7 心力衰竭症状｜心力衰竭+否定条件:缺氧,推荐检查"不应"包含:BNP
     [Documentation]    断言:""
@@ -1736,8 +1740,9 @@ Library           RequestsLibrary
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    BNP
+    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    # Should Not Contain    ${aj}    BNP
+    should Not Contain    ${getRes['body']}    examinationRecommendList
 
 推荐检查13.8 心力衰竭症状｜心力衰竭+否定条件:心源性休克,推荐检查"不应"包含:BNP
     [Documentation]    断言:""
@@ -1752,8 +1757,9 @@ Library           RequestsLibrary
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    BNP
+    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    # Should Not Contain    ${aj}    BNP
+    should Not Contain    ${getRes['body']}    examinationRecommendList
 
 
 #####39 心力衰竭症状｜心力衰竭        心动过速｜心率>120次/分｜呼吸急促｜缺氧｜心源性休克    胸部X线片     确诊检查    28  是
@@ -2530,7 +2536,7 @@ Library           RequestsLibrary
     ...    examinationList=
     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     # Should Not Contain    ${aj}    肾功能
-    Should Not Contain    ${getRes{'body'}}    examinationRecommendList
+    Should Not Contain    ${getRes['body']}    examinationRecommendList
 
 推荐检查23.4 心力衰竭症状｜心力衰竭+否定条件:心率>120次/分,推荐检查"不应"包含:肾功能
     [Documentation]    断言:""
@@ -2547,7 +2553,7 @@ Library           RequestsLibrary
     ...    examinationList=
     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     # Should Not Contain    ${aj}    肾功能
-    Should Not Contain    ${getRes{'body'}}    examinationRecommendList
+    Should Not Contain    ${getRes['body']}    examinationRecommendList
 
 推荐检查23.5 心力衰竭症状｜心力衰竭+否定条件:心率=120次/分,推荐检查包含:肾功能
     [Documentation]    断言:""
@@ -2608,7 +2614,7 @@ Library           RequestsLibrary
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
-    Should Not Contain    ${getRes{'body'}}    examinationRecommendList
+    Should Not Contain    ${getRes['body']}    examinationRecommendList
 
 推荐检查23.10 心力衰竭症状｜心力衰竭+否定条件:EF=51%,推荐检查包含:肾功能
     [Documentation]    断言:""
@@ -2873,8 +2879,9 @@ Library           RequestsLibrary
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    肝功能
+    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    # Should Not Contain    ${aj}    肝功能
+    should Not Contain    ${getRes['body']}    examinationRecommendList
 
 推荐检查25.4 心力衰竭症状｜心力衰竭+否定条件:心率>120次/分,推荐检查"不应"包含:肝功能
     [Documentation]    断言:""
@@ -2925,7 +2932,7 @@ Library           RequestsLibrary
     ...    examinationList=
     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     # Should Not Contain    ${aj}    肝功能
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    should Not Contain    ${getRes['body']}    examinationRecommendList
 
 推荐检查25.7 心力衰竭症状｜心力衰竭+否定条件:缺氧,推荐检查"不应"包含:肝功能
     [Documentation]    断言:""
@@ -3110,7 +3117,8 @@ Library           RequestsLibrary
     ...    examinationList=
     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     # Should Not Contain    ${aj}    超敏促甲状腺激素
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    should Not Contain    ${getRes['body']}    examinationRecommendList
 
 推荐检查26.7 心力衰竭症状｜心力衰竭+否定条件:缺氧,推荐检查"不应"包含:超敏促甲状腺激素
     [Documentation]    断言:""
@@ -4415,8 +4423,9 @@ Library           RequestsLibrary
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    血常规
+    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    # Should Not Contain    ${aj}    血常规
+    should Not Contain    ${getRes['body']}    examinationRecommendList
 
 推荐检查34.4 房颤+否定条件:晕厥,推荐检查包含:血常规
     [Documentation]    断言:""
@@ -8918,9 +8927,9 @@ Library           RequestsLibrary
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    # Should Not Contain    ${aj}     化脓性脑膜炎
-    Should Not Contain    ${getRes['body']}    examinationInterpretList
+    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+    Should Not Contain    ${aj}     化脓性脑膜炎
+    # Should Not Contain    ${getRes['body']}    examinationInterpretList
 
 #####检查解读71L       男性  血红蛋白<120g/L&血清铁蛋白(SF)低于12μg/L&血清铁(S1)<8.95μmol/L｜血清铁(S1)<50μg/dl｜总铁结合力(TIBC)>64.44μmol/L｜总铁结合力(TIBC)>360μg/dl&转铁蛋白饱和度(TS)低于15％      缺铁性贫血   支持缺铁性贫血的诊断  诊断依据    是
 ##### 血红蛋白<120g/L&血清铁蛋白(SF)低于12μg/L&血清铁(S1)<8.95μmol/L｜血清铁(S1)<50μg/dl｜总铁结合力(TIBC)>64.44μmol/L｜总铁结合力(TIBC)>360μg/dl&转铁蛋白饱和度(TS)低于15％
@@ -10040,9 +10049,9 @@ Library           RequestsLibrary
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    # Should Not Contain    ${aj}     胃食管反流病
-    Should Not Contain    ${getRes['body']}    examinationInterpretList
+    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+    Should Not Contain    ${aj}     胃食管反流病
+    # Should Not Contain    ${getRes['body']}    examinationInterpretList
 
 
 #####检查解读98L      发热&恶心｜呕吐｜食欲不振｜周身乏力&肝脏肿大&肝区压痛    血白细胞计数增高&核左移        细菌性肝脓肿  支持细菌性肝脓肿的诊断，建议结合B超、CT或MRI检查可明确脓肿位置和大小   诊断依据    是
@@ -10083,9 +10092,9 @@ Library           RequestsLibrary
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    # Should Not Contain    ${aj}     胃食管反流病
-    Should Not Contain    ${getRes['body']}    examinationInterpretList
+    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+    Should Not Contain    ${aj}     细菌性肝脓肿
+    # Should Not Contain    ${getRes['body']}    examinationInterpretList
 
 
 #####检查解读99L           胃部不适    血红蛋白下降&大便潜血阳性&肿瘤标记物升高(CEA)｜肿瘤标记物升高(CA199)｜肿瘤标记物升高(CA72.4)｜肿瘤标记物升高(CA242)        胃癌  支持胃癌的诊断，建议结合上消化道钡餐、腹部增强CT、电子内窥镜或超声胃镜明确疾病性质  诊断依据    是
@@ -10221,9 +10230,9 @@ Library           RequestsLibrary
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    # Should Not Contain    ${aj}     胃食管反流病
-    Should Not Contain    ${getRes['body']}    examinationInterpretList
+    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+    Should Not Contain    ${aj}     胃食管反流病
+    # Should Not Contain    ${getRes['body']}    examinationInterpretList
 
 
 #####检查解读102L                  停止排气排便&腹胀&呕吐｜肠型｜蠕动波｜腹部压痛｜腹部叩诊鼓音｜肠鸣音活跃｜腹部气过水声｜腹部高调金属音｜腹部振水音  白细胞计数增高&血红蛋白增高｜红细胞比容增高｜尿比重增高        肠梗阻 支持肠梗阻的诊断，建议结合X线辅助检查 诊断依据    是
@@ -10266,9 +10275,9 @@ Library           RequestsLibrary
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    # Should Not Contain    ${aj}     胃食管反流病
-    Should Not Contain    ${getRes['body']}    examinationInterpretList
+    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+    Should Not Contain    ${aj}     胃食管反流病
+    # Should Not Contain    ${getRes['body']}    examinationInterpretList
 
 
 #####检查解读103L                  腹胀&呕吐&腹部高调金属音｜肠型&蠕动波｜腹部振水音｜腹部气过水声  白细胞计数增高&血红蛋白增高｜红细胞比容增高｜尿比重增高        肠梗阻 支持肠梗阻的诊断，建议结合X线辅助检查 诊断依据    是
@@ -10311,9 +10320,9 @@ Library           RequestsLibrary
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    # Should Not Contain    ${aj}     胃食管反流病
-    Should Not Contain    ${getRes['body']}    examinationInterpretList
+    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+    Should Not Contain    ${aj}     胃食管反流病
+    # Should Not Contain    ${getRes['body']}    examinationInterpretList
 
 
 #####检查解读104L                      尿频｜尿急｜尿痛｜血尿&消瘦&发热｜盗汗｜乏力 脓尿&蛋白尿&血尿       肾结核 支持肾结核的诊断，建议结合B超，CT及膀胱镜检查确诊  诊断依据    是
@@ -10899,9 +10908,9 @@ Library           RequestsLibrary
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    # Should Not Contain    ${aj}     胃食管反流病
-    Should Not Contain    ${getRes['body']}    examinationInterpretList
+    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+    Should Not Contain    ${aj}     胃食管反流病
+    # Should Not Contain    ${getRes['body']}    examinationInterpretList
 
 
 #####检查解读116L          持续性右下腹痛&右下腹有固定压痛&肌紧张    血白细胞总数增多｜中性粒细胞增多｜Ｃ反应蛋白可升高       急性化脓性阑尾炎    支持急性化脓性阑尾炎的诊断，建议结合超声，必要时进行CT确诊  诊断依据    是
@@ -11454,22 +11463,6 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     急性肺栓塞
 
-检查解读117.3 病历内容:胸痛｜急性胸痛｜下肢肿胀｜下肢疼痛｜呼吸困难｜Wells评分<2分+检查结果:加压超声阳性&肺动脉CTA不能排除肺栓塞,推荐诊断"不应"包含:急性肺栓塞
-    [Documentation]    ""
-    #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 胸痛 急性胸痛 下肢肿胀 下肢疼痛 呼吸困难 Wells评分:1 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    # Should Not Contain    ${aj}     急性肺栓塞
-    Should Not Contain    ${getRes['body']}    examinationInterpretList
 
 
 #####检查解读135L      胸痛｜急性胸痛｜下肢肿胀｜下肢疼痛｜呼吸困难｜Wells评分>=2分  加压超声阳性&肺动脉CTA不能排除肺栓塞        选择性肺动脉造影阳性   肺动脉CTA不能排除肺栓塞结合具有DVT表现确诊选择性肺动脉造影阳性(PTE)  AME－肺栓塞 是
@@ -11495,23 +11488,6 @@ Library           RequestsLibrary
     ...    examinationList=
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     急性肺栓塞
-
-检查解读118.2 病历内容:呼吸困难+检查结果:缺少选择性肺动脉造影阳性,推荐诊断"不应"包含:急性肺栓塞
-    [Documentation]    ""
-    #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 呼吸困难 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    # Should Not Contain    ${aj}     胃食管反流病
-    Should Not Contain    ${getRes['body']}    examinationInterpretList
 
 
 

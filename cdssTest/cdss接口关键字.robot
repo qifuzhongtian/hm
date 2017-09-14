@@ -5,10 +5,10 @@ ${base_url}       http://10.117.64.153:8080
 # ${base_url}       http://10.46.74.95:9200
 
 # ${base_url}     http://10.46.74.95:8080
-##旧
-# ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
+##旧-测试
+${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
 ##新
-${Huimei_id}      C3E74C229156E6B31534E946BCDEBA94
+# ${Huimei_id}      C3E74C229156E6B31534E946BCDEBA94
 ${Huimei_id_safe_medication}    C3B844493A477BCF3D7B73A5E902B269
 
 
@@ -495,6 +495,41 @@ test
     #Should Contain    ${aj}    null
     #Should Not Be Empty    ${aj}
     Should Be Empty    ${aj}
+
+
+识别接口EEE
+    [Arguments]    ${recordInfo}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    ${recordInfo}    Evaluate    dict(${recordInfo})
+    Create Session    api    http://10.117.64.153:8099    ${dict}
+    ${data}    Create Dictionary    ${recordInfo}    bodyTempr=37.0  age=25  ageType=岁   highBldPress=120    lowBldPress=80  pregnancyStatus=1
+    ${addr}    Post Request    api    apollo/v_3_0/recognize    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # Should Contain    ${aj[:15]}    ${msg}
+    # Delete All Sessions
+    [Return]    ${responsedata}
+
+
+
+识别接口222
+    [Arguments]
+    ...    ${recordInfo}
+    # ...    ${symptom}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    ${recordInfo}    Evaluate    dict(${recordInfo})
+    Create Session    api    http://10.117.64.153:8099    ${dict}
+    ${data}    Create Dictionary    recordInfo=${recordInfo}
+    # ...    symptom=${symptom}
+    ...    bodyTempr=37.0  age=25  ageType=岁   highBldPress=120    lowBldPress=80  pregnancyStatus=1
+    ${addr}    Post Request    api    apollo/v_3_0/recognize    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # Should Contain    ${aj[:15]}    ${msg}
+    # Delete All Sessions
+    ${aj}    Evaluate    [aj['word'] for aj in $responsedata['body']['recognizeResultList']]
+    Should Be Empty    ${aj}
+    # [Return]    ${responsedata}
+
+
 
 
 妇产科诊断性别

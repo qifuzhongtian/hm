@@ -2,7 +2,8 @@
 Resource          ../his关键字.robot
 Library           Collections
 Library           RequestsLibrary    # 字段名 类型 是否必须 说明    # doctorName    String    是    登录名    # password
-# ...               # String    是    密码    # loginStatus    Integer    是    登录状态
+...               # ...    # String    是    密码    # loginStatus    Integer    是
+...               # 登录状态
 
 *** Test Cases ***
 3.1 用户登录成功
@@ -14,3 +15,12 @@ Library           RequestsLibrary    # 字段名 类型 是否必须 说明    #
     [Documentation]    断言error:""
     ${getRes}    用户登录    doctorName=iyinbo    password=222222    loginStatus=1
     Should Be Equal As Strings    ${getRes['head']['error']}    4011
+
+3.3 test登录_list
+    [Documentation]    断言error:"" 断言error:""
+    ${users}    Create List    a    b    yinbo
+    ${pwds}    Create List    1    2    3
+    ${assert}    Create List    用户名或密码错误!    hehehe    pass
+    :FOR    ${i}    IN RANGE    0    3
+    \    ${getRes}    用户登录    doctorName=${users[${i}]}    password=${pwds[${i}]}    loginStatus=1
+    \    Should Be Equal As Strings    ${getRes['head']['message']}    ${assert[${i}]}

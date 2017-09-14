@@ -45,7 +45,7 @@ Library           RequestsLibrary
 
     ${getRes}    用药推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     [Teardown]    sleep    0.2s
@@ -60,7 +60,7 @@ Library           RequestsLibrary
 
     ${getRes}    用药推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     [Teardown]    sleep    0.2s
@@ -75,21 +75,22 @@ Library           RequestsLibrary
 
     ${getRes}    用药推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     [Teardown]    sleep    0.2s
 
+
 ####6L 抗凝治疗    肠道外抗凝(一线治疗药物)   大面积肺栓塞｜肺栓塞｜急性肺栓塞｜肺血管栓塞面积>=50%           55  是
-5.抗凝治疗:肠道外抗凝(一线治疗药物):主诉:大面积肺栓塞｜肺栓塞｜急性肺栓塞｜肺血管栓塞面积>=50%,用药推荐包含:富马酸伊布利特注射液 肝素钠注射液 肝素钙注射液 注射用肝素钙 依诺肝素钠注射液 注射用依诺肝素钠 达肝素钠注射液 那屈肝素钙注射液 那曲肝素钙注射液 注射用那屈肝素钙 贝米肝素钠注射液 磺达肝癸钠注射液
+5.抗凝治疗:肠道外抗凝(一线治疗药物):主诉:大面积肺栓塞｜肺栓塞｜急性肺栓塞｜肺血管栓塞面积>=50%,用药推荐包含:肝素钠注射液 肝素钙注射液 注射用肝素钙 依诺肝素钠注射液 注射用依诺肝素钠 达肝素钠注射液 那屈肝素钙注射液 那曲肝素钙注射液 注射用那屈肝素钙 贝米肝素钠注射液 磺达肝癸钠注射液
     [Documentation]    断言:""
-    ${assert}    Create List    富马酸伊布利特注射液    肝素钠注射液    肝素钙注射液    注射用肝素钙    依诺肝素钠注射液    注射用依诺肝素钠    达肝素钠注射液    那屈肝素钙注射液    那曲肝素钙注射液    注射用那屈肝素钙    贝米肝素钠注射液    磺达肝癸钠注射液
+    ${assert}    Create List    肝素钠注射液    肝素钙注射液    注射用肝素钙    依诺肝素钠注射液    注射用依诺肝素钠    达肝素钠注射液    那屈肝素钙注射液    那曲肝素钙注射液    注射用那屈肝素钙    贝米肝素钠注射液    磺达肝癸钠注射液
     [Setup]    Run Keywords    获取时间戳
     ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 大面积肺栓塞 肺栓塞 急性肺栓塞 肺血管栓塞面积:50% </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
 
     ${getRes}    用药推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     [Teardown]    sleep    0.2s
@@ -532,7 +533,6 @@ Library           RequestsLibrary
     [Teardown]    sleep    0.2s
 
 
-
 25.2 房颤控制:控制房颤心室率:主诉:心力衰竭症状｜心力衰竭&EF>=50%｜射血分数保留 ,用药推荐包含:盐酸地尔硫卓片 盐酸地尔硫卓缓释胶囊 盐酸地尔硫卓缓释胶囊(Ⅱ) 盐酸地尔硫卓缓释片 盐酸地尔硫卓控释胶囊 盐酸维拉帕米片 盐酸维拉帕米缓释片 盐酸维拉帕米缓释胶囊 注射用盐酸地尔硫卓 盐酸维拉帕米注射液 地高辛片 地高辛注射液 盐酸胺碘酮片 盐酸胺碘酮胶囊
     [Documentation]    断言:""
     ${assert}    Create List    盐酸地尔硫卓片    盐酸地尔硫卓缓释胶囊    盐酸地尔硫卓缓释胶囊(Ⅱ)    盐酸地尔硫卓缓释片    盐酸地尔硫卓控释胶囊    盐酸维拉帕米片    盐酸维拉帕米缓释片    盐酸维拉帕米缓释胶囊    注射用盐酸地尔硫卓    盐酸维拉帕米注射液    地高辛片    地高辛注射液    盐酸胺碘酮片    盐酸胺碘酮胶囊
@@ -540,7 +540,7 @@ Library           RequestsLibrary
     ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 射血分数:50% 射血分数保留 房颤 心率:111次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     [Teardown]    sleep    0.2s
