@@ -502,7 +502,7 @@ test
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     ${recordInfo}    Evaluate    dict(${recordInfo})
     Create Session    api    http://10.117.64.153:8099    ${dict}
-    ${data}    Create Dictionary    ${recordInfo}    bodyTempr=37.0  age=25  ageType=岁   highBldPress=120    lowBldPress=80  pregnancyStatus=1
+    ${data}    Create Dictionary    ${recordInfo}    bodyTempr=  age=25  ageType=岁   highBldPress=    lowBldPress=    pregnancyStatus=1
     ${addr}    Post Request    api    apollo/v_3_0/recognize    data=${data}
     ${responsedata}    To Json    ${addr.content}
     # Should Contain    ${aj[:15]}    ${msg}
@@ -520,7 +520,7 @@ test
     Create Session    api    http://10.117.64.153:8099    ${dict}
     ${data}    Create Dictionary    recordInfo=${recordInfo}
     # ...    symptom=${symptom}
-    ...    bodyTempr=37.0  age=25  ageType=岁   highBldPress=120    lowBldPress=80  pregnancyStatus=1
+    ...    bodyTempr=  age=25  ageType=岁   highBldPress=    lowBldPress=  pregnancyStatus=1
     ${addr}    Post Request    api    apollo/v_3_0/recognize    data=${data}
     ${responsedata}    To Json    ${addr.content}
     # Should Contain    ${aj[:15]}    ${msg}

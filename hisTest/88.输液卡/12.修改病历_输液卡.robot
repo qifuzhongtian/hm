@@ -109,22 +109,22 @@ Library    DateTime
 *** Variables ***
 
 *** Test Cases ***
-12.修改病历_输液卡
-    [Tags]    skip
-   # [Documentation]    断言:"error=0 成功"
-    ${getRes}    修改病历_输液卡    inquiryType=0    address=测试地址    recordId=${recordId}    patientId=${patientId}    patientName=接口自动保存病例    gender=1    age=50
-    ...    ageType=岁    phoneNo=1333333333    temperature=37    sbp=130    dbp=90    heartRate=90
-    ...    height=181    weight=71.5    otherPhysique=
-    ...    symptom=发热    previousHistory=头痛    personalHistory=咽炎    allergyHistory=花粉过敏啊啊啊    familyHistory=心脏病
-    ...    modle=1    doctorAdvice=我是医嘱
-    ...    examList={"examId":"843","examName":"抗RA33抗体","total":"1","patientExamId":"${examList_patientExamId}","price":"1","isCharged":"0","dataSource":"1"}
-    ...    diagnosis={"diseaseId":"138","diseaseName":"急性心肌梗死"}
-    ...    patentPrescriptionList={"isCharged":${0},"prescription":${prescription_prescription},"patentDrugList":[{"drugId":"29087","drugName":"萃仙丸","dataSource":"1","assId":"","usage":"口服","frequency":"1日2次(bid)","dosage":"1","dosageUnit":"粒","totalDosage":2,"totalDosageUnit":"盒","price":1,"univalence":2,"prescription":${prescription_prescription},"specification":"每100粒重3g","manufacturer":"本溪仙草堂药业有限公司"}]}
-    # ...    chinesePrescriptionList={"isCharged":${0},"prescription":${chinesePrescriptionList_prescription},"totalDosage":"1","dailyDosage":"1","frequency":"1日1次(qd)","usage":"口服","requirement":"水煎400ml；分早晚两次空腹温服","prescription":${chinesePrescriptionList_prescription},"decoctionPiecesList":[{"drugId":"18939","drugName":"胖大海","value":"1","unit":"盒","price":"0.00","comment":"先煎","univalence":"0","dataSource":"1","specification":"1.0g/粒*20/盒"}]}
-    ...    chinesePrescriptionList=
-    # ...    additionalList={"additionalId":${null},"additionalName":"附加费用1","additionalPrice":"1.00","isCharged":"0"},{"additionalId":${null},"additionalName":"附加费用2","additionalPrice":"2.00","isCharged":"0"}
-    ...    infusionList={"isCharged":${0},"recordId":${recordId},"prescription":${infusion_prescription},"infusionGroupList":[{"group":1,"usage":"静脉注射","useRate":"1日1次(qd)","drippingSpeed":1,"speedUnit":"袋","startTime":"${today}","dayCount":1,"patientDrugList":[{"drugId":"${drugId}","drugName":"${drugName}","dosage":"","dosageUnit":"","totalDosage":1,"totalDosageUnit":"盒","skinTest":"是","price":99.8,"univalence":2,"drugId":"${drugId}","dataSource":1,"specification":"","manufacturer":"${manufacturer}"}]}]}
-    ...    recordVersion=${recordVersion}
-    Should Be Equal As Strings    ${getRes['head']['error']}    0
+# 12.修改病历_输液卡
+#     [Tags]    skip
+#    # [Documentation]    断言:"error=0 成功"
+#     ${getRes}    修改病历_输液卡    inquiryType=0    address=测试地址    recordId=${recordId}    patientId=${patientId}    patientName=接口自动保存病例    gender=1    age=50
+#     ...    ageType=岁    phoneNo=1333333333    temperature=37    sbp=130    dbp=90    heartRate=90
+#     ...    height=181    weight=71.5    otherPhysique=
+#     ...    symptom=发热    previousHistory=头痛    personalHistory=咽炎    allergyHistory=花粉过敏啊啊啊    familyHistory=心脏病
+#     ...    modle=1    doctorAdvice=我是医嘱
+#     ...    examList={"examId":"843","examName":"抗RA33抗体","total":"1","patientExamId":"${examList_patientExamId}","price":"1","isCharged":"0","dataSource":"1"}
+#     ...    diagnosis={"diseaseId":"138","diseaseName":"急性心肌梗死"}
+#     ...    patentPrescriptionList={"isCharged":${0},"prescription":${prescription_prescription},"patentDrugList":[{"drugId":"29087","drugName":"萃仙丸","dataSource":"1","assId":"","usage":"口服","frequency":"1日2次(bid)","dosage":"1","dosageUnit":"粒","totalDosage":2,"totalDosageUnit":"盒","price":1,"univalence":2,"prescription":${prescription_prescription},"specification":"每100粒重3g","manufacturer":"本溪仙草堂药业有限公司"}]}
+#     # ...    chinesePrescriptionList={"isCharged":${0},"prescription":${chinesePrescriptionList_prescription},"totalDosage":"1","dailyDosage":"1","frequency":"1日1次(qd)","usage":"口服","requirement":"水煎400ml；分早晚两次空腹温服","prescription":${chinesePrescriptionList_prescription},"decoctionPiecesList":[{"drugId":"18939","drugName":"胖大海","value":"1","unit":"盒","price":"0.00","comment":"先煎","univalence":"0","dataSource":"1","specification":"1.0g/粒*20/盒"}]}
+#     ...    chinesePrescriptionList=
+#     # ...    additionalList={"additionalId":${null},"additionalName":"附加费用1","additionalPrice":"1.00","isCharged":"0"},{"additionalId":${null},"additionalName":"附加费用2","additionalPrice":"2.00","isCharged":"0"}
+#     ...    infusionList={"isCharged":${0},"recordId":${recordId},"prescription":${infusion_prescription},"infusionGroupList":[{"group":1,"usage":"静脉注射","useRate":"1日1次(qd)","drippingSpeed":1,"speedUnit":"袋","startTime":"${today}","dayCount":1,"patientDrugList":[{"drugId":"${drugId}","drugName":"${drugName}","dosage":"","dosageUnit":"","totalDosage":1,"totalDosageUnit":"盒","skinTest":"是","price":99.8,"univalence":2,"drugId":"${drugId}","dataSource":1,"specification":"","manufacturer":"${manufacturer}"}]}]}
+#     ...    recordVersion=${recordVersion}
+#     Should Be Equal As Strings    ${getRes['head']['error']}    0
 
 

@@ -20,7 +20,7 @@ ${null}    null
     # Create Session    api    ${base_url_jl}    ${dict}
     Create Session    api    ${base_url}    ${dict}
     #账号密码5
-    ${data}    Create Dictionary    doctorName=admin    password=c93ccd78b2076528346216b3b2f701e6    loginStatus=1
+    ${data}    Create Dictionary    doctorName=yinbo    password=e3ceb5881a0a1fdaad01296d7554868d    loginStatus=1
     ${addr}    Post Request    api    his/login/login    data=${data}
     ${responsedata}    To Json    ${addr.content}
     ${doctorId}    Get From Dictionary    ${responsedata['body']}    doctorId
@@ -279,11 +279,11 @@ ${null}    null
     ${recordVersion}    Get From Dictionary    ${responsedata['body']}    recordVersion
     Set Global Variable    ${recordVersion}
     #输液卡药品drugId
-    ${drugId}    Get From Dictionary    ${responsedata['body']['infusionList'][0]}    id
-    Set Global Variable    ${drugId}
+    # ${drugId}    Get From Dictionary    ${responsedata['body']['infusionList'][0]}    id
+    # Set Global Variable    ${drugId}
     #输液卡处方编号
-    ${infusion_prescription}    Get From Dictionary    ${responsedata['body']['infusionList'][0]}    prescription
-    Set Global Variable    ${infusion_prescription}
+    # ${infusion_prescription}    Get From Dictionary    ${responsedata['body']['infusionList'][0]}    prescription
+    # Set Global Variable    ${infusion_prescription}
     #输液卡获取病历id
     # ${recordId}    Get From Dictionary    ${responsedata['body']['infusionList'][0]}    recordId
     # Set Global Variable    ${recordId}
