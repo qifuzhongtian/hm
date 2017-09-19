@@ -9,7 +9,7 @@ Library           ExcelLibrary    # 字段名 类型 是否必须 说明    # us
 ...               # symptom String 否 主诉    # confirmDiagnosis String 否 已确定诊断
 
 *** Test Cases ***
-2.1
+# 2.1
     # 白带多一天
     # 白带异味
     #    鼻塞,喉痛,偶咳
