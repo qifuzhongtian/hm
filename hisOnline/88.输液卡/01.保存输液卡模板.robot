@@ -46,7 +46,7 @@ Library           DateTime
     # log    ${secs}
     # ${tempName}    Catenate    SEPARATOR=    ${secs}    中药饮片处方模板
     # log    ${tempName}
-    ${getRes}    保存输液卡模板    id=    tempName=${catenate}输液卡模板    tempType=4    tempAuthority=2    linkId=20
+    ${getRes}    保存输液卡模板    id=    tempName=${catenate}输液卡模板    tempType=4    tempAuthority=1    linkId=20
     ...    infusionList={"infusionGroupList":[{"group":1,"usage":"静脉滴注","useRate":"1日1次(qd)","drippingSpeed":1,"speedUnit":"g/分钟","startTime":"${today}","dayCount":1,"patientDrugList":[{"drugId":"${drugId}","drugName":"${drugName}","dosage":"1","dosageUnit":"袋","totalDosage":1,"totalDosageUnit":"瓶","skinTest":"皮试","dataSource":0,"specification":"","manufacturer":"${manufacturer}"}]}]}
     Should Be Equal As Strings    ${getRes['head']['error']}    0
 

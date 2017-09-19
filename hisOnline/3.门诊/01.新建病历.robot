@@ -8,8 +8,8 @@ Library           RequestsLibrary
 
 # 字段名	类型	是否必须	说明
 # patientId	Long	否	没有患者id时可为空
-*** Test Cases ***
-1.1 新建病历
-    [Documentation]    断言:""
-    ${getRes}    新建病历    patientId=${patientId}
-    Should Be Equal As Strings    ${getRes['head']['error']}    0
+# *** Test Cases ***
+# 1.1 新建病历
+#     [Documentation]    断言:""
+#     ${getRes}    新建病历    patientId=${patientId}
+#     Should Be Equal As Strings    ${getRes['head']['error']}    0

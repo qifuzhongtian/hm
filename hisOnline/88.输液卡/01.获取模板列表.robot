@@ -1,6 +1,7 @@
 *** Settings ***
 Suite Setup    Run Keywords       登录接口
 ...    AND    获取时间戳
+...    AND    获取日期
 ...    AND    保存中药饮片处方模板    id=    tempName=${catenate}饮片处方模板_个人    tempType=1    tempAuthority=1    linkId=20    chinesePrescriptionList=
 ...    AND    保存中药饮片处方模板    id=    tempName=${catenate}饮片处方模板_诊所    tempType=1    tempAuthority=2    linkId=20    chinesePrescriptionList=
 ...    AND    保存医嘱模板    id=    tempName=${secs}常用医嘱    tempDesc=多喝点水!!
@@ -11,7 +12,8 @@ Suite Teardown    Delete All Sessions
 Resource          ../his关键字.robot
 Library           Collections
 Library           RequestsLibrary
-Library    DateTime
+Library        DateTime
+
 # 字段名	类型	是否必须	说明
 # currentPage	int	否	页码，翻页时使用，默认从1开始
 # tempName	String	否	模板名称

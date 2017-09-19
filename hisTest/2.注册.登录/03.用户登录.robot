@@ -9,18 +9,10 @@ Library           RequestsLibrary    # 字段名 类型 是否必须 说明    #
 3.1 用户登录成功
     [Documentation]    断言error:"" 断言error:""
     ${getRes}    用户登录    doctorName=yinbo    password=e3ceb5881a0a1fdaad01296d7554868d    loginStatus=1
-    Should Be Equal As Strings    ${getRes['head']['error']}    4011
+    Should Be Equal As Strings    ${getRes['head']['error']}    0
 
 3.2 用户登录失败
     [Documentation]    断言error:""
     ${getRes}    用户登录    doctorName=iyinbo    password=222222    loginStatus=1
     Should Be Equal As Strings    ${getRes['head']['error']}    4011
 
-3.3 test登录_list
-    [Documentation]    断言error:"" 断言error:""
-    ${users}    Create List    a    b    yinbo
-    ${pwds}    Create List    1    2    3
-    ${assert}    Create List    用户名或密码错误!    hehehe    pass
-    :FOR    ${i}    IN RANGE    0    3
-    \    ${getRes}    用户登录    doctorName=${users[${i}]}    password=${pwds[${i}]}    loginStatus=1
-    \    Should Be Equal As Strings    ${getRes['head']['message']}    ${assert[${i}]}

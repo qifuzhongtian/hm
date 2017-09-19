@@ -19,7 +19,7 @@ Suite Teardown    Delete All Sessions
     ...    presentHistory=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
     log    ${aj}
-    Should Contain    ${aj[:3]}    胆石病1
+    Should Contain    ${aj[:3]}    胆石病
 
 
 2.2 体格检查_体温>=37.5

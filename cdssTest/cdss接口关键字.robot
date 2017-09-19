@@ -526,11 +526,8 @@ test
     # Should Contain    ${aj[:15]}    ${msg}
     # Delete All Sessions
     ${aj}    Evaluate    [aj['word'] for aj in $responsedata['body']['recognizeResultList']]
-    Should Be Empty    ${aj}
+    Should Contain    ${aj}    呵呵
     # [Return]    ${responsedata}
-
-
-
 
 妇产科诊断性别
     [Arguments]    ${query}

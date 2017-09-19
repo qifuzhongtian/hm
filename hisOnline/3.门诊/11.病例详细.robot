@@ -20,5 +20,3 @@ Library           RequestsLibrary
     # 病历详细    ['body']['recordId']    59356    patientId=53026    recordId=59356
     ${getRes}    病历详细    patientId=${patientId}    recordId=${recordId}
     Should Be Equal As Strings    ${getRes['body']['diagnosis'][0]['diseaseName']}    急性心肌梗死
-
-
