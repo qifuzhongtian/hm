@@ -1,6 +1,6 @@
 *** Variables ***
-${base_url}     http://apollo.huimeionline.com
-# ${base_url}       http://10.117.64.153:8080
+# ${base_url}     http://apollo.huimeionline.com
+${base_url}       http://118.178.109.153
 # ${base_url}     http://10.46.74.95:8080
 
 #妇产科诊断性别_测试环境
