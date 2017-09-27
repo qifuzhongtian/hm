@@ -22,15 +22,15 @@ Suite Teardown    Delete All Sessions
     Should Contain    ${aj[:3]}    胆石病
 
 
-2.2 体格检查_体温>=37.5
-    [Documentation]    断言:"急性上呼吸道感染"
-    ${getRes}    智能诊断2.3    symptom=    previousHistory=    personalHistory=    allergyHistory=
-    ...    familyHistory=    weight=    gender=    bodyTempr=37.5    lowBldPress=    highBldPress=
-    ...    examInfo=    heartRate=    age=    ageType=    confirmDiagnosis=    confirmDiagnosisMap=
-    ...    presentHistory=
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
-    log    ${aj}
-    Should Contain    ${aj}    急性上呼吸道感染
+# 2.2 体格检查_体温>=37.5
+#     [Documentation]    断言:"急性上呼吸道感染"
+#     ${getRes}    智能诊断2.3    symptom=    previousHistory=    personalHistory=    allergyHistory=
+#     ...    familyHistory=    weight=    gender=    bodyTempr=37.5    lowBldPress=    highBldPress=
+#     ...    examInfo=    heartRate=    age=    ageType=    confirmDiagnosis=    confirmDiagnosisMap=
+#     ...    presentHistory=
+#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
+#     log    ${aj}
+#     Should Contain    ${aj}    急性上呼吸道感染
 
 # 2.3 体格检查_体温>39
 #     [Documentation]    断言:"diseaseName=败血症"

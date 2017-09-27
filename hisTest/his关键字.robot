@@ -390,7 +390,8 @@ ${null}    null
     # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
     # Delete All Sessions
     ${doctorId}    get From Dictionary    ${responsedata['body']}    doctorId
-    Set Global Variable    ${doctorId}
+
+     Global Variable    ${doctorId}
     [Return]    ${responsedata}
 
 诊所人员查询

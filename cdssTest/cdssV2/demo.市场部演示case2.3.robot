@@ -274,6 +274,8 @@ Library           RequestsLibrary
        ...    confirmDiagnosisMap=    presentHistory=
        ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
        Should Contain    ${aj[:10]}    子宫粘膜下平滑肌瘤
+
+
 25.妇产科室演示病例15例-15
        [Documentation]    主诉:'早孕自然流产3次。近1年月经周期不规律，自原来的28～30天变为28～49天，经量无变化 查体：妇科检查未见异常'
        ${getRes}    智能诊断2.3    symptom=早孕自然流产3次。近1年月经周期不规律，自原来的28～30天变为28～49天，经量无变化 查体：妇科检查未见异常
@@ -341,7 +343,7 @@ Library           RequestsLibrary
        ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
        Should Contain    ${aj[:15]}    肾衰竭
 
-31.董洁ppt演示
+32.董洁ppt演示
        [Documentation]    主诉:'口渴、多饮、多尿、多食43年，间断腹泻10余年，心悸，憋气伴恶心1天入院。'
        ${getRes}    智能诊断2.3    symptom=口渴、多饮、多尿、多食43年，间断腹泻10余年，心悸，憋气伴恶心1天入院。
        ...    previousHistory=1年前相继出现双足、双手麻木。此期间继续胰岛素治疗，血糖控制不佳    personalHistory=既往14年前换肺结核,规律治疗2年后停药,两性前列腺增生症4年余
