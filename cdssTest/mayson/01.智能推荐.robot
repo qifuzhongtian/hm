@@ -1632,18 +1632,17 @@ Library           RequestsLibrary
 
 
 
-#######################################推荐治疗方案##########################################################
-# #######急性ST段抬高型心肌梗塞   非出血高危   否定条件:出血高危｜胸痛>=24小时   溶栓治疗    进行出血风险评估，确定为非高危，预计首次医疗接触（FMC）至PCI的时间延迟>120分钟，对有适应证者应于30分钟内尽早启动溶栓治疗  紧急
+######################################推荐治疗方案##########################################################
+#######急性ST段抬高型心肌梗塞   非出血高危   否定条件:出血高危｜胸痛>=24小时   溶栓治疗    进行出血风险评估，确定为非高危，预计首次医疗接触（FMC）至PCI的时间延迟>120分钟，对有适应证者应于30分钟内尽早启动溶栓治疗  紧急
 推荐治疗方案1.1 急性ST段抬高型心肌梗塞+非出血高危, 推荐血运重建方案:溶栓治疗
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性ST段抬高型心肌梗塞 非出血高危 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性ST段抬高型心肌梗塞 </InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 非出血高危 Objective: Assessment:诊断：急性ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -1653,13 +1652,12 @@ Library           RequestsLibrary
 推荐治疗方案1.2 急性ST段抬高型心肌梗塞+否定条件:出血高危,不会推荐血运重建方案:溶栓治疗
     [Documentation]    急性ST段抬高型心肌梗塞+否定条件:出血高危,断言:"planName!=溶栓治疗"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性ST段抬高型心肌梗塞 出血高危 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性ST段抬高型心肌梗塞 </InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 出血高危 Objective: Assessment:诊断：急性ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -1669,13 +1667,12 @@ Library           RequestsLibrary
 推荐治疗方案1.3 急性ST段抬高型心肌梗塞+否定条件:胸痛23小时:出血高危,会推荐血运重建方案:溶栓治疗
     [Documentation]    急性ST段抬高型心肌梗塞+否定条件:胸痛23小时:出血高危,断言:"planName=溶栓治疗"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性ST段抬高型心肌梗塞 胸痛23小时 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性ST段抬高型心肌梗塞 </InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 胸痛23小时 Objective: Assessment:诊断：急性ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -1685,13 +1682,12 @@ Library           RequestsLibrary
 推荐治疗方案1.4 急性ST段抬高型心肌梗塞+否定条件:胸痛24小时:出血高危,不会推荐血运重建方案:溶栓治疗
     [Documentation]    急性ST段抬高型心肌梗塞+否定条件:胸痛24小时:出血高危,断言:"planName!=溶栓治疗"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性ST段抬高型心肌梗塞 胸痛24小时 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性ST段抬高型心肌梗塞 </InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 胸痛24小时 Objective: Assessment:诊断：急性ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -1704,13 +1700,12 @@ Library           RequestsLibrary
 推荐治疗方案2.1 急性ST段抬高型心肌梗塞,推荐血运重建方案:PCI手术
     [Documentation]    急性ST段抬高型心肌梗塞,断言:"planName=PCI手术"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性ST段抬高型心肌梗塞 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 Objective: Assessment:诊断：急性ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -1720,13 +1715,12 @@ Library           RequestsLibrary
 推荐治疗方案2.2 急性ST段抬高型心肌梗塞+否定条件:胸痛11小时,会推荐血运重建方案:PCI手术
     [Documentation]    急性ST段抬高型心肌梗塞+否定条件:胸痛11小时,断言:"planName=PCI手术"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性ST段抬高型心肌梗塞 胸痛11小时 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 胸痛11小时 Objective: Assessment:诊断：急性ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -1737,13 +1731,12 @@ Library           RequestsLibrary
 推荐治疗方案2.3 急性ST段抬高型心肌梗塞+否定条件:胸痛12小时,不会推荐血运重建方案:PCI手术
     [Documentation]    急性ST段抬高型心肌梗塞+否定条件:胸痛12小时,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性ST段抬高型心肌梗塞 胸痛12小时 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 胸痛12小时 Objective: Assessment:诊断：急性ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -1754,13 +1747,12 @@ Library           RequestsLibrary
 推荐治疗方案3.1 急性ST段抬高型心肌梗塞+出血高危,推荐血运重建方案:保守策略
     [Documentation]    急性ST段抬高型心肌梗塞+出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性ST段抬高型心肌梗塞 出血高危 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 出血高危 Objective: Assessment:诊断：急性ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -1773,13 +1765,12 @@ Library           RequestsLibrary
 推荐治疗方案4.1 急性非ST段抬高型心肌梗塞+GRACE评分极高危,推荐血运重建方案:PCI手术
     [Documentation]    急性非ST段抬高型心肌梗塞+GRACE评分极高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分极高危 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分极高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -1789,13 +1780,12 @@ Library           RequestsLibrary
 推荐治疗方案4.2 急性非ST段抬高型心肌梗塞+缺血极高危,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 缺血极高危 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 缺血极高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -1805,13 +1795,12 @@ Library           RequestsLibrary
 推荐治疗方案4.3 急性非ST段抬高型心肌梗塞+GRACE评分极高危+否定条件:胸痛71小时,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分极高危 胸痛71小时 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分极高危 胸痛71小时 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -1821,13 +1810,12 @@ Library           RequestsLibrary
 推荐治疗方案4.4 急性非ST段抬高型心肌梗塞+GRACE评分极高危+否定条件:胸痛72小时,不会推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分极高危 胸痛72小时 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分极高危 胸痛72小时 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -1837,13 +1825,12 @@ Library           RequestsLibrary
 推荐治疗方案4.5 急性非ST段抬高型心肌梗塞+缺血极高危+否定条件:胸痛71小时,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 缺血极高危 胸痛71小时 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 缺血极高危 胸痛71小时 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -1853,13 +1840,12 @@ Library           RequestsLibrary
 推荐治疗方案4.6 急性非ST段抬高型心肌梗塞+缺血极高危+否定条件:胸痛72小时,不会推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 缺血极高危 胸痛72小时 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 缺血极高危 胸痛72小时 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -1870,13 +1856,12 @@ Library           RequestsLibrary
 推荐治疗方案5.0 急性非ST段抬高型心肌梗塞+GRACE评分140+血流动力学不稳定,不会推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName!=PCI手术"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分:140 血流动力学不稳定 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分:140 血流动力学不稳定 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -1887,13 +1872,12 @@ Library           RequestsLibrary
 推荐治疗方案5.1 急性非ST段抬高型心肌梗塞+GRACE评分141+血流动力学不稳定,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分141分 血流动力学不稳定 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分141分 血流动力学不稳定 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -1904,13 +1888,12 @@ Library           RequestsLibrary
 推荐治疗方案5.2 急性非ST段抬高型心肌梗塞+GRACE评分141+心源性休克,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分141分 心源性休克 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分141分 心源性休克 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -1920,13 +1903,12 @@ Library           RequestsLibrary
 推荐治疗方案5.3 急性非ST段抬高型心肌梗塞+GRACE评分141+严重心律失常,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分141分 严重心律失常 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分141分 严重心律失常 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -1936,13 +1918,12 @@ Library           RequestsLibrary
 推荐治疗方案5.4 急性非ST段抬高型心肌梗塞+GRACE评分141+心脏骤停,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分141分 心脏骤停 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分141分 心脏骤停 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -1952,13 +1933,12 @@ Library           RequestsLibrary
 推荐治疗方案5.5 急性非ST段抬高型心肌梗塞+GRACE评分141+难治性心绞痛,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分141分 难治性心绞痛 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分141分 难治性心绞痛 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -1970,13 +1950,12 @@ Library           RequestsLibrary
 推荐治疗方案5.7 急性非ST段抬高型心肌梗塞+GRACE评分141+血流动力学不稳定+否定条件:胸痛72小时,不会推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分141分 血流动力学不稳定 胸痛72小时 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分141分 血流动力学不稳定 胸痛72小时 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -1986,13 +1965,12 @@ Library           RequestsLibrary
 推荐治疗方案5.8 急性非ST段抬高型心肌梗塞+GRACE评分141+心源性休克++否定条件:胸痛72小时,不会推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分141分 心源性休克 胸痛72小时 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分141分 心源性休克 胸痛72小时 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2002,13 +1980,12 @@ Library           RequestsLibrary
 推荐治疗方案5.9 急性非ST段抬高型心肌梗塞+GRACE评分141+严重心律失常+否定条件:胸痛72小时,不会推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分141分 严重心律失常 胸痛72小时 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分141分 严重心律失常 胸痛72小时 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2018,13 +1995,12 @@ Library           RequestsLibrary
 推荐治疗方案5.10 急性非ST段抬高型心肌梗塞+GRACE评分141+心脏骤停+否定条件:胸痛72小时,不会推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分141分 心脏骤停 胸痛72小时 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分141分 心脏骤停 胸痛72小时 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2034,13 +2010,12 @@ Library           RequestsLibrary
 推荐治疗方案5.11 急性非ST段抬高型心肌梗塞+GRACE评分141+难治性心绞痛+否定条件:胸痛72小时,不会推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分141分 难治性心绞痛 胸痛72小时 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分141分 难治性心绞痛 胸痛72小时 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2053,13 +2028,12 @@ Library           RequestsLibrary
 推荐治疗方案5.12 急性非ST段抬高型心肌梗塞+GRACE评分141+血流动力学不稳定+否定条件:胸痛71小时,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分141分 血流动力学不稳定 胸痛71小时 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分141分 血流动力学不稳定 胸痛71小时 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2069,13 +2043,12 @@ Library           RequestsLibrary
 推荐治疗方案5.13 急性非ST段抬高型心肌梗塞+GRACE评分141+心源性休克++否定条件:胸痛71小时,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分141分 心源性休克 胸痛71小时 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分141分 心源性休克 胸痛71小时 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2084,13 +2057,12 @@ Library           RequestsLibrary
 推荐治疗方案5.14 急性非ST段抬高型心肌梗塞+GRACE评分141+严重心律失常++否定条件:胸痛71小时,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分141分 严重心律失常 胸痛71小时 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分141分 严重心律失常 胸痛71小时 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2099,13 +2071,12 @@ Library           RequestsLibrary
 推荐治疗方案5.15 急性非ST段抬高型心肌梗塞+GRACE评分141+心脏骤停+否定条件:胸痛71小时,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分141分 心脏骤停 胸痛71小时 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分141分 心脏骤停 胸痛71小时 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2115,13 +2086,12 @@ Library           RequestsLibrary
 推荐治疗方案5.16 急性非ST段抬高型心肌梗塞+GRACE评分141+难治性心绞痛+否定条件:胸痛71小时,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分141分 难治性心绞痛 胸痛71小时 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分141分 难治性心绞痛 胸痛71小时 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2132,13 +2102,12 @@ Library           RequestsLibrary
 推荐治疗方案6.1 急性非ST段抬高型心肌梗塞+缺血极高危,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 缺血极高危 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 缺血极高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2148,13 +2117,12 @@ Library           RequestsLibrary
 推荐治疗方案6.2 急性非ST段抬高型心肌梗塞+缺血极高危 否定条件:胸痛71小时,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 缺血极高危 胸痛71小时 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 缺血极高危 胸痛71小时 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2164,13 +2132,12 @@ Library           RequestsLibrary
 推荐治疗方案6.3 急性非ST段抬高型心肌梗塞+缺血极高危 否定条件:胸痛72小时,不会推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 缺血极高危 胸痛72小时 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 缺血极高危 胸痛72小时 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2182,13 +2149,12 @@ Library           RequestsLibrary
 推荐治疗方案7.1 急性非ST段抬高型心肌梗塞+GRACE评分极高危,推荐血运重建方案:保守策略
     [Documentation]    断言:"planName=保守策略"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分极高危 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分极高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2200,13 +2166,12 @@ Library           RequestsLibrary
 推荐治疗方案8.1 急性非ST段抬高型心肌梗塞+GRACE评分141+血流动力学不稳定,推荐血运重建方案:保守策略
     [Documentation]    断言:"planName=保守策略"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分141分 血流动力学不稳定 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分141分 血流动力学不稳定 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2216,13 +2181,12 @@ Library           RequestsLibrary
 推荐治疗方案8.2 急性非ST段抬高型心肌梗塞+GRACE评分141+心源性休克,推荐血运重建方案:保守策略
     [Documentation]    断言:"planName=保守策略"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分141分 心源性休克 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分141分 心源性休克 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2232,13 +2196,12 @@ Library           RequestsLibrary
 推荐治疗方案8.3 急性非ST段抬高型心肌梗塞+GRACE评分141+严重心律失常,推荐血运重建方案:保守策略
     [Documentation]    断言:"planName=保守策略"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分141分 严重心律失常 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分141分 严重心律失常 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2248,13 +2211,12 @@ Library           RequestsLibrary
 推荐治疗方案8.4 急性非ST段抬高型心肌梗塞+GRACE评分141+心脏骤停,推荐血运重建方案:保守策略
     [Documentation]    断言:"planName=保守策略"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分141分 心脏骤停 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分141分 心脏骤停 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2264,13 +2226,12 @@ Library           RequestsLibrary
 推荐治疗方案8.5 急性非ST段抬高型心肌梗塞+GRACE评分141+难治性心绞痛,推荐血运重建方案:保守策略
     [Documentation]    断言:"planName=保守策略"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分141分 难治性心绞痛 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分141分 难治性心绞痛 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2283,13 +2244,12 @@ Library           RequestsLibrary
 推荐治疗方案9.1 急性非ST段抬高型心肌梗塞+缺血极高危,推荐血运重建方案:保守策略
     [Documentation]    断言:"planName=保守策略"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 缺血极高危</BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 缺血极高危Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2300,13 +2260,12 @@ Library           RequestsLibrary
 推荐治疗方案10.1 急性非ST段抬高型心肌梗塞+GRACE评分高危,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分高危 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2316,13 +2275,12 @@ Library           RequestsLibrary
 推荐治疗方案10.2 急性非ST段抬高型心肌梗塞+GRACE评分140,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分140 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分140 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2332,13 +2290,12 @@ Library           RequestsLibrary
 推荐治疗方案10.3 急性非ST段抬高型心肌梗塞+GRACE评分141,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分141 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分141 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2349,13 +2306,12 @@ Library           RequestsLibrary
 推荐治疗方案10.4 急性非ST段抬高型心肌梗塞+GRACE评分高危+否定条件:胸痛72小时,不会推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分高危 胸痛72小时 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分高危 胸痛72小时 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2365,13 +2321,12 @@ Library           RequestsLibrary
 推荐治疗方案10.5 急性非ST段抬高型心肌梗塞+GRACE评分140+否定条件:胸痛72小时,不会推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分140 胸痛72小时 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分140 胸痛72小时 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2381,13 +2336,12 @@ Library           RequestsLibrary
 推荐治疗方案10.6 急性非ST段抬高型心肌梗塞+GRACE评分141+否定条件:胸痛72小时,不会推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分141 胸痛72小时 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分141 胸痛72小时 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2397,13 +2351,12 @@ Library           RequestsLibrary
 推荐治疗方案10.7 急性非ST段抬高型心肌梗塞+GRACE评分141+否定条件:胸痛71小时,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分141 胸痛71小时 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分141 胸痛71小时 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2415,13 +2368,12 @@ Library           RequestsLibrary
 推荐治疗方案11.1 急性非ST段抬高型心肌梗塞+GRACE评分高危,推荐血运重建方案:保守策略
     [Documentation]    断言:"planName=保守策略"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分高危 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2432,13 +2384,12 @@ Library           RequestsLibrary
 推荐治疗方案11.2 急性非ST段抬高型心肌梗塞+GRACE评分140,推荐血运重建方案:保守策略
     [Documentation]    断言:"planName=保守策略"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分140 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分140 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2448,13 +2399,12 @@ Library           RequestsLibrary
 推荐治疗方案11.3 急性非ST段抬高型心肌梗塞+GRACE评分141,推荐血运重建方案:保守策略
     [Documentation]    断言:"planName=保守策略"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分141 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分141 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2465,13 +2415,12 @@ Library           RequestsLibrary
 推荐治疗方案12.1 急性非ST段抬高型心肌梗塞+GRACE评分中危,推荐血运重建方案:转入CCU
     [Documentation]    断言:"planName=转入CCU"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分中危 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分中危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2481,13 +2430,12 @@ Library           RequestsLibrary
 推荐治疗方案12.2 急性非ST段抬高型心肌梗塞+GRACE评分109,推荐血运重建方案:转入CCU
     [Documentation]    断言:"planName=转入CCU"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分109 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分109 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2497,13 +2445,12 @@ Library           RequestsLibrary
 推荐治疗方案12.3 急性非ST段抬高型心肌梗塞+GRACE评分140,推荐血运重建方案:转入CCU
     [Documentation]    断言:"planName=转入CCU"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分140 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分140 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2513,13 +2460,12 @@ Library           RequestsLibrary
 推荐治疗方案12.5 急性非ST段抬高型心肌梗塞+GRACE评分141,不会推荐血运重建方案:转入CCU
     [Documentation]    断言:"planName=转入CCU"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分141 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分141 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2530,13 +2476,12 @@ Library           RequestsLibrary
 推荐治疗方案13.1 急性非ST段抬高型心肌梗塞+GRACE评分低危,推荐血运重建方案:转入CCU
     [Documentation]    断言:"planName=转入CCU"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分低危 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分低危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2546,13 +2491,12 @@ Library           RequestsLibrary
 推荐治疗方案13.2 急性非ST段抬高型心肌梗塞+GRACE评分109,推荐血运重建方案:转入CCU
     [Documentation]    断言:"planName=转入CCU"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分109 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分109 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2562,13 +2506,12 @@ Library           RequestsLibrary
 推荐治疗方案13.3 急性非ST段抬高型心肌梗塞+GRACE评分108,推荐血运重建方案:转入CCU
     [Documentation]    断言:"planName=转入CCU"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 GRACE评分140 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分140 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2579,13 +2522,12 @@ Library           RequestsLibrary
 推荐治疗方案14.1 急性非ST段抬高型心肌梗塞+无 RACE评分,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2595,13 +2537,12 @@ Library           RequestsLibrary
 推荐治疗方案14.2 急性非ST段抬高型心肌梗塞+无RACE评分+否定条件:胸痛72小时,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 胸痛72小时 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 胸痛72小时 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2611,13 +2552,12 @@ Library           RequestsLibrary
 推荐治疗方案14.3 急性非ST段抬高型心肌梗塞+无RACE评分+否定条件:胸痛71小时,不会推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 胸痛71小时 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 胸痛71小时 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2628,13 +2568,12 @@ Library           RequestsLibrary
 推荐治疗方案15.1 急性非ST段抬高型心肌梗塞+无RACE评分,不会推荐血运重建方案:保守策略
     [Documentation]    断言:"planName=保守策略"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -2645,13 +2584,12 @@ Library           RequestsLibrary
 推荐治疗方案16.1 急性非ST段抬高型心肌梗塞+无RACE评分 ,推荐血运重建方案:转入CCU
     [Documentation]    断言:"planName=转入CCU"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性非ST段抬高型心肌梗塞 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
