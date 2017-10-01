@@ -64,7 +64,7 @@ Library           RequestsLibrary
     Should Contain    ${aj[:15]}    结肠癌
 
 5.市场部案例五
-    [Documentation]    主诉:腹泻，腹痛，血便1周 结膜苍白.期望诊断结果返回的diseaseName含有'甲状腺功能减退症'
+    [Documentation]    主诉:便秘1年余就诊，大便由平常每日1次渐至每周1次，且伴有体重增加（约10kg），纳差，腹胀，易疲劳.期望诊断结果返回的diseaseName含有'甲状腺功能减退症'
     ${getRes}    智能诊断2.3    symptom=便秘1年余就诊，大便由平常每日1次渐至每周1次，且伴有体重增加（约10kg），纳差，腹胀，易疲劳    previousHistory=    personalHistory=    allergyHistory=    familyHistory=
     ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
     ...    heartRate=    age=28    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=    presentHistory=
@@ -143,6 +143,7 @@ Library           RequestsLibrary
     log    ${aj}
     Should Contain    ${aj[:10]}    宫颈原位癌
 
+#急性阴道炎的子疾病:细菌性阴道病
 13.妇产科室演示病例15例-4
        [Documentation]    主诉:'患者近5日感白带增多，臭鱼腥味，伴轻度外阴瘙痒，同房后加重，无尿频、尿急、尿痛等症状,妇科查体：外阴无红肿，阴道分泌物多，色白，米汤样，无充血。宫颈轻度糜烂，无充血水肿。妇科查体：外阴无红肿，阴道分泌物多，色白，米汤样，无充血。宫颈轻度糜烂，无充血水肿。'
        ${getRes}    智能诊断2.3    symptom=患者近5日感白带增多，臭鱼腥味，伴轻度外阴瘙痒，同房后加重，无尿频、尿急、尿痛等症状,妇科查体：外阴无红肿，阴道分泌物多，色白，米汤样，无充血。宫颈轻度糜烂，无充血水肿。妇科查体：外阴无红肿，阴道分泌物多，色白，米汤样，无充血。宫颈轻度糜烂，无充血水肿。
@@ -151,8 +152,17 @@ Library           RequestsLibrary
        ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=
        ...    examInfo=    heartRate=    age=29    ageType=岁    confirmDiagnosis=
        ...    confirmDiagnosisMap=    presentHistory=
-       ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
+       ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases'][1]['subDiseases']]
        Should Contain    ${aj[:10]}    细菌性阴道病
+       # [Teardown]
+       # ...    Run Keyword If Test Failed    智能诊断2.3    symptom=患者近5日感白带增多，臭鱼腥味，伴轻度外阴瘙痒，同房后加重，无尿频、尿急、尿痛等症状,妇科查体：外阴无红肿，阴道分泌物多，色白，米汤样，无充血。宫颈轻度糜烂，无充血水肿。妇科查体：外阴无红肿，阴道分泌物多，色白，米汤样，无充血。宫颈轻度糜烂，无充血水肿。
+       # ...    previousHistory=    personalHistory=G4P1
+       # ...    allergyHistory=    familyHistory=
+       # ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=
+       # ...    examInfo=    heartRate=    age=29    ageType=岁    confirmDiagnosis=
+       # ...    confirmDiagnosisMap=    presentHistory=
+       # ${aj1}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases'][1]['subDiseases']]
+       # Should Contain    ${aj[:10]}    急性阴道炎22
 
 14.妇产科室演示病例15例-5
        [Documentation]    主诉:'腹胀、纳差、消瘦4个月 查体：腹部明显膨隆，移动性浊音阳性。妇科检查：子宫颈光滑，子宫较正常小，双附件区扪及质硬，固定包块，大小约10cm，包块界线不清，后陷凹扪及质硬肿块压迫直肠，直肠粘膜光滑。'
@@ -162,7 +172,7 @@ Library           RequestsLibrary
        ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=
        ...    examInfo=    heartRate=    age=56    ageType=岁    confirmDiagnosis=
        ...    confirmDiagnosisMap=    presentHistory=
-       ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
+       ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases'][9]['subDiseases']]
        Should Contain    ${aj[:10]}    卵巢恶性肿瘤
 
 15.妇产科室演示病例15例-6
