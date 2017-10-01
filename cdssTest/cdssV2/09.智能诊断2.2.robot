@@ -11,7 +11,7 @@ Suite Teardown    Delete All Sessions
 *** Test Cases ***
 2.1 只填写主诉
     [Documentation]    断言:"存在急性弥漫性腹膜炎"
-    智能诊断    ['diseaseName']    感染性腹泻    symptom=发热,胃痛,腹胀,腹痛,高热    previousHistory=    personalHistory=    allergyHistory=
+    智能诊断    ['diseaseName']    急性阑尾炎    symptom=发热,胃痛,腹胀,腹痛,高热    previousHistory=    personalHistory=    allergyHistory=
     ...    familyHistory=    weight=    gender=    bodyTempr=    lowBldPress=    highBldPress=
     ...    examInfo=    heartRate=    age=    ageType=    confirmDiagnosis=    confirmDiagnosisMap=
     ...    presentHistory=
