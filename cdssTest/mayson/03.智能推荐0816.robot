@@ -166,8 +166,6 @@ Library           RequestsLibrary
     Should Contain    ${aj}    D-二聚体
 
 
-
-
 #####26L 急性胸痛｜胸痛｜濒死感｜胸部撕裂样痛｜背部撕裂样痛｜呼吸困难&Wells评分低度可能急性肺栓塞｜Wells评分<2分&D-二聚体阳性     严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉｜低氧血症｜呼吸窘迫｜休克｜持续性低血压｜收缩压<90mmHg｜SPO2<90%｜CTA禁忌  肺动脉CTA  进行CTA检查来确诊肺栓塞   紧急检查        是
 #####26L 改:Wells评分低度可能急性肺栓塞｜Wells评分<2分｜疑似肺栓塞&D-二聚体阳性  急性胸痛｜胸痛｜濒死感｜胸部撕裂样痛｜背部撕裂样痛｜呼吸困难  严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉｜低氧血症｜呼吸窘迫｜休克｜持续性低血压｜收缩压<90mmHg｜SPO2<90%｜CTA禁忌｜肺栓塞｜急性肺栓塞    肺动脉CTA      进行CTA检查来确诊肺栓塞   紧急检查    6   是
 推荐检查2.1 胸痛+Wells评分低度可能急性肺栓塞&D-二聚体阳性,推荐检查包含:肺动脉CTA
@@ -11940,13 +11938,12 @@ Library           RequestsLibrary
 推荐治疗方案1.1 急性胸痛｜胸痛｜濒死感｜胸部撕裂样痛｜背部撕裂样痛｜呼吸困难&休克｜持续性低血压｜收缩压<90mmHg｜低氧血症｜呼吸窘迫｜SPO2<90%｜严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉, 推荐血运重建方案:转入ICU
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 休克 持续性低血压 收缩压:89mmHg 低氧血症 呼吸窘迫 血氧饱和度:89% 严重心动过缓 心率:39次/分 脉搏细弱 脉搏消失 无脉 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:</InnerValue></Element></XElements><BodyText>Subjective:急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 休克 持续性低血压 收缩压:89mmHg 低氧血症 呼吸窘迫 血氧饱和度:89% 严重心动过缓 心率:39次/分 脉搏细弱 脉搏消失 无脉 Objective: Assessment:诊断: Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -11956,13 +11953,12 @@ Library           RequestsLibrary
 推荐治疗方案1.2 急性胸痛｜胸痛｜濒死感｜胸部撕裂样痛｜背部撕裂样痛｜呼吸困难&休克｜持续性低血压｜收缩压==90mmHg｜低氧血症｜呼吸窘迫｜SPO2==90%｜严重心动过缓｜心率==40次/分｜脉搏细弱｜脉搏消失｜无脉, 推荐血运重建方案:转入ICU
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 休克 持续性低血压 收缩压:90mmHg 低氧血症 呼吸窘迫 血氧饱和度:90% 严重心动过缓 心率:40次/分 脉搏细弱 脉搏消失 无脉 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:</InnerValue></Element></XElements><BodyText>Subjective:急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 休克 持续性低血压 收缩压:90mmHg 低氧血症 呼吸窘迫 血氧饱和度:90% 严重心动过缓 心率:40次/分 脉搏细弱 脉搏消失 无脉 Objective: Assessment:诊断: Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -11970,21 +11966,21 @@ Library           RequestsLibrary
     Should Contain    ${aj}     转入ICU
 
 
-#######19L 休克｜持续性低血压｜收缩压<90mmHg｜低氧血症｜呼吸窘迫｜SPO2<90%｜严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉&肺栓塞｜急性肺栓塞      溶栓禁忌    溶栓治疗    生命体征不平稳的急性肺栓塞多为大面积肺栓塞，如无溶栓禁忌者推荐尽早开始溶栓治疗，溶解血栓，恢复肺组织灌注，降低早期死亡率        是
-#######休克｜持续性低血压｜收缩压<90mmHg｜低氧血症｜呼吸窘迫｜SPO2<90%｜严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉&肺栓塞｜急性肺栓塞
-#######休克 持续性低血压 收缩压:89mmHg 低氧血症 呼吸窘迫 血氧饱和度:89% 严重心动过缓 心率:39次/分 脉搏细弱 脉搏消失 无脉&肺栓塞 急性肺栓塞
-#######休克 持续性低血压 收缩压:90mmHg 低氧血症 呼吸窘迫 血氧饱和度:90% 严重心动过缓 心率:40次/分 脉搏细弱 脉搏消失 无脉&肺栓塞 急性肺栓塞
+######19L 休克｜持续性低血压｜收缩压<90mmHg｜低氧血症｜呼吸窘迫｜SPO2<90%｜严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉&肺栓塞｜急性肺栓塞      溶栓禁忌    溶栓治疗    生命体征不平稳的急性肺栓塞多为大面积肺栓塞，如无溶栓禁忌者推荐尽早开始溶栓治疗，溶解血栓，恢复肺组织灌注，降低早期死亡率        是
+######休克｜持续性低血压｜收缩压<90mmHg｜低氧血症｜呼吸窘迫｜SPO2<90%｜严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉&肺栓塞｜急性肺栓塞
+######休克 持续性低血压 收缩压:89mmHg 低氧血症 呼吸窘迫 血氧饱和度:89% 严重心动过缓 心率:39次/分 脉搏细弱 脉搏消失 无脉&肺栓塞 急性肺栓塞
+######休克 持续性低血压 收缩压:90mmHg 低氧血症 呼吸窘迫 血氧饱和度:90% 严重心动过缓 心率:40次/分 脉搏细弱 脉搏消失 无脉&肺栓塞 急性肺栓塞
+肺栓塞 急性肺栓塞
 
 推荐治疗方案2.1 休克｜持续性低血压｜收缩压<90mmHg｜低氧血症｜呼吸窘迫｜SPO2<90%｜严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉&肺栓塞｜急性肺栓塞, 推荐血运重建方案:溶栓治疗
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 休克 持续性低血压 收缩压:89mmHg 低氧血症 呼吸窘迫 血氧饱和度:89% 严重心动过缓 心率:39次/分 脉搏细弱 脉搏消失 无脉 肺栓塞 急性肺栓塞 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:肺栓塞 急性肺栓塞 </InnerValue></Element></XElements><BodyText>Subjective:休克 持续性低血压 收缩压:89mmHg 低氧血症 呼吸窘迫 血氧饱和度:89% 严重心动过缓 心率:39次/分 脉搏细弱 脉搏消失 无脉 肺栓塞 急性肺栓塞 Objective: Assessment:诊断: Plan:肺栓塞 急性肺栓塞 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -11994,13 +11990,12 @@ Library           RequestsLibrary
 推荐治疗方案2.2 休克｜持续性低血压｜收缩压==90mmHg｜低氧血症｜呼吸窘迫｜SPO2==90%｜严重心动过缓｜心率==40次/分｜脉搏细弱｜脉搏消失｜无脉&肺栓塞｜急性肺栓塞, 推荐血运重建方案:溶栓治疗
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 休克 持续性低血压 收缩压:90mmHg 低氧血症 呼吸窘迫 血氧饱和度:90% 严重心动过缓 心率:40次/分 脉搏细弱 脉搏消失 无脉 肺栓塞 急性肺栓塞 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:肺栓塞 急性肺栓塞</InnerValue></Element></XElements><BodyText>Subjective:休克 持续性低血压 收缩压:90mmHg 低氧血症 呼吸窘迫 血氧饱和度:90% 严重心动过缓 心率:40次/分 脉搏细弱 脉搏消失 无脉 肺栓塞 急性肺栓塞 Objective: Assessment:诊断:肺栓塞 急性肺栓塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12008,21 +12003,20 @@ Library           RequestsLibrary
     Should Contain    ${aj}     溶栓治疗
 
 
-#######20L 休克｜持续性低血压｜收缩压<90mmHg｜低氧血症｜呼吸窘迫｜SPO2<90%｜严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉&肺栓塞｜急性肺栓塞         外科取栓术   如有溶栓禁忌者推荐外科治疗外科取栓术来恢复肺组织灌注，降低早期死亡率  无   是
-#######休克｜持续性低血压｜收缩压<90mmHg｜低氧血症｜呼吸窘迫｜SPO2<90%｜严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉&肺栓塞｜急性肺栓塞
-#######休克 持续性低血压 收缩压:89mmHg 低氧血症 呼吸窘迫 血氧饱和度:89% 严重心动过缓 心率:39次/分 脉搏细弱 脉搏消失 无脉&肺栓塞 急性肺栓塞
-#######休克 持续性低血压 收缩压:90mmHg 低氧血症 呼吸窘迫 血氧饱和度:90% 严重心动过缓 心率:40次/分 脉搏细弱 脉搏消失 无脉&肺栓塞 急性肺栓塞
+######20L 休克｜持续性低血压｜收缩压<90mmHg｜低氧血症｜呼吸窘迫｜SPO2<90%｜严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉&肺栓塞｜急性肺栓塞         外科取栓术   如有溶栓禁忌者推荐外科治疗外科取栓术来恢复肺组织灌注，降低早期死亡率  无   是
+######休克｜持续性低血压｜收缩压<90mmHg｜低氧血症｜呼吸窘迫｜SPO2<90%｜严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉&肺栓塞｜急性肺栓塞
+######休克 持续性低血压 收缩压:89mmHg 低氧血症 呼吸窘迫 血氧饱和度:89% 严重心动过缓 心率:39次/分 脉搏细弱 脉搏消失 无脉&肺栓塞 急性肺栓塞
+######休克 持续性低血压 收缩压:90mmHg 低氧血症 呼吸窘迫 血氧饱和度:90% 严重心动过缓 心率:40次/分 脉搏细弱 脉搏消失 无脉&肺栓塞 急性肺栓塞
 
 推荐治疗方案3.1 休克｜持续性低血压｜收缩压<90mmHg｜低氧血症｜呼吸窘迫｜SPO2<90%｜严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉&肺栓塞｜急性肺栓塞, 推荐血运重建方案:外科取栓术
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 休克 持续性低血压 收缩压:89mmHg 低氧血症 呼吸窘迫 血氧饱和度:89% 严重心动过缓 心率:39次/分 脉搏细弱 脉搏消失 无脉 肺栓塞 急性肺栓塞 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:肺栓塞 急性肺栓塞</InnerValue></Element></XElements><BodyText>Subjective:休克 持续性低血压 收缩压:89mmHg 低氧血症 呼吸窘迫 血氧饱和度:89% 严重心动过缓 心率:39次/分 脉搏细弱 脉搏消失 无脉 肺栓塞 急性肺栓塞 Objective: Assessment:诊断:肺栓塞 急性肺栓塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12032,13 +12026,12 @@ Library           RequestsLibrary
 推荐治疗方案3.2 休克｜持续性低血压｜收缩压==90mmHg｜低氧血症｜呼吸窘迫｜SPO2==90%｜严重心动过缓｜心率==40次/分｜脉搏细弱｜脉搏消失｜无脉&肺栓塞｜急性肺栓塞, 推荐血运重建方案:外科取栓术
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 休克 持续性低血压 收缩压:90mmHg 低氧血症 呼吸窘迫 血氧饱和度:90% 严重心动过缓 心率:40次/分 脉搏细弱 脉搏消失 无脉 肺栓塞 急性肺栓塞 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:肺栓塞 急性肺栓塞</InnerValue></Element></XElements><BodyText>Subjective:休克 持续性低血压 收缩压:90mmHg 低氧血症 呼吸窘迫 血氧饱和度:90% 严重心动过缓 心率:40次/分 脉搏细弱 脉搏消失 无脉 肺栓塞 急性肺栓塞 Objective: Assessment:诊断:肺栓塞 急性肺栓塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12047,26 +12040,25 @@ Library           RequestsLibrary
 
 
 
-########21L 大面积肺栓塞｜肺血管栓塞面积>=50%     溶栓禁忌    溶栓治疗    如无溶栓禁忌者推荐尽早开始溶栓治疗，溶解血栓，恢复肺组织灌注，降低早期死亡率      是
-########大面积肺栓塞｜肺血管栓塞面积>=50%
-########肺血管栓塞面积>=50%    检查  肺血管栓塞面积>=50％
-########大面积肺栓塞 肺血管栓塞面积:50％
-########大面积肺栓塞 肺血管栓塞面积:51％
-########大面积肺栓塞 肺血管栓塞面积:50％
+#######21L 大面积肺栓塞｜肺血管栓塞面积>=50%     溶栓禁忌    溶栓治疗    如无溶栓禁忌者推荐尽早开始溶栓治疗，溶解血栓，恢复肺组织灌注，降低早期死亡率      是
+#######大面积肺栓塞｜肺血管栓塞面积>=50%
+#######肺血管栓塞面积>=50%    检查  肺血管栓塞面积>=50％
+#######大面积肺栓塞 肺血管栓塞面积:50％
+#######大面积肺栓塞 肺血管栓塞面积:51％
+#######大面积肺栓塞 肺血管栓塞面积:50％
 
-########休克 持续性低血压 收缩压:89mmHg 低氧血症 呼吸窘迫 血氧饱和度:89% 严重心动过缓 心率:39次/分 脉搏细弱 脉搏消失 无脉&肺栓塞 急性肺栓塞
-########休克 持续性低血压 收缩压:90mmHg 低氧血症 呼吸窘迫 血氧饱和度:90% 严重心动过缓 心率:40次/分 脉搏细弱 脉搏消失 无脉&肺栓塞 急性肺栓塞
+#######休克 持续性低血压 收缩压:89mmHg 低氧血症 呼吸窘迫 血氧饱和度:89% 严重心动过缓 心率:39次/分 脉搏细弱 脉搏消失 无脉&肺栓塞 急性肺栓塞
+#######休克 持续性低血压 收缩压:90mmHg 低氧血症 呼吸窘迫 血氧饱和度:90% 严重心动过缓 心率:40次/分 脉搏细弱 脉搏消失 无脉&肺栓塞 急性肺栓塞
 
 推荐治疗方案4.1 大面积肺栓塞｜肺血管栓塞面积==50%, 推荐血运重建方案:溶栓治疗
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 大面积肺栓塞 肺血管栓塞面积:50％ </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:肺栓塞 急性肺栓塞</InnerValue></Element></XElements><BodyText>Subjective:大面积肺栓塞 肺血管栓塞面积:50％ Objective: Assessment:诊断:肺栓塞 急性肺栓塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12076,13 +12068,12 @@ Library           RequestsLibrary
 推荐治疗方案4.2 大面积肺栓塞｜肺血管栓塞面积>50%, 推荐血运重建方案:溶栓治疗
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 大面积肺栓塞 肺血管栓塞面积:51％ </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:肺栓塞 急性肺栓塞</InnerValue></Element></XElements><BodyText>Subjective:大面积肺栓塞 肺血管栓塞面积:51％ Objective: Assessment:诊断:肺栓塞 急性肺栓塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12092,13 +12083,12 @@ Library           RequestsLibrary
 推荐治疗方案4.3 肺血管栓塞面积<50%, 推荐血运重建方案"不应包含":溶栓治疗
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 肺血管栓塞面积:49％ </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:肺栓塞 急性肺栓塞</InnerValue></Element></XElements><BodyText>Subjective:肺血管栓塞面积:49％ Objective: Assessment:诊断:肺栓塞 急性肺栓塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12119,13 +12109,12 @@ Library           RequestsLibrary
 推荐治疗方案5.1 大面积肺栓塞｜肺血管栓塞面积==50%, 推荐血运重建方案:外科取栓术
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 大面积肺栓塞 肺血管栓塞面积:50％ </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:肺栓塞 急性肺栓塞</InnerValue></Element></XElements><BodyText>Subjective:大面积肺栓塞 肺血管栓塞面积:50％ Objective: Assessment:诊断:肺栓塞 急性肺栓塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12135,13 +12124,12 @@ Library           RequestsLibrary
 推荐治疗方案5.2 大面积肺栓塞｜肺血管栓塞面积>50%, 推荐血运重建方案:外科取栓术
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 大面积肺栓塞 肺血管栓塞面积:51％ </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:肺栓塞 急性肺栓塞</InnerValue></Element></XElements><BodyText>Subjective:大面积肺栓塞 肺血管栓塞面积:51％ Objective: Assessment:诊断:肺栓塞 急性肺栓塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12151,13 +12139,12 @@ Library           RequestsLibrary
 推荐治疗方案5.3 肺血管栓塞面积<50%, 推荐血运重建方案"不应包含":外科取栓术
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 肺血管栓塞面积:49％ </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:肺栓塞 急性肺栓塞</InnerValue></Element></XElements><BodyText>Subjective:肺血管栓塞面积:49％ Objective: Assessment:诊断:肺栓塞 急性肺栓塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12165,27 +12152,26 @@ Library           RequestsLibrary
     # Should Not Contain    ${aj}     外科取栓术
     Should Not Contain    ${getRes['body']}    examinationInterpretList
 
-#######23L Wells评分中度可能急性肺栓塞｜Wells评分>=2分｜Wells评分高度可能急性肺栓塞       严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉｜低氧血症｜呼吸窘迫｜休克｜持续性低血压｜收缩压<90mmHg｜SPO2<90%｜抗凝禁忌｜急性肺栓塞｜肺栓塞 经验性抗凝治疗 Wells评分中度可能急性肺栓塞或高度可能急性肺栓塞或病情恶化者，如无抗凝治疗禁忌，尽早开始经验性抗凝治疗，肠道外抗凝药物为一线治疗      是
-#######Wells评分中度可能急性肺栓塞｜Wells评分>=2分｜Wells评分高度可能急性肺栓塞
-#######Wells评分中度可能急性肺栓塞    评分结果    Wells评分 [2-6]
-#######Wells评分>=2分 评分结果    Wells评分 >=2
-#######Wells评分高度可能急性肺栓塞    评分结果    Wells评分 >6
-#######Wells评分:2
-#######Wells评分:6
-#######Wells评分:7
-#######Wells评分:1
+######23L Wells评分中度可能急性肺栓塞｜Wells评分>=2分｜Wells评分高度可能急性肺栓塞       严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉｜低氧血症｜呼吸窘迫｜休克｜持续性低血压｜收缩压<90mmHg｜SPO2<90%｜抗凝禁忌｜急性肺栓塞｜肺栓塞 经验性抗凝治疗 Wells评分中度可能急性肺栓塞或高度可能急性肺栓塞或病情恶化者，如无抗凝治疗禁忌，尽早开始经验性抗凝治疗，肠道外抗凝药物为一线治疗      是
+######Wells评分中度可能急性肺栓塞｜Wells评分>=2分｜Wells评分高度可能急性肺栓塞
+######Wells评分中度可能急性肺栓塞    评分结果    Wells评分 [2-6]
+######Wells评分>=2分 评分结果    Wells评分 >=2
+######Wells评分高度可能急性肺栓塞    评分结果    Wells评分 >6
+######Wells评分:2
+######Wells评分:6
+######Wells评分:7
+######Wells评分:1
 
 
 推荐治疗方案6.1 Wells评分:2, 推荐血运重建方案:经验性抗凝治疗
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> Wells评分:2 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:</InnerValue></Element></XElements><BodyText>Subjective:Wells评分:2 Objective: Assessment:诊断: Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12195,13 +12181,12 @@ Library           RequestsLibrary
 推荐治疗方案6.2 Wells评分:6, 推荐血运重建方案:经验性抗凝治疗
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> Wells评分:6 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:</InnerValue></Element></XElements><BodyText>Subjective:Wells评分:6 Objective: Assessment:诊断: Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12211,13 +12196,12 @@ Library           RequestsLibrary
 推荐治疗方案6.3 Wells评分:7, 推荐血运重建方案:经验性抗凝治疗
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> Wells评分:7 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:</InnerValue></Element></XElements><BodyText>Subjective:Wells评分:7 Objective: Assessment:诊断: Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12227,13 +12211,12 @@ Library           RequestsLibrary
 推荐治疗方案6.4 Wells评分:1, 推荐血运重建方案"不应包含":经验性抗凝治疗
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> Wells评分:1 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:</InnerValue></Element></XElements><BodyText>Subjective:Wells评分:1 Objective: Assessment:诊断: Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12241,43 +12224,42 @@ Library           RequestsLibrary
     # Should Not Contain    ${aj}     经验性抗凝治疗
     Should Not Contain    ${getRes['body']}    therapeuticPlanList
 
-#######24L Wells评分中度可能急性肺栓塞｜Wells评分>=2分｜Wells评分高度可能急性肺栓塞       严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉｜低氧血症｜呼吸窘迫｜休克｜持续性低血压｜收缩压<90mmHg｜SPO2<90%｜抗凝禁忌｜急性肺栓塞｜肺栓塞 转诊 Wells评分中度可能急性肺栓塞或高度可能急性肺栓塞或病情恶化者，如无抗凝治疗禁忌，尽早开始转诊，肠道外抗凝药物为一线治疗      是
-#######Wells评分中度可能急性肺栓塞｜Wells评分>=2分｜Wells评分高度可能急性肺栓塞
-#######Wells评分中度可能急性肺栓塞    评分结果    Wells评分 [2-6]
-#######Wells评分>=2分 评分结果    Wells评分 >=2
-#######Wells评分高度可能急性肺栓塞    评分结果    Wells评分 >6
-#######Wells评分:2
-#######Wells评分:6
-#######Wells评分:7
-#######Wells评分:1
-#######出血性脑卒中｜颅内肿瘤活动期｜创伤(2个月内)｜颅内手术(2个月内)｜消化道出血(6个月内)｜膀胱出血(6个月内)｜心包填塞(6个月内)｜主动脉夹层｜出血体质｜出血倾向｜收缩压>180mmHg｜舒张压>110mmHg｜外科手术(10天内)｜缺血性脑卒中(2个月内)｜血小板减少症｜血小板<100×109/L
-#######出血性脑卒中 颅内肿瘤活动期 创伤<=60天 颅内手术<=60天 消化道出血<=180天 膀胱出血<=180天 心包填塞<=180天 主动脉夹层 出血体质 出血倾向 收缩压>180mmHg 舒张压>110mmHg 外科手术(10天内)<=10天 缺血性脑卒中<=60天 血小板减少症 血小板计数<100 109/L
+######24L Wells评分中度可能急性肺栓塞｜Wells评分>=2分｜Wells评分高度可能急性肺栓塞       严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉｜低氧血症｜呼吸窘迫｜休克｜持续性低血压｜收缩压<90mmHg｜SPO2<90%｜抗凝禁忌｜急性肺栓塞｜肺栓塞 转诊 Wells评分中度可能急性肺栓塞或高度可能急性肺栓塞或病情恶化者，如无抗凝治疗禁忌，尽早开始转诊，肠道外抗凝药物为一线治疗      是
+######Wells评分中度可能急性肺栓塞｜Wells评分>=2分｜Wells评分高度可能急性肺栓塞
+######Wells评分中度可能急性肺栓塞    评分结果    Wells评分 [2-6]
+######Wells评分>=2分 评分结果    Wells评分 >=2
+######Wells评分高度可能急性肺栓塞    评分结果    Wells评分 >6
+######Wells评分:2
+######Wells评分:6
+######Wells评分:7
+######Wells评分:1
+######出血性脑卒中｜颅内肿瘤活动期｜创伤(2个月内)｜颅内手术(2个月内)｜消化道出血(6个月内)｜膀胱出血(6个月内)｜心包填塞(6个月内)｜主动脉夹层｜出血体质｜出血倾向｜收缩压>180mmHg｜舒张压>110mmHg｜外科手术(10天内)｜缺血性脑卒中(2个月内)｜血小板减少症｜血小板<100×109/L
+######出血性脑卒中 颅内肿瘤活动期 创伤<=60天 颅内手术<=60天 消化道出血<=180天 膀胱出血<=180天 心包填塞<=180天 主动脉夹层 出血体质 出血倾向 收缩压>180mmHg 舒张压>110mmHg 外科手术(10天内)<=10天 缺血性脑卒中<=60天 血小板减少症 血小板计数<100 109/L
 
-#######出血性脑卒中 颅内肿瘤活动期 创伤:60天 颅内手术:60天 消化道出血:180天 膀胱出血:180天 心包填塞:180天 主动脉夹层 出血体质 出血倾向 收缩压:181mmHg 舒张压:111mmHg 外科手术(10天内):10天 缺血性脑卒中:60天 血小板减少症 血小板计数:99 109/L
-#######出血性脑卒中 颅内肿瘤活动期 创伤:59天 颅内手术:59天 消化道出血:179天 膀胱出血:179天 心包填塞:79天 主动脉夹层 出血体质 出血倾向 收缩压:181mmHg 舒张压:111mmHg 外科手术(10天内):9天 缺血性脑卒中:59天 血小板减少症 血小板计数:99 109/L
+######出血性脑卒中 颅内肿瘤活动期 创伤:60天 颅内手术:60天 消化道出血:180天 膀胱出血:180天 心包填塞:180天 主动脉夹层 出血体质 出血倾向 收缩压:181mmHg 舒张压:111mmHg 外科手术(10天内):10天 缺血性脑卒中:60天 血小板减少症 血小板计数:99 109/L
+######出血性脑卒中 颅内肿瘤活动期 创伤:59天 颅内手术:59天 消化道出血:179天 膀胱出血:179天 心包填塞:79天 主动脉夹层 出血体质 出血倾向 收缩压:181mmHg 舒张压:111mmHg 外科手术(10天内):9天 缺血性脑卒中:59天 血小板减少症 血小板计数:99 109/L
 
-#######创伤(2个月内)    病历内容＋时间 创伤<=60天
-#######颅内手术(2个月内)  病历内容＋时间 颅内手术<=60天
-#######消化道出血(6个月内) 病历内容＋时间 消化道出血<=180天
-#######膀胱出血(6个月内)  病历内容＋时间 膀胱出血<=180天
-#######心包填塞(6个月内)  病历内容＋时间 心包填塞<=180天
-#######收缩压>180mmHg 检查  收缩压>180mmHg
-#######舒张压>110mmHg 检查  舒张压>110mmHg
-#######外科手术(10天内)  病历内容＋时间 外科手术(10天内)<=10天
-#######缺血性脑卒中(2个月内)    病历内容＋时间 缺血性脑卒中<=60天
-#######血小板<100×109/L   检查  血小板计数<100109/L
+######创伤(2个月内)    病历内容＋时间 创伤<=60天
+######颅内手术(2个月内)  病历内容＋时间 颅内手术<=60天
+######消化道出血(6个月内) 病历内容＋时间 消化道出血<=180天
+######膀胱出血(6个月内)  病历内容＋时间 膀胱出血<=180天
+######心包填塞(6个月内)  病历内容＋时间 心包填塞<=180天
+######收缩压>180mmHg 检查  收缩压>180mmHg
+######舒张压>110mmHg 检查  舒张压>110mmHg
+######外科手术(10天内)  病历内容＋时间 外科手术(10天内)<=10天
+######缺血性脑卒中(2个月内)    病历内容＋时间 缺血性脑卒中<=60天
+######血小板<100×109/L   检查  血小板计数<100109/L
 
 
 推荐治疗方案7.1 Wells评分:2&出血性脑卒中 颅内肿瘤活动期 创伤:60天 颅内手术:60天 消化道出血:180天 膀胱出血:180天 心包填塞:180天 主动脉夹层 出血体质 出血倾向 收缩压:181mmHg 舒张压:111mmHg 外科手术(10天内):10天 缺血性脑卒中:60天 血小板减少症 血小板计数:99 109/L, 推荐血运重建方案:转诊
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> Wells评分:2 出血性脑卒中 颅内肿瘤活动期 创伤:60天 颅内手术:60天 消化道出血:180天 膀胱出血:180天 心包填塞:180天 主动脉夹层 出血体质 出血倾向 收缩压:181mmHg 舒张压:111mmHg 外科手术(10天内):10天 缺血性脑卒中:60天 血小板减少症 血小板计数:99 109/L </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:</InnerValue></Element></XElements><BodyText>Subjective:Wells评分:2 出血性脑卒中 颅内肿瘤活动期 创伤:60天 颅内手术:60天 消化道出血:180天 膀胱出血:180天 心包填塞:180天 主动脉夹层 出血体质 出血倾向 收缩压:181mmHg 舒张压:111mmHg 外科手术(10天内):10天 缺血性脑卒中:60天 血小板减少症 血小板计数:99 109/L Objective: Assessment:诊断: Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12287,13 +12269,12 @@ Library           RequestsLibrary
 推荐治疗方案7.2 Wells评分:6&抗凝禁忌, 推荐血运重建方案:转诊
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> Wells评分:6 出血性脑卒中 颅内肿瘤活动期 创伤:60天 颅内手术:60天 消化道出血:180天 膀胱出血:180天 心包填塞:180天 主动脉夹层 出血体质 出血倾向 收缩压:181mmHg 舒张压:111mmHg 外科手术(10天内):10天 缺血性脑卒中:60天 血小板减少症 血小板计数:99 109/L </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:</InnerValue></Element></XElements><BodyText>Subjective:Wells评分:6 出血性脑卒中 颅内肿瘤活动期 创伤:60天 颅内手术:60天 消化道出血:180天 膀胱出血:180天 心包填塞:180天 主动脉夹层 出血体质 出血倾向 收缩压:181mmHg 舒张压:111mmHg 外科手术(10天内):10天 缺血性脑卒中:60天 血小板减少症 血小板计数:99 109/L Objective: Assessment:诊断: Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12303,13 +12284,12 @@ Library           RequestsLibrary
 推荐治疗方案7.3 Wells评分:7&抗凝禁忌, 推荐血运重建方案:转诊
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> Wells评分:7 出血性脑卒中 颅内肿瘤活动期 创伤:60天 颅内手术:60天 消化道出血:180天 膀胱出血:180天 心包填塞:180天 主动脉夹层 出血体质 出血倾向 收缩压:181mmHg 舒张压:111mmHg 外科手术(10天内):10天 缺血性脑卒中:60天 血小板减少症 血小板计数:99 109/L </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:</InnerValue></Element></XElements><BodyText>Subjective:Wells评分:7 出血性脑卒中 颅内肿瘤活动期 创伤:60天 颅内手术:60天 消化道出血:180天 膀胱出血:180天 心包填塞:180天 主动脉夹层 出血体质 出血倾向 收缩压:181mmHg 舒张压:111mmHg 外科手术(10天内):10天 缺血性脑卒中:60天 血小板减少症 血小板计数:99 109/L Objective: Assessment:诊断: Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12320,13 +12300,12 @@ Library           RequestsLibrary
 推荐治疗方案7.4 Wells评分:1&抗凝禁忌, 推荐血运重建方案"不应包含":转诊
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> Wells评分:1 出血性脑卒中 颅内肿瘤活动期 创伤:60天 颅内手术:60天 消化道出血:180天 膀胱出血:180天 心包填塞:180天 主动脉夹层 出血体质 出血倾向 收缩压:181mmHg 舒张压:111mmHg 外科手术(10天内):10天 缺血性脑卒中:60天 血小板减少症 血小板计数:99 109/L </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:</InnerValue></Element></XElements><BodyText>Subjective:Wells评分:1 出血性脑卒中 颅内肿瘤活动期 创伤:60天 颅内手术:60天 消化道出血:180天 膀胱出血:180天 心包填塞:180天 主动脉夹层 出血体质 出血倾向 收缩压:181mmHg 舒张压:111mmHg 外科手术(10天内):10天 缺血性脑卒中:60天 血小板减少症 血小板计数:99 109/L Objective: Assessment:诊断: Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12334,21 +12313,20 @@ Library           RequestsLibrary
     # Should Not Contain    ${aj}     转诊
     Should Not Contain    ${getRes['body']}    therapeuticPlanList
 
-#######25L 急性肺栓塞｜肺栓塞       抗凝禁忌    抗凝治疗    确诊急性肺栓塞，如无抗凝治疗禁忌，推荐尽早抗凝治疗       是
-#######急性肺栓塞 肺栓塞
-#######出血性脑卒中 颅内肿瘤活动期 创伤:60天 颅内手术:60天 消化道出血:180天 膀胱出血:180天 心包填塞:180天 主动脉夹层 出血体质 出血倾向 收缩压:181mmHg 舒张压:111mmHg 外科手术(10天内):10天 缺血性脑卒中:60天 血小板减少症 血小板计数:99 109/L
-#######急性肺栓塞 肺栓塞 出血性脑卒中 颅内肿瘤活动期 创伤:60天 颅内手术:60天 消化道出血:180天 膀胱出血:180天 心包填塞:180天 主动脉夹层 出血体质 出血倾向 收缩压:181mmHg 舒张压:111mmHg 外科手术(10天内):10天 缺血性脑卒中:60天 血小板减少症 血小板计数:99 109/L
+######25L 急性肺栓塞｜肺栓塞       抗凝禁忌    抗凝治疗    确诊急性肺栓塞，如无抗凝治疗禁忌，推荐尽早抗凝治疗       是
+######急性肺栓塞 肺栓塞
+######出血性脑卒中 颅内肿瘤活动期 创伤:60天 颅内手术:60天 消化道出血:180天 膀胱出血:180天 心包填塞:180天 主动脉夹层 出血体质 出血倾向 收缩压:181mmHg 舒张压:111mmHg 外科手术(10天内):10天 缺血性脑卒中:60天 血小板减少症 血小板计数:99 109/L
+######急性肺栓塞 肺栓塞 出血性脑卒中 颅内肿瘤活动期 创伤:60天 颅内手术:60天 消化道出血:180天 膀胱出血:180天 心包填塞:180天 主动脉夹层 出血体质 出血倾向 收缩压:181mmHg 舒张压:111mmHg 外科手术(10天内):10天 缺血性脑卒中:60天 血小板减少症 血小板计数:99 109/L
 
 推荐治疗方案8.1 急性肺栓塞｜肺栓塞 ,推荐血运重建方案:抗凝治疗
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性肺栓塞 肺栓塞 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:肺栓塞 急性肺栓塞</InnerValue></Element></XElements><BodyText>Subjective:急性肺栓塞 肺栓塞 Objective: Assessment:诊断:肺栓塞 急性肺栓塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12363,13 +12341,12 @@ Library           RequestsLibrary
 推荐治疗方案9.1 急性肺栓塞｜肺栓塞 &抗凝禁忌,推荐血运重建方案:转诊
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性肺栓塞 肺栓塞 出血性脑卒中 颅内肿瘤活动期 创伤:60天 颅内手术:60天 消化道出血:180天 膀胱出血:180天 心包填塞:180天 主动脉夹层 出血体质 出血倾向 收缩压:181mmHg 舒张压:111mmHg 外科手术(10天内):10天 缺血性脑卒中:60天 血小板减少症 血小板计数:99 109/L </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:肺栓塞 急性肺栓塞</InnerValue></Element></XElements><BodyText>Subjective:急性肺栓塞 肺栓塞 出血性脑卒中 颅内肿瘤活动期 创伤:60天 颅内手术:60天 消化道出血:180天 膀胱出血:180天 心包填塞:180天 主动脉夹层 出血体质 出血倾向 收缩压:181mmHg 舒张压:111mmHg 外科手术(10天内):10天 缺血性脑卒中:60天 血小板减少症 血小板计数:99 109/L Objective: Assessment:诊断:肺栓塞 急性肺栓塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12385,13 +12362,12 @@ Library           RequestsLibrary
 推荐治疗方案10.1 急性肺栓塞｜肺栓塞&PESI=0,推荐血运重建方案:门诊抗凝治疗
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性肺栓塞 肺栓塞 PESI评分:0 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:肺栓塞 急性肺栓塞</InnerValue></Element></XElements><BodyText>Subjective:急性肺栓塞 肺栓塞 PESI评分:0 Objective: Assessment:诊断:肺栓塞 急性肺栓塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12401,13 +12377,12 @@ Library           RequestsLibrary
 推荐治疗方案10.2 急性肺栓塞｜肺栓塞&PESI!=0, 推荐血运重建方案"不应包含":门诊抗凝治疗
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性肺栓塞 肺栓塞 PESI评分:1 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:肺栓塞 急性肺栓塞</InnerValue></Element></XElements><BodyText>Subjective:急性肺栓塞 肺栓塞 PESI评分:1 Objective: Assessment:诊断:肺栓塞 急性肺栓塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12423,13 +12398,12 @@ Library           RequestsLibrary
 推荐治疗方案11.1 急性肺栓塞｜肺栓塞&PESI>0,推荐血运重建方案:住院抗凝治疗
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性肺栓塞 肺栓塞 PESI评分:1 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:肺栓塞 急性肺栓塞</InnerValue></Element></XElements><BodyText>Subjective:急性肺栓塞 肺栓塞 PESI评分:1 Objective: Assessment:诊断:肺栓塞 急性肺栓塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12448,13 +12422,12 @@ Library           RequestsLibrary
 推荐治疗方案12.1 急性肺栓塞｜肺栓塞&PESI=0 +次要条件:无门诊抗凝条件,推荐血运重建方案:住院抗凝治疗
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性肺栓塞 肺栓塞 PESI评分:0 大面积肺栓塞 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:肺栓塞 急性肺栓塞</InnerValue></Element></XElements><BodyText>Subjective:急性肺栓塞 肺栓塞 PESI评分:0 大面积肺栓塞 Objective: Assessment:诊断:肺栓塞 急性肺栓塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12477,13 +12450,12 @@ Library           RequestsLibrary
 推荐治疗方案13.1 急性肺栓塞｜肺栓塞&PESI>0 +次要条件:肌钙蛋白阳性｜BNP>500｜proBNP>7500｜右室功能异常,推荐血运重建方案:ICU抗凝治疗
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性肺栓塞 肺栓塞 PESI评分:1 心肌肌钙蛋白T增高 脑利钠肽:501pg/ml 脑利钠肽前体:7501ng/L 右室功能异常 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:肺栓塞 急性肺栓塞</InnerValue></Element></XElements><BodyText>Subjective:急性肺栓塞 肺栓塞 PESI评分:1 心肌肌钙蛋白T增高 脑利钠肽:501pg/ml 脑利钠肽前体:7501ng/L 右室功能异常 Objective: Assessment:诊断:肺栓塞 急性肺栓塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12498,13 +12470,12 @@ Library           RequestsLibrary
 推荐治疗方案13.1 心力衰竭&心动过速｜心率>120次/分｜呼吸急促｜缺氧｜心源性休克+次要条件:,推荐血运重建方案:转诊
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心动过速 心率:121次/分 呼吸急促 缺氧 心源性休克 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective:心力衰竭 心动过速 心率:121次/分 呼吸急促 缺氧 心源性休克 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12514,13 +12485,12 @@ Library           RequestsLibrary
 推荐治疗方案13.2 心力衰竭& 心率==120次/分+次要条件:肌钙蛋白阳性｜BNP==500｜proBNP==7500｜右室功能异常,"不应"推荐血运重建方案:转诊
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 心率:120次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective:心力衰竭 心率:120次/分 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12528,19 +12498,18 @@ Library           RequestsLibrary
     Should Not Contain    ${aj}     转诊
     # Should Not Contain    ${getRes['body']}    therapeuticPlanList
 
-#######32L 心力衰竭        EF>=50%｜射血分数保留｜EF<50%｜射血分数降低    HFpEF治疗 射血分数保留患者的心力衰竭基础治疗       是
+######32L 心力衰竭        EF>=50%｜射血分数保留｜EF<50%｜射血分数降低    HFpEF治疗 射血分数保留患者的心力衰竭基础治疗       是
 
 
 推荐治疗方案15.1 心力衰竭+次要条件:,推荐血运重建方案:HFpEF治疗
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective:心力衰竭 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12554,13 +12523,12 @@ Library           RequestsLibrary
 推荐治疗方案16.1 心力衰竭+次要条件:,推荐血运重建方案:HFrEF治疗
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective:心力衰竭 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12575,13 +12543,12 @@ Library           RequestsLibrary
 推荐治疗方案17.1 心力衰竭+次要条件:,推荐血运重建方案:降压
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective:心力衰竭 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12593,13 +12560,12 @@ Library           RequestsLibrary
 推荐治疗方案18.1 心力衰竭+次要条件:,推荐血运重建方案:对症治疗
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective:心力衰竭 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12626,13 +12592,12 @@ Library           RequestsLibrary
 推荐治疗方案19.1 心力衰竭症状｜心力衰竭&EF>=50%｜射血分数保留&心动过速｜心率>120次/分｜呼吸急促｜缺氧｜心源性休克+次要条件:,推荐血运重建方案:转诊
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:50％ 射血分数保留 心动过速 心率:121次/分 呼吸急促 缺氧 心源性休克 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective:劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:50％ 射血分数保留 心动过速 心率:121次/分 呼吸急促 缺氧 心源性休克 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12661,13 +12626,12 @@ Library           RequestsLibrary
 推荐治疗方案20.1 心力衰竭症状｜心力衰竭&EF>=50%｜射血分数保留+次要条件:,推荐血运重建方案:HFpEF治疗
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:50％ 射血分数保留 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective:劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:50％ 射血分数保留 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12691,13 +12655,12 @@ Library           RequestsLibrary
 推荐治疗方案21.1 心力衰竭症状｜心力衰竭&EF>=50%｜射血分数保留+次要条件:收缩压>120mmHg｜高血压,推荐血运重建方案:降压
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:50％ 射血分数保留 心力衰竭 射血分数:50％ 射血分数保留 收缩压:121mmHg 高血压 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective:劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:50％ 射血分数保留 心力衰竭 射血分数:50％ 射血分数保留 收缩压:121mmHg 高血压 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12723,13 +12686,12 @@ Library           RequestsLibrary
 推荐治疗方案22.1 心力衰竭症状｜心力衰竭&EF>=50%｜射血分数保留&房颤&心率>110次/分+次要条件:,推荐血运重建方案:房颤控制
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:50% 射血分数保留 房颤 心率:111次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective:劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:50% 射血分数保留 房颤 心率:111次/分 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12761,13 +12723,12 @@ Library           RequestsLibrary
 推荐治疗方案23.1 心力衰竭症状｜心力衰竭&EF>=50%｜射血分数保留+次要条件:肺淤血｜周围性水肿｜液体潴留｜容量超负荷｜心肌收缩力下降｜呼吸困难,推荐血运重建方案:对症治疗
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭症状 心力衰竭 射血分数:50% 射血分数保留 肺淤血 周围性水肿 液体潴留 容量超负荷 心肌收缩力下降 呼吸困难 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective:劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭症状 心力衰竭 射血分数:50% 射血分数保留 肺淤血 周围性水肿 液体潴留 容量超负荷 心肌收缩力下降 呼吸困难 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12797,13 +12758,12 @@ Library           RequestsLibrary
 推荐治疗方案24.1 心力衰竭症状｜心力衰竭&EF>=50%｜射血分数保留+次要条件:冠心病,推荐血运重建方案:冠状动脉血管重建术
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭症状 心力衰竭 射血分数:50% 射血分数保留 冠心病 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective:劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭症状 心力衰竭 射血分数:50% 射血分数保留 冠心病 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12829,13 +12789,12 @@ Library           RequestsLibrary
 推荐治疗方案25.1 心力衰竭症状｜心力衰竭&EF<50%｜射血分数降低&心动过速｜心率>120次/分｜呼吸急促｜缺氧｜心源性休克+次要条件:,推荐血运重建方案:转诊
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:49% 射血分数降低 心动过速 心率:121次/分 呼吸急促 缺氧 心源性休克 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective:劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:49% 射血分数降低 心动过速 心率:121次/分 呼吸急促 缺氧 心源性休克 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12860,13 +12819,12 @@ Library           RequestsLibrary
 推荐治疗方案26.1 心力衰竭症状｜心力衰竭&EF<50%｜射血分数降低+次要条件:,推荐血运重建方案:HFrEF治疗
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:49% 射血分数降低 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective:劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:49% 射血分数降低 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12892,13 +12850,12 @@ Library           RequestsLibrary
 推荐治疗方案27.1 心力衰竭症状｜心力衰竭&EF<50%｜射血分数降低+次要条件:收缩压>120mmHg｜高血压,推荐血运重建方案:降压
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:49% 射血分数降低 收缩压:121mmHg 高血压 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective:劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:49% 射血分数降低 收缩压:121mmHg 高血压 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12926,13 +12883,12 @@ Library           RequestsLibrary
 推荐治疗方案28.1 心力衰竭症状｜心力衰竭&EF<50%｜射血分数降低+次要条件:肺淤血｜周围性水肿｜液体潴留｜容量超负荷｜心肌收缩力下降｜呼吸困难,推荐血运重建方案:对症治疗
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:49% 射血分数降低 收缩压:121mmHg 高血压 肺淤血 周围性水肿 液体潴留 容量超负荷 心肌收缩力下降 呼吸困难 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective:劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:49% 射血分数降低 收缩压:121mmHg 高血压 肺淤血 周围性水肿 液体潴留 容量超负荷 心肌收缩力下降 呼吸困难 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12957,13 +12913,12 @@ Library           RequestsLibrary
 
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:49% 射血分数降低 心功能评级III 心功能评级IV 严重心力衰竭 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective:劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:49% 射血分数降低 心功能评级III 心功能评级IV 严重心力衰竭 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -12974,53 +12929,50 @@ Library           RequestsLibrary
 推荐治疗方案29.1 心力衰竭症状｜心力衰竭&EF<50%｜射血分数降低+次要条件:,推荐血运重建方案:对症治疗
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭:49% 射血分数降低 心功能评级:III 心功能评级:IV </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective:劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭:49% 射血分数降低 心功能评级:III 心功能评级:IV Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
     Should Contain    ${aj}     对症治疗
 
-#######55L 房颤&心率难控制｜左心室功能障碍        呼吸困难｜胸痛｜晕厥｜无法达到心率控制｜急性短暂性脑缺血发作｜卒中｜心率<40次/分｜心率>150次/分    心内科/心律失常科会诊     无   是
-#######房颤 心率难控制 左心室功能障碍
+######55L 房颤&心率难控制｜左心室功能障碍        呼吸困难｜胸痛｜晕厥｜无法达到心率控制｜急性短暂性脑缺血发作｜卒中｜心率<40次/分｜心率>150次/分    心内科/心律失常科会诊     无   是
+######房颤 心率难控制 左心室功能障碍
 
 推荐治疗方案30.1 房颤&心率难控制｜左心室功能障碍+次要条件:,推荐血运重建方案:心内科/心律失常科会诊
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 心率难控制 左心室功能障碍 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:</InnerValue></Element></XElements><BodyText>Subjective:房颤 心率难控制 左心室功能障碍 Objective: Assessment:诊断: Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
     Should Contain    ${aj}     心内科/心律失常科会诊
 
-#######56L 房颤&呼吸困难｜胸痛｜晕厥｜无法达到心率控制｜急性短暂性脑缺血发作｜卒中｜心率<40次/分｜心率>150次/分         转诊  将患者送至急诊观察室并考虑心内科会诊  无   是
-#######房颤 呼吸困难 胸痛 晕厥 无法达到心率控制 急性短暂性脑缺血发作 卒中 心率<40次/分 心率>150次/分
-#######房颤 呼吸困难 胸痛 晕厥 无法达到心率控制 急性短暂性脑缺血发作 卒中 心率:39次/分 心率:151次/分
-#######房颤 呼吸困难 胸痛 晕厥 无法达到心率控制 急性短暂性脑缺血发作 卒中 心率:40次/分 心率:150次/分
+######56L 房颤&呼吸困难｜胸痛｜晕厥｜无法达到心率控制｜急性短暂性脑缺血发作｜卒中｜心率<40次/分｜心率>150次/分         转诊  将患者送至急诊观察室并考虑心内科会诊  无   是
+######房颤 呼吸困难 胸痛 晕厥 无法达到心率控制 急性短暂性脑缺血发作 卒中 心率<40次/分 心率>150次/分
+######房颤 呼吸困难 胸痛 晕厥 无法达到心率控制 急性短暂性脑缺血发作 卒中 心率:39次/分 心率:151次/分
+######房颤 呼吸困难 胸痛 晕厥 无法达到心率控制 急性短暂性脑缺血发作 卒中 心率:40次/分 心率:150次/分
 
 推荐治疗方案31.1 房颤&呼吸困难｜胸痛｜晕厥｜无法达到心率控制｜急性短暂性脑缺血发作｜卒中｜心率<40次/分｜心率>150次/分+次要条件:,推荐血运重建方案:转诊
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 呼吸困难 胸痛 晕厥 无法达到心率控制 急性短暂性脑缺血发作 卒中 心率:39次/分 心率:151次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:房颤 呼吸困难 胸痛 晕厥 无法达到心率控制 急性短暂性脑缺血发作 卒中 心率:39次/分 心率:151次/分 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -13030,13 +12982,12 @@ Library           RequestsLibrary
 推荐治疗方案31.2 房颤&心率==40次/分｜心率==150次/分,"不应"推荐血运重建方案:转诊
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 心率:40次/分 心率:150次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:房颤 心率:40次/分 心率:150次/分 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -13053,13 +13004,12 @@ Library           RequestsLibrary
 推荐治疗方案32.1 CHA2DS2-VASc评分==1&男性+次要条件:,推荐血运重建方案:抗凝治疗
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":1,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> CHA2DS2-VASc评分:1 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:CHA2DS2-VASc评分:1 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -13069,92 +13019,87 @@ Library           RequestsLibrary
 推荐治疗方案32.2 CHA2DS2-VASc评分>1&男性+次要条件:,推荐血运重建方案:抗凝治疗
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":1,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> CHA2DS2-VASc评分:2 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:CHA2DS2-VASc评分:2 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
     Should Contain    ${aj}     抗凝治疗
 
-推荐治疗方案32.3 CHA2DS2-VASc评分<1&男性,"不应"推荐血运重建方案:抗凝治疗
-    [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
-    #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":1,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> CHA2DS2-VASc评分:0 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    # Should Not Contain    ${aj}     抗凝治疗
-    Should Not Contain    ${getRes['body']}    therapeuticPlanList
+####### 推荐治疗方案32.3 CHA2DS2-VASc评分<1&男性,"不应"推荐血运重建方案:抗凝治疗
+#######     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
+#######     #执行删除操作
+#######     ${timestamp}    Get Time    epoch
+#######     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+#######     ...    patientInfo={"gender":1,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#######     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#######     ...    definiteDiagnosis=
+#######     ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:CHA2DS2-VASc评分:0 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+#######     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#######     ...    labTestList=
+#######     ...    examinationList=
+#######     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#######     Should Not Contain    ${aj}     抗凝治疗
+#######     # Should Not Contain    ${getRes['body']}    therapeuticPlanList
 
-#######58L CHA2DS2-VASc评分>1&女性     呼吸困难｜胸痛｜晕厥｜无法达到心率控制｜急性短暂性脑缺血发作｜卒中｜心率<40次/分｜心率>150次/分｜HAS-BLED评分>=3  抗凝治疗            是
-#######CHA2DS2-VASc评分>=1&女性
-#######CHA2DS2-VASc评分>=1   评分结果    CHA2DS2-VASc评分>=1
-#######CHA2DS2-VASc评分:1
-#######CHA2DS2-VASc评分:2
-#######CHA2DS2-VASc评分:0
+######58L CHA2DS2-VASc评分>1&女性     呼吸困难｜胸痛｜晕厥｜无法达到心率控制｜急性短暂性脑缺血发作｜卒中｜心率<40次/分｜心率>150次/分｜HAS-BLED评分>=3  抗凝治疗            是
+######CHA2DS2-VASc评分>=1&女性
+######CHA2DS2-VASc评分>=1   评分结果    CHA2DS2-VASc评分>=1
+######CHA2DS2-VASc评分:1
+######CHA2DS2-VASc评分:2
+######CHA2DS2-VASc评分:0
 
 推荐治疗方案33.1 CHA2DS2-VASc评分==2&女性+次要条件:,推荐血运重建方案:抗凝治疗
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> CHA2DS2-VASc评分:2 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:CHA2DS2-VASc评分:2 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
     Should Contain    ${aj}     抗凝治疗
 
-推荐治疗方案33.2 CHA2DS2-VASc评分==1&女性,"不应"推荐血运重建方案:抗凝治疗
-    [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
-    #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> CHA2DS2-VASc评分:1 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    # Should Not Contain    ${aj}     抗凝治疗
-    Should Not Contain    ${getRes['body']}    therapeuticPlanList
+######推荐治疗方案33.2 CHA2DS2-VASc评分==1&女性,"不应"推荐血运重建方案:抗凝治疗
+######    [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
+######    #执行删除操作
+######    ${timestamp}    Get Time    epoch
+######    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+######    ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+######    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+######    ...    definiteDiagnosis=
+######    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:CHA2DS2-VASc评分:1 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+######    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+######    ...    labTestList=
+######    ...    examinationList=
+######    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+######    Should Not Contain    ${aj}     抗凝治疗
+######    # Should Not Contain    ${getRes['body']}    therapeuticPlanList
 
-#######59L 房颤&心率>=110次/分       呼吸困难｜胸痛｜晕厥｜无法达到心率控制｜急性短暂性脑缺血发作｜卒中｜心率<40次/分｜心率>150次/分    ß受体阻滞剂/非二氢吡啶CCB         是
-#######房颤&心率>=110次/分
-#######房颤 心率:110次/分
-#######房颤 心率:111次/分
-#######房颤 心率:109次/分
+######59L 房颤&心率>=110次/分       呼吸困难｜胸痛｜晕厥｜无法达到心率控制｜急性短暂性脑缺血发作｜卒中｜心率<40次/分｜心率>150次/分    ß受体阻滞剂/非二氢吡啶CCB         是
+######房颤&心率>=110次/分
+######房颤 心率:110次/分
+######房颤 心率:111次/分
+######房颤 心率:109次/分
 
 推荐治疗方案34.1 房颤&心率>=110次/分+次要条件:,推荐血运重建方案:ß受体阻滞剂/非二氢吡啶CCB
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 心率:110次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:房颤 心率:110次/分 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -13164,13 +13109,12 @@ Library           RequestsLibrary
 推荐治疗方案34.2 房颤&心率<110次/分+次要条件:,"不应"推荐血运重建方案:ß受体阻滞剂/非二氢吡啶CCB
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 心率:109次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:房颤 心率:109次/分 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -13187,13 +13131,12 @@ Library           RequestsLibrary
 推荐治疗方案35.1 房颤&心率>=110次/分&心率难控制｜左心室功能障碍+次要条件:,推荐血运重建方案:心内科/心律失常科会诊
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 心率:110次/分 心率难控制 左心室功能障碍 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:房颤 心率:110次/分 心率难控制 左心室功能障碍 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -13209,13 +13152,12 @@ Library           RequestsLibrary
 推荐治疗方案36.1 房颤&心率>=110次/分+次要条件:,推荐血运重建方案:抗心律失常药
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 心率:110次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:房颤 心率:110次/分 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -13231,13 +13173,12 @@ Library           RequestsLibrary
 推荐治疗方案37.1 房颤&心率>=110次/分+次要条件:,推荐血运重建方案:射频消融
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 心率:110次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:房颤 心率:110次/分 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -13253,13 +13194,12 @@ Library           RequestsLibrary
 推荐治疗方案38.1 房颤&心率>=110次/分+次要条件:,推荐血运重建方案:房室结消融
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 心率:110次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:房颤 心率:110次/分 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -13275,13 +13215,12 @@ Library           RequestsLibrary
 推荐治疗方案39.1 房颤&心率>=110次/分+次要条件:,推荐血运重建方案:起搏器
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 心率:110次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:房颤 心率:110次/分 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -13297,13 +13236,12 @@ Library           RequestsLibrary
 推荐治疗方案40.1 房颤&心率>=110次/分+次要条件:,推荐血运重建方案:迷宫手术
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 心率:110次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:房颤 心率:110次/分 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -13319,13 +13257,12 @@ Library           RequestsLibrary
 推荐治疗方案41.1 房颤&心率<110次/分+次要条件:,推荐血运重建方案:抗心律失常药
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 心率:109次/分 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:房颤 心率:109次/分 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -13343,13 +13280,12 @@ Library           RequestsLibrary
 推荐治疗方案42.1 房颤&心率<110次/分+次要条件:心房增大｜运动时心率额外增加｜心脏瓣膜病,推荐血运重建方案:抗心律失常药
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 心率:109次/分 心房增大 运动时心率额外增加 心脏瓣膜病 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:房颤 心率:109次/分 心房增大 运动时心率额外增加 心脏瓣膜病 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -13367,13 +13303,12 @@ Library           RequestsLibrary
 推荐治疗方案43.1 房颤&心率<110次/分+次要条件:心房增大｜运动时心率额外增加｜心脏瓣膜病,推荐血运重建方案:射频消融
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 心率:109次/分 心房增大 运动时心率额外增加 心脏瓣膜病 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:房颤 心率:109次/分 心房增大 运动时心率额外增加 心脏瓣膜病 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -13391,13 +13326,12 @@ Library           RequestsLibrary
 推荐治疗方案44.1 房颤&心率<110次/分+次要条件:心房增大｜运动时心率额外增加｜心脏瓣膜病,推荐血运重建方案:房室结消融
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 心率:109次/分 心房增大 运动时心率额外增加 心脏瓣膜病 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:房颤 心率:109次/分 心房增大 运动时心率额外增加 心脏瓣膜病 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -13415,13 +13349,12 @@ Library           RequestsLibrary
 推荐治疗方案45.1 房颤&心率<110次/分+次要条件:心房增大｜运动时心率额外增加｜心脏瓣膜病,推荐血运重建方案:起搏器
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 心率:109次/分 心房增大 运动时心率额外增加 心脏瓣膜病 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:房颤 心率:109次/分 心房增大 运动时心率额外增加 心脏瓣膜病 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -13439,13 +13372,12 @@ Library           RequestsLibrary
 推荐治疗方案46.1 房颤&心率<110次/分+次要条件:心房增大｜运动时心率额外增加｜心脏瓣膜病,推荐血运重建方案:迷宫手术
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 心率:109次/分 心房增大 运动时心率额外增加 心脏瓣膜病 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:房颤 心率:109次/分 心房增大 运动时心率额外增加 心脏瓣膜病 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -13463,110 +13395,104 @@ Library           RequestsLibrary
 推荐治疗方案47.1 非瓣膜性房颤+次要条件:,推荐血运重建方案:左心耳封堵术
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 非瓣膜性房颤 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:非瓣膜性房颤 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
     Should Contain    ${aj}     左心耳封堵术
 
-#######73L CHA2DS2-VASc评分>=1&男性&HAS-BLED评分>=3      呼吸困难｜胸痛｜晕厥｜无法达到心率控制｜急性短暂性脑缺血发作｜卒中｜心率<40次/分｜心率>150次/分｜非瓣膜性房颤 左心耳封堵术  血栓栓塞风险增加伴出血风险或没有有效的抗凝方案时，应考虑进行左心耳封堵术    无   是
-#######CHA2DS2-VASc评分>=1&男性&HAS-BLED评分>=3
-#######CHA2DS2-VASc评分>=1   评分结果    CHA2DS2-VASc评分>=1
-#######HAS-BLED评分>=3   评分结果    HAS-BLED评分>=3
-#######CHA2DS2-VASc评分:1 HAS-BLED评分:3
-#######CHA2DS2-VASc评分:0 HAS-BLED评分:2
+######73L CHA2DS2-VASc评分>=1&男性&HAS-BLED评分>=3      呼吸困难｜胸痛｜晕厥｜无法达到心率控制｜急性短暂性脑缺血发作｜卒中｜心率<40次/分｜心率>150次/分｜非瓣膜性房颤 左心耳封堵术  血栓栓塞风险增加伴出血风险或没有有效的抗凝方案时，应考虑进行左心耳封堵术    无   是
+######CHA2DS2-VASc评分>=1&男性&HAS-BLED评分>=3
+######CHA2DS2-VASc评分>=1   评分结果    CHA2DS2-VASc评分>=1
+######HAS-BLED评分>=3   评分结果    HAS-BLED评分>=3
+######CHA2DS2-VASc评分:1 HAS-BLED评分:3
+######CHA2DS2-VASc评分:0 HAS-BLED评分:2
 
 推荐治疗方案48.1 CHA2DS2-VASc评分>=1&男性&HAS-BLED评分>=3+次要条件:,推荐血运重建方案:左心耳封堵术
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":1,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> CHA2DS2-VASc评分:1 HAS-BLED评分:3 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:CHA2DS2-VASc评分:1 HAS-BLED评分:3 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
     Should Contain    ${aj}     左心耳封堵术
 
-推荐治疗方案48.2 CHA2DS2-VASc评分<1&男性&HAS-BLED评分<3+次要条件:,"不应"推荐血运重建方案:抗心律失常药
-    [Documentation]    断言:""
-    #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":1,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> CHA2DS2-VASc评分:0 HAS-BLED评分:2 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    # Should Not Contain    ${aj}     左心耳封堵术
-    Should Not Contain    ${getRes['body']}    therapeuticPlanList
+####### 推荐治疗方案48.2 CHA2DS2-VASc评分<1&男性&HAS-BLED评分<3+次要条件:,"不应"推荐血运重建方案:抗心律失常药
+#######     [Documentation]    断言:""
+#######     #执行删除操作
+#######     ${timestamp}    Get Time    epoch
+#######     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+#######     ...    patientInfo={"gender":1,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#######     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#######     ...    definiteDiagnosis=
+#######     ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:CHA2DS2-VASc评分:0 HAS-BLED评分:2 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+#######     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#######     ...    labTestList=
+#######     ...    examinationList=
+#######     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#######     Should Not Contain    ${aj}     左心耳封堵术
+#######     # Should Not Contain    ${getRes['body']}    therapeuticPlanList
 
-#######74L CHA2DS2-VASc评分>1&女性&HAS-BLED评分>=3       呼吸困难｜胸痛｜晕厥｜无法达到心率控制｜急性短暂性脑缺血发作｜卒中｜心率<40次/分｜心率>150次/分｜非瓣膜性房颤 左心耳封堵术  血栓栓塞风险增加伴出血风险或没有有效的抗凝方案时，应考虑进行左心耳封堵术    无   是
-#######CHA2DS2-VASc评分>1&女性&HAS-BLED评分>=3
+######74L CHA2DS2-VASc评分>1&女性&HAS-BLED评分>=3       呼吸困难｜胸痛｜晕厥｜无法达到心率控制｜急性短暂性脑缺血发作｜卒中｜心率<40次/分｜心率>150次/分｜非瓣膜性房颤 左心耳封堵术  血栓栓塞风险增加伴出血风险或没有有效的抗凝方案时，应考虑进行左心耳封堵术    无   是
+######CHA2DS2-VASc评分>1&女性&HAS-BLED评分>=3
 
-#######CHA2DS2-VASc评分:2 HAS-BLED评分:3
-#######CHA2DS2-VASc评分:0 HAS-BLED评分:2
+######CHA2DS2-VASc评分:2 HAS-BLED评分:3
+######CHA2DS2-VASc评分:0 HAS-BLED评分:2
 
 推荐治疗方案49.1 CHA2DS2-VASc评分>=1&女性&HAS-BLED评分>=3+次要条件:,推荐血运重建方案:左心耳封堵术
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> CHA2DS2-VASc评分:2 HAS-BLED评分:3 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:CHA2DS2-VASc评分:2 HAS-BLED评分:3 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
     Should Contain    ${aj}     左心耳封堵术
 
-推荐治疗方案49.2 CHA2DS2-VASc评分<1&女性&HAS-BLED评分<3+次要条件:,"不应"推荐血运重建方案:抗心律失常药
-    [Documentation]    断言:""
-    #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> CHA2DS2-VASc评分:0 HAS-BLED评分:2 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    # Should Not Contain    ${aj}     左心耳封堵术
-    Should Not Contain    ${getRes['body']}    therapeuticPlanList
+#######推荐治疗方案49.2 CHA2DS2-VASc评分<1&女性&HAS-BLED评分<3+次要条件:,"不应"推荐血运重建方案:抗心律失常药
+#######    [Documentation]    断言:""
+#######    #执行删除操作
+#######    ${timestamp}    Get Time    epoch
+#######    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+#######    ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#######    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#######    ...    definiteDiagnosis=
+#######    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:CHA2DS2-VASc评分:0 HAS-BLED评分:2 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+#######    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#######    ...    labTestList=
+#######    ...    examinationList=
+#######    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#######    # Should Not Contain    ${aj}     左心耳封堵术
+#######    Should Not Contain    ${getRes['body']}    therapeuticPlanList
 
 
 #######47L 房颤       心率<110次/分｜心率>=110次/分｜CHA2DS2-VASc评分>=0｜呼吸困难｜胸痛｜晕厥｜无法达到心率控制｜急性短暂性脑缺血发作｜卒中｜心率<40次/分｜心率>150次/分｜HAS-BLED评分>=3   抗凝治疗    如无抗凝禁忌，应常规抗凝
 推荐治疗方案50.1 房颤+次要条件:,推荐血运重建方案:抗凝治疗
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:房颤 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -13578,13 +13504,13 @@ Library           RequestsLibrary
 推荐治疗方案51.1 房颤+次要条件:,推荐血运重建方案:ß受体阻滞剂/非二氢吡啶CCB
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
+    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:删除 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:房颤 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -13596,13 +13522,13 @@ Library           RequestsLibrary
 推荐治疗方案52 房颤+次要条件:,推荐血运重建方案:抗心律失常药
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
+    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:删除 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:房颤 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -13614,13 +13540,13 @@ Library           RequestsLibrary
 推荐治疗方案53 房颤+次要条件:,推荐血运重建方案:射频消融
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
+    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:删除 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:房颤 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -13632,13 +13558,13 @@ Library           RequestsLibrary
 推荐治疗方案54 房颤+次要条件:,推荐血运重建方案:房室结消融
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
+    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:删除 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:房颤 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -13651,13 +13577,13 @@ Library           RequestsLibrary
 推荐治疗方案55 房颤+次要条件:,推荐血运重建方案:起搏器
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
+    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:删除 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:房颤 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -13670,13 +13596,13 @@ Library           RequestsLibrary
 推荐治疗方案56 房颤+次要条件:,推荐血运重建方案:迷宫手术
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
+    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:删除 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:房颤 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -13688,18 +13614,15 @@ Library           RequestsLibrary
 推荐治疗方案57 房颤+次要条件:,推荐血运重建方案:左心耳封堵术
     [Documentation]    断言:""
     #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
+    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:删除 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
     ${timestamp}    Get Time    epoch
     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:房颤 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
     Should Contain    ${aj}     左心耳封堵术
-
-
-
