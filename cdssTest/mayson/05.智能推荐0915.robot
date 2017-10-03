@@ -1600,21 +1600,6 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
     Should Contain    ${aj}     TIA危险因素管理
 
-推荐治疗方案17.2 主要条件:短暂性脑缺血发作&主动脉弓动脉粥样硬化斑块,推荐血运重建方案:TIA危险因素管理
-    [Documentation]    断言:""
-    ${timestamp}    Get Time    epoch
-    ${Assessment}    Set Variable    短暂性脑缺血发作
-    ${Subjective}    Set Variable    短暂性脑缺血发作 主动脉弓动脉粥样硬化斑块
-    ${getRes}    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"${Subjective} 诊断及诊断依据:${Assessment} ","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    Should Contain    ${aj}     TIA危险因素管理
 
 推荐治疗方案17.3 主要条件:短暂性脑缺血发作&颅内大动脉粥样硬化性狭窄,推荐血运重建方案:TIA危险因素管理
     [Documentation]    断言:""

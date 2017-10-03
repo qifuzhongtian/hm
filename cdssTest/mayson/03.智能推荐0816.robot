@@ -3759,7 +3759,7 @@ Library           RequestsLibrary
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Contain    ${aj}    超声心动图
+    Should Not Contain    ${aj}    超声心动图
     # Should Not Contain    ${getRes['body']}    examinationRecommendList
 
 推荐检查30.7 房颤+否定条件:卒中,推荐检查"不应"包含:超声心动图
@@ -3930,22 +3930,22 @@ Library           RequestsLibrary
     # Should Contain    ${aj}    胸部X线片
     Should Not Contain    ${getRes['body']}    examinationRecommendList
 
-推荐检查31.6 房颤+否定条件:急性短暂性脑缺血发作,推荐检查"不应"包含:胸部X线片
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 急性短暂性脑缺血发作 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should NOt Contain    ${aj}    胸部X线片
-    # Should Not Contain    ${getRes['body']}    examinationRecommendList
+#######推荐检查31.6 房颤+否定条件:急性短暂性脑缺血发作,推荐检查"不应"包含:胸部X线片
+#######    [Documentation]    断言:""
+#######    #执行删除病程
+#######    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
+#######    ${timestamp}    Get Time    epoch
+#######    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+#######    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#######    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#######    ...    definiteDiagnosis=
+#######    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 急性短暂性脑缺血发作 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+#######    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#######    ...    labTestList=
+#######    ...    examinationList=
+#######    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#######    Should Not Contain    ${aj}    胸部X线片
+#######    # Should Not Contain    ${getRes['body']}    examinationRecommendList
 
 推荐检查31.7 房颤+否定条件:卒中,推荐检查"不应"包含:胸部X线片
     [Documentation]    断言:""
@@ -4129,7 +4129,7 @@ Library           RequestsLibrary
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Contain    ${aj}    促甲状腺激素检查
+    Should Not Contain    ${aj}    促甲状腺激素检查
     # Should Not Contain    ${getRes['body']}    examinationRecommendList
 
 推荐检查32.7 房颤+否定条件:卒中,推荐检查"不应"包含:促甲状腺激素检查
@@ -4287,22 +4287,22 @@ Library           RequestsLibrary
     # Should Contain    ${aj}    血电解质
     Should Not Contain    ${getRes['body']}    examinationRecommendList
 
-推荐检查33.6 房颤+否定条件:急性短暂性脑缺血发作,推荐检查"不应"包含:血电解质
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 急性短暂性脑缺血发作 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    血电解质
-    # Should Not Contain    ${getRes['body']}    examinationRecommendList
+########推荐检查33.6 房颤+否定条件:急性短暂性脑缺血发作,推荐检查"不应"包含:血电解质
+########    [Documentation]    断言:""
+########    #执行删除病程
+########    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
+########    ${timestamp}    Get Time    epoch
+########    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+########    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+########    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+########    ...    definiteDiagnosis=
+########    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 急性短暂性脑缺血发作 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+########    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+########    ...    labTestList=
+########    ...    examinationList=
+########    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+########    Should Not Contain    ${aj}    血电解质
+########    # Should Not Contain    ${getRes['body']}    examinationRecommendList
 
 
 推荐检查33.7 房颤+否定条件:卒中,推荐检查"不应"包含:血电解质
@@ -4460,22 +4460,22 @@ Library           RequestsLibrary
     # Should Contain    ${aj}    血常规
     Should Not Contain    ${getRes['body']}    examinationRecommendList
 
-推荐检查34.6 房颤+否定条件:急性短暂性脑缺血发作,推荐检查"不应"包含:血常规
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 急性短暂性脑缺血发作 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    血常规
-    # Should Not Contain    ${getRes['body']}    examinationRecommendList
+######推荐检查34.6 房颤+否定条件:急性短暂性脑缺血发作,推荐检查"不应"包含:血常规
+######    [Documentation]    断言:""
+######    #执行删除病程
+######    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
+######    ${timestamp}    Get Time    epoch
+######    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+######    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+######    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+######    ...    definiteDiagnosis=
+######    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 房颤 急性短暂性脑缺血发作 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+######    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+######    ...    labTestList=
+######    ...    examinationList=
+######    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+######    Should Not Contain    ${aj}    血常规
+######    # Should Not Contain    ${getRes['body']}    examinationRecommendList
 
 
 推荐检查34.7 房颤+否定条件:卒中,推荐检查"不应"包含:血常规
@@ -5030,7 +5030,7 @@ Library           RequestsLibrary
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Contain    ${aj}    过夜血氧饱和度监测
+    Should Not Contain    ${aj}    过夜血氧饱和度监测
     # Should Not Contain    ${getRes['body']}    examinationRecommendList
 
 推荐检查37.7 房颤+否定条件:卒中,推荐检查"不应"包含:过夜血氧饱和度监测
