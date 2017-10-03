@@ -192,22 +192,22 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Contain    ${aj}    心电图
 
-推荐检查4.2 主要条件:脑梗死｜短暂性脑缺血发作｜怀疑短暂性脑缺血发作｜怀疑脑梗死+否定条件:脑出血,推荐检查"不应"包含:心电图
-    [Documentation]    断言:""
-    ${timestamp}    Get Time    epoch
-    ${Assessment}    Set Variable
-    ${Subjective}    Set Variable    脑梗死 短暂性脑缺血发作 怀疑短暂性脑缺血发作 怀疑脑梗死 脑出血
-    ${getRes}    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"${Subjective} 诊断及诊断依据:${Assessment} ","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    心电图
-    # Should Not Contain    ${getRes['body']}    examinationRecommendList
+####推荐检查4.2 主要条件:脑梗死｜短暂性脑缺血发作｜怀疑短暂性脑缺血发作｜怀疑脑梗死+否定条件:脑出血,推荐检查"不应"包含:心电图
+####    [Documentation]    断言:""
+####    ${timestamp}    Get Time    epoch
+####    ${Assessment}    Set Variable
+####    ${Subjective}    Set Variable    脑梗死 短暂性脑缺血发作 怀疑短暂性脑缺血发作 怀疑脑梗死 脑出血
+####    ${getRes}    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+####    ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+####    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+####    ...    definiteDiagnosis=
+####    ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"${Subjective} 诊断及诊断依据:${Assessment} ","doctorGuid": "2222","recordTime": ""}
+####    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+####    ...    labTestList=
+####    ...    examinationList=
+####    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+####    Should Not Contain    ${aj}    心电图
+####    # Should Not Contain    ${getRes['body']}    examinationRecommendList
 
 
 ### 主要条件 次要条件    否定条件    推荐检查    备注文案，包括注意及推荐理由  推荐检查类型  检查ID    是否新增
@@ -228,22 +228,22 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Contain    ${aj}    胸部X线片
 
-推荐检查5.2 主要条件:脑梗死｜短暂性脑缺血发作｜怀疑短暂性脑缺血发作｜怀疑脑梗死+否定条件:脑出血,推荐检查"不应"包含:胸部X线片
-    [Documentation]    断言:""
-    ${timestamp}    Get Time    epoch
-    ${Assessment}    Set Variable
-    ${Subjective}    Set Variable    脑梗死 短暂性脑缺血发作 怀疑短暂性脑缺血发作 怀疑脑梗死 脑出血
-    ${getRes}    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"${Subjective} 诊断及诊断依据:${Assessment} ","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    胸部X线片
-    # Should Not Contain    ${getRes['body']}    examinationRecommendList
+######推荐检查5.2 主要条件:脑梗死｜短暂性脑缺血发作｜怀疑短暂性脑缺血发作｜怀疑脑梗死+否定条件:脑出血,推荐检查"不应"包含:胸部X线片
+######    [Documentation]    断言:""
+######    ${timestamp}    Get Time    epoch
+######    ${Assessment}    Set Variable
+######    ${Subjective}    Set Variable    脑梗死 短暂性脑缺血发作 怀疑短暂性脑缺血发作 怀疑脑梗死 脑出血
+######    ${getRes}    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+######    ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+######    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+######    ...    definiteDiagnosis=
+######    ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"${Subjective} 诊断及诊断依据:${Assessment} ","doctorGuid": "2222","recordTime": ""}
+######    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+######    ...    labTestList=
+######    ...    examinationList=
+######    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+######    Should Not Contain    ${aj}    胸部X线片
+######    # Should Not Contain    ${getRes['body']}    examinationRecommendList
 
 
 ### 主要条件 次要条件    否定条件    推荐检查    备注文案，包括注意及推荐理由  推荐检查类型  检查ID    是否新增

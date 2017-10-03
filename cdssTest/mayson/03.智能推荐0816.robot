@@ -1721,9 +1721,9 @@ Library           RequestsLibrary
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    # Should Not Contain    ${aj}    BNP
-    should Not Contain    ${getRes['body']}    examinationRecommendList
+    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    Should Not Contain    ${aj}    BNP
+    # should Not Contain    ${getRes['body']}    examinationRecommendList
 
 推荐检查13.7 心力衰竭症状｜心力衰竭+否定条件:缺氧,推荐检查"不应"包含:BNP
     [Documentation]    断言:""
