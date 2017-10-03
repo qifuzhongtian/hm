@@ -1856,9 +1856,9 @@ Library           RequestsLibrary
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    # Should Not Contain    ${aj}    胸部X线片
-    Should Not Contain    ${getRes['body']}    examinationRecommendList
+    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    Should Not Contain    ${aj}    胸部X线片
+    # Should Not Contain    ${getRes['body']}    examinationRecommendList
 
 推荐检查15.7 心力衰竭症状｜心力衰竭+否定条件:缺氧,推荐检查"不应"包含:胸部X线片
     [Documentation]    断言:""
@@ -2397,9 +2397,9 @@ Library           RequestsLibrary
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    # Should Not Contain    ${aj}    尿常规
-    Should Not Contain    ${getRes['body']}    examinationRecommendList
+    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    Should Not Contain    ${aj}    尿常规
+    # Should Not Contain    ${getRes['body']}    examinationRecommendList
 
 推荐检查22.7 心力衰竭症状｜心力衰竭+否定条件:缺氧,推荐检查"不应"包含:尿常规
     [Documentation]    断言:""
@@ -2743,9 +2743,10 @@ Library           RequestsLibrary
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    # Should Not Contain    ${aj}    血糖
-    Should Not Contain    ${getRes['body']}    examinationRecommendList
+    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    Should Not Contain    ${aj}    血糖
+    # Should Not Contain    ${getRes['body']}    examinationRecommendList
+
 
 推荐检查24.7 心力衰竭症状｜心力衰竭+否定条件:缺氧,推荐检查"不应"包含:血糖
     [Documentation]    断言:""
@@ -2928,10 +2929,9 @@ Library           RequestsLibrary
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    # Should Not Contain    ${aj}    肝功能
-    should Not Contain    ${getRes['body']}    examinationRecommendList
-
+    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    Should Not Contain    ${aj}    肝功能
+    # should Not Contain    ${getRes['body']}    examinationRecommendList
 推荐检查25.7 心力衰竭症状｜心力衰竭+否定条件:缺氧,推荐检查"不应"包含:肝功能
     [Documentation]    断言:""
     #执行删除病程
@@ -3113,10 +3113,10 @@ Library           RequestsLibrary
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
+    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    Should Not Contain    ${aj}    超敏促甲状腺激素
     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    # Should Not Contain    ${aj}    超敏促甲状腺激素
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    should Not Contain    ${getRes['body']}    examinationRecommendList
+    # should Not Contain    ${getRes['body']}    examinationRecommendList
 
 推荐检查26.7 心力衰竭症状｜心力衰竭+否定条件:缺氧,推荐检查"不应"包含:超敏促甲状腺激素
     [Documentation]    断言:""
@@ -3381,9 +3381,9 @@ Library           RequestsLibrary
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    # Should Not Contain    ${aj}    动脉血气PH
-    Should Not Contain    ${getRes['body']}    examinationRecommendList
+    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    Should Not Contain    ${aj}    动脉血气PH
+    # Should Not Contain    ${getRes['body']}    examinationRecommendList
 
 推荐检查28.7 心力衰竭症状｜心力衰竭+否定条件:缺氧,推荐检查"不应"包含:动脉血气PH
     [Documentation]    断言:""
@@ -3572,9 +3572,9 @@ Library           RequestsLibrary
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    # Should Contain    ${aj}    心电图
-    Should Not Contain    ${getRes['body']}    examinationRecommendList
+    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    Should Contain    ${aj}    心电图
+    # Should Not Contain    ${getRes['body']}    examinationRecommendList
 
 
 推荐检查29.7 房颤+否定条件:卒中,推荐检查"不应"包含:心电图
@@ -3758,9 +3758,9 @@ Library           RequestsLibrary
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    # Should Contain    ${aj}    超声心动图
-    Should Not Contain    ${getRes['body']}    examinationRecommendList
+    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    Should Contain    ${aj}    超声心动图
+    # Should Not Contain    ${getRes['body']}    examinationRecommendList
 
 推荐检查30.7 房颤+否定条件:卒中,推荐检查"不应"包含:超声心动图
     [Documentation]    断言:""
@@ -3943,9 +3943,9 @@ Library           RequestsLibrary
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    # Should Contain    ${aj}    胸部X线片
-    Should Not Contain    ${getRes['body']}    examinationRecommendList
+    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    Should NOt Contain    ${aj}    胸部X线片
+    # Should Not Contain    ${getRes['body']}    examinationRecommendList
 
 推荐检查31.7 房颤+否定条件:卒中,推荐检查"不应"包含:胸部X线片
     [Documentation]    断言:""
@@ -4128,9 +4128,9 @@ Library           RequestsLibrary
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    # Should Contain    ${aj}    胸部X线片
-    Should Not Contain    ${getRes['body']}    examinationRecommendList
+    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    Should Contain    ${aj}    促甲状腺激素检查
+    # Should Not Contain    ${getRes['body']}    examinationRecommendList
 
 推荐检查32.7 房颤+否定条件:卒中,推荐检查"不应"包含:促甲状腺激素检查
     [Documentation]    断言:""
@@ -4300,9 +4300,10 @@ Library           RequestsLibrary
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    # Should Contain    ${aj}    血电解质
-    Should Not Contain    ${getRes['body']}    examinationRecommendList
+    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    Should Not Contain    ${aj}    血电解质
+    # Should Not Contain    ${getRes['body']}    examinationRecommendList
+
 
 推荐检查33.7 房颤+否定条件:卒中,推荐检查"不应"包含:血电解质
     [Documentation]    断言:""
@@ -4472,9 +4473,10 @@ Library           RequestsLibrary
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    # Should Contain    ${aj}    血常规
-    Should Not Contain    ${getRes['body']}    examinationRecommendList
+    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    Should Not Contain    ${aj}    血常规
+    # Should Not Contain    ${getRes['body']}    examinationRecommendList
+
 
 推荐检查34.7 房颤+否定条件:卒中,推荐检查"不应"包含:血常规
     [Documentation]    断言:""
@@ -4657,9 +4659,9 @@ Library           RequestsLibrary
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    # Should Contain    ${aj}    凝血酶原检查
-    Should Not Contain    ${getRes['body']}    examinationRecommendList
+    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    Should Not Contain    ${aj}    凝血酶原检查
+    # Should Not Contain    ${getRes['body']}    examinationRecommendList
 
 推荐检查35.7 房颤+否定条件:卒中,推荐检查"不应"包含:凝血酶原检查
     [Documentation]    断言:""
@@ -4842,9 +4844,9 @@ Library           RequestsLibrary
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    # Should Contain    ${aj}    动态心电图监测
-    Should Not Contain    ${getRes['body']}    examinationRecommendList
+    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    Should Not Contain    ${aj}    动态心电图监测
+    # Should Not Contain    ${getRes['body']}    examinationRecommendList
 
 推荐检查36.7 房颤+否定条件:卒中,推荐检查"不应"包含:动态心电图监测
     [Documentation]    断言:""
@@ -5027,9 +5029,9 @@ Library           RequestsLibrary
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    # Should Contain    ${aj}    过夜血氧饱和度监测
-    Should Not Contain    ${getRes['body']}    examinationRecommendList
+    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    Should Contain    ${aj}    过夜血氧饱和度监测
+    # Should Not Contain    ${getRes['body']}    examinationRecommendList
 
 推荐检查37.7 房颤+否定条件:卒中,推荐检查"不应"包含:过夜血氧饱和度监测
     [Documentation]    断言:""
@@ -11970,7 +11972,7 @@ Library           RequestsLibrary
 ######休克｜持续性低血压｜收缩压<90mmHg｜低氧血症｜呼吸窘迫｜SPO2<90%｜严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉&肺栓塞｜急性肺栓塞
 ######休克 持续性低血压 收缩压:89mmHg 低氧血症 呼吸窘迫 血氧饱和度:89% 严重心动过缓 心率:39次/分 脉搏细弱 脉搏消失 无脉&肺栓塞 急性肺栓塞
 ######休克 持续性低血压 收缩压:90mmHg 低氧血症 呼吸窘迫 血氧饱和度:90% 严重心动过缓 心率:40次/分 脉搏细弱 脉搏消失 无脉&肺栓塞 急性肺栓塞
-肺栓塞 急性肺栓塞
+######肺栓塞 急性肺栓塞
 
 推荐治疗方案2.1 休克｜持续性低血压｜收缩压<90mmHg｜低氧血症｜呼吸窘迫｜SPO2<90%｜严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉&肺栓塞｜急性肺栓塞, 推荐血运重建方案:溶栓治疗
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
