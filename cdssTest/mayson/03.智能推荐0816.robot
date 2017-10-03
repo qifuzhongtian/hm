@@ -5016,6 +5016,7 @@ Library           RequestsLibrary
     # Should Contain    ${aj}    过夜血氧饱和度监测
     Should Not Contain    ${getRes['body']}    examinationRecommendList
 
+
 推荐检查37.6 房颤+否定条件:急性短暂性脑缺血发作,推荐检查"不应"包含:过夜血氧饱和度监测
     [Documentation]    断言:""
     #执行删除病程
