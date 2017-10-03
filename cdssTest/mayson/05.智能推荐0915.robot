@@ -2334,7 +2334,7 @@ Library           RequestsLibrary
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"${Subjective} 诊断及诊断依据:${Assessment} ","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
-    ...    examinationList=x
+    ...    examinationList=
     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
     Should Not Contain    ${aj}     小骨窗开颅血肿清除术
 
