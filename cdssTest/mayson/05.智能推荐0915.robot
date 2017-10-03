@@ -1562,22 +1562,22 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
     Should Contain    ${aj}     口服抗凝治疗
 
-推荐治疗方案16.2 主要条件:人工心脏瓣膜,缺少&短暂性脑缺血发作,"不应"推荐血运重建方案:口服抗凝治疗
-    [Documentation]    断言:""
-    ${timestamp}    Get Time    epoch
-    ${Assessment}    Set Variable    短暂性脑缺血发作
-    ${Subjective}    Set Variable    人工心脏瓣膜
-    ${getRes}    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"${Subjective} 诊断及诊断依据:${Assessment} ","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    Should Not Contain    ${aj}     口服抗凝治疗
-    # Should Not Contain    ${getRes['body']}    therapeuticPlanList
+######推荐治疗方案16.2 主要条件:人工心脏瓣膜,缺少&短暂性脑缺血发作,"不应"推荐血运重建方案:口服抗凝治疗
+######    [Documentation]    断言:""
+######    ${timestamp}    Get Time    epoch
+######    ${Assessment}    Set Variable    短暂性脑缺血发作
+######    ${Subjective}    Set Variable    人工心脏瓣膜
+######    ${getRes}    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+######    ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+######    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+######    ...    definiteDiagnosis=
+######    ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"${Subjective} 诊断及诊断依据:${Assessment} ","doctorGuid": "2222","recordTime": ""}
+######    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+######    ...    labTestList=
+######    ...    examinationList=
+######    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+######    Should Not Contain    ${aj}     口服抗凝治疗
+######    # Should Not Contain    ${getRes['body']}    therapeuticPlanList
 
 
 #######数据版本 诊断条件    主要条件    次要条件    否定条件    推荐血运重建方案    备注文案    是否有用药   是否新增
@@ -2631,7 +2631,7 @@ Library           RequestsLibrary
 
 
 #######数据版本 诊断条件    主要条件    次要条件    否定条件    推荐血运重建方案    备注文案    是否有用药   是否新增
-#######推荐治疗方案116l20170919   脑出血 脑出血&脑室出血&少量出血｜中等量出血&GCS>8分 否定条件:梗阻性脑积水      意识障碍    腰池持续外引流术        无   是
+#######推荐治疗方案116l 20170919   脑出血 脑出血&脑室出血&少量出血｜中等量出血&GCS>8分 否定条件:梗阻性脑积水      意识障碍    腰池持续外引流术        无   是
 #######脑出血&脑室出血&少量出血｜中等量出血&GCS>8分&梗阻性脑积水
 #######脑出血 脑室出血 少量出血 中等量出血 GCS:9 梗阻性脑积水
 

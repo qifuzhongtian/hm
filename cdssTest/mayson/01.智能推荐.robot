@@ -2272,7 +2272,7 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
     Should Contain    ${aj}     PCI手术
 
-推荐治疗方案10.2 急性非ST段抬高型心肌梗塞+GRACE评分140,推荐血运重建方案:PCI手术
+推荐治疗方案10.2 急性非ST段抬高型心肌梗塞+GRACE评分140,"不应"推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
     ${timestamp}    Get Time    epoch
@@ -2381,7 +2381,7 @@ Library           RequestsLibrary
     Should Contain    ${aj}     保守策略
 
 
-推荐治疗方案11.2 急性非ST段抬高型心肌梗塞+GRACE评分140,推荐血运重建方案:保守策略
+推荐治疗方案11.2 急性非ST段抬高型心肌梗塞+GRACE评分140,"不应"推荐血运重建方案:保守策略
     [Documentation]    断言:"planName=保守策略"
     #执行删除操作
     ${timestamp}    Get Time    epoch
