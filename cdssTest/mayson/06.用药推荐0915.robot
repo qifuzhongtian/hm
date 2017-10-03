@@ -1,6 +1,4 @@
 *** Settings ***
-# Suite Setup    Run Keywords    登录接口
-# ...    AND    获取时间戳
 Suite Teardown    Delete All Sessions
 Resource          ../cdss接口关键字.robot
 Library           Collections
@@ -1411,6 +1409,8 @@ Library           RequestsLibrary
     Lists should Be Equal    ${aj}    ${assert}
     [Teardown]    sleep    0.2s
 
+
+
 ###分组161
 35.2 中度疼痛非阿片药物::主诉:疼痛评分:4,用药推荐包含:盐酸布桂嗪注射液 盐酸布桂嗪片
     [Documentation]    断言:""
@@ -1426,3 +1426,5 @@ Library           RequestsLibrary
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     [Teardown]    sleep    0.2s
+
+
