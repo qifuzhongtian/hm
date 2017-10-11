@@ -1254,6 +1254,9 @@ Library           RequestsLibrary
 
 ###74l 20170919 改善脑血循环      急性缺血性脑卒中            263 是
 ###分组
+
+###74l 20170919   改善脑血循环      急性缺血性脑卒中            263 是  应为改善循环及闹保护
+###分组
 30.1 改善脑血循环::主诉:帕金森｜早发型帕金森｜晚发型帕金森,用药推荐包含:丁苯酞氯化钠注射液 丁苯酞软胶囊 胰激肽原酶肠溶片 注射用胰激肽原酶
     [Documentation]    断言:""
     ${assert}    Create List    丁苯酞氯化钠注射液    丁苯酞软胶囊    胰激肽原酶肠溶片    注射用胰激肽原酶
@@ -1264,10 +1267,11 @@ Library           RequestsLibrary
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 急性缺血性脑卒中 诊断及诊断依据:脑梗死 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][3]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     [Teardown]    sleep    0.2s
+
 
 
 ###75l 20170919 肠内／肠外营养支持                   264 是

@@ -421,6 +421,8 @@ ${base_url_amca}     http://amca.huimeionline.com/node
     [Return]    ${responsedata}
 
 
+
+
 # his
     # log    ${responsedata['body']['suspectedDiseases'][0]}
     # log    ${responsedata['body']['suspectedDiseases'][0]['id']}

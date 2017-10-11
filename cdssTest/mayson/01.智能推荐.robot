@@ -558,7 +558,7 @@ Library           RequestsLibrary
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    Should Contain    ${aj}     急性ST段抬高型心肌梗塞
+    Should Contain    ${aj}     急性ST段抬高型心肌梗死
 
 
 检查解读2.2 病历内容:急性胸痛+检查结果:肌酸激酶同工酶（CK-MB） 升高(超过参考值2倍) :10% &ST段抬高 , 推荐诊断包含:急性ST段抬高型心肌梗死
@@ -781,7 +781,7 @@ Library           RequestsLibrary
     Should Contain    ${aj}     急性非ST段抬高型心肌梗塞
 
 
-检查解读5.5 急性胸痛+检查结果: 心肌肌钙蛋白T(升高):0.14ug/L+T波低平 ,推荐诊断包含:急性非ST段抬高型心肌梗塞
+检查解读5.5 急性胸痛+检查结果: 心肌肌钙蛋白T(升高):0.14ug/L+T波低平 ,推荐诊断包含:急性非ST段抬高型心肌梗死
     [Documentation]    急性胸痛+检查结果:肌钙蛋白升高｜cTnI升高｜cTnT升高&T波低平｜T波低平｜T波倒置,断言:"diagnosticSuggest=急性非ST段抬高型心肌梗塞"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -795,8 +795,7 @@ Library           RequestsLibrary
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    Should Contain    ${aj}     急性非ST段抬高型心肌梗塞
-
+    Should Contain    ${aj}     急性非ST段抬高型心肌梗死
 
 检查解读5.6 急性胸痛+检查结果:cTnI:升高:0.2ug/L+T波低平, 推荐诊断包含:急性非ST段抬高型心肌梗塞
     [Documentation]    急性胸痛+检查结果:肌钙蛋白升高｜cTnI升高｜cTnT升高&T波低平｜T波低平｜T波倒置,断言:"diagnosticSuggest=急性非ST段抬高型心肌梗塞"

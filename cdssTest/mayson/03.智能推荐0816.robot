@@ -2916,22 +2916,24 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Contain    ${aj}    肝功能
 
-推荐检查25.6 心力衰竭症状｜心力衰竭+否定条件:呼吸急促,推荐检查"不应"包含:肝功能
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 呼吸急促 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    肝功能
-    # should Not Contain    ${getRes['body']}    examinationRecommendList
+#####推荐检查25.6 心力衰竭症状｜心力衰竭+否定条件:呼吸急促,推荐检查"不应"包含:肝功能
+#####    [Documentation]    断言:""
+#####    #执行删除病程
+#####    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
+#####    ${timestamp}    Get Time    epoch
+#####    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+#####    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#####    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#####    ...    definiteDiagnosis=
+#####    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 呼吸急促 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+#####    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#####    ...    labTestList=
+#####    ...    examinationList=
+#####    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#####    Should Not Contain    ${aj}    肝功能
+#####    # should Not Contain    ${getRes['body']}    examinationRecommendList
+
+
 推荐检查25.7 心力衰竭症状｜心力衰竭+否定条件:缺氧,推荐检查"不应"包含:肝功能
     [Documentation]    断言:""
     #执行删除病程
@@ -12955,7 +12957,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:</InnerValue></Element></XElements><BodyText>Subjective:房颤 心率难控制 左心室功能障碍 Objective: Assessment:诊断: Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:房颤 心率难控制 左心室功能障碍 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=

@@ -422,6 +422,27 @@ ${null}    null
     [Return]    ${responsedata}
 
 
+
+智能诊断3.0
+    [Arguments]    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}    ${familyHistory}    ${weight}
+    ...    ${gender}    ${bodyTempr}    ${lowBldPress}    ${highBldPress}    ${examInfo}    ${heartRate}
+    ...    ${age}    ${ageType}    ${confirmDiagnosis}    ${confirmDiagnosisMap}    ${presentHistory}    ${assistCheck}
+    # ...    ${examItems}
+    ${confirmDiagnosisMap}    Evaluate    [${confirmDiagnosisMap}]
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    symptom=${symptom}    previousHistory=${previousHistory}    personalHistory=${personalHistory}    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}
+    ...    weight=${weight}    gender=${gender}    bodyTempr=${bodyTempr}    lowBldPress=${lowBldPress}    highBldPress=${highBldPress}    examInfo=${examInfo}
+    ...    heartRate=${heartRate}    age=${age}    ageType=${ageType}    confirmDiagnosis=${confirmDiagnosis}    confirmDiagnosisMap=${confirmDiagnosisMap}    presentHistory=${presentHistory}    assistCheck=${assistCheck}
+    # ...    examItems[]=${examItems}
+    ${addr}    Post Request    api    v_3_0/diagnose_through_interrogation    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # Should Contain    ${aj[:15]}    ${msg}
+    # Delete All Sessions
+    [Return]    ${responsedata}
+
+
+
 # his
     # log    ${responsedata['body']['suspectedDiseases'][0]}
     # log    ${responsedata['body']['suspectedDiseases'][0]['id']}
