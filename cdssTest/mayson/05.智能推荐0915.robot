@@ -3529,21 +3529,21 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
     Should Not Contain    ${aj}     抗胆碱能药
 
-推荐治疗方案46.5 主要条件:帕金森+否定条件:age<60岁,推荐血运重建方案:抗胆碱能药
-    [Documentation]    断言:""
-    ${timestamp}    Get Time    epoch
-    ${Assessment}    Set Variable    帕金森
-    ${Subjective}    Set Variable    帕金森 震颤明显
-    ${getRes}    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"59","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"${Subjective} 诊断及诊断依据:${Assessment} ","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    Should Contain    ${aj}     抗胆碱能药
+#######推荐治疗方案46.5 主要条件:帕金森+否定条件:age<60岁,推荐血运重建方案:抗胆碱能药
+#######    [Documentation]    断言:""
+#######    ${timestamp}    Get Time    epoch
+#######    ${Assessment}    Set Variable    帕金森
+#######    ${Subjective}    Set Variable    帕金森 震颤明显
+#######    ${getRes}    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+#######    ...    patientInfo={"gender":0,"age":"59","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#######    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#######    ...    definiteDiagnosis=
+#######    ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"${Subjective} 诊断及诊断依据:${Assessment} ","doctorGuid": "2222","recordTime": ""}
+#######    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#######    ...    labTestList=
+#######    ...    examinationList=
+#######    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#######    Should Contain    ${aj}     抗胆碱能药
 
 #######数据版本 诊断条件    主要条件    次要条件    否定条件    推荐血运重建方案    备注文案    是否有用药   是否新增
 #######推荐治疗方案133l 20170919  帕金森 晚发型帕金森          复方左旋多巴  首选方案        是
