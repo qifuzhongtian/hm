@@ -3,6 +3,8 @@ Suite Teardown    Delete All Sessions
 Resource          ../cdss接口关键字.robot
 Library           Collections
 Library           RequestsLibrary
+Library           String
+
 # 字段名   类型  是否必须    说明
 # userGuid    String  是   患者唯一编号
 # serialNumber    String  是   住院病历唯一编号
@@ -17,7 +19,7 @@ Library           RequestsLibrary
 # ----lowBldPress Double  否   舒张压-低压
 # ----highBldPress    Double  否   收缩压-高压
 *** Variables ***
-# ${timestamp}    Get Time    epoch
+# ${timestamp}${random}    Get Time    epoch
 
 *** Test Cases ***
 
@@ -28,14 +30,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"脑梗死 诊断及诊断依据:脑梗死 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][3]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 ###### 43L 20170919 静脉溶栓        脑梗死｜短暂性脑缺血发作            237 是
 1.2 静脉溶栓:.1:主诉:脑梗死,用药推荐包含:注射用尿激酶
@@ -44,14 +47,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"脑梗死 诊断及诊断依据:脑梗死 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][3]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 ###### 44L 20170919 抗血小板治疗      脑梗死｜短暂性脑缺血发作            240 是
@@ -62,14 +66,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"脑梗死 短暂性脑缺血发作 诊断及诊断依据:脑梗死 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 2.2 抗血小板治疗:主诉:脑梗死｜短暂性脑缺血发作,用药推荐包含:硫酸氢氯吡格雷片 硫酸氢氯吡格雷颗粒
     [Documentation]    断言:""
@@ -77,14 +82,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"脑梗死 短暂性脑缺血发作 诊断及诊断依据:脑梗死 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 2.3 抗血小板治疗:主诉:脑梗死｜短暂性脑缺血发作,用药推荐包含:阿司匹林双嘧达莫缓释胶囊 阿司匹林双嘧达莫缓释片
     [Documentation]    断言:""
@@ -92,14 +98,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"脑梗死 短暂性脑缺血发作 诊断及诊断依据:脑梗死 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 ###### 45L 20170919 抗凝治疗        脑梗死｜短暂性脑缺血发作            235 是
@@ -110,14 +117,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"脑梗死 短暂性脑缺血发作 诊断及诊断依据:脑梗死 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][4]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 3.2 抗凝治疗:主诉:脑梗死｜短暂性脑缺血发作,用药推荐包含:肝素钙注射液 肝素钠注射液 依诺肝素钠注射液 注射用依诺肝素钠 达肝素钠注射液 磺达肝癸钠注射液 低分子肝素钙注射液 注射用低分子量肝素钙 低分子量肝素钙注射液 低分子肝素钠注射液 注射用低分子量肝素钠 低分子量肝素钠注射液
     [Documentation]    断言:""
@@ -125,14 +133,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"脑梗死 短暂性脑缺血发作 诊断及诊断依据:脑梗死 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][4]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 
@@ -145,14 +154,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"脑梗死 短暂性脑缺血发作 脑出血 诊断及诊断依据:脑出血 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 4.2 降颅压治疗:主诉:脑梗死｜短暂性脑缺血发作｜脑出血,用药推荐包含:人血白蛋白注射液 注射用七叶皂苷钠
     [Documentation]    断言:""
@@ -160,14 +170,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"脑梗死 短暂性脑缺血发作 脑出血 诊断及诊断依据:脑出血 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 ###### 47L 20170919    改善循环及脑保护    降纤治疗    血液高凝状态｜血栓前状态｜高纤维蛋白原血症&脑梗死｜短暂性脑缺血发作      出血｜出血倾向 236 是
 ######  20170919    脑梗死 脑梗死     、   抗凝治疗    抗凝治疗的时机应取决于梗死灶的大小和发生出血性转化风险的高低。用于急性短暂性脑缺血发作或卒中伴疑似心源性栓塞或动脉夹层时，需平衡短期复发风险和出血风险；存在大面积急性梗死提示有发生出血性转化的风险，应推迟抗凝治疗。     是
@@ -177,14 +188,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"血液高凝状态 血栓前状态 高纤维蛋白原血症&脑梗死 短暂性脑缺血发作 诊断及诊断依据:脑梗死 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 ###### 48L 20170919 改善循环及脑保护    脑保护治疗   脑梗死｜短暂性脑缺血发作            239 是
@@ -195,14 +207,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"脑梗死 短暂性脑缺血发作 诊断及诊断依据:脑梗死 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 ###### 49L 20170919 20170919    改善循环及脑保护    改善脑血循环  急性缺血性脑卒中｜脑梗死            263 是
@@ -213,14 +226,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"急性缺血性脑卒中 脑梗死 诊断及诊断依据:脑梗死 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 ##### 50L 20170919 TIA危险因素管理   血压管理和降压治疗   收缩压>=140mmHg｜舒张压>=90mmHg｜高血压&短暂性脑缺血发作           241 是
@@ -234,14 +248,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"收缩压:140mmHg 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 
@@ -252,14 +267,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"收缩压:140mmHg 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][5]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 #分组147
@@ -269,14 +285,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"收缩压:140mmHg 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 
@@ -288,14 +305,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"收缩压:140mmHg 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 #分组150
 7.5 改善循环及脑保护:改善脑血循环:主诉:急性缺血性脑卒中｜脑梗死,用药推荐包含:盐酸拉贝洛尔片 酒石酸美托洛尔片 酒石酸美托洛尔胶囊 酒石酸美托洛尔控释片 酒石酸美托洛尔缓释片 琥珀酸美托洛尔缓释片 富马酸比索洛尔片 富马酸比索洛尔胶囊 盐酸倍他洛尔片 盐酸阿罗洛尔片 盐酸索他洛尔片
@@ -304,14 +322,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"收缩压:140mmHg 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][3]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 #分组151
@@ -321,14 +340,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"收缩压:140mmHg 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][4]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 #分组152
@@ -338,14 +358,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"收缩压:140mmHg 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][7]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 #分组153
 7.8 改善循环及脑保护:改善脑血循环:主诉:急性缺血性脑卒中｜脑梗死,用药推荐包含:氯沙坦钾片 氯沙坦钾胶囊 缬沙坦片 缬沙坦分散片 缬沙坦胶囊 厄贝沙坦片 厄贝沙坦分散片 厄贝沙坦胶囊 坎地沙坦酯片 坎地沙坦酯分散片 坎地沙坦酯胶囊 替米沙坦片 替米沙坦胶囊 替米沙坦分散片 奥美沙坦酯片 奥美沙坦酯胶囊 依普沙坦片
@@ -354,14 +375,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"收缩压:140mmHg 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][7]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 
@@ -376,14 +398,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 心源性栓塞性短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 #分组105
 8.2 抗栓治疗::主诉:短暂性脑缺血发作,用药推荐包含:阿司匹林缓释片 阿司匹林肠溶片 阿司匹林肠溶缓释片 阿司匹林肠溶胶囊 阿司匹林缓释胶囊 阿司匹林缓释片 阿司匹林肠溶片 阿司匹林肠溶缓释片 阿司匹林肠溶胶囊 阿司匹林缓释胶囊
@@ -392,14 +415,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 心源性栓塞性短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 #分组106
 8.3 抗栓治疗::主诉:短暂性脑缺血发作,用药推荐包含:硫酸氢氯吡格雷片 硫酸氢氯吡格雷颗粒
@@ -408,14 +432,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 心源性栓塞性短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][3]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 #分组107
 8.4 抗栓治疗::主诉:短暂性脑缺血发作,用药推荐包含:阿司匹林双嘧达莫缓释胶囊 阿司匹林双嘧达莫缓释片
@@ -424,14 +449,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 心源性栓塞性短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 #### 52L 20170919  抗栓治疗        短暂性脑缺血发作            242 是
 ####  20170919  口服抗凝治疗      短暂性脑缺血发作            243 是
@@ -442,14 +468,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 短暂性脑缺血发作 房颤 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 
@@ -462,14 +489,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 短暂性脑缺血发作 LDL-C:100mg/dl 主动脉弓动脉粥样硬化斑块 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 #分组142
 10.2 TIA危险因素管理:血脂管理和调脂治疗:主诉:短暂性脑缺血发作 LDL-C:100mg/dl 主动脉弓动脉粥样硬化斑块,用药推荐包含:普罗布考片
@@ -478,14 +506,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 短暂性脑缺血发作 LDL-C:100mg/dl 主动脉弓动脉粥样硬化斑块 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 #分组143
 10.3 TIA危险因素管理:血脂管理和调脂治疗:主诉:短暂性脑缺血发作 LDL-C:100mg/dl 主动脉弓动脉粥样硬化斑块,用药推荐包含:非诺贝特片 非诺贝特胶囊 非诺贝特胶囊(Ⅱ) 非诺贝特咀嚼片 非诺贝特分散片 非诺贝特片(Ⅲ) 非诺贝特缓释胶囊 吉非罗齐胶囊 吉非罗齐片 苯扎贝特片 苯扎贝特分散片 苯扎贝特胶囊
@@ -494,14 +523,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 短暂性脑缺血发作 LDL-C:100mg/dl 主动脉弓动脉粥样硬化斑块 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][3]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 #分组144
 10.4 TIA危险因素管理:血脂管理和调脂治疗:主诉:短暂性脑缺血发作 LDL-C:100mg/dl 主动脉弓动脉粥样硬化斑块,用药推荐包含:依折麦布片 依折麦布辛伐他汀片
@@ -510,14 +540,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 短暂性脑缺血发作 LDL-C:100mg/dl 主动脉弓动脉粥样硬化斑块 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 
@@ -534,14 +565,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 颅内大动脉粥样硬化性狭窄 颈动脉狭窄率:70% 主动脉弓动脉粥样硬化斑块 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 #分组142
 11.2 TIA危险因素管理:血脂管理和调脂治疗:主诉:短暂性脑缺血发作 LDL-C:100mg/dl 主动脉弓动脉粥样硬化斑块,用药推荐包含:普罗布考片
@@ -550,14 +582,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 颅内大动脉粥样硬化性狭窄 颈动脉狭窄率:70% 主动脉弓动脉粥样硬化斑块 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 #分组143
 11.3 TIA危险因素管理:血脂管理和调脂治疗:主诉:短暂性脑缺血发作 LDL-C:100mg/dl 主动脉弓动脉粥样硬化斑块,用药推荐包含:非诺贝特片 非诺贝特胶囊 非诺贝特胶囊(Ⅱ) 非诺贝特咀嚼片 非诺贝特分散片 非诺贝特片(Ⅲ) 非诺贝特缓释胶囊 吉非罗齐胶囊 吉非罗齐片 苯扎贝特片 苯扎贝特分散片 苯扎贝特胶囊
@@ -566,14 +599,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 颅内大动脉粥样硬化性狭窄 颈动脉狭窄率:70% 主动脉弓动脉粥样硬化斑块 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][3]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 #分组144
 11.4 TIA危险因素管理:血脂管理和调脂治疗:主诉:短暂性脑缺血发作 LDL-C:100mg/dl 主动脉弓动脉粥样硬化斑块,用药推荐包含:依折麦布片 依折麦布辛伐他汀片
@@ -582,14 +616,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 颅内大动脉粥样硬化性狭窄 颈动脉狭窄率:70% 主动脉弓动脉粥样硬化斑块 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 
@@ -607,14 +642,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" HbA1c增高 糖尿病 糖尿病前期 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][7]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 #分组110
 12.2 TIA危险因素管理:血糖管理和降糖治疗:主诉:HbA1c增高｜糖尿病｜糖尿病前期&短暂性脑缺血发作,用药推荐包含:盐酸二甲双胍片 盐酸二甲双胍肠溶片 盐酸二甲双胍肠溶胶囊 盐酸二甲双胍胶囊 盐酸二甲双胍缓释片 盐酸二甲双胍缓释胶囊 盐酸二甲双胍缓释片(Ⅱ)
@@ -623,14 +659,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" HbA1c增高 糖尿病 糖尿病前期 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][8]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 #分组111
@@ -640,14 +677,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" HbA1c增高 糖尿病 糖尿病前期 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][9]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 #分组112
@@ -657,14 +695,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" HbA1c增高 糖尿病 糖尿病前期 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 #分组113
@@ -674,14 +713,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" HbA1c增高 糖尿病 糖尿病前期 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 #分组114
@@ -691,14 +731,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" HbA1c增高 糖尿病 糖尿病前期 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][3]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 #分组115
 12.7 TIA危险因素管理:血糖管理和降糖治疗:主诉:HbA1c增高｜糖尿病｜糖尿病前期&短暂性脑缺血发作,用药推荐包含:伏格列波糖分散片 伏格列波糖咀嚼片 伏格列波糖片 伏格列波糖胶囊 阿卡波糖片 阿卡波糖胶囊
@@ -707,14 +748,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" HbA1c增高 糖尿病 糖尿病前期 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][5]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 #分组116
@@ -724,14 +766,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" HbA1c增高 糖尿病 糖尿病前期 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][6]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 #分组145
@@ -741,14 +784,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" HbA1c增高 糖尿病 糖尿病前期 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 #分组146
 12.10 TIA危险因素管理:血糖管理和降糖治疗:主诉:HbA1c增高｜糖尿病｜糖尿病前期&短暂性脑缺血发作,用药推荐包含:门冬胰岛素30注射液 门冬胰岛素50注射液 门冬胰岛素30注射液 精蛋白锌重组赖脯胰岛素混合注射液(25R) 精蛋白锌重组赖脯胰岛素混合注射液(50R)
@@ -757,14 +801,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" HbA1c增高 糖尿病 糖尿病前期 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][4]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 
@@ -776,14 +821,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 脑出血 诊断及诊断依据:脑出血 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 ##### 57L   20170919  脑出血血压管理     脑出血         269 是
@@ -794,14 +840,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 脑出血 诊断及诊断依据:脑出血 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][5]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 #分组162
 14.2 脑出血血压管理::主诉:脑出血,用药推荐包含:注射用盐酸拉贝洛尔 盐酸拉贝洛尔注射液 注射用盐酸乌拉地尔 乌拉地尔氯化钠注射液 乌拉地尔注射液 乌拉地尔葡萄糖注射液 盐酸尼卡地平氯化钠注射液 盐酸尼卡地平注射液 盐酸尼卡地平葡萄糖注射液 注射用盐酸尼卡地平 注射用盐酸索他洛尔 注射用盐酸艾司洛尔 呋塞米注射液 注射用呋塞米 硝酸甘油注射液 注射用硝普钠
@@ -810,14 +857,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 脑出血 诊断及诊断依据:脑出血 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 #分组163
@@ -827,14 +875,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 脑出血 诊断及诊断依据:脑出血 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 #分组164
@@ -844,14 +893,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 脑出血 诊断及诊断依据:脑出血 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 #分组1
 14.5 脑出血血压管理::主诉:脑出血,用药推荐包含:马来酸依那普利片 马来酸依那普利胶囊 马来酸依那普利分散片 盐酸贝那普利片 盐酸贝那普利胶囊 福辛普利钠片 福辛普利钠胶囊 盐酸咪达普利片 赖诺普利片 赖诺普利胶囊 培哚普利片 雷米普利片 西拉普利片
@@ -860,14 +910,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 脑出血 诊断及诊断依据:脑出血 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][3]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 
@@ -878,14 +929,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 脑出血 诊断及诊断依据:脑出血 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][4]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 #分组167
@@ -895,14 +947,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 脑出血 诊断及诊断依据:脑出血 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][6]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 #分组168
@@ -912,14 +965,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 脑出血 诊断及诊断依据:脑出血 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][7]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 ### 58L  20170919 止血治疗        脑出血         247 是
@@ -930,14 +984,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 脑出血 诊断及诊断依据:脑出血 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][5]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 ### 59L 20170919    脑出血并发症治疗    抗血管痉挛治疗 脑出血&蛛网膜下腔出血         248 是
@@ -948,14 +1003,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 脑出血 蛛网膜下腔出血 诊断及诊断依据:脑出血 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][4]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 ### 60L 20170919    脑出血并发症治疗    预防应激性溃疡 脑出血         249 是
@@ -966,14 +1022,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 脑出血 诊断及诊断依据:脑出血 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][4]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 ### 61L 20170919 脑出血并发症治疗    抗癫痫药物   脑出血&痫性发作｜幕上血肿清除术后           250 是
@@ -985,14 +1042,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 脑出血 痫性发作 幕上血肿清除术后 诊断及诊断依据:脑出血 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][4]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 ### 62L 20170919    非麦角类DR激动剂       帕金森｜早发型帕金森｜晚发型帕金森           251 是
@@ -1004,14 +1062,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 帕金森 早发型帕金森 晚发型帕金森 诊断及诊断依据:帕金森 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][3]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 ### 63L 20170919    MAO-B抑制剂        帕金森｜早发型帕金森｜晚发型帕金森           252 是
@@ -1023,14 +1082,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 帕金森 早发型帕金森 晚发型帕金森 诊断及诊断依据:帕金森 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][4]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 ### 64L 20170919    金刚烷胺        帕金森｜早发型帕金森｜晚发型帕金森           253 是
@@ -1042,14 +1102,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 帕金森 早发型帕金森 晚发型帕金森 诊断及诊断依据:帕金森 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][5]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 ### L 20170919    复方左旋多巴      帕金森｜早发型帕金森｜晚发型帕金森           254 是
 ### 帕金森 早发型帕金森 晚发型帕金森
@@ -1060,14 +1121,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 帕金森 早发型帕金森 晚发型帕金森 诊断及诊断依据:帕金森 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 ### 66L 20170919    20170919    复方左旋多巴＋COMT抑制剂      帕金森｜早发型帕金森｜晚发型帕金森           255 是
@@ -1079,14 +1141,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 帕金森 早发型帕金森 晚发型帕金森 诊断及诊断依据:帕金森 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 ### 67L 20170919    抗胆碱能药       帕金森｜早发型帕金森｜晚发型帕金森           256 是
@@ -1099,14 +1162,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 帕金森 震颤明显 诊断及诊断依据:帕金森 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][3]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 
@@ -1120,14 +1184,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 帕金森 异动症 诊断及诊断依据:帕金森 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][3]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 
@@ -1141,14 +1206,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 帕金森 异动症 诊断及诊断依据:帕金森 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][5]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 
@@ -1162,14 +1228,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 帕金森 异动症 诊断及诊断依据:帕金森 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][5]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 
@@ -1183,14 +1250,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 帕金森 精神障碍 抑郁 诊断及诊断依据:帕金森 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 
@@ -1204,14 +1272,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 帕金森 精神障碍 幻觉 诊断及诊断依据:帕金森 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 
@@ -1223,14 +1292,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 帕金森 精神障碍 认知障碍 诊断及诊断依据:帕金森 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 ###73l 20170919 精神障碍用药  易激惹 帕金森｜早发型帕金森｜晚发型帕金森&精神障碍｜易激惹          262 是
@@ -1241,14 +1311,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 帕金森 精神障碍 易激惹 诊断及诊断依据:帕金森 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][3]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 
@@ -1263,14 +1334,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 急性缺血性脑卒中 诊断及诊断依据:脑梗死 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 ###75l 20170919 肠内／肠外营养支持                   264 是
@@ -1281,14 +1353,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 营养风险筛查2002(NRS):3分 诊断及诊断依据: ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 ###分组137
 31.2 肠内／肠外营养支持::主诉:营养风险筛查2002(NRS):3分,用药推荐包含:脂肪乳注射液(C14～24) 脂肪乳注射液(C14-24) 脂肪乳注射液 脂肪乳注射液[C14-24] 多种油脂肪乳注射液(C6~24) 中/长链脂肪乳注射液(C8～24Ve) 中/长链脂肪乳注射液(C8~24) 中/长链脂肪乳注射液(C8-24Ve) 中/长链脂肪乳注射液(C8-24) ω-3 鱼油中/长链脂肪乳注射液 长链脂肪乳注射液(OO) ω-3鱼油脂肪乳注射液 中/长链脂肪乳注射液(C6～24) 中/长链脂肪乳注射液(C8～24) 结构脂肪乳注射液(C6～24) 脂肪乳氨基酸(17)葡萄糖(11%)注射液 脂肪乳氨基酸(17)葡萄糖(19%)注射液 脂肪乳氨基酸(18)注射液 脂肪乳(10%)/氨基酸(15)/葡萄糖(20%)注射液 脂肪乳(20%)/氨基酸(15)/葡萄糖(30%)注射液 中长链脂肪乳/氨基酸(16)/葡萄糖(16％)注射液
@@ -1297,14 +1370,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 营养风险筛查2002(NRS):3分 诊断及诊断依据: ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 ###分组138
@@ -1314,14 +1388,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 营养风险筛查2002(NRS):3分 诊断及诊断依据: ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 ###分组139
@@ -1331,14 +1406,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 营养风险筛查2002(NRS):3分 诊断及诊断依据: ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][3]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 
@@ -1350,14 +1426,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 疼痛评分:1 诊断及诊断依据: ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 ###77l 20170919 弱阿片类药物      疼痛          266 是
 ###分组
@@ -1367,14 +1444,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 疼痛评分:4 诊断及诊断依据: ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 ###78l 20170919 强阿片类药物      疼痛          267 是
 ###分组
@@ -1384,14 +1462,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 疼痛评分:7 诊断及诊断依据: ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 
@@ -1403,14 +1482,15 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 疼痛评分:4 诊断及诊断依据: ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 
 ###分组161
@@ -1420,13 +1500,14 @@ Library           RequestsLibrary
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+    ...    AND    获取随机数
+    ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 疼痛评分:4 诊断及诊断依据: ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
-    ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
+    ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
-    [Teardown]    sleep    0.4s
+    # [Teardown]    sleep    0.4s
 
 

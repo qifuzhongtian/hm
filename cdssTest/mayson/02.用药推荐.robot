@@ -5,7 +5,9 @@ Suite Teardown    Delete All Sessions
 Resource          ../cdss接口关键字.robot
 Library           Collections
 Library           RequestsLibrary
-# 字段名	类型	是否必须	说明
+Library           String
+
+# 字段名   类型  是否必须    说明
 # userGuid    String  是   患者唯一编号
 # serialNumber    String  是   住院病历唯一编号
 # patientInfo Object  是   患者信息
