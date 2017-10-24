@@ -1068,7 +1068,7 @@ Library           RequestsLibrary
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Contain    ${aj}    放射性核素肺通气灌注扫描
+    Should Not Contain    ${aj}    放射性核素肺通气灌注扫描
 
 ##########+否定条件 cta禁忌
 推荐检查8.9 胸痛+Wells评分低度可能急性肺栓塞+次要条件cta禁忌+否定条件,推荐检查"不"包含:放射性核素肺通气灌注扫描
@@ -1219,7 +1219,7 @@ Library           RequestsLibrary
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Contain    ${aj}    选择性肺动脉造影
+    Should Not Contain    ${aj}    选择性肺动脉造影
 
 ##########+否定条件 cta禁忌
 推荐检查9.9 胸痛+Wells评分低度可能急性肺栓塞+次要条件cta禁忌+否定条件,推荐检查"不"包含:选择性肺动脉造影
@@ -1386,7 +1386,7 @@ Library           RequestsLibrary
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Contain    ${aj}    下肢血管超声
+    Should Not Contain    ${aj}    下肢血管超声
 
 ##########+否定条件 cta禁忌
 推荐检查10.9 胸痛+Wells评分低度可能急性肺栓塞+次要条件cta禁忌+否定条件,推荐检查"不"包含:下肢血管超声
@@ -1536,7 +1536,7 @@ Library           RequestsLibrary
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Contain    ${aj}    加压超声检查
+    Should Not Contain    ${aj}    加压超声检查
 
 ##########+否定条件 cta禁忌
 推荐检查11.9 胸痛+Wells评分低度可能急性肺栓塞+次要条件cta禁忌+否定条件,推荐检查"不"包含:加压超声检查
@@ -11787,7 +11787,7 @@ Library           RequestsLibrary
 #####心率:39次/分
 #####心率:40次/分
 
-推荐评分表7.1 病历内容:大面积肺栓塞｜肺血管栓塞面积==50%,推荐诊断包含:肺栓塞抗凝禁忌评估
+推荐评分表7.1 病历内容:大面积肺栓塞｜肺血管栓塞面积==50%,推荐诊断包含:肺栓塞溶栓禁忌评估
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11801,9 +11801,9 @@ Library           RequestsLibrary
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    Should Contain    ${aj}     肺栓塞抗凝禁忌评估
+    Should Contain    ${aj}     肺栓塞溶栓禁忌评估
 
-推荐评分表7.2 病历内容:大面积肺栓塞｜肺血管栓塞面积>50%,推荐诊断包含:肺栓塞抗凝禁忌评估
+推荐评分表7.2 病历内容:大面积肺栓塞｜肺血管栓塞面积>50%,推荐诊断包含:肺栓塞溶栓禁忌评估
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -11817,7 +11817,7 @@ Library           RequestsLibrary
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    Should Contain    ${aj}     肺栓塞抗凝禁忌评估
+    Should Contain    ${aj}     肺栓塞溶栓禁忌评估
 
 
 #####推荐评分表13L 8 房颤｜非瓣膜性房颤    呼吸困难｜胸痛｜晕厥｜无法达到心率控制｜急性短暂性脑缺血发作｜卒中｜心率<40次/分｜心率>150次/分    房颤卒中危险评估(CHA2DS2-VASc)  评估脑卒中风险，脑卒中风险高考虑抗凝，抗凝治疗前评估抗凝获益和出血风险 是

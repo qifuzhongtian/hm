@@ -31,7 +31,9 @@ ${null}    null
     ${timestamp}    Get Time    epoch
     Set Global Variable    ${timestamp}
 
-主诉
+获取随机数
+    ${random}    Generate Random String    3    1234567890
+    Set Global Variable    ${random}
 
 ################安全用药################
 安全用药
@@ -718,6 +720,20 @@ amc进入
     log    ${hms}
     [Return]    ${responsedata}
 
+
+
+amc常见症状
+    [Arguments]
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary
+    ${addr}    Post Request    api    /amc/common_symptom    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    [Return]    ${responsedata}
+
+
+
 # #旧的
 # amc下一题
 #     [Arguments]    ${incoming_ids}    ${question}    ${answers}
@@ -756,6 +772,45 @@ amc问诊记录
     ${addr}    Post Request    api    amc/record_info    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+
+
+
+问诊记录添加备注
+    [Arguments]    ${number}    ${recordRemark}
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    number=${number}    recordRemark=${recordRemark}
+    ${addr}    Post Request    api    amc/update_record    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+amcPc版症状统计图型
+    [Arguments]    ${enterTime}    ${recordTime}    ${symptom}    ${gender}    ${subject}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    enterTime=${enterTime}    recordTime=${recordTime}    symptom=${symptom}    gender=${gender}    subject=${subject}
+    ${addr}    Post Request    api    /amc/static_symptom    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+
+amcPc版科室统计图型
+    [Arguments]    ${enterTime}    ${recordTime}    ${symptom}    ${gender}    ${subject}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    enterTime=${enterTime}    recordTime=${recordTime}    symptom=${symptom}    gender=${gender}    subject=${subject}
+    ${addr}    Post Request    api    /amc/static_subject    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+
+
+
 
 
 #########AME##################

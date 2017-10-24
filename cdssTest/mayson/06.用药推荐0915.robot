@@ -1378,17 +1378,17 @@ Library           RequestsLibrary
 
 ###78l 20170919 强阿片类药物      疼痛          267 是
 ###分组
-34.1 强阿片类药物::主诉:疼痛评分:4,用药推荐包含:盐酸哌替啶片 盐酸哌替啶注射液 盐酸吗啡注射液 盐酸氢吗啡酮注射液 硫酸吗啡注射液 硫酸吗啡片 硫酸吗啡口服溶液 硫酸吗啡栓 硫酸吗啡缓释片 盐酸吗啡缓释片 盐酸吗啡片 芬太尼透皮贴剂 枸橼酸芬太尼注射液 丁丙诺啡透皮贴剂 盐酸丁丙诺啡舌下片 盐酸丁丙诺啡注射液
+34.1 强阿片类药物::主诉:疼痛评分:7,用药推荐包含:盐酸哌替啶片 盐酸哌替啶注射液 盐酸吗啡注射液 盐酸氢吗啡酮注射液 硫酸吗啡注射液 硫酸吗啡片 硫酸吗啡口服溶液 硫酸吗啡栓 硫酸吗啡缓释片 盐酸吗啡缓释片 盐酸吗啡片 芬太尼透皮贴剂 枸橼酸芬太尼注射液 丁丙诺啡透皮贴剂 盐酸丁丙诺啡舌下片 盐酸丁丙诺啡注射液
     [Documentation]    断言:""
     ${assert}    Create List    盐酸哌替啶片    盐酸哌替啶注射液    盐酸吗啡注射液    盐酸氢吗啡酮注射液    硫酸吗啡注射液    硫酸吗啡片    硫酸吗啡口服溶液    硫酸吗啡栓    硫酸吗啡缓释片    盐酸吗啡缓释片    盐酸吗啡片    芬太尼透皮贴剂    枸橼酸芬太尼注射液    丁丙诺啡透皮贴剂    盐酸丁丙诺啡舌下片    盐酸丁丙诺啡注射液
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
     [Setup]    Run Keywords    获取时间戳
     ...    AND    智能推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 疼痛评分:1 诊断及诊断依据: ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
+    ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 疼痛评分:7 诊断及诊断依据: ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     [Teardown]    sleep    0.4s
@@ -1411,8 +1411,6 @@ Library           RequestsLibrary
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     [Teardown]    sleep    0.4s
-
-
 
 
 ###分组161

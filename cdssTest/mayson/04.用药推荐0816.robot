@@ -30,13 +30,13 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     ${assert}    Create List    注射用尿激酶    注射用重组人尿激酶原    注射用重组链激酶    注射用阿替普酶    注射用瑞替普酶
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:肺栓塞 急性肺栓塞</InnerValue></Element></XElements><BodyText>Subjective: 大面积肺栓塞 肺栓塞 急性肺栓塞 Objective: Assessment:诊断:肺栓塞 急性肺栓塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
+    ...    AND    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:急性ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective: 大面积肺栓塞 急性ST段抬高型心肌梗塞 Objective: Assessment:诊断:肺栓塞 急性肺栓塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
 
     ${getRes}    用药推荐    userGuid=${timestamp}    serialNumber=${timestamp}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
-    # List should contain sub list    ${aj}     ${assert}
-    Lists should Be Equal    ${aj}    ${assert}
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
+    List should contain sub list    ${aj}     ${assert}
+    # Lists should Be Equal    ${aj}    ${assert}
     [Teardown]    sleep    0.2s
 
 
