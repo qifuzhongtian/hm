@@ -151,8 +151,12 @@ Library           RequestsLibrary
        ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=
        ...    examInfo=    heartRate=    age=29    ageType=岁    confirmDiagnosis=
        ...    confirmDiagnosisMap=    presentHistory=
-       ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
+       ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases'][1]['subDiseases']]
        Should Contain    ${aj[:10]}    细菌性阴道病
+       # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
+       # Should Contain    ${aj[:10]}    急性阴道炎
+
+
 
 14.妇产科室演示病例15例-5
        [Documentation]    主诉:'腹胀、纳差、消瘦4个月 查体：腹部明显膨隆，移动性浊音阳性。妇科检查：子宫颈光滑，子宫较正常小，双附件区扪及质硬，固定包块，大小约10cm，包块界线不清，后陷凹扪及质硬肿块压迫直肠，直肠粘膜光滑。'
@@ -162,8 +166,10 @@ Library           RequestsLibrary
        ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=
        ...    examInfo=    heartRate=    age=56    ageType=岁    confirmDiagnosis=
        ...    confirmDiagnosisMap=    presentHistory=
-       ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
+       ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases'][9]['subDiseases']]
        Should Contain    ${aj[:10]}    卵巢恶性肿瘤
+       # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
+       # Should Contain    ${aj[:10]}    恶性肿瘤
 
 15.妇产科室演示病例15例-6
        [Documentation]    主诉:'停经35周，皮肤瘙痒2周 现病史：妊娠33周出现皮肤瘙痒，以四肢和腹部为主。已经在皮肤科就诊排除皮肤疾病。查体：巩膜轻度黄染，全身有抓痕，无皮疹，无肝肿大及肝区压痛'
