@@ -40,7 +40,7 @@ Suite Teardown    Delete All Sessions
     ${getRes}    病例识别    symptom=PPD试验：局部硬结直径5mm（+）
     ...    gender=    age=    ageType=
     ${aj}    Evaluate    [aj for aj in $getRes['body']['allCallbackWords']]
-    Should Contain    ${aj[:3]}     ppd阳性
+    Should Contain    ${aj[:3]}     PPD阳性
 
 6.总胆红素450.4μmol／L -> 血清总胆红素升高
     [Documentation]    断言:"[allCallbackWords]包含: 血清总胆红素升高"
