@@ -808,8 +808,8 @@ Library           RequestsLibrary
     Should Contain    ${aj}    血钙
 
 ### 主要条件 次要条件    否定条件    推荐检查    备注文案，包括注意及推荐理由  推荐检查类型  检查ID    是否新增
-#######96L 20170919         帕金森         促甲状腺激素      一般检查        是
-推荐检查96行-1 主要条件:帕金森,推荐检查包含:促甲状腺激素
+#######96L 20170919         帕金森         促甲状腺激素检查      一般检查        是
+推荐检查96行-1 主要条件:帕金森,推荐检查包含:促甲状腺激素检查
     [Documentation]    断言:""
     ${timestamp}    Get Time    epoch
     ${Assessment}    Set Variable
@@ -823,7 +823,7 @@ Library           RequestsLibrary
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Contain    ${aj}    促甲状腺激素
+    Should Contain    ${aj}    促甲状腺激素检查
 
 ### 主要条件 次要条件    否定条件    推荐检查    备注文案，包括注意及推荐理由  推荐检查类型  检查ID    是否新增
 #######97L 20170919         帕金森         维生素B12      一般检查        是
