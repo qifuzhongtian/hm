@@ -658,7 +658,7 @@ Library           String
     ${assert}    Create List    盐酸二甲双胍片    盐酸二甲双胍肠溶片    盐酸二甲双胍肠溶胶囊    盐酸二甲双胍胶囊    盐酸二甲双胍缓释片    盐酸二甲双胍缓释胶囊    盐酸二甲双胍缓释片(Ⅱ)
     # ${Assessment}    Set Variable    帕金森
     # ${Subjective}    Set Variable    帕金森 智力减退
-    [Setup]    Run Keywords    获取时间戳
+    [Setup]    Run Keywords    获取时间戳C
     ...    AND    获取随机数
     ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" HbA1c增高 糖尿病 糖尿病前期 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
