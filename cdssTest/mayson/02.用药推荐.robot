@@ -33,7 +33,7 @@ PCI手术:术前－抗血小板治疗1.1:急性非ST段抬高型心肌梗塞,分
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -45,11 +45,11 @@ PCI手术:术前－抗血小板治疗1.2:急性非ST段抬高型心肌梗塞,分
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
-#####PCI手术:术前－抗血小板治疗  急性ST段抬高型心肌梗塞     8065    阿司匹林缓释片 1   嚼服  100-300mg   顿服
+####PCI手术:术前－抗血小板治疗  急性ST段抬高型心肌梗塞     8065    阿司匹林缓释片 1   嚼服  100-300mg   顿服
 
 PCI手术:术前－抗血小板治疗1.1:急性ST段抬高型心肌梗塞,用药推荐包含:阿司匹林缓释片,阿司匹林肠溶片,阿司匹林肠溶缓释片,阿司匹林肠溶胶囊,阿司匹林咀嚼片,阿司匹林缓释胶囊
     [Documentation]    断言:""
@@ -59,7 +59,7 @@ PCI手术:术前－抗血小板治疗1.1:急性ST段抬高型心肌梗塞,用药
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 Objective: Assessment:诊断：急性ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -71,7 +71,7 @@ PCI手术:术前－抗血小板治疗1.2:急性ST段抬高型心肌梗塞,用药
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 Objective: Assessment:诊断：急性ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -87,7 +87,7 @@ PCI手术:术前－调脂1.1:急性非ST段抬高型心肌梗塞,用药推荐包
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -99,7 +99,7 @@ PCI手术:术前－调脂1.2:急性ST段抬高型心肌梗塞,用药推荐包含
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 Objective: Assessment:诊断：急性ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -115,7 +115,7 @@ PCI手术:术前｜术中－PPCI策略1.1:急性ST段抬高型心肌梗塞,用�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 非出血高危 Objective: Assessment:诊断： Plan:急性ST段抬高型心肌梗塞 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -127,7 +127,7 @@ PCI手术:术前｜术中－PPCI策略1.2:急性ST段抬高型心肌梗塞+出�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 出血高危 Objective: Assessment:诊断： Plan:急性ST段抬高型心肌梗塞 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -142,7 +142,7 @@ PCI手术:术前｜术中－PPCI策略2.1:急性非ST段抬高型心肌梗塞+GR
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分:141 非出血高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -154,7 +154,7 @@ PCI手术:术前｜术中－PPCI策略2.2:急性非ST段抬高型心肌梗塞+GR
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分高危 非出血高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -166,7 +166,7 @@ PCI手术:术前｜术中－PPCI策略2.3:急性非ST段抬高型心肌梗塞+GR
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分极高危 非出血高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -179,7 +179,7 @@ PCI手术:术前｜术中－PPCI策略2.4:急性非ST段抬高型心肌梗塞+�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 缺血高危 非出血高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -191,11 +191,11 @@ PCI手术:术前｜术中－PPCI策略2.5:急性非ST段抬高型心肌梗塞+�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 缺血极高危 非出血高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
-####PCI手术:急性非ST段抬高型心肌梗塞&GRACE评分>140｜GRACE评分高危｜GRACE评分极高危｜缺血高危｜缺血极高危&出血高危         4190    注射用比伐芦定 9   静脉注射
+###PCI手术:急性非ST段抬高型心肌梗塞&GRACE评分>140｜GRACE评分高危｜GRACE评分极高危｜缺血高危｜缺血极高危&出血高危         4190    注射用比伐芦定 9   静脉注射
 
 PCI手术:术前｜术中－PPCI策略2.1:急性非ST段抬高型心肌梗塞+GRACE评分:141+非出血高危,用药推荐包含:注射用比伐芦定 注射用依诺肝素钠 低分子肝素钙注射液 注射用低分子量肝素钙 低分子量肝素钙注射液 低分子肝素钠注射液 注射用低分子量肝素钠 低分子量肝素钠注射液 依诺肝素钠注射液 那屈肝素钙注射液 那曲肝素钙注射液 注射用那屈肝素钙 贝米肝素钠注射液 肝素钙注射液 注射用肝素钙 肝素钠注射液
     [Documentation]    断言:""
@@ -205,7 +205,7 @@ PCI手术:术前｜术中－PPCI策略2.1:急性非ST段抬高型心肌梗塞+GR
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分:141 出血高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -217,9 +217,11 @@ PCI手术:术前｜术中－PPCI策略2.2:急性非ST段抬高型心肌梗塞+GR
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分高危 出血高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
+
+
 PCI手术:术前｜术中－PPCI策略2.3:急性非ST段抬高型心肌梗塞+GRACE评分极高危+非出血高危,用药推荐包含:注射用比伐芦定 注射用依诺肝素钠 低分子肝素钙注射液 注射用低分子量肝素钙 低分子量肝素钙注射液 低分子肝素钠注射液 注射用低分子量肝素钠 低分子量肝素钠注射液 依诺肝素钠注射液 那屈肝素钙注射液 那曲肝素钙注射液 注射用那屈肝素钙 贝米肝素钠注射液 肝素钙注射液 注射用肝素钙 肝素钠注射液
     [Documentation]    断言:""
     ${assert}    Create List    注射用比伐芦定    注射用依诺肝素钠    低分子肝素钙注射液    注射用低分子量肝素钙    低分子量肝素钙注射液    低分子肝素钠注射液    注射用低分子量肝素钠    低分子量肝素钠注射液    依诺肝素钠注射液    那屈肝素钙注射液    那曲肝素钙注射液    注射用那屈肝素钙    贝米肝素钠注射液    肝素钙注射液    注射用肝素钙    肝素钠注射液
@@ -228,7 +230,7 @@ PCI手术:术前｜术中－PPCI策略2.3:急性非ST段抬高型心肌梗塞+GR
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分极高危 出血高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -241,7 +243,7 @@ PCI手术:术前｜术中－PPCI策略2.4:急性非ST段抬高型心肌梗塞+�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 缺血高危 出血高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -253,11 +255,11 @@ PCI手术:术前｜术中－PPCI策略2.5:急性非ST段抬高型心肌梗塞+�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 缺血极高危 出血高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
-#######PCI手术 术后－抗血小板治疗   急性非ST段抬高型心肌梗塞｜急性ST段抬高型心肌梗塞          8065    阿司匹林缓释片 10  口服  100mg   1日1次
+######PCI手术 术后－抗血小板治疗   急性非ST段抬高型心肌梗塞｜急性ST段抬高型心肌梗塞          8065    阿司匹林缓释片 10  口服  100mg   1日1次
 
 PCI手术:术后－抗血小板治疗1.1:急性非ST段抬高型心肌梗塞 ,用药推荐包含:阿司匹林缓释片 阿司匹林肠溶片 阿司匹林肠溶缓释片 阿司匹林肠溶胶囊 阿司匹林缓释胶囊
     [Documentation]    断言:""
@@ -267,7 +269,7 @@ PCI手术:术后－抗血小板治疗1.1:急性非ST段抬高型心肌梗塞 ,�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -279,7 +281,7 @@ PCI手术:术后－抗血小板治疗1.2:急性非ST段抬高型心肌梗塞 ,�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][2]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][2]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -291,7 +293,7 @@ PCI手术:术后－抗血小板治疗1.3:急性ST段抬高型心肌梗塞 ,用�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 Objective: Assessment:诊断：急性ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -303,7 +305,7 @@ PCI手术:术后－抗血小板治疗1.4:急性ST段抬高型心肌梗塞 ,用�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 Objective: Assessment:诊断：急性ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][2]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][2]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -318,7 +320,7 @@ PCI手术:术后－降低心梗再发1.1:急性非ST段抬高型心肌梗塞 ,�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][3]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][3]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -330,7 +332,7 @@ PCI手术:术后－降低心梗再发1.2:急性ST段抬高型心肌梗塞 ,用�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 Objective: Assessment:诊断：急性ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][3]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][3]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -344,7 +346,7 @@ PCI手术:术后－调脂1.1:急性非ST段抬高型心肌梗塞+冠心病 ,用�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 冠心病 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][4]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][4]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -356,7 +358,7 @@ PCI手术:术后－调脂1.2:急性ST段抬高型心肌梗塞+冠心病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 冠心病 Objective: Assessment:诊断：急性ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][4]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][4]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -370,7 +372,7 @@ PCI手术:术后－降压1.1:急性非ST段抬高型心肌梗塞+高血压 ,用�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 高血压 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][5]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][5]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -382,7 +384,7 @@ PCI手术:术后－降压1.2:急性ST段抬高型心肌梗塞+高血压 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 高血压 Objective: Assessment:诊断：急性ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][5]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][5]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -395,7 +397,7 @@ PCI手术:术后－降压2.1:急性非ST段抬高型心肌梗塞+冠心病+心�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 冠心病 心力衰竭 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][5]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][5]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -407,7 +409,7 @@ PCI手术:术后－降压2.2:急性ST段抬高型心肌梗塞+冠心病+心力�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 冠心病 心力衰竭 Objective: Assessment:诊断：急性ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][5]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][5]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -421,7 +423,7 @@ PCI手术:术后－降糖1.1:急性非ST段抬高型心肌梗塞+糖尿病 ,用�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 糖尿病 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][6]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][6]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -433,7 +435,7 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 糖尿病 Objective: Assessment:诊断：急性ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][6]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][6]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -447,7 +449,7 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 出血高危 Objective: Assessment:诊断：急性ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -459,22 +461,22 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 出血极高危 Objective: Assessment:诊断：急性ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
 
-#####保守策略:抗凝   抗凝    急性ST段抬高型心肌梗塞    非出血高危      6194    磺达肝癸钠注射液    17
-########保守策略:抗凝2.1:急性ST段抬高型心肌梗塞+非出血高危 ,用药推荐包含: 依诺肝素钠注射液 注射用依诺肝素钠 磺达肝癸钠注射液
-########    [Documentation]    断言:""
-########    ${assert}    Create List    依诺肝素钠注射液    注射用依诺肝素钠    磺达肝癸钠注射液
-########[Setup]    Run Keywords    获取时间戳#########
-########...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：</InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 非出血高危 Objective: Assessment:诊断： Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
-########    ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
-########    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-########    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
-########    # List should contain sub list    ${aj}     ${assert}
-########    Lists should Be Equal    ${aj}    ${assert}
+####保守策略:抗凝   抗凝    急性ST段抬高型心肌梗塞    非出血高危      6194    磺达肝癸钠注射液    17
+#######保守策略:抗凝2.1:急性ST段抬高型心肌梗塞+非出血高危 ,用药推荐包含: 依诺肝素钠注射液 注射用依诺肝素钠 磺达肝癸钠注射液
+#######    [Documentation]    断言:""
+#######    ${assert}    Create List    依诺肝素钠注射液    注射用依诺肝素钠    磺达肝癸钠注射液
+#######[Setup]    Run Keywords    获取时间戳#########
+#######...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：</InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 非出血高危 Objective: Assessment:诊断： Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
+#######    ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
+#######    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#######    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+#######    # List should contain sub list    ${aj}     ${assert}
+#######    Lists should Be Equal    ${aj}    ${assert}
 
 
 ######保守策略:抗凝   抗凝    急性非ST段抬高型心肌梗塞    GRACE评分>140｜GRACE评分高危｜GRACE评分极高危｜缺血极高危｜缺血高危&出血高危｜出血极高危      6194    磺达肝癸钠注射液    19
@@ -486,7 +488,7 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分:141 出血高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -523,7 +525,7 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分:141 GRACE评分高危 出血高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -535,7 +537,7 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分:141 缺血极高危 出血高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -547,7 +549,7 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分:141 缺血高危 出血高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -559,7 +561,7 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分:141 GRACE评分高危 出血极高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -571,7 +573,7 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分:141 缺血极高危 出血极高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -583,22 +585,22 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分:141 缺血高危 出血极高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
 
-#####保守策略:抗凝  急性非ST段抬高型心肌梗塞   缺血中危&非出血高危      609 依诺肝素钠注射液    20
-##### 保守策略:抗凝4.1:急性非ST段抬高型心肌梗塞+缺血中危+非出血高危 ,用药推荐包含: 依诺肝素钠注射液 注射用依诺肝素钠 磺达肝癸钠注射液
-#####     [Documentation]    断言:""
-#####     ${assert}    Create List    依诺肝素钠注射液    注射用依诺肝素钠    磺达肝癸钠注射液
-########[Setup]    Run Keywords    获取时间戳######
-########...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 缺血中危 非出血高危 Objective: Assessment:诊断： Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
-#####     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
-#####     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-#####     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
-#####     # List should contain sub list    ${aj}     ${assert}
-#####     Lists should Be Equal    ${aj}    ${assert}
+####保守策略:抗凝  急性非ST段抬高型心肌梗塞   缺血中危&非出血高危      609 依诺肝素钠注射液    20
+#### 保守策略:抗凝4.1:急性非ST段抬高型心肌梗塞+缺血中危+非出血高危 ,用药推荐包含: 依诺肝素钠注射液 注射用依诺肝素钠 磺达肝癸钠注射液
+####     [Documentation]    断言:""
+####     ${assert}    Create List    依诺肝素钠注射液    注射用依诺肝素钠    磺达肝癸钠注射液
+#######[Setup]    Run Keywords    获取时间戳######
+#######...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 缺血中危 非出血高危 Objective: Assessment:诊断： Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
+####     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
+####     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+####     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+####     # List should contain sub list    ${aj}     ${assert}
+####     Lists should Be Equal    ${aj}    ${assert}
 
 
 
@@ -611,7 +613,7 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 缺血中危 出血高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -623,80 +625,80 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 缺血中危 出血极高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
 
-#####保守策略:双抗  急性ST段抬高型心肌梗塞    出血高危｜出血极高危      8065    阿司匹林缓释片 23  口服  100mg
-####### 保守策略:双抗1.1:急性ST段抬高型心肌梗塞+出血高危 ,用药推荐包含:阿司匹林缓释片 阿司匹林肠溶片 阿司匹林肠溶缓释片 阿司匹林肠溶胶囊 阿司匹林缓释胶囊
-#######     [Documentation]    断言:""
-#######     ${assert}    Create List    阿司匹林缓释片    阿司匹林肠溶片    阿司匹林肠溶缓释片    阿司匹林肠溶胶囊    阿司匹林缓释胶囊
-########[Setup]    Run Keywords    获取时间戳########
-########...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 出血高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
-#######     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
-#######     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-#######     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
-#######     # List should contain sub list    ${aj}     ${assert}
-#######     Lists should Be Equal    ${aj}    ${assert}
-######
-####### 保守策略:双抗1.2:急性ST段抬高型心肌梗塞+出血高危 ,用药推荐包含:硫酸氢氯吡格雷片 硫酸氢氯吡格雷颗粒
-#######     [Documentation]    断言:""
-#######     ${assert}    Create List    硫酸氢氯吡格雷片    硫酸氢氯吡格雷颗粒
-########[Setup]    Run Keywords    获取时间戳########
-########...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 出血高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
-#######     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
-#######     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-#######     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][1]['recommendedDrugs'][1]['drugDetailList']]
-#######     # List should contain sub list    ${aj}     ${assert}
-#######     Lists should Be Equal    ${aj}    ${assert}
-######
-######
-####### 保守策略:双抗1.3:急性ST段抬高型心肌梗塞+出血极高危 ,用药推荐包含:阿司匹林缓释片 阿司匹林肠溶片 阿司匹林肠溶缓释片 阿司匹林肠溶胶囊 阿司匹林缓释胶囊
-#######     [Documentation]    断言:""
-#######     ${assert}    Create List    阿司匹林缓释片    阿司匹林肠溶片    阿司匹林肠溶缓释片    阿司匹林肠溶胶囊    阿司匹林缓释胶囊
-########[Setup]    Run Keywords    获取时间戳########
-########...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 出血极高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
-#######     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
-#######     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-#######     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
-#######     # List should contain sub list    ${aj}     ${assert}
-#######     Lists should Be Equal    ${aj}    ${assert}
-######
-####### 保守策略:双抗1.4:急性ST段抬高型心肌梗塞+出血极高危 ,用药推荐包含:硫酸氢氯吡格雷片 硫酸氢氯吡格雷颗粒
-#######     [Documentation]    断言:""
-#######     ${assert}    Create List    硫酸氢氯吡格雷片    硫酸氢氯吡格雷颗粒
-########[Setup]    Run Keywords    获取时间戳########
-########...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 出血极高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
-#######     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
-#######     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-#######     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][1]['recommendedDrugs'][1]['drugDetailList']]
-#######     # List should contain sub list    ${aj}     ${assert}
-#######     Lists should Be Equal    ${aj}    ${assert}
-
-
-#####保守策略:双抗  急性ST段抬高型心肌梗塞    非出血高危       8065    阿司匹林缓释片 25  口服  100mg
-###### 保守策略:双抗2.1:急性ST段抬高型心肌梗塞+非出血高危 ,用药推荐包含:阿司匹林缓释片 阿司匹林肠溶片 阿司匹林肠溶缓释片 阿司匹林肠溶胶囊 阿司匹林缓释胶囊
+####保守策略:双抗  急性ST段抬高型心肌梗塞    出血高危｜出血极高危      8065    阿司匹林缓释片 23  口服  100mg
+###### 保守策略:双抗1.1:急性ST段抬高型心肌梗塞+出血高危 ,用药推荐包含:阿司匹林缓释片 阿司匹林肠溶片 阿司匹林肠溶缓释片 阿司匹林肠溶胶囊 阿司匹林缓释胶囊
 ######     [Documentation]    断言:""
 ######     ${assert}    Create List    阿司匹林缓释片    阿司匹林肠溶片    阿司匹林肠溶缓释片    阿司匹林肠溶胶囊    阿司匹林缓释胶囊
-########[Setup]    Run Keywords    获取时间戳#######
-########...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 非出血高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
+#######[Setup]    Run Keywords    获取时间戳########
+#######...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 出血高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
 ######     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
 ######     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-######     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
+######     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
+######     # List should contain sub list    ${aj}     ${assert}
+######     Lists should Be Equal    ${aj}    ${assert}
+#####
+###### 保守策略:双抗1.2:急性ST段抬高型心肌梗塞+出血高危 ,用药推荐包含:硫酸氢氯吡格雷片 硫酸氢氯吡格雷颗粒
+######     [Documentation]    断言:""
+######     ${assert}    Create List    硫酸氢氯吡格雷片    硫酸氢氯吡格雷颗粒
+#######[Setup]    Run Keywords    获取时间戳########
+#######...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 出血高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
+######     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
+######     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+######     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][1]['recommendedDrugs'][1]['drugDetailList']]
+######     # List should contain sub list    ${aj}     ${assert}
+######     Lists should Be Equal    ${aj}    ${assert}
+#####
+#####
+###### 保守策略:双抗1.3:急性ST段抬高型心肌梗塞+出血极高危 ,用药推荐包含:阿司匹林缓释片 阿司匹林肠溶片 阿司匹林肠溶缓释片 阿司匹林肠溶胶囊 阿司匹林缓释胶囊
+######     [Documentation]    断言:""
+######     ${assert}    Create List    阿司匹林缓释片    阿司匹林肠溶片    阿司匹林肠溶缓释片    阿司匹林肠溶胶囊    阿司匹林缓释胶囊
+#######[Setup]    Run Keywords    获取时间戳########
+#######...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 出血极高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
+######     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
+######     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+######     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
+######     # List should contain sub list    ${aj}     ${assert}
+######     Lists should Be Equal    ${aj}    ${assert}
+#####
+###### 保守策略:双抗1.4:急性ST段抬高型心肌梗塞+出血极高危 ,用药推荐包含:硫酸氢氯吡格雷片 硫酸氢氯吡格雷颗粒
+######     [Documentation]    断言:""
+######     ${assert}    Create List    硫酸氢氯吡格雷片    硫酸氢氯吡格雷颗粒
+#######[Setup]    Run Keywords    获取时间戳########
+#######...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 出血极高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
+######     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
+######     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+######     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][1]['recommendedDrugs'][1]['drugDetailList']]
 ######     # List should contain sub list    ${aj}     ${assert}
 ######     Lists should Be Equal    ${aj}    ${assert}
 
-######保守策略:双抗2.2:急性ST段抬高型心肌梗塞+非出血高危 ,用药推荐包含:替格瑞洛片 硫酸氢氯吡格雷片 硫酸氢氯吡格雷颗粒
-######    [Documentation]    断言:""
-######    ${assert}    Create List    替格瑞洛片    硫酸氢氯吡格雷片    硫酸氢氯吡格雷颗粒
-######    [Setup]    Run Keywords    获取时间戳    ...    AND    获取随机数
-######    ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 非出血高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
-######    ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
-######    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-######    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][1]['recommendedDrugs'][1]['drugDetailList']]
-######    # List should contain sub list    ${aj}     ${assert}
-######    Lists should Be Equal    ${aj}    ${assert}
+
+####保守策略:双抗  急性ST段抬高型心肌梗塞    非出血高危       8065    阿司匹林缓释片 25  口服  100mg
+##### 保守策略:双抗2.1:急性ST段抬高型心肌梗塞+非出血高危 ,用药推荐包含:阿司匹林缓释片 阿司匹林肠溶片 阿司匹林肠溶缓释片 阿司匹林肠溶胶囊 阿司匹林缓释胶囊
+#####     [Documentation]    断言:""
+#####     ${assert}    Create List    阿司匹林缓释片    阿司匹林肠溶片    阿司匹林肠溶缓释片    阿司匹林肠溶胶囊    阿司匹林缓释胶囊
+#######[Setup]    Run Keywords    获取时间戳#######
+#######...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 非出血高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
+#####     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
+#####     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#####     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
+#####     # List should contain sub list    ${aj}     ${assert}
+#####     Lists should Be Equal    ${aj}    ${assert}
+
+#####保守策略:双抗2.2:急性ST段抬高型心肌梗塞+非出血高危 ,用药推荐包含:替格瑞洛片 硫酸氢氯吡格雷片 硫酸氢氯吡格雷颗粒
+#####    [Documentation]    断言:""
+#####    ${assert}    Create List    替格瑞洛片    硫酸氢氯吡格雷片    硫酸氢氯吡格雷颗粒
+#####    [Setup]    Run Keywords    获取时间戳    ...    AND    获取随机数
+#####    ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 非出血高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
+#####    ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
+#####    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#####    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][1]['recommendedDrugs'][1]['drugDetailList']]
+#####    # List should contain sub list    ${aj}     ${assert}
+#####    Lists should Be Equal    ${aj}    ${assert}
 
 
 
@@ -709,7 +711,7 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分:141 出血高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -721,7 +723,7 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分:141 出血高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][1]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][1]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -734,7 +736,7 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分:140 出血高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    # ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Should Not Contain    ${getRes['body']['therapeuticPlanList']}    ${assert}
 
@@ -746,7 +748,7 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分:140 出血极高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    # ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Should Not Contain    ${getRes['body']['therapeuticPlanList']}    ${assert}
 
@@ -758,7 +760,7 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分:141 GRACE评分高危 出血高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -770,7 +772,7 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分:141 GRACE评分高危 出血高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][1]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][1]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -782,7 +784,7 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分:141 缺血极高危 出血高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -794,7 +796,7 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分:141 缺血极高危 出血高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][1]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][1]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -806,7 +808,7 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分:141 缺血高危 出血高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -818,7 +820,7 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分:141 缺血高危 出血高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][1]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][1]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -831,7 +833,7 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分:141 GRACE评分高危 出血极高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -843,7 +845,7 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分:141 GRACE评分高危 出血极高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][1]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][1]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -855,7 +857,7 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分:141 缺血极高危 出血极高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -867,7 +869,7 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分:141 缺血极高危 出血极高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][1]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][1]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -880,7 +882,7 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分:141 缺血高危 出血极高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -892,24 +894,26 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 GRACE评分:141 缺血高危 出血极高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][1]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][1]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
 
-######保守策略:双抗 急性非ST段抬高型心肌梗塞   缺血中危&非出血高危      8065    阿司匹林缓释片 29  口服  100mg
+#####保守策略:双抗 急性非ST段抬高型心肌梗塞   缺血中危&非出血高危      8065    阿司匹林缓释片 29  口服  100mg
 
 
-# 保守策略:双抗4.2: 急性非ST段抬高型心肌梗塞+缺血中危+非出血高危,用药推荐包含:替格瑞洛片 硫酸氢氯吡格雷片 硫酸氢氯吡格雷颗粒
-#     [Documentation]    断言:""
-#     ${assert}    Create List    替格瑞洛片    硫酸氢氯吡格雷片    硫酸氢氯吡格雷颗粒
-#     [Setup]    Run Keywords    获取时间戳    ...    AND    获取随机数
-#     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 缺血中危 非出血高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
-#     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
-#     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-#     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][1]['recommendedDrugs'][1]['drugDetailList']]
-#     # List should contain sub list    ${aj}     ${assert}
-#     Lists should Be Equal    ${aj}    ${assert}
+保守策略:双抗4.2: 急性非ST段抬高型心肌梗塞+缺血中危+非出血高危,用药推荐包含:替格瑞洛片 硫酸氢氯吡格雷片 硫酸氢氯吡格雷颗粒
+    [Documentation]    断言:""
+    ${assert}    Create List    替格瑞洛片    硫酸氢氯吡格雷片    硫酸氢氯吡格雷颗粒
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 缺血中危 非出血高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
+    ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
+    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][1]['recommendedDrugs'][1]['drugDetailList']]
+    # List should contain sub list    ${aj}     ${assert}
+    Lists should Be Equal    ${aj}    ${assert}
+
 
 #####保守策略:双抗 急性非ST段抬高型心肌梗塞 缺血中危&出血高危｜出血极高危     8065    阿司匹林缓释片 31  口服  100mg
 保守策略:双抗5.1: 急性非ST段抬高型心肌梗塞+缺血中危+出血高危,用药推荐33组包含: 阿司匹林缓释片 阿司匹林肠溶片 阿司匹林肠溶缓释片 阿司匹林肠溶胶囊 阿司匹林缓释胶囊
@@ -920,7 +924,7 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 缺血中危 出血高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -932,7 +936,7 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 缺血中危 出血高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][1]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][1]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -945,7 +949,7 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 缺血中危 出血极高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -957,7 +961,7 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 缺血中危 出血极高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][1]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][1]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -970,7 +974,7 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 缺血低危 非出血高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -982,7 +986,7 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性非ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 缺血低危 非出血高危 Objective: Assessment:诊断：急性非ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][1]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][1]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -1001,7 +1005,7 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 出血高危 Objective: Assessment:诊断：急性ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -1013,7 +1017,7 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 出血极高危 Objective: Assessment:诊断：急性ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -1026,7 +1030,7 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 出血高危 Objective: Assessment:诊断：急性ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -1039,7 +1043,7 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 出血极高危 Objective: Assessment:诊断：急性ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -1051,7 +1055,7 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 出血高危 Objective: Assessment:诊断：急性ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][2]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][2]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -1063,7 +1067,7 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 出血极高危 Objective: Assessment:诊断：急性ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][2]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][2]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -1076,7 +1080,7 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 出血高危 Objective: Assessment:诊断：急性ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][2]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][2]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -1089,7 +1093,7 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性非ST段抬高型心肌梗塞 出血极高危 Objective: Assessment:诊断：急性ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][2]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][2]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
@@ -1104,7 +1108,7 @@ PCI手术:术后－降糖1.2:急性ST段抬高型心肌梗塞+糖尿病 ,用药�
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断：急性ST段抬高型心肌梗塞</InnerValue></Element></XElements><BodyText>Subjective:急性ST段抬高型心肌梗塞 非出血高危 Objective: Assessment:诊断：急性ST段抬高型心肌梗塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={}    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 
