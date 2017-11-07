@@ -550,7 +550,7 @@ Library           RequestsLibrary
     Should Not Contain    ${aj}    选择性肺动脉造影
 
 ##########+次要条件 cta禁忌
-推荐检查28行-7 胸痛+Wells评分低度可能急性肺栓塞&D-二聚体阳性 V/Q升高 +cta禁忌:碘造影剂过敏 妊娠 中度肾功能不全 重度肾功能不全 肌酐清除率<30ml/min 肾小球滤过率:44mL/min1.73m2 造影剂肾病 甲状腺功能亢进,推荐检查包含:选择性肺动脉造影
+推荐检查28行-7 胸痛+Wells评分低度可能急性肺栓塞&D-二聚体阳性 V/Q升高 +cta禁忌:碘造影剂过敏 妊娠 中度肾功能不全 重度肾功能不全 肌酐清除率<30ml/min 肾小球滤过率:44mL/min/1.73m2 造影剂肾病 甲状腺功能亢进,推荐检查包含:选择性肺动脉造影
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -686,7 +686,7 @@ Library           RequestsLibrary
     Should Not Contain    ${aj}    下肢血管超声
 
 ##########+次要条件 cta禁忌
-推荐检查29行-7 胸痛+Wells评分低度可能急性肺栓塞&D-二聚体阳性 V/Q升高 +cta禁忌:碘造影剂过敏 妊娠 中度肾功能不全 重度肾功能不全 肌酐清除率<30ml/min 肾小球滤过率:44mL/min1.73m2 造影剂肾病 甲状腺功能亢进,推荐检查包含:下肢血管超声
+推荐检查29行-7 胸痛+Wells评分低度可能急性肺栓塞&D-二聚体阳性 V/Q升高 +cta禁忌:碘造影剂过敏 妊娠 中度肾功能不全 重度肾功能不全 肌酐清除率<30ml/min 肾小球滤过率:44mL/min/1.73m2 造影剂肾病 甲状腺功能亢进,推荐检查包含:下肢血管超声
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -695,7 +695,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 Wells评分:1 血浆-D-二聚体增高 V/Q升高 碘造影剂过敏 妊娠 中度肾功能不全 重度肾功能不全 肌酐清除率:29ml/min 肾小球滤过率:44mL/min1.73m2 造影剂肾病 甲状腺功能亢进 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 Wells评分:1 血浆-D-二聚体增高 V/Q升高 碘造影剂过敏 妊娠 中度肾功能不全 重度肾功能不全 肌酐清除率:29ml/min 肾小球滤过率:44mL/min/1.73m2 造影剂肾病 甲状腺功能亢进 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -819,7 +819,7 @@ Library           RequestsLibrary
     Should Not Contain    ${aj}    加压超声检查
 
 ##########+次要条件 cta禁忌
-推荐检查30行-7 胸痛+Wells评分低度可能急性肺栓塞&D-二聚体阳性 V/Q升高 +cta禁忌:碘造影剂过敏 妊娠 中度肾功能不全 重度肾功能不全 肌酐清除率<30ml/min 肾小球滤过率:44mL/min1.73m2 造影剂肾病 甲状腺功能亢进,推荐检查包含:加压超声检查
+推荐检查30行-7 胸痛+Wells评分低度可能急性肺栓塞&D-二聚体阳性 V/Q升高 +cta禁忌:碘造影剂过敏 妊娠 中度肾功能不全 重度肾功能不全 肌酐清除率<30ml/min 肾小球滤过率:44mL/min/1.73m2 造影剂肾病 甲状腺功能亢进,推荐检查包含:加压超声检查
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
@@ -828,7 +828,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 Wells评分:1 血浆-D-二聚体增高 V/Q升高 碘造影剂过敏 妊娠 中度肾功能不全 重度肾功能不全 肌酐清除率:29ml/min 肾小球滤过率:44mL/min1.73m2 造影剂肾病 甲状腺功能亢进 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 Wells评分:1 血浆-D-二聚体增高 V/Q升高 碘造影剂过敏 妊娠 中度肾功能不全 重度肾功能不全 肌酐清除率:29ml/min 肾小球滤过率:44mL/min/1.73m2 造影剂肾病 甲状腺功能亢进 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
