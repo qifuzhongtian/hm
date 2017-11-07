@@ -559,7 +559,7 @@ Library           RequestsLibrary
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 Wells评分:1 血浆-D-二聚体增高 V/Q升高 碘造影剂过敏 妊娠 中度肾功能不全 重度肾功能不全 肌酐清除率:29ml/min 肾小球滤过率:44mL/min1.73m2 造影剂肾病 甲状腺功能亢进 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 胸痛 濒死感 胸部撕裂样痛 背部撕裂样痛 呼吸困难 Wells评分:1 血浆-D-二聚体增高 V/Q升高 碘造影剂过敏 妊娠 中度肾功能不全 重度肾功能不全 肌酐清除率:29ml/min 肾小球滤过率:44mL/min/1.73m2 造影剂肾病 甲状腺功能亢进 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -1708,22 +1708,22 @@ Library           RequestsLibrary
     # Should Not Contain    ${aj}    BNP
     should Not Contain    ${getRes['body']}    examinationRecommendList
 
-推荐检查39行-6 心力衰竭症状｜心力衰竭+否定条件:呼吸急促,推荐检查"不应"包含:BNP
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 呼吸急促 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    BNP
-    # should Not Contain    ${getRes['body']}    examinationRecommendList
+#########推荐检查39行-6 心力衰竭症状｜心力衰竭+否定条件:呼吸急促,推荐检查"不应"包含:BNP
+#########    [Documentation]    断言:""
+#########    #执行删除病程
+#########    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
+#########    ${timestamp}    Get Time    epoch
+#########    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+#########    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#########    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#########    ...    definiteDiagnosis=
+#########    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 呼吸急促 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+#########    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#########    ...    labTestList=
+#########    ...    examinationList=
+#########    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#########    Should Not Contain    ${aj}    BNP
+#########    # should Not Contain    ${getRes['body']}    examinationRecommendList
 
 推荐检查39行-7 心力衰竭症状｜心力衰竭+否定条件:缺氧,推荐检查"不应"包含:BNP
     [Documentation]    断言:""
@@ -1843,22 +1843,22 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Contain    ${aj}    胸部X线片
 
-推荐检查41行-6 心力衰竭症状｜心力衰竭+否定条件:呼吸急促,推荐检查"不应"包含:胸部X线片
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 呼吸急促 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    胸部X线片
-    # Should Not Contain    ${getRes['body']}    examinationRecommendList
+###########推荐检查41行-6 心力衰竭症状｜心力衰竭+否定条件:呼吸急促,推荐检查"不应"包含:胸部X线片
+###########    [Documentation]    断言:""
+###########    #执行删除病程
+###########    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
+###########    ${timestamp}    Get Time    epoch
+###########    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+###########    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+###########    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+###########    ...    definiteDiagnosis=
+###########    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 呼吸急促 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+###########    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+###########    ...    labTestList=
+###########    ...    examinationList=
+###########    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+###########    Should Not Contain    ${aj}    胸部X线片
+###########    # Should Not Contain    ${getRes['body']}    examinationRecommendList
 
 推荐检查41行-7 心力衰竭症状｜心力衰竭+否定条件:缺氧,推荐检查"不应"包含:胸部X线片
     [Documentation]    断言:""
@@ -2384,22 +2384,22 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Contain    ${aj}    尿常规
 
-推荐检查47行-6 心力衰竭症状｜心力衰竭+否定条件:呼吸急促,推荐检查"不应"包含:尿常规
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 呼吸急促 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    尿常规
-    # Should Not Contain    ${getRes['body']}    examinationRecommendList
+#######推荐检查47行-6 心力衰竭症状｜心力衰竭+否定条件:呼吸急促,推荐检查"不应"包含:尿常规
+#######    [Documentation]    断言:""
+#######    #执行删除病程
+#######    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
+#######    ${timestamp}    Get Time    epoch
+#######    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+#######    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#######    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#######    ...    definiteDiagnosis=
+#######    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 呼吸急促 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+#######    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#######    ...    labTestList=
+#######    ...    examinationList=
+#######    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#######    Should Not Contain    ${aj}    尿常规
+#######    # Should Not Contain    ${getRes['body']}    examinationRecommendList
 
 推荐检查47行-7 心力衰竭症状｜心力衰竭+否定条件:缺氧,推荐检查"不应"包含:尿常规
     [Documentation]    断言:""
@@ -2730,22 +2730,22 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     Should Contain    ${aj}    血糖
 
-推荐检查50行-6 心力衰竭症状｜心力衰竭+否定条件:呼吸急促,推荐检查"不应"包含:血糖
-    [Documentation]    断言:""
-    #执行删除病程
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 呼吸急促 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    血糖
-    # Should Not Contain    ${getRes['body']}    examinationRecommendList
+########推荐检查50行-6 心力衰竭症状｜心力衰竭+否定条件:呼吸急促,推荐检查"不应"包含:血糖
+########    [Documentation]    断言:""
+########    #执行删除病程
+########    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
+########    ${timestamp}    Get Time    epoch
+########    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+########    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+########    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+########    ...    definiteDiagnosis=
+########    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 心力衰竭 呼吸急促 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+########    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+########    ...    labTestList=
+########    ...    examinationList=
+########    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+########    Should Not Contain    ${aj}    血糖
+########    # Should Not Contain    ${getRes['body']}    examinationRecommendList
 
 
 推荐检查50行-7 心力衰竭症状｜心力衰竭+否定条件:缺氧,推荐检查"不应"包含:血糖

@@ -499,8 +499,6 @@ Library           String
 ###颅内大动脉粥样硬化性狭窄｜颈动脉狭窄率70%-99%｜主动脉弓动脉粥样硬化斑块&短暂性脑缺血发作
 ###颅内大动脉粥样硬化性狭窄 颈动脉狭窄率:70% 主动脉弓动脉粥样硬化斑块 短暂性脑缺血发作
 
-
-分组108
 11.1 TIA危险因素管理:血脂管理和调脂治疗:主诉:短暂性脑缺血发作 LDL-C:100mg/dl 主动脉弓动脉粥样硬化斑块,用药推荐包含:阿托伐他汀钙片 阿托伐他汀钙胶囊 阿托伐他汀钙分散片 瑞舒伐他汀钙片 瑞舒伐他汀钙胶囊 瑞舒伐他汀钙分散片 匹伐他汀钙片 氟伐他汀钠胶囊 氟伐他汀钠缓释片 普伐他汀钠片 普伐他汀钠胶囊 普伐他汀钠胶囊 洛伐他汀颗粒 辛伐他汀片 辛伐他汀咀嚼片 辛伐他汀胶囊 辛伐他汀分散片
     [Documentation]    断言:""
     ${assert}    Create List    阿托伐他汀钙片    阿托伐他汀钙胶囊    阿托伐他汀钙分散片    瑞舒伐他汀钙片    瑞舒伐他汀钙胶囊    瑞舒伐他汀钙分散片    匹伐他汀钙片    氟伐他汀钠胶囊    氟伐他汀钠缓释片    普伐他汀钠片    普伐他汀钠胶囊    普伐他汀钠胶囊    洛伐他汀颗粒    辛伐他汀片    辛伐他汀咀嚼片    辛伐他汀胶囊    辛伐他汀分散片
@@ -986,10 +984,10 @@ Library           String
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 帕金森 早发型帕金森 晚发型帕金森 诊断及诊断依据:帕金森 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
+    ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 帕金森 早发型帕金森 晚发型帕金森 异动症 诊断及诊断依据:帕金森 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
