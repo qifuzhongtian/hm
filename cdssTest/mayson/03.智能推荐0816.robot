@@ -4,8 +4,9 @@ Suite Teardown    Delete All Sessions
 Resource          ../cdss接口关键字.robot
 Library           Collections
 Library           RequestsLibrary
+Library           String
 
-# # 字段名	类型	是否必须	说明
+# # 字段名 类型  是否必须    说明
 # # userGuid    String  是   患者唯一编号
 # # serialNumber    String  是   住院病历唯一编号
 # # pageSource  Integer 是   页面来源
@@ -104,8 +105,10 @@ Library           RequestsLibrary
     [Documentation]    胸痛+Wells评分低度可能急性肺栓塞,断言:"推荐检查examination=D-二聚体"
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -120,8 +123,10 @@ Library           RequestsLibrary
     [Documentation]    胸痛+Wells评分:1分,断言:"推荐检查examination=D-二聚体"
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -136,8 +141,10 @@ Library           RequestsLibrary
     [Documentation]    胸痛+Wells评分:1分,断言:"推荐检查examination=D-二聚体"
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -153,8 +160,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -172,8 +181,10 @@ Library           RequestsLibrary
     [Documentation]    胸痛+Wells评分低度可能急性肺栓塞,断言:"推荐检查examination=肺动脉CTA"
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -188,8 +199,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -204,8 +217,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -224,8 +239,10 @@ Library           RequestsLibrary
     [Documentation]    胸痛+Wells评分低度可能急性肺栓塞,断言:"推荐检查examination=放射性核素肺通气灌注扫描"
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -240,8 +257,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -257,8 +276,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -275,8 +296,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -291,8 +314,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -308,8 +333,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -324,8 +351,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -340,8 +369,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -356,8 +387,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -372,8 +405,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -388,8 +423,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -404,8 +441,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -420,8 +459,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -437,8 +478,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -455,8 +498,10 @@ Library           RequestsLibrary
     [Documentation]    胸痛+Wells评分低度可能急性肺栓塞,断言:"推荐检查examination=选择性肺动脉造影"
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -471,8 +516,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -487,8 +534,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -505,8 +554,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -521,8 +572,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -537,8 +590,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -554,8 +609,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -570,8 +627,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -590,8 +649,10 @@ Library           RequestsLibrary
     [Documentation]    胸痛+Wells评分低度可能急性肺栓塞,断言:"推荐检查examination=下肢血管超声"
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -606,8 +667,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -623,8 +686,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -641,8 +706,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -657,8 +724,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -673,8 +742,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -690,8 +761,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -706,8 +779,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -724,8 +799,10 @@ Library           RequestsLibrary
     [Documentation]    胸痛+Wells评分低度可能急性肺栓塞,断言:"推荐检查examination=加压超声检查"
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -740,8 +817,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -756,8 +835,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -774,8 +855,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -790,8 +873,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -806,8 +891,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -823,8 +910,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -839,8 +928,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -857,8 +948,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -873,8 +966,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -889,8 +984,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -905,8 +1002,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -923,8 +1022,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -943,8 +1044,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -959,8 +1062,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -975,8 +1080,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -991,8 +1098,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1008,8 +1117,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1025,8 +1136,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1041,8 +1154,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1054,12 +1169,14 @@ Library           RequestsLibrary
     Should Not Contain    ${aj}    放射性核素肺通气灌注扫描
 
 ##加次要条件:cta禁忌
-推荐检查32行-8 胸痛+Wells评分低度可能急性肺栓塞 +次要条件cta禁忌+否定条件,推荐检查"不"包含:放射性核素肺通气灌注扫描
+推荐检查32行-8 胸痛+Wells评分低度可能急性肺栓塞 +次要条件cta禁忌+否定条件,推荐检查包含:放射性核素肺通气灌注扫描
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1068,15 +1185,17 @@ Library           RequestsLibrary
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    放射性核素肺通气灌注扫描
+    Should Contain    ${aj}    放射性核素肺通气灌注扫描
 
 ##########+否定条件 cta禁忌
 推荐检查32行-9 胸痛+Wells评分低度可能急性肺栓塞+次要条件cta禁忌+否定条件,推荐检查"不"包含:放射性核素肺通气灌注扫描
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1094,8 +1213,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1110,8 +1231,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1126,8 +1249,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1142,8 +1267,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1159,8 +1286,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1176,8 +1305,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1192,8 +1323,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1205,12 +1338,14 @@ Library           RequestsLibrary
     Should Not Contain    ${aj}    选择性肺动脉造影
 
 ##加次要条件:cta禁忌
-推荐检查33行-8 胸痛+Wells评分低度可能急性肺栓塞 +次要条件cta禁忌+否定条件,推荐检查"不"包含:选择性肺动脉造影
+推荐检查33行-8 胸痛+Wells评分低度可能急性肺栓塞 +次要条件cta禁忌+否定条件,推荐检查包含:选择性肺动脉造影
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1219,15 +1354,17 @@ Library           RequestsLibrary
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    选择性肺动脉造影
+    Should Contain    ${aj}    选择性肺动脉造影
 
 ##########+否定条件 cta禁忌
 推荐检查33行-9 胸痛+Wells评分低度可能急性肺栓塞+次要条件cta禁忌+否定条件,推荐检查"不"包含:选择性肺动脉造影
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1243,8 +1380,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1261,8 +1400,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1277,8 +1418,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1293,8 +1436,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1309,8 +1454,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1326,8 +1473,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1343,8 +1492,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1359,8 +1510,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1372,12 +1525,14 @@ Library           RequestsLibrary
     Should Not Contain    ${aj}    下肢血管超声
 
 ##加次要条件:cta禁忌
-推荐检查34行-8 胸痛+Wells评分低度可能急性肺栓塞 +次要条件cta禁忌+否定条件,推荐检查"不"包含:下肢血管超声
+推荐检查34行-8 胸痛+Wells评分低度可能急性肺栓塞 +次要条件cta禁忌+否定条件,推荐检查包含:下肢血管超声
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1386,15 +1541,17 @@ Library           RequestsLibrary
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    下肢血管超声
+    Should Contain    ${aj}    下肢血管超声
 
 ##########+否定条件 cta禁忌
 推荐检查34行-9 胸痛+Wells评分低度可能急性肺栓塞+次要条件cta禁忌+否定条件,推荐检查"不"包含:下肢血管超声
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1411,8 +1568,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1427,8 +1586,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1443,8 +1604,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1459,8 +1622,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1476,8 +1641,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1493,8 +1660,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1509,8 +1678,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1522,12 +1693,14 @@ Library           RequestsLibrary
     Should Not Contain    ${aj}    加压超声检查
 
 ##加次要条件:cta禁忌
-推荐检查35行-8 胸痛+Wells评分低度可能急性肺栓塞 +次要条件cta禁忌+否定条件,推荐检查"不"包含:加压超声检查
+推荐检查35行-8 胸痛+Wells评分低度可能急性肺栓塞 +次要条件cta禁忌+否定条件,推荐检查包含:加压超声检查
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1536,15 +1709,17 @@ Library           RequestsLibrary
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Not Contain    ${aj}    加压超声检查
+    Should Contain    ${aj}    加压超声检查
 
 ##########+否定条件 cta禁忌
 推荐检查35行-9 胸痛+Wells评分低度可能急性肺栓塞+次要条件cta禁忌+否定条件,推荐检查"不"包含:加压超声检查
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1559,8 +1734,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1577,8 +1754,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1593,8 +1772,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1609,8 +1790,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1626,8 +1809,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1646,8 +1831,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1662,8 +1849,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1678,8 +1867,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1695,8 +1886,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1712,8 +1905,9 @@ Library           RequestsLibrary
 #########    [Documentation]    断言:""
 #########    #执行删除病程
 #########    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-#########    ${timestamp}    Get Time    epoch
-#########    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+########    ${timestamp}    Get Time    epoch    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+#########    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
 #########    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
 #########    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
 #########    ...    definiteDiagnosis=
@@ -1729,8 +1923,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1746,8 +1942,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1765,8 +1963,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1781,8 +1981,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1797,8 +1999,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1814,8 +2018,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1831,8 +2037,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1847,8 +2055,9 @@ Library           RequestsLibrary
 ###########    [Documentation]    断言:""
 ###########    #执行删除病程
 ###########    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-###########    ${timestamp}    Get Time    epoch
-###########    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+##########    ${timestamp}    Get Time    epoch    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+###########    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
 ###########    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
 ###########    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
 ###########    ...    definiteDiagnosis=
@@ -1864,8 +2073,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1881,8 +2092,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1900,8 +2113,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1916,8 +2131,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1932,8 +2149,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1950,8 +2169,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1966,8 +2187,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1983,8 +2206,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2000,8 +2225,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2018,8 +2245,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2034,8 +2263,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2052,8 +2283,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2068,8 +2301,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2087,8 +2322,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2103,8 +2340,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2120,8 +2359,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2136,8 +2377,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2155,8 +2398,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2171,8 +2416,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2191,8 +2438,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2207,8 +2456,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2225,8 +2476,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2241,8 +2494,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2257,8 +2512,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2273,8 +2530,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2289,8 +2548,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2306,8 +2567,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2322,8 +2585,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2338,8 +2603,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2355,8 +2622,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2372,8 +2641,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2388,8 +2659,9 @@ Library           RequestsLibrary
 #######    [Documentation]    断言:""
 #######    #执行删除病程
 #######    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-#######    ${timestamp}    Get Time    epoch
-#######    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+######    ${timestamp}    Get Time    epoch    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+#######    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
 #######    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
 #######    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
 #######    ...    definiteDiagnosis=
@@ -2405,8 +2677,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2422,8 +2696,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2440,8 +2716,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2457,8 +2735,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2473,8 +2753,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2491,8 +2773,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2507,8 +2791,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2523,8 +2809,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2540,8 +2828,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2557,8 +2847,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2573,8 +2865,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2588,8 +2882,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2603,8 +2899,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2618,8 +2916,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2634,8 +2934,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2652,8 +2954,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2668,8 +2972,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2684,8 +2990,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2701,8 +3009,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2718,8 +3028,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2734,8 +3046,9 @@ Library           RequestsLibrary
 ########    [Documentation]    断言:""
 ########    #执行删除病程
 ########    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-########    ${timestamp}    Get Time    epoch
-########    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+#######    ${timestamp}    Get Time    epoch    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+########    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
 ########    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
 ########    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
 ########    ...    definiteDiagnosis=
@@ -2752,8 +3065,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2769,8 +3084,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2786,8 +3103,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2803,8 +3122,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2819,8 +3140,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2837,8 +3160,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2853,8 +3178,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2869,8 +3196,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2886,8 +3215,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2904,8 +3235,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2920,8 +3253,9 @@ Library           RequestsLibrary
 #####    [Documentation]    断言:""
 #####    #执行删除病程
 #####    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-#####    ${timestamp}    Get Time    epoch
-#####    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+####    ${timestamp}    Get Time    epoch    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+#####    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
 #####    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
 #####    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
 #####    ...    definiteDiagnosis=
@@ -2938,8 +3272,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2955,8 +3291,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2972,8 +3310,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2990,8 +3330,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3006,8 +3348,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3024,8 +3368,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3040,8 +3386,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3056,8 +3404,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3073,8 +3423,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3090,8 +3442,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3106,8 +3460,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3124,8 +3480,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3141,8 +3499,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3158,8 +3518,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3175,8 +3537,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3191,8 +3555,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3209,8 +3575,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3225,8 +3593,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3242,8 +3612,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3258,8 +3630,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3274,8 +3648,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3292,8 +3668,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3308,8 +3686,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3324,8 +3704,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3341,8 +3723,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3358,8 +3742,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3374,8 +3760,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3391,8 +3779,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3408,8 +3798,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3425,8 +3817,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3442,8 +3836,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3458,8 +3854,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3481,8 +3879,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3497,8 +3897,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3513,8 +3915,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3531,8 +3935,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3548,8 +3954,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3565,8 +3973,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3583,8 +3993,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3600,8 +4012,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3617,8 +4031,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3634,8 +4050,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3651,8 +4069,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3669,8 +4089,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3685,8 +4107,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3701,8 +4125,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3717,8 +4143,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3734,8 +4162,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3751,8 +4181,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3768,8 +4200,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3785,8 +4219,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3802,8 +4238,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3819,8 +4257,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3836,8 +4276,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3854,8 +4296,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3870,8 +4314,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3886,8 +4332,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3902,8 +4350,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3919,8 +4369,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3936,8 +4388,9 @@ Library           RequestsLibrary
 #######    [Documentation]    断言:""
 #######    #执行删除病程
 #######    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-#######    ${timestamp}    Get Time    epoch
-#######    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+######    ${timestamp}    Get Time    epoch    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+#######    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
 #######    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
 #######    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
 #######    ...    definiteDiagnosis=
@@ -3953,8 +4406,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3970,8 +4425,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3987,8 +4444,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4004,8 +4463,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4021,8 +4482,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4039,8 +4502,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4055,8 +4520,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4071,8 +4538,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4087,8 +4556,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4104,8 +4575,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4121,8 +4594,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4138,8 +4613,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4155,8 +4632,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4172,8 +4651,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4189,8 +4670,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4207,8 +4690,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4225,8 +4710,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4242,8 +4729,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4259,8 +4748,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4276,8 +4767,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4293,8 +4786,9 @@ Library           RequestsLibrary
 ########    [Documentation]    断言:""
 ########    #执行删除病程
 ########    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-########    ${timestamp}    Get Time    epoch
-########    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+#######    ${timestamp}    Get Time    epoch    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+########    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
 ########    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
 ########    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
 ########    ...    definiteDiagnosis=
@@ -4311,8 +4805,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4328,8 +4824,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4345,8 +4843,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4362,8 +4862,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4379,8 +4881,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4397,8 +4901,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4415,8 +4921,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4432,8 +4940,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4449,8 +4959,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4466,8 +4978,9 @@ Library           RequestsLibrary
 ######    [Documentation]    断言:""
 ######    #执行删除病程
 ######    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-######    ${timestamp}    Get Time    epoch
-######    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+#####    ${timestamp}    Get Time    epoch    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+######    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
 ######    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
 ######    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
 ######    ...    definiteDiagnosis=
@@ -4484,8 +4997,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4501,8 +5016,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4518,8 +5035,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4535,8 +5054,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4552,8 +5073,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4570,8 +5093,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4586,8 +5111,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4602,8 +5129,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4618,8 +5147,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4635,8 +5166,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4652,8 +5185,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4669,8 +5204,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4686,8 +5223,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4703,8 +5242,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4720,8 +5261,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4737,8 +5280,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4755,8 +5300,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4771,8 +5318,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4787,8 +5336,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4803,8 +5354,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4820,8 +5373,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4837,8 +5392,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4854,8 +5411,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4871,8 +5430,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4888,8 +5449,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4905,8 +5468,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4922,8 +5487,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4940,8 +5507,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4956,8 +5525,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4972,8 +5543,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4988,8 +5561,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5005,8 +5580,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5023,8 +5600,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5040,8 +5619,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5057,8 +5638,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5074,8 +5657,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5091,8 +5676,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5108,8 +5695,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除病程
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5126,8 +5715,10 @@ Library           RequestsLibrary
     [Documentation]    断言:"胞白血病"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5142,8 +5733,10 @@ Library           RequestsLibrary
     [Documentation]    断言:"胞白血病"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5158,8 +5751,10 @@ Library           RequestsLibrary
     [Documentation]    断言:"胞白血病"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5183,8 +5778,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5199,8 +5796,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5215,8 +5814,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5231,8 +5832,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5247,8 +5850,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5264,8 +5869,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5289,8 +5896,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5305,8 +5914,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5321,8 +5932,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5337,8 +5950,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5353,8 +5968,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5370,8 +5987,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5395,8 +6014,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5411,8 +6032,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5427,8 +6050,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5443,8 +6068,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5459,8 +6086,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5476,8 +6105,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5501,8 +6132,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5517,8 +6150,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5533,8 +6168,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5550,8 +6187,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5574,8 +6213,10 @@ Library           RequestsLibrary
     [Documentation]    断言:"、胆管炎"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5591,8 +6232,10 @@ Library           RequestsLibrary
     [Documentation]    断言:"、胆管炎"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5607,8 +6250,10 @@ Library           RequestsLibrary
     [Documentation]    断言:"、胆管炎"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5624,8 +6269,10 @@ Library           RequestsLibrary
     [Documentation]    断言:"、胆管炎"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5641,8 +6288,10 @@ Library           RequestsLibrary
     [Documentation]    断言:"、胆管炎"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5657,8 +6306,10 @@ Library           RequestsLibrary
     [Documentation]    断言:"、胆管炎"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5674,8 +6325,10 @@ Library           RequestsLibrary
     [Documentation]    断言:"、胆管炎"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5700,8 +6353,10 @@ Library           RequestsLibrary
     [Documentation]    断言:"、胆管炎"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5716,8 +6371,10 @@ Library           RequestsLibrary
     [Documentation]    断言:"、胆管炎"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5733,8 +6390,10 @@ Library           RequestsLibrary
     [Documentation]    断言:"、胆管炎"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5749,8 +6408,10 @@ Library           RequestsLibrary
     [Documentation]    断言:"、胆管炎"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5765,8 +6426,10 @@ Library           RequestsLibrary
     [Documentation]    断言:"、胆管炎"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5781,8 +6444,10 @@ Library           RequestsLibrary
     [Documentation]    断言:"、胆管炎"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5797,8 +6462,10 @@ Library           RequestsLibrary
     [Documentation]    断言:"、胆管炎"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5813,8 +6480,10 @@ Library           RequestsLibrary
     [Documentation]    断言:"、胆管炎"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5830,8 +6499,10 @@ Library           RequestsLibrary
     [Documentation]    断言:"、胆管炎"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5846,8 +6517,10 @@ Library           RequestsLibrary
     [Documentation]    断言:"、胆管炎"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5863,8 +6536,10 @@ Library           RequestsLibrary
     [Documentation]    断言:"、胆管炎"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5889,8 +6564,10 @@ Library           RequestsLibrary
     [Documentation]    断言:"、胆管炎"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5905,8 +6582,10 @@ Library           RequestsLibrary
     [Documentation]    断言:"、胆管炎"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5922,8 +6601,10 @@ Library           RequestsLibrary
     [Documentation]    断言:"、胆管炎"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5938,8 +6619,10 @@ Library           RequestsLibrary
     [Documentation]    断言:"、胆管炎"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5954,8 +6637,10 @@ Library           RequestsLibrary
     [Documentation]    断言:"、胆管炎"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5970,8 +6655,10 @@ Library           RequestsLibrary
     [Documentation]    断言:"、胆管炎"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5986,8 +6673,10 @@ Library           RequestsLibrary
     [Documentation]    断言:"、胆管炎"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6003,8 +6692,10 @@ Library           RequestsLibrary
     [Documentation]    断言:"、胆管炎"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6020,8 +6711,10 @@ Library           RequestsLibrary
     [Documentation]    断言:"、胆管炎"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6037,8 +6730,10 @@ Library           RequestsLibrary
     [Documentation]    断言:"、胆管炎"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6058,8 +6753,10 @@ Library           RequestsLibrary
     [Documentation]    断言:"、胆管炎"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6075,8 +6772,10 @@ Library           RequestsLibrary
     [Documentation]    断言:"、胆管炎"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6092,8 +6791,10 @@ Library           RequestsLibrary
     [Documentation]    断言:"、胆管炎"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6117,8 +6818,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6133,8 +6836,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6149,8 +6854,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6166,8 +6873,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6177,71 +6886,60 @@ Library           RequestsLibrary
     ...    examinationList=
     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     # Should Not Contain    ${aj}     急性胆囊炎、胆管炎
-    Should Not Contain    ${getRes['body']}    examinationInterpretList
+    Should Not Contain    ${getRes[ 'body']}    examinationInterpretList
 
-#####检查解读27L       乳房红肿热痛｜腋窝淋巴结肿大｜腋窝淋巴结压痛｜寒战｜发热｜脉搏加快   白细胞总数升高     急性乳腺炎   支持急性乳腺炎的诊断，建议结合超声确诊 诊断依据    是
+#####检查解读27L       乳房红肿热痛｜腋窝淋巴结肿大｜腋窝淋巴结压痛& 寒战｜发热｜脉搏加快   白细胞总数升高     急性乳腺炎   支持急性乳腺炎的诊断，建议结合超声确诊 诊断依据    是
 ####### 乳房红肿热痛 腋窝淋巴结肿大 腋窝淋巴结压痛 寒战 发热 脉搏加快
 ######白细胞总数升高:白细胞计数增高
 
-检查解读27行-1 病历内容:乳房红肿热痛+检查结果:白细胞总数升高 ,推荐诊断包含:急性乳腺炎
+检查解读27行-1 病历内容:乳房红肿热痛+寒战+检查结果:白细胞总数升高 ,推荐诊断包含:急性乳腺炎
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 乳房红肿热痛 白细胞计数增高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 乳房红肿热痛 寒战 白细胞计数增高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     急性乳腺炎
 
-检查解读27行-2 病历内容:腋窝淋巴结肿大+检查结果:结合胆红素增高 ,推荐诊断包含:急性乳腺炎
+检查解读27行-2 病历内容:腋窝淋巴结肿大+寒战+检查结果:白细胞总数升高 ,推荐诊断包含:急性乳腺炎
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 腋窝淋巴结肿大 白细胞计数增高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 腋窝淋巴结肿大 寒战 白细胞计数增高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     急性乳腺炎
 
-检查解读27行-3 病历内容:腋窝淋巴结压痛+检查结果:碱性磷酸酶升高 ,推荐诊断包含:急性乳腺炎
+检查解读27行-3 病历内容:腋窝淋巴结压痛+发热+检查结果:碱性磷酸酶升高 ,推荐诊断包含:急性乳腺炎
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 腋窝淋巴结压痛 白细胞计数增高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    Should Contain    ${aj}     急性乳腺炎
-
-
-检查解读27行-3 病历内容:寒战+检查结果:碱性磷酸酶升高 ,推荐诊断包含:急性乳腺炎
-    [Documentation]    ""
-    #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 寒战 白细胞计数增高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 腋窝淋巴结压痛 发热 白细胞计数增高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
@@ -6249,39 +6947,79 @@ Library           RequestsLibrary
     Should Contain    ${aj}     急性乳腺炎
 
 
-
-检查解读27行-3 病历内容:发热+检查结果:碱性磷酸酶升高 ,推荐诊断包含:急性乳腺炎
+检查解读27行-4 病历内容:腋窝淋巴结肿大+脉搏加快+检查结果:碱性磷酸酶升高 ,推荐诊断包含:急性乳腺炎
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 发热 白细胞计数增高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 腋窝淋巴结肿大 脉搏加快 白细胞计数增高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     急性乳腺炎
 
-检查解读27行-3 病历内容:脉搏加快+检查结果:碱性磷酸酶升高 ,推荐诊断包含:急性乳腺炎
+
+
+检查解读27行-5 病历内容:腋窝淋巴结压痛+寒战+检查结果:白细胞总数升高 ,推荐诊断包含:急性乳腺炎
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 脉搏加快 白细胞计数增高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 腋窝淋巴结压痛 寒战 白细胞计数增高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     急性乳腺炎
 
+检查解读27行-6 病历内容:腋窝淋巴结压+发热++检查结果:白细胞总数升高 ,推荐诊断包含:急性乳腺炎
+    [Documentation]    ""
+    #执行删除操作
+    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
+    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+    ...    definiteDiagnosis=
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 腋窝淋巴结压痛 发热 白细胞计数增高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+    ...    labTestList=
+    ...    examinationList=
+    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+    Should Contain    ${aj}     急性乳腺炎
+
+检查解读27行-7 病历内容:腋窝淋巴结压+脉搏加快+检查结果:白细胞总数升高 ,推荐诊断包含:急性乳腺炎
+    [Documentation]    ""
+    #执行删除操作
+    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
+    ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+    ...    definiteDiagnosis=
+    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 腋窝淋巴结压痛 脉搏加快 白细胞计数增高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+    ...    labTestList=
+    ...    examinationList=
+    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+    Should Contain    ${aj}     急性乳腺炎
 
 #####检查解读28L       [6-168] 月   咳嗽  肺炎支原体血清冷凝集滴度>1:32       肺炎支原体性肺炎    支持确诊肺炎支原体性肺炎    诊断依据    是
 #####咳嗽
@@ -6291,8 +7029,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"6","ageType":"月","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"6","ageType":"月","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6307,8 +7047,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"168","ageType":"月","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"168","ageType":"月","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6323,8 +7065,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"6","ageType":"月","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"6","ageType":"月","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6344,8 +7088,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"6","ageType":"月","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6360,8 +7106,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"6","ageType":"月","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6376,8 +7124,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"6","ageType":"月","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6392,8 +7142,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"5","ageType":"月","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6409,8 +7161,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"169","ageType":"月","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6430,8 +7184,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"6","ageType":"月","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6446,8 +7202,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"6","ageType":"月","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6462,8 +7220,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"6","ageType":"月","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6478,8 +7238,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"5","ageType":"月","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6495,8 +7257,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"169","ageType":"月","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6516,8 +7280,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"6","ageType":"月","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6532,8 +7298,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"24","ageType":"月","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6548,8 +7316,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"6","ageType":"月","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6564,8 +7334,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"5","ageType":"月","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6581,8 +7353,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"25","ageType":"月","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6608,8 +7382,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"天","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6624,8 +7400,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"28","ageType":"天","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6640,8 +7418,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"1","ageType":"天","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6656,8 +7436,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"29","ageType":"天","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6685,8 +7467,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"天","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6701,8 +7485,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"28","ageType":"天","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6717,8 +7503,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"天","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6733,8 +7521,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"29","ageType":"天","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6762,8 +7552,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"天","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6778,8 +7570,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"28","ageType":"天","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6794,8 +7588,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"天","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6810,8 +7606,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"29","ageType":"天","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6829,8 +7627,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"天","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6845,8 +7645,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"28","ageType":"天","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6861,8 +7663,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"天","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6887,8 +7691,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"18","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6903,8 +7709,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"19","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6920,8 +7728,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"19","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6938,8 +7748,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"18","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6954,8 +7766,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"19","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6970,8 +7784,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"19","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6986,8 +7802,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"18","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7002,8 +7820,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"19","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7018,8 +7838,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"19","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7042,8 +7864,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"18","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7058,8 +7882,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"19","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7075,8 +7901,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"19","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7093,8 +7921,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"18","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7109,8 +7939,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"19","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7125,8 +7957,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"19","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7141,8 +7975,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"18","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7157,8 +7993,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"19","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7173,8 +8011,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"19","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7189,8 +8029,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"19","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7212,8 +8054,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":1,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":1,"age":"18","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7228,8 +8072,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":1,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"19","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7244,8 +8090,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":1,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":1,"age":"18","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7266,8 +8114,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":1,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":1,"age":"18","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7282,8 +8132,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":1,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"19","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7298,8 +8150,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":1,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":1,"age":"18","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7318,8 +8172,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":1,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":1,"age":"18","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7334,8 +8190,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":1,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"19","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7350,8 +8208,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":1,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":1,"age":"18","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7371,8 +8231,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"18","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7387,8 +8249,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":1,"age":"19","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7403,8 +8267,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"18","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7423,8 +8289,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"18","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7439,8 +8307,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":1,"age":"19","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7455,8 +8325,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"18","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7475,8 +8347,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"18","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7491,8 +8365,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":1,"age":"19","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7507,8 +8383,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"18","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7530,8 +8408,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7546,8 +8426,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":1,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7562,8 +8444,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"18","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7592,8 +8476,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7608,8 +8494,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":1,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7633,8 +8521,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7649,8 +8539,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7665,8 +8557,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7681,8 +8575,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7708,8 +8604,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7724,8 +8622,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7740,8 +8640,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7757,8 +8659,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7780,8 +8684,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7797,8 +8703,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7823,8 +8731,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7840,8 +8750,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7862,8 +8774,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7878,8 +8792,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7902,8 +8818,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7919,8 +8837,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7943,8 +8863,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7960,8 +8882,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7982,8 +8906,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7998,8 +8924,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8021,8 +8949,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8037,8 +8967,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8060,8 +8992,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8082,8 +9016,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8094,29 +9030,32 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     多发性肌炎
 
-检查解读56行-2 病历内容:对称性肢体肌无力｜颈前肌无力+检查结果:缺少肌酸激酶同工酶（CK-MB）升高,推荐诊断"不应"包含:多发性肌炎
-    [Documentation]    ""
-    #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 对称性肢体肌无力 颈前肌无力 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    Should Not Contain    ${getRes['body']}    examinationInterpretList
+#######检查解读56行-2 病历内容:对称性肢体肌无力｜颈前肌无力+检查结果:缺少肌酸激酶同工酶（CK-MB）升高,推荐诊断"不应"包含:多发性肌炎
+#######    [Documentation]    ""
+#######    #执行删除操作
+#######    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
+#######    # ${timestamp}    Get Time    epoch
+#######    [Setup]    Run Keywords    获取时间戳
+#######    ...    AND    获取随机数
+#######    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
+#######    ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#######    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#######    ...    definiteDiagnosis=
+#######    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 对称性肢体肌无力 颈前肌无力 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+#######    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#######    ...    labTestList=
+#######    ...    examinationList=
+#######    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#######    Should Not Contain    ${getRes['body']}    examinationInterpretList
 
 
 # 检查解读41.1 病历内容:胸痛>30分钟｜含NTG不缓解｜出汗｜恶心｜呕吐｜面色苍白+检查结果:肌钙蛋白升高(至少超过99%参考值上限),推荐诊断包含:急性心肌梗死
 #     [Documentation]    ""
 #     #执行删除操作
 #     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-#     ${timestamp}    Get Time    epoch
-#     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch    [Setup]    Run Keywords    获取时间戳
+    # ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
 #     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
 #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
 #     ...    definiteDiagnosis=
@@ -8131,8 +9070,9 @@ Library           RequestsLibrary
 #     [Documentation]    ""
 #     #执行删除操作
 #     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-#     ${timestamp}    Get Time    epoch
-#     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch    [Setup]    Run Keywords    获取时间戳
+    # ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
 #     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
 #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
 #     ...    definiteDiagnosis=
@@ -8160,8 +9100,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8176,8 +9118,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8207,8 +9151,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8223,8 +9169,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"18","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8239,8 +9187,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8255,8 +9205,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8271,8 +9223,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8288,8 +9242,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8304,8 +9260,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"19","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8339,8 +9297,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8356,8 +9316,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8372,8 +9334,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8388,8 +9352,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8404,8 +9370,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8421,8 +9389,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8437,8 +9407,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8459,8 +9431,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8475,8 +9449,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8491,8 +9467,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8515,8 +9493,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8531,8 +9511,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8547,8 +9529,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8569,8 +9553,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8596,8 +9582,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8613,8 +9601,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8629,8 +9619,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8645,8 +9637,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8661,8 +9655,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8685,8 +9681,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8701,8 +9699,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8725,8 +9725,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8747,8 +9749,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8763,8 +9767,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8787,8 +9793,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8803,8 +9811,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8829,8 +9839,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8845,8 +9857,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8871,8 +9885,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"2","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8887,8 +9903,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"1","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8904,8 +9922,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8917,22 +9937,24 @@ Library           RequestsLibrary
     # Should Not Contain    ${aj}     化脓性脑膜炎
     Should Not Contain    ${getRes['body']}    examinationInterpretList
 
-检查解读70行-4 3岁+病历内容:发热&哭闹不安｜拒食&呕吐&惊厥&前囟门饱满+检查结果:白细胞总数升高&有血白细胞正常 ,推荐诊断"不应"包含:化脓性脑膜炎
-    [Documentation]    ""
-    #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"3","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 发热 哭闹不安 拒食 呕吐 惊厥 前囟门饱满 白细胞计数升高 以中性粒细胞为主 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    Should Not Contain    ${aj}     化脓性脑膜炎
-    # Should Not Contain    ${getRes['body']}    examinationInterpretList
+#######检查解读70行-4 3岁+病历内容:发热&哭闹不安｜拒食&呕吐&惊厥&前囟门饱满+检查结果:白细胞总数升高&有血白细胞正常 ,推荐诊断"不应"包含:化脓性脑膜炎
+#######    [Documentation]    ""
+#######    #执行删除操作
+#######    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
+#######    # ${timestamp}    Get Time    epoch
+#######    [Setup]    Run Keywords    获取时间戳
+#######    ...    AND    获取随机数
+#######    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
+#######    ...    patientInfo={"gender":0,"age":"3","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#######    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#######    ...    definiteDiagnosis=
+#######    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 发热 哭闹不安 拒食 呕吐 惊厥 前囟门饱满 白细胞计数升高 以中性粒细胞为主 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+#######    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#######    ...    labTestList=
+#######    ...    examinationList=
+#######    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#######    Should Not Contain    ${aj}     化脓性脑膜炎
+#######    # Should Not Contain    ${getRes['body']}    examinationInterpretList
 
 #####检查解读71L       男性  血红蛋白<120g/L&血清铁蛋白(SF)低于12μg/L&血清铁(S1)<8.95μmol/L｜血清铁(S1)<50μg/dl｜总铁结合力(TIBC)>64.44μmol/L｜总铁结合力(TIBC)>360μg/dl&转铁蛋白饱和度(TS)低于15％      缺铁性贫血   支持缺铁性贫血的诊断  诊断依据    是
 ##### 血红蛋白<120g/L&血清铁蛋白(SF)低于12μg/L&血清铁(S1)<8.95μmol/L｜血清铁(S1)<50μg/dl｜总铁结合力(TIBC)>64.44μmol/L｜总铁结合力(TIBC)>360μg/dl&转铁蛋白饱和度(TS)低于15％
@@ -8951,8 +9973,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":1,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8967,8 +9991,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":1,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8997,8 +10023,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9013,8 +10041,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9043,8 +10073,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9059,8 +10091,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9084,8 +10118,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9100,8 +10136,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9126,8 +10164,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9142,8 +10182,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9167,8 +10209,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9183,8 +10227,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9208,8 +10254,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9224,8 +10272,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9249,8 +10299,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9265,8 +10317,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9297,8 +10351,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9313,8 +10369,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9329,8 +10387,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9353,8 +10413,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":1,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9369,8 +10431,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":1,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9392,8 +10456,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9408,8 +10474,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9435,8 +10503,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9451,8 +10521,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9477,8 +10549,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9493,8 +10567,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9516,8 +10592,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9532,8 +10610,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9551,8 +10631,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9577,8 +10659,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9604,8 +10688,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9630,8 +10716,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9658,8 +10746,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9674,8 +10764,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9702,8 +10794,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9718,8 +10812,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9748,8 +10844,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9764,8 +10862,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9795,8 +10895,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9811,8 +10913,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9838,8 +10942,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9854,8 +10960,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9884,8 +10992,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9900,8 +11010,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9927,8 +11039,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9943,8 +11057,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9959,8 +11075,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9984,8 +11102,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10000,8 +11120,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10027,8 +11149,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10039,22 +11163,24 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     细菌性肝脓肿
 
-检查解读97行-2 病历内容:高热&肝区疼痛｜肝脏肿大 +检查结果:血白细胞计数增高,缺少&核左移,推荐诊断"不应"包含:细菌性肝脓肿
-    [Documentation]    ""
-    #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 高热 肝区疼痛 肝脏肿大 白细胞计数升高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    Should Not Contain    ${aj}     胃食管反流病
-    # Should Not Contain    ${getRes['body']}    examinationInterpretList
+##########检查解读97行-2 病历内容:高热&肝区疼痛｜肝脏肿大 +检查结果:血白细胞计数增高,缺少&核左移,推荐诊断"不应"包含:细菌性肝脓肿
+##########    [Documentation]    ""
+##########    #执行删除操作
+##########    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
+##########    # ${timestamp}    Get Time    epoch
+##########    [Setup]    Run Keywords    获取时间戳
+##########    ...    AND    获取随机数
+##########    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
+##########    ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+##########    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+##########    ...    definiteDiagnosis=
+##########    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 高热 肝区疼痛 肝脏肿大 白细胞计数升高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+##########    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+##########    ...    labTestList=
+##########    ...    examinationList=
+##########    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+##########    Should Not Contain    ${aj}     胃食管反流病
+##########    # Should Not Contain    ${getRes['body']}    examinationInterpretList
 
 
 #####检查解读98L      发热&恶心｜呕吐｜食欲不振｜周身乏力&肝脏肿大&肝区压痛    血白细胞计数增高&核左移        细菌性肝脓肿  支持细菌性肝脓肿的诊断，建议结合B超、CT或MRI检查可明确脓肿位置和大小   诊断依据    是
@@ -10070,8 +11196,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10082,22 +11210,24 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     细菌性肝脓肿
 
-检查解读98行-2 病历内容:发热&恶心｜呕吐｜食欲不振｜周身乏力&肝脏肿大&肝区压痛 +检查结果:血白细胞计数增高,缺少&核左移,推荐诊断"不应"包含:细菌性肝脓肿
-    [Documentation]    ""
-    #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 发热 恶心 呕吐 食欲不振 周身乏力 肝脏肿大 肝区压痛 白细胞计数升高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    Should Not Contain    ${aj}     细菌性肝脓肿
-    # Should Not Contain    ${getRes['body']}    examinationInterpretList
+#########检查解读98行-2 病历内容:发热&恶心｜呕吐｜食欲不振｜周身乏力&肝脏肿大&肝区压痛 +检查结果:血白细胞计数增高,缺少&核左移,推荐诊断"不应"包含:细菌性肝脓肿
+#########    [Documentation]    ""
+#########    #执行删除操作
+#########    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
+#########    # ${timestamp}    Get Time    epoch
+#########    [Setup]    Run Keywords    获取时间戳
+#########    ...    AND    获取随机数
+#########    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
+#########    ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#########    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#########    ...    definiteDiagnosis=
+#########    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 发热 恶心 呕吐 食欲不振 周身乏力 肝脏肿大 肝区压痛 白细胞计数升高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+#########    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#########    ...    labTestList=
+#########    ...    examinationList=
+#########    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#########    Should Not Contain    ${aj}     细菌性肝脓肿
+#########    # Should Not Contain    ${getRes['body']}    examinationInterpretList
 
 
 #####检查解读99L           胃部不适    血红蛋白下降&大便潜血阳性&肿瘤标记物升高(CEA)｜肿瘤标记物升高(CA199)｜肿瘤标记物升高(CA72.4)｜肿瘤标记物升高(CA242)        胃癌  支持胃癌的诊断，建议结合上消化道钡餐、腹部增强CT、电子内窥镜或超声胃镜明确疾病性质  诊断依据    是
@@ -10116,8 +11246,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10132,8 +11264,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10163,8 +11297,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10179,8 +11315,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10208,8 +11346,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10224,8 +11364,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10253,8 +11395,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10269,8 +11413,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10298,8 +11444,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10314,8 +11462,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10340,8 +11490,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10356,8 +11508,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10383,8 +11537,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10399,8 +11555,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10425,8 +11583,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10441,8 +11601,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10472,8 +11634,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10488,8 +11652,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10515,8 +11681,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10531,8 +11699,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10555,8 +11725,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10571,8 +11743,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10596,8 +11770,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10612,8 +11788,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10628,8 +11806,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10652,8 +11832,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10668,8 +11850,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10684,8 +11868,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10709,8 +11895,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10725,8 +11913,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10741,8 +11931,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10766,8 +11958,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10782,8 +11976,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10798,8 +11994,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10825,8 +12023,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10841,8 +12041,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10857,8 +12059,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10886,8 +12090,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10898,22 +12104,24 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}     急性化脓性阑尾炎
 
-检查解读115行-2 病历内容:持续性右下腹痛&食欲减退｜恶心｜呕吐｜发热 +检查结果:血白细胞总数增多 缺少&中性粒细胞增多｜Ｃ反应蛋白可升高,推荐诊断"不应"包含:急性化脓性阑尾炎
-    [Documentation]    ""
-    #执行删除操作
-    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
-    ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 持续性右下腹痛 食欲减退 恶心 呕吐 发热 白细胞计数升高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    Should Not Contain    ${aj}     胃食管反流病
-    # Should Not Contain    ${getRes['body']}    examinationInterpretList
+########检查解读115行-2 病历内容:持续性右下腹痛&食欲减退｜恶心｜呕吐｜发热 +检查结果:血白细胞总数增多 缺少&中性粒细胞增多｜Ｃ反应蛋白可升高,推荐诊断"不应"包含:急性化脓性阑尾炎
+########    [Documentation]    ""
+########    #执行删除操作
+########    # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
+########    # ${timestamp}    Get Time    epoch
+########    [Setup]    Run Keywords    获取时间戳
+########    ...    AND    获取随机数
+########    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
+########    ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+########    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+########    ...    definiteDiagnosis=
+########    ...    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 持续性右下腹痛 食欲减退 恶心 呕吐 发热 白细胞计数升高 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}
+########    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+########    ...    labTestList=
+########    ...    examinationList=
+########    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+########    Should Not Contain    ${aj}     胃食管反流病
+########    # Should Not Contain    ${getRes['body']}    examinationInterpretList
 
 
 #####检查解读116L          持续性右下腹痛&右下腹有固定压痛&肌紧张    血白细胞总数增多｜中性粒细胞增多｜Ｃ反应蛋白可升高       急性化脓性阑尾炎    支持急性化脓性阑尾炎的诊断，建议结合超声，必要时进行CT确诊  诊断依据    是
@@ -10931,8 +12139,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10947,8 +12157,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10976,8 +12188,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -10992,8 +12206,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11020,8 +12236,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11036,8 +12254,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11062,8 +12282,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11087,8 +12309,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11103,8 +12327,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11129,8 +12355,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11145,8 +12373,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11171,8 +12401,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11187,8 +12419,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11214,8 +12448,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11230,8 +12466,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11252,8 +12490,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11268,8 +12508,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11293,8 +12535,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11309,8 +12553,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11335,8 +12581,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11351,8 +12599,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11379,8 +12629,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11395,8 +12647,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11411,8 +12665,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11438,8 +12694,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11454,8 +12712,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11480,8 +12740,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11506,8 +12768,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11524,8 +12788,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11542,8 +12808,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11561,8 +12829,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11588,8 +12858,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11604,8 +12876,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11620,8 +12894,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11636,8 +12912,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11657,8 +12935,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11696,8 +12976,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11713,8 +12995,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11730,8 +13014,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11746,8 +13032,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11791,8 +13079,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11807,8 +13097,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11830,8 +13122,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11854,8 +13148,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":1,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11876,8 +13172,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11892,8 +13190,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11913,8 +13213,10 @@ Library           RequestsLibrary
     [Documentation]    ""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11943,8 +13245,10 @@ Library           RequestsLibrary
 推荐治疗方案18行-1 急性胸痛｜胸痛｜濒死感｜胸部撕裂样痛｜背部撕裂样痛｜呼吸困难&休克｜持续性低血压｜收缩压<90mmHg｜低氧血症｜呼吸窘迫｜SPO2<90%｜严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉, 推荐血运重建方案:转入ICU
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11958,8 +13262,10 @@ Library           RequestsLibrary
 推荐治疗方案18行-2 急性胸痛｜胸痛｜濒死感｜胸部撕裂样痛｜背部撕裂样痛｜呼吸困难&休克｜持续性低血压｜收缩压==90mmHg｜低氧血症｜呼吸窘迫｜SPO2==90%｜严重心动过缓｜心率==40次/分｜脉搏细弱｜脉搏消失｜无脉, 推荐血运重建方案:转入ICU
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11980,8 +13286,10 @@ Library           RequestsLibrary
 推荐治疗方案19行-1 休克｜持续性低血压｜收缩压<90mmHg｜低氧血症｜呼吸窘迫｜SPO2<90%｜严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉&肺栓塞｜急性肺栓塞, 推荐血运重建方案:溶栓治疗
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -11995,8 +13303,10 @@ Library           RequestsLibrary
 推荐治疗方案19行-2 休克｜持续性低血压｜收缩压==90mmHg｜低氧血症｜呼吸窘迫｜SPO2==90%｜严重心动过缓｜心率==40次/分｜脉搏细弱｜脉搏消失｜无脉&肺栓塞｜急性肺栓塞, 推荐血运重建方案:溶栓治疗
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12016,8 +13326,10 @@ Library           RequestsLibrary
 推荐治疗方案20行-1 休克｜持续性低血压｜收缩压<90mmHg｜低氧血症｜呼吸窘迫｜SPO2<90%｜严重心动过缓｜心率<40次/分｜脉搏细弱｜脉搏消失｜无脉&肺栓塞｜急性肺栓塞, 推荐血运重建方案:外科取栓术
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12031,8 +13343,10 @@ Library           RequestsLibrary
 推荐治疗方案20行-2 休克｜持续性低血压｜收缩压==90mmHg｜低氧血症｜呼吸窘迫｜SPO2==90%｜严重心动过缓｜心率==40次/分｜脉搏细弱｜脉搏消失｜无脉&肺栓塞｜急性肺栓塞, 推荐血运重建方案:外科取栓术
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12058,8 +13372,10 @@ Library           RequestsLibrary
 推荐治疗方案21行-1 大面积肺栓塞｜肺血管栓塞面积==50%, 推荐血运重建方案:溶栓治疗
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12073,8 +13389,10 @@ Library           RequestsLibrary
 推荐治疗方案21行-2 大面积肺栓塞｜肺血管栓塞面积>50%, 推荐血运重建方案:溶栓治疗
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12088,8 +13406,10 @@ Library           RequestsLibrary
 推荐治疗方案21行-3 肺血管栓塞面积<50%, 推荐血运重建方案"不应包含":溶栓治疗
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12114,8 +13434,10 @@ Library           RequestsLibrary
 推荐治疗方案22行-1 大面积肺栓塞｜肺血管栓塞面积==50%, 推荐血运重建方案:外科取栓术
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12129,8 +13451,10 @@ Library           RequestsLibrary
 推荐治疗方案22行-2 大面积肺栓塞｜肺血管栓塞面积>50%, 推荐血运重建方案:外科取栓术
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12144,8 +13468,10 @@ Library           RequestsLibrary
 推荐治疗方案22行-3 肺血管栓塞面积<50%, 推荐血运重建方案"不应包含":外科取栓术
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12171,8 +13497,10 @@ Library           RequestsLibrary
 推荐治疗方案23行-1 Wells评分:2, 推荐血运重建方案:经验性抗凝治疗
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12186,8 +13514,10 @@ Library           RequestsLibrary
 推荐治疗方案23行-2 Wells评分:6, 推荐血运重建方案:经验性抗凝治疗
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12201,8 +13531,10 @@ Library           RequestsLibrary
 推荐治疗方案23行-3 Wells评分:7, 推荐血运重建方案:经验性抗凝治疗
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12216,8 +13548,10 @@ Library           RequestsLibrary
 推荐治疗方案23行-4 Wells评分:1, 推荐血运重建方案"不应包含":经验性抗凝治疗
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12259,8 +13593,10 @@ Library           RequestsLibrary
 推荐治疗方案24行-1 Wells评分:2&出血性脑卒中 颅内肿瘤活动期 创伤:60天 颅内手术:60天 消化道出血:180天 膀胱出血:180天 心包填塞:180天 主动脉夹层 出血体质 出血倾向 收缩压:181mmHg 舒张压:111mmHg 外科手术(10天内):10天 缺血性脑卒中:60天 血小板减少症 血小板计数:99 109/L, 推荐血运重建方案:转诊
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12274,8 +13610,10 @@ Library           RequestsLibrary
 推荐治疗方案24行-2 Wells评分:6&抗凝禁忌, 推荐血运重建方案:转诊
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12289,8 +13627,10 @@ Library           RequestsLibrary
 推荐治疗方案24行-3 Wells评分:7&抗凝禁忌, 推荐血运重建方案:转诊
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12305,8 +13645,10 @@ Library           RequestsLibrary
 推荐治疗方案24行-4 Wells评分:1&抗凝禁忌, 推荐血运重建方案"不应包含":转诊
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12326,8 +13668,10 @@ Library           RequestsLibrary
 推荐治疗方案25行-1 急性肺栓塞｜肺栓塞 ,推荐血运重建方案:抗凝治疗
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12346,8 +13690,10 @@ Library           RequestsLibrary
 推荐治疗方案26行 急性肺栓塞｜肺栓塞 &抗凝禁忌,推荐血运重建方案:转诊
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12367,8 +13713,10 @@ Library           RequestsLibrary
 推荐治疗方案27行-1 急性肺栓塞｜肺栓塞&PESI=0,推荐血运重建方案:门诊抗凝治疗
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12382,8 +13730,10 @@ Library           RequestsLibrary
 推荐治疗方案27行-2 急性肺栓塞｜肺栓塞&PESI!=0, 推荐血运重建方案"不应包含":门诊抗凝治疗
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12403,8 +13753,10 @@ Library           RequestsLibrary
 推荐治疗方案28行-1 急性肺栓塞｜肺栓塞&PESI>0,推荐血运重建方案:住院抗凝治疗
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12427,8 +13779,10 @@ Library           RequestsLibrary
 推荐治疗方案29行-1 急性肺栓塞｜肺栓塞&PESI=0 +次要条件:无门诊抗凝条件,推荐血运重建方案:住院抗凝治疗
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12455,8 +13809,10 @@ Library           RequestsLibrary
 推荐治疗方案30行-1 急性肺栓塞｜肺栓塞&PESI>0 +次要条件:肌钙蛋白阳性｜BNP>500｜proBNP>7500｜右室功能异常,推荐血运重建方案:ICU抗凝治疗
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12475,8 +13831,10 @@ Library           RequestsLibrary
 推荐治疗方案30行-1 心力衰竭&心动过速｜心率>120次/分｜呼吸急促｜缺氧｜心源性休克+次要条件:,推荐血运重建方案:转诊
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12490,8 +13848,10 @@ Library           RequestsLibrary
 推荐治疗方案30行-2 心力衰竭& 心率==120次/分+次要条件:肌钙蛋白阳性｜BNP==500｜proBNP==7500｜右室功能异常,"不应"推荐血运重建方案:转诊
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12509,8 +13869,10 @@ Library           RequestsLibrary
 推荐治疗方案42行-1 心力衰竭+次要条件:,推荐血运重建方案:HFpEF治疗
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12528,8 +13890,10 @@ Library           RequestsLibrary
 推荐治疗方案33行-1 心力衰竭+次要条件:,推荐血运重建方案:HFrEF治疗
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12548,8 +13912,10 @@ Library           RequestsLibrary
 推荐治疗方案34行-1 心力衰竭+次要条件:,推荐血运重建方案:降压
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12565,8 +13931,10 @@ Library           RequestsLibrary
 推荐治疗方案35行-1 心力衰竭+次要条件:,推荐血运重建方案:对症治疗
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12597,8 +13965,10 @@ Library           RequestsLibrary
 推荐治疗方案36行-1 心力衰竭症状｜心力衰竭&EF>=50%｜射血分数保留&心动过速｜心率>120次/分｜呼吸急促｜缺氧｜心源性休克+次要条件:,推荐血运重建方案:转诊
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12631,8 +14001,10 @@ Library           RequestsLibrary
 推荐治疗方案37行-1 心力衰竭症状｜心力衰竭&EF>=50%｜射血分数保留+次要条件:,推荐血运重建方案:HFpEF治疗
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12660,8 +14032,10 @@ Library           RequestsLibrary
 推荐治疗方案38行-1 心力衰竭症状｜心力衰竭&EF>=50%｜射血分数保留+次要条件:收缩压>120mmHg｜高血压,推荐血运重建方案:降压
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12691,8 +14065,10 @@ Library           RequestsLibrary
 推荐治疗方案391 心力衰竭症状｜心力衰竭&EF>=50%｜射血分数保留&房颤&心率>110次/分+次要条件:,推荐血运重建方案:房颤控制
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12728,8 +14104,10 @@ Library           RequestsLibrary
 推荐治疗方案40行-1 心力衰竭症状｜心力衰竭&EF>=50%｜射血分数保留+次要条件:肺淤血｜周围性水肿｜液体潴留｜容量超负荷｜心肌收缩力下降｜呼吸困难,推荐血运重建方案:对症治疗
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12763,8 +14141,10 @@ Library           RequestsLibrary
 推荐治疗方案41行-1 心力衰竭症状｜心力衰竭&EF>=50%｜射血分数保留+次要条件:冠心病,推荐血运重建方案:冠状动脉血管重建术
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12794,8 +14174,10 @@ Library           RequestsLibrary
 推荐治疗方案42行-1 心力衰竭症状｜心力衰竭&EF<50%｜射血分数降低&心动过速｜心率>120次/分｜呼吸急促｜缺氧｜心源性休克+次要条件:,推荐血运重建方案:转诊
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12824,8 +14206,10 @@ Library           RequestsLibrary
 推荐治疗方案43行-1 心力衰竭症状｜心力衰竭&EF<50%｜射血分数降低+次要条件:,推荐血运重建方案:HFrEF治疗
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12855,8 +14239,10 @@ Library           RequestsLibrary
 推荐治疗方案4行-1 心力衰竭症状｜心力衰竭&EF<50%｜射血分数降低+次要条件:收缩压>120mmHg｜高血压,推荐血运重建方案:降压
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12888,8 +14274,10 @@ Library           RequestsLibrary
 推荐治疗方案45行-1 心力衰竭症状｜心力衰竭&EF<50%｜射血分数降低+次要条件:肺淤血｜周围性水肿｜液体潴留｜容量超负荷｜心肌收缩力下降｜呼吸困难,推荐血运重建方案:对症治疗
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12918,8 +14306,10 @@ Library           RequestsLibrary
 
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12934,8 +14324,10 @@ Library           RequestsLibrary
 推荐治疗方案45行.1 心力衰竭症状｜心力衰竭&EF<50%｜射血分数降低+次要条件:,推荐血运重建方案:对症治疗
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12952,8 +14344,10 @@ Library           RequestsLibrary
 推荐治疗方案55行-1 房颤&心率难控制｜左心室功能障碍+次要条件:,推荐血运重建方案:心内科/心律失常科会诊
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12972,8 +14366,10 @@ Library           RequestsLibrary
 推荐治疗方案56行-1 房颤&呼吸困难｜胸痛｜晕厥｜无法达到心率控制｜急性短暂性脑缺血发作｜卒中｜心率<40次/分｜心率>150次/分+次要条件:,推荐血运重建方案:转诊
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -12987,8 +14383,10 @@ Library           RequestsLibrary
 推荐治疗方案56行-2 房颤&心率==40次/分｜心率==150次/分,"不应"推荐血运重建方案:转诊
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -13009,8 +14407,10 @@ Library           RequestsLibrary
 推荐治疗方案57行-1 CHA2DS2-VASc评分==1&男性+次要条件:,推荐血运重建方案:抗凝治疗
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":1,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -13024,8 +14424,10 @@ Library           RequestsLibrary
 推荐治疗方案57行-2 CHA2DS2-VASc评分>1&男性+次要条件:,推荐血运重建方案:抗凝治疗
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":1,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -13039,8 +14441,9 @@ Library           RequestsLibrary
 ####### 推荐治疗方案57行-3 CHA2DS2-VASc评分<1&男性,"不应"推荐血运重建方案:抗凝治疗
 #######     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
 #######     #执行删除操作
-#######     ${timestamp}    Get Time    epoch
-#######     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+######     ${timestamp}    Get Time    epoch    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+#######     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
 #######     ...    patientInfo={"gender":1,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
 #######     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
 #######     ...    definiteDiagnosis=
@@ -13062,8 +14465,10 @@ Library           RequestsLibrary
 推荐治疗方案58行 CHA2DS2-VASc评分==2&女性+次要条件:,推荐血运重建方案:抗凝治疗
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -13077,8 +14482,9 @@ Library           RequestsLibrary
 ######推荐治疗方案33.2 CHA2DS2-VASc评分==1&女性,"不应"推荐血运重建方案:抗凝治疗
 ######    [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
 ######    #执行删除操作
-######    ${timestamp}    Get Time    epoch
-######    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+#####    ${timestamp}    Get Time    epoch    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+######    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
 ######    ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
 ######    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
 ######    ...    definiteDiagnosis=
@@ -13099,8 +14505,10 @@ Library           RequestsLibrary
 推荐治疗方案59行-1 房颤&心率>=110次/分+次要条件:,推荐血运重建方案:ß受体阻滞剂/非二氢吡啶CCB
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -13114,8 +14522,10 @@ Library           RequestsLibrary
 推荐治疗方案59行-2 房颤&心率<110次/分+次要条件:,"不应"推荐血运重建方案:ß受体阻滞剂/非二氢吡啶CCB
     [Documentation]    急性ST段抬高型心肌梗塞+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -13136,8 +14546,10 @@ Library           RequestsLibrary
 推荐治疗方案60行-1 房颤&心率>=110次/分&心率难控制｜左心室功能障碍+次要条件:,推荐血运重建方案:心内科/心律失常科会诊
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -13157,8 +14569,10 @@ Library           RequestsLibrary
 推荐治疗方案61行 房颤&心率>=110次/分+次要条件:,推荐血运重建方案:抗心律失常药
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -13178,8 +14592,10 @@ Library           RequestsLibrary
 推荐治疗方案62行-1 房颤&心率>=110次/分+次要条件:,推荐血运重建方案:射频消融
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -13199,8 +14615,10 @@ Library           RequestsLibrary
 推荐治疗方案63行1 房颤&心率>=110次/分+次要条件:,推荐血运重建方案:房室结消融
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -13220,8 +14638,10 @@ Library           RequestsLibrary
 推荐治疗方案64行-1 房颤&心率>=110次/分+次要条件:,推荐血运重建方案:起搏器
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -13241,8 +14661,10 @@ Library           RequestsLibrary
 推荐治疗方案65行-1 房颤&心率>=110次/分+次要条件:,推荐血运重建方案:迷宫手术
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -13262,8 +14684,10 @@ Library           RequestsLibrary
 推荐治疗方案66行-1 房颤&心率<110次/分+次要条件:,推荐血运重建方案:抗心律失常药
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -13285,8 +14709,10 @@ Library           RequestsLibrary
 推荐治疗方案67行-1 房颤&心率<110次/分+次要条件:心房增大｜运动时心率额外增加｜心脏瓣膜病,推荐血运重建方案:抗心律失常药
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -13308,8 +14734,10 @@ Library           RequestsLibrary
 推荐治疗方案68行-1 房颤&心率<110次/分+次要条件:心房增大｜运动时心率额外增加｜心脏瓣膜病,推荐血运重建方案:射频消融
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -13331,8 +14759,10 @@ Library           RequestsLibrary
 推荐治疗方案69行-1 房颤&心率<110次/分+次要条件:心房增大｜运动时心率额外增加｜心脏瓣膜病,推荐血运重建方案:房室结消融
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -13354,8 +14784,10 @@ Library           RequestsLibrary
 推荐治疗方案70行-1 房颤&心率<110次/分+次要条件:心房增大｜运动时心率额外增加｜心脏瓣膜病,推荐血运重建方案:起搏器
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -13377,8 +14809,10 @@ Library           RequestsLibrary
 推荐治疗方案72行-1 房颤&心率<110次/分+次要条件:心房增大｜运动时心率额外增加｜心脏瓣膜病,推荐血运重建方案:迷宫手术
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -13400,8 +14834,10 @@ Library           RequestsLibrary
 推荐治疗方案72行-1 非瓣膜性房颤+次要条件:,推荐血运重建方案:左心耳封堵术
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -13422,8 +14858,10 @@ Library           RequestsLibrary
 推荐治疗方案73行-1 CHA2DS2-VASc评分>=1&男性&HAS-BLED评分>=3+次要条件:,推荐血运重建方案:左心耳封堵术
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":1,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -13437,8 +14875,9 @@ Library           RequestsLibrary
 ####### 推荐治疗方案48.2 CHA2DS2-VASc评分<1&男性&HAS-BLED评分<3+次要条件:,"不应"推荐血运重建方案:抗心律失常药
 #######     [Documentation]    断言:""
 #######     #执行删除操作
-#######     ${timestamp}    Get Time    epoch
-#######     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+######     ${timestamp}    Get Time    epoch    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+#######     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
 #######     ...    patientInfo={"gender":1,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
 #######     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
 #######     ...    definiteDiagnosis=
@@ -13459,8 +14898,10 @@ Library           RequestsLibrary
 推荐治疗方案48行-1 CHA2DS2-VASc评分>=1&女性&HAS-BLED评分>=3+次要条件:,推荐血运重建方案:左心耳封堵术
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -13474,8 +14915,9 @@ Library           RequestsLibrary
 #######推荐治疗方案49.2 CHA2DS2-VASc评分<1&女性&HAS-BLED评分<3+次要条件:,"不应"推荐血运重建方案:抗心律失常药
 #######    [Documentation]    断言:""
 #######    #执行删除操作
-#######    ${timestamp}    Get Time    epoch
-#######    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+######    ${timestamp}    Get Time    epoch    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+#######    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
 #######    ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
 #######    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
 #######    ...    definiteDiagnosis=
@@ -13492,8 +14934,10 @@ Library           RequestsLibrary
 推荐治疗方案47行-1 房颤+次要条件:,推荐血运重建方案:抗凝治疗
     [Documentation]    断言:""
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -13510,8 +14954,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:删除 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -13528,8 +14974,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:删除 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -13546,8 +14994,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:删除 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -13564,8 +15014,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:删除 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -13583,8 +15035,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:删除 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -13602,8 +15056,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:删除 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -13620,8 +15076,10 @@ Library           RequestsLibrary
     [Documentation]    断言:""
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "36.5","heartRate": "76","lowBldPress": 86,"highBldPress": "120"}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective:删除 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=

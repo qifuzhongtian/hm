@@ -1,110 +1,110 @@
 *** Settings ***
-# Suite Setup    Run Keywords    登录接口
-# ...    AND    获取时间戳
-
+# Suite Setup    获取时间戳
 Suite Teardown    Delete All Sessions
 Resource          ../cdss接口关键字.robot
 Library           Collections
 Library           RequestsLibrary
+Library           String
 
-# 字段名	类型	是否必须	说明
-# userGuid    String  是   患者唯一编号
-# serialNumber    String  是   住院病历唯一编号
-# pageSource  Integer 是   页面来源
-#             病案首页：1
-#             病程页面：2
-#             检验医嘱页面：3
-#             处方医嘱页面：4
-# patientInfo Object  是   患者信息
-# ----gender  Integer 否   性别0女，1男,  2 其他
-# ----age double  是   年龄
-# ----ageType String  是   岁、月、天
-# ----maritalStatus   Integer 否   婚姻状况  0：未婚 ，1: 已婚， 2:其他
-# ----pregnancyStatus Integer 否   妊娠状况  1: 怀孕  0：未怀孕
-# ----bodyTempr   Double  否   体温
-# ----heartRate   Integer 否   心率
-# ----lowBldPress Double  否   舒张压-低压
-# ----highBldPress    Double  否   收缩压-高压
-# definiteDiagnosis   List[Object]    是   已明确诊断(每次提交全量诊断)
-# ----id  String  是   诊断ID
-# ----name    String  是   诊断名称
-# progressNoteList    List[Object]    否   病程记录列表（新增或有变更的病程记录）
-# ----progressGuid    String  是   病程唯一标识
-# ----progressType    Integer 是   病程类型
-#             门诊病历：0
-#             入院记录：1
-#             首次病程：2
-#             日常病程：3
-#             查房记录：4
-#             手术前记录：5
-#             手术后小结：6
-#             讨论小结：7
-#             阶段小结：8
-#             会诊记录：9
-#             出院小结：10
-#             其他记录：11
-# ----progressMessage String  是   病程文本信息
-# ----doctorGuid  String  否   医生编号（当次记录提交人）
-# ----recordTime  String  否   记录时间
-# deleteProgressNoteList  List[Object]    否   删除的病程记录列表（被删除的病程记录）
-# ----progressGuid    String  是   被删除的病程唯一标识
-# ----progressType    Integer 是   病程类型
-#             门诊病历：0
-#             入院记录：1
-#             首次病程：2
-#             日常病程：3
-#             查房记录：4
-#             手术前记录：5
-#             手术后小结：6
-#             讨论小结：7
-#             阶段小结：8
-#             会诊记录：9
-#             出院小结：10
-#             其他记录：11
-# ----doctorGuid  String  否   医生编号（当次记录提交人）
-# ----recordTime  String  否   删除时间
-# labTestList List[Object]    否   检验
-# ----labTestNumber   String  是   检验编号
-# ----labTestName String  否   检验单名称
-# ----labTestSample   String  否   检验样本
-# ----labTestItems    List[Object]    是   检验结果列表
-# --------labTestItemName String  否   检验结果中文名称
-# --------labTestItemEnName   String  否   检验结果英文名称
-# --------labTestResult   String  否   检验结果的值
-# --------labTestValueUnit    String  否   检验值单位
-# --------labTestValueChange  String  否   检验值变化
-#             正常：N
-#             偏高：H
-#             偏低：L
-# --------labTestMethod   String  否   检验方法
-# --------normalRange String  否   参考区间
-# examinationList List[Object]    否   检查单
-# ----examinationNumber   String  是   检查单编号
-# ----examinationName String  否   检查单名称
-# ----examinationResult   String  否   检查结果
-# ----examinationDesc String  否   检查描述
-# prescriptions   List[Object]    否   处方集合
-# ----prescriptionNumber  String  是   处方编号
-# ----drugList    List[Object]    是   药品集合
-# --------drugId  String  是   药品Id
-# --------drugName    String  是   药品名称
-# --------dosage  String  否   每次给药剂量
-# --------frequency   String  否   频率
-# --------dosageForm  String  否   剂型
-# --------pathway String  否   用药途径
-# --------specification   String  否   药品规格
+# # 字段名 类型  是否必须    说明
+# # userGuid    String  是   患者唯一编号
+# # serialNumber    String  是   住院病历唯一编号
+# # pageSource  Integer 是   页面来源
+# #             病案首页：1
+# #             病程页面：2
+# #             检验医嘱页面：3
+# #             处方医嘱页面：4
+# # patientInfo Object  是   患者信息
+# # ----gender  Integer 否   性别0女，1男,  2 其他
+# # ----age double  是   年龄
+# # ----ageType String  是   岁、月、天
+# # ----maritalStatus   Integer 否   婚姻状况  0：未婚 ，1: 已婚， 2:其他
+# # ----pregnancyStatus Integer 否   妊娠状况  1: 怀孕  0：未怀孕
+# # ----bodyTempr   Double  否   体温
+# # ----heartRate   Integer 否   心率
+# # ----lowBldPress Double  否   舒张压-低压
+# # ----highBldPress    Double  否   收缩压-高压
+# # definiteDiagnosis   List[Object]    是   已明确诊断(每次提交全量诊断)
+# # ----id  String  是   诊断ID
+# # ----name    String  是   诊断名称
+# # progressNoteList    List[Object]    否   病程记录列表（新增或有变更的病程记录）
+# # ----progressGuid    String  是   病程唯一标识
+# # ----progressType    Integer 是   病程类型
+# #             门诊病历：0
+# #             入院记录：1
+# #             首次病程：2
+# #             日常病程：3
+# #             查房记录：4
+# #             手术前记录：5
+# #             手术后小结：6
+# #             讨论小结：7
+# #             阶段小结：8
+# #             会诊记录：9
+# #             出院小结：10
+# #             其他记录：11
+# # ----progressMessage String  是   病程文本信息
+# # ----doctorGuid  String  否   医生编号（当次记录提交人）
+# # ----recordTime  String  否   记录时间
+# # deleteProgressNoteList  List[Object]    否   删除的病程记录列表（被删除的病程记录）
+# # ----progressGuid    String  是   被删除的病程唯一标识
+# # ----progressType    Integer 是   病程类型
+# #             门诊病历：0
+# #             入院记录：1
+# #             首次病程：2
+# #             日常病程：3
+# #             查房记录：4
+# #             手术前记录：5
+# #             手术后小结：6
+# #             讨论小结：7
+# #             阶段小结：8
+# #             会诊记录：9
+# #             出院小结：10
+# #             其他记录：11
+# # ----doctorGuid  String  否   医生编号（当次记录提交人）
+# # ----recordTime  String  否   删除时间
+# # labTestList List[Object]    否   检验
+# # ----labTestNumber   String  是   检验编号
+# # ----labTestName String  否   检验单名称
+# # ----labTestSample   String  否   检验样本
+# # ----labTestItems    List[Object]    是   检验结果列表
+# # --------labTestItemName String  否   检验结果中文名称
+# # --------labTestItemEnName   String  否   检验结果英文名称
+# # --------labTestResult   String  否   检验结果的值
+# # --------labTestValueUnit    String  否   检验值单位
+# # --------labTestValueChange  String  否   检验值变化
+# #             正常：N
+# #             偏高：H
+# #             偏低：L
+# # --------labTestMethod   String  否   检验方法
+# # --------normalRange String  否   参考区间
+# # examinationList List[Object]    否   检查单
+# # ----examinationNumber   String  是   检查单编号
+# # ----examinationName String  否   检查单名称
+# # ----examinationResult   String  否   检查结果
+# # ----examinationDesc String  否   检查描述
+# # prescriptions   List[Object]    否   处方集合
+# # ----prescriptionNumber  String  是   处方编号
+# # ----drugList    List[Object]    是   药品集合
+# # --------drugId  String  是   药品Id
+# # --------drugName    String  是   药品名称
+# # --------dosage  String  否   每次给药剂量
+# # --------frequency   String  否   频率
+# # --------dosageForm  String  否   剂型
+# # --------pathway String  否   用药途径
+# # --------specification   String  否   药品规格
 
 *** Variables ***
-#删除病程
-# ...    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}
 
 *** Test Cases ***
+
 推荐检查2行-1 急性胸痛,推荐检查包含:静息12导联心电图
     [Documentation]    急性胸痛,断言:"推荐检查examination=静息12导联心电图"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -119,8 +119,10 @@ Library           RequestsLibrary
     [Documentation]    胸痛,断言:"推荐检查examination=静息12导联心电图"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -135,8 +137,10 @@ Library           RequestsLibrary
     [Documentation]    濒死感,断言:"推荐检查examination=静息12导联心电图"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -151,8 +155,10 @@ Library           RequestsLibrary
     [Documentation]    胸部撕裂样痛,断言:"推荐检查examination=静息12导联心电图"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText>急性胸痛｜胸痛｜胸部撕裂样痛｜胸部撕裂样痛｜背部撕裂样痛｜呼吸困难</BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -167,8 +173,10 @@ Library           RequestsLibrary
     [Documentation]    背部撕裂样痛,断言:"推荐检查examination=静息12导联心电图"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText>急性胸痛｜胸痛｜背部撕裂样痛｜背部撕裂样痛｜背部撕裂样痛｜呼吸困难</BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -183,8 +191,10 @@ Library           RequestsLibrary
     [Documentation]    呼吸困难,断言:"推荐检查examination=静息12导联心电图"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText>急性胸痛｜胸痛｜呼吸困难｜呼吸困难｜呼吸困难｜呼吸困难</BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -199,8 +209,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛,断言:"推荐检查examination=静息18导联心电图"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -215,8 +227,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛,断言:"推荐检查examination=肌钙蛋白"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -231,8 +245,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛,断言:"推荐检查examination=心肌酶"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -247,8 +263,10 @@ Library           RequestsLibrary
     [Documentation]    胸部撕裂样痛,断言:"推荐检查examination=主动脉CTA"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -264,8 +282,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛,断言:"推荐检查examination=肺动脉CTA"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -281,8 +301,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛,断言:"推荐检查examination=D-二聚体"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -299,8 +321,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛,断言:"推荐检查examination=血常规"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -315,8 +339,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛,断言:"推荐检查examination=血电解质"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -331,8 +357,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛,断言:"推荐检查examination=肝功能"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -347,8 +375,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛,断言:"推荐检查examination=肾功能"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -363,8 +393,10 @@ Library           RequestsLibrary
 #     [Documentation]    急性胸痛,断言:"推荐检查examination=肾功能"
 #     #执行删除操作
 #     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-#     ${timestamp}    Get Time    epoch
-#     ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    # [Setup]    Run Keywords    获取时间戳
+    # ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
 #     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
 #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
 #     ...    definiteDiagnosis=
@@ -379,8 +411,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛,断言:"推荐检查examination=血糖"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -395,8 +429,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛,断言:"推荐检查examination=血脂"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -411,8 +447,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛,断言:"推荐检查examination=凝血功能"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -427,8 +465,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛,断言:"推荐检查examination=24小时动态心电图"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -444,8 +484,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛,断言:"推荐检查examination= BNP"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -460,8 +502,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛,断言:"推荐检查examination=  NT-proBNP"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -480,8 +524,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+检查结果:肌钙蛋白升高｜cTnI升高｜cTnT升高&ST段抬高,断言:"diagnosticSuggest=急性ST段抬高型心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -496,8 +542,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+ 检查结果:肌钙蛋白升高｜cTnI升高(<0.2)｜cTnT升高&ST段抬高,断言:"diagnosticSuggest=急性ST段抬高型心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -512,8 +560,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+检查结果:肌钙蛋白升高｜cTnI升高｜cTnT升高&ST段抬高,断言:"diagnosticSuggest=急性ST段抬高型心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -528,8 +578,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+检查结果:肌钙蛋白升高｜cTnT升高｜cTnT升高&ST段抬高,断言:"diagnosticSuggest=急性ST段抬高型心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -548,8 +600,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛｜胸痛｜濒死感｜胸部撕裂样痛｜背部撕裂样痛｜ 呼吸困难+检查结果:CK-MB升高超过参考值2倍&ST段抬高,断言:"diagnosticSuggest=急性ST段抬高型心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -565,8 +619,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛｜胸痛｜濒死感｜胸部撕裂样痛｜背部撕裂样痛｜ 呼吸困难+检查结果:CK-MB升高超过参考值2倍&ST段抬高,断言:"diagnosticSuggest=急性ST段抬高型心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -584,8 +640,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+检查结果:肌钙蛋白升高｜cTnI升高｜cTnT升高,断言:"diagnosticSuggest=急性心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -601,8 +659,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+ 检查结果:肌钙蛋白升高｜cTnI升高(<0.2)｜cTnT升高,断言:"diagnosticSuggest=急性ST段抬高型心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -617,8 +677,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+检查结果:肌钙蛋白升高｜cTnI升高｜cTnT升高,断言:"diagnosticSuggest=急性心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -633,8 +695,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+检查结果:肌钙蛋白升高｜cTnT升高｜cTnT升高,断言:"diagnosticSuggest=急性ST段抬高型心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -651,8 +715,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+检查结果:肌钙蛋白升高｜cTnI升高｜cTnT升高&ST段抬高,断言:"diagnosticSuggest=急性心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -667,8 +733,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+ 检查结果:肌钙蛋白升高｜cTnI升高(<0.2)｜cTnT升高&ST段抬高,断言:"diagnosticSuggest=急性ST段抬高型心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -683,8 +751,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+检查结果:肌钙蛋白升高｜cTnI升高｜cTnT升高&ST段抬高,断言:"diagnosticSuggest=急性心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -699,8 +769,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+检查结果:肌钙蛋白升高｜cTnT升高｜cTnT升高&ST段抬高,断言:"diagnosticSuggest=急性ST段抬高型心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -720,8 +792,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+检查结果:肌钙蛋白升高｜cTnI升高｜cTnT升高&ST段压低｜T波低平｜T波倒置,断言:"diagnosticSuggest=急性非ST段抬高型心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -736,8 +810,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+检查结果:肌钙蛋白升高｜cTnI升高｜cTnT升高&ST段压低｜T波低平｜T波倒置,断言:"diagnosticSuggest=急性非ST段抬高型心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -752,8 +828,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+检查结果:肌钙蛋白升高｜cTnI升高｜cTnT升高&ST段压低｜T波低平｜T波倒置,断言:"diagnosticSuggest=急性非ST段抬高型心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -768,8 +846,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+检查结果:肌钙蛋白升高｜cTnI升高｜cTnT升高&ST段压低｜T波低平｜T波倒置,断言:"diagnosticSuggest=急性非ST段抬高型心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -785,8 +865,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+检查结果:肌钙蛋白升高｜cTnI升高｜cTnT升高&T波低平｜T波低平｜T波倒置,断言:"diagnosticSuggest=急性非ST段抬高型心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -801,8 +883,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+检查结果:肌钙蛋白升高｜cTnI升高｜cTnT升高&T波低平｜T波低平｜T波倒置,断言:"diagnosticSuggest=急性非ST段抬高型心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -817,8 +901,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+检查结果:肌钙蛋白升高｜cTnI升高｜cTnT升高&T波低平｜T波低平｜T波倒置,断言:"diagnosticSuggest=急性非ST段抬高型心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -833,8 +919,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+检查结果:肌钙蛋白升高｜cTnI升高｜cTnT升高&T波低平｜T波低平｜T波倒置,断言:"diagnosticSuggest=急性非ST段抬高型心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -850,8 +938,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+检查结果:肌钙蛋白升高｜cTnI升高｜cTnT升高&肌钙蛋白升高｜cTnI升高｜cTnT升高& ST段压低｜T波低平｜T波倒置,断言:"diagnosticSuggest=急性非ST段抬高型心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -867,8 +957,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+检查结果:肌钙蛋白升高｜cTnI升高｜cTnT升高&肌钙蛋白升高｜cTnI升高｜cTnT升高& ST段压低｜T波低平｜T波倒置,断言:"diagnosticSuggest=急性非ST段抬高型心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -883,8 +975,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+检查结果:肌钙蛋白升高｜cTnI升高｜cTnT升高&肌钙蛋白升高｜cTnI升高｜cTnT升高& ST段压低｜T波低平｜T波倒置,断言:"diagnosticSuggest=急性非ST段抬高型心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -899,8 +993,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+检查结果:肌钙蛋白升高｜cTnI升高｜cTnT升高&肌钙蛋白升高｜cTnI升高｜cTnT升高& ST段压低｜T波低平｜T波倒置,断言:"diagnosticSuggest=急性非ST段抬高型心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -918,8 +1014,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+检查结果:肌钙蛋白升高｜cTnI升高｜cTnT升高& ST段不抬高+非ST段压低 ,断言:"diagnosticSuggest=急性非ST段抬高型心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -935,8 +1033,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+检查结果:肌钙蛋白升高｜cTnI升高｜cTnT升高+ST段不抬高 非ST段压低,断言:"diagnosticSuggest=急性非ST段抬高型心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -951,8 +1051,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+检查结果:肌钙蛋白升高｜cTnI升高｜cTnT升高&ST段不抬高 非ST段压低,断言:"diagnosticSuggest=急性非ST段抬高型心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -967,8 +1069,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+检查结果:肌钙蛋白升高｜cTnI升高｜cTnT升高+ ST段不抬高 非ST段压低,断言:"diagnosticSuggest=急性非ST段抬高型心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -984,8 +1088,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+检查结果:肌钙蛋白升高｜cTnI升高｜cTnT升高& ST段不抬高+非T波低平 ,断言:"diagnosticSuggest=急性非ST段抬高型心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1001,8 +1107,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+检查结果:肌钙蛋白升高｜cTnI升高｜cTnT升高+ST段不抬高 非T波低平,断言:"diagnosticSuggest=急性非ST段抬高型心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1017,8 +1125,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+检查结果:肌钙蛋白升高｜cTnI升高｜cTnT升高&ST段不抬高 非T波低平,断言:"diagnosticSuggest=急性非ST段抬高型心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1033,8 +1143,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+检查结果:肌钙蛋白升高｜cTnI升高｜cTnT升高+ ST段不抬高 非T波低平,断言:"diagnosticSuggest=急性非ST段抬高型心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1050,8 +1162,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+检查结果:肌钙蛋白升高｜cTnI升高｜cTnT升高& ST段不抬高+非T波倒置 ,断言:"diagnosticSuggest=急性非ST段抬高型心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1067,8 +1181,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+检查结果:肌钙蛋白升高｜cTnI升高｜cTnT升高+ST段不抬高 非T波倒置,断言:"diagnosticSuggest=急性非ST段抬高型心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1083,8 +1199,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+检查结果:肌钙蛋白升高｜cTnI升高｜cTnT升高&ST段不抬高 非T波倒置,断言:"diagnosticSuggest=急性非ST段抬高型心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1099,8 +1217,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+检查结果:肌钙蛋白升高｜cTnI升高｜cTnT升高+ ST段不抬高 非T波倒置,断言:"diagnosticSuggest=急性非ST段抬高型心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1117,8 +1237,10 @@ Library           RequestsLibrary
     [Documentation]    推荐检查:胸骨左缘收缩期杂音,断言:"diagnosticSuggest=室间隔穿孔"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1138,8 +1260,10 @@ Library           RequestsLibrary
     [Documentation]    推荐检查:面色苍白 湿啰音 颈静脉怒张,断言:"diagnosticSuggest=心力衰竭"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1154,8 +1278,10 @@ Library           RequestsLibrary
     [Documentation]    推荐检查:面色苍白 湿啰音 颈静脉怒张,断言:"diagnosticSuggest=心力衰竭"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1170,8 +1296,10 @@ Library           RequestsLibrary
     [Documentation]    推荐检查:发绀 湿啰音 颈静脉怒张,断言:"diagnosticSuggest=心力衰竭"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1186,8 +1314,10 @@ Library           RequestsLibrary
     [Documentation]    推荐检查:低血压 湿啰音 颈静脉怒张,断言:"diagnosticSuggest=心力衰竭"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1206,8 +1336,10 @@ Library           RequestsLibrary
     [Documentation]    推荐检查:发绀 湿啰音 颈静脉怒张,断言:"diagnosticSuggest=急性心力衰竭"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1224,8 +1356,10 @@ Library           RequestsLibrary
     [Documentation]    心律不齐  推荐检查:心律失常   ,断言:"diagnosticSuggest=急性心力衰竭"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 急性胸痛 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1240,8 +1374,10 @@ Library           RequestsLibrary
     [Documentation]    房室传导阻滞  推荐检查:心律失常   ,断言:"diagnosticSuggest=急性心力衰竭"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1256,8 +1392,10 @@ Library           RequestsLibrary
     [Documentation]    心动过速  推荐检查:心律失常   ,断言:"diagnosticSuggest=急性心力衰竭"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1272,8 +1410,10 @@ Library           RequestsLibrary
     [Documentation]    心动过缓  推荐检查:心律失常   ,断言:"diagnosticSuggest=急性心力衰竭"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText> 删除 </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1292,8 +1432,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+检查结果: 一过性ST段抬高+肌钙蛋白阴性,断言:"diagnosticSuggest=变异性心绞痛"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText></BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1308,8 +1450,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+检查结果: 一过性ST段抬高+cTnI阴性,断言:"diagnosticSuggest=变异性心绞痛"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText></BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1324,8 +1468,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+检查结果: 一过性ST段抬高+cTnT阴性,断言:"diagnosticSuggest=变异性心绞痛"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText></BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1341,8 +1487,10 @@ Library           RequestsLibrary
     [Documentation]    急性胸痛+检查结果: 一过性ST段抬高+CK－MB升高<5%,断言:"diagnosticSuggest=变异性心绞痛"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText></BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1359,8 +1507,10 @@ Library           RequestsLibrary
     [Documentation]     推荐检查:新出现的左束支传导阻滞,断言:"diagnosticSuggest=急性ST段抬高型心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText></BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"0","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1381,8 +1531,10 @@ Library           RequestsLibrary
     [Documentation]     急性胸痛 T波改变+肌钙蛋白阴性+CK－MB升高,断言:"diagnosticSuggest=不稳定心绞痛"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText></BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"22","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1398,8 +1550,10 @@ Library           RequestsLibrary
     [Documentation]     急性胸痛 T波改变+cTnI阳性+CK－MB升高 超过正常上限2倍,断言:"diagnosticSuggest=急性心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText></BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"22","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1415,8 +1569,10 @@ Library           RequestsLibrary
     [Documentation]     急性胸痛 T波改变+cTnI阳性+CK－MB升高 超过正常上限2倍,断言:"diagnosticSuggest=急性心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText></BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"22","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1431,8 +1587,10 @@ Library           RequestsLibrary
     [Documentation]     急性胸痛 T波改变+cTnI阴性+CK－MB正常,断言:"diagnosticSuggest=急性心肌梗死"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText></BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"22","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1448,8 +1606,10 @@ Library           RequestsLibrary
     [Documentation]     急性胸痛 T波改变+cTnI阴性+CK－MB正常,断言:"diagnosticSuggest=冠状动脉粥样硬化性心脏病"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText></BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"22","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1465,8 +1625,10 @@ Library           RequestsLibrary
     [Documentation]     急性胸痛 T波改变+cTnI阴性+CK－MB正常,断言:"diagnosticSuggest=冠状动脉粥样硬化性心脏病"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText></BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"22","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1481,8 +1643,10 @@ Library           RequestsLibrary
     [Documentation]     急性胸痛 T波改变+cTnT阴性+CK－MB正常,断言:"diagnosticSuggest=冠状动脉粥样硬化性心脏病"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText></BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"22","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1501,8 +1665,10 @@ Library           RequestsLibrary
     [Documentation]     病历内容:急性非ST段抬高型心肌梗死,断言:"diagnosticSuggest=GRACE评分"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText></BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"22","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1518,8 +1684,10 @@ Library           RequestsLibrary
     [Documentation]     病历内容:急性ST段抬高型心肌梗死,断言:"diagnosticSuggest=出血危险分层"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText></BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"22","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1535,8 +1703,10 @@ Library           RequestsLibrary
     [Documentation]     病历内容:急性非ST段抬高型心肌梗死,断言:"diagnosticSuggest=出血危险分层"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText></BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"22","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1552,8 +1722,10 @@ Library           RequestsLibrary
     [Documentation]     病历内容:急性非ST段抬高型心肌梗死,断言:"diagnosticSuggest=缺血危险分层"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText></BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"22","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1568,8 +1740,10 @@ Library           RequestsLibrary
     [Documentation]     病历内容:急性非ST段抬高型心肌梗死,断言:"diagnosticSuggest=缺血危险分层"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText></BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"22","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1584,8 +1758,10 @@ Library           RequestsLibrary
     [Documentation]     病历内容:急性非ST段抬高型心肌梗死,断言:"diagnosticSuggest=缺血危险分层"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText></BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"22","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1600,8 +1776,10 @@ Library           RequestsLibrary
     [Documentation]     病历内容:急性非ST段抬高型心肌梗死,断言:"diagnosticSuggest=缺血危险分层"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText></BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"22","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1617,8 +1795,10 @@ Library           RequestsLibrary
     [Documentation]     病历内容:急性非ST段抬高型心肌梗死,断言:"diagnosticSuggest=缺血危险分层"
     #执行删除操作
     # [Setup]    智能推荐        userGuid=22222222    serialNumber=22222222    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><BodyText></BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList={"progressGuid":"22222","progressType":"3","doctorGuid":"2222","recordTime":""}    labTestList=    examinationList=
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"22","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1636,8 +1816,10 @@ Library           RequestsLibrary
 推荐治疗方案2行-1 急性ST段抬高型心肌梗死+非出血高危, 推荐血运重建方案:溶栓治疗
     [Documentation]    急性ST段抬高型心肌梗死+非出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1651,8 +1833,10 @@ Library           RequestsLibrary
 推荐治疗方案2行-2 急性ST段抬高型心肌梗死+否定条件:出血高危,不会推荐血运重建方案:溶栓治疗
     [Documentation]    急性ST段抬高型心肌梗死+否定条件:出血高危,断言:"planName!=溶栓治疗"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1666,8 +1850,10 @@ Library           RequestsLibrary
 推荐治疗方案2行-3 急性ST段抬高型心肌梗死+否定条件:胸痛23小时:出血高危,会推荐血运重建方案:溶栓治疗
     [Documentation]    急性ST段抬高型心肌梗死+否定条件:胸痛23小时:出血高危,断言:"planName=溶栓治疗"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1681,8 +1867,10 @@ Library           RequestsLibrary
 推荐治疗方案2行-4 急性ST段抬高型心肌梗死+否定条件:胸痛24小时:出血高危,不会推荐血运重建方案:溶栓治疗
     [Documentation]    急性ST段抬高型心肌梗死+否定条件:胸痛24小时:出血高危,断言:"planName!=溶栓治疗"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1699,8 +1887,10 @@ Library           RequestsLibrary
 推荐治疗方案3行-1 急性ST段抬高型心肌梗死,推荐血运重建方案:PCI手术
     [Documentation]    急性ST段抬高型心肌梗死,断言:"planName=PCI手术"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1714,8 +1904,10 @@ Library           RequestsLibrary
 推荐治疗方案3行-2 急性ST段抬高型心肌梗死+否定条件:胸痛11小时,会推荐血运重建方案:PCI手术
     [Documentation]    急性ST段抬高型心肌梗死+否定条件:胸痛11小时,断言:"planName=PCI手术"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1730,8 +1922,10 @@ Library           RequestsLibrary
 推荐治疗方案3行-3 急性ST段抬高型心肌梗死+否定条件:胸痛12小时,不会推荐血运重建方案:PCI手术
     [Documentation]    急性ST段抬高型心肌梗死+否定条件:胸痛12小时,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1746,8 +1940,10 @@ Library           RequestsLibrary
 推荐治疗方案4行-1 急性ST段抬高型心肌梗死+出血高危,推荐血运重建方案:保守策略
     [Documentation]    急性ST段抬高型心肌梗死+出血高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1764,8 +1960,10 @@ Library           RequestsLibrary
 推荐治疗方案5行-1 急性非ST段抬高型心肌梗死+GRACE评分极高危,推荐血运重建方案:PCI手术
     [Documentation]    急性非ST段抬高型心肌梗死+GRACE评分极高危,断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1779,8 +1977,10 @@ Library           RequestsLibrary
 推荐治疗方案5行-2 急性非ST段抬高型心肌梗死+缺血极高危,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1794,8 +1994,10 @@ Library           RequestsLibrary
 推荐治疗方案5行-3 急性非ST段抬高型心肌梗死+GRACE评分极高危+否定条件:胸痛71小时,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1809,8 +2011,10 @@ Library           RequestsLibrary
 推荐治疗方案5行-4 急性非ST段抬高型心肌梗死+GRACE评分极高危+否定条件:胸痛72小时,不会推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1824,8 +2028,10 @@ Library           RequestsLibrary
 推荐治疗方案5行-5 急性非ST段抬高型心肌梗死+缺血极高危+否定条件:胸痛71小时,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1839,8 +2045,10 @@ Library           RequestsLibrary
 推荐治疗方案5行-6 急性非ST段抬高型心肌梗死+缺血极高危+否定条件:胸痛72小时,不会推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=急性ST段抬高型心肌梗死"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1855,8 +2063,10 @@ Library           RequestsLibrary
 推荐治疗方案6行-0 急性非ST段抬高型心肌梗死+GRACE评分140+血流动力学不稳定,不会推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName!=PCI手术"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1871,8 +2081,10 @@ Library           RequestsLibrary
 推荐治疗方案6行-1 急性非ST段抬高型心肌梗死+GRACE评分141+血流动力学不稳定,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1887,8 +2099,10 @@ Library           RequestsLibrary
 推荐治疗方案6行-2 急性非ST段抬高型心肌梗死+GRACE评分141+心源性休克,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1902,8 +2116,10 @@ Library           RequestsLibrary
 推荐治疗方案6行-3 急性非ST段抬高型心肌梗死+GRACE评分141+严重心律失常,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1917,8 +2133,10 @@ Library           RequestsLibrary
 推荐治疗方案6行-4 急性非ST段抬高型心肌梗死+GRACE评分141+心脏骤停,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1932,8 +2150,10 @@ Library           RequestsLibrary
 推荐治疗方案6行-5 急性非ST段抬高型心肌梗死+GRACE评分141+难治性心绞痛,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1949,8 +2169,10 @@ Library           RequestsLibrary
 推荐治疗方案6行-7 急性非ST段抬高型心肌梗死+GRACE评分141+血流动力学不稳定+否定条件:胸痛72小时,不会推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1964,8 +2186,10 @@ Library           RequestsLibrary
 推荐治疗方案6行-8 急性非ST段抬高型心肌梗死+GRACE评分141+心源性休克++否定条件:胸痛72小时,不会推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1979,8 +2203,10 @@ Library           RequestsLibrary
 推荐治疗方案6行-9 急性非ST段抬高型心肌梗死+GRACE评分141+严重心律失常+否定条件:胸痛72小时,不会推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1994,8 +2220,10 @@ Library           RequestsLibrary
 推荐治疗方案6行-10 急性非ST段抬高型心肌梗死+GRACE评分141+心脏骤停+否定条件:胸痛72小时,不会推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2009,8 +2237,10 @@ Library           RequestsLibrary
 推荐治疗方案6行-11 急性非ST段抬高型心肌梗死+GRACE评分141+难治性心绞痛+否定条件:胸痛72小时,不会推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2027,8 +2257,10 @@ Library           RequestsLibrary
 推荐治疗方案6行-12 急性非ST段抬高型心肌梗死+GRACE评分141+血流动力学不稳定+否定条件:胸痛71小时,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2042,8 +2274,10 @@ Library           RequestsLibrary
 推荐治疗方案6行-13 急性非ST段抬高型心肌梗死+GRACE评分141+心源性休克++否定条件:胸痛71小时,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2056,8 +2290,10 @@ Library           RequestsLibrary
 推荐治疗方案6行-14 急性非ST段抬高型心肌梗死+GRACE评分141+严重心律失常++否定条件:胸痛71小时,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2070,8 +2306,10 @@ Library           RequestsLibrary
 推荐治疗方案6行-15 急性非ST段抬高型心肌梗死+GRACE评分141+心脏骤停+否定条件:胸痛71小时,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2085,8 +2323,10 @@ Library           RequestsLibrary
 推荐治疗方案6行-16 急性非ST段抬高型心肌梗死+GRACE评分141+难治性心绞痛+否定条件:胸痛71小时,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2101,8 +2341,10 @@ Library           RequestsLibrary
 推荐治疗方案7行-1 急性非ST段抬高型心肌梗死+缺血极高危,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2116,8 +2358,10 @@ Library           RequestsLibrary
 推荐治疗方案7行-2 急性非ST段抬高型心肌梗死+缺血极高危 否定条件:胸痛71小时,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2131,8 +2375,10 @@ Library           RequestsLibrary
 推荐治疗方案7行-3 急性非ST段抬高型心肌梗死+缺血极高危 否定条件:胸痛72小时,不会推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2148,8 +2394,10 @@ Library           RequestsLibrary
 推荐治疗方案8行-1 急性非ST段抬高型心肌梗死+GRACE评分极高危,推荐血运重建方案:保守策略
     [Documentation]    断言:"planName=保守策略"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2165,8 +2413,10 @@ Library           RequestsLibrary
 推荐治疗方案9行-1 急性非ST段抬高型心肌梗死+GRACE评分141+血流动力学不稳定,推荐血运重建方案:保守策略
     [Documentation]    断言:"planName=保守策略"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2180,8 +2430,10 @@ Library           RequestsLibrary
 推荐治疗方案9行-2 急性非ST段抬高型心肌梗死+GRACE评分141+心源性休克,推荐血运重建方案:保守策略
     [Documentation]    断言:"planName=保守策略"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2195,8 +2447,10 @@ Library           RequestsLibrary
 推荐治疗方案9行-3 急性非ST段抬高型心肌梗死+GRACE评分141+严重心律失常,推荐血运重建方案:保守策略
     [Documentation]    断言:"planName=保守策略"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2210,8 +2464,10 @@ Library           RequestsLibrary
 推荐治疗方案9行-4 急性非ST段抬高型心肌梗死+GRACE评分141+心脏骤停,推荐血运重建方案:保守策略
     [Documentation]    断言:"planName=保守策略"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2225,8 +2481,10 @@ Library           RequestsLibrary
 推荐治疗方案9行-5 急性非ST段抬高型心肌梗死+GRACE评分141+难治性心绞痛,推荐血运重建方案:保守策略
     [Documentation]    断言:"planName=保守策略"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2243,8 +2501,10 @@ Library           RequestsLibrary
 推荐治疗方案10行-1 急性非ST段抬高型心肌梗死+缺血极高危,推荐血运重建方案:保守策略
     [Documentation]    断言:"planName=保守策略"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2259,8 +2519,10 @@ Library           RequestsLibrary
 推荐治疗方案11行-1 急性非ST段抬高型心肌梗死+GRACE评分高危,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2274,8 +2536,10 @@ Library           RequestsLibrary
 推荐治疗方案11行-2 急性非ST段抬高型心肌梗死+GRACE评分140,"不应"推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2289,8 +2553,10 @@ Library           RequestsLibrary
 推荐治疗方案11行-3 急性非ST段抬高型心肌梗死+GRACE评分141,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2305,8 +2571,10 @@ Library           RequestsLibrary
 推荐治疗方案11行-4 急性非ST段抬高型心肌梗死+GRACE评分高危+否定条件:胸痛72小时,不会推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2320,8 +2588,10 @@ Library           RequestsLibrary
 推荐治疗方案11行-5 急性非ST段抬高型心肌梗死+GRACE评分140+否定条件:胸痛72小时,不会推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2335,8 +2605,10 @@ Library           RequestsLibrary
 推荐治疗方案11行-6 急性非ST段抬高型心肌梗死+GRACE评分141+否定条件:胸痛72小时,不会推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2350,8 +2622,10 @@ Library           RequestsLibrary
 推荐治疗方案11行-7 急性非ST段抬高型心肌梗死+GRACE评分141+否定条件:胸痛71小时,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2367,8 +2641,10 @@ Library           RequestsLibrary
 推荐治疗方案12行-1 急性非ST段抬高型心肌梗死+GRACE评分高危,推荐血运重建方案:保守策略
     [Documentation]    断言:"planName=保守策略"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2383,8 +2659,10 @@ Library           RequestsLibrary
 推荐治疗方案12行-2 急性非ST段抬高型心肌梗死+GRACE评分140,"不应"推荐血运重建方案:保守策略
     [Documentation]    断言:"planName=保守策略"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2398,8 +2676,10 @@ Library           RequestsLibrary
 推荐治疗方案12行-3 急性非ST段抬高型心肌梗死+GRACE评分141,推荐血运重建方案:保守策略
     [Documentation]    断言:"planName=保守策略"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2414,8 +2694,10 @@ Library           RequestsLibrary
 推荐治疗方案13行-1 急性非ST段抬高型心肌梗死+GRACE评分中危,推荐血运重建方案:转入CCU
     [Documentation]    断言:"planName=转入CCU"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2429,8 +2711,10 @@ Library           RequestsLibrary
 推荐治疗方案13行-2 急性非ST段抬高型心肌梗死+GRACE评分109,推荐血运重建方案:转入CCU
     [Documentation]    断言:"planName=转入CCU"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2444,8 +2728,10 @@ Library           RequestsLibrary
 推荐治疗方案13行-3 急性非ST段抬高型心肌梗死+GRACE评分140,推荐血运重建方案:转入CCU
     [Documentation]    断言:"planName=转入CCU"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2459,8 +2745,10 @@ Library           RequestsLibrary
 推荐治疗方案13行-5 急性非ST段抬高型心肌梗死+GRACE评分141,不会推荐血运重建方案:转入CCU
     [Documentation]    断言:"planName=转入CCU"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2475,8 +2763,10 @@ Library           RequestsLibrary
 推荐治疗方案14行-1 急性非ST段抬高型心肌梗死+GRACE评分低危,推荐血运重建方案:转入CCU
     [Documentation]    断言:"planName=转入CCU"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2490,8 +2780,10 @@ Library           RequestsLibrary
 推荐治疗方案14行-2 急性非ST段抬高型心肌梗死+GRACE评分109,推荐血运重建方案:转入CCU
     [Documentation]    断言:"planName=转入CCU"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2505,8 +2797,10 @@ Library           RequestsLibrary
 推荐治疗方案14行-3 急性非ST段抬高型心肌梗死+GRACE评分108,推荐血运重建方案:转入CCU
     [Documentation]    断言:"planName=转入CCU"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2521,8 +2815,10 @@ Library           RequestsLibrary
 推荐治疗方案15行-1 急性非ST段抬高型心肌梗死+无 RACE评分,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2536,8 +2832,10 @@ Library           RequestsLibrary
 推荐治疗方案15行-2 急性非ST段抬高型心肌梗死+无RACE评分+否定条件:胸痛72小时,推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2551,8 +2849,10 @@ Library           RequestsLibrary
 推荐治疗方案15行-3 急性非ST段抬高型心肌梗死+无RACE评分+否定条件:胸痛71小时,不会推荐血运重建方案:PCI手术
     [Documentation]    断言:"planName=PCI手术"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2567,8 +2867,10 @@ Library           RequestsLibrary
 推荐治疗方案16行 急性非ST段抬高型心肌梗死+无RACE评分,不会推荐血运重建方案:保守策略
     [Documentation]    断言:"planName=保守策略"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2583,8 +2885,10 @@ Library           RequestsLibrary
 推荐治疗方案17行 急性非ST段抬高型心肌梗死+无RACE评分 ,推荐血运重建方案:转入CCU
     [Documentation]    断言:"planName=转入CCU"
     #执行删除操作
-    ${timestamp}    Get Time    epoch
-    ${getRes}    智能推荐    userGuid=${timestamp}    serialNumber=${timestamp}
+    # ${timestamp}    Get Time    epoch
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=

@@ -33,7 +33,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"脑梗死 诊断及诊断依据:脑梗死 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][3]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -48,7 +48,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"脑梗死 诊断及诊断依据:脑梗死 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][3]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -65,7 +65,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"脑梗死 短暂性脑缺血发作 诊断及诊断依据:脑梗死 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][3]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -79,7 +79,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"脑梗死 短暂性脑缺血发作 诊断及诊断依据:脑梗死 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][3]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -93,7 +93,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"脑梗死 短暂性脑缺血发作 诊断及诊断依据:脑梗死 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][3]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -110,7 +110,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"脑梗死 短暂性脑缺血发作 诊断及诊断依据:脑梗死 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][4]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -124,7 +124,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"脑梗死 短暂性脑缺血发作 诊断及诊断依据:脑梗死 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][4]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -132,7 +132,7 @@ Library           String
 
 
 
-##### 46L 20170919 降颅压治疗       脑梗死｜短暂性脑缺血发作｜脑出血            238 是
+###### 46L 20170919 降颅压治疗       脑梗死｜短暂性脑缺血发作｜脑出血            238 是
 ######  20170919    脑梗死 脑梗死     、   抗凝治疗    抗凝治疗的时机应取决于梗死灶的大小和发生出血性转化风险的高低。用于急性短暂性脑缺血发作或卒中伴疑似心源性栓塞或动脉夹层时，需平衡短期复发风险和出血风险；存在大面积急性梗死提示有发生出血性转化的风险，应推迟抗凝治疗。     是
 4.1 降颅压治疗:主诉:脑梗死｜短暂性脑缺血发作｜脑出血,用药推荐包含:甘露醇注射液 复方甘露醇注射液 甘油果糖氯化钠注射液 甘油果糖注射液 呋塞米注射液 注射用呋塞米
     [Documentation]    断言:""
@@ -143,7 +143,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"脑梗死 短暂性脑缺血发作 脑出血 诊断及诊断依据:脑出血 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][3]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -157,7 +157,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"脑梗死 短暂性脑缺血发作 脑出血 诊断及诊断依据:脑出血 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][3]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -213,9 +213,9 @@ Library           String
     # [Teardown]    sleep    0.4s
 
 
-#### 50L 20170919 TIA危险因素管理   血压管理和降压治疗   收缩压>=140mmHg｜舒张压>=90mmHg｜高血压&短暂性脑缺血发作           241 是
-####  20170919    脑梗死 脑梗死     、   抗凝治疗    抗凝治疗的时机应取决于梗死灶的大小和发生出血性转化风险的高低。用于急性短暂性脑缺血发作或卒中伴疑似心源性栓塞或动脉夹层时，需平衡短期复发风险和出血风险；存在大面积急性梗死提示有发生出血性转化的风险，应推迟抗凝治疗。     是
-####  #######短暂性脑缺血发作 LDL-C>:100mg/dl 主动脉弓动脉粥样硬化斑块 颅内大动脉粥样硬化性狭窄 颈动脉狭窄率70% 主动脉弓动脉粥样硬化斑块 收缩压:140mmHg 舒张压:90mmHg 高血压 HbA1c增高 糖尿病 糖尿病前期
+##### 50L 20170919 TIA危险因素管理   血压管理和降压治疗   收缩压>=140mmHg｜舒张压>=90mmHg｜高血压&短暂性脑缺血发作           241 是
+#####  20170919    脑梗死 脑梗死     、   抗凝治疗    抗凝治疗的时机应取决于梗死灶的大小和发生出血性转化风险的高低。用于急性短暂性脑缺血发作或卒中伴疑似心源性栓塞或动脉夹层时，需平衡短期复发风险和出血风险；存在大面积急性梗死提示有发生出血性转化的风险，应推迟抗凝治疗。     是
+#####  #######短暂性脑缺血发作 LDL-C>:100mg/dl 主动脉弓动脉粥样硬化斑块 颅内大动脉粥样硬化性狭窄 颈动脉狭窄率70% 主动脉弓动脉粥样硬化斑块 收缩压:140mmHg 舒张压:90mmHg 高血压 HbA1c增高 糖尿病 糖尿病前期
 
 #分组148
 7.1 改善循环及脑保护:改善脑血循环:主诉:急性缺血性脑卒中｜脑梗死,用药推荐包含:注射用盐酸拉贝洛尔 盐酸拉贝洛尔注射液 注射用盐酸乌拉地尔 乌拉地尔氯化钠注射液 乌拉地尔注射液 乌拉地尔葡萄糖注射液 盐酸尼卡地平氯化钠注射液 盐酸尼卡地平注射液 盐酸尼卡地平葡萄糖注射液 注射用盐酸尼卡地平 注射用盐酸索他洛尔 注射用盐酸艾司洛尔 呋塞米注射液 注射用呋塞米 硝酸甘油注射液 注射用硝普钠
@@ -227,7 +227,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"收缩压:140mmHg 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -244,7 +244,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"收缩压:140mmHg 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][5]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][5]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -260,7 +260,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"收缩压:140mmHg 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -278,7 +278,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"收缩压:140mmHg 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -293,7 +293,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"收缩压:140mmHg 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][3]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][3]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -309,7 +309,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"收缩压:140mmHg 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][4]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][4]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -325,7 +325,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"收缩压:140mmHg 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][7]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][7]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -340,15 +340,15 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":"收缩压:140mmHg 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][7]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][7]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
 
 
 
-### 51L 20170919  抗栓治疗        短暂性脑缺血发作            242 是
-###  20170919    脑梗死 脑梗死     、   抗凝治疗    抗凝治疗的时机应取决于梗死灶的大小和发生出血性转化风险的高低。用于急性短暂性脑缺血发作或卒中伴疑似心源性栓塞或动脉夹层时，需平衡短期复发风险和出血风险；存在大面积急性梗死提示有发生出血性转化的风险，应推迟抗凝治疗。     是
+#### 51L 20170919  抗栓治疗        短暂性脑缺血发作            242 是
+####  20170919    脑梗死 脑梗死     、   抗凝治疗    抗凝治疗的时机应取决于梗死灶的大小和发生出血性转化风险的高低。用于急性短暂性脑缺血发作或卒中伴疑似心源性栓塞或动脉夹层时，需平衡短期复发风险和出血风险；存在大面积急性梗死提示有发生出血性转化的风险，应推迟抗凝治疗。     是
 
 
 #分组104
@@ -411,8 +411,8 @@ Library           String
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
 
-## 52L 20170919  抗栓治疗        短暂性脑缺血发作            242 是
-##  20170919  口服抗凝治疗      短暂性脑缺血发作            243 是
+### 52L 20170919  抗栓治疗        短暂性脑缺血发作            242 是
+###  20170919  口服抗凝治疗      短暂性脑缺血发作            243 是
 
 9.1 口服抗凝治疗::主诉:短暂性脑缺血发作,用药推荐包含:华法林钠片
     [Documentation]    断言:""
@@ -423,7 +423,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 短暂性脑缺血发作 房颤 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -442,7 +442,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 短暂性脑缺血发作 LDL-C:100mg/dl 主动脉弓动脉粥样硬化斑块 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -457,7 +457,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 短暂性脑缺血发作 LDL-C:100mg/dl 主动脉弓动脉粥样硬化斑块 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -472,7 +472,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 短暂性脑缺血发作 LDL-C:100mg/dl 主动脉弓动脉粥样硬化斑块 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][3]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][3]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -487,7 +487,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 短暂性脑缺血发作 LDL-C:100mg/dl 主动脉弓动脉粥样硬化斑块 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -495,10 +495,12 @@ Library           String
 
 
 
-## 54L  20170919  TIA危险因素管理   血脂管理和调脂治疗   颅内大动脉粥样硬化性狭窄｜颈动脉狭窄率70%-99%｜主动脉弓动脉粥样硬化斑块&短暂性脑缺血发作            244 是
-###颅内大动脉粥样硬化性狭窄｜颈动脉狭窄率70%-99%｜主动脉弓动脉粥样硬化斑块&短暂性脑缺血发作
-###颅内大动脉粥样硬化性狭窄 颈动脉狭窄率:70% 主动脉弓动脉粥样硬化斑块 短暂性脑缺血发作
+### 54L  20170919  TIA危险因素管理   血脂管理和调脂治疗   颅内大动脉粥样硬化性狭窄｜颈动脉狭窄率70%-99%｜主动脉弓动脉粥样硬化斑块&短暂性脑缺血发作            244 是
+####颅内大动脉粥样硬化性狭窄｜颈动脉狭窄率70%-99%｜主动脉弓动脉粥样硬化斑块&短暂性脑缺血发作
+####颅内大动脉粥样硬化性狭窄 颈动脉狭窄率:70% 主动脉弓动脉粥样硬化斑块 短暂性脑缺血发作
 
+
+#分组108
 11.1 TIA危险因素管理:血脂管理和调脂治疗:主诉:短暂性脑缺血发作 LDL-C:100mg/dl 主动脉弓动脉粥样硬化斑块,用药推荐包含:阿托伐他汀钙片 阿托伐他汀钙胶囊 阿托伐他汀钙分散片 瑞舒伐他汀钙片 瑞舒伐他汀钙胶囊 瑞舒伐他汀钙分散片 匹伐他汀钙片 氟伐他汀钠胶囊 氟伐他汀钠缓释片 普伐他汀钠片 普伐他汀钠胶囊 普伐他汀钠胶囊 洛伐他汀颗粒 辛伐他汀片 辛伐他汀咀嚼片 辛伐他汀胶囊 辛伐他汀分散片
     [Documentation]    断言:""
     ${assert}    Create List    阿托伐他汀钙片    阿托伐他汀钙胶囊    阿托伐他汀钙分散片    瑞舒伐他汀钙片    瑞舒伐他汀钙胶囊    瑞舒伐他汀钙分散片    匹伐他汀钙片    氟伐他汀钠胶囊    氟伐他汀钠缓释片    普伐他汀钠片    普伐他汀钠胶囊    普伐他汀钠胶囊    洛伐他汀颗粒    辛伐他汀片    辛伐他汀咀嚼片    辛伐他汀胶囊    辛伐他汀分散片
@@ -508,7 +510,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 颅内大动脉粥样硬化性狭窄 颈动脉狭窄率:70% 主动脉弓动脉粥样硬化斑块 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -523,7 +525,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 颅内大动脉粥样硬化性狭窄 颈动脉狭窄率:70% 主动脉弓动脉粥样硬化斑块 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -538,7 +540,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 颅内大动脉粥样硬化性狭窄 颈动脉狭窄率:70% 主动脉弓动脉粥样硬化斑块 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][3]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][3]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -553,7 +555,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 颅内大动脉粥样硬化性狭窄 颈动脉狭窄率:70% 主动脉弓动脉粥样硬化斑块 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -562,10 +564,10 @@ Library           String
 
 
 
-# 55L  20170919   TIA危险因素管理   血糖管理和降糖治疗   HbA1c增高｜糖尿病｜糖尿病前期&短暂性脑缺血发作          245 是
-##颅内大动脉粥样硬化性狭窄｜颈动脉狭窄率70%-99%｜主动脉弓动脉粥样硬化斑块&短暂性脑缺血发作
-##HbA1c增高｜糖尿病｜糖尿病前期&短暂性脑缺血发作
-##HbA1c增高 糖尿病 糖尿病前期 短暂性脑缺血发作
+## 55L  20170919   TIA危险因素管理   血糖管理和降糖治疗   HbA1c增高｜糖尿病｜糖尿病前期&短暂性脑缺血发作          245 是
+###颅内大动脉粥样硬化性狭窄｜颈动脉狭窄率70%-99%｜主动脉弓动脉粥样硬化斑块&短暂性脑缺血发作
+###HbA1c增高｜糖尿病｜糖尿病前期&短暂性脑缺血发作
+###HbA1c增高 糖尿病 糖尿病前期 短暂性脑缺血发作
 
 #分组109
 12.1 TIA危险因素管理:血糖管理和降糖治疗:主诉:HbA1c增高｜糖尿病｜糖尿病前期&短暂性脑缺血发作,用药推荐包含:胰岛素注射液 低精蛋白锌胰岛素注射液 精蛋白锌重组人胰岛素注射液 精蛋白锌胰岛素注射液 精蛋白生物合成人胰岛素注射液 精蛋白重组人胰岛素注射液 重组赖脯胰岛素注射液 赖脯胰岛素注射液 门冬胰岛素注射液 重组人胰岛素注射液 生物合成人胰岛素注射液 谷赖胰岛素注射液
@@ -577,7 +579,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" HbA1c增高 糖尿病 糖尿病前期 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][7]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][7]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -592,7 +594,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" HbA1c增高 糖尿病 糖尿病前期 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][8]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][8]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -608,7 +610,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" HbA1c增高 糖尿病 糖尿病前期 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][9]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][9]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -624,7 +626,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" HbA1c增高 糖尿病 糖尿病前期 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -640,7 +642,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" HbA1c增高 糖尿病 糖尿病前期 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -656,7 +658,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" HbA1c增高 糖尿病 糖尿病前期 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][3]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][3]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -671,7 +673,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" HbA1c增高 糖尿病 糖尿病前期 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][5]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][5]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -687,7 +689,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" HbA1c增高 糖尿病 糖尿病前期 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][6]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][6]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -703,7 +705,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" HbA1c增高 糖尿病 糖尿病前期 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -718,7 +720,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" HbA1c增高 糖尿病 糖尿病前期 短暂性脑缺血发作 诊断及诊断依据:短暂性脑缺血发作 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][4]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][4]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -736,7 +738,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 脑出血 诊断及诊断依据:脑出血 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][4]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -753,7 +755,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 脑出血 诊断及诊断依据:脑出血 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][5]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][5]['matchMedications'][0]['recommendedDrugs'][5]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -768,7 +770,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 脑出血 诊断及诊断依据:脑出血 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][5]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -784,7 +786,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 脑出血 诊断及诊断依据:脑出血 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][5]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -800,7 +802,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 脑出血 诊断及诊断依据:脑出血 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][5]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -815,7 +817,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 脑出血 诊断及诊断依据:脑出血 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][3]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][5]['matchMedications'][0]['recommendedDrugs'][3]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -832,7 +834,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 脑出血 诊断及诊断依据:脑出血 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][4]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][5]['matchMedications'][0]['recommendedDrugs'][4]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -848,7 +850,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 脑出血 诊断及诊断依据:脑出血 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][6]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][5]['matchMedications'][0]['recommendedDrugs'][6]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -864,7 +866,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 脑出血 诊断及诊断依据:脑出血 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][7]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][5]['matchMedications'][0]['recommendedDrugs'][7]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -881,7 +883,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 脑出血 诊断及诊断依据:脑出血 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][5]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -898,13 +900,13 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 脑出血 蛛网膜下腔出血 诊断及诊断依据:脑出血 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][4]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
 
 
-## 60L 20170919    脑出血并发症治疗    预防应激性溃疡 脑出血         249 是
+### 60L 20170919    脑出血并发症治疗    预防应激性溃疡 脑出血         249 是
 ###分组
 17.1 脑出血并发症治疗:预防应激性溃疡:主诉:脑出血&蛛网膜下腔出血,用药推荐包含:注射用兰索拉唑 注射用奥美拉唑钠 注射用艾司奥美拉唑钠 注射用奥美拉唑钠(静脉滴注) 注射用泮托拉唑钠 注射用埃索美拉唑钠 埃索美拉唑肠溶胶囊 埃索美拉唑镁肠溶片 奥美拉唑肠溶片 奥美拉唑镁肠溶片 奥美拉唑钠肠溶片 雷贝拉唑钠肠溶片 雷贝拉唑钠肠溶胶囊 兰索拉唑口崩片 兰索拉唑片 兰索拉唑肠溶胶囊 泮托拉唑肠溶片 泮托拉唑钠肠溶片 泮托拉唑钠肠溶胶囊
     [Documentation]    断言:""
@@ -915,7 +917,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 脑出血 诊断及诊断依据:脑出血 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][4]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -933,7 +935,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 脑出血 痫性发作 幕上血肿清除术后 诊断及诊断依据:脑出血 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][4]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -951,7 +953,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 帕金森 早发型帕金森 晚发型帕金森 诊断及诊断依据:帕金森 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -1003,10 +1005,10 @@ Library           String
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 帕金森 早发型帕金森 晚发型帕金森 诊断及诊断依据:帕金森 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
+    ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 帕金森 早发型帕金森 晚发型帕金森 异动症 诊断及诊断依据:帕金森 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][6]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -1021,14 +1023,13 @@ Library           String
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ...    AND    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 帕金森 早发型帕金森 晚发型帕金森 诊断及诊断依据:帕金森 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
+    ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 帕金森 早发型帕金森 晚发型帕金森 异动症 诊断及诊断依据:帕金森 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][4]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
-
 
 ## 67L 20170919    抗胆碱能药       帕金森｜早发型帕金森｜晚发型帕金森           256 是
 ## 帕金森 早发型帕金森 晚发型帕金森
@@ -1043,7 +1044,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 帕金森 震颤明显 诊断及诊断依据:帕金森 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][3]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -1083,17 +1084,17 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 帕金森 异动症 诊断及诊断依据:帕金森 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][5]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
 
 
 
-# 69L 20170919    非典型神经安定剂        帕金森｜早发型帕金森｜晚发型帕金森           258 是
-# 帕金森 早发型帕金森 晚发型帕金森
-# 帕金森 震颤明显
-#分组257
+## 69L 20170919    非典型神经安定剂        帕金森｜早发型帕金森｜晚发型帕金森           258 是
+## 帕金森 早发型帕金森 晚发型帕金森
+## 帕金森 震颤明显
+##分组257
 25.1 非典型神经安定剂::主诉:帕金森｜早发型帕金森｜晚发型帕金森,用药推荐包含:氯氮平片 氯氮平分散片 氯氮平口腔崩解片
     [Documentation]    断言:""
     ${assert}    Create List    氯氮平片    氯氮平分散片    氯氮平口腔崩解片
@@ -1103,7 +1104,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 帕金森 异动症 诊断及诊断依据:帕金森 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][5]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -1123,7 +1124,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 帕金森 精神障碍 抑郁 诊断及诊断依据:帕金森 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][3]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -1143,7 +1144,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 帕金森 精神障碍 幻觉 诊断及诊断依据:帕金森 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][3]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -1161,7 +1162,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 帕金森 精神障碍 认知障碍 诊断及诊断依据:帕金森 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][3]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -1178,7 +1179,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 帕金森 精神障碍 易激惹 诊断及诊断依据:帕金森 ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][3]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][3]['matchMedications'][3]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -1297,7 +1298,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 疼痛评分:4 诊断及诊断依据: ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -1331,7 +1332,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 疼痛评分:4 诊断及诊断依据: ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s
@@ -1347,7 +1348,7 @@ Library           String
     ...    progressNoteList={"progressGuid": "22222","progressType":"2","progressMessage":" 疼痛评分:4 诊断及诊断依据: ","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.4s

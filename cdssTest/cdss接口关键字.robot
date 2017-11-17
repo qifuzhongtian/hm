@@ -1,5 +1,5 @@
 *** Variables ***
-# ${base_url}     http://apollo.huimeionline.com
+${base_url_ol}     http://apollo.huimeionline.com
 #测试环境
 ${base_url}       http://10.117.64.153:8080
 #线上

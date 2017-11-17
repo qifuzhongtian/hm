@@ -7,7 +7,7 @@ Library           Collections
 Library           RequestsLibrary
 Library           String
 
-# 字段名   类型  是否必须    说明
+# 字段名	类型	是否必须	说明
 # userGuid    String  是   患者唯一编号
 # serialNumber    String  是   住院病历唯一编号
 # patientInfo Object  是   患者信息
@@ -97,7 +97,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:肺栓塞 急性肺栓塞</InnerValue></Element></XElements><BodyText>Subjective: 大面积肺栓塞 肺栓塞 急性肺栓塞 肺血管栓塞面积:50% Objective: Assessment:诊断:肺栓塞 急性肺栓塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
 #     # [Teardown]    sleep    0.2s
@@ -111,7 +111,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:肺栓塞 急性肺栓塞</InnerValue></Element></XElements><BodyText>Subjective: 大面积肺栓塞 肺栓塞 急性肺栓塞 肺血管栓塞面积:50% Objective: Assessment:诊断:肺栓塞 急性肺栓塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -126,7 +126,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:肺栓塞 急性肺栓塞</InnerValue></Element></XElements><BodyText>Subjective: 大面积肺栓塞 肺栓塞 急性肺栓塞 肺血管栓塞面积:50% Objective: Assessment:诊断:肺栓塞 急性肺栓塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐   userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -140,7 +140,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:肺栓塞 急性肺栓塞</InnerValue></Element></XElements><BodyText>Subjective: 大面积肺栓塞 肺栓塞 急性肺栓塞 肺血管栓塞面积:50% Objective: Assessment:诊断:肺栓塞 急性肺栓塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -154,7 +154,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:肺栓塞 急性肺栓塞</InnerValue></Element></XElements><BodyText>Subjective: 大面积肺栓塞 肺栓塞 急性肺栓塞 肺血管栓塞面积:50% Objective: Assessment:诊断:肺栓塞 急性肺栓塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -168,7 +168,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:肺栓塞 急性肺栓塞</InnerValue></Element></XElements><BodyText>Subjective: 大面积肺栓塞 肺栓塞 急性肺栓塞 肺血管栓塞面积:50% Objective: Assessment:诊断:肺栓塞 急性肺栓塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -182,7 +182,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:肺栓塞 急性肺栓塞</InnerValue></Element></XElements><BodyText>Subjective: 大面积肺栓塞 肺栓塞 急性肺栓塞 肺血管栓塞面积:50% Objective: Assessment:诊断:肺栓塞 急性肺栓塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -197,7 +197,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:肺栓塞 急性肺栓塞</InnerValue></Element></XElements><BodyText>Subjective: 大面积肺栓塞 肺栓塞 急性肺栓塞 肺血管栓塞面积:50% Objective: Assessment:诊断:肺栓塞 急性肺栓塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -211,7 +211,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:肺栓塞 急性肺栓塞</InnerValue></Element></XElements><BodyText>Subjective: 大面积肺栓塞 肺栓塞 急性肺栓塞 肺血管栓塞面积:50% Objective: Assessment:诊断:肺栓塞 急性肺栓塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -225,7 +225,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:肺栓塞 急性肺栓塞</InnerValue></Element></XElements><BodyText>Subjective: 大面积肺栓塞 肺栓塞 急性肺栓塞 肺血管栓塞面积:50% Objective: Assessment:诊断:肺栓塞 急性肺栓塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -239,7 +239,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:肺栓塞 急性肺栓塞</InnerValue></Element></XElements><BodyText>Subjective: 大面积肺栓塞 肺栓塞 急性肺栓塞 肺血管栓塞面积:50% Objective: Assessment:诊断:肺栓塞 急性肺栓塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -253,7 +253,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:肺栓塞 急性肺栓塞</InnerValue></Element></XElements><BodyText>Subjective: 大面积肺栓塞 肺栓塞 急性肺栓塞 肺血管栓塞面积:50% Objective: Assessment:诊断:肺栓塞 急性肺栓塞 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -268,7 +268,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective: 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:50% 射血分数保留 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][3]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -282,7 +282,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective: 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:50% 射血分数保留 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][3]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -295,7 +295,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective: 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:50% 射血分数保留 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][3]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -311,7 +311,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective: 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:49% 射血分数降低 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -324,7 +324,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective: 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:49% 射血分数降低 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -339,7 +339,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective: 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:49% 射血分数降低 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -356,7 +356,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective: 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -369,7 +369,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective: 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -382,7 +382,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective: 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -398,7 +398,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective: 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][3]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -411,7 +411,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective: 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][3]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -427,7 +427,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective: 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][3]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -442,7 +442,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective: 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][3]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -456,7 +456,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective: 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:50% 射血分数保留 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][3]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -469,7 +469,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective: 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:50% 射血分数保留 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][3]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -482,7 +482,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective: 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:50% 射血分数保留 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][3]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -498,7 +498,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective: 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:50% 射血分数保留 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐   userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -511,7 +511,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective: 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:50% 射血分数保留 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐   userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -524,7 +524,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective: 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:50% 射血分数保留 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐   userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -597,7 +597,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective: 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:50% 射血分数保留 肺淤血 周围性水肿 液体潴留 容量超负荷 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐   userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -610,7 +610,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective: 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:50% 射血分数保留 肺淤血 周围性水肿 液体潴留 容量超负荷 Objective: Assessment:诊断: Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐   userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -625,7 +625,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective: 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:49% 射血分数保留 心肌收缩力下降 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐   userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -640,7 +640,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective: 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:50% 射血分数保留 呼吸困难 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐   userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -655,7 +655,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective: 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:50% 射血分数保留 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐   userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][3]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -670,7 +670,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective: 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:49% 射血分数降低 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐   userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -683,7 +683,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective: 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:49% 射血分数降低 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐   userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -696,7 +696,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective: 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:49% 射血分数降低 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐   userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -754,7 +754,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective: 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:51% 射血分数保留 射血分数保留 肺淤血周围性水肿液体潴留 颈静脉压升高 呼吸困难 端坐呼吸 阵发性夜间呼吸困难 水肿 腹水 湿啰音 第三心音奔马律 肝大 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐   userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     List Should Contain Sub List    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -767,7 +767,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective: 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:51% 射血分数保留 射血分数保留 肺淤血周围性水肿液体潴留 颈静脉压升高 呼吸困难 端坐呼吸 阵发性夜间呼吸困难 水肿 腹水 湿啰音 第三心音奔马律 肝大 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐   userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -782,7 +782,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective: 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:50% 射血分数保留 呼吸困难 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐   userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][2]['recommendedDrugs'][0]['drugDetailList']]
     List should contain sub list    ${aj}     ${assert}
     # List Should Contain Sub List    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -796,7 +796,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective: 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:50% 射血分数保留 心肌收缩力下降 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐   userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
     List should contain sub list    ${aj}     ${assert}
     # List Should Contain Sub List    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -811,7 +811,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective: 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:49% 射血分数降低 心功能III级 心功能IV级 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐   userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][3]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     List Should Contain Sub List    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -824,7 +824,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective: 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:49% 射血分数降低 心功能III级 心功能IV级 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐   userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][3]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     List Should Contain Sub List    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -838,7 +838,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective: 劳力性呼吸困难 端坐呼吸 阵发性夜间呼吸困难 静息性咳嗽 劳力性咳嗽 水肿 水肿加重 体重增加 颈静脉压升高 第三心音奔马律 心尖搏动侧移 淤血性肝大 肝颈静脉反流征持续存在 腹胀 腹水 胸腔积液 左束支传导阻滞 心肌梗死 心力衰竭 射血分数:49% 射血分数降低 心功能III级 心功能IV级 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐   userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][3]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     List Should Contain Sub List    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -852,7 +852,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:心力衰竭</InnerValue></Element></XElements><BodyText>Subjective: 心力衰竭 射血分数:49% 射血分数降低 心功能评级III 心功能评级IV 严重心力衰竭 Objective: Assessment:诊断:心力衰竭 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐   userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][3]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     List Should Contain Sub List    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -867,7 +867,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective: 房颤 非瓣膜性房颤 CHA2DS2-VASc评分:2 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐   userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -880,7 +880,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective: 房颤 非瓣膜性房颤 CHA2DS2-VASc评分:2 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐   userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -893,7 +893,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective: 房颤 非瓣膜性房颤 CHA2DS2-VASc评分:2 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐   userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][2]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -906,7 +906,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective: 房颤 非瓣膜性房颤 CHA2DS2-VASc评分:2 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐   userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][3]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][3]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -919,7 +919,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective: 房颤 非瓣膜性房颤 CHA2DS2-VASc评分:2 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐   userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][0]['matchMedications'][0]['recommendedDrugs'][4]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][4]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -934,7 +934,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective: 房颤 非瓣膜性房颤 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐   userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][6]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -949,7 +949,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective: 房颤 非瓣膜性房颤 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐   userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][1]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][6]['matchMedications'][1]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     List Should Contain Sub List    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -964,7 +964,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective: 房颤 非瓣膜性房颤 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐   userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][5]['matchMedications'][0]['recommendedDrugs'][0]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
@@ -977,7 +977,7 @@ Library           String
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"progressGuid": "22222","progressType":"3","progressMessage":"<XTextDocument><XElements><Element><Name>诊断</Name><InnerValue>Assessment:诊断:房颤</InnerValue></Element></XElements><BodyText>Subjective: 房颤 非瓣膜性房颤 Objective: Assessment:诊断:房颤 Plan: </BodyText></XTextDocument>","doctorGuid": "2222","recordTime": ""}    deleteProgressNoteList=    labTestList=    examinationList=
     ${getRes}    用药推荐   userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
     ...    patientInfo={"gender":0,"age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0","bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][2]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['therapeuticPlanList'][5]['matchMedications'][0]['recommendedDrugs'][1]['drugDetailList']]
     # List should contain sub list    ${aj}     ${assert}
     Lists should Be Equal    ${aj}    ${assert}
     # [Teardown]    sleep    0.2s
