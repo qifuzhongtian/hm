@@ -5,10 +5,6 @@ Library           RequestsLibrary
 Suite Teardown    Delete All Sessions
 
 *** Test Cases ***
-# 2.1常见诊断
-#     [Documentation]    断言:"id"
-#     常见诊断    ['body']['commonDiseases'][0]['id']    34051
-
 
 2.1常见诊断
     [Documentation]    断言:"diseaseName=急性上呼吸道感染"

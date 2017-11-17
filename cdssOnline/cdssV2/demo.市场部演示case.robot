@@ -40,12 +40,12 @@ Suite Teardown    Delete All Sessions
     ...    presentHistory=
 
 
-市场部案例三
-    [Documentation]    主诉:查体颈部局限性哮鸣音间断喘憋5年，咳嗽，与体位有关，有时可自行缓解.期望诊断结果返回的diseaseName含有'上气道梗阻'
-    智能诊断top6    ['diseaseName']    上气道梗阻    symptom=查体颈部局限性哮鸣音间断喘憋5年，咳嗽，与体位有关，有时可自行缓解,查体颈部局限性哮鸣音CXR(-),CT-气管新生物    previousHistory=
-    ...    personalHistory=    allergyHistory=    familyHistory=    weight=    gender=0    bodyTempr=    lowBldPress=
-    ...    highBldPress=    examInfo=    heartRate=    age=14    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=
-    ...    presentHistory=
+# 市场部案例三
+#     [Documentation]    主诉:查体颈部局限性哮鸣音间断喘憋5年，咳嗽，与体位有关，有时可自行缓解.期望诊断结果返回的diseaseName含有'上气道梗阻'
+#     智能诊断top6    ['diseaseName']    上气道梗阻    symptom=查体颈部局限性哮鸣音间断喘憋5年，咳嗽，与体位有关，有时可自行缓解,查体颈部局限性哮鸣音CXR(-),CT-气管新生物    previousHistory=
+#     ...    personalHistory=    allergyHistory=    familyHistory=    weight=    gender=0    bodyTempr=    lowBldPress=
+#     ...    highBldPress=    examInfo=    heartRate=    age=14    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=
+#     ...    presentHistory=
 
 市场部案例四
     [Documentation]    主诉:腹泻，腹痛，血便1周 结膜苍白.期望诊断结果返回的diseaseName含有'结肠癌'

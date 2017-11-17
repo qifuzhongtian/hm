@@ -180,20 +180,20 @@ Suite Teardown    Delete All Sessions
     Should Be Equal As Strings    ${getRes['body']['tabooList']}    []
 
 
-################################高血压
-1.23 高血压用药重复,repetitionList_diseaseName显示为'高血压用药重复'
-    [Documentation]    断言:"safeStatus=2"
-    ${drugIds}    Create List    2726    2391
-    ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=1    age=    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
-    Should Be Equal As Strings    ${getRes['body']['repetitionList'][0]['diseaseName']}    高血压
+# ################################高血压
+# 1.23 高血压用药重复,repetitionList_diseaseName显示为'高血压用药重复'
+#     [Documentation]    断言:"safeStatus=2"
+#     ${drugIds}    Create List    2726    2391
+#     ${drugCommonNames}    Create List
+#     ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=1    age=    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
+#     Should Be Equal As Strings    ${getRes['body']['repetitionList'][0]['diseaseName']}    高血压
 
-1.23.5 高血压用药重复,用药审核结果为'待审核'
-    [Documentation]    断言:"safeStatus=2"
-    ${drugIds}    Create List    2726    2391
-    ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=1    age=50    ageType=岁    drugIds=${drugIds}    symptom=    confirmDiagnosis=
-    Should Be Equal As Strings    ${getRes['body']['safeStatus']}    2
+# 1.23.5 高血压用药重复,用药审核结果为'待审核'
+#     [Documentation]    断言:"safeStatus=2"
+#     ${drugIds}    Create List    2726    2391
+#     ${drugCommonNames}    Create List
+#     ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=1    age=50    ageType=岁    drugIds=${drugIds}    symptom=    confirmDiagnosis=
+#     Should Be Equal As Strings    ${getRes['body']['safeStatus']}    2
 
 1.23.6 无高血压用药重复,用药审核结果为'通过'
     [Documentation]    断言:"safeStatus=3"

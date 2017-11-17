@@ -10,16 +10,16 @@ Suite Teardown    Delete All Sessions
 
 
 *** Test Cases ***
-2.1智能诊断接口_只填症状
-    [Documentation]    断言:"胆石病"
-    ${getRes}    智能诊断2.3    symptom=发热,胃痛,腹胀,腹痛,高热    previousHistory=    personalHistory=
-    ...    allergyHistory=    familyHistory=
-    ...    weight=    gender=    bodyTempr=    lowBldPress=    highBldPress=
-    ...    examInfo=    heartRate=    age=    ageType=    confirmDiagnosis=    confirmDiagnosisMap=
-    ...    presentHistory=
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
-    log    ${aj}
-    Should Contain    ${aj[:3]}    胆石病
+# 2.1智能诊断接口_只填症状
+#     [Documentation]    断言:"胆石病"
+#     ${getRes}    智能诊断2.3    symptom=发热,胃痛,腹胀,腹痛,高热    previousHistory=    personalHistory=
+#     ...    allergyHistory=    familyHistory=
+#     ...    weight=    gender=    bodyTempr=    lowBldPress=    highBldPress=
+#     ...    examInfo=    heartRate=    age=    ageType=    confirmDiagnosis=    confirmDiagnosisMap=
+#     ...    presentHistory=
+#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
+#     log    ${aj}
+#     Should Contain    ${aj[:3]}    胆石病
 
 
 # 2.2 体格检查_体温>=37.5
@@ -74,15 +74,15 @@ Suite Teardown    Delete All Sessions
     log    ${aj}
     Should Contain    ${aj}    高血压
 
-2.7 体格检查_收缩压<90/60,低血压
-    [Documentation]    断言:"diseaseName=心律失常"
-    ${getRes}    智能诊断2.3    symptom=    previousHistory=    personalHistory=    allergyHistory=
-    ...    familyHistory=    weight=    gender=    bodyTempr=    lowBldPress=59    highBldPress=89
-    ...    examInfo=    heartRate=    age=    ageType=    confirmDiagnosis=    confirmDiagnosisMap=
-    ...    presentHistory=
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
-    log    ${aj}
-    Should Contain    ${aj}    心律失常
+# 2.7 体格检查_收缩压<90/60,低血压
+#     [Documentation]    断言:"diseaseName=心律失常"
+#     ${getRes}    智能诊断2.3    symptom=    previousHistory=    personalHistory=    allergyHistory=
+#     ...    familyHistory=    weight=    gender=    bodyTempr=    lowBldPress=59    highBldPress=89
+#     ...    examInfo=    heartRate=    age=    ageType=    confirmDiagnosis=    confirmDiagnosisMap=
+#     ...    presentHistory=
+#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
+#     log    ${aj}
+#     Should Contain    ${aj}    心律失常
 
 
 
