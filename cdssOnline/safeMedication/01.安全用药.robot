@@ -183,14 +183,16 @@ Suite Teardown    Delete All Sessions
 ################################高血压
 1.23 高血压用药重复,repetitionList_diseaseName显示为'高血压用药重复'
     [Documentation]    断言:"safeStatus=2"
-    ${drugIds}    Create List    2726    2391
+    # ${drugIds}    Create List    2726    2391
+    ${drugIds}    Create List    212    5773
     ${drugCommonNames}    Create List
     ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=1    age=    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['repetitionList'][0]['diseaseName']}    高血压
 
 1.23.5 高血压用药重复,用药审核结果为'待审核'
     [Documentation]    断言:"safeStatus=2"
-    ${drugIds}    Create List    2726    2391
+    # ${drugIds}    Create List    2726    2391
+    ${drugIds}    Create List    212    5773
     ${drugCommonNames}    Create List
     ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=1    age=50    ageType=岁    drugIds=${drugIds}    symptom=    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['safeStatus']}    2
@@ -297,17 +299,18 @@ Suite Teardown    Delete All Sessions
 
 1.36 高血压用药重复,用药审核结果为'待审核'
     [Documentation]    断言:"safeStatus=2"
-    ${drugIds}    Create List    2726    2391
+    # ${drugIds}    Create List    2726    2391
+    ${drugIds}    Create List    212    5773
     ${drugCommonNames}    Create List
     ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=22    ageType=岁    drugIds=${drugIds}    symptom=    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['safeStatus']}    2
 
-1.36.5 无高血压重复用药,相同分组,用药审核结果为'待审核'
-    [Documentation]    断言:"safeStatus=2"
-    ${drugIds}    Create List    2391    5647
-    ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
-    Should Be Equal As Strings    ${getRes['body']['safeStatus']}    2
+#######1.36.5 无高血压重复用药,相同分组,用药审核结果为'待审核'
+#######    [Documentation]    断言:"safeStatus=2"
+#######    ${drugIds}    Create List    2391    5647
+#######    ${drugCommonNames}    Create List
+#######    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
+#######    Should Be Equal As Strings    ${getRes['body']['safeStatus']}    2
 
 1.37 相互作用=2,高血压用药重复,用药审核结果为'待审核'
     [Documentation]    断言:"safeStatus=2"
@@ -443,12 +446,12 @@ Suite Teardown    Delete All Sessions
     ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=0    age=22    ageType=    drugIds=${drugIds}    symptom=痛经    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['tabooList']}    []
 
-1.55 肾病审核结果
-    [Documentation]    断言:"主诉:严重肾功能损害（GFR=20ml/min）慎用 ,药品id16553 ,非洛地平缓释片(Ⅱ)"
-    ${drugIds}    Create List    16553
-    ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=1    age=    ageType=    drugIds=${drugIds}    symptom=肌酐清除率=20ml/min    confirmDiagnosis=
-    Should Be Equal As Strings    ${getRes['body']['tabooList'][0]['description']}    严重肾功能损害（GFR<30ml/min）慎用
+# 1.55 肾病审核结果
+#     [Documentation]    断言:"主诉:严重肾功能损害（GFR=20ml/min）慎用 ,药品id16553 ,非洛地平缓释片(Ⅱ)"
+#     ${drugIds}    Create List    16553
+#     ${drugCommonNames}    Create List
+#     ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=1    age=    ageType=    drugIds=${drugIds}    symptom=肌酐清除率=20ml/min    confirmDiagnosis=
+#     Should Be Equal As Strings    ${getRes['body']['tabooList'][0]['description']}    严重肾功能损害（GFR<30ml/min）慎用
 
 1.56 通用名
     [Documentation]    添加drugCommonNames,断言:"3个月以上孕妇慎用"
@@ -464,12 +467,12 @@ Suite Teardown    Delete All Sessions
     ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=Roemhelo综合症    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['tabooList'][0]['grade']}    1
 
-1.58 新增用药 症状:咯血 药品:7421 grade=1
-    [Documentation]    断言:"grade=2"
-    ${drugIds}    Create List    7421
-    ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=咯血    confirmDiagnosis=
-    Should Be Equal As Strings    ${getRes['body']['tabooList'][0]['grade']}    1
+# 1.58 新增用药 症状:咯血 药品:7421 grade=1
+#     [Documentation]    断言:"grade=2"
+#     ${drugIds}    Create List    7421
+#     ${drugCommonNames}    Create List
+#     ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=咯血    confirmDiagnosis=
+#     Should Be Equal As Strings    ${getRes['body']['tabooList'][0]['grade']}    1
 
 1.59 新增用药 症状:肌酐清除率<25ml/分 药品:8054 grade=1
     [Documentation]    断言:"grade=2"
