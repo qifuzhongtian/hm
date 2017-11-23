@@ -2,7 +2,7 @@
 # ${base_url}     http://apollo.huimeionline.com
 ${base_url}       http://118.178.109.153
 # ${base_url}     http://10.46.74.95:8080
-
+#####线上识别接口地址 http://10.165.102.219:8080/v_3_0/recognize
 
 #妇产科诊断性别_测试环境
 ${base_url_95}     http://10.46.74.95:9200
@@ -790,9 +790,9 @@ ame管理_文档列表查询
     [Arguments]    ${bodyTempr}    ${age}    ${ageType}    ${highBldPress}    ${lowBldPress}    ${pregnancyStatus}    ${recordInfo}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     ${recordInfo}    Evaluate    dict(${recordInfo})
-    Create Session    api    http://10.117.64.153:8099    ${dict}
+    Create Session    api    http://10.165.102.219:8080    ${dict}
     ${data}    Create Dictionary    bodyTempr=${bodyTempr}    age=${age}   ageType=${ageType}    highBldPress=${highBldPress}    lowBldPress=${lowBldPress}    pregnancyStatus=${pregnancyStatus}    recordInfo=${recordInfo}
-    ${addr}    Post Request    api    apollo/v_3_0/recognize    data=${data}
+    ${addr}    Post Request    api    /v_3_0/recognize    data=${data}
     ${responsedata}    To Json    ${addr.content}
     # Should Contain    ${aj[:15]}    ${msg}
     # Delete All Sessions
