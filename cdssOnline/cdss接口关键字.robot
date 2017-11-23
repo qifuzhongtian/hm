@@ -12,6 +12,8 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
 ${Huimei_id_safe_medication}      C3B844493A477BCF3D7B73A5E902B269
 ###建德
 ${Huimei_id_jd}      C3E74C229156E6B31534E946BCDEBA94
+##宣武医院
+${Huimei_id_xw}      8C946583A4EE9174D7B2D1697066BFA2
 
 #amc管理端
 ${base_url_amca}     http://amca.huimeionline.com/node
