@@ -9,7 +9,7 @@ Library           ExcelLibrary
 *** Test Cases ***
 3.4 for_list_excel
     # Open Excel    /Users/yinbo/Downloads/symptom宣武.xls
-    Open Excel    ../userdata.xls
+    Open Excel    /userdata.xls
     : FOR    ${i}    IN RANGE    806
     \    ${symptom}    Get sheet values    symptom页    1
     \    ${assert}    Get sheet values    assert页    1
