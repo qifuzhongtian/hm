@@ -1,6 +1,6 @@
 *** Variables ***
-# ${base_url}     http://apollo.huimeionline.com
-${base_url}       http://118.178.109.153
+${base_url}     http://apollo.huimeionline.com
+# ${base_url}       http://118.178.109.153
 # ${base_url}     http://10.46.74.95:8080
 #####线上识别接口地址 http://10.165.102.219:8080/v_3_0/recognize
 

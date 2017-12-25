@@ -25,19 +25,19 @@ Suite Teardown    Delete All Sessions
 # symptom String 否 主诉
 # confirmDiagnosis String 否 已确定诊断
 *** Test Cases ***
-市场部案例一
-    [Documentation]    主诉:突发上腹部疼痛，阵发性加剧，伴恶心、呕吐10小时.期望诊断结果返回的diseaseName含有'急性胰腺炎'
-    智能诊断top5    ['diseaseName']    急性胰腺炎    symptom=突发上腹部疼痛，阵发性加剧，伴恶心、呕吐10小时    previousHistory=
-    ...    personalHistory=    allergyHistory=    familyHistory=    weight=    gender=1    bodyTempr=    lowBldPress=
-    ...    highBldPress=    examInfo=    heartRate=    age=38    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=
-    ...    presentHistory=
+# 市场部案例一
+#     [Documentation]    主诉:突发上腹部疼痛，阵发性加剧，伴恶心、呕吐10小时.期望诊断结果返回的diseaseName含有'急性胰腺炎'
+#     智能诊断top5    ['diseaseName']    急性胰腺炎    symptom=突发上腹部疼痛，阵发性加剧，伴恶心、呕吐10小时    previousHistory=
+#     ...    personalHistory=    allergyHistory=    familyHistory=    weight=    gender=1    bodyTempr=    lowBldPress=
+#     ...    highBldPress=    examInfo=    heartRate=    age=38    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=
+#     ...    presentHistory=
 
-市场部案例二
-    [Documentation]    主诉:妊娠26周，先兆子痫住产科。突感胸痛,低压100,高压160.期望诊断结果返回的diseaseName含有'主动脉夹层'
-    智能诊断top5    ['diseaseName']    主动脉夹层    symptom=妊娠26周，先兆子痫住产科。突感胸痛    previousHistory=
-    ...    personalHistory=    allergyHistory=    familyHistory=    weight=    gender=0    bodyTempr=    lowBldPress=100
-    ...    highBldPress=160    examInfo=    heartRate=    age=35    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=
-    ...    presentHistory=
+# 市场部案例二
+#     [Documentation]    主诉:妊娠26周，先兆子痫住产科。突感胸痛,低压100,高压160.期望诊断结果返回的diseaseName含有'主动脉夹层'
+#     智能诊断top5    ['diseaseName']    主动脉夹层    symptom=妊娠26周，先兆子痫住产科。突感胸痛    previousHistory=
+#     ...    personalHistory=    allergyHistory=    familyHistory=    weight=    gender=0    bodyTempr=    lowBldPress=100
+#     ...    highBldPress=160    examInfo=    heartRate=    age=35    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=
+#     ...    presentHistory=
 
 
 # 市场部案例三

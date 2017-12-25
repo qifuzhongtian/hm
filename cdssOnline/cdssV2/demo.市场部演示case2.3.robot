@@ -139,21 +139,22 @@ Library           RequestsLibrary
     ${getRes}    智能诊断2.3    symptom=阴道分泌物增多并有异味4个月，偶有性交后出血1个月.妇科查体：阴道内分泌物多、色白、阴道无充血，宫颈中度糜烂，触之有少许出血    previousHistory=    personalHistory=G2P1    allergyHistory=    familyHistory=
     ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
     ...    heartRate=    age=44    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=    presentHistory=
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
+    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
+    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases'][11]['subDiseases']]
     log    ${aj}
     Should Contain    ${aj[:10]}    宫颈原位癌
 
-#市场部不验证这个
-# 13.妇产科室演示病例15例-4
-#        [Documentation]    主诉:'患者近5日感白带增多，臭鱼腥味，伴轻度外阴瘙痒，同房后加重，无尿频、尿急、尿痛等症状,妇科查体：外阴无红肿，阴道分泌物多，色白，米汤样，无充血。宫颈轻度糜烂，无充血水肿。妇科查体：外阴无红肿，阴道分泌物多，色白，米汤样，无充血。宫颈轻度糜烂，无充血水肿。'
-#        ${getRes}    智能诊断2.3    symptom=患者近5日感白带增多，臭鱼腥味，伴轻度外阴瘙痒，同房后加重，无尿频、尿急、尿痛等症状,妇科查体：外阴无红肿，阴道分泌物多，色白，米汤样，无充血。宫颈轻度糜烂，无充血水肿。妇科查体：外阴无红肿，阴道分泌物多，色白，米汤样，无充血。宫颈轻度糜烂，无充血水肿。
-#        ...    previousHistory=    personalHistory=G4P1
-#        ...    allergyHistory=    familyHistory=
-#        ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=
-#        ...    examInfo=    heartRate=    age=29    ageType=岁    confirmDiagnosis=
-#        ...    confirmDiagnosisMap=    presentHistory=
-#        ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
-#        Should Contain    ${aj[:10]}    细菌性阴道病
+# #市场部不验证这个
+# # 13.妇产科室演示病例15例-4
+# #        [Documentation]    主诉:'患者近5日感白带增多，臭鱼腥味，伴轻度外阴瘙痒，同房后加重，无尿频、尿急、尿痛等症状,妇科查体：外阴无红肿，阴道分泌物多，色白，米汤样，无充血。宫颈轻度糜烂，无充血水肿。妇科查体：外阴无红肿，阴道分泌物多，色白，米汤样，无充血。宫颈轻度糜烂，无充血水肿。'
+# #        ${getRes}    智能诊断2.3    symptom=患者近5日感白带增多，臭鱼腥味，伴轻度外阴瘙痒，同房后加重，无尿频、尿急、尿痛等症状,妇科查体：外阴无红肿，阴道分泌物多，色白，米汤样，无充血。宫颈轻度糜烂，无充血水肿。妇科查体：外阴无红肿，阴道分泌物多，色白，米汤样，无充血。宫颈轻度糜烂，无充血水肿。
+# #        ...    previousHistory=    personalHistory=G4P1
+# #        ...    allergyHistory=    familyHistory=
+# #        ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=
+# #        ...    examInfo=    heartRate=    age=29    ageType=岁    confirmDiagnosis=
+# #        ...    confirmDiagnosisMap=    presentHistory=
+# #        ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
+# #        Should Contain    ${aj[:10]}    细菌性阴道病
 
 14.妇产科室演示病例15例-5
        [Documentation]    主诉:'腹胀、纳差、消瘦4个月 查体：腹部明显膨隆，移动性浊音阳性。妇科检查：子宫颈光滑，子宫较正常小，双附件区扪及质硬，固定包块，大小约10cm，包块界线不清，后陷凹扪及质硬肿块压迫直肠，直肠粘膜光滑。'
@@ -163,7 +164,7 @@ Library           RequestsLibrary
        ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=
        ...    examInfo=    heartRate=    age=56    ageType=岁    confirmDiagnosis=
        ...    confirmDiagnosisMap=    presentHistory=
-       ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases'][9]['subDiseases']]
+       ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases'][6]['subDiseases']]
        Should Contain    ${aj[:10]}    卵巢恶性肿瘤
        # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
        # Should Contain    ${aj[:10]}    恶性肿瘤
@@ -202,6 +203,7 @@ Library           RequestsLibrary
        ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
        Should Contain    ${aj[:10]}    急性宫颈炎
 
+
 18.妇产科室演示病例15例-9
        [Documentation]    主诉:'阴道接触性出血1年、不规则阴道流血5个月。1年前同房后出现少量阴道出血，未予重视，未做任何处理。5个月前发生不规则阴道流血，无发热及腹痛。查体:宫颈中度糜烂、下唇长大呈菜花状，直径约4c m'
        ${getRes}    智能诊断2.3    symptom=阴道接触性出血1年、不规则阴道流血5个月。1年前同房后出现少量阴道出血，未予重视，未做任何处理。5个月前发生不规则阴道流血，无发热及腹痛。查体:宫颈中度糜烂、下唇长大呈菜花状，直径约4c m
@@ -210,7 +212,8 @@ Library           RequestsLibrary
        ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=
        ...    examInfo=    heartRate=    age=50    ageType=岁    confirmDiagnosis=
        ...    confirmDiagnosisMap=    presentHistory=
-       ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases'][0]['subDiseases']]
+       ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases'][1]['subDiseases']]
+       # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
        Should Contain    ${aj[:10]}    子宫颈癌
 
 19.妇产科室演示病例15例-10
@@ -357,4 +360,4 @@ Library           RequestsLibrary
        ...    examInfo=    heartRate=    age=68    ageType=岁    confirmDiagnosis=
        ...    confirmDiagnosisMap=    presentHistory=
        ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
-       Should Contain    ${aj[:10]}    2型糖尿病
+       Should Contain    ${aj[:11]}    2型糖尿病
