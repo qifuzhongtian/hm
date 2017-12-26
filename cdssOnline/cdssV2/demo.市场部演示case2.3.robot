@@ -27,6 +27,7 @@ Library           RequestsLibrary
 
 
 *** Test Cases ***
+
 1.市场部案例一
     [Documentation]    主诉:突发上腹部疼痛，阵发性加剧，伴恶心、呕吐10小时.期望诊断结果返回的diseaseName top5含有'急性胰腺炎'
     ${getRes}    智能诊断2.3    symptom=突发上腹部疼痛，阵发性加剧，伴恶心、呕吐10小时    previousHistory=    personalHistory=    allergyHistory=    familyHistory=
@@ -135,14 +136,14 @@ Library           RequestsLibrary
     #    Should Contain    ${aj[:10]}    宫颈原位癌
 
 12.妇产科室演示病例15例-3-子疾病
-    [Documentation]    主诉:阴道分泌物增多并有异味4个月，偶有性交后出血1个月.妇科查体：阴道内分泌物多、色白、阴道无充血，宫颈中度糜烂，触之有少许出血'
-    ${getRes}    智能诊断2.3    symptom=阴道分泌物增多并有异味4个月，偶有性交后出血1个月.妇科查体：阴道内分泌物多、色白、阴道无充血，宫颈中度糜烂，触之有少许出血    previousHistory=    personalHistory=G2P1    allergyHistory=    familyHistory=
-    ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
-    ...    heartRate=    age=44    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=    presentHistory=
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases'][11]['subDiseases']]
-    log    ${aj}
-    Should Contain    ${aj[:10]}    宫颈原位癌
+   [Documentation]    主诉:阴道分泌物增多并有异味4个月，偶有性交后出血1个月.妇科查体：阴道内分泌物多、色白、阴道无充血，宫颈中度糜烂，触之有少许出血'
+   ${getRes}    智能诊断2.3    symptom=阴道分泌物增多并有异味4个月，偶有性交后出血1个月.妇科查体：阴道内分泌物多、色白、阴道无充血，宫颈中度糜烂，触之有少许出血    previousHistory=    personalHistory=G2P1    allergyHistory=    familyHistory=
+   ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
+   ...    heartRate=    age=44    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=    presentHistory=
+   # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
+   ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases'][9]['subDiseases']]
+   log    ${aj}
+   Should Contain    ${aj[:10]}    宫颈原位癌
 
 # #市场部不验证这个
 # # 13.妇产科室演示病例15例-4
@@ -164,7 +165,7 @@ Library           RequestsLibrary
        ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=
        ...    examInfo=    heartRate=    age=56    ageType=岁    confirmDiagnosis=
        ...    confirmDiagnosisMap=    presentHistory=
-       ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases'][6]['subDiseases']]
+       ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases'][2]['subDiseases']]
        Should Contain    ${aj[:10]}    卵巢恶性肿瘤
        # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
        # Should Contain    ${aj[:10]}    恶性肿瘤
@@ -212,7 +213,7 @@ Library           RequestsLibrary
        ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=
        ...    examInfo=    heartRate=    age=50    ageType=岁    confirmDiagnosis=
        ...    confirmDiagnosisMap=    presentHistory=
-       ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases'][1]['subDiseases']]
+       ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases'][0]['subDiseases']]
        # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
        Should Contain    ${aj[:10]}    子宫颈癌
 
