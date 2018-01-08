@@ -14,4 +14,3 @@ Library           RequestsLibrary
     log    ${getRes}
     Should Be Equal As Strings    ${getRes['body']['commonSymptom'][0]}    发热
     # [Teardown]    Delete All Sessions
-

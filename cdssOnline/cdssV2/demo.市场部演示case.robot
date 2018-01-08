@@ -47,49 +47,49 @@ Suite Teardown    Delete All Sessions
 #     ...    highBldPress=    examInfo=    heartRate=    age=14    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=
 #     ...    presentHistory=
 
-市场部案例四
-    [Documentation]    主诉:腹泻，腹痛，血便1周 结膜苍白.期望诊断结果返回的diseaseName含有'结肠癌'
-    智能诊断前top15    ['diseaseName']    结肠癌    symptom=腹泻，腹痛，血便1周 结膜苍白    previousHistory=
-    ...    personalHistory=    allergyHistory=    familyHistory=    weight=    gender=0    bodyTempr=    lowBldPress=
-    ...    highBldPress=    examInfo=    heartRate=    age=70    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=
-    ...    presentHistory=
+# 市场部案例四
+#     [Documentation]    主诉:腹泻，腹痛，血便1周 结膜苍白.期望诊断结果返回的diseaseName含有'结肠癌'
+#     智能诊断前top15    ['diseaseName']    结肠癌    symptom=腹泻，腹痛，血便1周 结膜苍白    previousHistory=
+#     ...    personalHistory=    allergyHistory=    familyHistory=    weight=    gender=0    bodyTempr=    lowBldPress=
+#     ...    highBldPress=    examInfo=    heartRate=    age=70    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=
+#     ...    presentHistory=
 
-市场部案例五
-    [Documentation]    主诉:腹泻，腹痛，血便1周 结膜苍白.期望诊断结果返回的diseaseName含有'甲状腺功能减退症'
-    智能诊断top5    ['diseaseName']    甲状腺功能减退症    symptom=便秘1年余就诊，大便由平常每日1次渐至每周1次，且伴有体重增加（约10kg），纳差，腹胀，易疲劳    previousHistory=
-    ...    personalHistory=    allergyHistory=    familyHistory=    weight=    gender=0    bodyTempr=    lowBldPress=
-    ...    highBldPress=    examInfo=    heartRate=    age=28    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=
-    ...    presentHistory=
-
-
-惠每医疗宣传手册案例一
-    [Documentation]    主诉:腰痛、下肢疼痛、尿潴留,出现'腰椎间盘突出症'.期望诊断结果返回的diseaseName含有'腰椎间盘突出症'
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=78D211AA892A8155EF18F4CDB967043A
-    Create Session    api    http://apollo.huimeionline.com    ${dict}
-    ${data}    Create Dictionary    symptom=腰痛、下肢疼痛、尿潴留    previousHistory=    personalHistory=    allergyHistory=    familyHistory=
-    ...    weight=    gender=    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
-    ...    heartRate=    age=38    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap[]=    presentHistory=
-    ${addr}    Post Request    api    v_2_2/diagnose_through_interrogation    data=${data}
-    ${responsedata}    To Json    ${addr.content}
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $responsedata['body']['suspectedDiseases']]
-    Should Contain    ${aj[:5]}    腰椎间盘突出症
-    # Should Not Contain    ${aj[:5]}    前列腺增生
-    Delete All Sessions
+# 市场部案例五
+#     [Documentation]    主诉:腹泻，腹痛，血便1周 结膜苍白.期望诊断结果返回的diseaseName含有'甲状腺功能减退症'
+#     智能诊断top5    ['diseaseName']    甲状腺功能减退症    symptom=便秘1年余就诊，大便由平常每日1次渐至每周1次，且伴有体重增加（约10kg），纳差，腹胀，易疲劳    previousHistory=
+#     ...    personalHistory=    allergyHistory=    familyHistory=    weight=    gender=0    bodyTempr=    lowBldPress=
+#     ...    highBldPress=    examInfo=    heartRate=    age=28    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=
+#     ...    presentHistory=
 
 
+# 惠每医疗宣传手册案例一
+#     [Documentation]    主诉:腰痛、下肢疼痛、尿潴留,出现'腰椎间盘突出症'.期望诊断结果返回的diseaseName含有'腰椎间盘突出症'
+#     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=78D211AA892A8155EF18F4CDB967043A
+#     Create Session    api    http://apollo.huimeionline.com    ${dict}
+#     ${data}    Create Dictionary    symptom=腰痛、下肢疼痛、尿潴留    previousHistory=    personalHistory=    allergyHistory=    familyHistory=
+#     ...    weight=    gender=    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
+#     ...    heartRate=    age=38    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap[]=    presentHistory=
+#     ${addr}    Post Request    api    v_2_2/diagnose_through_interrogation    data=${data}
+#     ${responsedata}    To Json    ${addr.content}
+#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $responsedata['body']['suspectedDiseases']]
+#     Should Contain    ${aj[:5]}    腰椎间盘突出症
+#     # Should Not Contain    ${aj[:5]}    前列腺增生
+#     Delete All Sessions
 
-惠每医疗宣传手册案例二
-    [Documentation]    主诉:腰痛、下肢疼痛、尿潴留,性别女.诊断结果返回的diseaseName不会出现'前列腺增生'
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=78D211AA892A8155EF18F4CDB967043A
-    Create Session    api    http://apollo.huimeionline.com    ${dict}
-    ${data}    Create Dictionary    symptom=腰痛、下肢疼痛、尿潴留    previousHistory=    personalHistory=    allergyHistory=    familyHistory=
-    ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
-    ...    heartRate=    age=38    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap[]=    presentHistory=
-    ${addr}    Post Request    api    v_2_2/diagnose_through_interrogation    data=${data}
-    ${responsedata}    To Json    ${addr.content}
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $responsedata['body']['suspectedDiseases']]
-    Should Not Contain    ${aj[:5]}    前列腺增生
-    Delete All Sessions
+
+
+# 惠每医疗宣传手册案例二
+#     [Documentation]    主诉:腰痛、下肢疼痛、尿潴留,性别女.诊断结果返回的diseaseName不会出现'前列腺增生'
+#     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=78D211AA892A8155EF18F4CDB967043A
+#     Create Session    api    http://apollo.huimeionline.com    ${dict}
+#     ${data}    Create Dictionary    symptom=腰痛、下肢疼痛、尿潴留    previousHistory=    personalHistory=    allergyHistory=    familyHistory=
+#     ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
+#     ...    heartRate=    age=38    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap[]=    presentHistory=
+#     ${addr}    Post Request    api    v_2_2/diagnose_through_interrogation    data=${data}
+#     ${responsedata}    To Json    ${addr.content}
+#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $responsedata['body']['suspectedDiseases']]
+#     Should Not Contain    ${aj[:5]}    前列腺增生
+#     Delete All Sessions
 
 
 
