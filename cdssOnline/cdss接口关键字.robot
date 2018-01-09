@@ -1,5 +1,7 @@
 *** Variables ***
 ${base_url}     http://apollo.huimeionline.com
+${mayson_url}     http://47.95.203.183/cdss
+
 # ${base_url}       http://118.178.109.153
 # ${base_url}     http://10.46.74.95:8080
 #####线上识别接口地址 http://10.165.102.219:8080/v_3_0/recognize
@@ -840,7 +842,7 @@ ame管理_文档列表查询
     ...    ${labTestList}
     ...    ${examinationList}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id_xw}
-    Create Session    api    http://47.95.203.183/mayson/    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${patientInfo}    Evaluate    dict(${patientInfo})
     ${physicalSign}    Evaluate    dict(${physicalSign})
     ${definiteDiagnosis}    Evaluate    [${definiteDiagnosis}]
