@@ -840,7 +840,7 @@ ame管理_文档列表查询
     ...    ${labTestList}
     ...    ${examinationList}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id_xw}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    http://47.95.203.183/mayson/    ${dict}
     ${patientInfo}    Evaluate    dict(${patientInfo})
     ${physicalSign}    Evaluate    dict(${physicalSign})
     ${definiteDiagnosis}    Evaluate    [${definiteDiagnosis}]
