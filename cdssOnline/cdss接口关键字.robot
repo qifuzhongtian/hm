@@ -754,6 +754,26 @@ amcPc版科室统计图型
     [Return]    ${responsedata}
 
 
+amcPc版症状搜索
+    [Arguments]    ${symptom}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    symptom=${symptom}
+    ${addr}    Post Request    api    /amc/symptom    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+
+amcPc客户信息
+    [Arguments]    ${authKey}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    authKey=${authKey}
+    ${addr}    Post Request    api    /customer_info    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
 
 
 #########AME##################
