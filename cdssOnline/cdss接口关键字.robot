@@ -1,8 +1,8 @@
 *** Variables ***
-${base_url}     http://apollo.huimeionline.com
+# ${base_url}     http://apollo.huimeionline.com
 ${mayson_url}     http://47.95.203.183/cdss
 
-# ${base_url}       http://118.178.109.153
+${base_url}       http://118.178.109.153
 # ${base_url}     http://10.46.74.95:8080
 #####线上识别接口地址 http://10.165.102.219:8080/v_3_0/recognize
 
@@ -20,6 +20,7 @@ ${Huimei_id_xw}      8C946583A4EE9174D7B2D1697066BFA2
 #amc管理端
 ${base_url_amca}     http://amca.huimeionline.com/node
 
+${base_url_ame}     http://10.46.74.95:8092
 
 *** Keywords ***
 获取时间戳
@@ -668,10 +669,10 @@ amc管理端_问诊记录列表详情
 
 
 amc进入
-    [Arguments]    ${AlgoID}    ${age}    ${ageStyle}    ${gender}    ${symptomId}    ${patientName}    ${patientPhone}
+    [Arguments]    ${AlgoID}    ${age}    ${ageStyle}    ${gender}    ${symptomId}    ${symptomName}    ${patientName}    ${patientPhone}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${base_url}    ${dict}
-    ${data}    Create Dictionary    AlgoID=${AlgoID}    age=${age}    ageStyle=${ageStyle}    gender=${gender}    symptomId=${symptomId}    patientName=${patientName}    patientPhone=${patientPhone}
+    ${data}    Create Dictionary    AlgoID=${AlgoID}    age=${age}    ageStyle=${ageStyle}    gender=${gender}    symptomId=${symptomId}    symptomName=${symptomName}    patientName=${patientName}    patientPhone=${patientPhone}
     ${addr}    Post Request    api    amc/exam_enter    data=${data}
     ${responsedata}    To Json    ${addr.content}
     # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
@@ -718,6 +719,41 @@ amc问诊记录
     ${addr}    Post Request    api    amc/record_info    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+
+
+
+问诊记录添加备注
+    [Arguments]    ${number}    ${recordRemark}
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    number=${number}    recordRemark=${recordRemark}
+    ${addr}    Post Request    api    amc/update_record    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+amcPc版症状统计图型
+    [Arguments]    ${enterTime}    ${recordTime}    ${symptom}    ${gender}    ${subject}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    enterTime=${enterTime}    recordTime=${recordTime}    symptom=${symptom}    gender=${gender}    subject=${subject}
+    ${addr}    Post Request    api    /amc/static_symptom    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+
+amcPc版科室统计图型
+    [Arguments]    ${enterTime}    ${recordTime}    ${symptom}    ${gender}    ${subject}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    enterTime=${enterTime}    recordTime=${recordTime}    symptom=${symptom}    gender=${gender}    subject=${subject}
+    ${addr}    Post Request    api    /amc/static_subject    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
 
 
 #########AME##################
