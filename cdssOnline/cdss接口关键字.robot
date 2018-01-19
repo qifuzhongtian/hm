@@ -722,6 +722,18 @@ amc问诊记录
 
 
 
+amc常见症状
+    [Arguments]
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary
+    ${addr}    Post Request    api    /amc/common_symptom    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    [Return]    ${responsedata}
+
+
+
 问诊记录添加备注
     [Arguments]    ${number}    ${recordRemark}
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
