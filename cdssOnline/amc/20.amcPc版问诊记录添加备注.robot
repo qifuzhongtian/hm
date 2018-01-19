@@ -7,19 +7,15 @@ Library           Collections
 Library           RequestsLibrary
 
 # 字段名 类型  说明
-# {
-#      incoming_ids": 2959,
-#     "question": "26",
-#     "answers": "岁",
-#     "gender": 88,
-#     "symptomId": 8,
-#     "patientName": "咳嗽患者",
-    # "patientPhone": "13810578456"
-# }
+# 字段名	类型	是否必填	说明
+# id	Integer	是	问诊记录id
+# recordRemark	String	  是	备注
+
 *** Variables ***
 
 *** Test Cases ***
-3.1 amc问诊记录
+5.1 问诊记录添加备注
    # [Documentation]    断言:"error=0 成功"
-    ${getRes}    amc问诊记录    number=${number}
+    ${getRes}    问诊记录添加备注    number=${number}    recordRemark=接口加备注
     Should Be Equal As Strings    ${getRes['head']['error']}    0
+
