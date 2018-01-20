@@ -947,3 +947,29 @@ ame管理_文档列表查询
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
+
+mayson搜索
+    [Arguments]    ${name}    ${hasAssessType}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id_safe_medication}
+    Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    name=${name}    hasAssessType=${hasAssessType}
+    ${addr}    Post Request    api    v_2_3/search/all    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    [Return]    ${responsedata}
+
+
+
+
+mayson默认推荐搜索
+    [Arguments]    ${doctorGuid}    ${department}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id_xw}
+    Create Session    api    http://47.95.203.183    ${dict}
+    ${data}    Create Dictionary    doctorGuid=${doctorGuid}    department=${department}
+    ${addr}    Post Request    api    cdss/mayson/track/default_recommend    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    [Return]    ${responsedata}
+
+
+
