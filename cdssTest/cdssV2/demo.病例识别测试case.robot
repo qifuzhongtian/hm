@@ -6,12 +6,12 @@ Library           RequestsLibrary
 Suite Teardown    Delete All Sessions
 
 *** Test Cases ***
-1.血氧饱和度为89% -> 血氧饱和度降低
-    [Documentation]    断言:"[recognizeResultList]包含:血氧饱和度降低"
-    ${getRes}    病例识别    symptom=血氧饱和度为89%
-    ...    gender=    age=    ageType=
-    ${aj}    Evaluate    [aj['word'] for aj in $getRes['body']['recognizeResultList']]
-    Should Contain    ${aj[:3]}    血氧饱和度降低
+# 1.血氧饱和度为89% -> 血氧饱和度降低
+#     [Documentation]    断言:"[recognizeResultList]包含:血氧饱和度降低"
+#     ${getRes}    病例识别    symptom=血氧饱和度为89%
+#     ...    gender=    age=    ageType=
+#     ${aj}    Evaluate    [aj['word'] for aj in $getRes['body']['recognizeResultList']]
+#     Should Contain    ${aj[:3]}    血氧饱和度降低
 
 # 2.嗜酸性粒细胞计数1.03×10^9／L -> 嗜酸性粒细胞增多
 #     [Documentation]    断言:"[recognizeResultList]包含:嗜酸性粒细胞增多"
