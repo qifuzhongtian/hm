@@ -930,7 +930,7 @@ ame管理_文档列表查询
 用药推荐
     [Arguments]    ${userGuid}    ${serialNumber}    ${patientInfo}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id_jd}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${patientInfo}    Evaluate    dict(${patientInfo})
     ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    patientInfo=${patientInfo}
     ${addr}    Post Request    api    mayson/v_1_0/medication_regimen    data=${data}

@@ -1,4 +1,4 @@
-*** Settings ***
+ds*** Settings ***
 Resource          ../cdss接口关键字.robot
 Library           Collections
 Library           RequestsLibrary
@@ -18,7 +18,8 @@ Suite Teardown    Delete All Sessions
 #     ${getRes}    病例识别    symptom=嗜酸性粒细胞计数1.03×10^9／L
 #     ...    gender=    age=    ageType=
 #     ${aj}    Evaluate    [aj['word'] for aj in $getRes['body']['recognizeResultList']]
-#     Should Contain    ${aj[:3]}    嗜酸性粒细胞增多
+#     Should Contain    ${aj[:3]}    嗜酸性粒细胞增
+多
 
 # 3.血钾<3.5mmol/L -> 血钾降低
 #     [Documentation]    断言:"[recognizeResultList]包含:血钾减低"
