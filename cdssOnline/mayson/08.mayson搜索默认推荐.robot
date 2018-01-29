@@ -13,6 +13,6 @@ Suite Teardown    Delete All Sessions
     [Documentation]    查看默认推荐搜索词:包含流行性感冒
     ${getRes}    mayson默认推荐搜索    doctorGuid=1    department=儿科
     ${aj}    Evaluate    [aj['recommend'] for aj in $getRes['body'][0]['recommends']]
-    Should Contain    ${aj}    流行性感冒
+    Should Contain    ${aj}    急性心肌梗死
     # Should Be Equal As Strings    ${getRes['body'][0]['recommends'][0]['recommend']}    急性心肌梗死
 
