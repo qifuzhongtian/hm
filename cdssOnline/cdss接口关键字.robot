@@ -883,7 +883,7 @@ ame管理_文档列表查询
     ...    ${labTestList}
     ...    ${examinationList}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id_jd}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${patientInfo}    Evaluate    dict(${patientInfo})
     ${physicalSign}    Evaluate    dict(${physicalSign})
     ${definiteDiagnosis}    Evaluate    [${definiteDiagnosis}]
@@ -940,7 +940,7 @@ ame管理_文档列表查询
 用药推荐_宣武
     [Arguments]    ${userGuid}    ${serialNumber}    ${patientInfo}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id_xw}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${patientInfo}    Evaluate    dict(${patientInfo})
     ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    patientInfo=${patientInfo}
     ${addr}    Post Request    api    mayson/v_1_0/medication_regimen    data=${data}
@@ -959,8 +959,6 @@ mayson搜索
     [Return]    ${responsedata}
 
 
-
-
 mayson默认推荐搜索
     [Arguments]    ${doctorGuid}    ${department}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id_xw}
@@ -972,4 +970,19 @@ mayson默认推荐搜索
     [Return]    ${responsedata}
 
 
+
+治疗方案
+    [Arguments]    ${symptom}    ${uuid}    ${previousHistory}    ${personalHistory}    ${allergyHistory}    ${familyHistory}    ${weight}
+    ...    ${gender}    ${bodyTempr}    ${lowBldPress}    ${highBldPress}    ${examInfo}    ${heartRate}
+    ...    ${age}    ${ageType}    ${confirmDiagnosis}    ${confirmDiagnosisMap}    ${presentHistory}
+    # ...    ${examItems}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    symptom=${symptom}    uuid=${uuid}    previousHistory=${previousHistory}    personalHistory=${personalHistory}    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}
+    ...    weight=${weight}    gender=${gender}    bodyTempr=${bodyTempr}    lowBldPress=${lowBldPress}    highBldPress=${highBldPress}    examInfo=${examInfo}
+    ...    heartRate=${heartRate}    age=${age}    ageType=${ageType}    confirmDiagnosis=${confirmDiagnosis}    confirmDiagnosisMap[]=${confirmDiagnosisMap}    presentHistory=${presentHistory}
+    # ...    examItems[]=${examItems}
+    ${addr}    Post Request    api    apollo/athena/v_1_0/regimen    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
 
