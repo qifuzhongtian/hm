@@ -1,4 +1,4 @@
-ds*** Settings ***
+*** Settings ***
 Resource          ../cdss接口关键字.robot
 Library           Collections
 Library           RequestsLibrary
@@ -19,7 +19,7 @@ Suite Teardown    Delete All Sessions
 #     ...    gender=    age=    ageType=
 #     ${aj}    Evaluate    [aj['word'] for aj in $getRes['body']['recognizeResultList']]
 #     Should Contain    ${aj[:3]}    嗜酸性粒细胞增
-多
+
 
 # 3.血钾<3.5mmol/L -> 血钾降低
 #     [Documentation]    断言:"[recognizeResultList]包含:血钾减低"
@@ -95,9 +95,9 @@ Suite Teardown    Delete All Sessions
 #     ${aj}    Evaluate    [aj['word'] for aj in $getRes['body']['recognizeResultList']]
 #     Should Contain    ${aj[:3]}     血小板计数减少
 
-# 13.血清肌酐：120umol/L->血清肌酐升高
-#     [Documentation]    断言:"[recognizeResultList]包含: 血清肌酐升高"
-#     ${getRes}    病例识别    symptom=血清肌酐：120umol/L
-#     ...    gender=    age=    ageType=
-#     ${aj}    Evaluate    [aj['word'] for aj in $getRes['body']['recognizeResultList']]
-#     Should Contain    ${aj[:3]}     血清肌酐升高
+13.血清肌酐：120umol/L->血清肌酐升高
+    [Documentation]    断言:"[recognizeResultList]包含: 血清肌酐升高"
+    ${getRes}    病例识别    symptom=血清肌酐：120umol/L
+    ...    gender=    age=    ageType=
+    ${aj}    Evaluate    [aj['word'] for aj in $getRes['body']['recognizeResultList']]
+    Should Contain    ${aj[:3]}     血清肌酐升高
