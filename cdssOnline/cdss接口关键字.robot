@@ -14,6 +14,8 @@ ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
 ${Huimei_id_safe_medication}      C3B844493A477BCF3D7B73A5E902B269
 ###建德
 ${Huimei_id_jd}      C3E74C229156E6B31534E946BCDEBA94
+#his
+${Huimei_id_his}      D7928B9182ABF6E0A6A6EBB71B353585
 ##宣武医院
 ${Huimei_id_xw}      8C946583A4EE9174D7B2D1697066BFA2
 
@@ -518,7 +520,7 @@ test
 妇产科诊断性别
     [Arguments]    ${query}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url_95}    ${dict}
+    Create Session    api    ${base_url_72}    ${dict}
     ${object}    Set Variable    {"bool":{"must":[{"term":{"department":"妇产科"}}],"filter":{"bool":{"should":[{"term":{"gender":0}},{"term":{"gender":1}}]}}}}
     ${query}    Evaluate    dict(${object})
     ${data}    Create Dictionary    query=${query}
@@ -976,13 +978,13 @@ mayson默认推荐搜索
     ...    ${gender}    ${bodyTempr}    ${lowBldPress}    ${highBldPress}    ${examInfo}    ${heartRate}
     ...    ${age}    ${ageType}    ${confirmDiagnosis}    ${confirmDiagnosisMap}    ${presentHistory}
     # ...    ${examItems}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id_his}
     Create Session    api    ${base_url}    ${dict}
     ${data}    Create Dictionary    symptom=${symptom}    uuid=${uuid}    previousHistory=${previousHistory}    personalHistory=${personalHistory}    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}
     ...    weight=${weight}    gender=${gender}    bodyTempr=${bodyTempr}    lowBldPress=${lowBldPress}    highBldPress=${highBldPress}    examInfo=${examInfo}
     ...    heartRate=${heartRate}    age=${age}    ageType=${ageType}    confirmDiagnosis=${confirmDiagnosis}    confirmDiagnosisMap[]=${confirmDiagnosisMap}    presentHistory=${presentHistory}
     # ...    examItems[]=${examItems}
-    ${addr}    Post Request    api    apollo/athena/v_1_0/regimen    data=${data}
+    ${addr}    Post Request    api    athena/v_1_0/regimen    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
