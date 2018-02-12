@@ -31,5 +31,5 @@ Suite Setup        ame登录    userName=developer    password=9d06407716dd900dc
 1.4 查询:搜索词为英文
     [Documentation]    搜索词为英文
     ${getRes}    ame查询    name=Parkinson
-    ${aj}    Evaluate    [aj['zhName'] for aj in $getRes['body']['xmlAliasList']]
-    Should Contain    ${aj}    帕金森病
+    ${aj}    Evaluate    [aj['enName'] for aj in $getRes['body']['xmlAliasList']]
+    Should Contain    ${aj}    Parkinson disease
