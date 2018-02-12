@@ -918,11 +918,11 @@ ame管理_文档列表查询
     [Arguments]    ${symptom}    ${assert}
     [Documentation]
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=78D211AA892A8155EF18F4CDB967043A
-    # Create Session    api    http://10.117.64.153:8080    ${dict}
+    Create Session    api    http://10.117.64.153:8080    ${dict}
     #95环境
     # Create Session    api    http://10.46.74.95:8099    ${dict}
     #线上
-    Create Session    api    http://47.95.203.183:8080    ${dict}
+    # Create Session    api    http://47.95.203.183:8080    ${dict}
     ${data}    Create Dictionary    symptom=${symptom}    ${assert}=${assert}    previousHistory=    personalHistory=    allergyHistory=    familyHistory=
     ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
     ...    heartRate=    age=30    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap[]=    presentHistory=
