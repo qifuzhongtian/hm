@@ -741,7 +741,7 @@ Library           ExcelLibrary    # 字段名 类型 是否必须 说明    # us
     MGMT甲基化    MGMT甲基化
     MGMT基因沉默治疗神经胶质母细胞瘤的获益    MGMT基因沉默治疗神经胶质母细胞瘤的获益
     LV功能异常    LV功能异常
-    LDL-C159mg/dl    LDL-C>160mg/dl
+    LDL-C161mg/dl    LDL-C>160mg/dl
     LDL-C70mg/dl    LDL-C>=70mg/dl
     LDL-C71mg/dl    LDL-C>=70mg/dl
     LDL-C250mg/dl    LDL-C>=250mg/dl
@@ -777,7 +777,7 @@ Library           ExcelLibrary    # 字段名 类型 是否必须 说明    # us
     Glasgow-Blatchford评分1    Glasgow-Blatchford评分[0-1]
     EGD未发现出血源    EGD未发现出血源
     EF59%    EF<60%
-    EF49％    EF<50％
+    EF49%    EF<50％
     射血分数49％    EF<50%
     ECOG评估4级    ECOG评估4级
     ECOG评估3级    ECOG评估3级

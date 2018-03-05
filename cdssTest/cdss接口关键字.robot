@@ -421,7 +421,8 @@ ${null}    null
     ...    ${age}    ${ageType}    ${confirmDiagnosis}    ${confirmDiagnosisMap}    ${presentHistory}
     # ...    ${examItems}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    http://10.46.74.95:8080    ${dict}
+    # Create Session    api    http://10.46.74.95:8080    ${dict}
+    Create Session    api    ${base_url}    ${dict}
     ${data}    Create Dictionary    symptom=${symptom}    previousHistory=${previousHistory}    personalHistory=${personalHistory}    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}
     ...    weight=${weight}    gender=${gender}    bodyTempr=${bodyTempr}    lowBldPress=${lowBldPress}    highBldPress=${highBldPress}    examInfo=${examInfo}
     ...    heartRate=${heartRate}    age=${age}    ageType=${ageType}    confirmDiagnosis=${confirmDiagnosis}    confirmDiagnosisMap[]=${confirmDiagnosisMap}    presentHistory=${presentHistory}
@@ -923,10 +924,10 @@ ame管理_文档列表查询
     # Create Session    api    http://10.46.74.95:8099    ${dict}
     #线上
     # Create Session    api    http://47.95.203.183:8080    ${dict}
-    ${data}    Create Dictionary    symptom=${symptom}    ${assert}=${assert}    previousHistory=    personalHistory=    allergyHistory=    familyHistory=
+    ${data}    Create Dictionary    symptom=${symptom}    previousHistory=    personalHistory=    allergyHistory=    familyHistory=
     ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
     ...    heartRate=    age=30    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap[]=    presentHistory=
-    ${addr}    Post Request    api    apollo/v_3_0/recognize    data=${data}
+    ${addr}    Post Request    api    /v_3_0/recognize    data=${data}
     ${responsedata}    To Json    ${addr.content}
     ${aj}      Evaluate    [aj['word'] for aj in $responsedata['body']['recognizeResultList']]
     Should Contain    ${aj}    ${assert}

@@ -1179,7 +1179,7 @@ Library           ExcelLibrary    # 字段名 类型 是否必须 说明    # us
     ANA:1U    ANA>=1U
     ANA:2U    ANA>=1U
     ANA:1:640(IFA法)    ANA>=1:640(IFA法)
-    ANA:1:641(IFA法)    ANA>=1:640(IFA法)
+    ANA:1:639(IFA法)    ANA>=1:640(IFA法)
     ANA:0.9U    ANA<1U
     ANA:1U    ANA[1U-3U]
     ANA:3U    ANA[1U-3U]
