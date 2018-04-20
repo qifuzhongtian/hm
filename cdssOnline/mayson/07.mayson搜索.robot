@@ -13,7 +13,7 @@ Suite Teardown    Delete All Sessions
 #     [Documentation]    搜索"出血",断言搜索结果包含评估表"出血危险分层"
 #     # 查询药品与诊断    ['body']['diseaseList'][0]['id']    5048
 #     # ...    name=高血糖
-#     ${getRes}    mayson搜索    name=疼痛    hasAssessType=true
+#     ${getRes}    mayson搜索    name=出血    hasAssessType=true
 #     ${aj}    Evaluate    [aj['assessType'] for aj in $getRes['body']['assessTypeList']]
 #     Should Contain    ${aj}    出血危险分层
 
