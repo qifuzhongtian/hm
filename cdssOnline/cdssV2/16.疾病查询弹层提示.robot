@@ -11,7 +11,9 @@ Suite Teardown    Delete All Sessions
 15.1 疾病查询弹层提示
     [Documentation]    断言error:"diseaseName=病毒性上呼吸道感染(感冒)""
     ${getRes}    疾病查询弹层提示    diseaseName=感冒
-    Should Be Equal As Strings    ${getRes['body']['diseaseList'][0]['diseaseName']}    病毒性上呼吸道感染(感冒)
+    # Should Be Equal As Strings    ${getRes['body']['diseaseList'][0]['diseaseName']}    病毒性上呼吸道感染(感冒)
+    Should Contain    ${getRes['body']['diseaseList'][0]['diseaseName']}    病毒性上呼吸道感染
+
 
 
 
