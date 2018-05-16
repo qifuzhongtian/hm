@@ -3,22 +3,29 @@ ${base_url_ol}     http://apollo.huimeionline.com
 ${amc_url_ol}     http://amc.huimeionline.com
 # ${base_url}     http://apollo.huimeionline.com
 #
-#测试环境
-${base_url}       http://10.117.64.153:8080
-#蒋磊
+#.,#蒋磊
 # ${base_url}       http://192.168.1.23:8093
 # ${base_url}       http://10.46.74.95:8080
 #线上
 # ${base_url}       http://118.178.109.153
+
+#测试
 ${mayson_url}       http://10.117.64.153:8080
+${base_url}       http://10.117.64.153:8080
+#线上
+# ${mayson_url}     http://47.95.203.183/cdss
 #95
 # ${base_url}       http://10.46.74.95:9200
 ##测试
 ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
-###建德
-${Huimei_id_jd}      C3E74C229156E6B31534E946BCDEBA94
-##宣武医院
-${Huimei_id_xw}      8C946583A4EE9174D7B2D1697066BFA2
+###建德线上
+# ${Huimei_id_jd}      C3E74C229156E6B31534E946BCDEBA94
+###建德测试
+${Huimei_id_jd}      3CB128E11897DD01BEBA5F520B7FB3D3
+##宣武线上
+# ${Huimei_id_xw}      8C946583A4EE9174D7B2D1697066BFA2
+###宣武测试
+${Huimei_id_xw}      EDB2CF1F384FD631A863A5D844A8FCF2
 ${Huimei_id_safe_medication}    C3B844493A477BCF3D7B73A5E902B269
 
 #妇产科诊断性别_测试环境
@@ -32,6 +39,12 @@ ${base_url_amca}     http://10.117.64.153:3002
 # ${base_url_amca}     http://amca.huimeionline.com
 
 ${base_url_ame}     http://10.46.74.95:8092
+
+#####客户工单系统
+# ${url_cs}     http://10.117.64.153:80
+${url_cs}     http://cs.huimeionline.com
+
+
 
 ${empty}
 ${null}    null
@@ -350,70 +363,6 @@ ${null}    null
     Delete All Sessions
 
 
-智能诊断top5
-    [Arguments]    ${slice}    ${msg}    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}
-    ...    ${familyHistory}    ${weight}    ${gender}    ${bodyTempr}    ${lowBldPress}    ${highBldPress}
-    ...    ${examInfo}    ${heartRate}    ${age}    ${ageType}    ${confirmDiagnosis}    ${confirmDiagnosisMap}
-    ...    ${presentHistory}
-    # ...    ${examItems}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
-    ${data}    Create Dictionary    symptom=${symptom}    previousHistory=${previousHistory}    personalHistory=${personalHistory}    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}
-    ...    weight=${weight}    gender=${gender}    bodyTempr=${bodyTempr}    lowBldPress=${lowBldPress}    highBldPress=${highBldPress}    examInfo=${examInfo}
-    ...    heartRate=${heartRate}    age=${age}    ageType=${ageType}    confirmDiagnosis=${confirmDiagnosis}    confirmDiagnosisMap[]=${confirmDiagnosisMap}    presentHistory=${presentHistory}
-    # ...    examItems[]=${examItems}
-    ${addr}    Post Request    api    v_2_2/diagnose_through_interrogation    data=${data}
-    ${responsedata}    To Json    ${addr.content}
-    ${aj}    Evaluate    [aj${slice} for aj in $responsedata['body']['suspectedDiseases']]
-    log    ${aj}
-    log    ${aj[:5]}
-    # Run Keyword If
-    Should Contain    ${aj[:5]}    ${msg}
-    # Should Contain    ${aj[:15]}    ${msg}
-    Delete All Sessions
-
-智能诊断top6
-    [Arguments]    ${slice}    ${msg}    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}
-    ...    ${familyHistory}    ${weight}    ${gender}    ${bodyTempr}    ${lowBldPress}    ${highBldPress}
-    ...    ${examInfo}    ${heartRate}    ${age}    ${ageType}    ${confirmDiagnosis}    ${confirmDiagnosisMap}
-    ...    ${presentHistory}
-    # ...    ${examItems}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
-    ${data}    Create Dictionary    symptom=${symptom}    previousHistory=${previousHistory}    personalHistory=${personalHistory}    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}
-    ...    weight=${weight}    gender=${gender}    bodyTempr=${bodyTempr}    lowBldPress=${lowBldPress}    highBldPress=${highBldPress}    examInfo=${examInfo}
-    ...    heartRate=${heartRate}    age=${age}    ageType=${ageType}    confirmDiagnosis=${confirmDiagnosis}    confirmDiagnosisMap[]=${confirmDiagnosisMap}    presentHistory=${presentHistory}
-    # ...    examItems[]=${examItems}
-    ${addr}    Post Request    api    v_2_2/diagnose_through_interrogation    data=${data}
-    ${responsedata}    To Json    ${addr.content}
-    ${aj}    Evaluate    [aj${slice} for aj in $responsedata['body']['suspectedDiseases']]
-    log    ${aj}
-    log    ${aj[:6]}
-    # Run Keyword If
-    Should Contain    ${aj[:5]}    ${msg}
-    # Should Contain    ${aj[:15]}    ${msg}
-    Delete All Sessions
-
-智能诊断前top15
-    [Arguments]    ${slice}    ${msg}    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}
-    ...    ${familyHistory}    ${weight}    ${gender}    ${bodyTempr}    ${lowBldPress}    ${highBldPress}
-    ...    ${examInfo}    ${heartRate}    ${age}    ${ageType}    ${confirmDiagnosis}    ${confirmDiagnosisMap}
-    ...    ${presentHistory}
-    # ...    ${examItems}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
-    ${data}    Create Dictionary    symptom=${symptom}    previousHistory=${previousHistory}    personalHistory=${personalHistory}    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}
-    ...    weight=${weight}    gender=${gender}    bodyTempr=${bodyTempr}    lowBldPress=${lowBldPress}    highBldPress=${highBldPress}    examInfo=${examInfo}
-    ...    heartRate=${heartRate}    age=${age}    ageType=${ageType}    confirmDiagnosis=${confirmDiagnosis}    confirmDiagnosisMap[]=${confirmDiagnosisMap}    presentHistory=${presentHistory}
-    # ...    examItems[]=${examItems}
-    ${addr}    Post Request    api    v_2_2/diagnose_through_interrogation    data=${data}
-    ${responsedata}    To Json    ${addr.content}
-    ${aj}    Evaluate    [aj${slice} for aj in $responsedata['body']['suspectedDiseases']]
-    log    ${aj}
-    log    ${aj[:3]}
-    Should Contain    ${aj}    ${msg}
-    Delete All Sessions
-
 
 智能诊断2.3
     [Arguments]    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}    ${familyHistory}    ${weight}
@@ -510,21 +459,6 @@ test
     #Should Not Be Empty    ${aj}
     Should Be Empty    ${aj}
 
-
-test111
-    [Arguments]    ${symptom}    ${assert}
-    [Documentation]    主诉:腰痛、下肢疼痛、尿潴留,出现'腰椎间盘突出症'.期望诊断结果返回的diseaseName含有'腰椎间盘突出症'
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=78D211AA892A8155EF18F4CDB967043A
-    Create Session    api    http://10.117.64.153:8080    ${dict}
-    ${data}    Create Dictionary    symptom=${symptom}    ${assert}=${assert}    previousHistory=    personalHistory=    allergyHistory=    familyHistory=
-    ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
-    ...    heartRate=    age=30    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap[]=    presentHistory=
-    ${addr}    Post Request    api    /v_3_0/recognize    data=${data}
-    ${responsedata}    To Json    ${addr.content}
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $responsedata['body']['suspectedDiseases']]
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
-    ${aj}      Evaluate    [aj['word'] for aj in $getRes['body']['recognizeResultList']]
-    Should Contain    ${aj}    ${assert}
 
 
 妇产科诊断性别
@@ -933,7 +867,7 @@ ame管理_文档列表查询
     Should Contain    ${aj}    ${assert}
 
 
-智能推荐
+智能推荐_xml
     [Arguments]    ${userGuid}    ${serialNumber}
     ...    ${patientInfo}
     ...    ${physicalSign}
@@ -987,7 +921,7 @@ ame管理_文档列表查询
 
 
 
-智能推荐test
+智能推荐
     [Arguments]    ${userGuid}    ${serialNumber}
     ...    ${patientInfo}
     ...    ${physicalSign}
@@ -996,8 +930,10 @@ ame管理_文档列表查询
     ...    ${deleteProgressNoteList}
     ...    ${labTestList}
     ...    ${examinationList}
+    ...    ${newTestList}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
-    Create Session    api    ${base_url}    ${dict}
+    # Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${patientInfo}    Evaluate    dict(${patientInfo})
     ${physicalSign}    Evaluate    dict(${physicalSign})
     ${definiteDiagnosis}    Evaluate    [${definiteDiagnosis}]
@@ -1005,9 +941,11 @@ ame管理_文档列表查询
     ${deleteProgressNoteList}    Evaluate    [${deleteProgressNoteList}]
     ${labTestList}    Evaluate    [${labTestList}]
     ${examinationList}    Evaluate    [${examinationList}]
+    ${newTestList}    Evaluate    [${newTestList}]
     ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    patientInfo=${patientInfo}
     ...    physicalSign=${physicalSign}    definiteDiagnosis=${definiteDiagnosis}    progressNoteList=${progressNoteList}
     ...    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}    examinationList=${examinationList}
+    ...    newTestList=${newTestList}
     ${addr}    Post Request    api    mayson/v_1_0/intelligent_recommendation    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
@@ -1055,7 +993,6 @@ mayson默认推荐搜索
     [Return]    ${responsedata}
 
 
-
 治疗方案
     [Arguments]    ${symptom}    ${uuid}    ${previousHistory}    ${personalHistory}    ${allergyHistory}    ${familyHistory}    ${weight}
     ...    ${gender}    ${bodyTempr}    ${lowBldPress}    ${highBldPress}    ${examInfo}    ${heartRate}
@@ -1070,4 +1007,110 @@ mayson默认推荐搜索
     ${addr}    Post Request    api    athena/v_1_0/regimen    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+
+
+
+智能诊断4.0
+    [Arguments]    ${userGuid}    ${doctorGuid}    ${serialNumber}    ${hospitalGuid}    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}    ${familyHistory}    ${weight}
+    ...    ${gender}    ${bodyTempr}    ${lowBldPress}    ${highBldPress}    ${examInfo}    ${heartRate}
+    ...    ${age}    ${ageType}    ${confirmDiagnosis}    ${confirmDiagnosisMap}    ${presentHistory}    ${hasDetail}    ${symptomClickDiseaseId}
+    # ...    ${examItems}
+    ${confirmDiagnosisMap}    Evaluate    [${confirmDiagnosisMap}]
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    http://10.46.74.95:8080    ${dict}
+    Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    userGuid=${userGuid}    doctorGuid=${doctorGuid}    serialNumber=${serialNumber}    hospitalGuid=${hospitalGuid}    symptom=${symptom}    previousHistory=${previousHistory}    personalHistory=${personalHistory}    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}
+    ...    weight=${weight}    gender=${gender}    bodyTempr=${bodyTempr}    lowBldPress=${lowBldPress}    highBldPress=${highBldPress}    examInfo=${examInfo}
+    ...    heartRate=${heartRate}    age=${age}    ageType=${ageType}    confirmDiagnosis=${confirmDiagnosis}    confirmDiagnosisMap=${confirmDiagnosisMap}    presentHistory=${presentHistory}    hasDetail=${hasDetail}    symptomClickDiseaseId=${symptomClickDiseaseId}
+    # ...    examItems[]=${examItems}
+    ${addr}    Post Request    api    v_4_0/diagnose_through_interrogation    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # Should Contain    ${aj[:15]}    ${msg}
+    # Delete All Sessions
+    [Return]    ${responsedata}
+
+
+
+
+
+################客户工单系统################
+
+cs登录接口
+    # [Arguments]    ${name}    ${password}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id_safe_medication}
+    Create Session    api    ${url_cs}    ${dict}
+    ${data}    Create Dictionary    name=yinbo@huimei.com    password=222222
+    ${addr}    Post Request    api    node/user/login    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # ${str}    Get From Dictionary    ${responsedata}    head
+    # ${str1}    Get From Dictionary    ${str}    error
+    # Should Be Equal As Strings    ${str1}    ${msg}
+    # Should Be Equal As Strings    ${responsedata['body']['interactionList'][0]['grade']}    ${msg}
+    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    [Return]    ${responsedata}
+
+
+cs登录
+    [Arguments]    ${name}    ${password}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id_safe_medication}
+    Create Session    api    ${url_cs}    ${dict}
+    ${data}    Create Dictionary    name=${name}    password=${password}
+    ${addr}    Post Request    api    node/user/login    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # ${str}    Get From Dictionary    ${responsedata}    head
+    # ${str1}    Get From Dictionary    ${str}    error
+    # Should Be Equal As Strings    ${str1}    ${msg}
+    # Should Be Equal As Strings    ${responsedata['body']['interactionList'][0]['grade']}    ${msg}
+    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    [Return]    ${responsedata}
+
+
+
+cs客户列表
+    [Arguments]    ${orderName}    ${userName}    ${productName}
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id_safe_medication}
+    # Create Session    api    ${url_cs}    ${dict}
+    ${data}    Create Dictionary    orderName=${orderName}    userName=${userName}    productName=${productName}
+    ${addr}    Post Request    api    node/order/getOrder    data=${data}
+    ${respo空腹血糖nsedata}    To Json    ${addr.content}
+    # ${str}    Get From Dictionary    ${responsedata}    head
+    # ${str1}    Get From Dictionary    ${str}    error
+    # Should Be Equal As Strings    ${str1}    ${msg}
+    # Should Be Equal As Strings    ${responsedata['body']['interactionList'][0]['grade']}    ${msg}
+    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    [Return]    ${responsedata}
+
+
+
+cs检查登录
+    [Arguments]
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id_safe_medication}
+    Create Session    api    ${url_cs}    ${dict}
+    ${data}    Create Dictionary
+    ${addr}    Post Request    api    node/user/checkUser    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # ${str}    Get From Dictionary    ${responsedata}    head
+    # ${str1}    Get From Dictionary    ${str}    error
+    # Should Be Equal As Strings    ${str1}    ${msg}
+    # Should Be Equal As Strings    ${responsedata['body']['interactionList'][0]['grade']}    ${msg}
+    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    [Return]    ${responsedata}
+
+
+新建客户
+    [Arguments]   ${order_name}    ${status}    ${user_id}    ${address}    ${hospital_contact_info}    ${server}    ${network_role}    ${fk_company}    ${fk_contact_Info}    ${autherkey}    ${remark}    ${productList}    ${sys_id}    ${mail}
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id_safe_medication}
+    # Create Session    api    ${url_cs}    ${dict}
+    ${mail}    Evaluate    dict(${mail})
+    ${productList}    Evaluate    [${productList}]
+    ${data}    Create Dictionary    order_name=${order_name}    status=${status}    user_id=${user_id}    address=${address}    hospital_contact_info=${hospital_contact_info}    server=${server}    network_role=${network_role}    fk_company=${fk_company}    fk_contact_Info=${fk_contact_Info}    autherkey=${autherkey}    remark=${remark}    productList=${productList}    sys_id=${sys_id}    mail=${mail}
+    ${addr}    Post Request    api    node/order/save    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # ${str}    Get From Dictionary    ${responsedata}    head
+    # ${str1}    Get From Dictionary    ${str}    error
+    # Should Be Equal As Strings    ${str1}    ${msg}
+    # Should Be Equal As Strings    ${responsedata['body']['interactionList'][0]['grade']}    ${msg}
+    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    [Return]    ${responsedata}
+
 
