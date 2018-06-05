@@ -13,9 +13,9 @@ Library           String
 #######201712221            坏死性软组织感染            血培养 细菌/念珠菌(2组)  鉴别检查
 
 推荐检查2行-1 主要条件:坏死性软组织感染,推荐检查包含:血培养
-    [Documentation]    断言:""
+    [Documentation]    断言:""坏死性软组织感染
     # ${timestamp}    Get Time    epoch
-    ${Assessment}    Set Variable
+    ${Assessment}    Set Variable    坏死性软组织感染
     ${Subjective}    Set Variable    坏死性软组织感染
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数

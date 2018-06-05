@@ -8,11 +8,12 @@ Library           RequestsLibrary
 # userGuid String 是 患者ID（接入放定义）
 # doctorGuid String 是 医生ID（接入放定义）
 # serialNumber String 是 业务流水ID（接入方定义）
+
 # hospitalGuid String 是 医院ID（惠每分配）
 # gender Integer 否 性别1男,0女
 # age double 否 年龄
 # ageType String 否 岁、月、天
-# bodyTempr Double 否 体温
+# bodyTempr Doubl3e 否 体温
 # weight Double 否 体重
 # heartRate Integer 否 心率
 # lowBldPress Integer 否 收缩压

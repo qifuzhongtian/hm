@@ -24,18 +24,18 @@ Library           String
 *** Test Cases ***
 
 
-############唇裂#############
+############儿童急性支气管炎#############
 
-唇裂-主诉：男，3岁，上唇部裂开，呈兔唇状，推荐疑似诊断:唇裂
+儿童急性支气管炎-病史：男，5岁，于6小时前出现咳嗽、咳痰伴发热，痰不易咳出，无呕吐、腹泻、抽搐、盗汗，肺部听诊双肺呼吸音粗，可闻及干啰音，推荐疑似诊断:支气管炎
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
     # ${assert}    Create List
     ${Assessment}    Set Variable
-    ${Subjective}    Set Variable    男，3岁，上唇部裂开，呈兔唇状
+    ${Subjective}    Set Variable    男，5岁，于6小时前出现咳嗽、咳痰伴发热，痰不易咳出，无呕吐、腹泻、抽搐、盗汗，肺部听诊双肺呼吸音粗，可闻及干啰音
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
-    ...    patientInfo={"gender":"1","age":"3","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+    ...    patientInfo={"gender":"1","age":"12","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -53,19 +53,20 @@ Library           String
     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
     #####疑似诊断
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    Should Contain    ${aj[:5]}    唇裂
+    Should Contain    ${aj[:5]}    支气管炎
     # Lists Should Be Equal    ${aj}    ${assert}
 
-唇裂-点击疑似诊断或手动输入：唇裂，推荐检查:血常规、血型、尿常规、粪便常规、凝血常规、肝功能、肾功能、乙肝五项、艾滋病毒抗体检测、丙型肝炎抗体测定、快速梅毒血清反应素试验、胸部X线片（正位）、心电图、超声心动图
+
+儿童急性支气管炎-手动输入诊断：急性支气管炎，推荐检查:血清超敏C反应蛋白、血常规、尿常规、粪便常规、肝功能、肾功能、呼吸道病原检测、痰支原体培养、衣原体抗原测定、心肌酶谱检查、血气分析、心电图、胸部X线(正侧位)、胸部CT、肺功能检查、免疫球蛋白检查、过敏原试验、纤维支气管镜检查
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    血常规    血型    尿常规    粪便常规    凝血常规    肝功能    肾功能    乙肝五项    艾滋病毒抗体检测    丙型肝炎抗体测定    快速梅毒血清反应素试验    胸部X线片（正位）    心电图    超声心动图
-    ${Assessment}    Set Variable    唇裂
-    ${Subjective}    Set Variable    男，3岁，上唇部裂开，呈兔唇状
+    ${assert}    Create List    过敏原试验    肺功能检查    胸部CT    呼吸道病原检测    胸部X线(正侧位)    衣原体抗原测定    痰支原体培养    心肌酶谱检查    纤维支气管镜检查    免疫球蛋白检查    尿常规    粪便常规    血常规    肝功能    肾功能    血清超敏C反应蛋白    心电图    血气分析
+    ${Assessment}    Set Variable    急性支气管炎
+    ${Subjective}    Set Variable    男，5岁，于6小时前出现咳嗽、咳痰伴发热，痰不易咳出，无呕吐、腹泻、抽搐、盗汗，肺部听诊双肺呼吸音粗，可闻及干啰音
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
-    ...    patientInfo={"gender":"1","age":"3","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+    ...    patientInfo={"gender":"1","age":"12","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -83,19 +84,20 @@ Library           String
     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
     #####疑似诊断
     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    唇裂
+    # Should Contain    ${aj[:5]}    支气管炎
     Lists Should Be Equal    ${aj}    ${assert}
 
-唇裂-点击疑似诊断或手动输入：唇裂，推荐治疗:唇裂修复术、抗菌药物治疗、正畸复位
+
+儿童急性支气管炎-手动输入诊断：急性支气管炎，推荐治疗:抗生素治疗、对症治疗、加强呼吸道护理
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    唇裂修复术    抗菌药物治疗    正畸复位
-    ${Assessment}    Set Variable    唇裂
-    ${Subjective}    Set Variable    男，3岁，上唇部裂开，呈兔唇状
+    ${assert}    Create List    抗生素治疗    对症治疗    加强呼吸道护理
+    ${Assessment}    Set Variable    急性支气管炎
+    ${Subjective}    Set Variable    男，5岁，于6小时前出现咳嗽、咳痰伴发热，痰不易咳出，无呕吐、腹泻、抽搐、盗汗，肺部听诊双肺呼吸音粗，可闻及干啰音
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
-    ...    patientInfo={"gender":"1","age":"3","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+    ...    patientInfo={"gender":"1","age":"12","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -113,5 +115,6 @@ Library           String
     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
     #####疑似诊断
     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    唇裂
+    # Should Contain    ${aj[:5]}    支气管炎
     Lists Should Be Equal    ${aj}    ${assert}
+

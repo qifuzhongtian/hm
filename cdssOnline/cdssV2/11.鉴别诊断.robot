@@ -13,5 +13,5 @@ Suite Teardown    Delete All Sessions
     [Documentation]    断言:"diseaseName=过敏性鼻炎"
     ${getRes}    鉴别诊断    diseaseId=8457C0ACE01
     # 鉴别诊断    ['body'][0]['diseaseName']    过敏性鼻炎    diseaseId=8457C0ACE01
-    Should Be Equal As Strings    ${getRes['body'][0]['diseaseName']}    过敏性鼻炎
+    Should Be Equal As Strings    ${getRes['body'][0]['diseaseName']}    变应性鼻炎
 
