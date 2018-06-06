@@ -126,35 +126,35 @@ Library           String
 
 
 
-假性痛风-病历内容增加：二水焦磷酸钙暴露,推荐治疗增加:预防假性痛风药物
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    NSAIDs治疗假性痛风    秋水仙碱治疗假性痛风    皮质类固醇激素治疗假性痛风    关节腔注射治疗    预防假性痛风药物
-    ${Assessment}    Set Variable    假性痛风
-    ${Subjective}    Set Variable    主诉：男，39岁，突发右肩疼痛5天，关节疼痛伴关节活动受限，压之疼痛明显伴明显肿胀,检查结果输入：右肩关节正位X线片，见肱盂关节狭窄，软骨下骨质硬化及骨赘形成。关节面肥大，但肱骨头未见半脱位、骨质破坏和软组织肿块,二水焦磷酸钙暴露
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
-    ...    patientInfo={"gender":"1","age":"39","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    痛风
-    Lists Should Be Equal    ${aj}    ${assert}
+# 假性痛风-病历内容增加：二水焦磷酸钙暴露,推荐治疗增加:预防假性痛风药物
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    NSAIDs治疗假性痛风    秋水仙碱治疗假性痛风    皮质类固醇激素治疗假性痛风    关节腔注射治疗    预防假性痛风药物
+#     ${Assessment}    Set Variable    假性痛风
+#     ${Subjective}    Set Variable    主诉：男，39岁，突发右肩疼痛5天，关节疼痛伴关节活动受限，压之疼痛明显伴明显肿胀,检查结果输入：右肩关节正位X线片，见肱盂关节狭窄，软骨下骨质硬化及骨赘形成。关节面肥大，但肱骨头未见半脱位、骨质破坏和软组织肿块,二水焦磷酸钙暴露
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
+#     ...    patientInfo={"gender":"1","age":"39","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     # Should Contain    ${aj[:5]}    痛风
+#     Lists Should Be Equal    ${aj}    ${assert}
 
 
 
