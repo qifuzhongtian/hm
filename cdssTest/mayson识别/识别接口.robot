@@ -31,7 +31,7 @@ Library           ExcelLibrary    # 字段名 类型 是否必须 说明    # us
     肺血管栓塞面积:50%    肺血管栓塞面积>=50%
     肺血管栓塞面积:51%    肺血管栓塞面积>=50%
     proBNP升高    proBNP升高
-    proBNP:7501    proBNP>7500
+    # proBNP:7501    proBNP>7500
     cTnT升高    cTnT升高
     cTnI升高    cTnI升高
     肌钙蛋白阳性    肌钙蛋白阳性
@@ -321,14 +321,14 @@ Library           ExcelLibrary    # 字段名 类型 是否必须 说明    # us
     促甲状腺素减低    TSH水平降低
     血氧饱和度:89％    SPO2<90%
     脑利钠肽前体:7501ng/L    proBNP>7500
-    N末端B型脑利钠肽前体:299pg/ml    NT-proBNP<300
+    # N末端B型脑利钠肽前体:299pg/ml    NT-proBNP<300
     血乳酸脱氢酶增高    LDH升高
     血人绒毛膜促性腺激素升高    HCG升高
     EV71特异性核酸检测阳性    EV71特异性核酸检测阳性
     EV716中和抗体:5倍    EV716中和抗体有4倍以上的升高
     CoxA16中和抗体:5倍    CoxA16中和抗体有4倍以上的升高
     CoxA16特异性核酸检测阳性    CoxA16特异性核酸检测阳性
-    脑利钠肽:501pg/ml    BNP>500
+    # 脑利钠肽:501pg/ml    BNP>500
     脑利钠肽:99pg/ml    BNP<100pg/ml
     甲胎蛋白增高    AFP升高
     24小时尿量增多    24小时尿量显著增加
