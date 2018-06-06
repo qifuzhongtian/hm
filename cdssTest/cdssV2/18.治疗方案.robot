@@ -182,7 +182,7 @@ Suite Teardown    Delete All Sessions
 
 
 ######################################婴儿腹泻##############################################################################
-演示case-婴儿腹泻:推荐实验室检查-鉴别检查:⾎血常规、⾎血⽓气分析、⾎血 电解质、粪便轮状病毒检测
+演示case-婴儿腹泻:推荐实验室检查-鉴别检查:⾎常规
     [Documentation]    腔溃疡伴起疱3天。患儿3天前晨起发热，之后口腔出现溃疡，伴疼痛，影响进食，出现水疱，未经诊治。右颊、舌部、下唇可余处溃疡面，直径2~3mm，上覆假膜，周围黏膜充血。掌、指腹、足底可散在透明水疱。患儿烦躁、流涎，体温37.6°C
     ${getRes}    治疗方案    symptom=因发热、呕吐、腹泻1天.1天前，患⼉儿母亲腹泻后，患⼉出现发热，体温最⾼高达38.9℃，伴呕吐，呕吐呈非喷射性，较频繁，为胃内容物，不含胆汁及咖啡样物；⼤便3～4次，为⻩色水样便，不含黏液及脓⾎.精神反应较差，全⾝⽆⾎点、淤点及淤斑，⼼率140次/分，律齐，⼼音有力
     ...    uuid=8752C0A1E6
@@ -191,9 +191,56 @@ Suite Teardown    Delete All Sessions
     ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=
     ...    examInfo=    heartRate=    age=4    ageType=月    confirmDiagnosis=    confirmDiagnosisMap=
     ...    presentHistory=
-    # ${aj}    Evaluate    [aj['examName'] for aj in $getRes['body']['examRegimenItemList'][0]['examRuleGroupList']]
-    # Should Contain    ${aj}    粪便常规
-    Should Be Equal As Strings    ${getRes['body']['examRegimenItemList'][0]['examRuleGroupList'][1]['examGroupList']}    [{"examLists": [[{"examName": "粪便轮状病毒检测", "examType": 2, "examId": 811, "itemResultGroupId": 76621}, {"examName": "轮状病毒抗体检测", "examType": 2, "examId": 126, "itemResultGroupId": 76621}, {"examName": "大便细菌培养", "examType": 2, "examId": 423, "itemResultGroupId": 76621}], [{"examName": "血电解质", "examType": 2, "examDesc": "了解电解质紊乱情况", "examId": 14, "itemResultGroupId": 76620}]], "examGroupName": "鉴别检查"}, {"examLists": [[{"examName": "血常规", "examType": 3, "examDesc": "白细胞总数病毒感染时降低，细菌感染时升高", "examId": 13, "itemResultGroupId": 76619}], [{"examName": "血气分析", "examType": 3, "examDesc": "了解酸碱平衡情况", "examId": 12, "itemResultGroupId": 76618}]], "examGroupName": "一般检查"}]
+    ${aj}    Evaluate    [aj['examName'] for aj in $getRes['body']['examRegimenItemList'][0]['examRuleGroupList'][1]['examGroupList'][1]['examLists'][0]]
+    Should Contain    ${aj}    血常规
+    # Should Be Equal As Strings    ${getRes['body']['examRegimenItemList'][0]['examRuleGroupList'][1]['examGroupList'][1]['examLists'][0]}    血常规
+
+
+演示case-婴儿腹泻:推荐实验室检查-鉴别检查:⾎⽓分析
+    [Documentation]    腔溃疡伴起疱3天。患儿3天前晨起发热，之后口腔出现溃疡，伴疼痛，影响进食，出现水疱，未经诊治。右颊、舌部、下唇可余处溃疡面，直径2~3mm，上覆假膜，周围黏膜充血。掌、指腹、足底可散在透明水疱。患儿烦躁、流涎，体温37.6°C
+    ${getRes}    治疗方案    symptom=因发热、呕吐、腹泻1天.1天前，患⼉儿母亲腹泻后，患⼉出现发热，体温最⾼高达38.9℃，伴呕吐，呕吐呈非喷射性，较频繁，为胃内容物，不含胆汁及咖啡样物；⼤便3～4次，为⻩色水样便，不含黏液及脓⾎.精神反应较差，全⾝⽆⾎点、淤点及淤斑，⼼率140次/分，律齐，⼼音有力
+    ...    uuid=8752C0A1E6
+    ...    previousHistory=    personalHistory=
+    ...    allergyHistory=    familyHistory=
+    ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=
+    ...    examInfo=    heartRate=    age=4    ageType=月    confirmDiagnosis=    confirmDiagnosisMap=
+    ...    presentHistory=
+    ${aj}    Evaluate    [aj['examName'] for aj in $getRes['body']['examRegimenItemList'][0]['examRuleGroupList'][1]['examGroupList'][1]['examLists'][1]]
+    Should Contain    ${aj}    血气分析
+    # Should Be Equal As Strings    ${getRes['body']['examRegimenItemList'][0]['examRuleGroupList'][1]['examGroupList'][1]['examLists'][0]}    血常规
+
+
+演示case-婴儿腹泻:推荐实验室检查-鉴别检查:血电解质
+    [Documentation]    腔溃疡伴起疱3天。患儿3天前晨起发热，之后口腔出现溃疡，伴疼痛，影响进食，出现水疱，未经诊治。右颊、舌部、下唇可余处溃疡面，直径2~3mm，上覆假膜，周围黏膜充血。掌、指腹、足底可散在透明水疱。患儿烦躁、流涎，体温37.6°C
+    ${getRes}    治疗方案    symptom=因发热、呕吐、腹泻1天.1天前，患⼉儿母亲腹泻后，患⼉出现发热，体温最⾼高达38.9℃，伴呕吐，呕吐呈非喷射性，较频繁，为胃内容物，不含胆汁及咖啡样物；⼤便3～4次，为⻩色水样便，不含黏液及脓⾎.精神反应较差，全⾝⽆⾎点、淤点及淤斑，⼼率140次/分，律齐，⼼音有力
+    ...    uuid=8752C0A1E6
+    ...    previousHistory=    personalHistory=
+    ...    allergyHistory=    familyHistory=
+    ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=
+    ...    examInfo=    heartRate=    age=4    ageType=月    confirmDiagnosis=    confirmDiagnosisMap=
+    ...    presentHistory=
+    ${aj}    Evaluate    [aj['examName'] for aj in $getRes['body']['examRegimenItemList'][0]['examRuleGroupList'][1]['examGroupList'][0]['examLists'][1]]
+    Should Contain    ${aj}    血电解质
+    # Should Be Equal As Strings    ${getRes['body']['examRegimenItemList'][0]['examRuleGroupList'][1]['examGroupList'][1]['examLists'][0]}    血常规
+
+
+
+演示case-婴儿腹泻:推荐实验室检查-鉴别检查:粪便轮状病毒检测
+    [Documentation]    腔溃疡伴起疱3天。患儿3天前晨起发热，之后口腔出现溃疡，伴疼痛，影响进食，出现水疱，未经诊治。右颊、舌部、下唇可余处溃疡面，直径2~3mm，上覆假膜，周围黏膜充血。掌、指腹、足底可散在透明水疱。患儿烦躁、流涎，体温37.6°C
+    ${getRes}    治疗方案    symptom=因发热、呕吐、腹泻1天.1天前，患⼉儿母亲腹泻后，患⼉出现发热，体温最⾼高达38.9℃，伴呕吐，呕吐呈非喷射性，较频繁，为胃内容物，不含胆汁及咖啡样物；⼤便3～4次，为⻩色水样便，不含黏液及脓⾎.精神反应较差，全⾝⽆⾎点、淤点及淤斑，⼼率140次/分，律齐，⼼音有力
+    ...    uuid=8752C0A1E6
+    ...    previousHistory=    personalHistory=
+    ...    allergyHistory=    familyHistory=
+    ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=
+    ...    examInfo=    heartRate=    age=4    ageType=月    confirmDiagnosis=    confirmDiagnosisMap=
+    ...    presentHistory=
+    ${aj}    Evaluate    [aj['examName'] for aj in $getRes['body']['examRegimenItemList'][0]['examRuleGroupList'][1]['examGroupList'][0]['examLists'][0]]
+    Should Contain    ${aj}    粪便轮状病毒检测
+    # Should Be Equal As Strings    ${getRes['body']['examRegimenItemList'][0]['examRuleGroupList'][1]['examGroupList'][1]['examLists'][0]}    血常规
+
+
+
+
 
 
 演示case-婴儿腹泻:推荐辅助检查:心电图
@@ -261,7 +308,7 @@ Suite Teardown    Delete All Sessions
     ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=
     ...    examInfo=    heartRate=    age=32    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=
     ...    presentHistory=
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['drugRegimenItemList'][1]['drugRuleGroupList'][2]['drugClassificationLists'][0][0]['drugResponseList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['drugRegimenItemList'][1]['drugRuleGroupList'][3]['drugClassificationLists'][0][0]['drugResponseList']]
     Should Contain    ${aj}    硼酸洗液
 
 
@@ -274,7 +321,7 @@ Suite Teardown    Delete All Sessions
     ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=
     ...    examInfo=    heartRate=    age=32    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=
     ...    presentHistory=
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['drugRegimenItemList'][1]['drugRuleGroupList'][3]['drugClassificationLists'][0][0]['drugResponseList']]
+    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['drugRegimenItemList'][1]['drugRuleGroupList'][5]['drugClassificationLists'][0][0]['drugResponseList']]
     Should Contain    ${aj}    氧化锌油
 
 演示case-湿疹:推荐局部治疗:钙调神经磷酸酶抑制剂
@@ -286,7 +333,7 @@ Suite Teardown    Delete All Sessions
     ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=
     ...    examInfo=    heartRate=    age=32    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=
     ...    presentHistory=
-    ${aj}    Evaluate    [aj['classification'] for aj in $getRes['body']['drugRegimenItemList'][1]['drugRuleGroupList'][1]['drugClassificationLists'][0]]
+    ${aj}    Evaluate    [aj['classification'] for aj in $getRes['body']['drugRegimenItemList'][1]['drugRuleGroupList'][2]['drugClassificationLists'][0]]
     Should Contain    ${aj}    钙调神经磷酸酶抑制剂
 
 

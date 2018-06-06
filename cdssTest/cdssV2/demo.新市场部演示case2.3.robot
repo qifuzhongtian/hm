@@ -40,7 +40,7 @@ Library           RequestsLibrary
 ######男 38  岁 "突发上腹部疼痛，阵发性加剧，伴恶心、呕吐10小时，既往主动脉夹层手术史（1年前） 体格检查：血压： 130/80mmHg, 腹平坦，上腹部压痛明显，无肌紧张、反跳痛，肝脾区无叩击痛，移动性浊音阴性，双侧桡动脉、股动脉搏动可 术后3个月CT：腹主动脉内仍可见低密度隔膜，并分为真假两腔"  急性胰腺炎
 市场部全科版演示case-3行
     [Documentation]    主诉:男 38  岁 "突发上腹部疼痛，阵发性加剧，伴恶心、呕吐10小时，既往主动脉夹层手术史（1年前）体格检查：血压： 130/80mmHg, 腹平坦，上腹部压痛明显，无肌紧张、反跳痛，肝脾区无叩击痛，移动性浊音阴性，双侧桡动脉、股动脉搏动可术后3个月CT：腹主动脉内仍可见低密度隔膜，并分为真假两腔"  急性胰腺炎
-    ${getRes}    智能诊断2.3    symptom="突发上腹部疼痛，阵发性加剧，伴恶心、呕吐10小时，既往主动脉夹层手术史（1年前）.体格检查：血压:130/80mmHg,腹平坦，上腹部压痛明显，无肌紧张、反跳痛，肝脾区无叩击痛，移动性浊音阴性，双侧桡动脉、股动脉搏动可 术后3个月CT：腹主动脉内仍可见低密度隔膜，并分为真假两腔"    previousHistory=    personalHistory=    allergyHistory=    familyHistory=
+    ${getRes}    智能诊断2.3    symptom=突发上腹部疼痛，阵发性加剧，伴恶心、呕吐10小时，既往主动脉夹层手术史（1年前）.体格检查：血压:130/80mmHg,腹平坦，上腹部压痛明显，无肌紧张、反跳痛，肝脾区无叩击痛，移动性浊音阴性，双侧桡动脉、股动脉搏动可 术后3个月CT：腹主动脉内仍可见低密度隔膜，并分为真假两腔    previousHistory=    personalHistory=    allergyHistory=    familyHistory=
     ...    weight=    gender=1    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
     ...    heartRate=    age=38    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=    presentHistory=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][1]['diseases']]

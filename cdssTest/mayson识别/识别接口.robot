@@ -8983,7 +8983,7 @@ Library           ExcelLibrary    # 字段名 类型 是否必须 说明    # us
     洼田饮水试验4级    洼田饮水试验[1-5]级
     洼田饮水试验5级    洼田饮水试验[1-5]级
     nihss4分    nihss>3分
-    nihss0分    NIHSS>=0分
-    nihss1分    NIHSS>=0分
+    nihss0分    nihss>=0分
+    nihss1分    nihss>=0分
     CHA2DS2-VASc3分    CHA2DS2-VASc>2分
     心房粘液瘤    心房粘液瘤

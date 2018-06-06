@@ -1,7 +1,8 @@
 *** Variables ***
+
 ${base_url_ol}     http://apollo.huimeionline.com
 ${amc_url_ol}     http://amc.huimeionline.com
-# ${base_url}     http://apollo.huimeionline.com
+${base_url}     http://apollo.huimeionline.com
 #
 #.,#蒋磊
 # ${base_url}       http://192.168.1.23:8093
@@ -9,15 +10,31 @@ ${amc_url_ol}     http://amc.huimeionline.com
 #线上
 # ${base_url}       http://118.178.109.153
 
+
+
+
 #测试
 ${mayson_url}       http://10.117.64.153:8080
-${base_url}       http://10.117.64.153:8080
+# ${base_url}       http://10.117.64.153:8080
+
+##负载
+# ${mayson_url}       http://192.168.1.13/cdss
+# ${base_url}       http://192.168.1.13/cdss
+
+
+
+
+
+
+
+
 #线上
 # ${mayson_url}     http://47.95.203.183/cdss
 #95
 # ${base_url}       http://10.46.74.95:9200
 ##测试
 ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
+# ${Huimei_id}      7195F12825788F09375C2DB1E922F108
 ###建德线上
 # ${Huimei_id_jd}      C3E74C229156E6B31534E946BCDEBA94
 ###建德测试
@@ -27,6 +44,7 @@ ${Huimei_id_jd}      3CB128E11897DD01BEBA5F520B7FB3D3
 ###宣武测试
 ${Huimei_id_xw}      EDB2CF1F384FD631A863A5D844A8FCF2
 ${Huimei_id_safe_medication}    C3B844493A477BCF3D7B73A5E902B269
+# ${Huimei_id_safe_medication}    7195F12825788F09375C2DB1E922F108
 
 #妇产科诊断性别_测试环境
 ${base_url_95}     http://10.46.74.95:9200
@@ -861,10 +879,10 @@ ame管理_文档列表查询
     ${data}    Create Dictionary    symptom=${symptom}    previousHistory=    personalHistory=    allergyHistory=    familyHistory=
     ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
     ...    heartRate=    age=30    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap[]=    presentHistory=
-    ${addr}    Post Request    api    /v_4_0/recognize    data=${data}
+    ${addr}    Post Request    api    /v_3_0/recognize    data=${data}
     ${responsedata}    To Json    ${addr.content}
     ${aj}      Evaluate    [aj['word'] for aj in $responsedata['body']['recognizeResultList']]
-    Should Contain    ${aj}    ${assert}
+    Should Contain    ${aj}    ${assert}    ignore_case=true
 
 
 智能推荐_xml
