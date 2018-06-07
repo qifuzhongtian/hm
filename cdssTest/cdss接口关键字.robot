@@ -2,7 +2,7 @@
 
 ${base_url_ol}     http://apollo.huimeionline.com
 ${amc_url_ol}     http://amc.huimeionline.com
-${base_url}     http://apollo.huimeionline.com
+# ${base_url}     http://apollo.huimeionline.com
 #
 #.,#蒋磊
 # ${base_url}       http://192.168.1.23:8093
@@ -15,7 +15,7 @@ ${base_url}     http://apollo.huimeionline.com
 
 #测试
 ${mayson_url}       http://10.117.64.153:8080
-# ${base_url}       http://10.117.64.153:8080
+${base_url}       http://10.117.64.153:8080
 
 ##负载
 # ${mayson_url}       http://192.168.1.13/cdss
@@ -879,7 +879,7 @@ ame管理_文档列表查询
     ${data}    Create Dictionary    symptom=${symptom}    previousHistory=    personalHistory=    allergyHistory=    familyHistory=
     ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
     ...    heartRate=    age=30    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap[]=    presentHistory=
-    ${addr}    Post Request    api    /v_3_0/recognize    data=${data}
+    ${addr}    Post Request    api    /v_4_0/recognize    data=${data}
     ${responsedata}    To Json    ${addr.content}
     ${aj}      Evaluate    [aj['word'] for aj in $responsedata['body']['recognizeResultList']]
     Should Contain    ${aj}    ${assert}    ignore_case=true
