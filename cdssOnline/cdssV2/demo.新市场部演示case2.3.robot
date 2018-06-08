@@ -65,7 +65,7 @@ Library           RequestsLibrary
     ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
     ...    heartRate=    age=70    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=    presentHistory=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][0]['diseases']]
-    Should Contain    ${aj[:10]}    结肠癌
+    Should Contain    ${aj[:10]}    结肠恶性肿瘤
 
 
 #########女 35  岁 妊娠26周，先兆子痫住产科。凌晨1点突感胸痛，血压160/100mmHg  主动脉夹层
