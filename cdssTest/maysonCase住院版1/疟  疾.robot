@@ -26,33 +26,33 @@ Library           String
 # #######
 #######疟疾###
 
-疟疾-主诉:男，40岁，反复寒战、发热、头痛，腰痛7天以上，推荐疑似诊断:疟疾
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${Assessment}    Set Variable
-    ${Subjective}    Set Variable    男，40岁，反复寒战、发热、头痛，腰痛7天以上
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
-    ...    patientInfo={"gender":"1","age":"30","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    Should Contain    ${aj[:5]}    疟疾
+# 疟疾-主诉:男，40岁，反复寒战、发热、头痛，腰痛7天以上，推荐疑似诊断:疟疾
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${Assessment}    Set Variable
+#     ${Subjective}    Set Variable    男，40岁，反复寒战、发热、头痛，腰痛7天以上
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
+#     ...    patientInfo={"gender":"1","age":"30","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     Should Contain    ${aj[:5]}    疟疾
 
 疟疾-点击疑似诊断或手动输入：疟疾，推荐检查：血常规、电解质全套、血糖测定、总胆红素测定、直接胆红素测定、胸部X线、尿常规
     [Documentation]    断言:""

@@ -26,35 +26,35 @@ Library           String
 
 ############儿童哮喘#############
 
-儿童哮喘-主诉：女，10岁，反复咳喘1年，加重3天 ，双肺闻及哮鸣音,推荐疑似诊断：哮喘
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    # ${assert}    Create List
-    ${Assessment}    Set Variable
-    ${Subjective}    Set Variable    女，10岁，反复咳喘1年，加重3天 ，双肺闻及哮鸣音
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
-    ...    patientInfo={"gender":"0","age":"12","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    Should Contain    ${aj[:5]}    哮喘
-    # Lists Should Be Equal    ${aj}    ${assert}
+# 儿童哮喘-主诉：女，10岁，反复咳喘1年，加重3天 ，双肺闻及哮鸣音,推荐疑似诊断：哮喘
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     # ${assert}    Create List
+#     ${Assessment}    Set Variable
+#     ${Subjective}    Set Variable    女，10岁，反复咳喘1年，加重3天 ，双肺闻及哮鸣音
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
+#     ...    patientInfo={"gender":"0","age":"12","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     Should Contain    ${aj[:5]}    哮喘
+#     # Lists Should Be Equal    ${aj}    ${assert}
 
 
 儿童哮喘-点击疑似诊断或手动输入：哮喘,推荐检查:胸部X线、肺通气功能测试、支气管激发试 验、哮喘控制测试

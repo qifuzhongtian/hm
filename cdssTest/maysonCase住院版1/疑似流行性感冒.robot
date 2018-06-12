@@ -26,33 +26,33 @@ Library           String
 # #######
 #######疑似流行性感冒###
 
-疑似流行性感冒-主诉:男，年龄8岁，高热、流涕2天，推荐疑似诊断:急性上呼吸道感染
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${Assessment}    Set Variable
-    ${Subjective}    Set Variable    男，年龄8岁，高热、流涕2天
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
-    ...    patientInfo={"gender":"1","age":"8","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    Should Contain    ${aj[:5]}    急性上呼吸道感染
+# 疑似流行性感冒-主诉:男，年龄8岁，高热、流涕2天，推荐疑似诊断:急性上呼吸道感染
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${Assessment}    Set Variable
+#     ${Subjective}    Set Variable    男，年龄8岁，高热、流涕2天
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
+#     ...    patientInfo={"gender":"1","age":"8","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     Should Contain    ${aj[:5]}    急性上呼吸道感染
 
 疑似流行性感冒-增加病史：流感病毒抗体滴度增高，推荐检查解读：流行性感冒
     [Documentation]    断言:""

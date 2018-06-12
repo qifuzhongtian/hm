@@ -28,33 +28,33 @@ Library           String
 ########神内############
 # ###########脑梗死#############
 
-脑梗死-病史:男，45岁，2年前出现头痛、头晕，健忘，意识障碍，言语不利的症状,推荐疑似诊断:脑出血
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${Assessment}    Set Variable
-    ${Subjective}    Set Variable    男，45岁，2年前出现头痛、头晕，健忘，意识障碍，言语不利的症状
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
-    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    Should Contain    ${aj[:5]}    脑出血
+# 脑梗死-病史:男，45岁，2年前出现头痛、头晕，健忘，意识障碍，言语不利的症状,推荐疑似诊断:脑出血
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${Assessment}    Set Variable
+#     ${Subjective}    Set Variable    男，45岁，2年前出现头痛、头晕，健忘，意识障碍，言语不利的症状
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
+#     ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     Should Contain    ${aj[:5]}    脑出血
 
 
 脑梗死-病史:病史补充：2天前出现剧烈头痛、下肢偏瘫，伸舌偏斜,推荐疑似诊断:脑梗死
