@@ -1,6 +1,6 @@
 *** Settings ***
 Test Template     识别接口
-Resource          ../../robotframework资料/cdss接口关键字.robot
+Resource          ../cdss接口关键字.robot
 Library           Collections
 Library           RequestsLibrary
 Library           ExcelLibrary    # 字段名 类型 是否必须 说明    # userGuid String 是 患者ID（接入放定义）    # doctorGuid String 是 医生ID（接入放定义）    # serialNumber String 是 业务流水ID（接入方定义）    # hospitalGuid String 是 医院ID（惠每分配）    # gender Integer 否 性别1男,0女
