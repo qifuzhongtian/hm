@@ -140,12 +140,12 @@ Suite Teardown    Delete All Sessions
     ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=4382    ageType=天    drugIds=${drugIds}    symptom=    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['tabooList'][0]['description']}    12岁以上儿童慎用
 
-1.18 人群禁忌等级,ageType=天,'年龄1-43799',结果正确
-    [Documentation]    断言:"crowd": "description=不适用于妇女"
-    ${drugIds}    Create List    8280
-    ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=43799    ageType=天    drugIds=${drugIds}    symptom=    confirmDiagnosis=
-    Should Be Equal As Strings    ${getRes['body']['tabooList'][0]['description']}    不适用于妇女
+# 1.18 人群禁忌等级,ageType=天,'年龄1-43799',结果正确
+#     [Documentation]    断言:"crowd": "description=不适用于妇女"
+#     ${drugIds}    Create List    8280
+#     ${drugCommonNames}    Create List
+#     ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=43799    ageType=天    drugIds=${drugIds}    symptom=    confirmDiagnosis=
+#     Should Be Equal As Strings    ${getRes['body']['tabooList'][0]['description']}    不适用于妇女
 
 
 1.19 人群禁忌等级,年龄+症状,结果正确
@@ -156,12 +156,12 @@ Suite Teardown    Delete All Sessions
     Should Be Equal As Strings    ${getRes['body']['tabooList'][0]['description']}    3个月以上孕妇慎用
 
 
-1.20 人群禁忌等级,年龄+性别,结果正确
-    [Documentation]    断言:"crowd=49",description=40岁以上妇女禁用"
-    ${drugIds}    Create List    1940
-    ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=0    age=14600    ageType=天    drugIds=${drugIds}    symptom=    confirmDiagnosis=
-    Should Be Equal As Strings    ${getRes['body']['tabooList'][0]['description']}    40岁以上妇女禁用
+# 1.20 人群禁忌等级,年龄+性别,结果正确
+#     [Documentation]    断言:"crowd=49",description=40岁以上妇女禁用"
+#     ${drugIds}    Create List    1940
+#     ${drugCommonNames}    Create List
+#     ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=0    age=14600    ageType=天    drugIds=${drugIds}    symptom=    confirmDiagnosis=
+#     Should Be Equal As Strings    ${getRes['body']['tabooList'][0]['description']}    40岁以上妇女禁用
 
 
 1.21 人群禁忌等级,年龄+性别+病症,结果正确
