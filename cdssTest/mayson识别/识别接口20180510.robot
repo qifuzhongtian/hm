@@ -7,7 +7,7 @@ Library           ExcelLibrary
 Library           String
 
 *** Test Cases ***
-识别接口0320
+识别接口0510
     下肢肌力评估2    下肢肌力评估<3
     洼田饮水试验2级    洼田饮水试验>=2级
     洼田饮水试验3级    洼田饮水试验>=2级
