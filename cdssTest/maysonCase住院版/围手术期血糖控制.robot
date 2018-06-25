@@ -118,7 +118,7 @@ Library           String
 围手术期血糖控制-手动输入诊断：糖尿病围手术期血糖控制，推荐治疗：会诊、术前管理、术中管理、麻醉后管理、基础胰岛素治疗、血糖控制目标
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    血糖控制目标    会诊    术前管理    术中管理    麻醉后管理    基础胰岛素治疗
+    ${assert}    Create List    会诊    术前管理    术中管理    麻醉后管理    基础胰岛素治疗    血糖控制目标
     ${Assessment}    Set Variable    糖尿病围手术期血糖控制
     ${Subjective}    Set Variable    男，50岁，发现胆囊息肉2月，2型糖尿病病史15年，择期行腹腔镜胆囊切除术入院
     [Setup]    Run Keywords    获取时间戳
@@ -150,7 +150,7 @@ Library           String
 围手术期血糖控制-病历内容增加：血糖2.9mmol/L，推荐治疗增加：低血糖治疗
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    血糖控制目标    会诊    术前管理    术中管理    麻醉后管理    低血糖治疗    基础胰岛素治疗
+    ${assert}    Create List    会诊    术前管理    术中管理    麻醉后管理    低血糖治疗    基础胰岛素治疗    血糖控制目标
     ${Assessment}    Set Variable    糖尿病围手术期血糖控制
     ${Subjective}    Set Variable    男，50岁，发现胆囊息肉2月，2型糖尿病病史15年，择期行腹腔镜胆囊切除术入院，血糖2.9mmol/L
     [Setup]    Run Keywords    获取时间戳

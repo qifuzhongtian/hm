@@ -172,7 +172,7 @@ Library           String
     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     #####推荐治疗方案
     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    Lists Should Be Equal    ${aj}    ${assert}
+    List Should Contain Sub List    ${aj}    ${assert}
     #####疑似诊断
     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     #Should Contain    ${aj[:5]}    肺动脉高压

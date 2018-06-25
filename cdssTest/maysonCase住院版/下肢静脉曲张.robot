@@ -118,7 +118,7 @@ Library           String
 下肢静脉曲张-点击疑似诊断或手动输入：下肢静脉曲张，推荐治疗：随访观察、压力袜、消融治疗
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    压力袜    随访观察    消融治疗
+    ${assert}    Create List    随访观察    压力袜    消融治疗
     ${Assessment}    Set Variable    下肢静脉曲张
     ${Subjective}    Set Variable    女，35岁，左下肢浅静脉曲张，小腿胀痛不适1月
     [Setup]    Run Keywords    获取时间戳
@@ -181,7 +181,7 @@ Library           String
 下肢静脉曲张-病历内容增加：穿着压力袜3个月症状无缓解，推荐治疗增加：转诊血管科
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    转诊血管科    压力袜    随访观察    消融治疗
+    ${assert}    Create List    转诊血管科    随访观察    压力袜    消融治疗
     ${Assessment}    Set Variable    下肢静脉曲张
     ${Subjective}    Set Variable    女，35岁，左下肢浅静脉曲张，小腿胀痛不适1月，穿着压力袜3个月症状无缓解
     [Setup]    Run Keywords    获取时间戳
@@ -212,7 +212,7 @@ Library           String
 下肢静脉曲张-点击自动回写评估表评估结果：静脉分类系统CEAP分级C0级，推荐治疗增加：生活方式干预治疗、药物治疗、硬化剂治疗
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    转诊血管科    生活方式干预治疗    药物治疗    硬化剂治疗    压力袜    随访观察    消融治疗
+    ${assert}    Create List    转诊血管科    生活方式干预治疗    药物治疗    硬化剂治疗    随访观察    压力袜    消融治疗
     ${Assessment}    Set Variable    下肢静脉曲张
     ${Subjective}    Set Variable    女，35岁，左下肢浅静脉曲张，小腿胀痛不适1月，穿着压力袜3个月症状无缓解，静脉分类系统CEAP分级C0级
     [Setup]    Run Keywords    获取时间戳
@@ -243,7 +243,7 @@ Library           String
 下肢静脉曲张-手动修改评估表评估结果：静脉分类系统CEAP分级C2级，推荐治疗增加：加压治疗、手术治疗
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    转诊血管科    生活方式干预治疗    药物治疗    硬化剂治疗    压力袜    加压治疗    手术治疗    随访观察    消融治疗
+    ${assert}    Create List    转诊血管科    加压治疗    生活方式干预治疗    药物治疗    硬化剂治疗    手术治疗    随访观察    压力袜    消融治疗
     ${Assessment}    Set Variable    下肢静脉曲张
     ${Subjective}    Set Variable    女，35岁，左下肢浅静脉曲张，小腿胀痛不适1月，穿着压力袜3个月症状无缓解，静脉分类系统CEAP分级C2级
     [Setup]    Run Keywords    获取时间戳
@@ -274,7 +274,7 @@ Library           String
 下肢静脉曲张-进一步添加并发症：静脉性溃疡，推荐治疗增加：综合个体化治疗方案
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    转诊血管科    生活方式干预治疗    药物治疗    硬化剂治疗    压力袜    综合个体化治疗方案    加压治疗    手术治疗    随访观察    消融治疗
+    ${assert}    Create List    转诊血管科    加压治疗    生活方式干预治疗    药物治疗    硬化剂治疗    手术治疗    随访观察    压力袜    消融治疗    综合个体化治疗方案
     ${Assessment}    Set Variable    下肢静脉曲张
     ${Subjective}    Set Variable    女，35岁，左下肢浅静脉曲张，小腿胀痛不适1月，穿着压力袜3个月症状无缓解，静脉分类系统CEAP分级C2级，静脉性溃疡
     [Setup]    Run Keywords    获取时间戳

@@ -150,7 +150,7 @@ Library           String
 甲状腺结节-病历内容增加评估表评估结果：甲状腺超声TI-RADS分级2级，推荐治疗增加：甲状腺结节观察随访
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    甲状腺激素替代治疗    甲状腺结节观察随访
+    ${assert}    Create List    甲状腺结节观察随访    甲状腺激素替代治疗
     ${Assessment}    Set Variable    甲状腺结节
     ${Subjective}    Set Variable    男，30岁，健康体检发现甲状腺结节1个月，促甲状腺激素4.8mIU/L，甲状腺超声TI-RADS分级2级
     [Setup]    Run Keywords    获取时间戳

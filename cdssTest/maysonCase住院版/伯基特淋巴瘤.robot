@@ -177,7 +177,7 @@ Library           String
 伯基特淋巴瘤-病历内容进一步增加：化疗后，白细胞减少，推荐治疗增加：补充造血生长因子
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    水化防治肿瘤溶解综合征    控尿酸防治肿瘤溶解综合征    靶向药物治疗    放疗辅助    造血干细胞移植    R-CODOX-M化疗    R-IVAC化疗    姑息性化疗    姑息性支持治疗    补充造血生长因子
+    ${assert}    Create List    水化防治肿瘤溶解综合征    控尿酸防治肿瘤溶解综合征    靶向药物治疗    放疗辅助    造血干细胞移植    姑息性化疗    姑息性支持治疗    R-CODOX-M化疗    R-IVAC化疗    补充造血生长因子
     ${Assessment}    Set Variable    伯基特淋巴瘤
     ${Subjective}    Set Variable    男，58岁，发现右颈后淋巴结肿大20天，无明显诱因发现右颈后一月鸡蛋大小的肿大淋巴结，行淋巴结活检术，病理回报：伯基特淋巴瘤，ECOG评分4分，化疗后，白细胞减少
     [Setup]    Run Keywords    获取时间戳

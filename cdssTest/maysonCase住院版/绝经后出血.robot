@@ -211,7 +211,7 @@ Library           String
     #####疑似诊断
     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     # Should Contain    ${aj[:5]}    出血监测
-    Lists Should Be Equal    ${aj}    ${assert}
+    List Should Contain Sub List    ${aj}    ${assert}
 
 
 

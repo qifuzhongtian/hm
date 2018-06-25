@@ -177,7 +177,7 @@ Library           String
     #####疑似诊断
     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     # Should Contain    ${aj[:5]}    肝硬化
-    Lists Should Be Equal    ${aj}    ${assert}
+    List Should Contain Sub List    ${aj}    ${assert}
 
 
 肝硬化-手动输入评估表结果：ChildPughB级,推荐治疗增加:转诊、经颈静脉肝内门体分流术(TIPS)、肝移植
@@ -208,5 +208,5 @@ Library           String
     #####疑似诊断
     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     # Should Contain    ${aj[:5]}    肝硬化
-    Lists Should Be Equal    ${aj}    ${assert}
+    List Should Contain Sub List    ${aj}    ${assert}
 

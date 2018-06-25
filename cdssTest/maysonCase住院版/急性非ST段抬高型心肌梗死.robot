@@ -767,7 +767,7 @@ Library           String
     Should Contain    ${aj}    转入CCU
 
 
-急性非ST段抬高性心肌梗死-主诉:手动输入或点击回填诊断：急性非ST段抬高性心肌梗死,推荐治疗方案:PCI手术、保守策略、转入CCU
+急性非ST段抬高性心肌梗死-主诉:手动略、转入CCU
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
     ${assert}    Create List    保守策略    转入CCU    PCI手术
@@ -795,7 +795,7 @@ Library           String
     ######疑似诊断
     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     # Should Contain    ${aj}    PCI手术、保守策略、转入CCU
-    List Should Be Equal    ${aj}    ${assert}
+    Lists Should Be Equal    ${aj}    ${assert}
 
 
 

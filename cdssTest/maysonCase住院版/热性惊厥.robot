@@ -183,7 +183,7 @@ Library           String
 热性惊厥-病历内容增加：惊厥发作6min，推荐治疗增加：急性发作期止惊治疗
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    退热治疗    基础治疗    急性发作期止惊治疗
+    ${assert}    Create List    基础治疗    急性发作期止惊治疗    退热治疗
     ${Assessment}    Set Variable    高热惊厥
     ${Subjective}    Set Variable    男，2岁，发热伴惊厥1天，1天前无明显发热，体温39.2C°，今突发惊厥，两眼凝视，持续3分钟左右后促进好转，惊厥发作急性期，惊厥发作6min
     [Setup]    Run Keywords    获取时间戳

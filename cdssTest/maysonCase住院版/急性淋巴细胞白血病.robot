@@ -88,7 +88,7 @@ Library           String
 急性淋巴细胞白血病-点击疑似诊断或手动输入：急性淋巴细胞白血病，推荐治疗：预防中枢神经系统浸润、预治肿瘤溶解综合征、预防肺孢子菌肺炎、防治大剂量阿糖胞苷毒性、风险评估预后、化疗、造血干细胞移植、门冬酰胺酶治疗
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    预防中枢神经系统浸润    预治肿瘤溶解综合征    预防肺孢子菌肺炎    风险评估预后    化疗    防治大剂量阿糖胞苷毒性    造血干细胞移植    门冬酰胺酶治疗
+    ${assert}    Create List    预防中枢神经系统浸润    预治肿瘤溶解综合征    预防肺孢子菌肺炎    防治大剂量阿糖胞苷毒性    风险评估预后    化疗    造血干细胞移植    门冬酰胺酶治疗
     ${Assessment}    Set Variable    急性淋巴细胞白血病
     ${Subjective}    Set Variable    男，48岁，因头晕，乏力，面色苍白，全身骨痛，皮肤紫斑就诊，骨髓象显示为急性淋巴细胞白血病
     [Setup]    Run Keywords    获取时间戳
@@ -118,7 +118,7 @@ Library           String
 急性淋巴细胞白血病-病历内容补充检查结果：中性粒细胞减少，推荐治疗增加：预防性抗细菌真菌病毒药物
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    预防中枢神经系统浸润    预治肿瘤溶解综合征    预防肺孢子菌肺炎    风险评估预后    化疗    预防性抗细菌真菌病毒药物    防治大剂量阿糖胞苷毒性    造血干细胞移植    门冬酰胺酶治疗
+    ${assert}    Create List    预防中枢神经系统浸润    预治肿瘤溶解综合征    预防性抗细菌真菌病毒药物    预防肺孢子菌肺炎    防治大剂量阿糖胞苷毒性    风险评估预后    化疗    造血干细胞移植    门冬酰胺酶治疗
     ${Assessment}    Set Variable    急性淋巴细胞白血病
     ${Subjective}    Set Variable    男，48岁，因头晕，乏力，面色苍白，全身骨痛，皮肤紫斑就诊，骨髓象显示为急性淋巴细胞白血病，中性粒细胞减少
     [Setup]    Run Keywords    获取时间戳
@@ -148,7 +148,7 @@ Library           String
 急性淋巴细胞白血病-病历内容进一步增加：血压下降，推荐治疗增加：加强抗感染治疗
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    预防中枢神经系统浸润    预治肿瘤溶解综合征    加强抗感染治疗    预防肺孢子菌肺炎    风险评估预后    化疗    预防性抗细菌真菌病毒药物    防治大剂量阿糖胞苷毒性    造血干细胞移植    门冬酰胺酶治疗
+    ${assert}    Create List    预防中枢神经系统浸润    预治肿瘤溶解综合征    预防性抗细菌真菌病毒药物    加强抗感染治疗    预防肺孢子菌肺炎    防治大剂量阿糖胞苷毒性    风险评估预后    化疗    造血干细胞移植    门冬酰胺酶治疗
     ${Assessment}    Set Variable    急性淋巴细胞白血病
     ${Subjective}    Set Variable    男，48岁，因头晕，乏力，面色苍白，全身骨痛，皮肤紫斑就诊，骨髓象显示为急性淋巴细胞白血病，中性粒细胞减少，血压下降
     [Setup]    Run Keywords    获取时间戳

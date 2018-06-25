@@ -119,7 +119,7 @@ Library           String
 急性髓系白血病|急性早幼粒细胞白血病-点击疑似诊断或手动输入：急性髓系白血病，推荐治疗：蒽环类标准诱导化疗、非蒽环类诱导化疗、靶向药物治疗、造血干细胞移植治疗、防治大剂量阿糖胞苷毒性、预防肿瘤溶解综合征、转诊
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    转诊    预防肿瘤溶解综合征    蒽环类标准诱导化疗    非蒽环类诱导化疗    靶向药物治疗    造血干细胞移植治疗    防治大剂量阿糖胞苷毒性
+    ${assert}    Create List    蒽环类标准诱导化疗    非蒽环类诱导化疗    转诊    靶向药物治疗    造血干细胞移植治疗    防治大剂量阿糖胞苷毒性    预防肿瘤溶解综合征
     ${Assessment}    Set Variable    急性髓系白血病
     ${Subjective}    Set Variable    男，69岁，头晕，乏力，发热3天，皮肤紫斑1天。面色苍白，牙龈出血、胸骨下段压痛，肝脾肿大，骨髓象显示为急性髓系白血病
     [Setup]    Run Keywords    获取时间戳
@@ -151,7 +151,7 @@ Library           String
 急性髓系白血病|急性早幼粒细胞白血病-病历内容增加：白细胞淤滞，推荐治疗增加：白细胞去除术、高剂量羟基脲治疗
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    转诊    预防肿瘤溶解综合征    蒽环类标准诱导化疗    非蒽环类诱导化疗    白细胞去除术    高剂量羟基脲治疗    靶向药物治疗    造血干细胞移植治疗    防治大剂量阿糖胞苷毒性
+    ${assert}    Create List    蒽环类标准诱导化疗    非蒽环类诱导化疗    白细胞去除术    高剂量羟基脲治疗    转诊    靶向药物治疗    造血干细胞移植治疗    防治大剂量阿糖胞苷毒性    预防肿瘤溶解综合征
     ${Assessment}    Set Variable    急性髓系白血病
     ${Subjective}    Set Variable    男，69岁，头晕，乏力，发热3天，皮肤紫斑1天。面色苍白，牙龈出血、胸骨下段压痛，肝脾肿大，骨髓象显示为急性髓系白血病，白细胞淤滞
     [Setup]    Run Keywords    获取时间戳
@@ -183,7 +183,7 @@ Library           String
 急性髓系白血病|急性早幼粒细胞白血病-病历内容增加：血红蛋白5g/dl，推荐治疗增加：红细胞输注
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    转诊    预防肿瘤溶解综合征    蒽环类标准诱导化疗    非蒽环类诱导化疗    白细胞去除术    高剂量羟基脲治疗    红细胞输注    靶向药物治疗    造血干细胞移植治疗    防治大剂量阿糖胞苷毒性
+    ${assert}    Create List    蒽环类标准诱导化疗    非蒽环类诱导化疗    白细胞去除术    高剂量羟基脲治疗    红细胞输注    转诊    靶向药物治疗    造血干细胞移植治疗    防治大剂量阿糖胞苷毒性    预防肿瘤溶解综合征
     ${Assessment}    Set Variable    急性髓系白血病
     ${Subjective}    Set Variable    男，69岁，头晕，乏力，发热3天，皮肤紫斑1天。面色苍白，牙龈出血、胸骨下段压痛，肝脾肿大，骨髓象显示为急性髓系白血病，白细胞淤滞，血红蛋白5g/dl
     [Setup]    Run Keywords    获取时间戳

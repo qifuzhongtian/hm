@@ -54,7 +54,7 @@ Library           String
     #####疑似诊断
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     Should Contain    ${aj[:5]}    消化道穿孔
-    # Lists Should Be Equal    ${aj}    ${assert}
+    # List Should Contain Sub List    ${aj}    ${assert}
 
 
 先天性胆管扩张症-增加病史:检查结果示：间歇性黄疸加重，右上腹囊性包块，尿胆红素阳性，推荐疑似诊断:先天性胆管扩张症
@@ -85,7 +85,7 @@ Library           String
     #####疑似诊断
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     Should Contain    ${aj[:5]}    先天性胆管扩张症
-    # Lists Should Be Equal    ${aj}    ${assert}
+    # List Should Contain Sub List    ${aj}    ${assert}
 
 
 先天性胆管扩张症-手动输入诊断：先天性胆管扩张症，推荐检查:尿常规、粪便常规、血常规、C-反应蛋白、血型、血生化、凝血常规、乙肝五项、血气分析、胸部X线片（正位）、心电图、超声心动图、腹部B超、上腹部CT、磁共振胰胆管造影（MRCP)、CT三维重建、经内镜逆行胰胆道造影(ERCP)
@@ -116,7 +116,7 @@ Library           String
     #####疑似诊断
     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     # Should Contain    ${aj[:5]}    先天性胆管扩张症
-    Lists Should Be Equal    ${aj}    ${assert}
+    List Should Contain Sub List    ${aj}    ${assert}
 
 先天性胆管扩张症-手动输入诊断：先天性胆管扩张症，推荐治疗:扩张胆总管切除术、胆道重建术、内膜剥除术、预防性抗菌药物治疗、术后抗菌药物治疗
     [Documentation]    断言:""
@@ -146,7 +146,7 @@ Library           String
     #####疑似诊断
     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     # Should Contain    ${aj[:5]}    先天性胆管扩张症
-    Lists Should Be Equal    ${aj}    ${assert}
+    List Should Contain Sub List    ${aj}    ${assert}
 
 
 先天性胆管扩张症-增加病历内容：胆总管局部粘连重，推荐治疗增加:囊肿外引流术+囊肿切除术+胆道重建术
@@ -177,5 +177,5 @@ Library           String
     #####疑似诊断
     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     # Should Contain    ${aj[:5]}    先天性胆管扩张症
-    Lists Should Be Equal    ${aj}    ${assert}
+    List Should Contain Sub List    ${aj}    ${assert}
 

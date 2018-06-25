@@ -54,7 +54,7 @@ Library           String
     #####疑似诊断
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     Should Contain    ${aj[:5]}    脊柱侧弯
-    # Lists Should Be Equal    ${aj}    ${assert}
+    # List Should Contain Sub List    ${aj}    ${assert}
 
 
 青少年特发性脊柱侧弯-手动输入诊断：青少年特发性脊柱侧弯，推荐检查:尿常规、血常规、血型、肝功能、肾功能、血电解质、乙肝五项、梅毒血清特异性抗体测定（TPHA等）、血清HIV病毒检查、凝血功能监测、胸部X线片（正位）、心电图、心肺功能检查、脊柱X线、脊髓CT、脊柱MRI
@@ -85,7 +85,7 @@ Library           String
     #####疑似诊断
     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     # Should Contain    ${aj[:5]}    脊柱侧弯
-    Lists Should Be Equal    ${aj}    ${assert}
+    List Should Contain Sub List    ${aj}    ${assert}
 
 
 青少年特发性脊柱侧弯-手动输入诊断：青少年特发性脊柱侧弯，推荐治疗:预防性抗菌素治疗、止痛治疗
@@ -116,7 +116,7 @@ Library           String
     #####疑似诊断
     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     # Should Contain    ${aj[:5]}    脊柱侧弯
-    Lists Should Be Equal    ${aj}    ${assert}
+    List Should Contain Sub List    ${aj}    ${assert}
 
 
 青少年特发性脊柱侧弯-增加病历内容：Cobb角20°，推荐治疗:预防性抗菌素治疗、止痛治疗
@@ -147,7 +147,7 @@ Library           String
     #####疑似诊断
     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     # Should Contain    ${aj[:5]}    脊柱侧弯
-    Lists Should Be Equal    ${aj}    ${assert}
+    List Should Contain Sub List    ${aj}    ${assert}
 
 
 青少年特发性脊柱侧弯-修改病历内容：Cobb角30°，推荐治疗:预防性抗菌素治疗、止痛治疗
@@ -178,7 +178,7 @@ Library           String
     #####疑似诊断
     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     # Should Contain    ${aj[:5]}    脊柱侧弯
-    Lists Should Be Equal    ${aj}    ${assert}
+    List Should Contain Sub List    ${aj}    ${assert}
 
 
 青少年特发性脊柱侧弯-修改病历内容：Cobb角45°并且每年Cobb角进展8°，推荐治疗:预防性抗菌素治疗、止痛治疗
@@ -209,5 +209,5 @@ Library           String
     #####疑似诊断
     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     # Should Contain    ${aj[:5]}    脊柱侧弯
-    Lists Should Be Equal    ${aj}    ${assert}
+    List Should Contain Sub List    ${aj}    ${assert}
 

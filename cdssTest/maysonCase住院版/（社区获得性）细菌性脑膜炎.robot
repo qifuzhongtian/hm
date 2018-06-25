@@ -54,7 +54,7 @@ Library           String
     #####疑似诊断
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     Should Contain    ${aj[:5]}    疟疾
-    # Lists Should Be Equal    ${aj}    ${assert}
+    # List Should Contain Sub List    ${aj}    ${assert}
 
 
 
@@ -87,7 +87,7 @@ Library           String
     #####疑似诊断
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     Should Contain    ${aj[:5]}    细菌性脑膜炎
-    # Lists Should Be Equal    ${aj}    ${assert}
+    # List Should Contain Sub List    ${aj}    ${assert}
 
 
 （社区获得性）细菌性脑膜炎-手动输入诊断：细菌性脑膜炎,推荐检查:血常规、血培养、凝血常规、血糖、腰穿脑脊液检查、红细胞沉降率、血钠、肌酐测定、谷丙转氨酶测定（ＧＰＴ）
@@ -118,7 +118,7 @@ Library           String
     #####疑似诊断
     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     # Should Contain    ${aj[:5]}    细菌性脑膜炎
-    Lists Should Be Equal    ${aj}    ${assert}
+    List Should Contain Sub List    ${aj}    ${assert}
 
 
 
@@ -154,7 +154,7 @@ Library           String
     #####疑似诊断
     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     # Should Contain    ${aj[:5]}    细菌性脑膜炎
-    Lists Should Be Equal    ${aj}    ${assert}
+    List Should Contain Sub List    ${aj}    ${assert}
 
 
 
@@ -186,7 +186,7 @@ Library           String
     #####疑似诊断
     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     # Should Contain    ${aj[:5]}    细菌性脑膜炎
-    Lists Should Be Equal    ${aj}    ${assert}
+    List Should Contain Sub List    ${aj}    ${assert}
 
 
 

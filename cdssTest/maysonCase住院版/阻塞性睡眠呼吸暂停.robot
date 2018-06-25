@@ -73,7 +73,7 @@ Library           String
     ...    newTestList=
     #####推荐检查评估表
     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    Lists Should Be Equal    ${aj}    ${assert}
+    List Should Contain Sub List    ${aj}    ${assert}
     #####推荐检查
     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
     ######检查解读
@@ -105,7 +105,7 @@ Library           String
     #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
     #####推荐检查
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Lists Should Be Equal    ${aj}    ${assert}
+    List Should Contain Sub List    ${aj}    ${assert}
     ######检查解读
     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     #####推荐治疗方案
@@ -135,7 +135,7 @@ Library           String
     #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
     #####推荐检查
     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    #Lists Should Be Equal    ${aj}    ${assert}
+    #List Should Contain Sub List    ${aj}    ${assert}
     ######检查解读
     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     #####推荐治疗方案
@@ -166,12 +166,12 @@ Library           String
     #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
     #####推荐检查
     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    #Lists Should Be Equal    ${aj}    ${assert}
+    #List Should Contain Sub List    ${aj}    ${assert}
     ######检查解读
     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     #####推荐治疗方案
     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    Lists Should Be Equal    ${aj}    ${assert}
+    List Should Contain Sub List    ${aj}    ${assert}
     #Should Contain    ${aj}    一般治疗
     #####疑似诊断
     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
@@ -198,12 +198,12 @@ Library           String
     #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
     #####推荐检查
     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    #Lists Should Be Equal    ${aj}    ${assert}
+    #List Should Contain Sub List    ${aj}    ${assert}
     ######检查解读
     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     #####推荐治疗方案
     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    Lists Should Be Equal    ${aj}    ${assert}
+    List Should Contain Sub List    ${aj}    ${assert}
     #Should Contain    ${aj}    一般治疗
     #####疑似诊断
     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]

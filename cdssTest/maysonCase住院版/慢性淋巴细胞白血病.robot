@@ -118,7 +118,7 @@ Library           String
 慢性淋巴细胞白血病-点击疑似诊断或手动输入：慢性淋巴细胞白血病，推荐治疗：CLL支持治疗和监测、化学免疫治疗方案
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    化学免疫治疗方案    CLL支持治疗和监测
+    ${assert}    Create List    CLL支持治疗和监测    化学免疫治疗方案
     ${Assessment}    Set Variable    慢性淋巴细胞白血病
     ${Subjective}    Set Variable    男，56岁，乏力、贫血、体弱、消瘦、 出血、颈部肿大，体检发现白细胞总数100×109/L，来院复查，骨髓象显示为慢性淋巴细胞白血病
     [Setup]    Run Keywords    获取时间戳
@@ -148,7 +148,7 @@ Library           String
 慢性淋巴细胞白血病-病历内容增加：难治性慢性淋巴细胞白血病，推荐治疗增加：依鲁替尼、Idelalisib+利妥昔单抗、苯丁酸氮芥、甲泼尼龙+利妥昔单抗
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    依鲁替尼    Idelalisib+利妥昔单抗    化学免疫治疗    苯丁酸氮芥    甲泼尼龙+利妥昔单抗    CLL支持治疗和监测
+    ${assert}    Create List    CLL支持治疗和监测    依鲁替尼    甲泼尼龙+利妥昔单抗    Idelalisib+利妥昔单抗    化学免疫治疗    苯丁酸氮芥
     ${Assessment}    Set Variable    慢性淋巴细胞白血病
     ${Subjective}    Set Variable    男，56岁，乏力、贫血、体弱、消瘦、 出血、颈部肿大，体检发现白细胞总数100×109/L，来院复查，骨髓象显示为慢性淋巴细胞白血病，难治性慢性淋巴细胞白血病
     [Setup]    Run Keywords    获取时间戳

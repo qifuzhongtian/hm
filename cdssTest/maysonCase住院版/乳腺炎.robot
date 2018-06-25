@@ -152,7 +152,7 @@ Library           String
 乳腺炎-诊断修改为：肉芽肿性小叶乳腺炎，推荐治疗变更：类固醇激素、肿块切除术、乳腺区段切除术
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    广谱抗生素    非甾体类镇痛药    类固醇激素    肿块切除术    乳腺区段切除术    穿刺抽吸    切开引流术
+    ${assert}    Create List    广谱抗生素    非甾体类镇痛药    肿块切除术    乳腺区段切除术    类固醇激素    穿刺抽吸    切开引流术
     ${Assessment}    Set Variable    肉芽肿性小叶乳腺炎
     ${Subjective}    Set Variable    女，38岁，右侧乳房红肿、乳腺疼痛1周，乳腺脓肿
     [Setup]    Run Keywords    获取时间戳
@@ -183,7 +183,7 @@ Library           String
 乳腺炎-病历内容增加：乳腺瘘管，推荐治疗增加：免疫抑制剂、瘘管切除术、单纯皮下腺体切除术、单纯乳房切除术、乳房重建或假体植入术
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    广谱抗生素    非甾体类镇痛药    类固醇激素    肿块切除术    乳腺区段切除术    穿刺抽吸    切开引流术    免疫抑制剂    瘘管切除术    单纯皮下腺体切除术    单纯乳房切除术    乳房重建或假体植入术
+    ${assert}    Create List    广谱抗生素    非甾体类镇痛药    肿块切除术    乳腺区段切除术    类固醇激素     穿刺抽吸    切开引流术    单纯乳房切除术   乳房重建或假体植入术    瘘管切除术    单纯皮下腺体切除术    免疫抑制剂
     ${Assessment}    Set Variable    肉芽肿性小叶乳腺炎
     ${Subjective}    Set Variable    女，38岁，右侧乳房红肿、乳腺疼痛1周，乳腺脓肿，乳腺瘘管
     [Setup]    Run Keywords    获取时间戳

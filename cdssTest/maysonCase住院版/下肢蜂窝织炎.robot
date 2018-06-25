@@ -93,7 +93,7 @@ Library           String
 下肢蜂窝织炎-手动输入诊断：下肢蜂窝织炎,补充病史：重度感染，推荐治疗:社区获得性感染(无药物过敏)、足疗程治疗、辅助抗菌治疗、住院治疗
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    足疗程治疗    住院治疗    社区获得性感染(无药物过敏)    辅助抗菌治疗
+    ${assert}    Create List    社区获得性感染(无药物过敏)    足疗程治疗    辅助抗菌治疗    住院治疗
     ${Assessment}    Set Variable    下肢蜂窝织炎
     ${Subjective}    Set Variable    女，23岁，左下肢疼痛，皮温升高，下肢患处红肿3天，检查结果示：血CRP升高，中性粒细胞增多,重度感染
     [Setup]    Run Keywords    获取时间戳
@@ -124,7 +124,7 @@ Library           String
 下肢蜂窝织炎-病历内容中输入：化脓感染，推荐治疗增加:切开引流、四肢清洁手术
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    足疗程治疗    切开引流    四肢清洁手术    住院治疗    社区获得性感染(无药物过敏)    辅助抗菌治疗
+    ${assert}    Create List    社区获得性感染(无药物过敏)    足疗程治疗    辅助抗菌治疗    切开引流    四肢清洁手术    住院治疗
     ${Assessment}    Set Variable    下肢蜂窝织炎
     ${Subjective}    Set Variable    女，23岁，左下肢疼痛，皮温升高，下肢患处红肿3天，检查结果示：血CRP升高，中性粒细胞增多,重度感染,化脓感染
     [Setup]    Run Keywords    获取时间戳

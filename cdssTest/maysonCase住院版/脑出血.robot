@@ -115,7 +115,7 @@ Library           String
     #####疑似诊断
     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     # Should Contain    ${aj}    脑出血
-    Lists Should Be Equal    ${aj}    ${assert}
+    List Should Contain Sub List    ${aj}    ${assert}
 
 脑出血-病史:病例内容进一步增加：基底节区出血，实测颅内压ICP26mmHg,推荐治疗增加:颞瓣或额颞瓣骨瓣开颅血肿清除术、小骨窗开颅血肿清除术、神经内镜血肿清除术、立体定向骨孔血肿抽吸术（改良椎颅术）
     [Documentation]    断言:""
@@ -145,7 +145,7 @@ Library           String
     #####疑似诊断
     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     # Should Contain    ${aj}    脑出血
-    Lists Should Be Equal    ${aj}    ${assert}
+    List Should Contain Sub List    ${aj}    ${assert}
     # List Should Contain Sub List    ${aj}    ${assert}
 
 

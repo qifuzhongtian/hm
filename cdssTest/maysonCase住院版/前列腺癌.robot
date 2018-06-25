@@ -119,7 +119,7 @@ Library           String
 前列腺癌- 点击疑似诊断或手动输入：前列腺癌，推荐治疗：局部低温冷冻治疗、内分泌治疗、手术去势疗法、单纯去势疗法、全激素阻断疗法
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    内分泌治疗    手术去势疗法    单纯去势疗法    全激素阻断疗法    局部低温冷冻治疗
+    ${assert}    Create List    局部低温冷冻治疗    内分泌治疗    手术去势疗法    单纯去势疗法    全激素阻断疗法
     ${Assessment}    Set Variable    前列腺癌
     ${Subjective}    Set Variable    男，80岁，排尿不畅20余年，出现尿潴留1周，留置导尿管，前列腺穿刺活检病理检查示前列腺癌
     [Setup]    Run Keywords    获取时间戳
@@ -215,7 +215,7 @@ Library           String
 前列腺癌- 病历内容增加：难治性骨痛，推荐治疗增加：姑息性放射治疗
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    姑息性放射治疗    内分泌治疗    手术去势疗法    单纯去势疗法    全激素阻断疗法    局部低温冷冻治疗
+    ${assert}    Create List    姑息性放射治疗    局部低温冷冻治疗    内分泌治疗    手术去势疗法    单纯去势疗法    全激素阻断疗法
     ${Assessment}    Set Variable    前列腺癌
     ${Subjective}    Set Variable    男，80岁，排尿不畅20余年，出现尿潴留1周，留置导尿管，前列腺穿刺活检病理检查示前列腺癌，骨转移，难治性骨痛
     [Setup]    Run Keywords    获取时间戳

@@ -87,7 +87,7 @@ Library           String
 女性不孕症-手动输入诊断：女性不孕症，推荐治疗：全面评估、一般治疗、补充叶酸、辅助生殖技术
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    全面评估    一般治疗    辅助生殖技术    补充叶酸
+    ${assert}    Create List    全面评估    一般治疗    补充叶酸    辅助生殖技术
     ${Assessment}    Set Variable    女性不孕症
     ${Subjective}    Set Variable    女，年龄38岁，未避孕未孕7年余，男方37岁，B超监测提示有排卵；子宫输卵管造影术提示双侧输卵管从根部阻塞；精液检查示未见异常
     [Setup]    Run Keywords    获取时间戳
@@ -118,7 +118,7 @@ Library           String
 女性不孕症-病历内容增加：输卵管缺陷，推荐治疗增加：转诊
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    转诊    全面评估    一般治疗    辅助生殖技术    补充叶酸
+    ${assert}    Create List    转诊    全面评估    一般治疗    补充叶酸    辅助生殖技术
     ${Assessment}    Set Variable    女性不孕症
     ${Subjective}    Set Variable    女，年龄38岁，未避孕未孕7年余，男方37岁，B超监测提示有排卵；子宫输卵管造影术提示双侧输卵管从根部阻塞；精液检查示未见异常，输卵管缺陷
     [Setup]    Run Keywords    获取时间戳

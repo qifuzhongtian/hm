@@ -119,7 +119,7 @@ Library           String
 主动脉瓣狭窄-病历内容中增加评估表结果：主动脉瓣瓣口面积1.2cm2，推荐治疗增加:无症状中度主动脉狭窄者监测与管理、中度主动脉狭窄者监测与管理
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    会诊    中度主动脉狭窄者监测与管理    多学科会诊    无症状中度主动脉狭窄者监测与管理
+    ${assert}    Create List    会诊    无症状中度主动脉狭窄者监测与管理    中度主动脉狭窄者监测与管理    多学科会诊
     ${Assessment}    Set Variable    主动脉瓣狭窄
     ${Subjective}    Set Variable    男，68岁，活动后气促10年，加重1周，突发晕厥1小时 ，心脏彩超显示主动脉瓣狭窄,主动脉瓣瓣口面积1.2cm2
     [Setup]    Run Keywords    获取时间戳

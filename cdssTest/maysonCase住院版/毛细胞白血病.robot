@@ -176,7 +176,7 @@ Library           String
 毛细胞白血病-病历内容增加检查结果：CD4细胞计数下降，推荐治疗增加：髓系生长因子治疗、预防性抗感染治疗
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    初始一线化疗    初始二线化疗    评估启动治疗时机和风险获益    髓系生长因子治疗    预防性抗感染治疗
+    ${assert}    Create List    初始一线化疗    初始二线化疗    髓系生长因子治疗    预防性抗感染治疗    评估启动治疗时机和风险获益
     ${Assessment}    Set Variable    毛细胞白血病
     ${Subjective}    Set Variable    男，65岁，贫血、出血，腹胀、消瘦，体检发现血项异常。查体发现脾脏肿大(肋下约5约m),肝脏肋下可及边缘,无浅表淋巴结肿大，骨髓出现大量边缘不整齐呈伪足状或纤毛样突出的白细胞，提示毛细胞白血病，CD4细胞计数下降
     [Setup]    Run Keywords    获取时间戳

@@ -150,7 +150,7 @@ Library           String
 急性肾损伤-点击疑似诊断或手动输入：急性肾损伤，推荐治疗：利尿剂治疗、纠正可逆病因治疗、防治高血钾、防止各种感染
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    纠正可逆病因治疗    防治高血钾    防治各种感染    利尿剂治疗
+    ${assert}    Create List    纠正可逆病因治疗    防治高血钾    利尿剂治疗    防治各种感染
     ${Assessment}    Set Variable    急性肾损伤
     ${Subjective}    Set Variable    女，72岁，尿量减少，下肢明显水肿伴恶心1月余，辅助检查显示：双下肢重度可凹性水肿，血肌酐248μmol／L（较前明显升高），肾功能减退
     [Setup]    Run Keywords    获取时间戳
@@ -183,7 +183,7 @@ Library           String
 急性肾损伤-病历中增加：肾前性肾损伤，推荐治疗增加：扩容改善肾血流
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    纠正可逆病因治疗    防治高血钾    扩容改善肾血流    防治各种感染    利尿剂治疗
+    ${assert}    Create List    纠正可逆病因治疗    防治高血钾    利尿剂治疗    扩容改善肾血流    防治各种感染
     ${Assessment}    Set Variable    急性肾损伤
     ${Subjective}    Set Variable    女，72岁，尿量减少，下肢明显水肿伴恶心1月余，辅助检查显示：双下肢重度可凹性水肿，血肌酐248μmol／L（较前明显升高），肾功能减退，肾前性肾损伤
     [Setup]    Run Keywords    获取时间戳

@@ -54,7 +54,7 @@ Library           String
     #####疑似诊断
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     Should Contain    ${aj[:5]}    脑出血
-    # Lists Should Be Equal    ${aj}    ${assert}
+    # List Should Contain Sub List    ${aj}    ${assert}
 
 吉兰-巴雷综合征-增加病史：检查结果示：脑脊液蛋白-细胞分离、血清抗神经节苷脂阳性，推荐疑似诊断:吉兰-巴雷综合征
     [Documentation]    断言:""
@@ -84,7 +84,7 @@ Library           String
     #####疑似诊断
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     Should Contain    ${aj[:5]}    吉兰-巴雷综合征
-    # Lists Should Be Equal    ${aj}    ${assert}
+    # List Should Contain Sub List    ${aj}    ${assert}
 
 吉兰-巴雷综合征-手动输入诊断：吉兰-巴雷综合征，推荐检查:尿常规、粪便常规、血常规、肝功能、肾功能、血电解质、血糖、红细胞沉降率(ESR)、血气分析、肿瘤标志物测定、免疫五项、风湿三项、乙肝五项、丙型肝炎抗体测定、梅毒血清特异性抗体测定（TPHA等）、艾滋病毒抗体检测、抗巨细胞病毒抗体检测、脑脊液常规、脑脊液生化检查、脑脊液抗神经节苷脂抗体检测、脑脊液细菌培养、免疫球蛋白检查、腰穿脑脊液细胞学检查、心电图、胸部X线(正侧位)、神经电生理检查
     [Documentation]    断言:""
@@ -114,7 +114,7 @@ Library           String
     #####疑似诊断
     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     # Should Contain    ${aj[:5]}    吉兰-巴雷综合征
-    Lists Should Be Equal    ${aj}    ${assert}
+    List Should Contain Sub List    ${aj}    ${assert}
 
 
 吉兰-巴雷综合征-手动输入诊断：吉兰-巴雷综合征，推荐治疗:一般治疗、静注免疫球蛋白治疗、血浆置换、皮质类固醇激素治疗、营养神经治疗、早期神经康复治疗
@@ -145,7 +145,7 @@ Library           String
     #####疑似诊断
     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     # Should Contain    ${aj[:5]}    吉兰-巴雷综合征
-    Lists Should Be Equal    ${aj}    ${assert}
+    List Should Contain Sub List    ${aj}    ${assert}
 
 
 吉兰-巴雷综合征-增加病历内容：尿潴留，推荐治疗增加:留置导尿
@@ -176,5 +176,5 @@ Library           String
     #####疑似诊断
     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     # Should Contain    ${aj[:5]}    吉兰-巴雷综合征
-    Lists Should Be Equal    ${aj}    ${assert}
+    List Should Contain Sub List    ${aj}    ${assert}
 

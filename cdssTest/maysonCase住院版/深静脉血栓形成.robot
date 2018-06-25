@@ -160,7 +160,7 @@ Library           String
 深静脉血栓形成-病历内容增加：股青肿,推荐治疗增加:转诊
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    转诊    抗凝治疗
+    ${assert}    Create List    抗凝治疗    转诊
     ${Assessment}    Set Variable    深静脉血栓形成
     ${Subjective}    Set Variable    病史：男，65岁，ICU住院患者，突发下肢疼痛1小时，高血压病史10年,查体结果输入:下肢肿胀，大腿根部明显压痛,急性DVT,股青肿
     [Setup]    Run Keywords    获取时间戳

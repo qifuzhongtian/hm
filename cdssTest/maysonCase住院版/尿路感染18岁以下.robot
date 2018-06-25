@@ -87,7 +87,7 @@ Library           String
 尿路感染18岁以下-点击疑似诊断或手动输入：尿路感染，推荐治疗；口服抗生素治疗、>2岁经验性抗生素治疗、随访
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    随访    口服抗生素治疗    >2岁经验性抗生素治疗
+    ${assert}    Create List    口服抗生素治疗    >2岁经验性抗生素治疗    随访
     ${Assessment}    Set Variable    尿路感染
     ${Subjective}    Set Variable    女，12岁，尿频、尿急，尿液外观浑浊就诊。既往曾患过3次尿道炎
     [Setup]    Run Keywords    获取时间戳
@@ -118,7 +118,7 @@ Library           String
 尿路感染18岁以下-病历内容增加：复发性尿路感染，推荐治疗增加：>2岁覆盖假单胞菌和肠球菌抗生素治疗
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    随访    口服抗生素治疗    >2岁经验性抗生素治疗    >2岁覆盖假单胞菌和肠球菌抗生素治疗
+    ${assert}    Create List    口服抗生素治疗    >2岁经验性抗生素治疗    >2岁覆盖假单胞菌和肠球菌抗生素治疗    随访
     ${Assessment}    Set Variable    尿路感染
     ${Subjective}    Set Variable    女，12岁，尿频、尿急，尿液外观浑浊就诊。既往曾患过3次尿道炎，复发性尿路感染
     [Setup]    Run Keywords    获取时间戳
@@ -149,7 +149,7 @@ Library           String
 尿路感染18岁以下-病历内容增加：脓毒症，推荐治疗增加：住院治疗、复苏-支持治疗
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    随访    住院治疗    口服抗生素治疗    >2岁经验性抗生素治疗    >2岁覆盖假单胞菌和肠球菌抗生素治疗    复苏-支持治疗
+    ${assert}    Create List    口服抗生素治疗    >2岁经验性抗生素治疗    >2岁覆盖假单胞菌和肠球菌抗生素治疗    复苏-支持治疗    随访    住院治疗
     ${Assessment}    Set Variable    尿路感染
     ${Subjective}    Set Variable    女，12岁，尿频、尿急，尿液外观浑浊就诊。既往曾患过3次尿道炎，复发性尿路感染，脓毒症
     [Setup]    Run Keywords    获取时间戳

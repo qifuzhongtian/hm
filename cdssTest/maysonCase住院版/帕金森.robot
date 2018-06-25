@@ -125,7 +125,7 @@ Library           String
 帕金森-病史:进一步明确诊断：早发型帕金森,推荐治疗增加:金刚烷胺、复方左旋多巴＋COMT抑制剂
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    复方左旋多巴    复方左旋多巴＋COMT抑制剂    非麦角类DR激动剂    MAO-B抑制剂    金刚烷胺
+    ${assert}    Create List        非麦角类DR激动剂    MAO-B抑制剂复方左旋多巴    金刚烷胺    复方左旋多巴＋COMT抑制剂
     ${Assessment}    Set Variable    早发型帕金森
     ${Subjective}    Set Variable    女，59岁，右上肢动作不如从前灵活，有僵硬感并伴不自主抖动
     [Setup]    Run Keywords    获取时间戳
@@ -157,7 +157,7 @@ Library           String
 帕金森-病史:补充并发症：震颤明显、焦虑,推荐治疗增加:金刚烷胺、复方左旋多巴＋COMT抑制剂
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    复方左旋多巴    复方左旋多巴＋COMT抑制剂    精神障碍用药    非麦角类DR激动剂    MAO-B抑制剂    金刚烷胺    抗胆碱能药
+    ${assert}    Create List    非麦角类DR激动剂    MAO-B抑制剂    复方左旋多巴    金刚烷胺    复方左旋多巴＋COMT抑制剂    抗胆碱能药    精神障碍用药
     ${Assessment}    Set Variable    早发型帕金森
     ${Subjective}    Set Variable    女，59岁，右上肢动作不如从前灵活，有僵硬感并伴不自主抖动,震颤明显、焦虑
     [Setup]    Run Keywords    获取时间戳

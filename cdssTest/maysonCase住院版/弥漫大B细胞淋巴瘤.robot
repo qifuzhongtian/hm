@@ -155,7 +155,7 @@ Library           String
 弥漫大B细胞淋巴瘤-病史:点击疑似诊断或手动输入：弥漫大B细胞淋巴瘤,推荐治疗:自体造血干细胞移植、放疗
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    预防肿瘤溶解综合征    放疗    髓系生长因子治疗    自体造血干细胞移植
+    ${assert}    Create List    髓系生长因子治疗    预防肿瘤溶解综合征    自体造血干细胞移植    放疗
     ${Assessment}    Set Variable    弥漫大B细胞淋巴瘤
     ${Subjective}    Set Variable    女，40岁，发现右颈部肿物，右眼视力模糊,病理诊断为：弥漫大B细胞淋巴瘤，淋巴结周围组织浸润
     [Setup]    Run Keywords    获取时间戳
@@ -186,7 +186,7 @@ Library           String
 弥漫大B细胞淋巴瘤-病史:手动输入或点击回填评估表评估结果：AnnArbor淋巴瘤分期系统分期III期,推荐治疗增加:首选R-CHOP方案、挽救化疗方案
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    预防肿瘤溶解综合征    放疗    髓系生长因子治疗    首选R-CHOP方案    挽救化疗方案    自体造血干细胞移植
+    ${assert}    Create List    髓系生长因子治疗    预防肿瘤溶解综合征    首选R-CHOP方案    挽救化疗方案    自体造血干细胞移植    放疗
     ${Assessment}    Set Variable    弥漫大B细胞淋巴瘤
     ${Subjective}    Set Variable    女，40岁，发现右颈部肿物，右眼视力模糊,病理诊断为：弥漫大B细胞淋巴瘤，淋巴结周围组织浸润,AnnArbor淋巴瘤分期系统分期III期
     [Setup]    Run Keywords    获取时间戳

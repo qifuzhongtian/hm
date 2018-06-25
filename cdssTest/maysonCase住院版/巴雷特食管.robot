@@ -87,7 +87,7 @@ Library           String
 巴雷特食管-点击疑似诊断或手动输入：巴雷特食管，推荐治疗：抗反流治疗、抗反流手术
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    抗反流手术    抗反流治疗
+    ${assert}    Create List    抗反流治疗    抗反流手术
     ${Assessment}    Set Variable    巴雷特食管
     ${Subjective}    Set Variable    男，59岁，持续反胃数月，反酸3个月，呃逆，上腹部不适，体重减轻
     [Setup]    Run Keywords    获取时间戳
@@ -118,7 +118,7 @@ Library           String
 巴雷特食管-明确增生程度：轻度异型增生，推荐治疗增加：质子泵抑制剂(PPI)治疗、专科确诊、内镜下射频消融术
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    专科确诊    抗反流手术    质子泵抑制剂(PPI)治疗    内镜下射频消融术
+    ${assert}    Create List    专科确诊    质子泵抑制剂(PPI)治疗    内镜下射频消融术    抗反流手术
     ${Assessment}    Set Variable    巴雷特食管
     ${Subjective}    Set Variable    男，59岁，持续反胃数月，反酸3个月，呃逆，上腹部不适，体重减轻，轻度异型增生
     [Setup]    Run Keywords    获取时间戳
@@ -180,7 +180,7 @@ Library           String
 巴雷特食管-进一步添加并发症：食管腺癌，推荐治疗增加：转诊、内镜下治疗
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    专科确诊    转诊    抗反流手术    质子泵抑制剂(PPI)治疗    内镜下射频消融术    内镜下治疗
+    ${assert}    Create List    专科确诊    转诊    质子泵抑制剂(PPI)治疗    内镜下射频消融术    内镜下治疗    抗反流手术
     ${Assessment}    Set Variable    巴雷特食管
     ${Subjective}    Set Variable    男，59岁，持续反胃数月，反酸3个月，呃逆，上腹部不适，体重减轻，轻度异型增生，食管腺癌
     [Setup]    Run Keywords    获取时间戳

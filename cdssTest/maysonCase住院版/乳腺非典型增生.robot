@@ -124,7 +124,7 @@ Library           String
 乳腺非典型增生-点击疑似诊断或手动输入：乳腺导管非典型增生，推荐治疗:转诊、药物治疗、预防性治疗、手术切除
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    转诊    预防性治疗    手术切除    药物治疗
+    ${assert}    Create List    转诊    药物治疗    预防性治疗    手术切除
     ${Assessment}    Set Variable    乳腺导管非典型增生
     ${Subjective}    Set Variable    女，33岁，左乳胀痛，左乳内触及一结节3月，三个月前自觉左乳外侧略有胀痛，月经前加重，局部可触及一约拇指指甲大小肿物，轻微压痛，局部皮肤无红肿
     [Setup]    Run Keywords    获取时间戳

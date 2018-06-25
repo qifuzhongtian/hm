@@ -91,7 +91,7 @@ Library           String
 儿童肥胖-手动输入诊断：肥胖,推荐治疗：专科会诊、第1阶段干预治疗、第2阶段干预、第3阶段干预、第4阶段干预、药物治疗
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    专科会诊    第2阶段干预    第3阶段干预    第4阶段干预    药物治疗    第1阶段干预治疗
+    ${assert}    Create List    专科会诊    第1阶段干预治疗    第2阶段干预    第3阶段干预    第4阶段干预    药物治疗
     ${Assessment}    Set Variable    肥胖
     ${Subjective}    Set Variable    女，12岁，食欲旺盛，进行性体重增重3年,身高168cm，体重85kg，BMI=29.9，腰围95cm，臀围109cm
     [Setup]    Run Keywords    获取时间戳
@@ -121,7 +121,7 @@ Library           String
 儿童肥胖-病历内容中增加：严重肥胖,推荐治疗增加：减肥手术
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    专科会诊    第2阶段干预    第3阶段干预    第4阶段干预    药物治疗    减肥手术    第1阶段干预治疗
+    ${assert}    Create List    专科会诊    第1阶段干预治疗    第2阶段干预    第3阶段干预    第4阶段干预    药物治疗    减肥手术
     ${Assessment}    Set Variable    肥胖
     ${Subjective}    Set Variable    女，12岁，食欲旺盛，进行性体重增重3年,身高168cm，体重85kg，BMI=29.9，腰围95cm，臀围109cm,严重肥胖
     [Setup]    Run Keywords    获取时间戳

@@ -54,7 +54,7 @@ Library           String
     #####疑似诊断
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     Should Contain    ${aj[:5]}    高脂血症
-    # Lists Should Be Equal    ${aj}    ${assert}
+    # List Should Contain Sub List    ${aj}    ${assert}
 
 
 高脂血症-手动输入诊断：高胆固醇血症,推荐检查:血脂检查
@@ -85,7 +85,7 @@ Library           String
     #####疑似诊断
     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     # Should Contain    ${aj[:5]}    高脂血症
-    Lists Should Be Equal    ${aj}    ${assert}
+    List Should Contain Sub List    ${aj}    ${assert}
 
 
 高脂血症-手动输入诊断：高胆固醇血症,推荐评估表:10年动脉粥样硬化性心血管疾病风险计算器、他汀类不耐受临床指数评分、计算10年和30年ASCVD风险
@@ -116,7 +116,7 @@ Library           String
     #####疑似诊断
     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     # Should Contain    ${aj[:5]}    高脂血症
-    Lists Should Be Equal    ${aj}    ${assert}
+    List Should Contain Sub List    ${aj}    ${assert}
 
 
 高脂血症-手动输入诊断：高胆固醇血症,推荐治疗:替代疗法、他汀类治疗
@@ -147,7 +147,7 @@ Library           String
     #####疑似诊断
     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     # Should Contain    ${aj[:5]}    高脂血症
-    Lists Should Be Equal    ${aj}    ${assert}
+    List Should Contain Sub List    ${aj}    ${assert}
 
 
 高脂血症-病历内容中输入：不稳定型心绞痛,推荐治疗增加:中至高强度他汀类治疗、治疗性生活方式改变(TLC)和ASCVD的非血脂性危险因素管理
@@ -178,7 +178,7 @@ Library           String
     #####疑似诊断
     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     # Should Contain    ${aj[:5]}    高脂血症
-    Lists Should Be Equal    ${aj}    ${assert}
+    List Should Contain Sub List    ${aj}    ${assert}
 
 
 高脂血症-手动输入评估表结果：他汀类药品不耐受,推荐治疗增加:转诊、调整他汀类方案
@@ -209,5 +209,5 @@ Library           String
     #####疑似诊断
     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     # Should Contain    ${aj[:5]}    高脂血症
-    Lists Should Be Equal    ${aj}    ${assert}
+    List Should Contain Sub List    ${aj}    ${assert}
 

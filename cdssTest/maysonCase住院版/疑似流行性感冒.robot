@@ -117,7 +117,7 @@ Library           String
 疑似流行性感冒-手动输入诊断：流行性感冒，推荐治疗：抗病毒治疗、对症治疗、接种疫苗预防治疗
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    对症治疗    接种疫苗预防治疗    抗病毒治疗
+    ${assert}    Create List    抗病毒治疗    对症治疗    接种疫苗预防治疗
     ${Assessment}    Set Variable    流行性感冒
     ${Subjective}    Set Variable    男，年龄8岁，高热、流涕2天，流感病毒抗体滴度增高
     [Setup]    Run Keywords    获取时间戳

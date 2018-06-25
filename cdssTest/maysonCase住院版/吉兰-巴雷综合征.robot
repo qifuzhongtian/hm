@@ -120,7 +120,7 @@ Library           String
 吉兰-巴雷综合征-手动输入诊断：吉兰-巴雷综合征，推荐治疗:一般治疗、静注免疫球蛋白治疗、血浆置换、皮质类固醇激素治疗、营养神经治疗、早期神经康复治疗
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    一般治疗    皮质类固醇激素治疗    营养神经治疗    早期神经康复治疗    静注免疫球蛋白治疗    血浆置换
+    ${assert}    Create List    一般治疗    静注免疫球蛋白治疗    血浆置换    皮质类固醇激素治疗    营养神经治疗    早期神经康复治疗
     ${Assessment}    Set Variable    吉兰-巴雷综合征
     ${Subjective}    Set Variable    男，12岁，饮水呛咳、对称性肢体无力、四肢麻木1天,增加病史：检查结果示：脑脊液蛋白-细胞分离、血清抗神经节苷脂阳性,
     [Setup]    Run Keywords    获取时间戳
@@ -151,7 +151,7 @@ Library           String
 吉兰-巴雷综合征-增加病历内容：尿潴留，推荐治疗增加:留置导尿
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    一般治疗    皮质类固醇激素治疗    营养神经治疗    留置导尿    早期神经康复治疗    静注免疫球蛋白治疗    血浆置换
+    ${assert}    Create List    一般治疗    静注免疫球蛋白治疗    血浆置换    皮质类固醇激素治疗    营养神经治疗    留置导尿    早期神经康复治疗
     ${Assessment}    Set Variable    吉兰-巴雷综合征
     ${Subjective}    Set Variable    男，12岁，饮水呛咳、对称性肢体无力、四肢麻木1天,增加病史：检查结果示：脑脊液蛋白-细胞分离、血清抗神经节苷脂阳性,尿潴留
     [Setup]    Run Keywords    获取时间戳

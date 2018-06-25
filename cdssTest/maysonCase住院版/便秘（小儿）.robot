@@ -118,7 +118,7 @@ Library           String
 便秘（小儿）-病历内容增加：粪便嵌塞，推荐治疗增加：灌肠治疗、粪便嵌塞的药物治疗
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    行为调整    灌肠治疗    一般治疗    非嵌塞性便秘药物治疗    粪便嵌塞的药物治疗    非嵌塞性便秘维持治疗
+    ${assert}    Create List    行为调整    粪便嵌塞的药物治疗    灌肠治疗    一般治疗    非嵌塞性便秘药物治疗    非嵌塞性便秘维持治疗
     ${Assessment}    Set Variable    便秘
     ${Subjective}    Set Variable    男孩儿，6岁，排便困难、便次<3次/周、排便为干球状便或硬便、排便需要手法帮助，粪便嵌塞
     [Setup]    Run Keywords    获取时间戳
@@ -149,7 +149,7 @@ Library           String
 便秘（小儿）-进一步添加并发症：肠梗阻，推荐治疗增加：转诊
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    转诊    行为调整    灌肠治疗    一般治疗    非嵌塞性便秘药物治疗    粪便嵌塞的药物治疗    非嵌塞性便秘维持治疗
+    ${assert}    Create List    转诊    行为调整    粪便嵌塞的药物治疗    灌肠治疗    一般治疗    非嵌塞性便秘药物治疗    非嵌塞性便秘维持治疗
     ${Assessment}    Set Variable    便秘
     ${Subjective}    Set Variable    男孩儿，6岁，排便困难、便次<3次/周、排便为干球状便或硬便、排便需要手法帮助，粪便嵌塞，肠梗阻
     [Setup]    Run Keywords    获取时间戳

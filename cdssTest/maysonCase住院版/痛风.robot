@@ -92,7 +92,7 @@ Library           String
 痛风-点击疑似诊断或手动输入：痛风，推荐治疗:一般治疗、碱化尿液、一线降尿酸药物、治疗监测与随访目标、预防复发、非布司他治疗、别嘌呤醇治疗
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    一般治疗    治疗监测与随访目标    预防复发    非布司他治疗    碱化尿液    一线降尿酸药物    别嘌呤醇治疗
+    ${assert}    Create List    一般治疗    碱化尿液    一线降尿酸药物    治疗监测与随访目标    预防复发    非布司他治疗    别嘌呤醇治疗
     ${Assessment}    Set Variable    痛风
     ${Subjective}    Set Variable    男性，40岁，既往有“高尿酸血症”史。饮酒后反复发作足趾、膝关节疼痛、肿胀、活动障碍1年，加重2周，体型肥胖
     [Setup]    Run Keywords    获取时间戳
@@ -124,7 +124,7 @@ Library           String
 痛风-病历内容中增加：痛风急性发作期,推荐治疗增加:急性期秋水仙碱治疗、皮质类固醇激素治疗、NSAIDs治疗
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    一般治疗    治疗监测与随访目标    预防复发    非布司他治疗    碱化尿液    一线降尿酸药物    急性期秋水仙碱治疗    皮质类固醇激素治疗    NSAIDs治疗    别嘌呤醇治疗
+    ${assert}    Create List    一般治疗    碱化尿液    一线降尿酸药物    急性期秋水仙碱治疗    皮质类固醇激素治疗    NSAIDs治疗    治疗监测与随访目标    预防复发       非布司他治疗    别嘌呤醇治疗
     ${Assessment}    Set Variable    痛风
     ${Subjective}    Set Variable    男性，40岁，既往有“高尿酸血症”史。饮酒后反复发作足趾、膝关节疼痛、肿胀、活动障碍1年，加重2周，体型肥胖,痛风急性发作期,
     [Setup]    Run Keywords    获取时间戳
@@ -156,7 +156,7 @@ Library           String
 痛风-病历内容中增加：痛风反复发作,推荐治疗增加:降尿酸治疗、持续降尿酸治疗
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    一般治疗    治疗监测与随访目标    预防复发    非布司他治疗    碱化尿液    一线降尿酸药物    急性期秋水仙碱治疗    皮质类固醇激素治疗    NSAIDs治疗    降尿酸治疗    别嘌呤醇治疗    持续降尿酸治疗
+    ${assert}    Create List    一般治疗    碱化尿液    一线降尿酸药物    急性期秋水仙碱治疗    皮质类固醇激素治疗    NSAIDs治疗    治疗监测与随访目标    预防复发    非布司他治疗    降尿酸治疗    别嘌呤醇治疗    持续降尿酸治疗
     ${Assessment}    Set Variable    痛风
     ${Subjective}    Set Variable    男性，40岁，既往有“高尿酸血症”史。饮酒后反复发作足趾、膝关节疼痛、肿胀、活动障碍1年，加重2周，体型肥胖,痛风急性发作期,痛风反复发作
     [Setup]    Run Keywords    获取时间戳

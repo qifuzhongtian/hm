@@ -157,7 +157,7 @@ Library           String
 多发性硬化-病历内容增加：多发性硬化急性期,推荐治疗增加:急性期药物治疗
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    急性期药物治疗    长期免疫调节治疗
+    ${assert}    Create List    长期免疫调节治疗    急性期药物治疗
     ${Assessment}    Set Variable    多发性硬化
     ${Subjective}    Set Variable    男性，26岁，反复头部、肢体不自主抖动5年，加重2个月,指鼻试验指鼻不准、共济失调,多发性硬化急性期
     [Setup]    Run Keywords    获取时间戳

@@ -54,7 +54,7 @@ Library           String
     #####疑似诊断
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     Should Contain    ${aj[:5]}    唇裂
-    # Lists Should Be Equal    ${aj}    ${assert}
+    # List Should Contain Sub List    ${aj}    ${assert}
 
 唇裂-点击疑似诊断或手动输入：唇裂，推荐检查:血常规、血型、尿常规、粪便常规、凝血常规、肝功能、肾功能、乙肝五项、艾滋病毒抗体检测、丙型肝炎抗体测定、快速梅毒血清反应素试验、胸部X线片（正位）、心电图、超声心动图
     [Documentation]    断言:""
@@ -84,7 +84,7 @@ Library           String
     #####疑似诊断
     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     # Should Contain    ${aj[:5]}    唇裂
-    Lists Should Be Equal    ${aj}    ${assert}
+    List Should Contain Sub List    ${aj}    ${assert}
 
 唇裂-点击疑似诊断或手动输入：唇裂，推荐治疗:唇裂修复术、抗菌药物治疗、正畸复位
     [Documentation]    断言:""
@@ -114,4 +114,4 @@ Library           String
     #####疑似诊断
     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     # Should Contain    ${aj[:5]}    唇裂
-    Lists Should Be Equal    ${aj}    ${assert}
+    List Should Contain Sub List    ${aj}    ${assert}

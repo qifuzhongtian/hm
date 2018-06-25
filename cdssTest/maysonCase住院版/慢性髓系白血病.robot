@@ -158,7 +158,7 @@ Library           String
 慢性髓系白血病-病历内容增加：羟基脲治疗无效,推荐治疗删除：羟基脲等防治白细胞淤滞,治疗方案增加:白细胞去除术
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    白细胞去除术    首选伊马替尼靶向药物治疗
+    ${assert}    Create List    首选伊马替尼靶向药物治疗    白细胞去除术
     ${Assessment}    Set Variable    慢性髓系白血病
     ${Subjective}    Set Variable    男，年龄55岁，3个月前肚子越来越大，体重增长6斤，经常觉得乏力，低热，白细胞计数及血小板均升高,检查结果输入：骨髓象显示为慢性髓系白血病,白细胞淤滞,羟基脲治疗无效
     [Setup]    Run Keywords    获取时间戳

@@ -126,7 +126,7 @@ Library           String
 多发性骨髓瘤-点击疑似诊断或手动输入：多发性骨髓瘤,推荐治疗:预防治疗、初始治疗、自体造血干细胞移植、维持治疗、骨髓瘤化疗
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    初始治疗    维持治疗    预防治疗    自体造血干细胞移植    骨髓瘤化疗
+    ${assert}    Create List    预防治疗    初始治疗    自体造血干细胞移植    维持治疗    骨髓瘤化疗
     ${Assessment}    Set Variable    多发性骨髓瘤
     ${Subjective}    Set Variable    男性，65岁，间歇性胸骨痛、肋骨疼痛2年余，加重伴全身多发性骨痛3月余,近期频繁出现骨痛，组织活检发现浆细胞瘤细胞
     [Setup]    Run Keywords    获取时间戳

@@ -150,7 +150,7 @@ Library           String
 乳腺纤维腺瘤-病历内容增加：乳腺纤维腺瘤术后，推荐治疗增加：随访观察、术后止血治疗、术后镇痛治疗
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    随访观察    术后止血治疗    术后镇痛治疗    乳房肿物开放切除术
+    ${assert}    Create List    乳房肿物开放切除术    随访观察    术后止血治疗    术后镇痛治疗
     ${Assessment}    Set Variable    乳腺纤维腺瘤直径3.1cm
     ${Subjective}    Set Variable    女，28岁，发现右乳外上象限肿块5年，近半月肿块增大较快。5年来肿物逐渐增大，月经周期对肿块大小无影响，乳房肿块质地似橡皮球，肿块表面光滑，大小约2×1mm，界清，易于推动，无压痛，乳腺纤维腺瘤术后
     [Setup]    Run Keywords    获取时间戳
@@ -179,21 +179,6 @@ Library           String
     #####疑似诊断
     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     #Should Contain    ${aj[:5]}    乳腺纤维腺瘤
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

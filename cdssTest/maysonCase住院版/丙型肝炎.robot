@@ -120,7 +120,7 @@ Library           String
 丙型肝炎-病历内容中输入：丙型肝炎基因1型，推荐治疗增加:抗病毒治疗
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    抗病毒治疗    转诊
+    ${assert}    Create List    转诊    抗病毒治疗
     ${Assessment}    Set Variable    丙型肝炎
     ${Subjective}    Set Variable    男，45岁，丙肝病史15年，复查HCV抗体阳性,丙型肝炎基因1型
     [Setup]    Run Keywords    获取时间戳

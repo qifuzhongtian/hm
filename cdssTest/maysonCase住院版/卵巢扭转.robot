@@ -57,7 +57,7 @@ Library           String
 卵巢扭转-点击疑似诊断或手动输入：卵巢扭转，推荐检查：盆腔CT、腹部B超、血常规、尿常规、血型、C-反应蛋白、甲胎蛋白、性激素检查、血人绒毛膜促性腺激素检查、肝功能、肾功能、电解质检查、凝血常规、输血前四项、乙肝五项、盆腔增强CT、心电图、胸部X线(正侧位)、腹部X线、腹部彩色超声、阴道超声
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    盆腔CT    腹部B超    血常规    尿常规    血型    C-反应蛋白    甲胎蛋白    性激素检查    血人绒毛膜促性腺激素检查    肝功能    肾功能    电解质检查    凝血常规    输血前四项    乙肝五项    盆腔增强CT    心电图    胸部X线(正侧位)    腹部X线    腹部彩色超声    阴道超声
+    ${assert}    Create List    腹部彩色超声    阴道超声    盆腔增强CT    甲胎蛋白    盆腔CT    腹部X线    C-反应蛋白    血常规    性激素检查    血人绒毛膜促性腺激素检查    腹部B超    尿常规    乙肝五项    血型    胸部X线(正侧位)    肝功能    输血前四项    肾功能    凝血常规    电解质检查    心电图
     ${Assessment}    Set Variable    卵巢扭转
     ${Subjective}    Set Variable    女，28岁，突发右下腹痛5h,呈持续性疼痛,阵发性加重难以忍受,不随体位改变而改变,无肛门坠痛,伴恶心,呕吐
     [Setup]    Run Keywords    获取时间戳
@@ -118,7 +118,7 @@ Library           String
 卵巢扭转-病历内容增加：卵巢极度水肿，推荐治疗增加：延迟卵巢剥除术至6-8周后
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    急诊手术治疗    抗菌药物治疗    转诊    准备气管插管全身麻醉    首选保守手术治疗    腹腔镜探查术    开腹探查术    尽量挽救卵巢功能    延迟卵巢剥除术至6-8周后
+    ${assert}    Create List    急诊手术治疗    抗菌药物治疗    转诊    准备气管插管全身麻醉    首选保守手术治疗    延迟卵巢剥除术至6-8周后    腹腔镜探查术    开腹探查术    尽量挽救卵巢功能
     ${Assessment}    Set Variable    卵巢扭转
     ${Subjective}    Set Variable    女，28岁，突发右下腹痛5h,呈持续性疼痛,阵发性加重难以忍受,不随体位改变而改变,无肛门坠痛,伴恶心,呕吐，卵巢极度水肿
     [Setup]    Run Keywords    获取时间戳
@@ -149,7 +149,7 @@ Library           String
 卵巢扭转-病历内容增加：卵巢韧带过长，推荐治疗增加：卵巢固定术
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    急诊手术治疗    抗菌药物治疗    转诊    准备气管插管全身麻醉    首选保守手术治疗    腹腔镜探查术    开腹探查术    尽量挽救卵巢功能    延迟卵巢剥除术至6-8周后    卵巢固定术
+    ${assert}    Create List    急诊手术治疗    抗菌药物治疗    转诊    准备气管插管全身麻醉    首选保守手术治疗    延迟卵巢剥除术至6-8周后    卵巢固定术    腹腔镜探查术    开腹探查术    尽量挽救卵巢功能
     ${Assessment}    Set Variable    卵巢扭转
     ${Subjective}    Set Variable    女，28岁，突发右下腹痛5h,呈持续性疼痛,阵发性加重难以忍受,不随体位改变而改变,无肛门坠痛,伴恶心,呕吐，卵巢极度水肿，卵巢韧带过长
     [Setup]    Run Keywords    获取时间戳

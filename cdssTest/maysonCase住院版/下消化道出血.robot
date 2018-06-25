@@ -91,7 +91,7 @@ Library           String
 下消化道出血-病史:手动输入诊断：下消化道出血,推荐治疗：大量便血,推荐治疗:住院治疗、血管造影术、转入ICU
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    住院治疗    转入ICU    血管造影术
+    ${assert}    Create List    住院治疗    血管造影术    转入ICU
     ${Assessment}    Set Variable    下消化道出血
     ${Subjective}    Set Variable    男，45岁，反复无痛性便血3月，伴头晕乏力1小时，1小时前突感腹部不适、便急，随即解出大量（约300ml）鲜红混有血凝块的大便，伴头晕乏力，无呕血、恶心和呕吐,大量便血
     [Setup]    Run Keywords    获取时间戳
@@ -123,7 +123,7 @@ Library           String
 下消化道出血-病史:病历内容增加:低血压需要输血,推荐治疗增加:初始治疗
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    住院治疗    初始治疗    转入ICU    血管造影术
+    ${assert}    Create List    住院治疗    初始治疗    血管造影术    转入ICU
     ${Assessment}    Set Variable    下消化道出血
     ${Subjective}    Set Variable    男，45岁，反复无痛性便血3月，伴头晕乏力1小时，1小时前突感腹部不适、便急，随即解出大量（约300ml）鲜红混有血凝块的大便，伴头晕乏力，无呕血、恶心和呕吐,大量便血,低血压需要输血
     [Setup]    Run Keywords    获取时间戳
