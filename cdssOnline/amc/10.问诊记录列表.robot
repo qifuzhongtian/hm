@@ -8,13 +8,13 @@ Library           RequestsLibrary
 
 
 *** Test Cases ***
-15.1 问诊记录列表
-    [Documentation]    断言:"symptom存在睡眠问题"
-    ${getRes}    amc管理端_问诊记录列表    recordStart=    recordEnd=    symptom=
-    ...    patient_gender=88    subject=    index=${1}    pageSize=${10}
-    # Should Be Equal As Strings    ${getRes['head']['error']}    0
-    ${aj}    Evaluate    [aj['symptom'] for aj in $getRes['body']['rows']]
-    Should Contain    ${aj}    体重问题（指南）
+# 15.1 问诊记录列表
+#     [Documentation]    断言:"symptom存在睡眠问题"
+#     ${getRes}    amc管理端_问诊记录列表    recordStart=    recordEnd=    symptom=
+#     ...    patient_gender=88    subject=    index=${1}    pageSize=${10}
+#     # Should Be Equal As Strings    ${getRes['head']['error']}    0
+#     ${aj}    Evaluate    [aj['symptom'] for aj in $getRes['body']['rows']]
+#     Should Contain    ${aj}    体重问题（指南）
 
 
 # 6.2 就诊时间搜索

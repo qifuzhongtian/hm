@@ -11,11 +11,11 @@ Library           RequestsLibrary
 
 
 *** Test Cases ***
-14.1 问诊科室统计
-    [Documentation]    断言:"subject存在 急诊医学科"
-    ${getRes}    amc管理端_问诊科室统计
-    ${aj}    Evaluate    [aj['subject'] for aj in $getRes['body'][0]]
-    Should Contain    ${aj}    急诊医学科
-    # Should Be Equal As Strings    ${getRes['head']['error']}    0
+# 14.1 问诊科室统计
+#     [Documentation]    断言:"subject存在 急诊医学科"
+#     ${getRes}    amc管理端_问诊科室统计
+#     ${aj}    Evaluate    [aj['subject'] for aj in $getRes['body'][0]]
+#     Should Contain    ${aj}    急诊医学科
+#     # Should Be Equal As Strings    ${getRes['head']['error']}    0
 
-    # ${aj}    Evaluate    [aj['symptom'] for aj in $getRes['body']]
+#     # ${aj}    Evaluate    [aj['symptom'] for aj in $getRes['body']]

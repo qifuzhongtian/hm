@@ -9,8 +9,8 @@ Library           RequestsLibrary
 
 
 *** Test Cases ***
-16.1 问诊记录列表详情
-    [Documentation]    断言:" error=0"
-    ${getRes}    amc管理端_问诊记录列表详情    id=${id}
-    Should Be Equal As Strings    ${getRes['body']['symptom']}    体重问题（指南）
+# 16.1 问诊记录列表详情
+#     [Documentation]    断言:" error=0"
+#     ${getRes}    amc管理端_问诊记录列表详情    id=${id}
+#     Should Be Equal As Strings    ${getRes['body']['symptom']}    体重问题（指南）
 

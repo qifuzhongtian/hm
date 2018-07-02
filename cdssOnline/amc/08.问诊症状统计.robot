@@ -10,9 +10,9 @@ Library           RequestsLibrary
 
 
 *** Test Cases ***
-13.1 问诊症状统计
-    [Documentation]    断言error:"symptom存在 睡眠问题"
-    ${getRes}    amc管理端_问诊症状统计
-    ${aj}    Evaluate    [aj['symptom'] for aj in $getRes['body']]
-    Should Contain    ${aj}    体重问题（指南）
-    # Should Be Equal As Strings    ${getRes['head']['error']}    0
+# 13.1 问诊症状统计
+#     [Documentation]    断言error:"symptom存在 睡眠问题"
+#     ${getRes}    amc管理端_问诊症状统计
+#     ${aj}    Evaluate    [aj['symptom'] for aj in $getRes['body']]
+#     Should Contain    ${aj}    体重问题（指南）
+#     # Should Be Equal As Strings    ${getRes['head']['error']}    0
