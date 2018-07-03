@@ -1,8 +1,11 @@
 *** Variables ***
 # ${base_url}     http://apollo.huimeionline.com
 ${mayson_url}     http://47.95.203.183/cdss
+# ${mayson_url}     http://mayson.huimeionline.com/cdss
 
 ${base_url}       http://118.178.109.153
+#其中一台145
+# ${base_url}       http://100.114.71.145
 # ${base_url}     http://10.46.74.95:8080
 #####线上识别接口地址 http://10.165.102.219:8080/v_3_0/recognize
 
@@ -22,7 +25,7 @@ ${Huimei_id_xw}      8C946583A4EE9174D7B2D1697066BFA2
 #amc管理端
 ${base_url_amca}     http://amca.huimeionline.com/node
 
-${base_url_ame}     http://10.46.74.95:8092
+${base_url_ame}     http://47.95.203.183:8092
 
 *** Keywords ***
 获取时间戳
@@ -32,7 +35,6 @@ ${base_url_ame}     http://10.46.74.95:8092
 获取随机数
     ${random}    Generate Random String    3    1234567890
     Set Global Variable    ${random}
-
 ################安全用药################
 安全用药
     [Arguments]    ${drugCommonNames}    ${gender}    ${age}    ${ageType}    ${drugIds}    ${symptom}    ${confirmDiagnosis}
