@@ -12,5 +12,5 @@ Suite Teardown    Delete All Sessions
 4.1 药品详情
     [Documentation]    断言error:"docName=阿司匹林口服剂型"
     ${getRes}    药品详情    drugId=1CD441A2C3
-    Should Be Equal As Strings    ${getRes['body']['docName']}    阿司匹林口服剂型
+    Should Be Equal As Strings    ${getRes['body']['docName']}    阿司匹林口服常释剂型
 
