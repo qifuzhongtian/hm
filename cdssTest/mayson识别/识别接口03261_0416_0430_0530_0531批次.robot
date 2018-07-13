@@ -696,7 +696,7 @@ Library           ExcelLibrary    # 字段名 类型 是否必须 说明    # us
     先天性肛门直肠畸形    先天性肛门直肠畸形
     幼年型皮肌炎    幼年型皮肌炎
     肺腺癌    肺腺癌
-    BH4无反应性PUK    BH4无反应性PUK
+    BH4无反应性PKU    BH4无反应性PKU
     BH4无反应性苯丙酮尿症    BH4无反应性苯丙酮尿症
     DHPR活性正常    DHPR活性正常
     DHPR缺乏    DHPR缺乏
