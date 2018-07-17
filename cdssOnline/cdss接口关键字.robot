@@ -1,9 +1,9 @@
 *** Variables ***
-# ${base_url}     http://apollo.huimeionline.com
+${base_url}     http://apollo.huimeionline.com
 ${mayson_url}     http://47.95.203.183/cdss
 # ${mayson_url}     http://mayson.huimeionline.com/cdss
 
-${base_url}       http://118.178.109.153
+# ${base_url}       http://118.178.109.153
 #其中一台145
 # ${base_url}       http://100.114.71.145
 # ${base_url}     http://10.46.74.95:8080
@@ -12,7 +12,7 @@ ${base_url}       http://118.178.109.153
 #妇产科诊断性别_测试环境
 ${base_url_95}     http://10.46.74.95:9200
 #妇产科诊断性别_线上环境
-${base_url_72}     http://10.252.128.72:9200
+${base_url_219}     http://10.165.102.219:9200
 ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
 ${Huimei_id_safe_medication}      C3B844493A477BCF3D7B73A5E902B269
 ###建德
