@@ -522,7 +522,7 @@ test
 妇产科诊断性别
     [Arguments]    ${query}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url_72}    ${dict}
+    Create Session    api    ${base_url_219}    ${dict}
     ${object}    Set Variable    {"bool":{"must":[{"term":{"department":"妇产科"}}],"filter":{"bool":{"should":[{"term":{"gender":0}},{"term":{"gender":1}}]}}}}
     ${query}    Evaluate    dict(${object})
     ${data}    Create Dictionary    query=${query}
