@@ -1,7 +1,7 @@
 *** Variables ***
 ${base_url}     http://apollo.huimeionline.com
-${mayson_url}     http://47.95.203.183/cdss
-# ${mayson_url}     http://mayson.huimeionline.com/cdss
+# ${mayson_url}     http://47.95.203.183/cdss
+${mayson_url}     http://mayson.huimeionline.com/cdss
 
 # ${base_url}       http://118.178.109.153
 #其中一台145
