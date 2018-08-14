@@ -904,7 +904,7 @@ ame管理_文档列表查询
 
 
 智能推荐_宣武
-    [Arguments]    ${userGuid}    ${serialNumber}
+    [Arguments]    ${userGuid}    ${serialNumber}    ${doctorGuid}    ${doctorName}
     ...    ${patientInfo}
     ...    ${physicalSign}
     ...    ${definiteDiagnosis}
@@ -921,7 +921,7 @@ ame管理_文档列表查询
     ${deleteProgressNoteList}    Evaluate    [${deleteProgressNoteList}]
     ${labTestList}    Evaluate    [${labTestList}]
     ${examinationList}    Evaluate    [${examinationList}]
-    ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    patientInfo=${patientInfo}
+    ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    doctorGuid=${doctorGuid}    doctorName=${doctorName}    patientInfo=${patientInfo}
     ...    physicalSign=${physicalSign}    definiteDiagnosis=${definiteDiagnosis}    progressNoteList=${progressNoteList}
     ...    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}    examinationList=${examinationList}
     ${addr}    Post Request    api    mayson/v_1_0/intelligent_recommendation    data=${data}
@@ -932,7 +932,7 @@ ame管理_文档列表查询
 
 用药推荐
     [Arguments]    ${userGuid}    ${serialNumber}    ${patientInfo}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id_jd}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
     Create Session    api    ${mayson_url}    ${dict}
     ${patientInfo}    Evaluate    dict(${patientInfo})
     ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    patientInfo=${patientInfo}
@@ -992,6 +992,27 @@ mayson默认推荐搜索
 
 
 
+智能诊断4.0
+    [Arguments]    ${userGuid}    ${doctorGuid}    ${serialNumber}    ${hospitalGuid}    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}    ${familyHistory}    ${weight}
+    ...    ${gender}    ${bodyTempr}    ${lowBldPress}    ${highBldPress}    ${examInfo}    ${heartRate}
+    ...    ${age}    ${ageType}    ${confirmDiagnosis}    ${confirmDiagnosisMap}    ${presentHistory}    ${hasDetail}    ${symptomClickDiseaseId}
+    # ...    ${examItems}
+    ${confirmDiagnosisMap}    Evaluate    [${confirmDiagnosisMap}]
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    http://10.46.74.95:8080    ${dict}
+    Create Session    api    ${base_url}    ${dict}
+    ${data}    Create Dictionary    userGuid=${userGuid}    doctorGuid=${doctorGuid}    serialNumber=${serialNumber}    hospitalGuid=${hospitalGuid}    symptom=${symptom}    previousHistory=${previousHistory}    personalHistory=${personalHistory}    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}
+    ...    weight=${weight}    gender=${gender}    bodyTempr=${bodyTempr}    lowBldPress=${lowBldPress}    highBldPress=${highBldPress}    examInfo=${examInfo}
+    ...    heartRate=${heartRate}    age=${age}    ageType=${ageType}    confirmDiagnosis=${confirmDiagnosis}    confirmDiagnosisMap=${confirmDiagnosisMap}    presentHistory=${presentHistory}    hasDetail=${hasDetail}    symptomClickDiseaseId=${symptomClickDiseaseId}
+    # ...    examItems[]=${examItems}
+    ${addr}    Post Request    api    v_4_0/diagnose_through_interrogation    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # Should Contain    ${aj[:15]}    ${msg}
+    # Delete All Sessions
+    [Return]    ${responsedata}
+
+
+
 智能推荐test
     [Arguments]    ${userGuid}    ${serialNumber}
     ...    ${patientInfo}
@@ -1020,7 +1041,7 @@ mayson默认推荐搜索
 
 
 智能推荐
-    [Arguments]    ${userGuid}    ${serialNumber}
+    [Arguments]    ${userGuid}    ${serialNumber}    ${pageSource}
     ...    ${patientInfo}
     ...    ${physicalSign}
     ...    ${definiteDiagnosis}
@@ -1029,6 +1050,7 @@ mayson默认推荐搜索
     ...    ${labTestList}
     ...    ${examinationList}
     ...    ${newTestList}
+    ...    ${operationRecord}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
     # Create Session    api    ${base_url}    ${dict}
     Create Session    api    ${mayson_url}    ${dict}
@@ -1040,10 +1062,11 @@ mayson默认推荐搜索
     ${labTestList}    Evaluate    [${labTestList}]
     ${examinationList}    Evaluate    [${examinationList}]
     ${newTestList}    Evaluate    [${newTestList}]
-    ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    patientInfo=${patientInfo}
+    ${operationRecord}    Evaluate    dict(${operationRecord})
+    ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    pageSource=${pageSource}    patientInfo=${patientInfo}
     ...    physicalSign=${physicalSign}    definiteDiagnosis=${definiteDiagnosis}    progressNoteList=${progressNoteList}
     ...    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}    examinationList=${examinationList}
-    ...    newTestList=${newTestList}
+    ...    newTestList=${newTestList}    operationRecord=${operationRecord}
     ${addr}    Post Request    api    mayson/v_1_0/intelligent_recommendation    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
