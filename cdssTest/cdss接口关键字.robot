@@ -939,7 +939,7 @@ ame管理_文档列表查询
 
 
 智能推荐
-    [Arguments]    ${userGuid}    ${serialNumber}
+    [Arguments]    ${userGuid}    ${serialNumber}    ${pageSource}
     ...    ${patientInfo}
     ...    ${physicalSign}
     ...    ${definiteDiagnosis}
