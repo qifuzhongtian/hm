@@ -910,9 +910,8 @@ ame管理_文档列表查询
     [Return]    ${responsedata}
 
 
-
 智能推荐_宣武
-    [Arguments]    ${userGuid}    ${serialNumber}
+    [Arguments]    ${userGuid}    ${serialNumber}     ${doctorGuid}    ${doctorName}
     ...    ${patientInfo}
     ...    ${physicalSign}
     ...    ${definiteDiagnosis}
@@ -929,13 +928,12 @@ ame管理_文档列表查询
     ${deleteProgressNoteList}    Evaluate    [${deleteProgressNoteList}]
     ${labTestList}    Evaluate    [${labTestList}]
     ${examinationList}    Evaluate    [${examinationList}]
-    ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    patientInfo=${patientInfo}
+    ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    doctorGuid=${doctorGuid}    doctorName=${doctorName}    patientInfo=${patientInfo}
     ...    physicalSign=${physicalSign}    definiteDiagnosis=${definiteDiagnosis}    progressNoteList=${progressNoteList}
     ...    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}    examinationList=${examinationList}
     ${addr}    Post Request    api    mayson/v_1_0/intelligent_recommendation    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
-
 
 
 智能推荐

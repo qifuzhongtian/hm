@@ -12,98 +12,98 @@ Suite Teardown    Delete All Sessions
 *** Test Cases ***
 # #######################################手足口病##############################################################################
 
-演示case-手足口病:推荐实验室检查:柯萨奇病毒抗体1gM检测
-    [Documentation]    腔溃疡伴起疱3天。患儿3天前晨起发热，之后口腔出现溃疡，伴疼痛，影响进食，出现水疱，未经诊治。右颊、舌部、下唇可余处溃疡面，直径2~3mm，上覆假膜，周围黏膜充血。掌、指腹、足底可散在透明水疱。患儿烦躁、流涎，体温37.6°C
-    ${getRes}    治疗方案    symptom=腔溃疡伴起疱3天。患儿3天前晨起发热，之后口腔出现溃疡，伴疼痛，影响进食，出现水疱，未经诊治。右颊、舌部、下唇可余处溃疡面，直径2~3mm，上覆假膜，周围黏膜充血。掌、指腹、足底可散在透明水疱。患儿烦躁、流涎，体温37.6°C
-    ...    uuid=8752C9ADE7
-    ...    previousHistory=    personalHistory=
-    ...    allergyHistory=    familyHistory=
-    ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=
-    ...    examInfo=    heartRate=    age=3    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=
-    ...    presentHistory=
-    ${aj}    Evaluate    [aj['examName'] for aj in $getRes['body']['examRegimenItemList'][0]['examRuleGroupList'][0]['examGroupList'][1]['examLists'][0]]
-    Should Contain    ${aj}    柯萨奇病毒抗体1gM检测
+# 演示case-手足口病:推荐实验室检查:柯萨奇病毒抗体1gM检测
+#     [Documentation]    腔溃疡伴起疱3天。患儿3天前晨起发热，之后口腔出现溃疡，伴疼痛，影响进食，出现水疱，未经诊治。右颊、舌部、下唇可余处溃疡面，直径2~3mm，上覆假膜，周围黏膜充血。掌、指腹、足底可散在透明水疱。患儿烦躁、流涎，体温37.6°C
+#     ${getRes}    治疗方案    symptom=腔溃疡伴起疱3天。患儿3天前晨起发热，之后口腔出现溃疡，伴疼痛，影响进食，出现水疱，未经诊治。右颊、舌部、下唇可余处溃疡面，直径2~3mm，上覆假膜，周围黏膜充血。掌、指腹、足底可散在透明水疱。患儿烦躁、流涎，体温37.6°C
+#     ...    uuid=8752C9ADE7
+#     ...    previousHistory=    personalHistory=
+#     ...    allergyHistory=    familyHistory=
+#     ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=
+#     ...    examInfo=    heartRate=    age=3    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=
+#     ...    presentHistory=
+#     ${aj}    Evaluate    [aj['examName'] for aj in $getRes['body']['examRegimenItemList'][0]['examRuleGroupList'][0]['examGroupList'][1]['examLists'][0]]
+#     Should Contain    ${aj}    柯萨奇病毒抗体1gM检测
 
-演示case1-手足口病:推荐实验室检查:血常规
-    [Documentation]    腔溃疡伴起疱3天。患儿3天前晨起发热，之后口腔出现溃疡，伴疼痛，影响进食，出现水疱，未经诊治。右颊、舌部、下唇可余处溃疡面，直径2~3mm，上覆假膜，周围黏膜充血。掌、指腹、足底可散在透明水疱。患儿烦躁、流涎，体温37.6°C
-    ${getRes}    治疗方案    symptom=腔溃疡伴起疱3天。患儿3天前晨起发热，之后口腔出现溃疡，伴疼痛，影响进食，出现水疱，未经诊治。右颊、舌部、下唇可余处溃疡面，直径2~3mm，上覆假膜，周围黏膜充血。掌、指腹、足底可散在透明水疱。患儿烦躁、流涎，体温37.6°C
-    ...    uuid=8752C9ADE7
-    ...    previousHistory=    personalHistory=
-    ...    allergyHistory=    familyHistory=
-    ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=
-    ...    examInfo=    heartRate=    age=3    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=
-    ...    presentHistory=
-    ${aj}    Evaluate    [aj['examName'] for aj in $getRes['body']['examRegimenItemList'][0]['examRuleGroupList'][0]['examGroupList'][0]['examLists'][0]]
-    Should Contain    ${aj}    血常规
-
-
-演示case1-手足口病:推荐一般治疗:冰硼散
-    [Documentation]    腔溃疡伴起疱3天。患儿3天前晨起发热，之后口腔出现溃疡，伴疼痛，影响进食，出现水疱，未经诊治。右颊、舌部、下唇可余处溃疡面，直径2~3mm，上覆假膜，周围黏膜充血。掌、指腹、足底可散在透明水疱。患儿烦躁、流涎，体温37.6°C
-    ${getRes}    治疗方案    symptom=腔溃疡伴起疱3天。患儿3天前晨起发热，之后口腔出现溃疡，伴疼痛，影响进食，出现水疱，未经诊治。右颊、舌部、下唇可余处溃疡面，直径2~3mm，上覆假膜，周围黏膜充血。掌、指腹、足底可散在透明水疱。患儿烦躁、流涎，体温37.6°C
-    ...    uuid=8752C9ADE7
-    ...    previousHistory=    personalHistory=
-    ...    allergyHistory=    familyHistory=
-    ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=
-    ...    examInfo=    heartRate=    age=3    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=
-    ...    presentHistory=
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['drugRegimenItemList'][0]['drugRuleGroupList'][0]['drugClassificationLists'][0][0]['drugResponseList']]
-    Should Contain    ${aj}    冰硼散
-
-演示case1-手足口病:推荐全身治疗:解热镇痛抗炎药
-    [Documentation]    腔溃疡伴起疱3天。患儿3天前晨起发热，之后口腔出现溃疡，伴疼痛，影响进食，出现水疱，未经诊治。右颊、舌部、下唇可余处溃疡面，直径2~3mm，上覆假膜，周围黏膜充血。掌、指腹、足底可散在透明水疱。患儿烦躁、流涎，体温37.6°C
-    ${getRes}    治疗方案    symptom=腔溃疡伴起疱3天。患儿3天前晨起发热，之后口腔出现溃疡，伴疼痛，影响进食，出现水疱，未经诊治。右颊、舌部、下唇可余处溃疡面，直径2~3mm，上覆假膜，周围黏膜充血。掌、指腹、足底可散在透明水疱。患儿烦躁、流涎，体温37.6°C
-    ...    uuid=8752C9ADE7
-    ...    previousHistory=    personalHistory=
-    ...    allergyHistory=    familyHistory=
-    ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=
-    ...    examInfo=    heartRate=    age=3    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=
-    ...    presentHistory=
-    # ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['drugRegimenItemList'][2]['drugRuleGroupList'][0]['drugClassificationLists'][1][0]['drugResponseList']]
-    # Should Contain    ${aj}    解热镇痛抗炎药
-    Should Be Equal As Strings    ${getRes['body']['drugRegimenItemList'][2]['drugRuleGroupList'][0]['drugClassificationLists'][1][0]['classification']}    解热镇痛抗炎药
+# 演示case1-手足口病:推荐实验室检查:血常规
+#     [Documentation]    腔溃疡伴起疱3天。患儿3天前晨起发热，之后口腔出现溃疡，伴疼痛，影响进食，出现水疱，未经诊治。右颊、舌部、下唇可余处溃疡面，直径2~3mm，上覆假膜，周围黏膜充血。掌、指腹、足底可散在透明水疱。患儿烦躁、流涎，体温37.6°C
+#     ${getRes}    治疗方案    symptom=腔溃疡伴起疱3天。患儿3天前晨起发热，之后口腔出现溃疡，伴疼痛，影响进食，出现水疱，未经诊治。右颊、舌部、下唇可余处溃疡面，直径2~3mm，上覆假膜，周围黏膜充血。掌、指腹、足底可散在透明水疱。患儿烦躁、流涎，体温37.6°C
+#     ...    uuid=8752C9ADE7
+#     ...    previousHistory=    personalHistory=
+#     ...    allergyHistory=    familyHistory=
+#     ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=
+#     ...    examInfo=    heartRate=    age=3    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=
+#     ...    presentHistory=
+#     ${aj}    Evaluate    [aj['examName'] for aj in $getRes['body']['examRegimenItemList'][0]['examRuleGroupList'][0]['examGroupList'][0]['examLists'][0]]
+#     Should Contain    ${aj}    血常规
 
 
-演示case1-手足口病:推荐全身治疗:清开灵片
-    [Documentation]    腔溃疡伴起疱3天。患儿3天前晨起发热，之后口腔出现溃疡，伴疼痛，影响进食，出现水疱，未经诊治。右颊、舌部、下唇可余处溃疡面，直径2~3mm，上覆假膜，周围黏膜充血。掌、指腹、足底可散在透明水疱。患儿烦躁、流涎，体温37.6°C
-    ${getRes}    治疗方案    symptom=腔溃疡伴起疱3天。患儿3天前晨起发热，之后口腔出现溃疡，伴疼痛，影响进食，出现水疱，未经诊治。右颊、舌部、下唇可余处溃疡面，直径2~3mm，上覆假膜，周围黏膜充血。掌、指腹、足底可散在透明水疱。患儿烦躁、流涎，体温37.6°C
-    ...    uuid=8752C9ADE7
-    ...    previousHistory=    personalHistory=
-    ...    allergyHistory=    familyHistory=
-    ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=
-    ...    examInfo=    heartRate=    age=3    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=
-    ...    presentHistory=
-    ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['drugRegimenItemList'][2]['drugRuleGroupList'][0]['drugClassificationLists'][0][0]['drugResponseList']]
-    Should Contain    ${aj}    清开灵片
+# 演示case1-手足口病:推荐一般治疗:冰硼散
+#     [Documentation]    腔溃疡伴起疱3天。患儿3天前晨起发热，之后口腔出现溃疡，伴疼痛，影响进食，出现水疱，未经诊治。右颊、舌部、下唇可余处溃疡面，直径2~3mm，上覆假膜，周围黏膜充血。掌、指腹、足底可散在透明水疱。患儿烦躁、流涎，体温37.6°C
+#     ${getRes}    治疗方案    symptom=腔溃疡伴起疱3天。患儿3天前晨起发热，之后口腔出现溃疡，伴疼痛，影响进食，出现水疱，未经诊治。右颊、舌部、下唇可余处溃疡面，直径2~3mm，上覆假膜，周围黏膜充血。掌、指腹、足底可散在透明水疱。患儿烦躁、流涎，体温37.6°C
+#     ...    uuid=8752C9ADE7
+#     ...    previousHistory=    personalHistory=
+#     ...    allergyHistory=    familyHistory=
+#     ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=
+#     ...    examInfo=    heartRate=    age=3    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=
+#     ...    presentHistory=
+#     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['drugRegimenItemList'][0]['drugRuleGroupList'][0]['drugClassificationLists'][0][0]['drugResponseList']]
+#     Should Contain    ${aj}    冰硼散
+
+# 演示case1-手足口病:推荐全身治疗:解热镇痛抗炎药
+#     [Documentation]    腔溃疡伴起疱3天。患儿3天前晨起发热，之后口腔出现溃疡，伴疼痛，影响进食，出现水疱，未经诊治。右颊、舌部、下唇可余处溃疡面，直径2~3mm，上覆假膜，周围黏膜充血。掌、指腹、足底可散在透明水疱。患儿烦躁、流涎，体温37.6°C
+#     ${getRes}    治疗方案    symptom=腔溃疡伴起疱3天。患儿3天前晨起发热，之后口腔出现溃疡，伴疼痛，影响进食，出现水疱，未经诊治。右颊、舌部、下唇可余处溃疡面，直径2~3mm，上覆假膜，周围黏膜充血。掌、指腹、足底可散在透明水疱。患儿烦躁、流涎，体温37.6°C
+#     ...    uuid=8752C9ADE7
+#     ...    previousHistory=    personalHistory=
+#     ...    allergyHistory=    familyHistory=
+#     ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=
+#     ...    examInfo=    heartRate=    age=3    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=
+#     ...    presentHistory=
+#     # ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['drugRegimenItemList'][2]['drugRuleGroupList'][0]['drugClassificationLists'][1][0]['drugResponseList']]
+#     # Should Contain    ${aj}    解热镇痛抗炎药
+#     Should Be Equal As Strings    ${getRes['body']['drugRegimenItemList'][2]['drugRuleGroupList'][0]['drugClassificationLists'][1][0]['classification']}    解热镇痛抗炎药
 
 
-演示case1-手足口病:吸氧推荐等级为"供考虑"
-    [Documentation]    腔溃疡伴起疱3天。患儿3天前晨起发热，之后口腔出现溃疡，伴疼痛，影响进食，出现水疱，未经诊治。右颊、舌部、下唇可余处溃疡面，直径2~3mm，上覆假膜，周围黏膜充血。掌、指腹、足底可散在透明水疱。患儿烦躁、流涎，体温37.6°C
-    ${getRes}    治疗方案    symptom=腔溃疡伴起疱3天。患儿3天前晨起发热，之后口腔出现溃疡，伴疼痛，影响进食，出现水疱，未经诊治。右颊、舌部、下唇可余处溃疡面，直径2~3mm，上覆假膜，周围黏膜充血。掌、指腹、足底可散在透明水疱。患儿烦躁、流涎，体温37.6°C。
-    ...    uuid=8752C9ADE7
-    ...    previousHistory=    personalHistory=
-    ...    allergyHistory=    familyHistory=
-    ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=
-    ...    examInfo=    heartRate=    age=3    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=
-    ...    presentHistory=
-    # ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['drugRegimenItemList'][0]['drugRuleGroupList'][1]['drugClassificationLists'][0][0]['drugResponseList']]
-    # Should Contain    ${aj}    吸氧
-    # Should Be Equal As Strings    ${getRes['body']['drugRegimenItemList'][0]['drugRuleGroupList'][1]}    {"comment": "", "grade": 2, "drugClassificationLists": [[{"drugResponseList": [{"drugCommonId": 18688, "hasDetail": false, "drugCommonName": "吸氧", "drugGuid": "18688"}]}]], "itemName": "一般治疗", "condition": "非呼吸浅快患者不常规推荐"}
-    Should Be Equal As Strings    ${getRes['body']['drugRegimenItemList'][0]['drugRuleGroupList'][1]}    {"comment": "", "grade": 2, "drugClassificationLists": [[{"drugResponseList": [{"drugCommonName": "吸氧", "drugGuid": "18688", "hasDetail": false}]}]], "itemName": "一般治疗", "condition": "非呼吸浅快患者不常规推荐"}
+# 演示case1-手足口病:推荐全身治疗:清开灵片
+#     [Documentation]    腔溃疡伴起疱3天。患儿3天前晨起发热，之后口腔出现溃疡，伴疼痛，影响进食，出现水疱，未经诊治。右颊、舌部、下唇可余处溃疡面，直径2~3mm，上覆假膜，周围黏膜充血。掌、指腹、足底可散在透明水疱。患儿烦躁、流涎，体温37.6°C
+#     ${getRes}    治疗方案    symptom=腔溃疡伴起疱3天。患儿3天前晨起发热，之后口腔出现溃疡，伴疼痛，影响进食，出现水疱，未经诊治。右颊、舌部、下唇可余处溃疡面，直径2~3mm，上覆假膜，周围黏膜充血。掌、指腹、足底可散在透明水疱。患儿烦躁、流涎，体温37.6°C
+#     ...    uuid=8752C9ADE7
+#     ...    previousHistory=    personalHistory=
+#     ...    allergyHistory=    familyHistory=
+#     ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=
+#     ...    examInfo=    heartRate=    age=3    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=
+#     ...    presentHistory=
+#     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['drugRegimenItemList'][2]['drugRuleGroupList'][0]['drugClassificationLists'][0][0]['drugResponseList']]
+#     Should Contain    ${aj}    清开灵片
 
 
-演示case1-手足口病:增加病例内容:"呼吸浅快,口唇发绀",吸氧等级更改为"推荐"
-    [Documentation]    腔溃疡伴起疱3天。患儿3天前晨起发热，之后口腔出现溃疡，伴疼痛，影响进食，出现水疱，未经诊治。右颊、舌部、下唇可余处溃疡面，直径2~3mm，上覆假膜，周围黏膜充血。掌、指腹、足底可散在透明水疱。患儿烦躁、流涎，体温37.6°C
-    ${getRes}    治疗方案    symptom=腔溃疡伴起疱3天。患儿3天前晨起发热，之后口腔出现溃疡，伴疼痛，影响进食，出现水疱，未经诊治。右颊、舌部、下唇可余处溃疡面，直径2~3mm，上覆假膜，周围黏膜充血。掌、指腹、足底可散在透明水疱。患儿烦躁、流涎，体温37.6°C。呼吸浅快,口唇发绀
-    ...    uuid=8752C9ADE7
-    ...    previousHistory=    personalHistory=
-    ...    allergyHistory=    familyHistory=
-    ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=
-    ...    examInfo=    heartRate=    age=3    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=
-    ...    presentHistory=
-    # ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['drugRegimenItemList'][2]['drugRuleGroupList'][0]['drugClassificationLists'][1][0]['drugResponseList']]
-    # Should Contain    ${aj}    解热镇痛抗炎药
-    # Should Be Equal As Strings    ${getRes['body']['drugRegimenItemList'][0]['drugRuleGroupList'][0]}    {"comment": "", "grade": 1, "drugClassificationLists": [[{"drugResponseList": [{"drugCommonId": 18688, "hasDetail": false, "drugCommonName": "吸氧", "drugGuid": "18688"}]}]], "itemName": "一般治疗"}
-    Should Be Equal As Strings    ${getRes['body']['drugRegimenItemList'][0]['drugRuleGroupList'][0]}    {"comment": "", "grade": 1, "drugClassificationLists": [[{"drugResponseList": [{"drugCommonName": "吸氧", "drugGuid": "18688", "hasDetail": false}]}]], "itemName": "一般治疗"}
+# 演示case1-手足口病:吸氧推荐等级为"供考虑"
+#     [Documentation]    腔溃疡伴起疱3天。患儿3天前晨起发热，之后口腔出现溃疡，伴疼痛，影响进食，出现水疱，未经诊治。右颊、舌部、下唇可余处溃疡面，直径2~3mm，上覆假膜，周围黏膜充血。掌、指腹、足底可散在透明水疱。患儿烦躁、流涎，体温37.6°C
+#     ${getRes}    治疗方案    symptom=腔溃疡伴起疱3天。患儿3天前晨起发热，之后口腔出现溃疡，伴疼痛，影响进食，出现水疱，未经诊治。右颊、舌部、下唇可余处溃疡面，直径2~3mm，上覆假膜，周围黏膜充血。掌、指腹、足底可散在透明水疱。患儿烦躁、流涎，体温37.6°C。
+#     ...    uuid=8752C9ADE7
+#     ...    previousHistory=    personalHistory=
+#     ...    allergyHistory=    familyHistory=
+#     ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=
+#     ...    examInfo=    heartRate=    age=3    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=
+#     ...    presentHistory=
+#     # ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['drugRegimenItemList'][0]['drugRuleGroupList'][1]['drugClassificationLists'][0][0]['drugResponseList']]
+#     # Should Contain    ${aj}    吸氧
+#     # Should Be Equal As Strings    ${getRes['body']['drugRegimenItemList'][0]['drugRuleGroupList'][1]}    {"comment": "", "grade": 2, "drugClassificationLists": [[{"drugResponseList": [{"drugCommonId": 18688, "hasDetail": false, "drugCommonName": "吸氧", "drugGuid": "18688"}]}]], "itemName": "一般治疗", "condition": "非呼吸浅快患者不常规推荐"}
+#     Should Be Equal As Strings    ${getRes['body']['drugRegimenItemList'][0]['drugRuleGroupList'][1]}    {"comment": "", "grade": 2, "drugClassificationLists": [[{"drugResponseList": [{"drugCommonName": "吸氧", "drugGuid": "18688", "hasDetail": false}]}]], "itemName": "一般治疗", "condition": "非呼吸浅快患者不常规推荐"}
+
+
+# 演示case1-手足口病:增加病例内容:"呼吸浅快,口唇发绀",吸氧等级更改为"推荐"
+#     [Documentation]    腔溃疡伴起疱3天。患儿3天前晨起发热，之后口腔出现溃疡，伴疼痛，影响进食，出现水疱，未经诊治。右颊、舌部、下唇可余处溃疡面，直径2~3mm，上覆假膜，周围黏膜充血。掌、指腹、足底可散在透明水疱。患儿烦躁、流涎，体温37.6°C
+#     ${getRes}    治疗方案    symptom=腔溃疡伴起疱3天。患儿3天前晨起发热，之后口腔出现溃疡，伴疼痛，影响进食，出现水疱，未经诊治。右颊、舌部、下唇可余处溃疡面，直径2~3mm，上覆假膜，周围黏膜充血。掌、指腹、足底可散在透明水疱。患儿烦躁、流涎，体温37.6°C。呼吸浅快,口唇发绀
+#     ...    uuid=8752C9ADE7
+#     ...    previousHistory=    personalHistory=
+#     ...    allergyHistory=    familyHistory=
+#     ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=
+#     ...    examInfo=    heartRate=    age=3    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=
+#     ...    presentHistory=
+#     # ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['drugRegimenItemList'][2]['drugRuleGroupList'][0]['drugClassificationLists'][1][0]['drugResponseList']]
+#     # Should Contain    ${aj}    解热镇痛抗炎药
+#     # Should Be Equal As Strings    ${getRes['body']['drugRegimenItemList'][0]['drugRuleGroupList'][0]}    {"comment": "", "grade": 1, "drugClassificationLists": [[{"drugResponseList": [{"drugCommonId": 18688, "hasDetail": false, "drugCommonName": "吸氧", "drugGuid": "18688"}]}]], "itemName": "一般治疗"}
+#     Should Be Equal As Strings    ${getRes['body']['drugRegimenItemList'][0]['drugRuleGroupList'][0]}    {"comment": "", "grade": 1, "drugClassificationLists": [[{"drugResponseList": [{"drugCommonName": "吸氧", "drugGuid": "18688", "hasDetail": false}]}]], "itemName": "一般治疗"}
 
 
 
@@ -166,6 +166,10 @@ Suite Teardown    Delete All Sessions
     # Should Be Equal As Strings    ${getRes['body']['examRegimenItemList'][0]['examRuleGroupList'][0]['examGroupList'][0]['examLists']}    [[{"examName": "阴道分泌物常规(清洁度及滴虫)/白带常规", "examType": 3, "examDesc": "阴道分泌物pH值＞4.5", "examId": 246, "itemResultGroupId": 76663}], [{"examName": "阴道分泌物镜检", "examType": 3, "examDesc": "阴道分泌物镜检见线索细胞", "examId": 110093, "itemResultGroupId": 76662}]]
 
 
+
+
+######################################婴儿腹泻##############################################################################
+
 演示case-婴儿腹泻:推荐实验室检查-:粪便常规
     [Documentation]    腔溃疡伴起疱3天。患儿3天前晨起发热，之后口腔出现溃疡，伴疼痛，影响进食，出现水疱，未经诊治。右颊、舌部、下唇可余处溃疡面，直径2~3mm，上覆假膜，周围黏膜充血。掌、指腹、足底可散在透明水疱。患儿烦躁、流涎，体温37.6°C
     ${getRes}    治疗方案    symptom=因发热、呕吐、腹泻1天.1天前，患⼉儿母亲腹泻后，患⼉出现发热，体温最⾼高达38.9℃，伴呕吐，呕吐呈非喷射性，较频繁，为胃内容物，不含胆汁及咖啡样物；⼤便3～4次，为⻩色水样便，不含黏液及脓⾎.精神反应较差，全⾝⽆⾎点、淤点及淤斑，⼼率140次/分，律齐，⼼音有力
@@ -179,9 +183,6 @@ Suite Teardown    Delete All Sessions
     Should Contain    ${aj}    粪便常规
 
 
-
-
-######################################婴儿腹泻##############################################################################
 演示case-婴儿腹泻:推荐实验室检查-鉴别检查:⾎常规
     [Documentation]    腔溃疡伴起疱3天。患儿3天前晨起发热，之后口腔出现溃疡，伴疼痛，影响进食，出现水疱，未经诊治。右颊、舌部、下唇可余处溃疡面，直径2~3mm，上覆假膜，周围黏膜充血。掌、指腹、足底可散在透明水疱。患儿烦躁、流涎，体温37.6°C
     ${getRes}    治疗方案    symptom=因发热、呕吐、腹泻1天.1天前，患⼉儿母亲腹泻后，患⼉出现发热，体温最⾼高达38.9℃，伴呕吐，呕吐呈非喷射性，较频繁，为胃内容物，不含胆汁及咖啡样物；⼤便3～4次，为⻩色水样便，不含黏液及脓⾎.精神反应较差，全⾝⽆⾎点、淤点及淤斑，⼼率140次/分，律齐，⼼音有力
