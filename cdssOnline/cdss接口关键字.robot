@@ -26,6 +26,9 @@ ${Huimei_id_xw}      8C946583A4EE9174D7B2D1697066BFA2
 ${base_url_amca}     http://amca.huimeionline.com/node
 
 ${base_url_ame}     http://47.95.203.183:8092
+#文献
+${doc_url}       http://test-doc.huimeionline.com/
+
 
 *** Keywords ***
 获取时间戳
@@ -792,6 +795,68 @@ amcPc客户信息
     [Return]    ${responsedata}
 
 
+##########amc-mayson问诊系统####################
+
+问诊路径
+    [Arguments]    ${symptomId}    ${age}    ${ageType}    ${sex}    ${patientName}    ${saveFlag}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    Create Session    api    ${mayson_url}    ${dict}
+    # Create Session    api    ${mayson_url}    ${dict}
+    ${data}    Create Dictionary    symptomId=${symptomId}    age=${age}    ageType=${ageType}    sex=${sex}    patientName=${patientName}    saveFlag=${saveFlag}
+    ${addr}    Post Request    api    /amc/node_tree    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+答题记录
+    [Arguments]    ${nodeId}    ${algoId}    ${seqId}    ${age}    ${ageType}    ${sex}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    Create Session    api    ${mayson_url}    ${dict}
+    # Create Session    api    ${mayson_url}    ${dict}
+    ${data}    Create Dictionary    nodeId=${nodeId}    algoId=${algoId}    seqId=${seqId}    age=${age}    ageType=${ageType}    sex=${sex}
+    ${addr}    Post Request    api    /amc/answer_record    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+提交记录
+    [Arguments]    ${nodeId}    ${algoId}    ${seqId}    ${age}    ${ageType}    ${sex}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    Create Session    api    ${mayson_url}    ${dict}
+    # Create Session    api    ${mayson_url}    ${dict}
+    ${data}    Create Dictionary    nodeId=${nodeId}    algoId=${algoId}    seqId=${seqId}    age=${age}    ageType=${ageType}    sex=${sex}
+    ${addr}    Post Request    api    /amc/submit_record    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+历史搜索
+    [Arguments]
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    Create Session    api    ${mayson_url}    ${dict}
+    # Create Session    api    ${mayson_url}    ${dict}
+    ${data}    Create Dictionary
+    ${addr}    Post Request    api    /amc/history_symptom    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+症状搜索
+    [Arguments]    ${symptom}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    Create Session    api    ${mayson_url}    ${dict}
+    # Create Session    api    ${mayson_url}    ${dict}
+    ${data}    Create Dictionary    symptom=${symptom}
+    ${addr}    Post Request    api    amc/v_4_0/symptom    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+##############################################################
+
+
+
+
 #########AME##################
 ame登录
     [Arguments]    ${userName}    ${password}
@@ -1070,3 +1135,179 @@ mayson默认推荐搜索
     ${addr}    Post Request    api    mayson/v_1_0/intelligent_recommendation    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+
+
+
+
+
+########历史评估表################
+
+保存评估历史记录
+    [Arguments]    ${recordId}    ${assessId}    ${assessName}
+    ...    ${patientGuid}
+    ...    ${serialNumber}
+    ...    ${assessResult}
+    ...    ${assessConclusion}
+    ...    ${historyItemList}
+    ...    ${source}
+    ...    ${resultContent}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    Create Session    api    ${base_url}    ${dict}
+    # Create Session    api    ${mayson_url}    ${dict}
+    ${historyItemList}    Evaluate    [${historyItemList}]
+    ${data}    Create Dictionary    recordId=${recordId}    assessId=${assessId}    assessName=${assessName}    patientGuid=${patientGuid}
+    ...    serialNumber=${serialNumber}    assessResult=${assessResult}    assessConclusion=${assessConclusion}
+    ...    historyItemList=${historyItemList}    source=${source}    resultContent=${resultContent}
+    ${addr}    Post Request    api    /mayson/v_1_0/assesshistory/save    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    ${assessHistoryId}    Get From Dictionary    ${responsedata['body']}    assessHistoryId
+    Set Global Variable    ${assessHistoryId}
+    [Return]    ${responsedata}
+
+
+
+根据评估历史记录id查询评估记录
+    [Arguments]    ${Id}
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    # Create Session    api    ${base_url}    ${dict}
+    # Create Session    api    ${mayson_url}    ${dict}
+    ${data}    Create Dictionary    Id=${Id}
+    ${addr}    Post Request    api    /mayson/v_1_0/assesshistory/findhistorybyid    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+
+
+评估表历史记录
+    [Arguments]    ${patientGuid}    ${serialNumber}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    Create Session    api    ${base_url}    ${dict}
+    # Create Session    api    ${mayson_url}    ${dict}
+    ${data}    Create Dictionary    patientGuid=${patientGuid}    serialNumber=${serialNumber}
+    ${addr}    Post Request    api    /mayson/v_1_0/assesshistory/findhistorylist    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+
+搜索文献
+    [Arguments]    ${name}    ${diseaseId}    ${pageSize}    ${currentPage}    ${startDate}    ${endDate}    ${departmentId}    ${countryId}    ${orgName}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    Create Session    api    ${doc_url}    ${dict}
+    # Create Session    api    ${mayson_url}    ${dict}
+    ${data}    Create Dictionary    name=${name}    diseaseId=${diseaseId}    pageSize=${pageSize}    currentPage=${currentPage}    startDate=${startDate}    endDate=${endDate}    departmentId=${departmentId}    countryId=${countryId}    orgName=${orgName}
+    ${addr}    Post Request    api    /doc/seer/document/search    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+
+最新文献
+    [Arguments]
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    Create Session    api    ${doc_url}    ${dict}
+    # Create Session    api    ${mayson_url}    ${dict}
+    ${data}    Create Dictionary
+    ${addr}    Post Request    api    /doc/seer/document/newest    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+文献详情
+    [Arguments]    ${documentId}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    Create Session    api    ${doc_url}    ${dict}
+    # Create Session    api    ${mayson_url}    ${dict}
+    ${data}    Create Dictionary    documentId=${documentId}
+    ${addr}    Post Request    api    /doc/seer/v_1_0/document/detail    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+文献标签
+    [Arguments]
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    Create Session    api    ${doc_url}    ${dict}
+    # Create Session    api    ${mayson_url}    ${dict}
+    ${data}    Create Dictionary
+    ${addr}    Post Request    api    /doc/seer/document/label    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+
+文献下载
+    [Arguments]    ${fileName}    ${filePath}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    Create Session    api    ${doc_url}    ${dict}
+    # Create Session    api    ${mayson_url}    ${dict}
+    ${params}    Create Dictionary    fileName=${fileName}    filePath=${filePath}
+    ${addr}    Get Request    api    /doc/seer/document/download    params=${params}
+    # ${responsedata}    To Json    ${addr.content}
+    [Return]    ${addr}
+
+申请文献
+    [Arguments]    ${documentName}    ${applyOrg}    ${applySection}    ${applyMessage}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    Create Session    api    ${doc_url}    ${dict}
+    # Create Session    api    ${mayson_url}    ${dict}
+    ${data}    Create Dictionary    documentName=${documentName}    applyOrg=${applyOrg}    applySection=${applySection}    applyMessage=${applyMessage}
+    ${addr}    Post Request    api    /doc/seer/document/apply    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+文献诊断字典
+    [Arguments]
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    Create Session    api    ${doc_url}    ${dict}
+    # Create Session    api    ${mayson_url}    ${dict}
+    ${data}    Create Dictionary
+    ${addr}    Post Request    api    /doc/seer/document/disease_dict    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+文献申请列表
+    [Arguments]    ${pageSize}    ${currentPage}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    Create Session    api    ${doc_url}    ${dict}
+    # Create Session    api    ${mayson_url}    ${dict}
+    ${data}    Create Dictionary    pageSize=${pageSize}    currentPage=${currentPage}
+    ${addr}    Post Request    api    /doc/seer/document/apply_list    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    ${id}    Get From Dictionary    ${responsedata['body']['customerList'][0]}    id
+    Set Global Variable    ${id}
+    [Return]    ${responsedata}
+
+
+
+修改文献热度
+    [Arguments]    ${id}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    Create Session    api    ${doc_url}    ${dict}
+    # Create Session    api    ${mayson_url}    ${dict}
+    ${data}    Create Dictionary    id=${id}
+    ${addr}    Post Request    api    /doc/seer/document/update_hot    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+
+mayson默认推荐
+    [Arguments]    ${doctorGuid}    ${department}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    Create Session    api    ${mayson_url}    ${dict}
+    # Create Session    api    ${mayson_url}    ${dict}
+    ${data}    Create Dictionary    doctorGuid=${doctorGuid}    department=${department}
+    ${addr}    Post Request    api    /mayson/track/default_recommend    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+

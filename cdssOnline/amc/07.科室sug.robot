@@ -11,8 +11,8 @@ Library           RequestsLibrary
 
 *** Test Cases ***
 # 12.1 科室sug
-#     [Documentation]    断言error:"subject存在口腔科"
-#     [Tags]    skip
-#     ${getRes}    amc管理端_科室sug    subject=
-#     ${aj}    Evaluate    [aj['subject'] for aj in $getRes['body']]
-#     Should Contain    ${aj}    口腔科
+    # [Documentation]    断言error:"subject存在口腔科"
+    # [Tags]    skip
+    # ${getRes}    amc管理端_科室sug    subject=
+    # ${aj}    Evaluate    [aj['subject'] for aj in $getRes['body']]
+    # Should Contain    ${aj}    口腔科
