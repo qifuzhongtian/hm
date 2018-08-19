@@ -22,8 +22,8 @@ ${Huimei_id_his}      D7928B9182ABF6E0A6A6EBB71B353585
 ##宣武医院
 ${Huimei_id_xw}      8C946583A4EE9174D7B2D1697066BFA2
 
-#amc管理端
-${base_url_amca}     http://amca.huimeionline.com/node
+#amcPc版
+${base_url_amc}     http://amc.huimeionline.com
 
 ${base_url_ame}     http://47.95.203.183:8092
 #文献
@@ -591,7 +591,7 @@ test
 
 ########amc管理后台######
 
-amc管理端_用户登录
+amcPc版_用户登录
     [Arguments]    ${name}    ${password}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${base_url_amca}    ${dict}
@@ -602,72 +602,74 @@ amc管理端_用户登录
     # Delete All Sessions
     [Return]    ${responsedata}
 
-amc管理端_症状sug
-    [Arguments]    ${symptomName}
-    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    # Create Session    api    ${base_url_amca}    ${dict}
-    ${params}    Create Dictionary    symptomName=${symptomName}
-    ${addr}    Get Request    api    /amcRecord/amcSymptomQuerySug    params=${params}
+amcPc版_症状sug
+    [Arguments]    ${symptom}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${base_url_amc}    ${dict}
+    ${data}    Create Dictionary    symptom=${symptom}
+    ${addr}    Post Request    api    apollo/amc/symptom    data=${data}
     ${responsedata}    To Json    ${addr.content}
     # Should Be Equal As Strings    ${responsedata['head']['error']}    ${msg}
     # Delete All Sessions
     [Return]    ${responsedata}
 
-amc管理端_科室sug
+amcPc版_科室sug
     [Arguments]    ${subject}
-    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    # Create Session    api    ${base_url_amca}    ${dict}
-    ${params}    Create Dictionary    subject=${subject}
-    ${addr}    Get Request    api    /amcRecord/subjectQuerySug    params=${params}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${base_url_amc}    ${dict}
+    ${data}    Create Dictionary    subject=${subject}
+    ${addr}    Post Request    api    /apollo/amc/query_subject    data=${data}
     ${responsedata}    To Json    ${addr.content}
     # Should Be Equal As Strings    ${responsedata['head']['error']}    ${msg}
     # Delete All Sessions
     [Return]    ${responsedata}
 
-amc管理端_问诊症状统计
-    [Arguments]
-    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    # Create Session    api    ${base_url}    ${dict}
-    ${data}    Create Dictionary
-    ${addr}    Post Request    api    /amcRecord/tAmcRecordQuerySymptom    data=${data}
+
+
+amcPc版_问诊症状统计
+    [Arguments]    ${currentPage}    ${pageSize}    ${countmode}    ${userGuid}    ${doctorGuid}    ${doctorName}    ${hospitalGuid}    ${serialNumber}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${base_url_amc}    ${dict}
+    ${data}    Create Dictionary    currentPage=${currentPage}    pageSize=${pageSize}    countmode=${countmode}    userGuid=${userGuid}    doctorGuid=${doctorGuid}    doctorName=${doctorName}    hospitalGuid=${hospitalGuid}    serialNumber=${serialNumber}
+    ${addr}    Post Request    api    /apollo/amc/static_symptom    data=${data}
     ${responsedata}    To Json    ${addr.content}
     # Should Be Equal As Strings    ${responsedata['head']['error']}    ${msg}
     # Delete All Sessions
     [Return]    ${responsedata}
 
-amc管理端_问诊科室统计
-    [Arguments]
-    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    # Create Session    api    ${base_url}    ${dict}
-    ${data}    Create Dictionary
-    ${addr}    Post Request    api    /amcRecord/tAmcRecordQuerySubject    data=${data}
+amcPc版_问诊科室统计
+    [Arguments]    ${currentPage}    ${pageSize}    ${countmode}    ${userGuid}    ${doctorGuid}    ${doctorName}    ${hospitalGuid}    ${serialNumber}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${base_url_amc}    ${dict}
+    ${data}    Create Dictionary    currentPage=${currentPage}    pageSize=${pageSize}    countmode=${countmode}    userGuid=${userGuid}    doctorGuid=${doctorGuid}    doctorName=${doctorName}    hospitalGuid=${hospitalGuid}    serialNumber=${serialNumber}
+    ${addr}    Post Request    api    /apollo/amc/static_subject    data=${data}
     ${responsedata}    To Json    ${addr.content}
     # Should Be Equal As Strings    ${responsedata['head']['error']}    ${msg}
     # Delete All Sessions
     [Return]    ${responsedata}
 
-amc管理端_问诊记录列表
-    [Arguments]    ${recordStart}    ${recordEnd}    ${symptom}    ${patient_gender}    ${subject}    ${index}    ${pageSize}
-    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    # Create Session    api    ${base_url}    ${dict}
-    ${data}    Create Dictionary    recordStart=${recordStart}    recordEnd=${recordEnd}    symptom=${symptom}    patient_gender=${patient_gender}    subject=${subject}    index=${index}
-    ...    pageSize=${pageSize}
-    ${addr}    Post Request    api    /amcRecord/tAmcRecordQueryList    data=${data}
+
+amcPc版_问诊记录列表
+    [Arguments]    ${currentPage}    ${pageSize}    ${countmode}    ${userGuid}    ${doctorGuid}    ${doctorName}    ${hospitalGuid}    ${serialNumber}    ${recordStart}    ${recordEnd}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${base_url_amc}    ${dict}
+    ${data}    Create Dictionary    currentPage=${currentPage}    pageSize=${pageSize}    countmode=${countmode}    userGuid=${userGuid}    doctorGuid=${doctorGuid}    doctorName=${doctorName}    hospitalGuid=${hospitalGuid}    serialNumber=${serialNumber}    recordStart=${recordStart}    recordEnd=${recordEnd}
+    ${addr}    Post Request    api    /apollo/amc/record    data=${data}
     ${responsedata}    To Json    ${addr.content}
-    # Should Be Equal As Strings    ${responsedata['body']['suspectedDiseases'][0]['id']}    ${msg}
-    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    # Should Be Equal As Strings    ${responsedata['head']['error']}    ${msg}
     # Delete All Sessions
-    ${id}    Get From Dictionary    ${responsedata['body']['rows'][0]}    id
-    Set Global Variable    ${id}
+    ${number}    Get From Dictionary    ${responsedata['body']['recordList'][0]}    number
+    Set Global Variable    ${number}
     [Return]    ${responsedata}
 
 
-amc管理端_问诊记录列表详情
-    [Arguments]    ${id}
+
+amcPc版_问诊记录列表详情
+    [Arguments]    ${number}
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    # Create Session    api    ${base_url}    ${dict}
-    ${data}    Create Dictionary    id=${id}
-    ${addr}    Post Request    api    /amcRecord/tAmcRecordQueryDetial    data=${data}
+    # Create Session    api    ${base_url_amc}    ${dict}
+    ${data}    Create Dictionary    number=${number}
+    ${addr}    Post Request    api    /apollo/amc/record_info    data=${data}
     ${responsedata}    To Json    ${addr.content}
     # Should Be Equal As Strings    ${responsedata['body']['suspectedDiseases'][0]['id']}    ${msg}
     # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
