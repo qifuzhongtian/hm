@@ -197,6 +197,45 @@ Library           String
 
 
 
+出院指导
+    [Documentation]    断言:"高血压"
+    # ${timestamp}    Get Time    epoch
+    # ${assert}    Create List
+    #诊断
+    ${Assessment}    Set Variable
+    #主诉
+    ${Subjective}    Set Variable    妊娠,晚期恶性肿瘤 以“脑出血，急性胸痛,长期卧床，一侧肢体麻木”为主诉入院。 1年前无明显诱因出现右耳听力下降，伴间歇性耳鸣。体格检查：T：36.2℃，P：78次/分，R：16次/分，BP：133/74mmHg。一般状态可，心肺听诊无异常，肝脾肋下未触及，四肢活动自如。专科查体：右侧颞下颌关节肿胀，触之疼痛。右耳鼓室内似有积液。
+    #现病史
+    ${Subjective2}    Set Variable
+    #既往史
+    ${Subjective3}    Set Variable
+    #出院诊断
+    ${dischargeInstruction}    Set Variable    糖尿病，高血压，肺炎
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=2
+    ...    patientInfo={"gender":0,"age":"22","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+    ...    definiteDiagnosis=
+    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${Subjective2}"},{"key":"既往史","value":"${Subjective3}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"出院诊断","value":"${dischargeInstruction}"},{"key":"辅助检查","value":""}],"progressType":"10","progressGuid":"22222","recordTime":""}
+    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+    ...    labTestList=
+    ...    examinationList=
+    ...    newTestList=
+    ...    operationRecord=
+    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['dischargeInstruction']]
+    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+    Should Contain    ${aj}    高血压
+    # Lists should Be Equal    ${aj}    ${assert}
+    # List should contain sub list    ${aj}    ${assert}
+
+
+
+
 护理记录
     [Documentation]    断言:"保暖"
     # ${timestamp}    Get Time    epoch
