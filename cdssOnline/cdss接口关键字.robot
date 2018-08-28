@@ -5,7 +5,7 @@ ${mayson_url}     http://mayson.huimeionline.com/cdss
 
 # ${base_url}       http://118.178.109.153
 #其中一台145
-# ${base_url}       http://100.114.71.145
+# ${ba7195F12825788F09375C2DB1E922F108se_url}       http://100.114.71.145
 # ${base_url}     http://10.46.74.95:8080
 #####线上识别接口地址 http://10.165.102.219:8080/v_3_0/recognize
 

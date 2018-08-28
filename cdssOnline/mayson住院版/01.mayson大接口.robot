@@ -193,7 +193,7 @@ Library           String
     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['qualityControlResponse']['illnessAssessList']]
     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    Should Contain    ${aj}    NIH卒中量表
+    Should Contain    ${aj}    NIHSS卒中量表
 
 
 
@@ -377,7 +377,7 @@ Library           String
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
-    ...    newTestList={"testType": 2,"testId": "902","testName": "食道钡餐透视"},{"testType": 2,"testId": "905","testName": "电视食道钡餐透视"}
+    ...    newTestList={"testType": 2,"testId": "902","testName": "食道钡餐透视"},{"testType": 2,"testId": "05","testName": "电视食道钡餐透视"}
     ...    operationRecord={"recordNumber":1234567,"position":"","incisionType":"切片","anesthesia":"没有","preoperativeDiagnose":"","operationList":[{"operationId":6598,"operationName":"乳腺导管选择性切除术(单根)","operationType":"","operationDesc":"","operationTime":""},{"operationId":6614,"operationName":"单侧乳房切除术","operationType":1}]}
     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
