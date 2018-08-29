@@ -1,5 +1,5 @@
 *** Settings ***
-Suite Setup       amc管理端_用户登录    name=tester    password=9d06407716dd900dc25e2771cbdfa1dc
+# Suite Setup       amc管理端_用户登录    name=tester    password=9d06407716dd900dc25e2771cbdfa1dc
 Suite Teardown    Delete All Sessions
 Resource          ../cdss接口关键字.robot
 Library           Collections

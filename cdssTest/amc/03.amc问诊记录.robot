@@ -23,3 +23,4 @@ Library           RequestsLibrary
    # [Documentation]    断言:"error=0 成功"
     ${getRes}    amc问诊记录    number=${number}
     Should Be Equal As Strings    ${getRes['head']['error']}    0
+
