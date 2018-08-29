@@ -27,7 +27,7 @@ ${base_url_amc}     http://amc.huimeionline.com
 
 ${base_url_ame}     http://47.95.203.183:8092
 #文献
-${doc_url}       http://test-doc.huimeionline.com/
+${doc_url}       http://doc.huimeionline.com/
 
 
 *** Keywords ***
