@@ -3,10 +3,11 @@ Test Template     识别接口
 Resource          ../cdss接口关键字.robot
 Library           Collections
 Library           RequestsLibrary
-Library           ExcelLibrary    # 字段名 类型 是否必须 说明    # userGuid String 是 患者ID（接入放定义）    # doctorGuid String 是 医生ID（接入放定义）    # serialNumber String 是 业务流水ID（接入方定义）    # hospitalGuid String 是 医院ID（惠每分配）    # gender Integer 否 性别1男,0女
-...               # ...    # age double 否 年龄    # ageType String 否 岁、月、天    # bodyTempr Double 否 体温    # weight Double 否 体重    # heartRate Integer 否 心率    # lowBldPress Integer 否 收缩压
-...               # highBldPress Integer 否 舒张压    # ...    # examInfo String 否 检查    # previousHistory String 否 既往史    # personalHistory String 否 个人史    # allergyHistory String 否 过敏史    # familyHistory String 否 家族史
-...               # symptom String 否 主诉    # confirmDiagnosis String 否 已确定诊断
+Library           ExcelLibrary
+# 字段名 类型 是否必须 说明    # userGuid String 是 患者ID（接入放定义）    # doctorGuid String 是 医生ID（接入放定义）    # serialNumber String 是 业务流水ID（接入方定义）    # hospitalGuid String 是 医院ID（惠每分配）    # gender Integer 否 性别1男,0女
+# ...               # ...    # age double 否 年龄    # ageType String 否 岁、月、天    # bodyTempr Double 否 体温    # weight Double 否 体重    # heartRate Integer 否 心率    # lowBldPress Integer 否 收缩压
+# ...               # highBldPress Integer 否 舒张压    # ...    # examInfo String 否 检查    # previousHistory String 否 既往史    # personalHistory String 否 个人史    # allergyHistory String 否 过敏史    # familyHistory String 否 家族史
+# ...               # symptom String 否 主诉    # confirmDiagnosis String 否 已确定诊断
 
 *** Test Cases ***
 识别接口0810
@@ -188,7 +189,7 @@ Library           ExcelLibrary    # 字段名 类型 是否必须 说明    # us
     肝动脉搏动消失    肝动脉搏动消失
     肝动脉瘤瘤颈过大    肝动脉瘤瘤颈过大
     肝动脉瘤无明显瘤颈    肝动脉瘤无明显瘤颈
-    "肝功能分级Child    C级"    肝功能分级ChildC级
+    肝功能分级ChildC级    肝功能分级ChildC级
     肝功能失代偿    肝功能失代偿
     肝功能异常    肝功能异常
     肝静脉闭锁    肝静脉闭锁
