@@ -4,14 +4,26 @@ Resource          ../cdss接口关键字.robot
 Library           Collections
 Library           RequestsLibrary
 Library           ExcelLibrary
-# 字段名 类型 是否必须 说明    # userGuid String 是 患者ID（接入放定义）    # doctorGuid String 是 医生ID（接入放定义）    # serialNumber String 是 业务流水ID（接入方定义）    # hospitalGuid String 是 医院ID（惠每分配）    # gender Integer 否 性别1男,0女
-# ...               # ...    # age double 否 年龄    # ageType String 否 岁、月、天    # bodyTempr Double 否 体温    # weight Double 否 体重    # heartRate Integer 否 心率    # lowBldPress Integer 否 收缩压
-# ...               # highBldPress Integer 否 舒张压    # ...    # examInfo String 否 检查    # previousHistory String 否 既往史    # personalHistory String 否 个人史    # allergyHistory String 否 过敏史    # familyHistory String 否 家族史
-# ...               # symptom String 否 主诉    # confirmDiagnosis String 否 已确定诊断
+# 字段名 类型 是否必须 说明
+# userGuid String 是 患者ID（接入放定义）    # doctorGuid String 是 医生ID（接入放定义）    # serialNumber String 是 业务流水ID（接入方定义）    # hospitalGuid String 是 医院ID（惠每分配）    # gender Integer 否 性别1男,0女
+#  age double 否 年龄
+# ageType String 否 岁、月、天
+# bodyTempr Double 否 体温
+# weight Double 否 体重
+# heartRate Integer 否 心率
+# lowBldPress Integer 否 收缩压
+# highBldPress Integer 否 舒张压
+# examInfo String 否 检查
+# previousHistory String 否 既往史
+# personalHistory String 否 个人史
+# allergyHistory String 否 过敏史
+# familyHistory String 否 家族史
+# symptom String 否 主诉
+# confirmDiagnosis String 否 已确定诊断
 
 *** Test Cases ***
 识别接口0810
-    24小时尿钙99mg    24小时尿钙<100mg
+    尿钙99mg/24h    尿钙<100mg/24h
     B超示鞘膜腔积液    B超示鞘膜腔积液
     B超示鞘膜腔肿胀    B超示鞘膜腔肿胀
     Child-Pugh评分14    Child-Pugh评分>13
@@ -38,8 +50,8 @@ Library           ExcelLibrary
     病理性肥胖    病理性肥胖
     病理性脾    病理性脾
     病态肥胖    病态肥胖
-    病态巨核细胞10%    病态巨核细胞>=10%
-    病态巨核细胞11%    病态巨核细胞>=10%
+    骨髓涂片示病态巨核细胞10%    骨髓涂片示病态巨核细胞>=10%
+    骨髓涂片示病态巨核细胞11%    骨髓涂片示病态巨核细胞>=10%
     步入病房    步入病房
     餐后腹痛    餐后腹痛
     肠穿孔    肠穿孔
@@ -269,7 +281,7 @@ Library           ExcelLibrary
     甲状腺炎    甲状腺炎
     甲状腺炎史    甲状腺炎史
     甲状腺肿    甲状腺肿
-    甲状腺肿块5.1cm    甲状腺肿块>5cm
+    甲状腺肿块直径5.1cm    甲状腺肿块直径>5cm
     甲状腺肿瘤局部侵犯    甲状腺肿瘤局部侵犯
     肩关节内旋受限    肩关节内旋受限
     肩关节上举受限    肩关节上举受限
@@ -310,7 +322,7 @@ Library           ExcelLibrary
     鳞屑样脱屑    鳞屑样脱屑
     颅脑CT示大脑中动脉密度增高    颅脑CT示大脑中动脉密度增高
     颅脑CT示颅内高密度阴影    颅脑CT示颅内高密度阴影
-    颅脑CT示颅内梗死区低密度    颅脑CT示颅内梗死区低密度
+    颅脑CT示颅内梗死区低密度阴影    颅脑CT示颅内梗死区低密度阴影
     颅脑CT示脑白质斑片状低密度    颅脑CT示脑白质斑片状低密度
     麻醉ASA分级4级    麻醉ASA分级4级
     慢性脱水    慢性脱水
@@ -332,7 +344,7 @@ Library           ExcelLibrary
     黏液分泌    黏液分泌
     尿淀粉酶明显升高    尿淀粉酶明显升高
     尿淀粉酶升高    尿淀粉酶升高
-    尿磷499mg    尿磷<500mg
+    尿磷499mg/24h    尿磷<500mg/24h
     尿漏    尿漏
     尿外渗    尿外渗
     尿中检测到肌红蛋白    尿中检测到肌红蛋白
@@ -370,7 +382,7 @@ Library           ExcelLibrary
     全身严重感染    全身严重感染
     妊娠7月    妊娠>6月
     乳房皮肤橘皮水肿>乳房面积1/3    乳房皮肤橘皮水肿>乳房面积1/3
-    乳房皮肤橘皮水肿>乳腺面积1/2    乳房皮肤橘皮水肿>乳腺面积1/2
+    乳房皮肤橘皮水肿>乳房面积1/2    乳房皮肤橘皮水肿>乳房面积1/2
     乳房皮肤卫星结节    乳房皮肤卫星结节
     乳房血管瘤    乳房血管瘤
     乳房引流出血性液体    乳房引流出血性液体
@@ -436,8 +448,8 @@ Library           ExcelLibrary
     胃癌侵犯周围组织    胃癌侵犯周围组织
     胃部肿瘤直径11cm    胃部肿瘤直径>10cm
     胃肠道钡餐透视示胃后壁搏动性充盈缺损    胃肠道钡餐透视示胃后壁搏动性充盈缺损
-    胃浆膜受侵20cm2    胃浆膜受侵>=20cm2
-    胃浆膜受侵21cm2    胃浆膜受侵>=20cm2
+    胃浆膜受侵面积20cm2    胃浆膜受侵面积>=20cm2
+    胃浆膜受侵面积21cm2    胃浆膜受侵面积>=20cm2
     胃镜可见裸露血管残端    胃镜可见裸露血管残端
     胃镜示胃黏膜出血    胃镜示胃黏膜出血
     胃曲张静脉直径3cm    胃曲张静脉直径>2cm
@@ -472,7 +484,7 @@ Library           ExcelLibrary
     下肢无脉    下肢无脉
     下肢无痛    下肢无痛
     下肢小动脉栓塞    下肢小动脉栓塞
-    腺瘤直径4cm    腺瘤直径>3cm
+    甲状旁腺腺瘤直径4cm    甲状旁腺腺瘤直径>3cm
     橡胶过敏    橡胶过敏
     小肠广泛切除病史    小肠广泛切除病史
     心电图示Q-T间期延长    心电图示Q-T间期延长
@@ -528,7 +540,7 @@ Library           ExcelLibrary
     血清Tbil34.2umol/L    血清Tbil>=34.2umol/L
     血清Tbil34.3umol/L    血清Tbil>=34.2umol/L
     血清胆红素进行性升高    血清胆红素进行性升高
-    血清肌酐激酶升高101倍    血清肌酐激酶升高>100倍
+    血清肌酸激酶升高101倍    血清肌酸激酶升高>100倍
     血清碱性磷酸酶升高    血清碱性磷酸酶升高
     血小板计数401×10^9/L    血小板计数>400×10^9/L
     血友病    血友病
@@ -561,7 +573,7 @@ Library           ExcelLibrary
     阴道排气排便    阴道排气排便
     阴茎勃起障碍    阴茎勃起障碍
     引流出血性液体    引流出血性液体
-    引流液淀粉酶值1001U/L    引流液淀粉酶值>1000U/L
+    腹腔引流液淀粉酶值1001U/L    腹腔引流液淀粉酶值>1000U/L
     饮水呛咳    饮水呛咳
     硬结形成    硬结形成
     有症状脑血管病    有症状脑血管病
