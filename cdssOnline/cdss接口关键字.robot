@@ -14,6 +14,8 @@ ${base_url_95}     http://10.46.74.95:9200
 #妇产科诊断性别_线上环境
 ${base_url_219}     http://10.165.102.219:9200
 ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
+${Huimei_his}      01217002C571E1622927516DB4A1C803
+
 ${Huimei_id_safe_medication}      C3B844493A477BCF3D7B73A5E902B269
 ###建德
 ${Huimei_id_jd}      C3E74C229156E6B31534E946BCDEBA94
@@ -801,7 +803,7 @@ amcPc客户信息
 
 问诊路径
     [Arguments]    ${symptomId}    ${age}    ${ageType}    ${sex}    ${patientName}    ${saveFlag}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_his}
     Create Session    api    ${mayson_url}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    symptomId=${symptomId}    age=${age}    ageType=${ageType}    sex=${sex}    patientName=${patientName}    saveFlag=${saveFlag}
@@ -812,7 +814,7 @@ amcPc客户信息
 
 答题记录
     [Arguments]    ${nodeId}    ${algoId}    ${seqId}    ${age}    ${ageType}    ${sex}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_his}
     Create Session    api    ${mayson_url}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    nodeId=${nodeId}    algoId=${algoId}    seqId=${seqId}    age=${age}    ageType=${ageType}    sex=${sex}
@@ -823,7 +825,7 @@ amcPc客户信息
 
 提交记录
     [Arguments]    ${nodeId}    ${algoId}    ${seqId}    ${age}    ${ageType}    ${sex}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_his}
     Create Session    api    ${mayson_url}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    nodeId=${nodeId}    algoId=${algoId}    seqId=${seqId}    age=${age}    ageType=${ageType}    sex=${sex}
@@ -833,7 +835,7 @@ amcPc客户信息
 
 历史搜索
     [Arguments]
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_his}
     Create Session    api    ${mayson_url}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary
@@ -845,7 +847,7 @@ amcPc客户信息
 
 症状搜索
     [Arguments]    ${symptom}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_his}
     Create Session    api    ${mayson_url}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    symptom=${symptom}
