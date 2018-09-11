@@ -3,7 +3,7 @@ Test Template     识别接口
 Resource          ../cdss接口关键字.robot
 Library           Collections
 Library           RequestsLibrary
-Library           ExcelLibrary
+# Library           ExcelLibrary
 # 字段名 类型 是否必须 说明
 # userGuid String 是 患者ID（接入放定义）    # doctorGuid String 是 医生ID（接入放定义）    # serialNumber String 是 业务流水ID（接入方定义）    # hospitalGuid String 是 医院ID（惠每分配）    # gender Integer 否 性别1男,0女
 #  age double 否 年龄
@@ -540,7 +540,7 @@ Library           ExcelLibrary
     血清Tbil34.2umol/L    血清Tbil>=34.2umol/L
     血清Tbil34.3umol/L    血清Tbil>=34.2umol/L
     血清胆红素进行性升高    血清胆红素进行性升高
-    血清肌酸激酶升高101倍    血清肌酸激酶升高>100倍
+    血清肌酸激酶31001 U/L    血清肌酸激酶升高>100倍
     血清碱性磷酸酶升高    血清碱性磷酸酶升高
     血小板计数401×10^9/L    血小板计数>400×10^9/L
     血友病    血友病
