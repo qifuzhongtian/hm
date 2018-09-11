@@ -45,7 +45,7 @@ Suite Teardown    Delete All Sessions
     [Documentation]    断言:"grade=1"
     ${drugIds}    Create List    551
     ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
+    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=5    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['tabooList'][0]['grade']}    1
 
 
@@ -53,56 +53,56 @@ Suite Teardown    Delete All Sessions
     [Documentation]    断言:"grade=2"
     ${drugIds}    Create List    3517
     ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
+    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=5    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['tabooList'][0]['grade']}    2
 
 1.6 人群禁忌等级为'3不推荐'的药,结果正确
     [Documentation]    断言:"grade=3"
     ${drugIds}    Create List    579
     ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
+    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=5    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['tabooList'][0]['grade']}    3
 
 1.7 人群禁忌等级为'4不宜应用'的药,结果正确
     [Documentation]    断言:"grade=4"
     ${drugIds}    Create List    3850
     ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
+    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=5    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['tabooList'][0]['grade']}    4
 
 1.8 人群禁忌等级为'5.忌用'的药,结果正确
     [Documentation]    断言:"grade=5"
     ${drugIds}    Create List    3700
     ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
+    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=5    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['tabooList'][0]['grade']}    5
 
 1.9 人群禁忌等级为'6.避免使用'的药,结果正确
     [Documentation]    断言:"grade=6"
     ${drugIds}    Create List    2610
     ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
+    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=2    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['tabooList'][0]['grade']}    6
 
 1.10 人群禁忌等级为'7.不建议'的药,结果正确
     [Documentation]    断言:"grade=7"
     ${drugIds}    Create List    3827
     ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
+    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=5    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['tabooList'][0]['grade']}    7
 
 1.11 人群禁忌等级为'8.慎用'的药,结果正确
     [Documentation]    断言:"grade=8"
     ${drugIds}    Create List    139
     ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
+    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=12    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['tabooList'][0]['grade']}    8
 
 1.12 人群禁忌等级为'9.权衡利弊'的药,结果正确
     [Documentation]    断言:"grade=9"
     ${drugIds}    Create List    4173
     ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
+    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=5    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['tabooList'][0]['grade']}    9
 
 
@@ -110,14 +110,14 @@ Suite Teardown    Delete All Sessions
     [Documentation]    断言:"crowd": "3个月以上妊娠妇女
     ${drugIds}    Create List    930
     ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=妊娠    confirmDiagnosis=
+    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=0    age=    ageType=    drugIds=${drugIds}    symptom=妊娠    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['tabooList'][0]['crowd']}    3个月以上妊娠妇女
 
 1.14 人群禁忌等级,'性别'为女的药+主诉=备孕,结果正确
     [Documentation]    断言:"crowd": "crowd=备孕妇女"
     ${drugIds}    Create List    8133
     ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=4381    ageType=天    drugIds=${drugIds}    symptom=备孕    confirmDiagnosis=
+    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=0    age=4381    ageType=天    drugIds=${drugIds}    symptom=备孕    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['tabooList'][0]['crowd']}    备孕妇女
 
 1.15 人群禁忌等级,ageType=岁,'年龄'=10岁,结果正确
@@ -226,7 +226,7 @@ Suite Teardown    Delete All Sessions
     [Documentation]    断言:"safeStatus=1"
     ${drugIds}    Create List    551
     ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
+    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=5    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['safeStatus']}    1
 
 
@@ -234,7 +234,7 @@ Suite Teardown    Delete All Sessions
     [Documentation]    断言:"safeStatus=1"
     ${drugIds}    Create List    1255    3525    551
     ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
+    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=5    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['safeStatus']}    1
 
 
@@ -250,14 +250,14 @@ Suite Teardown    Delete All Sessions
     [Documentation]    断言:"safeStatus=1"
     ${drugIds}    Create List    8126    5714    551
     ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
+    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=5    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['safeStatus']}    1
 
 1.30 相互作用grade=2,人群禁忌grade=1,的药,用药审核结果为'不通过'
     [Documentation]    断言:"safeStatus=1"
     ${drugIds}    Create List    8126    5714    551
     ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
+    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=5    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['safeStatus']}    1
 
 1.31 相互作用grade=1,人群禁忌grade=0,的药,用药审核结果为'不通过'
@@ -271,14 +271,14 @@ Suite Teardown    Delete All Sessions
     [Documentation]    断言:"safeStatus=1"
     ${drugIds}    Create List    1360    742    551
     ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
+    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=5    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['safeStatus']}    1
 
 1.33 相互作用grade1,人群禁忌grade=0,有高血压用药重复的药,用药审核结果为'不通过'
     [Documentation]    断言:"safeStatus=1"
     ${drugIds}    Create List    1255    3525    581    2726
     ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
+    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=3    ageType=月    drugIds=${drugIds}    symptom=    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['safeStatus']}    1
 
 ################################待审核
@@ -294,7 +294,7 @@ Suite Teardown    Delete All Sessions
     [Documentation]    断言:"safeStatus=2"
     ${drugIds}    Create List    3517    2726    2391
     ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=20    ageType=岁    drugIds=${drugIds}    symptom=    confirmDiagnosis=
+    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=0    age=20    ageType=岁    drugIds=${drugIds}    symptom=    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['safeStatus']}    2
 
 1.36 高血压用药重复,用药审核结果为'待审核'
@@ -330,56 +330,56 @@ Suite Teardown    Delete All Sessions
     [Documentation]    断言:"safeStatus=2"
     ${drugIds}    Create List    3517
     ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
+    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=3    ageType=月    drugIds=${drugIds}    symptom=    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['safeStatus']}    2
 
 1.40 人群禁忌等级grade为'3不推荐'的药,用药审核结果为'待审核'
     [Documentation]    断言:"safeStatus=2"
     ${drugIds}    Create List    579
     ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
+    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=3    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['safeStatus']}    2
 
 1.41 人群禁忌等级grade为'4不宜应用'的药,用药审核结果为'待审核'
     [Documentation]    断言:"safeStatus=2"
     ${drugIds}    Create List    3850
     ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
+    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=3    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['safeStatus']}    2
 
 1.42 人群禁忌等级grade为'5.忌用'的药,用药审核结果为'待审核'
     [Documentation]    断言:"safeStatus=2"
     ${drugIds}    Create List    3700
     ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
+    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=3    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['safeStatus']}    2
 
 1.43 人群禁忌等级grade为'6.避免使用'的药,用药审核结果为'待审核'
     [Documentation]    断言:"safeStatus=2"
     ${drugIds}    Create List    2610
     ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
+    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=3    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['safeStatus']}    2
 
 1.44 人群禁忌等级grade为'7.不建议'的药,用药审核结果为'待审核'
     [Documentation]    断言:"safeStatus=2"
     ${drugIds}    Create List    3827
     ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
+    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=3    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['safeStatus']}    2
 
 1.45 人群禁忌等级grade为'8.慎用'的药,用药审核结果为'待审核'
     [Documentation]    断言:"safeStatus=2"
     ${drugIds}    Create List    139
     ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
+    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=12    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['safeStatus']}    2
 
 1.46 人群禁忌等级grade为'9.权衡利弊'的药,用药审核结果为'待审核'
     [Documentation]    断言:"safeStatus=2"
     ${drugIds}    Create List    4173
     ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
+    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=3    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['safeStatus']}    2
 
 
@@ -464,20 +464,20 @@ Suite Teardown    Delete All Sessions
     [Documentation]    断言:"grade=2"
     ${drugIds}    Create List    8054
     ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=Roemhelo综合症    confirmDiagnosis=
+    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=Roemheld综合症    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['tabooList'][0]['grade']}    1
 
-# 1.58 新增用药 症状:咯血 药品:7421 grade=1
-#     [Documentation]    断言:"grade=2"
-#     ${drugIds}    Create List    7421
-#     ${drugCommonNames}    Create List
-#     ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=咯血    confirmDiagnosis=
-#     Should Be Equal As Strings    ${getRes['body']['tabooList'][0]['grade']}    1
-
-1.59 新增用药 症状:肌酐清除率<25ml/分 药品:8054 grade=1
+1.58 新增用药 症状:咯血 药品:7421 grade=1
     [Documentation]    断言:"grade=2"
     ${drugIds}    Create List    8054
     ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=肌酐清除率<25ml/分    confirmDiagnosis=
+    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=肾功能损害（肌酐清除率<25ml/分）    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['tabooList'][0]['grade']}    1
+
+# 1.59 新增用药 症状:肌酐清除率<25ml/分 药品:8054 grade=1
+#     [Documentation]    断言:"grade=2"
+#     ${drugIds}    Create List    8054
+#     ${drugCommonNames}    Create List
+#     ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=肌酐清除率24ml/分    confirmDiagnosis=
+#     Should Be Equal As Strings    ${getRes['body']['tabooList'][0]['grade']}    1
 
