@@ -1,11 +1,24 @@
 *** Variables ***
 ${base_url}     http://apollo.huimeionline.com
-# ${mayson_url}     http://47.95.203.183/cdss
+#mayson测试环境
+# ${mayson_url}     http://test-mayson.huimeionline.com/cdss
+
+#mayson生产环境
 ${mayson_url}     http://mayson.huimeionline.com/cdss
+#黄石
+${mayson_url}     http://172.16.81.47/cdss
+
+#文献测试环境
+# ${doc_url}       http://test-doc.huimeionline.com/
+
+#文献生产环境
+${doc_url}       http://doc.huimeionline.com/
+
+
+
 
 # ${base_url}       http://118.178.109.153
 #其中一台145
-# ${ba7195F12825788F09375C2DB1E922F108se_url}       http://100.114.71.145
 # ${base_url}     http://10.46.74.95:8080
 #####线上识别接口地址 http://10.165.102.219:8080/v_3_0/recognize
 
@@ -13,6 +26,10 @@ ${mayson_url}     http://mayson.huimeionline.com/cdss
 ${base_url_95}     http://10.46.74.95:9200
 #妇产科诊断性别_线上环境
 ${base_url_219}     http://10.165.102.219:9200
+
+
+
+
 ${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
 ${Huimei_his}      01217002C571E1622927516DB4A1C803
 
@@ -26,10 +43,7 @@ ${Huimei_id_xw}      8C946583A4EE9174D7B2D1697066BFA2
 
 #amcPc版
 ${base_url_amc}     http://amc.huimeionline.com
-
 ${base_url_ame}     http://47.95.203.183:8092
-#文献
-${doc_url}       http://doc.huimeionline.com/
 
 
 *** Keywords ***
@@ -1110,7 +1124,7 @@ mayson默认推荐搜索
 
 
 智能推荐
-    [Arguments]    ${userGuid}    ${serialNumber}    ${pageSource}
+    [Arguments]    ${userGuid}    ${serialNumber}    ${doctorGuid}    ${doctorName}    ${pageSource}
     ...    ${patientInfo}
     ...    ${physicalSign}
     ...    ${definiteDiagnosis}
@@ -1132,7 +1146,7 @@ mayson默认推荐搜索
     ${examinationList}    Evaluate    [${examinationList}]
     ${newTestList}    Evaluate    [${newTestList}]
     ${operationRecord}    Evaluate    dict(${operationRecord})
-    ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    pageSource=${pageSource}    patientInfo=${patientInfo}
+    ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    doctorGuid=${doctorGuid}    doctorName=${doctorName}    pageSource=${pageSource}    patientInfo=${patientInfo}
     ...    physicalSign=${physicalSign}    definiteDiagnosis=${definiteDiagnosis}    progressNoteList=${progressNoteList}
     ...    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}    examinationList=${examinationList}
     ...    newTestList=${newTestList}    operationRecord=${operationRecord}

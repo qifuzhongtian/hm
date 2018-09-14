@@ -11,7 +11,7 @@ Library           String
 *** Test Cases ***
 
 
-# #######
+########
 #######QT间期延长###
 
 推荐疑似诊断:心律失常
@@ -22,6 +22,7 @@ Library           String
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+    ...    doctorGuid=0210497    doctorName=
     ...    patientInfo={"gender":"1","age":"60","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -52,6 +53,7 @@ Library           String
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+    ...    doctorGuid=0210497    doctorName=
     ...    patientInfo={"gender":"1","age":"60","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -83,6 +85,7 @@ Library           String
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+    ...    doctorGuid=0210497    doctorName=
     ...    patientInfo={"gender":"1","age":"60","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -115,6 +118,7 @@ Library           String
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+    ...    doctorGuid=0210497    doctorName=
     ...    patientInfo={"gender":"1","age":"60","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -148,6 +152,7 @@ Library           String
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+    ...    doctorGuid=0210497    doctorName=
     ...    patientInfo={"gender":"1","age":"8","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -171,29 +176,41 @@ Library           String
     #Should Contain    ${aj[:5]}    急性上呼吸道感染
 
 
+
 质控
-    [Documentation]    断言:""
+    [Documentation]    断言:"NIHSS卒中量表"
     # ${timestamp}    Get Time    epoch
     ${Assessment}    Set Variable
-    ${Subjective}    Set Variable    病程记录。患者，冯术员，男性，74岁，主因“突发言语不利伴右侧肢体活动不灵6小时”于2018-04-0317:15急诊以“”收入神内六组。。一、病例特点：。。1、老年男性，。。2、；。3、患者于6小时前在活动中突发言语不利，右侧肢体无力，表现为言语不能，意识丧失，右侧肢体无力，平谷中医院给予做心电图：提示：，给予低分子肝素抗凝。4、查体：）。。5、辅助检查：2018-04-03宣武医院急诊。头颅CT未见出血，头颅CTP：左侧颞顶叶灌注明显不足，CBF>CBV，MTT、TTP延长。。2018-04-03。。二、拟诊讨论：。。（一）定位诊断：患者右侧中枢。。　　（二）定性诊断和鉴别诊断：。1、（质控诊断）急性脑梗死依据：。2.脱髓鞘病：。。3.瘤卒中：。（三）其他相关疾病诊断：。1、依据：。。2、。3、。。4、高血压2级极高危组依据：患者既往明确高血压病史，目前靶器官损害，故诊断此病。。5、。6、。7、。。8、，故诊断此病。。三、诊疗计划：。。1、向患者家属沟通病情，下达病重；。2、。4、。5、。。6、。。7、。。8、向家属解释病情并进行健康宣教，戒烟限酒、适当运动、规律生活等。。医生签名：王薇。
+    ${Subjective}    Set Variable    男，年龄8岁，高热、流涕2天，流感病毒抗体滴度增高,急性脑梗死
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐_宣武    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
     ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":0,"age":"16","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+    ...    patientInfo={"gender":"1","age":"8","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "9510323","msgType":"0","progressType":"2","progressMessage":"${Subjective} 诊断及诊断依据:${Assessment} ","doctorGuid": "0210497","recordTime": ""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key": "诊断依据及鉴别诊断","value": "急性脑梗死"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
+    ...    newTestList=
+    ...    operationRecord=
+    #####推荐检查评估表
     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+    #####推荐检查
     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+    ######检查解读
+    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+    ######质控
     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['qualityControlResponse']['illnessAssessList']]
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+    # Should Contain    ${aj}    流行性感冒
+    #####推荐治疗方案
+    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+    #####疑似诊断
+    #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     Should Contain    ${aj}    NIHSS卒中量表
+
+
 
 
 
@@ -214,6 +231,7 @@ Library           String
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=2
+    ...    doctorGuid=0210497    doctorName=
     ...    patientInfo={"gender":0,"age":"22","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -253,6 +271,7 @@ Library           String
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=${6}
+    ...    doctorGuid=0210497    doctorName=
     ...    patientInfo={"gender":0,"age":"22","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "35","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -290,6 +309,7 @@ Library           String
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=2
+    ...    doctorGuid=0210497    doctorName=
     ...    patientInfo={"gender":0,"age":"22","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -328,6 +348,7 @@ Library           String
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=2
+    ...    doctorGuid=0210497    doctorName=
     ...    patientInfo={"gender":0,"age":"22","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -370,6 +391,7 @@ Library           String
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=2
+    ...    doctorGuid=0210497    doctorName=
     ...    patientInfo={"gender":0,"age":"22","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=

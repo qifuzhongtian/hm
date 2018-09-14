@@ -24,6 +24,7 @@ Suite Teardown    Delete All Sessions
     Should Be Equal As Strings    ${getRes['body']['interactionList'][0]['grade']}    2
 
 
+
 1.2 相互作用等级为'禁用'的两种药,grade=1
     [Documentation]    断言:"grade=1"
     ${drugIds}    Create List    4498    8603
