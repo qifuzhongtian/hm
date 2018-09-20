@@ -180,7 +180,7 @@ Library           String
 质控
     [Documentation]    断言:"NIHSS卒中量表"
     # ${timestamp}    Get Time    epoch
-    ${Assessment}    Set Variable
+    ${Assessment}    Set Variable    急性脑梗死
     ${Subjective}    Set Variable    男，年龄8岁，高热、流涕2天，流感病毒抗体滴度增高,急性脑梗死
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
