@@ -1,12 +1,16 @@
 *** Variables ***
 ${base_url}     http://apollo.huimeionline.com
+#pd
+# ${base_url}     http://pd-apollo.huimeionline.com
+#153
+# ${base_url}       http://10.117.64.153:8080
 #mayson测试环境
 # ${mayson_url}     http://test-mayson.huimeionline.com/cdss
 
 #mayson生产环境
 ${mayson_url}     http://mayson.huimeionline.com/cdss
 #黄石
-${mayson_url}     http://172.16.81.47/cdss
+# ${mayson_url}     http://172.16.81.47/cdss
 
 #文献测试环境
 # ${doc_url}       http://test-doc.huimeionline.com/
