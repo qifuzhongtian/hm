@@ -9,6 +9,8 @@ ${base_url}     http://apollo.huimeionline.com
 
 #mayson生产环境
 ${mayson_url}     http://mayson.huimeionline.com/cdss
+# ${mayson_url}       http://192.168.1.13/cdss
+
 #黄石
 # ${mayson_url}     http://172.16.81.47/cdss
 
@@ -47,7 +49,7 @@ ${Huimei_id_xw}      8C946583A4EE9174D7B2D1697066BFA2
 
 #amcPc版
 ${base_url_amc}     http://amc.huimeionline.com
-${base_url_ame}     http://47.95.203.183:8092
+${base_url_ame}     http://10.46.74.95:8092
 
 
 *** Keywords ***
