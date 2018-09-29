@@ -25,7 +25,7 @@ Library           RequestsLibrary    # Library    ExcelLibrary    # 字段名 �
     大剂量IVIG(静脉内免疫球蛋白)2g/kg(总量)分5天或2天给予    IVIG治疗
     mRS：1     mRS>=0
     mRS：0    mRS>=0
-     NIHSS：0    nihss>=0
+    NIHSS：0    nihss>=0
     NIHSS：11    nihss>=0
     NIHSS评分：6    nihss>3
     Padua评分 2分    Padua评分>=0
