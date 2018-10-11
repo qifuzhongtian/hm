@@ -92,12 +92,12 @@ Suite Teardown    Delete All Sessions
     ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=5    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['tabooList'][0]['grade']}    7
 
-1.11 人群禁忌等级为'8.慎用'的药,结果正确
-    [Documentation]    断言:"grade=8"
-    ${drugIds}    Create List    139
-    ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=12    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
-    Should Be Equal As Strings    ${getRes['body']['tabooList'][0]['grade']}    8
+# 1.11 人群禁忌等级为'8.慎用'的药,结果正确
+#     [Documentation]    断言:"grade=8"
+#     ${drugIds}    Create List    139
+#     ${drugCommonNames}    Create List
+#     ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=12    ageType=岁    drugIds=${drugIds}    symptom=    confirmDiagnosis=
+#     Should Be Equal As Strings    ${getRes['body']['tabooList'][0]['grade']}    8
 
 1.12 人群禁忌等级为'9.权衡利弊'的药,结果正确
     [Documentation]    断言:"grade=9"
@@ -369,12 +369,12 @@ Suite Teardown    Delete All Sessions
     ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=3    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
     Should Be Equal As Strings    ${getRes['body']['safeStatus']}    2
 
-1.45 人群禁忌等级grade为'8.慎用'的药,用药审核结果为'待审核'
-    [Documentation]    断言:"safeStatus=2"
-    ${drugIds}    Create List    139
-    ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=12    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
-    Should Be Equal As Strings    ${getRes['body']['safeStatus']}    2
+# 1.45 人群禁忌等级grade为'8.慎用'的药,用药审核结果为'待审核'
+#     [Documentation]    断言:"safeStatus=2"
+#     ${drugIds}    Create List    139
+#     ${drugCommonNames}    Create List
+#     ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=12    ageType=岁    drugIds=${drugIds}    symptom=    confirmDiagnosis=
+#     Should Be Equal As Strings    ${getRes['body']['safeStatus']}    2
 
 1.46 人群禁忌等级grade为'9.权衡利弊'的药,用药审核结果为'待审核'
     [Documentation]    断言:"safeStatus=2"
