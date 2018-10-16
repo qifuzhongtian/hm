@@ -955,9 +955,9 @@ ame管理_文档列表查询
     [Arguments]    ${bodyTempr}    ${age}    ${ageType}    ${highBldPress}    ${lowBldPress}    ${pregnancyStatus}    ${recordInfo}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     ${recordInfo}    Evaluate    dict(${recordInfo})
-    Create Session    api    http://10.165.102.219:8080    ${dict}
+    Create Session    api    http://10.252.128.72:9088/inference    ${dict}
     ${data}    Create Dictionary    bodyTempr=${bodyTempr}    age=${age}   ageType=${ageType}    highBldPress=${highBldPress}    lowBldPress=${lowBldPress}    pregnancyStatus=${pregnancyStatus}    recordInfo=${recordInfo}
-    ${addr}    Post Request    api    /v_3_0/recognize    data=${data}
+    ${addr}    Post Request    api    /v_4_0/recognize    data=${data}
     ${responsedata}    To Json    ${addr.content}
     # Should Contain    ${aj[:15]}    ${msg}
     # Delete All Sessions
@@ -1140,6 +1140,7 @@ mayson默认推荐搜索
     ...    ${examinationList}
     ...    ${newTestList}
     ...    ${operationRecord}
+    ...    ${prescriptions}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
     # Create Session    api    ${base_url}    ${dict}
     Create Session    api    ${mayson_url}    ${dict}
@@ -1152,6 +1153,7 @@ mayson默认推荐搜索
     ${examinationList}    Evaluate    [${examinationList}]
     ${newTestList}    Evaluate    [${newTestList}]
     ${operationRecord}    Evaluate    dict(${operationRecord})
+    ${prescriptions}    Evaluate    ${prescriptions}
     ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    doctorGuid=${doctorGuid}    doctorName=${doctorName}    pageSource=${pageSource}    patientInfo=${patientInfo}
     ...    physicalSign=${physicalSign}    definiteDiagnosis=${definiteDiagnosis}    progressNoteList=${progressNoteList}
     ...    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}    examinationList=${examinationList}

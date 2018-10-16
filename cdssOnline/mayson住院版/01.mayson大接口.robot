@@ -32,6 +32,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     #####推荐检查评估表
     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
     #####推荐检查
@@ -63,6 +64,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     #####推荐检查评估表
     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
     #####推荐检查
@@ -95,6 +97,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     #####推荐检查评估表
     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
     Should Contain    ${aj}    引起QT间期延长的常见药物
@@ -128,6 +131,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     #####推荐检查评估表
     #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
     #Should Contain    ${aj}    引起QT间期延长的常见药物
@@ -162,6 +166,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     #####推荐检查评估表
     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
     #####推荐检查
@@ -181,20 +186,21 @@ Library           String
     [Documentation]    断言:"NIHSS卒中量表"
     # ${timestamp}    Get Time    epoch
     ${Assessment}    Set Variable    急性脑梗死
-    ${Subjective}    Set Variable    男，年龄8岁，高热、流涕2天，流感病毒抗体滴度增高,急性脑梗死
+    ${Subjective}    Set Variable
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ...    doctorGuid=0210497    doctorName=hkj
     ...    patientInfo={"gender":"1","age":"8","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key": "诊断依据及鉴别诊断","value": "急性脑梗死"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key": "诊断依据及鉴别诊断","value": ""},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     #####推荐检查评估表
     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
     #####推荐检查
@@ -241,6 +247,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
@@ -281,6 +288,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
@@ -293,7 +301,7 @@ Library           String
 
 
 手术并发症
-    [Documentation]    断言:"糖尿病"
+    [Documentation]    断言:"皮瓣坏死"
     # ${timestamp}    Get Time    epoch
     # ${assert}    Create List
     #诊断
@@ -319,6 +327,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord={"recordNumber":1234567,"position":"","incisionType":"切片","anesthesia":"没有","preoperativeDiagnose":"","operationList":[{"operationId":6598,"operationName":"乳腺导管选择性切除术(单根)","operationType":"","operationDesc":"","operationTime":""},{"operationId":6614,"operationName":"单侧乳房切除术","operationType":1}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
@@ -332,7 +341,7 @@ Library           String
 
 
 手术禁忌
-    [Documentation]    断言:"糖尿病"
+    [Documentation]    断言:"妊娠期女性"
     # ${timestamp}    Get Time    epoch
     # ${assert}    Create List
     #诊断
@@ -358,6 +367,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord={"recordNumber":1234567,"position":"","incisionType":"切片","anesthesia":"没有","preoperativeDiagnose":"","operationList":[{"operationId":6598,"operationName":"乳腺导管选择性切除术(单根)","operationType":"","operationDesc":"","operationTime":""},{"operationId":6614,"operationName":"单侧乳房切除术","operationType":1}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
@@ -375,7 +385,7 @@ Library           String
 
 
 合理性检验
-    [Documentation]    断言:"糖尿病"
+    [Documentation]    胸部透视对妊娠期女性禁忌,断言:"妊娠期女性"
     # ${timestamp}    Get Time    epoch
     # ${assert}    Create List
     #诊断
@@ -399,8 +409,9 @@ Library           String
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
-    ...    newTestList={"testType": 2,"testId": "902","testName": "食道钡餐透视"},{"testType": 2,"testId": "05","testName": "电视食道钡餐透视"}
+    ...    newTestList={"testType": 2,"testId": "03","testName": "胸部透视"}
     ...    operationRecord={"recordNumber":1234567,"position":"","incisionType":"切片","anesthesia":"没有","preoperativeDiagnose":"","operationList":[{"operationId":6598,"operationName":"乳腺导管选择性切除术(单根)","operationType":"","operationDesc":"","operationTime":""},{"operationId":6614,"operationName":"单侧乳房切除术","operationType":1}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]

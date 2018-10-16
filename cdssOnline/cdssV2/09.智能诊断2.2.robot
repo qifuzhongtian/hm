@@ -9,13 +9,13 @@ Suite Teardown    Delete All Sessions
 # examInfo String 否 检查    # previousHistory String 否 既往史    # personalHistory String 否 个人史    # allergyHistory String 否 过敏史    # familyHistory String 否 家族史    # symptom String 否 主诉    # confirmDiagnosis String 否 已确定诊断
 
 *** Test Cases ***
-# 2.1 只填写主诉
-#     [Documentation]    断言:"存在急性弥漫性腹膜炎"
-#     智能诊断    ['diseaseName']    急性阑尾炎    symptom=发热,胃痛,腹胀,腹痛,高热    previousHistory=    personalHistory=    allergyHistory=
-#     ...    familyHistory=    weight=    gender=    bodyTempr=    lowBldPress=    highBldPress=
-#     ...    examInfo=    heartRate=    age=    ageType=    confirmDiagnosis=    confirmDiagnosisMap=
-#     ...    presentHistory=
-#     # ...    examItems=[{id:1,value:},{id:2,value:},{id:3,value:},{id:4,value:},{id:5,value:},{id:6,value:},{id:7,value:},{id:8,value:},{id:9,value:},{id:10,value:},{id:11,value:},{id:12,value:},{id:13,value:},{id:14,value:},{id:15,value:},{id:16,value:},{id:17,value:},{id:18,value:}]
+市场部全科版演示case-2行
+    [Documentation]    断言:"存在急性弥漫性腹膜炎"
+    智能诊断    ['diseaseName']    甲状腺功能减退症    symptom=因便秘1年余就诊，主诉大便由平常每日1次渐至每周1次，且伴有体重增加（约10kg），纳差，腹胀，易疲劳等症，病人曾在多家医院诊治，被诊断为慢性结肠炎，功能性消化不良等，但治疗未见好转    previousHistory=    personalHistory=    allergyHistory=
+    ...    familyHistory=    weight=    gender=    bodyTempr=    lowBldPress=    highBldPress=
+    ...    examInfo=    heartRate=    age=    ageType=    confirmDiagnosis=    confirmDiagnosisMap=
+    ...    presentHistory=
+    # ...    examItems=[{id:1,value:},{id:2,value:},{id:3,value:},{id:4,value:},{id:5,value:},{id:6,value:},{id:7,value:},{id:8,value:},{id:9,value:},{id:10,value:},{id:11,value:},{id:12,value:},{id:13,value:},{id:14,value:},{id:15,value:},{id:16,value:},{id:17,value:},{id:18,value:}]
 
 # 2.2 体格检查_体温>=37.5
 #     [Documentation]    断言:"急性上呼吸道感染"
@@ -33,13 +33,13 @@ Suite Teardown    Delete All Sessions
 #     ...    presentHistory=
 #     # ...    examItems=[{id:1,value:},{id:2,value:},{id:3,value:},{id:4,value:},{id:5,value:},{id:6,value:},{id:7,value:},{id:8,value:},{id:9,value:},{id:10,value:},{id:11,value:},{id:12,value:},{id:13,value:},{id:14,value:},{id:15,value:},{id:16,value:},{id:17,value:},{id:18,value:}]
 
-2. 4体格检查_心率<60,心率过慢
-    [Documentation]    断言:"diseaseName=心动过缓"
-    智能诊断    ['diseaseName']    心动过缓    symptom=    previousHistory=    personalHistory=    allergyHistory=
-    ...    familyHistory=    weight=    gender=    bodyTempr=    lowBldPress=    highBldPress=
-    ...    examInfo=    heartRate=59    age=    ageType=    confirmDiagnosis=    confirmDiagnosisMap=
-    ...    presentHistory=
-    # ...    examItems=[{id:1,value:},{id:2,value:},{id:3,value:},{id:4,value:},{id:5,value:},{id:6,value:},{id:7,value:},{id:8,value:},{id:9,value:},{id:10,value:},{id:11,value:},{id:12,value:},{id:13,value:},{id:14,value:},{id:15,value:},{id:16,value:},{id:17,value:},{id:18,value:}]
+# 2. 4体格检查_心率<60,心率过慢
+#     [Documentation]    断言:"diseaseName=心动过缓"
+#     智能诊断    ['diseaseName']    心动过缓    symptom=    previousHistory=    personalHistory=    allergyHistory=
+#     ...    familyHistory=    weight=    gender=    bodyTempr=    lowBldPress=    highBldPress=
+#     ...    examInfo=    heartRate=44    age=    ageType=    confirmDiagnosis=    confirmDiagnosisMap=
+#     ...    presentHistory=
+#     # ...    examItems=[{id:1,value:},{id:2,value:},{id:3,value:},{id:4,value:},{id:5,value:},{id:6,value:},{id:7,value:},{id:8,value:},{id:9,value:},{id:10,value:},{id:11,value:},{id:12,value:},{id:13,value:},{id:14,value:},{id:15,value:},{id:16,value:},{id:17,value:},{id:18,value:}]
 
 # 2.5 体格检查_心率>100,心率过快
 #     [Documentation]    断言:"diseaseName=动过速"
