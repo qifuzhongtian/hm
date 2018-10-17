@@ -2,10 +2,7 @@
 Test Template     识别接口
 Resource          ../cdss接口关键字.robot
 Library           Collections
-Library           RequestsLibrary    # Library    ExcelLibrary    # 字段名 类型 是否必须 说明    # userGuid String 是 患者ID（接入放定义）    # doctorGuid String 是 医生ID（接入放定义）    # serialNumber String 是 业务流水ID（接入方定义）
-...               # hospitalGuid String 是 医院ID（惠每分配）    # gender Integer 否 性别1男,0女    #    age double 否 年龄    # ageType String 否 岁、月、天    # bodyTempr Double 否 体温    # weight Double 否 体重
-...               # heartRate Integer 否 心率    # lowBldPress Integer 否 收缩压    # highBldPress Integer 否 舒张压    # examInfo String 否 检查    # previousHistory String 否 既往史    # personalHistory String 否 个人史    # allergyHistory String 否 过敏史
-...               # familyHistory String 否 家族史    # symptom String 否 主诉    # confirmDiagnosis String 否 已确定诊断
+Library           RequestsLibrary
 
 *** Test Cases ***
 识别接口V3.2
@@ -23,7 +20,7 @@ Library           RequestsLibrary    # Library    ExcelLibrary    # 字段名 �
     格拉斯哥评分（GCS）：15    GCS>=1
     IVIG 50g，静脉滴注qd，连用5天    IVIG治疗
     大剂量IVIG(静脉内免疫球蛋白)2g/kg(总量)分5天或2天给予    IVIG治疗
-    mRS：1     mRS>=0
+    mRS：1    mRS>=0
     mRS：0    mRS>=0
     NIHSS：0    nihss>=0
     NIHSS：11    nihss>=0
@@ -94,7 +91,6 @@ Library           RequestsLibrary    # Library    ExcelLibrary    # 字段名 �
     最后诊断：血源性肺脓肿    肺脓肿
     此患者为肺炎高危患儿    肺炎高危患儿
     肺炎流行病学史记录完整性：完整    肺炎流行病学史记录完整性
-    建议出院后接种肺炎疫苗    肺炎疫苗
     患者入院检查提示：肺炎支原体检测阳性    肺炎支原体检测阳性
     肺炎支原体抗体 1:320    肺炎支原体抗体>=1:160
     肺炎支原体抗体 1:640    肺炎支原体抗体>=1:160
@@ -164,7 +160,7 @@ Library           RequestsLibrary    # Library    ExcelLibrary    # 字段名 �
     儿童急淋泼尼松试验提示泼尼松反应良好    儿童急淋泼尼松试验
     儿童急性淋巴细胞白血病患者，泼尼松试验显示泼尼松不敏感    儿童急淋泼尼松试验
     儿童急淋诱导缓解治疗    儿童急淋诱导缓解治疗
-    通过血常规、骨髓检查明确诊断为ALL（B细胞型），予以采用VDP方案诱导治疗    儿童急淋诱导缓解治疗
+    患者,6岁,通过血常规、骨髓检查明确诊断为ALL（B细胞型），予以采用VDP方案诱导治疗    儿童急淋诱导缓解治疗
     患者记忆力下降，反应迟钝。    反应迟钝
     定期复查超声心动图    复查超声心动图
     超声心动图：冠状动脉Z值2.5    冠状动脉Z值>=2.5
@@ -193,13 +189,10 @@ Library           RequestsLibrary    # Library    ExcelLibrary    # 字段名 �
     患者因上腹痛，恶心，拒食就诊    拒食
     脑血栓后遗症，请康复科会诊    康复科会诊
     坚持抗感染治疗，病情好转    抗感染
-    坚持口服抗静脉血栓药物治疗    抗静脉血栓药物
     10天前，抗链球菌溶血素O测定为阳性    抗链球菌溶血素O阳性<=3个月
-    坚持抗凝扩冠治疗    抗凝治疗
     15天前血液检查发现抗双磷酸吡啶核苷酸酶阳性    抗双磷酸吡啶核苷酸酶阳性<=3个月
     20天前检查发现抗透明质酸酶滴度增加    抗透明质酸酶滴度增加<=3个月
     2天前检查发现抗脱氧核糖核酸酶B阳性    抗脱氧核糖核酸酶B阳性<=3个月
-    出院后坚持每年注射流感疫苗    流感疫苗
     患者颅内压降低，    颅内压降低
     儿童，男，10岁，颅内压 48mmH2O    颅内压降低
     患者头颅外伤后，导致头痛，恶心，查颅内压未见异常。    颅内压正常
