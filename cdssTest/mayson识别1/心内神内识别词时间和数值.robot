@@ -8,7 +8,7 @@ Library           RequestsLibrary    # Library    ExcelLibrary    # 字段名 �
 ...               # familyHistory String 否 家族史    # symptom String 否 主诉    # confirmDiagnosis String 否 已确定诊断
 
 *** Test Cases ***
-识别接口时间和数值
+时间和数值
     头颅CT估算幕上血肿约20ml    血肿超过10ml
     胸痛持续约5min    胸痛发作持续时间<20min
     胸痛25小时左右    胸痛持续时间>24小时
@@ -42,7 +42,7 @@ Library           RequestsLibrary    # Library    ExcelLibrary    # 字段名 �
     根据Hunt-Hess分级标准为V 级    Hunt-Hess5分
     根据Hunt-Hess分级标准为4分    Hunt-Hess4分
     格拉斯哥9分    GCS>8分
-    GCS得分10分    GCS<8分
+    GCS得分7分    GCS<8分
     GCS8分    GCS<＝8分
     孕20周    妊娠20周
     停经43周    妊娠>=37周
