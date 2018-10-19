@@ -1337,3 +1337,15 @@ mayson默认推荐
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
+
+
+风火山林甲状腺
+    [Arguments]    ${userGuid}    ${serialNumber}    ${gender}    ${age}    ${ageType}    ${examinationName}    ${examinationDesc}    ${examinationResult}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${mayson_url}    ${dict}
+    # Create Session    api    ${mayson_url}    ${dict}
+    ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    gender=${gender}    age=${age}    ageType=${ageType}    examinationDesc=${examinationDesc}    examinationResult=${examinationResult}
+    ${addr}    Post Request    api    /mayson/v_1_1/smart_recommend    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
