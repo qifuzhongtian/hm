@@ -16,9 +16,9 @@ ${amc_url_ol}     http://amc.huimeionline.com
 #测试
 # ${mayson_url}       http://10.117.64.153:8080
 #测试环境
-# ${mayson_url}       http://test-mayson.huimeionline.com/cdss
+${mayson_url}       http://test-mayson.huimeionline.com/cdss
 #预发环境
-${mayson_url}       http://pretest-mayson.huimeionline.com/cdss
+# ${mayson_url}       http://test-mayson.huimeionline.com/cdss
 ${base_url}       http://10.117.64.153:8080
 ${doc_url}       http://test-doc.huimeionline.com/
 
@@ -426,7 +426,8 @@ ${null}    null
 病例识别
     [Arguments]    ${symptom}    ${gender}    ${age}    ${ageType}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    # Create Session    api    ${base_url}    ${dict}
+    Create Session    api    http://10.252.128.72:9088/inference    ${dict}
     ${data}    Create Dictionary    symptom=${symptom}    gender=${gender}    age=${age}   ageType=${ageType}
     ${addr}    Post Request    api    v_4_0/recognize    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -933,13 +934,15 @@ ame管理_文档列表查询
     [Documentation]
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=78D211AA892A8155EF18F4CDB967043A
     Create Session    api    http://10.117.64.153:8080    ${dict}
+    # Create Session    api    http://10.165.102.219:9088    ${dict}
+    # Create Session    api    http://10.165.102.219:8080    ${dict}
     #95环境
     # Create Session    api    http://10.46.74.95:8099    ${dict}
     #线上
     # Create Session    api    http://47.95.203.183:8080    ${dict}
     ${data}    Create Dictionary    symptom=${symptom}    previousHistory=    personalHistory=    allergyHistory=    familyHistory=
-    ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
-    ...    heartRate=    age=30    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap[]=    presentHistory=
+    ...    weight=    gender=    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
+    ...    heartRate=    age=    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap[]=    presentHistory=
     ${addr}    Post Request    api    /v_4_0/recognize    data=${data}
     ${responsedata}    To Json    ${addr.content}
     ${aj}      Evaluate    [aj['word'] for aj in $responsedata['body']['recognizeResultList']]
@@ -999,7 +1002,7 @@ ame管理_文档列表查询
 
 
 智能推荐
-    [Arguments]    ${userGuid}    ${serialNumber}    ${pageSource}
+    [Arguments]    ${userGuid}    ${serialNumber}    ${doctorGuid}    ${doctorName}    ${pageSource}
     ...    ${patientInfo}
     ...    ${physicalSign}
     ...    ${definiteDiagnosis}
@@ -1009,7 +1012,9 @@ ame管理_文档列表查询
     ...    ${examinationList}
     ...    ${newTestList}
     ...    ${operationRecord}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    ...    ${prescriptions}
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=D7928B9182ABF6E0A6A6EBB71B353585
     # Create Session    api    ${base_url}    ${dict}
     Create Session    api    ${mayson_url}    ${dict}
     ${patientInfo}    Evaluate    dict(${patientInfo})
@@ -1021,13 +1026,55 @@ ame管理_文档列表查询
     ${examinationList}    Evaluate    [${examinationList}]
     ${newTestList}    Evaluate    [${newTestList}]
     ${operationRecord}    Evaluate    dict(${operationRecord})
-    ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    patientInfo=${patientInfo}
+    ${prescriptions}    Evaluate    ${prescriptions}
+    ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    doctorGuid=${doctorGuid}    doctorName=${doctorName}    pageSource=${pageSource}    patientInfo=${patientInfo}
     ...    physicalSign=${physicalSign}    definiteDiagnosis=${definiteDiagnosis}    progressNoteList=${progressNoteList}
-    ...    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}    examinationList=${examinationList}
+    ...    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}    examinationList=${examinationList}    prescriptions=${prescriptions}
     ...    newTestList=${newTestList}    operationRecord=${operationRecord}
     ${addr}    Post Request    api    mayson/v_1_0/intelligent_recommendation    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+
+
+智能推荐模板
+    [Arguments]    ${userGuid}
+    ...    ${serialNumber}
+    # ...    ${doctorGuid}
+    # ...    ${doctorName}
+    # ...    ${pageSource}
+    ...    ${patientInfo}
+    # ...    ${physicalSign}
+    # ...    ${definiteDiagnosis}
+    ...    ${progressNoteList}
+    # ...    ${deleteProgressNoteList}
+    # ...    ${labTestList}
+    # ...    ${examinationList}
+    # ...    ${newTestList}
+    # ...    ${operationRecord}
+    # ...    ${prescriptions}
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=D7928B9182ABF6E0A6A6EBB71B353585
+    # Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
+    ${patientInfo}    Evaluate    dict(${patientInfo})
+    # ${physicalSign}    Evaluate    dict(${physicalSign})
+    # ${definiteDiagnosis}    Evaluate    [${definiteDiagnosis}]
+    ${progressNoteList}    Evaluate    [${progressNoteList}]
+    # ${deleteProgressNoteList}    Evaluate    [${deleteProgressNoteList}]
+    # ${labTestList}    Evaluate    [${labTestList}]
+    # ${examinationList}    Evaluate    [${examinationList}]
+    # ${newTestList}    Evaluate    [${newTestList}]
+    # ${operationRecord}    Evaluate    dict(${operationRecord})
+    # ${prescriptions}    Evaluate    ${prescriptions}
+    ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    doctorGuid=675    doctorName=hmkj    pageSource=    patientInfo={"gender":"${gender}","age":"${age}","ageType":"${ageType}","maritalStatus":"1","pregnancyStatus":"0"}
+    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":""},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+    ...    deleteProgressNoteList=    labTestList=    examinationList=    prescriptions=
+    ...    newTestList=    operationRecord=
+    ${addr}    Post Request    api    mayson/v_1_0/intelligent_recommendation    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    ${aj}      Evaluate    [aj['word'] for aj in $responsedata['body']['recognizeResultList']]
+    List Should Contain Sub List    ${aj}    ${assert}
+
 
 
 用药推荐
