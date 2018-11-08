@@ -5,7 +5,7 @@ Library           Collections
 Library           RequestsLibrary
 
 *** Test Cases ***
-识别接口出血缺血风险回归
+质控V3.3回归测试病历
     左下肢血压值 140/90mmHg    左下肢血压值>=0
     左上肢血压值 140/90mmHg    左上肢血压值>=0
     超声心动图检查显示升主动脉夹层    主动脉夹层
