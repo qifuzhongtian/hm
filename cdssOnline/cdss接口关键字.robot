@@ -1,5 +1,6 @@
 *** Variables ***
 ${base_url}     http://apollo.huimeionline.com
+# ${base_url}     http://pretest-apollo.huimeionline.com
 #pd
 # ${base_url}     http://pd-apollo.huimeionline.com
 #153
@@ -9,6 +10,8 @@ ${base_url}     http://apollo.huimeionline.com
 
 #mayson生产环境
 ${mayson_url}     http://mayson.huimeionline.com/cdss
+# ${mayson_url}     http://test-mayson.huimeionline.com/cdss
+# ${mayson_url}     http://pretest-mayson.huimeionline.com/cdss
 # ${mayson_url}       http://192.168.1.13/cdss
 
 #黄石
@@ -833,14 +836,19 @@ amcPc客户信息
 
 
 答题记录
-    [Arguments]    ${nodeId}    ${algoId}    ${seqId}    ${age}    ${ageType}    ${sex}
+    [Arguments]    ${nodeId}    ${algoIdList}    ${seqIdList}    ${symptomIdList}    ${algoId}    ${seqId}    ${age}    ${ageType}    ${sex}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_his}
     Create Session    api    ${mayson_url}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
-    ${data}    Create Dictionary    nodeId=${nodeId}    algoId=${algoId}    seqId=${seqId}    age=${age}    ageType=${ageType}    sex=${sex}
+    ${algoIdList}    Create List    ${algoIdList}
+    ${seqIdList}    Create List    ${seqIdList}
+    ${symptomIdList}    Create List    ${symptomIdList}
+    ${data}    Create Dictionary    nodeId=${nodeId}    algoIdList=${algoIdList}    seqIdList=${seqIdList}    symptomIdList=${symptomIdList}    algoId=${algoId}    seqId=${seqId}    age=${age}    ageType=${ageType}    sex=${sex}
     ${addr}    Post Request    api    /amc/answer_record    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+
+
 
 
 提交记录
@@ -1348,4 +1356,22 @@ mayson默认推荐
     ${addr}    Post Request    api    /mayson/v_1_1/smart_recommend    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+
+
+
+
+检验检查详情
+    [Arguments]    ${examId}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${mayson_url}    ${dict}
+    # Create Session    api    ${mayson_url}    ${dict}
+    ${data}    Create Dictionary    examId=${examId}
+    ${addr}    Post Request    api    /v_2_0/exam/detail    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+
+
 

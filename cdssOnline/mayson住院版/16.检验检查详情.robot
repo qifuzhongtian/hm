@@ -29,4 +29,3 @@ Library           String
     ${aj}    Evaluate    [aj['title'] for aj in $getRes['body']['catalogueList']]
     Should Contain    ${aj}    甲状腺激素
 
-
