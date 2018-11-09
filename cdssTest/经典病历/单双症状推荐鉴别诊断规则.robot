@@ -30,6 +30,7 @@ Library           String
     ...    newTestList=
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    newRecogFlag=1
     #####推荐检查评估表
     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
     #####推荐检查
@@ -68,6 +69,7 @@ Library           String
     ...    newTestList=
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    newRecogFlag=1
     #####推荐检查评估表
     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
     #####推荐检查
@@ -106,6 +108,7 @@ Library           String
     ...    newTestList=
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    newRecogFlag=1
     #####推荐检查评估表
     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
     #####推荐检查
@@ -144,6 +147,7 @@ Library           String
     ...    newTestList=
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    newRecogFlag=1
     #####推荐检查评估表
     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
     #####推荐检查
@@ -182,6 +186,7 @@ Library           String
     ...    newTestList=
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    newRecogFlag=1
     #####推荐检查评估表
     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
     #####推荐检查
@@ -220,6 +225,7 @@ Library           String
     ...    newTestList=
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    newRecogFlag=1
     #####推荐检查评估表
     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
     #####推荐检查
@@ -259,6 +265,7 @@ Library           String
     ...    newTestList=
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    newRecogFlag=1
     #####推荐检查评估表
     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
     #####推荐检查
@@ -297,6 +304,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####疑似诊断
         ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
         # Lists should Be Equal    ${aj}    ${assert}
@@ -322,6 +330,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####疑似诊断
         ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
         # Lists should Be Equal    ${aj}    ${assert}
@@ -348,6 +357,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####疑似诊断
         ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
         # Lists should Be Equal    ${aj}    ${assert}
@@ -374,6 +384,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####疑似诊断
         ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
         # Lists should Be Equal    ${aj}    ${assert}
@@ -400,6 +411,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####疑似诊断
         ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
         # Lists should Be Equal    ${aj}    ${assert}
@@ -425,6 +437,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####疑似诊断
         ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
         # Lists should Be Equal    ${aj}    ${assert}
@@ -450,6 +463,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####疑似诊断
         ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
         # Lists should Be Equal    ${aj}    ${assert}
@@ -476,6 +490,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####疑似诊断
         ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
         # Lists should Be Equal    ${aj}    ${assert}
@@ -502,6 +517,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####疑似诊断
         ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
         # Lists should Be Equal    ${aj}    ${assert}
@@ -527,7 +543,8 @@ Library           String
 #         ...    newTestList=
 #         ...    operationRecord=
 #         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-#         #####疑似诊断
+    ...    newRecogFlag=1#
+    #####疑似诊断
 #         ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
 #         # Lists should Be Equal    ${aj}    ${assert}
 #         List Should Contain Sub List    ${aj}    ${assert}
@@ -552,6 +569,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####疑似诊断
         ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
         # Lists should Be Equal    ${aj}    ${assert}
@@ -578,6 +596,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####疑似诊断
         ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
         # Lists should Be Equal    ${aj}    ${assert}
@@ -604,6 +623,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####疑似诊断
         ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
         # Lists should Be Equal    ${aj}    ${assert}
@@ -630,6 +650,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####疑似诊断
         ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
         # Lists should Be Equal    ${aj}    ${assert}
@@ -656,6 +677,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####疑似诊断
         ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
         # Lists should Be Equal    ${aj}    ${assert}
@@ -681,6 +703,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####疑似诊断
         ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
         # Lists should Be Equal    ${aj}    ${assert}
@@ -706,6 +729,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####疑似诊断
         ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
         # Lists should Be Equal    ${aj}    ${assert}
@@ -732,6 +756,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####疑似诊断
         ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
         # Lists should Be Equal    ${aj}    ${assert}
@@ -759,6 +784,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####疑似诊断
         ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
         # Lists should Be Equal    ${aj}    ${assert}
@@ -784,6 +810,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####疑似诊断
         ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
         # Lists should Be Equal    ${aj}    ${assert}
@@ -809,6 +836,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####疑似诊断
         ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
         # Lists should Be Equal    ${aj}    ${assert}
@@ -834,6 +862,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -871,6 +900,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -908,6 +938,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -944,6 +975,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -981,6 +1013,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -1018,6 +1051,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -1054,6 +1088,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -1090,6 +1125,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -1127,6 +1163,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -1165,6 +1202,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -1201,6 +1239,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -1237,6 +1276,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -1274,6 +1314,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -1311,6 +1352,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -1347,6 +1389,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -1383,6 +1426,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -1419,6 +1463,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -1456,6 +1501,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -1492,6 +1538,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -1529,6 +1576,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -1566,6 +1614,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -1603,6 +1652,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -1639,6 +1689,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -1675,6 +1726,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -1713,6 +1765,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -1749,6 +1802,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -1787,6 +1841,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -1823,6 +1878,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -1859,6 +1915,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -1896,6 +1953,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -1933,6 +1991,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -1970,6 +2029,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -2007,6 +2067,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -2045,6 +2106,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -2082,6 +2144,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -2118,6 +2181,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -2154,6 +2218,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -2191,6 +2256,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -2228,6 +2294,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -2265,6 +2332,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -2302,6 +2370,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -2339,6 +2408,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -2375,6 +2445,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -2411,6 +2482,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -2447,6 +2519,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -2484,6 +2557,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -2521,6 +2595,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -2558,6 +2633,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -2594,6 +2670,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -2631,6 +2708,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -2668,6 +2746,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -2704,6 +2783,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -2740,6 +2820,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -2776,6 +2857,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -2813,6 +2895,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -2849,6 +2932,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -2885,6 +2969,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -2922,6 +3007,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -2959,6 +3045,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -2995,6 +3082,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -3031,6 +3119,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -3067,6 +3156,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -3104,6 +3194,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -3141,6 +3232,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -3178,6 +3270,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -3215,6 +3308,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -3251,6 +3345,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -3288,6 +3383,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -3324,6 +3420,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -3361,6 +3458,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -3398,6 +3496,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -3435,6 +3534,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -3472,6 +3572,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -3509,6 +3610,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -3546,6 +3648,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -3582,6 +3685,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -3619,6 +3723,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -3656,6 +3761,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -3693,6 +3799,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -3730,6 +3837,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -3766,6 +3874,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -3803,6 +3912,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -3840,6 +3950,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -3877,6 +3988,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -3913,6 +4025,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -3950,6 +4063,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -3986,6 +4100,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -4023,6 +4138,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -4059,6 +4175,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -4096,6 +4213,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -4133,6 +4251,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -4171,6 +4290,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -4207,6 +4327,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -4244,6 +4365,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -4281,6 +4403,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -4317,6 +4440,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -4353,6 +4477,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -4390,6 +4515,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -4426,6 +4552,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -4463,6 +4590,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -4500,6 +4628,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -4537,6 +4666,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -4575,6 +4705,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -4612,6 +4743,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -4649,6 +4781,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -4686,6 +4819,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -4723,6 +4857,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -4760,6 +4895,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -4797,6 +4933,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -4834,6 +4971,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -4871,6 +5009,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -4907,6 +5046,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -4944,6 +5084,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -4981,6 +5122,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -5018,6 +5160,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -5054,6 +5197,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -5091,6 +5235,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -5128,6 +5273,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -5165,6 +5311,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -5202,6 +5349,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -5240,6 +5388,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -5277,6 +5426,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -5314,6 +5464,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -5351,6 +5502,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -5387,6 +5539,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -5424,6 +5577,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -5461,6 +5615,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -5497,6 +5652,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -5533,6 +5689,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -5570,6 +5727,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -5607,6 +5765,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -5643,6 +5802,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -5680,6 +5840,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -5717,6 +5878,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -5753,6 +5915,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -5790,6 +5953,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -5827,6 +5991,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -5864,6 +6029,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -5901,6 +6067,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -5938,6 +6105,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -5975,6 +6143,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -6011,6 +6180,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -6048,6 +6218,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -6085,6 +6256,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -6123,6 +6295,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -6160,6 +6333,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -6196,6 +6370,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -6234,6 +6409,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -6270,6 +6446,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -6307,6 +6484,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -6344,6 +6522,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -6382,6 +6561,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -6420,6 +6600,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -6458,6 +6639,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -6496,6 +6678,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -6534,6 +6717,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -6572,6 +6756,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -6610,6 +6795,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -6648,6 +6834,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -6686,6 +6873,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -6724,6 +6912,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -6762,6 +6951,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -6801,6 +6991,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -6839,6 +7030,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -6876,6 +7068,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -6913,6 +7106,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -6950,6 +7144,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -6987,6 +7182,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -7024,6 +7220,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -7061,6 +7258,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -7099,6 +7297,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -7137,6 +7336,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -7175,6 +7375,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -7213,6 +7414,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -7251,6 +7453,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -7289,6 +7492,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -7327,6 +7531,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -7366,6 +7571,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -7404,6 +7610,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -7442,6 +7649,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -7480,6 +7688,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -7519,6 +7728,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -7557,6 +7767,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -7595,6 +7806,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -7633,6 +7845,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -7671,6 +7884,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -7709,6 +7923,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -7747,6 +7962,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -7785,6 +8001,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -7823,6 +8040,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -7861,6 +8079,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -7899,6 +8118,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -7937,6 +8157,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -7975,6 +8196,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -8013,6 +8235,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -8052,6 +8275,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -8090,6 +8314,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -8128,6 +8353,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -8166,6 +8392,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -8204,6 +8431,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -8242,6 +8470,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -8280,6 +8509,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -8318,6 +8548,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -8356,6 +8587,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -8394,6 +8626,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -8432,6 +8665,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -8470,6 +8704,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -8508,6 +8743,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
@@ -8546,6 +8782,7 @@ Library           String
         ...    newTestList=
         ...    operationRecord=
         ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    newRecogFlag=1
         #####推荐检查评估表
         # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
         #####推荐检查
