@@ -22,7 +22,7 @@ Library           String
 ############检验检查详情接口自动化评测#############
 
 检验检查详情
-    [Documentation]    断言:""
+    [Documentation]    断言:""615
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}   检验检查详情    examId=111039
