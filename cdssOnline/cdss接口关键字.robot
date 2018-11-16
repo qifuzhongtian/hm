@@ -1,5 +1,6 @@
 *** Variables ***
 ${base_url}     http://apollo.huimeionline.com
+# ${base_url}    http://10.117.64.153:8080
 # ${base_url}     http://pretest-apollo.huimeionline.com
 #pd
 # ${base_url}     http://pd-apollo.huimeionline.com
@@ -10,6 +11,7 @@ ${base_url}     http://apollo.huimeionline.com
 
 #mayson生产环境
 ${mayson_url}     http://mayson.huimeionline.com/cdss
+# ${mayson_url}       http://test-mayson.huimeionline.com/cdss
 #ovf模板地址
 # ${mayson_url}     http://192.168.1.13/cdss
 # ${mayson_url}     http://test-mayson.huimeionline.com/cdss

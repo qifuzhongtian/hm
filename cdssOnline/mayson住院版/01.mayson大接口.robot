@@ -46,10 +46,10 @@ Library           String
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     Should Contain    ${aj[:5]}    心律失常
 
-推荐检查:静息12导联心电图、血电解质、甲状腺功能
+推荐检查:静息12导联心电图
     [Documentation]
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    静息12导联心电图    甲状腺功能    血电解质
+    ${assert}    Create List    静息12导联心电图
     ${Assessment}    Set Variable    QT间期延长
     ${Subjective}    Set Variable    男，年龄60岁，反复发作晕厥4年，心电图显示窦性心律，心率100次／分，QT 间期0.56秒，偶发室性期前收缩
     [Setup]    Run Keywords    获取时间戳
@@ -71,7 +71,7 @@ Library           String
     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
     #####推荐检查
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Lists Should Be Equal    ${aj}    ${assert}
+    List Should Contain Sub List    ${aj}    ${assert}
     ######检查解读
     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     #####推荐治疗方案
@@ -146,7 +146,7 @@ Library           String
     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     #####推荐治疗方案
     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    Lists Should Be Equal    ${aj}    ${assert}
+    List Should Contain Sub List    ${aj}    ${assert}
     #####疑似诊断
     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     #Should Contain    ${aj[:5]}    心率失常
@@ -419,8 +419,8 @@ Library           String
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
     ...    labTestList=
     ...    examinationList=
-    ...    newTestList={"testType": 2,"testId": "02","testName": "食道钡餐透视"}
-    ...    operationRecord={"recordNumber":1234567,"position":"","incisionType":"切片","anesthesia":"没有","preoperativeDiagnose":"","operationList":[{"operationId":6598,"operationName":"乳腺导管选择性切除术(单根)","operationType":"","operationDesc":"","operationTime":""},{"operationId":6614,"operationName":"单侧乳房切除术","operationType":1}]}
+    ...    newTestList={"testType": 2,"testId": "905","testName": "食道钡餐透视"}
+    ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
