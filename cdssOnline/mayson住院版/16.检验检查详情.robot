@@ -25,7 +25,7 @@ Library           String
     [Documentation]    断言:""615
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}   检验检查详情    examId=111039
+    ${getRes}   检验检查详情    examId=615
     ${aj}    Evaluate    [aj['title'] for aj in $getRes['body']['catalogueList']]
-    Should Contain    ${aj}    甲状腺激素
+    Should Contain    ${aj}    血浆载脂蛋白
 
