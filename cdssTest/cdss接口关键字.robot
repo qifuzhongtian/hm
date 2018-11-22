@@ -781,56 +781,37 @@ ame管理_文档列表查询
     ${data}    Create Dictionary    zhName=${zhName}    enName=${enName}    languageType=${languageType}    type=${type}    modifyStart=${modifyStart}
     ...    modifyEnd=${modifyEnd}    index=${index}    pageSize=${pageSize}
     ${addr}    Post Request    api    /etXml/queryEtXmlList    data=${data}
-    ${responsedata}    To Json    ${addr.content}
-    # Should Be Equal As Strings    ${responsedata['head']['error']}    ${msg}
-    # Delete All Sessions
-    ########################################################################################################################
-    ########Mayson######
-    # 智能推荐
-    #    [Arguments]    ${userGuid}    ${serialNumber}
-    #    ...    ${patientInfo}
-    #    ...    ${definiteDiagnosis}
-    #    ...    ${progressNoteList}
-    #    ...    ${deleteProgressNoteList}
-    #    ...    ${labTestList}
-    #    ...    ${examinationList}
-    #    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    #    Create Session    api    ${base_url}    ${dict}
-    #    ${patientInfo}    Evaluate    dict(${patientInfo})
-    #    ${definiteDiagnosis}    Evaluate    [${definiteDiagnosis}]
-    #    ${progressNoteList}    Evaluate    [${progressNoteList}]
-    #    ${deleteProgressNoteList}    Evaluate    [${deleteProgressNoteList}]
-    #    ${labTestList}    Evaluate    [${labTestList}]
-    #    ${examinationList}    Evaluate    [${examinationList}]
-    #    ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    patientInfo=${patientInfo}
-    #    ...    definiteDiagnosis=${definiteDiagnosis}    progressNoteList=${progressNoteList}
-    #    ...    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}    examinationList=${examinationList}
-    #    ${addr}    Post Request    api    mayson/v_1_0/intelligent_recommendation    data=${data}
-    #    ${responsedata}    To Json    ${addr.content}
-    #    [Return]    ${responsedata}
-    #套了一层dict
-    # 老识别接口
-    #    [Arguments]    ${bodyTempr}    ${age}    ${ageType}    ${highBldPress}    ${lowBldPress}
-    ...    # ${pregnancyStatus}    ${recordInfo}
-    #    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    #    ${recordInfo}    Evaluate    dict(${recordInfo})
-    #    Create Session    api    http://10.117.64.153:8099    ${dict}
-    #    ${data}    Create Dictionary    bodyTempr=${bodyTempr}    age=${age}    ageType=${ageType}    highBldPress=${highBldPress}
-    ...    # lowBldPress=${lowBldPress}    pregnancyStatus=${pregnancyStatus}    recordInfo=${recordInfo}
-    #    ${addr}    Post Request    api    apollo/v_3_0/recognize    data=${data}
-    #    ${responsedata}    To Json    ${addr.content}
-    #    # Should Contain    ${aj[:15]}    ${msg}
-    #    # Delete All Sessions
-    #    [Return]    ${responsedata}
-    ######循环方式读取识别接口
-    # 识别接口
-    #    [Arguments]    ${bodyTempr}    ${age}    ${ageType}    ${highBldPress}    ${lowBldPress}
-    ...    # ${pregnancyStatus}    ${symptom}
-    #    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    #    # ${recordInfo}    Evaluate    dict(${recordInfo})
-    #    Create Session    api    http://10.117.64.153:8080    ${dict}
-    #    ${data}    Create Dictionary    bodyTempr=${bodyTempr}    age=${age}    ageType=${ageType}    highBldPress=${highBldPress}
-    ...    # lowBldPress=${lowBldPress}    pregnancyStatus=${pregnancyStatus}    symptom=${symptom}
+    ${responsedata}    To Json    ${addr.content}    # Should Be Equal As Strings    ${responsedata['head']['error']}    ${msg}    # Delete All Sessions
+    ...    ########################################################################################################################    ########Mayson######    # 智能推荐    #    [Arguments]    ${userGuid}
+    ...    # ${serialNumber}    #    ...    ${patientInfo}    #    ...
+    ...    # ${definiteDiagnosis}    #    ...    ${progressNoteList}    #    ...
+    ...    # ${deleteProgressNoteList}    #    ...    ${labTestList}    #    ...
+    ...    # ${examinationList}    #    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    ...    #    Create Session    api    ${base_url}    ${dict}    #
+    ...    # ${patientInfo}    Evaluate    dict(${patientInfo})    #    ${definiteDiagnosis}    Evaluate
+    ...    # [${definiteDiagnosis}]    #    ${progressNoteList}    Evaluate    [${progressNoteList}]    #
+    ...    # ${deleteProgressNoteList}    Evaluate    [${deleteProgressNoteList}]    #    ${labTestList}    Evaluate
+    ...    # [${labTestList}]    #    ${examinationList}    Evaluate    [${examinationList}]    #
+    ...    # ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    patientInfo=${patientInfo}    #
+    ...    # ...    definiteDiagnosis=${definiteDiagnosis}    progressNoteList=${progressNoteList}    #    ...    deleteProgressNoteList=${deleteProgressNoteList}
+    ...    # labTestList=${labTestList}    examinationList=${examinationList}    #    ${addr}    Post Request    api
+    ...    # mayson/v_1_0/intelligent_recommendation    data=${data}    #    ${responsedata}    To Json    ${addr.content}
+    ...    #    [Return]    ${responsedata}    #套了一层dict    # 老识别接口    #
+    ...    # [Arguments]    ${bodyTempr}    ${age}    ${ageType}    ${highBldPress}    ${lowBldPress}
+    ...    # ${pregnancyStatus}    ${recordInfo}    #    ${dict}    Create Dictionary    Content-Type=application/json
+    ...    # Huimei_id=${Huimei_id}    #    ${recordInfo}    Evaluate    dict(${recordInfo})    #
+    ...    # Create Session    api    http://10.117.64.153:8099    ${dict}    #    ${data}
+    ...    # Create Dictionary    bodyTempr=${bodyTempr}    age=${age}    ageType=${ageType}    highBldPress=${highBldPress}    # lowBldPress=${lowBldPress}
+    ...    # pregnancyStatus=${pregnancyStatus}    recordInfo=${recordInfo}    #    ${addr}    Post Request    api
+    ...    # apollo/v_3_0/recognize    data=${data}    #    ${responsedata}    To Json    ${addr.content}
+    ...    #    # Should Contain    ${aj[:15]}    ${msg}    #    # Delete All Sessions
+    ...    #    [Return]    ${responsedata}    ######循环方式读取识别接口    # 识别接口    #
+    ...    # [Arguments]    ${bodyTempr}    ${age}    ${ageType}    ${highBldPress}    ${lowBldPress}
+    ...    # ${pregnancyStatus}    ${symptom}    #    ${dict}    Create Dictionary    Content-Type=application/json
+    ...    # Huimei_id=${Huimei_id}    #    # ${recordInfo}    Evaluate    dict(${recordInfo})    #
+    ...    # Create Session    api    http://10.117.64.153:8080    ${dict}    #    ${data}
+    ...    # Create Dictionary    bodyTempr=${bodyTempr}    age=${age}    ageType=${ageType}    highBldPress=${highBldPress}    # lowBldPress=${lowBldPress}
+    ...    # pregnancyStatus=${pregnancyStatus}    symptom=${symptom}
     #    ${addr}    Post Request    api    /v_3_0/recognize    data=${data}
     #    ${responsedata}    To Json    ${addr.content}
     #    # Should Contain    ${aj[:15]}    ${msg}
@@ -1251,3 +1232,21 @@ mayson默认推荐
     ${responsedata}    To Json    ${addr.content}
     ${aj}    Evaluate    [aj['word'] for aj in $responsedata['body']['recognizeResultList']]
     Should Not Contain    ${aj}    ${assert}    ignore_case=true
+
+识别接口_年龄
+    [Arguments]    ${symptom}    ${age}    ${agetype}    ${assert}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=78D211AA892A8155EF18F4CDB967043A
+    Create Session    api    http://10.117.64.153:8080    ${dict}
+    # Create Session    api    http://10.165.102.219:9088    ${dict}
+    # Create Session    api    http://10.165.102.219:8080    ${dict}
+    #95环境
+    # Create Session    api    http://10.46.74.95:8099    ${dict}
+    #线上
+    # Create Session    api    http://47.95.203.183:8080    ${dict}
+    ${data}    Create Dictionary    symptom=${symptom}    previousHistory=    personalHistory=    allergyHistory=    familyHistory=
+    ...    weight=    gender=    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
+    ...    heartRate=    age=${age}    ageType=${agetype}    confirmDiagnosis=    confirmDiagnosisMap[]=    presentHistory=
+    ${addr}    Post Request    api    /v_4_0/recognize    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    ${aj}    Evaluate    [aj['word'] for aj in $responsedata['body']['recognizeResultList']]
+    Should Contain    ${aj}    ${assert}    ignore_case=true
