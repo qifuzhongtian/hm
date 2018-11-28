@@ -996,7 +996,7 @@ Library           String
 
 
 
-呼吸科经典病历-19行,推出疑似诊断:气管肿瘤,支气管哮喘
+呼吸科经典病历-19行,推出疑似诊断:支气管哮喘
     [Documentation]    断言""
     ${Assessment}    Set Variable
     ${Subjective}    Set Variable    喘息、呼吸困难进行性加重20天#####一般状态尚可，神志清，半坐位，呼吸促，多汗，话语连贯，口唇轻度发绀。双肺满布哮鸣音，无水泡音，卧位时不用听诊器可听到大气道喘鸣音。心界不大，心音纯，心率130次/分，节律规整。各瓣膜区未闻及心脏杂音和奔马律。腹部、四肢和神经系统检查未见异常
@@ -1032,7 +1032,7 @@ Library           String
     ${assistCheck}    Set Variable    ①血常规：WBC 8.0×109/L；S 70%，E 2%，L 28%。②动脉血气分析（未吸氧）：pH 7.50，PaO2 75.5 mmHg，PaCO2 28.7 mmHg，HCO3－ 23.5 mmol/L。③胸部X线：双肺未见明显异常。④心电图：窦性心动过速，心率120次/分，节律规整。⑤支原体抗体检测结果回报1∶160阳性。⑥肺CT三维重建提示肿物从气管左侧向管腔内生长，左侧根部有蒂，右侧位气管重建肿物将气管完全阻塞。⑦肺纤维支气管镜检查结果提示大气道占位病变
     #主要健康问题值
     ${majorHealth}    Set Variable
-    ${assert}    Create List    气管肿瘤    支气管哮喘
+    ${assert}    Create List    支气管哮喘
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
