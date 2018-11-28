@@ -640,7 +640,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
         ...    doctorGuid=675    doctorName=hmkj
-        ...    patientInfo={"gender":"","age":"4","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"","age":"2","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
