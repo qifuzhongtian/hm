@@ -879,7 +879,7 @@ Library           String
 
 
 
-呼吸科经典病历-17行,推出疑似诊断:肺脓肿,支气管扩张,肺结核
+呼吸科经典病历-17行,推出疑似诊断:肺脓肿,肺脓肿,肺结核
     [Documentation]    断言""
     ${Assessment}    Set Variable
     ${Subjective}    Set Variable    发现杵状指3个月#####神志清楚，查体合作。右锁骨上可触及一无痛肿大淋巴结，质硬，移动性差，口唇无发绀，颈软。双肺呼吸音清，左下肺呼吸音稍弱，心界不大，心律齐。腹软，无压痛、反跳痛，肝脾未触及，四肢活动自如，可见杵状指（趾）
@@ -915,7 +915,7 @@ Library           String
     ${assistCheck}    Set Variable    血常规：WBC 9.2×109/L，S 65%，L 20%，Hb 119g/ L。肝功能、肾功能、血糖正常，血肿瘤标志物正常。心脏扇扫正常。肝胆脾B超结果正常。肺CT：左肺下野降主动脉旁见一3.5cm×4.5cm大小块状影，有分叶，纵隔内见数个肿大淋巴结。纤维支气管镜结果：左肺下叶背段见菜花样肿物，余各级支气管黏膜光滑管腔通畅。病理结果：小细胞型肺癌
     #主要健康问题值
     ${majorHealth}    Set Variable
-    ${assert}    Create List    肺脓肿    支气管扩张    肺结核
+    ${assert}    Create List    肺脓肿    肺脓肿    肺结核
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
@@ -1341,60 +1341,60 @@ Library           String
 
 
 
-消化科经典病历-6行,推出疑似诊断:肠易激综合征,感染性腹泻
-    [Documentation]    断言""
-    ${Assessment}    Set Variable
-    ${Subjective}    Set Variable    反复腹痛、腹泻2年余#####营养良好。浅表淋巴结未触及肿大，心、肺查体正常。腹部平软，全腹无压痛、反跳痛和肌紧张，肝脾肋下未及，肠鸣音6次/分，无气过水声和高调肠鸣音。
-    #现病史值
-    ${presentHistory}    Set Variable    患者2年前开始反复于进冰冷食物或冷水后出现脐周、下腹绞痛，程度不剧烈，不放射，不影响日常生活。伴腹泻，3～5次/日，为黄色稀水或稀糊便，不含油滴及未消化食物，无脓血，无恶臭，不伴里急后重。腹痛多在腹泻后缓解。上述症状多在每日上午出现，进早餐后加重，如不进早餐症状减轻，夜间无腹泻。不伴发热、皮疹、体重下降、水肿等。
-    #既往史值
-    ${previousHistory}    Set Variable
-    #过敏史值
-    ${allergyHistory}    Set Variable
-    #个人史值
-    ${personalHistory}    Set Variable
-    #家族史值
-    ${familyHistory}    Set Variable
-    #月经史值
-    ${menstrualHistory}    Set Variable
-    #婚育史值
-    ${obstericalHistory}    Set Variable
-    #诊疗计划值
-    ${assessmentPlan}    Set Variable
-    #检查结果值
-    ${examinationResult}    Set Variable
-    #检验结果值
-    ${labTestResult}    Set Variable
-    #评分结果值
-    ${gradeResult}    Set Variable
-    #预防接种史值
-    ${vaccinationHistory}    Set Variable
-    #输血史值
-    ${bloodTransfusionHistory}    Set Variable
-    #生命体征值
-    ${vitalSigns}    Set Variable
-    #辅助检查
-    ${assistCheck}    Set Variable    粪常规：WBC、RBC（－），便潜血（－）×3次；便苏丹Ⅲ染色（－）。血常规：WBC 7﹒8 ×109/L，N 0﹒65，HGB 132g/L，PLT 257 ×109/L；肝肾功能、电解质正常。甲状腺功能：T3、T4、TSH均正常范围。ESR 10 mm/h；CRP 0.7 mg/dl。B超：肝胆胰脾及双肾未见明显异常。全消化道造影未见异常。结肠镜：进镜至末段回肠10c m，所经末段回肠、结肠、直肠黏膜未见异常。
-    #主要健康问题值
-    ${majorHealth}    Set Variable
-    ${assert}    Create List    肠易激综合征    感染性腹泻
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"38","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "36.4","heartRate": "64","lowBldPress": "70","highBldPress": "120"}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    ...    newRecogFlag=
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    List Should Contain Sub List    ${aj[:10]}    ${assert}
+# 消化科经典病历-6行,推出疑似诊断:肠易激综合征,感染性腹泻
+#     [Documentation]    断言""
+#     ${Assessment}    Set Variable
+#     ${Subjective}    Set Variable    反复腹痛、腹泻2年余#####营养良好。浅表淋巴结未触及肿大，心、肺查体正常。腹部平软，全腹无压痛、反跳痛和肌紧张，肝脾肋下未及，肠鸣音6次/分，无气过水声和高调肠鸣音。
+#     #现病史值
+#     ${presentHistory}    Set Variable    患者2年前开始反复于进冰冷食物或冷水后出现脐周、下腹绞痛，程度不剧烈，不放射，不影响日常生活。伴腹泻，3～5次/日，为黄色稀水或稀糊便，不含油滴及未消化食物，无脓血，无恶臭，不伴里急后重。腹痛多在腹泻后缓解。上述症状多在每日上午出现，进早餐后加重，如不进早餐症状减轻，夜间无腹泻。不伴发热、皮疹、体重下降、水肿等。
+#     #既往史值
+#     ${previousHistory}    Set Variable
+#     #过敏史值
+#     ${allergyHistory}    Set Variable
+#     #个人史值
+#     ${personalHistory}    Set Variable
+#     #家族史值
+#     ${familyHistory}    Set Variable
+#     #月经史值
+#     ${menstrualHistory}    Set Variable
+#     #婚育史值
+#     ${obstericalHistory}    Set Variable
+#     #诊疗计划值
+#     ${assessmentPlan}    Set Variable
+#     #检查结果值
+#     ${examinationResult}    Set Variable
+#     #检验结果值
+#     ${labTestResult}    Set Variable
+#     #评分结果值
+#     ${gradeResult}    Set Variable
+#     #预防接种史值
+#     ${vaccinationHistory}    Set Variable
+#     #输血史值
+#     ${bloodTransfusionHistory}    Set Variable
+#     #生命体征值
+#     ${vitalSigns}    Set Variable
+#     #辅助检查
+#     ${assistCheck}    Set Variable    粪常规：WBC、RBC（－），便潜血（－）×3次；便苏丹Ⅲ染色（－）。血常规：WBC 7﹒8 ×109/L，N 0﹒65，HGB 132g/L，PLT 257 ×109/L；肝肾功能、电解质正常。甲状腺功能：T3、T4、TSH均正常范围。ESR 10 mm/h；CRP 0.7 mg/dl。B超：肝胆胰脾及双肾未见明显异常。全消化道造影未见异常。结肠镜：进镜至末段回肠10c m，所经末段回肠、结肠、直肠黏膜未见异常。
+#     #主要健康问题值
+#     ${majorHealth}    Set Variable
+#     ${assert}    Create List    肠易激综合征    感染性腹泻
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"38","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "36.4","heartRate": "64","lowBldPress": "70","highBldPress": "120"}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     ...    newRecogFlag=
+#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
 
 
@@ -1572,7 +1572,7 @@ Library           String
 
 
 
-消化科经典病历-10行,推出疑似诊断:胃炎,消化性溃疡,胃癌,急性胰腺炎
+消化科经典病历-10行,推出疑似诊断:胃炎,消化性溃疡
     [Documentation]    断言""
     ${Assessment}    Set Variable
     ${Subjective}    Set Variable    上腹部隐痛、恶心、欲吐1天#####心肺（—）。腹平坦，未见胃肠型及蠕动波，未见腹壁静脉曲张，腹软，剑突下压痛，无反跳痛及肌紧张，肝脾肋下未触及，腹部叩诊呈鼓音，移动性浊音阴性，肝浊音界位于右胸锁骨中线第5 肋间，肝区、脾区及双肾区无叩痛，肠鸣音4次/分，无气过水声。
@@ -1608,7 +1608,7 @@ Library           String
     ${assistCheck}    Set Variable    血常规示：WBC 6.5×109/L，HGB 123g/L，PL T 202×109/L。胃镜检查示：胃体黏膜充血肿胀。血尿淀粉酶正常。
     #主要健康问题值
     ${majorHealth}    Set Variable
-    ${assert}    Create List    胃炎    消化性溃疡    胃癌    急性胰腺炎
+    ${assert}    Create List    胃炎    消化性溃疡
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
@@ -1631,7 +1631,7 @@ Library           String
 
 
 
-消化科经典病历-11行,推出疑似诊断:胃恶性肿瘤,消化不良,胃溃疡
+消化科经典病历-11行,推出疑似诊断:胃恶性肿瘤
     [Documentation]    断言""
     ${Assessment}    Set Variable
     ${Subjective}    Set Variable    上腹部隐痛不适2个月#####一般状况尚可，浅表淋巴结未及肿大，皮肤无黄染，结膜甲床苍白，心肺未见异常，腹平坦，未见胃肠型及蠕动波，腹软，肝脾未及，腹部未及包块，剑突下深压痛，无肌紧张，移动性浊音（－），肠鸣音正常，直肠指检未及异常。
@@ -1667,7 +1667,7 @@ Library           String
     ${assistCheck}    Set Variable    大便潜血（＋），血Hb 96g/L。上消化道钡剂造影示：胃角见约3cm大小龛影，位于胃轮廓内，周围黏膜僵硬粗糙；腹部B超检查未见肝异常，胃肠部分检查不满意。
     #主要健康问题值
     ${majorHealth}    Set Variable
-    ${assert}    Create List    胃恶性肿瘤    消化不良    胃溃疡
+    ${assert}    Create List    胃恶性肿瘤
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
@@ -1689,7 +1689,7 @@ Library           String
 
 
 
-消化科经典病历-12行,推出疑似诊断:急性胰腺炎,胆囊炎,胆石病
+消化科经典病历-12行,推出疑似诊断:急性胰腺炎,胆囊炎
     [Documentation]    断言""
     ${Assessment}    Set Variable
     ${Subjective}    Set Variable    腹痛、恶心、呕吐2天#####心肺未见异常。中上腹压痛、反跳痛，肌稍紧张，肝脾肋下未触及，Murphy 征阴性，肝上界位于右锁骨中线第5 肋间，肝脾肾区无叩痛，移动性浊音阴性，听诊肠鸣音正常，未闻及气过水声及血管杂音。
@@ -1725,7 +1725,7 @@ Library           String
     ${assistCheck}    Set Variable    肝功：ALT 90U/L，AST 17U/L，GGT 140U/L，ALP 248U/L，TP 62g/L，Alb 24.1g/L；血常规WBC 16.37×109/L，Hb 101.2g/L，N 0.92；尿淀粉酶2228.7U/L，血淀粉酶687.4U/L；肾功：血钠133.7mmol/L，血磷0.61mmol/L；心电图提示：窦性心动过速。腹部立卧位片未见明显异常。CT提示：胰腺边缘模糊，周围大片状炎性渗出，增强扫描，胰腺强化不均匀。
     #主要健康问题值
     ${majorHealth}    Set Variable
-    ${assert}    Create List    急性胰腺炎    胆囊炎    胆石病
+    ${assert}    Create List    急性胰腺炎    胆囊炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
@@ -1976,7 +1976,7 @@ Library           String
 
 
 
-消化科经典病历-17行,推出疑似诊断:肝脓肿,肝内胆管结石,
+消化科经典病历-17行,推出疑似诊断:肝脓肿
     [Documentation]    断言""
     ${Assessment}    Set Variable
     ${Subjective}    Set Variable    腹痛、发热1周，加重3天#####腹部正中可见一纵行手术疤痕，大约14cm。腹部平坦，未见胃肠型及蠕动波，腹软，右上腹压痛明显，无反跳痛，未触及包块及胆囊，Murphy征（-），肝脾肋下未触及，移动性浊音（-），肝区叩痛明显，肠鸣音4次/分。肛门、直肠、外生殖器未见异常。
@@ -2012,7 +2012,7 @@ Library           String
     ${assistCheck}    Set Variable    血常规：WBC 12.9×109/L，NEUT% 81.24%。肝功：ALT 366U/L，AST 186U/L，GGT 332U/L。腹部CT：肝右叶类圆形囊性低密度，肝内胆管结石，胆管扩张。
     #主要健康问题值
     ${majorHealth}    Set Variable
-    ${assert}    Create List    肝脓肿    肝内胆管结石
+    ${assert}    Create List    肝脓肿
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
@@ -2378,7 +2378,7 @@ Library           String
 
 
 
-神经科经典病历-2行,推出疑似诊断:流行性乙型脑炎,高热惊厥
+神经科经典病历-2行,推出疑似诊断:流行性乙型脑炎
     [Documentation]    断言""
     ${Assessment}    Set Variable
     ${Subjective}    Set Variable    发热1天、抽搐1次#####精神稍倦怠，口唇红润，咽部充血，双侧扁桃体Ⅰ度肿大颈软
@@ -2414,7 +2414,7 @@ Library           String
     ${assistCheck}    Set Variable    血常规示WBC 18.7×109/L，中性粒细胞85%。，腰椎穿刺示脑脊液压力偏高，无色透明，潘氏试验（+），细胞数62×106/L，脑脊液涂片检查未见结核菌，脑脊液乙型脑炎特异性IgM抗体阳性
     #主要健康问题值
     ${majorHealth}    Set Variable
-    ${assert}    Create List    流行性乙型脑炎    高热惊厥
+    ${assert}    Create List    流行性乙型脑炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
