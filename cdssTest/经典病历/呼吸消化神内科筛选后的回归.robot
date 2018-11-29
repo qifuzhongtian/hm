@@ -71,7 +71,7 @@ Library           String
 
 
 
-呼吸科经典病历-3行,推出疑似诊断:慢性阻塞性肺病伴急性加重,肺炎
+呼吸科经典病历-3行,推出疑似诊断:肺炎
     [Documentation]    断言""
     ${Assessment}    Set Variable
     ${Subjective}    Set Variable    咳嗽、咳痰伴发热10天#####Ht173cm。气管居中，浅表淋巴结未及肿大，左下肺呼吸音减弱，可闻及湿啰音，语音震颤较右侧增强。
@@ -107,7 +107,7 @@ Library           String
     ${assistCheck}    Set Variable    血常规：RBC 4.33×1012/L，Hb 140g/L，WBC 15.2×109/L，N 86%，PLT 277×109/L。胸片：左下肺炎症。3天后血常规：WBC 17.5×109/L，N 88%。肝肾功能及电解质均正常。ESR：70mm/h。CRP：65mg/L。D-二聚体：8.4μg/ml。血气分析：pH值7.40，PaCO280mmHg。肿瘤指标均正常。胸部CT示左下肺大片实变影。
     #主要健康问题值
     ${majorHealth}    Set Variable
-    ${assert}    Create List    慢性阻塞性肺病伴急性加重    肺炎
+    ${assert}    Create List    肺炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
@@ -473,7 +473,7 @@ Library           String
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
 
-呼吸科经典病历-10行,推出疑似诊断:肺恶性肿瘤,肺炎,肺脓肿
+呼吸科经典病历-10行,推出疑似诊断:肺炎,肺脓肿
     [Documentation]    断言""
     ${Assessment}    Set Variable
     ${Subjective}    Set Variable    发热、咳嗽，咯脓痰2月#####发育正常，营养良好。神志清晰，精神好。口唇无发绀。颈部及锁骨上淋巴结无肿大。无颈静脉怒张，气管略向右侧移位。胸廓对称，呼吸运动两侧均等，语颤正常，右上肺叩浊，左肺叩诊清音，右上胸可闻及少许湿啰音及局限性哮鸣音，左肺呼吸音正常，无胸膜摩擦音。心率88次／分，律齐，心音有力，各瓣膜区未闻及杂音，腹软，肝脾未触及，无杵状指趾。
@@ -509,7 +509,7 @@ Library           String
     ${assistCheck}    Set Variable    血红蛋白130g／L，白细胞12.3×10 9／L，N 0﹒85 血沉25mm／小时。空腹血糖6.2mmol／L。痰查结核菌2次阴性，痰找癌细胞一次阴性。胸部平片示右肺上叶大片密度不均增高影，下界不清，水平裂轻度上移，纵隔轻度右移，右横膈抬高。右侧位片见右肺上叶尖、后段密度增高。
     #主要健康问题值
     ${majorHealth}    Set Variable
-    ${assert}    Create List    肺恶性肿瘤    肺炎    肺脓肿
+    ${assert}    Create List    肺炎    肺脓肿
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
@@ -706,7 +706,7 @@ Library           String
 
 
 
-呼吸科经典病历-14行,推出疑似诊断:胸膜炎,肺炎,肺结核
+呼吸科经典病历-14行,推出疑似诊断:胸膜炎
     [Documentation]    断言""
     ${Assessment}    Set Variable
     ${Subjective}    Set Variable    呼吸困难2周#####神志清楚，呼吸略促，半卧位，无三凹征，结膜无苍白，口唇无发绀，颈静脉无怒张，气管右移，浅表淋巴结未触及，左胸廓膨隆，呼吸运动减弱，触觉语颤减弱，左肺叩诊浊音，听诊呼吸音减弱，未闻及啰音，无胸膜摩擦音，心界不大，律齐，音纯，未闻及奔马律，腹软，无压痛，肝脾肋下未触及，双下肢无水肿，余查体正常。
@@ -742,7 +742,7 @@ Library           String
     ${assistCheck}    Set Variable    血常规：WBC 11.4×109/L，S 75%L 20%，M 3%，RBC 5.67×1012/L，Hb 150g/L，PLT 402×109/L。CRP：80mg/L。ESR：90mm/h。动脉血气分析（未吸氧）：pH 7.38，PaCO2 40mmHg，PaO2 86mmHg。D-二聚体：0.3mg/L。肺部X线：左肺外高内低致密影，初步诊断左侧胸腔积液。心电图：窦性心律。心肌酶谱：正常。胸腔积液常规：李凡他试验阳性，草黄色液体，细胞计数 800×106/L，淋巴细胞为主。胸腔积液生化：LDH 360U/L，蛋白 46g/L，葡萄糖3.2mmol/L。胸腔积液查CEA＜20mg/L。胸腔积液腺苷酸脱氧酶（ADA）120U/L。胸腔积液查结核菌阴性。胸腔积液细菌培养阴性。PPD：强阳性（硬结直径：25mm×22mm）。血LDH：204U/L。血CEA 1.6mg/L。
     #主要健康问题值
     ${majorHealth}    Set Variable
-    ${assert}    Create List    胸膜炎    肺炎    肺结核
+    ${assert}    Create List    胸膜炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
@@ -822,7 +822,7 @@ Library           String
 
 
 
-呼吸科经典病历-16行,推出疑似诊断:肺恶性肿瘤,支气管扩张,肺结核,肺脓肿,急性肺栓塞,肺曲霉病
+呼吸科经典病历-16行,推出疑似诊断:支气管扩张,肺结核,肺脓肿,急性肺栓塞,肺曲霉病
     [Documentation]    断言""
     ${Assessment}    Set Variable
     ${Subjective}    Set Variable    间断咯血5个月，加重1周#####发育正常，呈慢性病容，神志清楚，自主体位，轻度贫血貌。皮肤黏膜无出血点和皮疹，浅表淋巴结未触及。眼睑黏膜苍白，巩膜无黄染，鼻腔无分泌物及出血，各鼻窦区无压痛，口唇无发绀，口腔黏膜和牙龈无出血，咽黏膜轻度充血，扁桃体无肿大，声音无嘶哑。颈静脉无怒张，肝颈静脉回流征阴性，气管居中，胸廓无畸形，右下肺触觉语颤增强，叩诊呈浊音，右下肺可闻及湿啰音、左肺听诊正常。心浊音界正常，心率88次/分，心律规整，各瓣膜区未闻及病理性杂音。腹平软，肝脾肋下未触及。无杵状指（趾）。脊柱四肢检查可见右下肢静脉曲张，无肿胀，皮色正常，余未见异常。神经系统查体正常。
@@ -858,7 +858,7 @@ Library           String
     ${assistCheck}    Set Variable    血常规：WBC 9.8×109/L，S 63%，L 15%，M 2%，RBC 3.01×1012/L，Hb 80g/L，PLT 234×109/L，B型血。ESR：50mm/h，结核抗体阴性，PPD实验（+），军团菌抗体阴性。血CEA、NSE、D-二聚体、凝血三项均在正常范围。空腹血糖10.1mmol/L，餐后2小时血糖14.7mmol/L，糖化血红蛋白7.7%。尿常规和肾功能均正常。3次痰涂片革兰染色均为阴性，3次痰涂片荧光染色未查到抗酸杆菌，3次痰细菌培养阴性，3次痰涂片和培养未查到真菌菌丝孢子和真菌生长，3次痰未查到瘤细胞。动脉血气分析（未吸氧）PaO2 87mmHg，PaCO2 40mmHg，pH 7.39。心电图和心脏扇扫未见异常。双下肢深静脉彩超未见血栓形成。肺CT：右肺空洞性病灶，病变位于右肺下叶背段。肺活检病理结果：查到腺癌细胞
     #主要健康问题值
     ${majorHealth}    Set Variable
-    ${assert}    Create List    肺恶性肿瘤    支气管扩张；肺结核；肺脓肿；急性肺栓塞；肺曲霉病
+    ${assert}    Create List    支气管扩张    肺结核    肺脓肿    急性肺栓塞    肺曲霉病
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
@@ -879,7 +879,7 @@ Library           String
 
 
 
-呼吸科经典病历-17行,推出疑似诊断:肺脓肿,肺脓肿,肺结核
+呼吸科经典病历-17行,推出疑似诊断:肺脓肿,支气管扩张
     [Documentation]    断言""
     ${Assessment}    Set Variable
     ${Subjective}    Set Variable    发现杵状指3个月#####神志清楚，查体合作。右锁骨上可触及一无痛肿大淋巴结，质硬，移动性差，口唇无发绀，颈软。双肺呼吸音清，左下肺呼吸音稍弱，心界不大，心律齐。腹软，无压痛、反跳痛，肝脾未触及，四肢活动自如，可见杵状指（趾）
@@ -915,7 +915,7 @@ Library           String
     ${assistCheck}    Set Variable    血常规：WBC 9.2×109/L，S 65%，L 20%，Hb 119g/ L。肝功能、肾功能、血糖正常，血肿瘤标志物正常。心脏扇扫正常。肝胆脾B超结果正常。肺CT：左肺下野降主动脉旁见一3.5cm×4.5cm大小块状影，有分叶，纵隔内见数个肿大淋巴结。纤维支气管镜结果：左肺下叶背段见菜花样肿物，余各级支气管黏膜光滑管腔通畅。病理结果：小细胞型肺癌
     #主要健康问题值
     ${majorHealth}    Set Variable
-    ${assert}    Create List    肺脓肿    肺脓肿    肺结核
+    ${assert}    Create List    肺脓肿    支气管扩张
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
@@ -1572,7 +1572,7 @@ Library           String
 
 
 
-消化科经典病历-10行,推出疑似诊断:胃炎,消化性溃疡
+消化科经典病历-10行,推出疑似诊断:消化性溃疡
     [Documentation]    断言""
     ${Assessment}    Set Variable
     ${Subjective}    Set Variable    上腹部隐痛、恶心、欲吐1天#####心肺（—）。腹平坦，未见胃肠型及蠕动波，未见腹壁静脉曲张，腹软，剑突下压痛，无反跳痛及肌紧张，肝脾肋下未触及，腹部叩诊呈鼓音，移动性浊音阴性，肝浊音界位于右胸锁骨中线第5 肋间，肝区、脾区及双肾区无叩痛，肠鸣音4次/分，无气过水声。
@@ -1608,7 +1608,7 @@ Library           String
     ${assistCheck}    Set Variable    血常规示：WBC 6.5×109/L，HGB 123g/L，PL T 202×109/L。胃镜检查示：胃体黏膜充血肿胀。血尿淀粉酶正常。
     #主要健康问题值
     ${majorHealth}    Set Variable
-    ${assert}    Create List    胃炎    消化性溃疡
+    ${assert}    Create List    消化性溃疡
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
@@ -2550,7 +2550,7 @@ Library           String
 
 
 
-神经科经典病历-5行,推出疑似诊断:脑膜炎,细菌性脑膜炎
+神经科经典病历-5行,推出疑似诊断:脑膜炎
     [Documentation]    断言""
     ${Assessment}    Set Variable
     ${Subjective}    Set Variable    发热，头痛，言语困难3天#####体温：38.0℃；脉搏：80次／分；呼吸：20次／分；血压：120／70mmHg。发育正常，营养中等。烦躁，双上肢抖动。神经系统查体：神志清楚，语言流利，高级智能正常，双目失明，余颅神经（－），四肢肌力Ⅴ－，肌张力正常。双侧腱反射对称低下（＋），左侧巴宾斯基征，Chaddock征（＋），颈有抵抗，下腭距前胸5 指，双侧凯尔尼格征（＋）。
@@ -2586,7 +2586,7 @@ Library           String
     ${assistCheck}    Set Variable    CSF 检查：压力135mmH2O，淡黄色；CSF 常规：细胞总数8120 ×106／L，白细胞4850 ×106／L；CSF 生化：蛋白 483mg／dl，糖10mg／dl，氯112mmol／L；G 染色、墨汁染色、抗酸染色均阴性。血常规检查：WBC：19.6×109／L；NEUT：17.4×109／L；NEUT%：89.2%。
     #主要健康问题值
     ${majorHealth}    Set Variable
-    ${assert}    Create List    脑膜炎    细菌性脑膜炎
+    ${assert}    Create List    脑膜炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
