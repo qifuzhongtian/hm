@@ -1927,6 +1927,64 @@ Library           String
 
 
 
+回归测试集-32行,推出疑似诊断top:5:泌尿系结石、输尿管结石
+    [Documentation]
+    ${Assessment}    Set Variable
+    ${Subjective}    Set Variable    反复左侧腰部疼痛1月余。
+    #现病史值
+    ${presentHistory}    Set Variable    患者约1月前无明显诱因出现左侧腰部疼痛，呈持续性胀痛，间歇性发作，疼痛能忍受，无远处放射性疼痛，改变体位疼痛无明显减轻，无恶心呕吐，无畏寒发热，无肉眼血尿，无脓尿，无尿频尿急尿痛，无排尿中断，发病期间未在附近医院就诊，未行特殊治疗，疼痛症状无明显缓解。近两天来，患者自觉左侧腰痛症状明显加重，为求进一步诊治，今来我院就诊，2018-02-01 泌尿系,左肾积水左侧输尿管末段结石并扩张。门诊以“左侧输尿管结石收入院”收入院。起病以来，患者精神食欲睡眠正常，大小便正常，体力体重无明显变化。
+    #既往史值
+    ${previousHistory}    Set Variable    一般健康状况标志：良好。
+    #过敏史值
+    ${allergyHistory}    Set Variable
+    #个人史值
+    ${personalHistory}    Set Variable    常驻地：本地，无地方病地区居住史吸烟史：无 戒烟：否饮酒史：无 戒酒：否无毒品接触史；其他:无。
+    #家族史值
+    ${familyHistory}    Set Variable    家族是否有类似疾病：无 否认家族性遗传病史及传染病史。 父： 3.已故，死因母： 3.已故，死因其他:上述病史记录已经征得陈述者认同。 陈述者签名：（以上第 1 页至第 2 页共 2 页） 2018年 02月 01日 16 时 47分。
+    #月经史值
+    ${menstrualHistory}    Set Variable
+    #婚育史值
+    ${obstericalHistory}    Set Variable
+    #诊疗计划值
+    ${assessmentPlan}    Set Variable
+    #检查结果值
+    ${examinationResult}    Set Variable
+    #检验结果值
+    ${labTestResult}    Set Variable
+    #评分结果值
+    ${gradeResult}    Set Variable
+    #预防接种史值
+    ${vaccinationHistory}    Set Variable
+    #输血史值
+    ${bloodTransfusionHistory}    Set Variable
+    #生命体征值
+    ${vitalSigns}    Set Variable
+    #辅助检查
+    ${assistCheck}    Set Variable
+    #主要健康问题值
+    ${majorHealth}    Set Variable
+    ${assert}    Create List    泌尿系结石    输尿管结石
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+    ...    doctorGuid=0210497    doctorName=
+    ...    patientInfo={"gender":"","age":"","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+    ...    definiteDiagnosis=
+    ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
+    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+    ...    labTestList=
+    ...    examinationList=
+    ...    newTestList=
+    ...    operationRecord=
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    newRecogFlag=
+    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+    List Should Contain Sub List    ${aj[:5]}    ${assert}
+
+
+
+
 回归测试集-32行,推出疑似诊断top:10:输尿管梗阻
     [Documentation]
     ${Assessment}    Set Variable
@@ -2048,7 +2106,7 @@ Library           String
 
 
 
-回归测试集-34行,推出疑似诊断top:5:甲状腺癌、甲状腺肿物、结节性甲状腺肿
+回归测试集-34行,推出疑似诊断top:5:甲状腺癌、结节性甲状腺肿
     [Documentation]
     ${Assessment}    Set Variable
     ${Subjective}    Set Variable    体检发现右侧多发甲状腺结节1月余。
@@ -2084,7 +2142,7 @@ Library           String
     ${assistCheck}    Set Variable
     #主要健康问题值
     ${majorHealth}    Set Variable
-    ${assert}    Create List    甲状腺癌    甲状腺肿物    结节性甲状腺肿
+    ${assert}    Create List    甲状腺癌    结节性甲状腺肿
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
@@ -2285,7 +2343,7 @@ Library           String
 
 
 
-回归测试集-36行,推出疑似诊断top:5:肺栓塞
+回归测试集-36行,推出疑似诊断top:10:肺栓塞
     [Documentation]
     ${Assessment}    Set Variable
     ${Subjective}    Set Variable    主诉:突发胸闷痛1小时余。
@@ -2338,63 +2396,6 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    List Should Contain Sub List    ${aj[:5]}    ${assert}
-
-
-
-回归测试集-36行,推出疑似诊断top:10:泌尿道感染
-    [Documentation]
-    ${Assessment}    Set Variable
-    ${Subjective}    Set Variable    主诉:突发胸闷痛1小时余。
-    #现病史值
-    ${presentHistory}    Set Variable    现病史:患者1小时前无明显诱因下突感胸闷痛，位于胸骨中下段后方，巴掌大范围，呈持续性，有窒息感，伴大汗，呕吐数次，吐出物为胃内容物，无呕血，无黑朦晕厥，无咳嗽咳痰，自服“阿司匹林300mg”无缓解，无遂至我院急诊，完善相关检查后考虑急性ST段抬高型下壁心肌梗死，予行急诊PCI术收住入院。病来，神志清，精神软，胃纳睡眠可，大小便正常，体重无增减。
-    #既往史值
-    ${previousHistory}    Set Variable
-    #过敏史值
-    ${allergyHistory}    Set Variable
-    #个人史值
-    ${personalHistory}    Set Variable
-    #家族史值
-    ${familyHistory}    Set Variable
-    #月经史值
-    ${menstrualHistory}    Set Variable
-    #婚育史值
-    ${obstericalHistory}    Set Variable
-    #诊疗计划值
-    ${assessmentPlan}    Set Variable
-    #检查结果值
-    ${examinationResult}    Set Variable
-    #检验结果值
-    ${labTestResult}    Set Variable
-    #评分结果值
-    ${gradeResult}    Set Variable
-    #预防接种史值
-    ${vaccinationHistory}    Set Variable
-    #输血史值
-    ${bloodTransfusionHistory}    Set Variable
-    #生命体征值
-    ${vitalSigns}    Set Variable
-    #辅助检查
-    ${assistCheck}    Set Variable
-    #主要健康问题值
-    ${majorHealth}    Set Variable
-    ${assert}    Create List    泌尿道感染
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"61","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    ...    newRecogFlag=
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
 
@@ -2402,60 +2403,60 @@ Library           String
 
 
 
-回归测试集-37行,推出疑似诊断top:5:输尿管结石
-    [Documentation]
-    ${Assessment}    Set Variable
-    ${Subjective}    Set Variable    主诉:反复右侧腰腹部疼痛1天余。
-    #现病史值
-    ${presentHistory}    Set Variable    现病史:患者昨天无明显诱因下感右腰腹疼痛，为持续性胀痛，阵发性加重，伴有尿频尿急，无尿痛，无肉眼血尿，1天来上述症状反复发作，无畏寒发热，无头晕头痛，无胸闷气急等，来院CT提示：右输尿管上段结石，遂拟“右输尿管结石”收入住院。患者自起病来，神清，精神可，胃纳睡眠可，大便无殊，小便如上述。既往有“高血压”病史7年，平素服用苯磺酸氨氯地平片，具体不详，有“糖尿病”病史10年，用优泌林70/30，22/24皮下注射，有“痛风”病史，平素口服秋水仙碱。
-    #既往史值
-    ${previousHistory}    Set Variable
-    #过敏史值
-    ${allergyHistory}    Set Variable
-    #个人史值
-    ${personalHistory}    Set Variable
-    #家族史值
-    ${familyHistory}    Set Variable
-    #月经史值
-    ${menstrualHistory}    Set Variable
-    #婚育史值
-    ${obstericalHistory}    Set Variable
-    #诊疗计划值
-    ${assessmentPlan}    Set Variable
-    #检查结果值
-    ${examinationResult}    Set Variable
-    #检验结果值
-    ${labTestResult}    Set Variable
-    #评分结果值
-    ${gradeResult}    Set Variable
-    #预防接种史值
-    ${vaccinationHistory}    Set Variable
-    #输血史值
-    ${bloodTransfusionHistory}    Set Variable
-    #生命体征值
-    ${vitalSigns}    Set Variable
-    #辅助检查
-    ${assistCheck}    Set Variable
-    #主要健康问题值
-    ${majorHealth}    Set Variable
-    ${assert}    Create List    输尿管结石
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"72","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    ...    newRecogFlag=
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    List Should Contain Sub List    ${aj[:5]}    ${assert}
+# 回归测试集-37行,推出疑似诊断top:5:输尿管结石
+#     [Documentation]
+#     ${Assessment}    Set Variable
+#     ${Subjective}    Set Variable    主诉:反复右侧腰腹部疼痛1天余。
+#     #现病史值
+#     ${presentHistory}    Set Variable    现病史:患者昨天无明显诱因下感右腰腹疼痛，为持续性胀痛，阵发性加重，伴有尿频尿急，无尿痛，无肉眼血尿，1天来上述症状反复发作，无畏寒发热，无头晕头痛，无胸闷气急等，来院CT提示：右输尿管上段结石，遂拟“右输尿管结石”收入住院。患者自起病来，神清，精神可，胃纳睡眠可，大便无殊，小便如上述。既往有“高血压”病史7年，平素服用苯磺酸氨氯地平片，具体不详，有“糖尿病”病史10年，用优泌林70/30，22/24皮下注射，有“痛风”病史，平素口服秋水仙碱。
+#     #既往史值
+#     ${previousHistory}    Set Variable
+#     #过敏史值
+#     ${allergyHistory}    Set Variable
+#     #个人史值
+#     ${personalHistory}    Set Variable
+#     #家族史值
+#     ${familyHistory}    Set Variable
+#     #月经史值
+#     ${menstrualHistory}    Set Variable
+#     #婚育史值
+#     ${obstericalHistory}    Set Variable
+#     #诊疗计划值
+#     ${assessmentPlan}    Set Variable
+#     #检查结果值
+#     ${examinationResult}    Set Variable
+#     #检验结果值
+#     ${labTestResult}    Set Variable
+#     #评分结果值
+#     ${gradeResult}    Set Variable
+#     #预防接种史值
+#     ${vaccinationHistory}    Set Variable
+#     #输血史值
+#     ${bloodTransfusionHistory}    Set Variable
+#     #生命体征值
+#     ${vitalSigns}    Set Variable
+#     #辅助检查
+#     ${assistCheck}    Set Variable
+#     #主要健康问题值
+#     ${majorHealth}    Set Variable
+#     ${assert}    Create List    输尿管结石
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"72","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     ...    newRecogFlag=
+#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
 
 
@@ -4742,6 +4743,124 @@ Library           String
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
+
+
+
+回归测试集-75行,推出疑似诊断top:5:变应性鼻炎
+    [Documentation]
+    ${Assessment}    Set Variable
+    ${Subjective}    Set Variable    主诉:双鼻塞流涕10余年。
+    #现病史值
+    ${presentHistory}    Set Variable    现病史:患者10余年前无明显诱因下出现双侧鼻塞，呈持续性，伴流涕，白色清涕为主，喷嚏多，无嗅觉下降，无头晕头痛，无恶心呕吐，无鼻出血，无其他明显特殊不适，未重视。10余年来鼻塞流涕反复发作，10天前至我院门诊就诊，查CT示：双侧筛窦炎症；两侧鼻甲、鼻中隔粘膜增厚。考虑变应性鼻炎，建议手术。门诊拟变应性鼻炎收住。起病来，患者神志清，精神可，大小便无殊，胃纳无影响，夜眠欠佳，体重无明显变化。患高血压10余年，服用硝苯地平片30mg一次/日口服治疗，患糖尿病10余年，服用二甲双胍1g二次/日，格列宁60mg二次/日。
+    #既往史值
+    ${previousHistory}    Set Variable
+    #过敏史值
+    ${allergyHistory}    Set Variable
+    #个人史值
+    ${personalHistory}    Set Variable
+    #家族史值
+    ${familyHistory}    Set Variable
+    #月经史值
+    ${menstrualHistory}    Set Variable
+    #婚育史值
+    ${obstericalHistory}    Set Variable
+    #诊疗计划值
+    ${assessmentPlan}    Set Variable
+    #检查结果值
+    ${examinationResult}    Set Variable
+    #检验结果值
+    ${labTestResult}    Set Variable
+    #评分结果值
+    ${gradeResult}    Set Variable
+    #预防接种史值
+    ${vaccinationHistory}    Set Variable
+    #输血史值
+    ${bloodTransfusionHistory}    Set Variable
+    #生命体征值
+    ${vitalSigns}    Set Variable
+    #辅助检查
+    ${assistCheck}    Set Variable
+    #主要健康问题值
+    ${majorHealth}    Set Variable
+    ${assert}    Create List    变应性鼻炎
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+    ...    doctorGuid=0210497    doctorName=
+    ...    patientInfo={"gender":"0","age":"70","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+    ...    definiteDiagnosis=
+    ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
+    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+    ...    labTestList=
+    ...    examinationList=
+    ...    newTestList=
+    ...    operationRecord=
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    newRecogFlag=
+    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+    List Should Contain Sub List    ${aj[:5]}    ${assert}
+
+
+
+
+
+
+
+回归测试集-76行,推出疑似诊断top:10:子宫内膜息肉
+    [Documentation]
+    ${Assessment}    Set Variable
+    ${Subjective}    Set Variable    主诉:异常阴道出血19天。
+    #现病史值
+    ${presentHistory}    Set Variable    现病史:患者平素月经规则，周期30天，经期5天，量中等，性状正常，无痛经。末次月经2018-9-26，19天前出现阴道出血，量多，伴血块，一天用7-8片卫生巾，未湿透。11天前至我科门诊就诊，查B超示：子宫附件未见明显异常;内膜双层厚约7.7mm，予葆宫止血颗粒及裸花紫珠胶囊口服止血治疗，阴道出血减少，但淋漓不净，无明显腹痛，无头晕头痛，无发热畏寒，无恶心呕吐，无肛门坠胀等不适。昨日至我科门诊就诊，查血常规示：血红蛋白110g/L，查B超示：宫内偏强回声团  内膜息肉样变？;内膜双层厚约12.9mm，建议住院治疗。今日来我科要求住院，门诊拟子宫内膜息肉可能，子宫内膜增厚收住入院。自起病来，患者神志清，精神可，大小便无殊，胃纳无影响，夜眠佳，体重无明显变化。
+    #既往史值
+    ${previousHistory}    Set Variable
+    #过敏史值
+    ${allergyHistory}    Set Variable
+    #个人史值
+    ${personalHistory}    Set Variable
+    #家族史值
+    ${familyHistory}    Set Variable
+    #月经史值
+    ${menstrualHistory}    Set Variable
+    #婚育史值
+    ${obstericalHistory}    Set Variable
+    #诊疗计划值
+    ${assessmentPlan}    Set Variable
+    #检查结果值
+    ${examinationResult}    Set Variable
+    #检验结果值
+    ${labTestResult}    Set Variable
+    #评分结果值
+    ${gradeResult}    Set Variable
+    #预防接种史值
+    ${vaccinationHistory}    Set Variable
+    #输血史值
+    ${bloodTransfusionHistory}    Set Variable
+    #生命体征值
+    ${vitalSigns}    Set Variable
+    #辅助检查
+    ${assistCheck}    Set Variable
+    #主要健康问题值
+    ${majorHealth}    Set Variable
+    ${assert}    Create List    子宫内膜息肉
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+    ...    doctorGuid=0210497    doctorName=
+    ...    patientInfo={"gender":"0","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+    ...    definiteDiagnosis=
+    ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
+    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+    ...    labTestList=
+    ...    examinationList=
+    ...    newTestList=
+    ...    operationRecord=
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    newRecogFlag=
+    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+    List Should Contain Sub List    ${aj[:10]}    ${assert}
 
 
 
