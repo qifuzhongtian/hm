@@ -12,9 +12,9 @@ ${amc_url_ol}     http://amc.huimeionline.com
 # ${mayson_url}    http://10.117.64.153:8080
 #测试环境
 # ${mayson_url}     http://test-mayson.huimeionline.com/cdss
-# ${mayson_url}    http://test-mayson.huimeionline.com/cdss
+${mayson_url}    http://test-mayson.huimeionline.com/cdss
 # ${mayson_url}    http://mayson.huimeionline.com/cdss
-${mayson_url}    http://pd-mayson.huimeionline.com/cdss
+# ${mayson_url}    http://pd-mayson.huimeionline.com/cdss
 #预发环境
 # ${mayson_url}    http://test-mayson.huimeionline.com/cdss
 ${base_url}       http://10.117.64.153:8080
