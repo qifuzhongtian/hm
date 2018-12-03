@@ -3483,40 +3483,40 @@ Library           String
     #Should Contain    ${aj[:5]}    低血糖症
 
 
-小儿低血糖-病史新增:血糖20mg/dl+诊断：低血糖症，推荐治疗:转特护室治疗、喂食后复测血糖
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    转特护室治疗    喂食后复测血糖
-    ${Assessment}    Set Variable    低血糖症
-    ${Subjective}    Set Variable    女，2天，患儿今日安静，嗜睡，反应差，于5分钟前发现出汗,血糖20mg/dl
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"2","ageType":"天","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    ...    currentDiseaseName=
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    #${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #Should Contain    ${aj}    新生儿低血糖
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    List Should Contain Sub List    ${aj}    ${assert}
-    #####疑似诊断
-    #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    #Should Contain    ${aj[:5]}    低血糖症
+# 小儿低血糖-病史新增:血糖20mg/dl+诊断：低血糖症，推荐治疗:转特护室治疗、喂食后复测血糖
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    转特护室治疗    喂食后复测血糖
+#     ${Assessment}    Set Variable    低血糖症
+#     ${Subjective}    Set Variable    女，2天，患儿今日安静，嗜睡，反应差，于5分钟前发现出汗,血糖20mg/dl
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"0","age":"2","ageType":"天","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     ...    currentDiseaseName=
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     #${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #Should Contain    ${aj}    新生儿低血糖
+#     #####推荐治疗方案
+#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     List Should Contain Sub List    ${aj}    ${assert}
+#     #####疑似诊断
+#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     #Should Contain    ${aj[:5]}    低血糖症
 
 # 小儿低血糖-病历内容增加：癫痫发作+诊断：低血糖症，推荐治疗:转特护室治疗、喂食后复测血糖、会诊
 #     [Documentation]    断言:""
@@ -18506,37 +18506,37 @@ Library           String
 # #######
 #######慢性肾脏病###
 
-慢性肾脏病-主诉:女，45岁，全身乏力，腰痛，双下肢水肿2年余，水肿加重、活动后气促半月，检查示：慢性肾功能不全，推荐疑似诊断:慢性肾衰竭
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${Assessment}    Set Variable
-    ${Subjective}    Set Variable    女，45岁，全身乏力，腰痛，双下肢水肿2年余，水肿加重、活动后气促半月，检查示：慢性肾功能不全
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    ...    currentDiseaseName=
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    Should Contain    ${aj[:5]}    慢性肾衰竭
+# 慢性肾脏病-主诉:女，45岁，全身乏力，腰痛，双下肢水肿2年余，水肿加重、活动后气促半月，检查示：慢性肾功能不全，推荐疑似诊断:慢性肾衰竭
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${Assessment}    Set Variable
+#     ${Subjective}    Set Variable    女，45岁，全身乏力，腰痛，双下肢水肿2年余，水肿加重、活动后气促半月，检查示：慢性肾功能不全
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"0","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     ...    currentDiseaseName=
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     Should Contain    ${aj[:5]}    慢性肾衰竭
 
 慢性肾脏病-手动输入诊断：慢性肾脏病，推荐检查：血常规、肾功能、电解质全套、碘酞酸盐清除率、肌酐清除率测定、尿蛋白/渗透压比值、血清碳酸氢盐、碘海醇清除率、尿蛋白/肌酐比值、空腹血糖、血脂检查
     [Documentation]    断言:""
@@ -19360,184 +19360,184 @@ Library           String
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     Should Contain    ${aj[:5]}    结节性甲状腺肿
 
-甲状腺结节-点击疑似诊断或手动输入：甲状腺结节+病历内容增加：促甲状腺激素4.8mIU/L，推荐检查：促甲状腺激素检查、降钙素测定、甲状腺B超、颈部CT、甲状腺结节细针穿刺活检(FNA)、甲状腺激素全套
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    甲状腺B超    颈部CT    降钙素测定    甲状腺结节细针穿刺活检(FNA)    促甲状腺激素检查    甲状腺激素全套
-    ${Assessment}    Set Variable    甲状腺结节
-    ${Subjective}    Set Variable    男，30岁，健康体检发现甲状腺结节1个月，促甲状腺激素4.8mIU/L
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"30","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    ...    currentDiseaseName=
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    List Should Contain Sub List    ${aj}    ${assert}
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    #Should Contain    ${aj[:5]}    结节性甲状腺肿
+# # 甲状腺结节-点击疑似诊断或手动输入：甲状腺结节+病历内容增加：促甲状腺激素4.8mIU/L，推荐检查：促甲状腺激素检查、降钙素测定、甲状腺B超、颈部CT、甲状腺结节细针穿刺活检(FNA)、甲状腺激素全套
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     ${assert}    Create List    甲状腺B超    颈部CT    降钙素测定    甲状腺结节细针穿刺活检(FNA)    促甲状腺激素检查    甲状腺激素全套
+# #     ${Assessment}    Set Variable    甲状腺结节
+# #     ${Subjective}    Set Variable    男，30岁，健康体检发现甲状腺结节1个月，促甲状腺激素4.8mIU/L
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"1","age":"30","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+# #     ...    currentDiseaseName=
+# #     #####推荐检查评估表
+# #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     #####推荐检查
+# #     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     List Should Contain Sub List    ${aj}    ${assert}
+# #     ######检查解读
+# #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #####推荐治疗方案
+# #     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     #####疑似诊断
+# #     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     #Should Contain    ${aj[:5]}    结节性甲状腺肿
 
-甲状腺结节-点击疑似诊断或手动输入：甲状腺结节+病历内容增加：促甲状腺激素4.8mIU/L，推荐评估表：甲状腺结节超声评分及危险分层、甲状腺超声TI-RADS分级
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    甲状腺结节超声评分及危险分层    甲状腺超声TI-RADS分级
-    ${Assessment}    Set Variable    甲状腺结节
-    ${Subjective}    Set Variable    男，30岁，健康体检发现甲状腺结节1个月，促甲状腺激素4.8mIU/L
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"30","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    ...    currentDiseaseName=
-    #####推荐检查评估表
-    ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    List Should Contain Sub List    ${aj}    ${assert}
-    #####推荐检查
-    #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    #Lists Should Be Equal    ${aj}    ${assert}
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    #Should Contain    ${aj[:5]}    结节性甲状腺肿
+# # 甲状腺结节-点击疑似诊断或手动输入：甲状腺结节+病历内容增加：促甲状腺激素4.8mIU/L，推荐评估表：甲状腺结节超声评分及危险分层、甲状腺超声TI-RADS分级
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     ${assert}    Create List    甲状腺结节超声评分及危险分层    甲状腺超声TI-RADS分级
+# #     ${Assessment}    Set Variable    甲状腺结节
+# #     ${Subjective}    Set Variable    男，30岁，健康体检发现甲状腺结节1个月，促甲状腺激素4.8mIU/L
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"1","age":"30","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+# #     ...    currentDiseaseName=
+# #     #####推荐检查评估表
+# #     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     List Should Contain Sub List    ${aj}    ${assert}
+# #     #####推荐检查
+# #     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     #Lists Should Be Equal    ${aj}    ${assert}
+# #     ######检查解读
+# #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #####推荐治疗方案
+# #     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     #####疑似诊断
+# #     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     #Should Contain    ${aj[:5]}    结节性甲状腺肿
 
-甲状腺结节-点击疑似诊断或手动输入：甲状腺结节+病历内容增加：促甲状腺激素4.8mIU/L，推荐治疗：甲状腺激素替代治疗
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    #${assert}    Create List    甲状腺结节超声评分及危险分层    甲状腺超声TI-RADS分级
-    ${Assessment}    Set Variable    甲状腺结节
-    ${Subjective}    Set Variable    男，30岁，健康体检发现甲状腺结节1个月，促甲状腺激素4.8mIU/L
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"30","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    ...    currentDiseaseName=
-    #####推荐检查评估表
-    #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #Lists Should Be Equal    ${aj}    ${assert}
-    #####推荐检查
-    #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    #Lists Should Be Equal    ${aj}    ${assert}
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    Should Contain    ${aj}    甲状腺激素替代治疗
-    #####疑似诊断
-    #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    #Should Contain    ${aj[:5]}    结节性甲状腺肿
+# 甲状腺结节-点击疑似诊断或手动输入：甲状腺结节+病历内容增加：促甲状腺激素4.8mIU/L，推荐治疗：甲状腺激素替代治疗
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     #${assert}    Create List    甲状腺结节超声评分及危险分层    甲状腺超声TI-RADS分级
+#     ${Assessment}    Set Variable    甲状腺结节
+#     ${Subjective}    Set Variable    男，30岁，健康体检发现甲状腺结节1个月，促甲状腺激素4.8mIU/L
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"30","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     ...    currentDiseaseName=
+#     #####推荐检查评估表
+#     #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #Lists Should Be Equal    ${aj}    ${assert}
+#     #####推荐检查
+#     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     #Lists Should Be Equal    ${aj}    ${assert}
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     Should Contain    ${aj}    甲状腺激素替代治疗
+#     #####疑似诊断
+#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     #Should Contain    ${aj[:5]}    结节性甲状腺肿
 
-甲状腺结节-病历内容增加评估表评估结果：甲状腺超声TI-RADS分级2级，推荐治疗增加：甲状腺结节观察随访
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    甲状腺激素替代治疗    甲状腺结节观察随访
-    ${Assessment}    Set Variable    甲状腺结节
-    ${Subjective}    Set Variable    男，30岁，健康体检发现甲状腺结节1个月，促甲状腺激素4.8mIU/L，甲状腺超声TI-RADS分级2级
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"30","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    ...    currentDiseaseName=
-    #####推荐检查评估表
-    #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #Lists Should Be Equal    ${aj}    ${assert}
-    #####推荐检查
-    #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    #Lists Should Be Equal    ${aj}    ${assert}
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    List Should Contain Sub List    ${aj}    ${assert}
-    #Should Contain    ${aj}    甲状腺激素替代治疗
-    #####疑似诊断
-    #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    #Should Contain    ${aj[:5]}    结节性甲状腺肿
+# 甲状腺结节-病历内容增加评估表评估结果：甲状腺超声TI-RADS分级2级，推荐治疗增加：甲状腺结节观察随访
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    甲状腺激素替代治疗    甲状腺结节观察随访
+#     ${Assessment}    Set Variable    甲状腺结节
+#     ${Subjective}    Set Variable    男，30岁，健康体检发现甲状腺结节1个月，促甲状腺激素4.8mIU/L，甲状腺超声TI-RADS分级2级
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"30","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     ...    currentDiseaseName=
+#     #####推荐检查评估表
+#     #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #Lists Should Be Equal    ${aj}    ${assert}
+#     #####推荐检查
+#     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     #Lists Should Be Equal    ${aj}    ${assert}
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     List Should Contain Sub List    ${aj}    ${assert}
+#     #Should Contain    ${aj}    甲状腺激素替代治疗
+#     #####疑似诊断
+#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     #Should Contain    ${aj[:5]}    结节性甲状腺肿
 
-甲状腺结节-病评估表评估结果修改为：甲状腺超声TI-RADS分级6级，推荐治疗增加：手术治疗为基础的综合治疗
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    甲状腺激素替代治疗    手术治疗为基础的综合治疗
-    ${Assessment}    Set Variable    甲状腺结节
-    ${Subjective}    Set Variable    男，30岁，健康体检发现甲状腺结节1个月，促甲状腺激素4.8mIU/L，甲状腺超声TI-RADS分级6级
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"30","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    ...    currentDiseaseName=
-    #####推荐检查评估表
-    #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #Lists Should Be Equal    ${aj}    ${assert}
-    #####推荐检查
-    #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    #Lists Should Be Equal    ${aj}    ${assert}
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    List Should Contain Sub List    ${aj}    ${assert}
-    #Should Contain    ${aj}    甲状腺激素替代治疗
-    #####疑似诊断
-    #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    #Should Contain    ${aj[:5]}    结节性甲状腺肿
+# 甲状腺结节-病评估表评估结果修改为：甲状腺超声TI-RADS分级6级，推荐治疗增加：手术治疗为基础的综合治疗
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    甲状腺激素替代治疗    手术治疗为基础的综合治疗
+#     ${Assessment}    Set Variable    甲状腺结节
+#     ${Subjective}    Set Variable    男，30岁，健康体检发现甲状腺结节1个月，促甲状腺激素4.8mIU/L，甲状腺超声TI-RADS分级6级
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"30","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     ...    currentDiseaseName=
+#     #####推荐检查评估表
+#     #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #Lists Should Be Equal    ${aj}    ${assert}
+#     #####推荐检查
+#     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     #Lists Should Be Equal    ${aj}    ${assert}
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     List Should Contain Sub List    ${aj}    ${assert}
+#     #Should Contain    ${aj}    甲状腺激素替代治疗
+#     #####疑似诊断
+#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     #Should Contain    ${aj[:5]}    结节性甲状腺肿
 
 
 
@@ -20271,112 +20271,112 @@ Library           String
 #     # Lists Should Be Equal    ${aj}    ${assert}
 
 
-白细胞减少-主诉：点击疑似诊断或手动输入：白细胞减少症,推荐检查：血常规、骨髓细胞学检查、白细胞凝集试验、血溶菌霉及溶菌酶指数、肾上腺素试验、氢化可的松试验
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    肾上腺素试验    血溶菌霉及溶菌酶指数    骨髓细胞学检查    氢化可的松试验    白细胞凝集试验    血常规
-    ${Assessment}    Set Variable    白细胞减少症
-    ${Subjective}    Set Variable    女，35岁，近几日出现乏力、头晕，体检发现白细胞减少，白细胞计数2.8x10E9/L
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    ...    currentDiseaseName=
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    白细胞减少症
-    List Should Contain Sub List    ${aj}    ${assert}
+# 白细胞减少-主诉：点击疑似诊断或手动输入：白细胞减少症,推荐检查：血常规、骨髓细胞学检查、白细胞凝集试验、血溶菌霉及溶菌酶指数、肾上腺素试验、氢化可的松试验
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    肾上腺素试验    血溶菌霉及溶菌酶指数    骨髓细胞学检查    氢化可的松试验    白细胞凝集试验    血常规
+#     ${Assessment}    Set Variable    白细胞减少症
+#     ${Subjective}    Set Variable    女，35岁，近几日出现乏力、头晕，体检发现白细胞减少，白细胞计数2.8x10E9/L
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"0","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     ...    currentDiseaseName=
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     # Should Contain    ${aj[:5]}    白细胞减少症
+#     List Should Contain Sub List    ${aj}    ${assert}
 
 
 
-白细胞减少-主诉：点击疑似诊断或手动输入：白细胞减少症,推荐治疗：药物治疗
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    # ${assert}    Create List    血常规    骨髓细胞学检查    白细胞凝集试验    血溶菌霉及溶菌酶指数    肾上腺素试验    氢化可的松试验
-    ${Assessment}    Set Variable    白细胞减少症
-    ${Subjective}    Set Variable    女，35岁，近几日出现乏力、头晕，体检发现白细胞减少，白细胞计数2.8x10E9/L
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    ...    currentDiseaseName=
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    Should Contain    ${aj[:5]}    药物治疗
-    # Lists Should Be Equal    ${aj}    ${assert}
+# 白细胞减少-主诉：点击疑似诊断或手动输入：白细胞减少症,推荐治疗：药物治疗
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     # ${assert}    Create List    血常规    骨髓细胞学检查    白细胞凝集试验    血溶菌霉及溶菌酶指数    肾上腺素试验    氢化可的松试验
+#     ${Assessment}    Set Variable    白细胞减少症
+#     ${Subjective}    Set Variable    女，35岁，近几日出现乏力、头晕，体检发现白细胞减少，白细胞计数2.8x10E9/L
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"0","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     ...    currentDiseaseName=
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     Should Contain    ${aj[:5]}    药物治疗
+#     # Lists Should Be Equal    ${aj}    ${assert}
 
 
 
 
-白细胞减少-病历内容增加：淋巴细胞减少,推荐治疗：会诊
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    会诊    药物治疗
-    ${Assessment}    Set Variable    白细胞减少症
-    ${Subjective}    Set Variable    女，35岁，近几日出现乏力、头晕，体检发现白细胞减少，白细胞计数2.8x10E9/L,淋巴细胞减少
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    ...    currentDiseaseName=
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    会诊
-    List Should Contain Sub List    ${aj}    ${assert}
+# 白细胞减少-病历内容增加：淋巴细胞减少,推荐治疗：会诊
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    会诊    药物治疗
+#     ${Assessment}    Set Variable    白细胞减少症
+#     ${Subjective}    Set Variable    女，35岁，近几日出现乏力、头晕，体检发现白细胞减少，白细胞计数2.8x10E9/L,淋巴细胞减少
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"0","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     ...    currentDiseaseName=
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     # Should Contain    ${aj[:5]}    会诊
+#     List Should Contain Sub List    ${aj}    ${assert}
 
 
 
@@ -20940,39 +20940,39 @@ Library           String
 
 
 
-结直肠息肉监测-病历内容进一步增加：腺瘤性息肉，息肉直径1cm,推荐治疗增加:随访
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    会诊    随访
-    ${Assessment}    Set Variable    结直肠息肉
-    ${Subjective}    Set Variable    男，56岁，腹部不适半年，伴稀便1月。口服“小檗碱、头孢克肟”等治疗无效,补充病史内容：结肠造影像：突出于结肠腔内的充盈缺损影，边界清楚，形态规整；内镜像：起源于肠壁的类圆形息肉，表面无明显破溃，边界清晰,炎性息肉,腺瘤性息肉，息肉直径1cm
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"56","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    ...    currentDiseaseName=
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    结肠息肉
-    List Should Contain Sub List    ${aj}    ${assert}
+# 结直肠息肉监测-病历内容进一步增加：腺瘤性息肉，息肉直径1cm,推荐治疗增加:随访
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    会诊    随访
+#     ${Assessment}    Set Variable    结直肠息肉
+#     ${Subjective}    Set Variable    男，56岁，腹部不适半年，伴稀便1月。口服“小檗碱、头孢克肟”等治疗无效,补充病史内容：结肠造影像：突出于结肠腔内的充盈缺损影，边界清楚，形态规整；内镜像：起源于肠壁的类圆形息肉，表面无明显破溃，边界清晰,炎性息肉,腺瘤性息肉，息肉直径1cm
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"56","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     ...    currentDiseaseName=
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     # Should Contain    ${aj[:5]}    结肠息肉
+#     List Should Contain Sub List    ${aj}    ${assert}
 
 
 
@@ -22499,39 +22499,39 @@ Library           String
 
 
 
-肺结节-进一步补充检查结果：PET-CT扫描肺结节示为恶性,推荐治疗增加：手术切除
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    会诊    手术切除    转诊
-    ${Assessment}    Set Variable    肺结节
-    ${Subjective}    Set Variable    男,51岁，因感冒后做肺部CT发现肺结节,体检发现肺结节,检查发现肺结节15mm,PET-CT扫描肺结节示为恶性
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"51","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    ...    currentDiseaseName=
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    肺结节的恶性概率
-    List Should Contain Sub List    ${aj}    ${assert}
+# 肺结节-进一步补充检查结果：PET-CT扫描肺结节示为恶性,推荐治疗增加：手术切除
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    会诊    手术切除    转诊
+#     ${Assessment}    Set Variable    肺结节
+#     ${Subjective}    Set Variable    男,51岁，因感冒后做肺部CT发现肺结节,体检发现肺结节,检查发现肺结节15mm,PET-CT扫描肺结节示为恶性
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"51","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     ...    currentDiseaseName=
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     # Should Contain    ${aj[:5]}    肺结节的恶性概率
+#     List Should Contain Sub List    ${aj}    ${assert}
 
 
 
@@ -22540,72 +22540,72 @@ Library           String
 # #######骨科
 #######脊柱侧凸###
 
-脊柱侧凸-主诉:男，4岁，发现身体倾斜半年余，曾在幼儿园摔伤，左髋着地，脊柱侧弯，无特殊处理，推荐疑似诊断:脊柱侧凸
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${Assessment}    Set Variable
-    ${Subjective}    Set Variable    男，4岁，发现身体倾斜半年余，曾在幼儿园摔伤，左髋着地，脊柱侧弯，无特殊处理
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"4","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    ...    currentDiseaseName=
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    Should Contain    ${aj[:5]}    脊柱侧凸
+# 脊柱侧凸-主诉:男，4岁，发现身体倾斜半年余，曾在幼儿园摔伤，左髋着地，脊柱侧弯，无特殊处理，推荐疑似诊断:脊柱侧凸
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${Assessment}    Set Variable
+#     ${Subjective}    Set Variable    男，4岁，发现身体倾斜半年余，曾在幼儿园摔伤，左髋着地，脊柱侧弯，无特殊处理
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"4","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     ...    currentDiseaseName=
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     Should Contain    ${aj[:5]}    脊柱侧凸
 
 
-脊柱侧凸-点击疑似诊断或手动输入：脊柱侧凸，推荐检查:神经系统检查、肌肉骨骼系统检查、皮肤检查、亚当斯前屈试验旋转度数测定、肺功能检查、电生理检查、脊柱X线、脊髓造影CT、脊髓造影
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    脊髓造影CT    脊柱X线    脊髓造影    亚当斯前屈试验旋转度数测定    皮肤检查    肺功能检查    电生理检查    神经系统检查    肌肉骨骼系统检查
-    ${Assessment}    Set Variable    脊柱侧凸
-    ${Subjective}    Set Variable    男，4岁，发现身体倾斜半年余，曾在幼儿园摔伤，左髋着地，脊柱侧弯，无特殊处理
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"4","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    ...    currentDiseaseName=
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    List Should Contain Sub List    ${aj}    ${assert}
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    #Should Contain    ${aj[:5]}    脊柱侧凸
+# 脊柱侧凸-点击疑似诊断或手动输入：脊柱侧凸，推荐检查:神经系统检查、肌肉骨骼系统检查、皮肤检查、亚当斯前屈试验旋转度数测定、肺功能检查、电生理检查、脊柱X线、脊髓造影CT、脊髓造影
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    脊髓造影CT    脊柱X线    脊髓造影    亚当斯前屈试验旋转度数测定    皮肤检查    肺功能检查    电生理检查    神经系统检查    肌肉骨骼系统检查
+#     ${Assessment}    Set Variable    脊柱侧凸
+#     ${Subjective}    Set Variable    男，4岁，发现身体倾斜半年余，曾在幼儿园摔伤，左髋着地，脊柱侧弯，无特殊处理
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"4","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     ...    currentDiseaseName=
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     List Should Contain Sub List    ${aj}    ${assert}
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     #Should Contain    ${aj[:5]}    脊柱侧凸
 
 脊柱侧凸-点击疑似诊断或手动输入：脊柱侧凸，推荐评估表：外生殖器官评估Tanner分期
     [Documentation]    断言:""
@@ -24442,75 +24442,75 @@ Library           String
     # Lists Should Be Equal    ${aj}    ${assert}
 
 
-附件肿物-手动输入诊断：附件肿物,补充病史：原发附件囊肿增大，检查结果示：附件肿物,推荐治疗：妇科会诊
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    # ${assert}    Create List
-    ${Assessment}    Set Variable    附件肿物
-    ${Subjective}    Set Variable    女，40岁，平卧时触及左下腹有一肿块3天，检查结果示：附件肿物,原发附件囊肿增大
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"40","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    ...    currentDiseaseName=
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    Should Contain    ${aj[:5]}    妇科会诊
-    # Lists Should Be Equal    ${aj}    ${assert}
+# 附件肿物-手动输入诊断：附件肿物,补充病史：原发附件囊肿增大，检查结果示：附件肿物,推荐治疗：妇科会诊
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     # ${assert}    Create List
+#     ${Assessment}    Set Variable    附件肿物
+#     ${Subjective}    Set Variable    女，40岁，平卧时触及左下腹有一肿块3天，检查结果示：附件肿物,原发附件囊肿增大
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"0","age":"40","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     ...    currentDiseaseName=
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     Should Contain    ${aj[:5]}    妇科会诊
+#     # Lists Should Be Equal    ${aj}    ${assert}
 
 
 
-附件肿物-病历内容补充检查结果：附件巨大肿物,推荐检查增加：肿瘤标志物测定
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    盆腔超声    肿瘤标志物测定
-    ${Assessment}    Set Variable    附件肿物
-    ${Subjective}    Set Variable    女，40岁，平卧时触及左下腹有一肿块3天，检查结果示：附件肿物,原发附件囊肿增大,附件巨大肿物
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"40","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    ...    currentDiseaseName=
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    妇科会诊
-    List Should Contain Sub List    ${aj}    ${assert}
+# 附件肿物-病历内容补充检查结果：附件巨大肿物,推荐检查增加：肿瘤标志物测定
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    盆腔超声    肿瘤标志物测定
+#     ${Assessment}    Set Variable    附件肿物
+#     ${Subjective}    Set Variable    女，40岁，平卧时触及左下腹有一肿块3天，检查结果示：附件肿物,原发附件囊肿增大,附件巨大肿物
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"0","age":"40","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     ...    currentDiseaseName=
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     # Should Contain    ${aj[:5]}    妇科会诊
+#     List Should Contain Sub List    ${aj}    ${assert}
 
 
 附件肿物-病历内容补充检查结果：卵巢癌,推荐治疗增加：放射治疗、免疫治疗
