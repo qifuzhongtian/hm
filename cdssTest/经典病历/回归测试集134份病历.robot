@@ -4805,8 +4805,6 @@ Library           String
 
 
 
-
-
 回归测试集-76行,推出疑似诊断top:10:子宫内膜息肉
     [Documentation]
     ${Assessment}    Set Variable
