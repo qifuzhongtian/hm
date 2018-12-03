@@ -640,7 +640,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
         ...    doctorGuid=675    doctorName=hmkj
-        ...    patientInfo={"gender":"","age":"4","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"","age":"2","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -6584,7 +6584,7 @@ Library           String
 183行-妊娠+急性腹痛,推出诊断:流产,正常分娩,妊娠期肾盂肾炎,耻骨联合扭伤,便秘,异位妊娠,妊娠合并阑尾炎,子宫破裂,子宫扭转,子痫前期,卵巢蒂扭转,急性心肌梗死,子宫肌瘤,韧带损伤,出血性卵巢黄体囊肿,莫尔加尼囊状附件扭转,腹直肌鞘血肿
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    妊娠+急性腹痛
+        ${Subjective}    Set Variable    妊娠,急性腹痛
         ${assert}    Create List    流产    正常分娩    妊娠期肾盂肾炎    耻骨联合扭伤    便秘    异位妊娠    妊娠合并阑尾炎    子宫破裂    子宫扭转    子痫前期    卵巢蒂扭转    急性心肌梗死    子宫肌瘤    韧带损伤    出血性卵巢黄体囊肿    莫尔加尼囊状附件扭转    腹直肌鞘血肿
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -6623,7 +6623,7 @@ Library           String
 184行-皮肤鳞屑+皮肤斑块,推出诊断:银屑病,湿疹,真菌病,脂溢性皮炎,脂溢性角化病,苔藓样皮炎,扁平苔藓,日光性角化病,花斑癣,玫瑰糠疹,幼年跖部皮病,滴状银屑病,鲍恩病,蕈样肉芽肿,药物相关性鳞屑,药物相关性斑块,片层状鱼鳞癣,脓溢性皮肤角化病,慢性苔藓样糠疹,皮肤二期梅毒
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    皮肤鳞屑+皮肤斑块
+        ${Subjective}    Set Variable    皮肤鳞屑,皮肤斑块
         ${assert}    Create List    银屑病    湿疹    真菌病    脂溢性皮炎    脂溢性角化病    苔藓样皮炎    扁平苔藓    日光性角化病    花斑癣    玫瑰糠疹    幼年跖部皮病    滴状银屑病    鲍恩病    蕈样肉芽肿    药物相关性鳞屑    药物相关性斑块    片层状鱼鳞癣    脓溢性皮肤角化病    慢性苔藓样糠疹    皮肤二期梅毒
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -6662,7 +6662,7 @@ Library           String
 185行-慢性腹痛+腹胀,推出诊断:肠易激综合征,便秘,肠吸收不良,子宫平滑肌瘤,膀胱扩张,腹水,卵巢囊肿,乳糖不耐受,胃恶性肿瘤,结肠恶性肿瘤,肝大,脾大,胰恶性肿瘤,肾细胞癌
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    慢性腹痛+腹胀
+        ${Subjective}    Set Variable    慢性腹痛,腹胀
         ${assert}    Create List    肠易激综合征    便秘    肠吸收不良    子宫平滑肌瘤    膀胱扩张    腹水    卵巢囊肿    乳糖不耐受    胃恶性肿瘤    结肠恶性肿瘤    肝大    脾大    胰恶性肿瘤    肾细胞癌
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -6701,7 +6701,7 @@ Library           String
 186行-反复腹痛+腹胀,推出诊断:肠易激综合征,便秘,肠吸收不良,子宫平滑肌瘤,膀胱扩张,腹水,卵巢囊肿,乳糖不耐受,胃恶性肿瘤,结肠恶性肿瘤,肝大,脾大,胰恶性肿瘤,肾细胞癌
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    反复腹痛+腹胀
+        ${Subjective}    Set Variable    反复腹痛,腹胀
         ${assert}    Create List    肠易激综合征    便秘    肠吸收不良    子宫平滑肌瘤    膀胱扩张    腹水    卵巢囊肿    乳糖不耐受    胃恶性肿瘤    结肠恶性肿瘤    肝大    脾大    胰恶性肿瘤    肾细胞癌
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -6740,7 +6740,7 @@ Library           String
 187行-腹胀+腹痛,推出诊断:急性胃肠炎,肠易激综合征,细菌性食物中毒,憩室炎,乳糖不耐受,肠梗阻,胰腺炎,腹膜炎,炎症性肠病,缺血性肠病,腹主动脉瘤破裂,胃恶性肿瘤,结肠恶性肿瘤
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    腹胀+腹痛
+        ${Subjective}    Set Variable    腹胀,腹痛
         ${assert}    Create List    急性胃肠炎    肠易激综合征    细菌性食物中毒    憩室炎    乳糖不耐受    肠梗阻    胰腺炎    腹膜炎    炎症性肠病    缺血性肠病    腹主动脉瘤破裂    胃恶性肿瘤    结肠恶性肿瘤
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -6779,7 +6779,7 @@ Library           String
 188行-腹泻+便秘,推出诊断:急性胃肠炎,肠易激综合征,胃肠功能性障碍,憩室炎,腹胀满病,乳糖不耐受,肠肿瘤,炎症性肠病,阑尾炎,原发性小肠吸收不良综合征
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    腹泻+便秘
+        ${Subjective}    Set Variable    腹泻,便秘
         ${assert}    Create List    急性胃肠炎    肠易激综合征    胃肠功能性障碍    憩室炎    腹胀满病    乳糖不耐受    肠肿瘤    炎症性肠病    阑尾炎    原发性小肠吸收不良综合征
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -6818,7 +6818,7 @@ Library           String
 189行-腹胀+呕吐,推出诊断:胃肠炎,胃和十二指肠疾病,妊娠,胰腺炎,肠梗阻,幽门狭窄,胃恶性肿瘤,神经性贪食,便秘,糖尿病,胃轻瘫
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    腹胀+呕吐
+        ${Subjective}    Set Variable    腹胀,呕吐
         ${assert}    Create List    胃肠炎    胃和十二指肠疾病    妊娠    胰腺炎    肠梗阻    幽门狭窄    胃恶性肿瘤    神经性贪食    便秘    糖尿病    胃轻瘫
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -6857,7 +6857,7 @@ Library           String
 190行-腹胀+恶心,推出诊断:胃肠炎,胃和十二指肠疾病,妊娠,胰腺炎,肠梗阻,幽门狭窄,胃恶性肿瘤,神经性贪食,便秘,糖尿病,胃轻瘫
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    腹胀+恶心
+        ${Subjective}    Set Variable    腹胀,恶心
         ${assert}    Create List    胃肠炎    胃和十二指肠疾病    妊娠    胰腺炎    肠梗阻    幽门狭窄    胃恶性肿瘤    神经性贪食    便秘    糖尿病    胃轻瘫
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -6896,7 +6896,7 @@ Library           String
 191行-腹痛+恶心,推出诊断:胃肠炎,胃和十二指肠疾病,阑尾炎,胰腺炎,肠梗阻,幽门狭窄,消化性溃疡,胃恶性肿瘤,神经性贪食,便秘,糖尿病,胃轻瘫,食管梗阻,贲门失弛缓症
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    腹痛+恶心
+        ${Subjective}    Set Variable    腹痛,恶心
         ${assert}    Create List    胃肠炎    胃和十二指肠疾病    阑尾炎    胰腺炎    肠梗阻    幽门狭窄    消化性溃疡    胃恶性肿瘤    神经性贪食    便秘    糖尿病    胃轻瘫    食管梗阻    贲门失弛缓症
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -6935,7 +6935,7 @@ Library           String
 192行-腹痛+呕吐,推出诊断:胃肠炎,胃和十二指肠疾病,阑尾炎,胰腺炎,肠梗阻,幽门狭窄,消化性溃疡,胃恶性肿瘤,神经性贪食,便秘,糖尿病,胃轻瘫,食管梗阻,贲门失弛缓症
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    腹痛+呕吐
+        ${Subjective}    Set Variable    腹痛,呕吐
         ${assert}    Create List    胃肠炎    胃和十二指肠疾病    阑尾炎    胰腺炎    肠梗阻    幽门狭窄    消化性溃疡    胃恶性肿瘤    神经性贪食    便秘    糖尿病    胃轻瘫    食管梗阻    贲门失弛缓症
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -6975,7 +6975,7 @@ Library           String
 193行-腹痛+呕血,推出诊断:消化性溃疡,食管贲门黏膜撕裂综合征,食管恶性肿瘤,胃恶性肿瘤,食管内异物,纵隔恶性肿瘤,胆管出血,食管腐蚀伤,腐蚀性胃炎,食管炎,食管破裂,门脉高压性胃肠病,胆囊十二指肠瘘,系统性红斑狼疮,手术后胃吻合口出血,食管裂孔疝,砷化物中毒
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    腹痛+呕血
+        ${Subjective}    Set Variable    腹痛,呕血
         ${assert}    Create List    消化性溃疡    食管贲门黏膜撕裂综合征    食管恶性肿瘤    胃恶性肿瘤    食管内异物    纵隔恶性肿瘤    胆管出血    食管腐蚀伤    腐蚀性胃炎    食管炎    食管破裂    门脉高压性胃肠病    胆囊十二指肠瘘    系统性红斑狼疮    手术后胃吻合口出血    食管裂孔疝    砷化物中毒
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -7014,7 +7014,7 @@ Library           String
 194行-腹痛+血尿,推出诊断:泌尿道感染,膀胱肿瘤,肾结石,输尿管结石,尿道炎,前列腺炎,前列腺癌,肾细胞癌,慢性间质性膀胱炎,肾盂肾炎,肾结核
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    腹痛+血尿
+        ${Subjective}    Set Variable    腹痛,血尿
         ${assert}    Create List    泌尿道感染    膀胱肿瘤    肾结石    输尿管结石    尿道炎    前列腺炎    前列腺癌    肾细胞癌    慢性间质性膀胱炎    肾盂肾炎    肾结核
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -7052,7 +7052,7 @@ Library           String
 195行-腹痛+尿频,推出诊断:膀胱炎,膀胱过度活动症,膀胱结石,前列腺炎,输尿管结石,尿道炎,肾盂肾炎,盆腔炎,膀胱颈狭窄,盆腔肿物,膀胱肿瘤,膀胱结核,肾结核
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    腹痛+尿频
+        ${Subjective}    Set Variable    腹痛,尿频
         ${assert}    Create List    膀胱炎    膀胱过度活动症    膀胱结石    前列腺炎    输尿管结石    尿道炎    肾盂肾炎    盆腔炎    膀胱颈狭窄    盆腔肿物    膀胱肿瘤    膀胱结核    肾结核
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -7090,7 +7090,7 @@ Library           String
 196行-腹痛+便秘,推出诊断:功能性便秘,胃肠功能障碍,肠易激综合征,炎症性肠病,肠梗阻,药物相关性便秘,先天性巨结肠,结肠恶性肿瘤,直肠恶性肿瘤,肠憩室病,后天性巨结肠,盆腔肿瘤
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    腹痛+便秘
+        ${Subjective}    Set Variable    腹痛,便秘
         ${assert}    Create List    功能性便秘    胃肠功能障碍    肠易激综合征    炎症性肠病    肠梗阻    药物相关性便秘    先天性巨结肠    结肠恶性肿瘤    直肠恶性肿瘤    肠憩室病    后天性巨结肠    盆腔肿瘤
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -7128,7 +7128,7 @@ Library           String
 197行-腹痛+便血,推出诊断:胃肠炎,直肠损伤,直肠恶性肿瘤,直肠憩室,绒毛状腺瘤,炎症性肠病,缺血性肠病,肠血管疾患,肠套叠,结肠恶性肿瘤,麦克尔憩室
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    腹痛+便血
+        ${Subjective}    Set Variable    腹痛,便血
         ${assert}    Create List    胃肠炎    直肠损伤    直肠恶性肿瘤    直肠憩室    绒毛状腺瘤    炎症性肠病    缺血性肠病    肠血管疾患    肠套叠    结肠恶性肿瘤    麦克尔憩室
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -7166,7 +7166,7 @@ Library           String
 198行-乳房肿块+乳头溢液,推出诊断:导管内乳头状瘤,乳腺脓肿,乳腺炎,乳腺癌,乳腺纤维腺瘤,导管内乳头状癌,乳管上皮增生,产褥期积乳囊肿,浆细胞性乳腺炎,乳房佩吉特病,导管内乳头状黏液腺瘤,乳腺结核
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    乳房肿块+乳头溢液
+        ${Subjective}    Set Variable    乳房肿块,乳头溢液
         ${assert}    Create List    导管内乳头状瘤    乳腺脓肿    乳腺炎    乳腺癌    乳腺纤维腺瘤    导管内乳头状癌    乳管上皮增生    产褥期积乳囊肿    浆细胞性乳腺炎    乳房佩吉特病    导管内乳头状黏液腺瘤    乳腺结核
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -7204,7 +7204,7 @@ Library           String
 199行-乳房肿块+乳房疼痛,推出诊断:乳腺囊性增生症,乳腺不典型增生,乳房孤立囊肿,乳腺脓肿,良性乳腺发育不良,乳管扩张症,脂肪瘤,乳腺癌,乳房佩吉特病,乳房脂肪坏死,产褥期积乳囊肿,弥漫性囊性乳腺病,乳腺结核,良性叶状瘤,乳腺血栓性静脉炎
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    乳房肿块+乳房疼痛
+        ${Subjective}    Set Variable    乳房肿块,乳房疼痛
         ${assert}    Create List    乳腺囊性增生症    乳腺不典型增生    乳房孤立囊肿    乳腺脓肿    良性乳腺发育不良    乳管扩张症    脂肪瘤    乳腺癌    乳房佩吉特病    乳房脂肪坏死    产褥期积乳囊肿    弥漫性囊性乳腺病    乳腺结核    良性叶状瘤    乳腺血栓性静脉炎
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -7242,7 +7242,7 @@ Library           String
 200行-胸痛+呼吸困难,推出诊断:肺部感染,心绞痛,气胸,急性心肌梗死,肺栓塞,焦虑状态,带状疱疹,肥厚型心肌病,肋骨骨折,心肌炎
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    胸痛+呼吸困难
+        ${Subjective}    Set Variable    胸痛,呼吸困难
         ${assert}    Create List    肺部感染    心绞痛    气胸    急性心肌梗死    肺栓塞    焦虑状态    带状疱疹    肥厚型心肌病    肋骨骨折    心肌炎
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -7281,7 +7281,7 @@ Library           String
 201行-胸痛+咯血,推出诊断:肺部感染,肺栓塞,肺恶性肿瘤,肺水肿,支气管扩张,结节性多动脉炎,肺结核,气管肿瘤,呼吸道内异物,系统性红斑狼疮,肺挫伤,ANCA相关性血管炎,曲霉病,肺肾综合征,白塞病,抗磷脂综合征
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    胸痛+咯血
+        ${Subjective}    Set Variable    胸痛,咯血
         ${assert}    Create List    肺部感染    肺栓塞    肺恶性肿瘤    肺水肿    支气管扩张    结节性多动脉炎    肺结核    气管肿瘤    呼吸道内异物    系统性红斑狼疮    肺挫伤    ANCA相关性血管炎    曲霉病    肺肾综合征    白塞病    抗磷脂综合征
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -7320,7 +7320,7 @@ Library           String
 202行-胸痛+心悸,推出诊断:心绞痛,焦虑状态,急性心肌梗死,反流性食管炎,气胸,肺栓塞,肥厚型心肌病,心肌炎,主动脉夹层
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    胸痛+心悸
+        ${Subjective}    Set Variable    胸痛,心悸
         ${assert}    Create List    心绞痛    焦虑状态    急性心肌梗死    反流性食管炎    气胸    肺栓塞    肥厚型心肌病    心肌炎    主动脉夹层
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -7359,7 +7359,7 @@ Library           String
 203行-呼吸困难+水肿,推出诊断:慢性阻塞性肺病,充血性心力衰竭,冠状动脉粥样硬化性心脏病,肺栓塞,心肌病,心脏瓣膜病,肺恶性肿瘤,胸腔积液,主动脉狭窄,由右向左分流的先天性心脏病,由左向右分流的先天性心脏病,肥胖症,腹水,肺动脉高压,缩窄性心包炎,心包积液
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    呼吸困难+水肿
+        ${Subjective}    Set Variable    呼吸困难,水肿
         ${assert}    Create List    慢性阻塞性肺病    充血性心力衰竭    冠状动脉粥样硬化性心脏病    肺栓塞    心肌病    心脏瓣膜病    肺恶性肿瘤    胸腔积液    主动脉狭窄    由右向左分流的先天性心脏病    由左向右分流的先天性心脏病    肥胖症    腹水    肺动脉高压    缩窄性心包炎    心包积液
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -7398,7 +7398,7 @@ Library           String
 204行-咳嗽+胸痛,推出诊断:急性下呼吸道感染,胃食管反流病,慢性阻塞性肺病,左心室衰竭,支气管扩张,吸入性肺炎,肺结核,肺肿瘤
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    咳嗽+胸痛
+        ${Subjective}    Set Variable    咳嗽,胸痛
         ${assert}    Create List    急性下呼吸道感染    胃食管反流病    慢性阻塞性肺病    左心室衰竭    支气管扩张    吸入性肺炎    肺结核    肺肿瘤
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -7437,7 +7437,7 @@ Library           String
 205行-咳嗽+咳痰,推出诊断:急性上呼吸道感染,急性下呼吸道感染,慢性阻塞性肺病,左心室衰竭,支气管扩张,吸入性肺炎,肺结核,肺肿瘤,间质性肺病,间质性纤维化性肺泡炎,过敏性肺炎,嗜酸细胞性肺炎,喉恶性肿瘤
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    咳嗽+咳痰
+        ${Subjective}    Set Variable    咳嗽,咳痰
         ${assert}    Create List    急性上呼吸道感染    急性下呼吸道感染    慢性阻塞性肺病    左心室衰竭    支气管扩张    吸入性肺炎    肺结核    肺肿瘤    间质性肺病    间质性纤维化性肺泡炎    过敏性肺炎    嗜酸细胞性肺炎    喉恶性肿瘤
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -7476,7 +7476,7 @@ Library           String
 206行-咳嗽+胸闷,推出诊断:急性上呼吸道感染,急性下呼吸道感染,胃食管反流病,支气管哮喘,慢性阻塞性肺病,左心室衰竭,支气管扩张,吸入性肺炎,肺结核,呼吸道内异物,药物不良反应,肺肿瘤,间质性肺病,间质性纤维化性肺泡炎,过敏性肺炎,嗜酸细胞性肺炎,喉恶性肿瘤
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    咳嗽+胸闷
+        ${Subjective}    Set Variable    咳嗽,胸闷
         ${assert}    Create List    急性上呼吸道感染    急性下呼吸道感染    胃食管反流病    支气管哮喘    慢性阻塞性肺病    左心室衰竭    支气管扩张    吸入性肺炎    肺结核    呼吸道内异物    药物不良反应    肺肿瘤    间质性肺病    间质性纤维化性肺泡炎    过敏性肺炎    嗜酸细胞性肺炎    喉恶性肿瘤
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -7515,7 +7515,7 @@ Library           String
 207行-发热+腹痛,推出诊断:急性胃肠炎,消化性溃疡,胆绞痛,阑尾炎,胃肠炎,肾绞痛,胆囊炎,细菌性食物中毒,肠梗阻,肾盂肾炎,胰腺炎,消化道穿孔,腹膜炎,肝炎,炎症性肠病,缺血性肠病,自发性腹膜炎,带状疱疹,胃恶性肿瘤,结肠恶性肿瘤,糖尿病酮症酸中毒,憩室炎
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    发热+腹痛
+        ${Subjective}    Set Variable    发热,腹痛
         ${assert}    Create List    急性胃肠炎    消化性溃疡    胆绞痛    阑尾炎    胃肠炎    肾绞痛    胆囊炎    细菌性食物中毒    肠梗阻    肾盂肾炎    胰腺炎    消化道穿孔    腹膜炎    肝炎    炎症性肠病    缺血性肠病    自发性腹膜炎    带状疱疹    胃恶性肿瘤    结肠恶性肿瘤    糖尿病酮症酸中毒    憩室炎
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -7555,7 +7555,7 @@ Library           String
 208行-发热+呕血,推出诊断:急性胃粘膜病变,食管贲门黏膜撕裂综合征,食管静脉曲张伴有出血,食管恶性肿瘤,胃恶性肿瘤,食管内异物,纵隔恶性肿瘤,胆管出血,食管腐蚀伤,腐蚀性胃炎,食管炎,食管破裂,胆囊十二指肠瘘,白血病,再生障碍性贫血,系统性红斑狼疮
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    发热+呕血
+        ${Subjective}    Set Variable    发热,呕血
         ${assert}    Create List    急性胃粘膜病变    食管贲门黏膜撕裂综合征    食管静脉曲张伴有出血    食管恶性肿瘤    胃恶性肿瘤    食管内异物    纵隔恶性肿瘤    胆管出血    食管腐蚀伤    腐蚀性胃炎    食管炎    食管破裂    胆囊十二指肠瘘    白血病    再生障碍性贫血    系统性红斑狼疮
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -7594,7 +7594,7 @@ Library           String
 209行-发热+呕吐,推出诊断:急性胃肠炎,急性上呼吸道感染,阑尾炎,急腹症,胰腺炎,肠梗阻,迷路炎,药物相关性呕吐,幽门狭窄,消化性溃疡,胃恶性肿瘤,颅内压增高,脑膜炎,肾盂肾炎,肾衰竭
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    发热+呕吐
+        ${Subjective}    Set Variable    发热,呕吐
         ${assert}    Create List    急性胃肠炎    急性上呼吸道感染    阑尾炎    急腹症    胰腺炎    肠梗阻    迷路炎    药物相关性呕吐    幽门狭窄    消化性溃疡    胃恶性肿瘤    颅内压增高    脑膜炎    肾盂肾炎    肾衰竭
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -7633,7 +7633,7 @@ Library           String
 210行-发热+腹泻,推出诊断:诺如病毒肠炎,大肠杆菌性肠炎,细菌性肠炎,肠道念珠菌病,急性上呼吸道感染,支气管肺炎,泌尿道感染
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    发热+腹泻
+        ${Subjective}    Set Variable    发热,腹泻
         ${assert}    Create List    诺如病毒肠炎    大肠杆菌性肠炎    细菌性肠炎    肠道念珠菌病    急性上呼吸道感染    支气管肺炎    泌尿道感染
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -7672,7 +7672,7 @@ Library           String
 211行-发热+腹泻,推出诊断:感染性腹泻,急性胃肠炎,炎症性肠病,细菌性食物中毒,憩室炎,肠肿瘤,乳糜泻,阑尾炎,甲状腺功能亢进症,阿米巴病,卵巢恶性肿瘤,钩虫病
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    发热+腹泻
+        ${Subjective}    Set Variable    发热,腹泻
         ${assert}    Create List    感染性腹泻    急性胃肠炎    炎症性肠病    细菌性食物中毒    憩室炎    肠肿瘤    乳糜泻    阑尾炎    甲状腺功能亢进症    阿米巴病    卵巢恶性肿瘤    钩虫病
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -7712,7 +7712,7 @@ Library           String
 212行-发热+头痛,推出诊断:鼻窦炎,急性上呼吸道感染,慢性创伤后头痛,巨细胞动脉炎,蛛网膜下出血,脑膜炎,脑出血,大脑静脉非脓性血栓形成,颅内占位性病变,垂体卒中
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    发热+头痛
+        ${Subjective}    Set Variable    发热,头痛
         ${assert}    Create List    鼻窦炎    急性上呼吸道感染    慢性创伤后头痛    巨细胞动脉炎    蛛网膜下出血    脑膜炎    脑出血    大脑静脉非脓性血栓形成    颅内占位性病变    垂体卒中
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -7751,7 +7751,7 @@ Library           String
 213行-发热+鼻塞,推出诊断:鼻损伤,鼻腔异物,鼻腔恶性肿瘤,变应性肉芽肿性血管炎
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    发热+鼻塞
+        ${Subjective}    Set Variable    发热,鼻塞
         ${assert}    Create List    鼻损伤    鼻腔异物    鼻腔恶性肿瘤    变应性肉芽肿性血管炎
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -7790,7 +7790,7 @@ Library           String
 214行-发热+呼吸急促,推出诊断:慢性阻塞性肺病,肺部感染,胸腔积液,慢性阻塞性肺病伴有急性下呼吸道感染,肺炎,急性支气管炎,支气管扩张伴感染,急性喉气管炎,肺恶性肿瘤,间质性肺病
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    发热+呼吸急促
+        ${Subjective}    Set Variable    发热,呼吸急促
         ${assert}    Create List    慢性阻塞性肺病    肺部感染    胸腔积液    慢性阻塞性肺病伴有急性下呼吸道感染    肺炎    急性支气管炎    支气管扩张伴感染    急性喉气管炎    肺恶性肿瘤    间质性肺病
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -7829,7 +7829,7 @@ Library           String
 215行-发热+胸痛,推出诊断:急性心包炎,肺炎,胸膜炎,胰腺炎,支气管炎,乳腺炎,肺腺癌,胸壁蜂窝织炎,胸膜肿瘤,食管癌,纵隔炎,纵隔气肿,纵隔肿瘤
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    发热+胸痛
+        ${Subjective}    Set Variable    发热,胸痛
         ${assert}    Create List    急性心包炎    肺炎    胸膜炎    胰腺炎    支气管炎    乳腺炎    肺腺癌    胸壁蜂窝织炎    胸膜肿瘤    食管癌    纵隔炎    纵隔气肿    纵隔肿瘤
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -7868,7 +7868,7 @@ Library           String
 216行-发热+黄疸,推出诊断:自身免疫性溶血性贫血
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    发热+黄疸
+        ${Subjective}    Set Variable    发热,黄疸
         ${assert}    Create List    自身免疫性溶血性贫血
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -7907,7 +7907,7 @@ Library           String
 217行-发热+黄疸,推出诊断:病毒性肝炎,胆管炎,胰腺炎,溶血性贫血
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    发热+黄疸
+        ${Subjective}    Set Variable    发热,黄疸
         ${assert}    Create List    病毒性肝炎    胆管炎    胰腺炎    溶血性贫血
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -7946,7 +7946,7 @@ Library           String
 218行-发热+黄疸,推出诊断:病毒性肝炎,胆管炎,胰腺炎,肝恶性肿瘤,壶腹周围恶性肿瘤,胰头癌,败血症,钩端螺旋体病,胆管癌
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    发热+黄疸
+        ${Subjective}    Set Variable    发热,黄疸
         ${assert}    Create List    病毒性肝炎    胆管炎    胰腺炎    肝恶性肿瘤    壶腹周围恶性肿瘤    胰头癌    败血症    钩端螺旋体病    胆管癌
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -7985,7 +7985,7 @@ Library           String
 219行-发热+颈部肿块,推出诊断:颈部淋巴结炎,甲状腺结节,甲状腺炎,甲状腺肿瘤,颈淋巴结肿大,颈淋巴结结核,颈部淋巴管瘤,颌下腺恶性肿瘤,转移性肿瘤,放线菌病
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    发热+颈部肿块
+        ${Subjective}    Set Variable    发热,颈部肿块
         ${assert}    Create List    颈部淋巴结炎    甲状腺结节    甲状腺炎    甲状腺肿瘤    颈淋巴结肿大    颈淋巴结结核    颈部淋巴管瘤    颌下腺恶性肿瘤    转移性肿瘤    放线菌病
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -8024,7 +8024,7 @@ Library           String
 220行-发热+咽痛,推出诊断:急性扁桃体炎,扁桃体周脓肿,急性咽炎,链球菌性咽炎,咽后脓肿,病毒性咽炎,咽峡炎,传染性单核细胞增多症,白喉,会厌炎,口咽恶性肿瘤,念珠菌性口炎,急性甲状腺炎,亚急性甲状腺炎,淋球菌性咽炎
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    发热+咽痛
+        ${Subjective}    Set Variable    发热,咽痛
         ${assert}    Create List    急性扁桃体炎    扁桃体周脓肿    急性咽炎    链球菌性咽炎    咽后脓肿    病毒性咽炎    咽峡炎    传染性单核细胞增多症    白喉    会厌炎    口咽恶性肿瘤    念珠菌性口炎    急性甲状腺炎    亚急性甲状腺炎    淋球菌性咽炎
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -8063,7 +8063,7 @@ Library           String
 221行-发热+颈部僵硬,推出诊断:病毒性上呼吸道感染,颈部淋巴结炎,颈部皮肤脓肿、疖和痈,脑膜炎,脑脓肿,脊柱骨折,骨肿瘤,脑出血,脑肿瘤,类风湿性关节炎,强直性脊柱炎
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    发热+颈部僵硬
+        ${Subjective}    Set Variable    发热,颈部僵硬
         ${assert}    Create List    病毒性上呼吸道感染    颈部淋巴结炎    颈部皮肤脓肿、疖和痈    脑膜炎    脑脓肿    脊柱骨折    骨肿瘤    脑出血    脑肿瘤    类风湿性关节炎    强直性脊柱炎
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -8102,7 +8102,7 @@ Library           String
 222行-发热+肌痛,推出诊断:病毒性感染,风湿性多肌痛,结缔组织病,恶性肿瘤,脊髓灰质炎
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    发热+肌痛
+        ${Subjective}    Set Variable    发热,肌痛
         ${assert}    Create List    病毒性感染    风湿性多肌痛    结缔组织病    恶性肿瘤    脊髓灰质炎
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -8141,7 +8141,7 @@ Library           String
 223行-耳鸣+眩晕,推出诊断:化脓性中耳炎,分泌性中耳炎,中耳和乳突疾患,偏头痛,粘连性中耳炎,梅尼埃病,动脉粥样硬化,听神经瘤,听神经炎,椎-基底动脉供血不足,颅内肿瘤,脑血管病,多发性硬化,颅内感染
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    耳鸣+眩晕
+        ${Subjective}    Set Variable    耳鸣,眩晕
         ${assert}    Create List    化脓性中耳炎    分泌性中耳炎    中耳和乳突疾患    偏头痛    粘连性中耳炎    梅尼埃病    动脉粥样硬化    听神经瘤    听神经炎    椎-基底动脉供血不足    颅内肿瘤    脑血管病    多发性硬化    颅内感染
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -8180,7 +8180,7 @@ Library           String
 224行-耳痛+听力减退,推出诊断:耵聍栓塞,中耳炎,外耳道炎,咽鼓管炎,鼓膜穿孔,耳鼓膜创伤性破裂,颞骨骨折,听骨链中断,鼻咽良性肿瘤,鼻咽恶性肿瘤,外耳带状疱疹,气压伤
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    耳痛+听力减退
+        ${Subjective}    Set Variable    耳痛,听力减退
         ${assert}    Create List    耵聍栓塞    中耳炎    外耳道炎    咽鼓管炎    鼓膜穿孔    耳鼓膜创伤性破裂    颞骨骨折    听骨链中断    鼻咽良性肿瘤    鼻咽恶性肿瘤    外耳带状疱疹    气压伤
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -8219,7 +8219,7 @@ Library           String
 225行-耳痛+听力丧失,推出诊断:耵聍栓塞,中耳炎,外耳道炎,咽鼓管炎,鼓膜穿孔,耳鼓膜创伤性破裂,颞骨骨折,听骨链中断,鼻咽良性肿瘤,鼻咽恶性肿瘤,外耳带状疱疹,气压伤
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    耳痛+听力丧失
+        ${Subjective}    Set Variable    耳痛,听力丧失
         ${assert}    Create List    耵聍栓塞    中耳炎    外耳道炎    咽鼓管炎    鼓膜穿孔    耳鼓膜创伤性破裂    颞骨骨折    听骨链中断    鼻咽良性肿瘤    鼻咽恶性肿瘤    外耳带状疱疹    气压伤
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -8259,7 +8259,7 @@ Library           String
 226行-吞咽困难+颈部肿块,推出诊断:颌下腺恶性肿瘤,咽囊,转移性肿瘤
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    吞咽困难+颈部肿块
+        ${Subjective}    Set Variable    吞咽困难,颈部肿块
         ${assert}    Create List    颌下腺恶性肿瘤    咽囊    转移性肿瘤
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -8298,7 +8298,7 @@ Library           String
 227行-疼痛+跛行,推出诊断:外伤,髋关节滑膜炎,反应性关节炎,老年性关节炎,骨髓炎,风湿热,系统性红斑狼疮,化脓性关节炎,股骨上端(非创伤性)骨骺滑脱,先天性髋脱位,少关节性幼年型关节炎,幼年型类风湿性关节炎,骨恶性肿瘤
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    疼痛+跛行
+        ${Subjective}    Set Variable    疼痛,跛行
         ${assert}    Create List    外伤    髋关节滑膜炎    反应性关节炎    老年性关节炎    骨髓炎    风湿热    系统性红斑狼疮    化脓性关节炎    股骨上端(非创伤性)骨骺滑脱    先天性髋脱位    少关节性幼年型关节炎    幼年型类风湿性关节炎    骨恶性肿瘤
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -8337,7 +8337,7 @@ Library           String
 228行-关节痛+低热,推出诊断:化脓性关节炎,创伤性关节炎,创伤后滑膜炎,风湿性多肌痛,类风湿性关节炎,赖特尔病,关节病型银屑病,髌肌腱炎,足菌肿,股骨头无菌性坏死,淋球菌性关节炎,风湿热,系统性红斑狼疮,丝虫病,莱姆病
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    关节痛+低热
+        ${Subjective}    Set Variable    关节痛,低热
         ${assert}    Create List    化脓性关节炎    创伤性关节炎    创伤后滑膜炎    风湿性多肌痛    类风湿性关节炎    赖特尔病    关节病型银屑病    髌肌腱炎    足菌肿    股骨头无菌性坏死    淋球菌性关节炎    风湿热    系统性红斑狼疮    丝虫病    莱姆病
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -8376,7 +8376,7 @@ Library           String
 229行-胸闷+踝部水肿,推出诊断:充血性心力衰竭,静脉功能不全,肥胖症,肝硬化,经前症候群,肾病,血管神经性水肿
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    胸闷+踝部水肿
+        ${Subjective}    Set Variable    胸闷,踝部水肿
         ${assert}    Create List    充血性心力衰竭    静脉功能不全    肥胖症    肝硬化    经前症候群    肾病    血管神经性水肿
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -8415,7 +8415,7 @@ Library           String
 230行-呼吸急促+踝部水肿,推出诊断:充血性心力衰竭,静脉功能不全,肥胖症,肝硬化,经前症候群,肾病,血管神经性水肿
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    呼吸急促+踝部水肿
+        ${Subjective}    Set Variable    呼吸急促,踝部水肿
         ${assert}    Create List    充血性心力衰竭    静脉功能不全    肥胖症    肝硬化    经前症候群    肾病    血管神经性水肿
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -8454,7 +8454,7 @@ Library           String
 231行-体重减轻+血尿,推出诊断:泌尿道感染,尿道炎,膀胱肿瘤,前列腺癌,肾炎,肾小球肾炎,肾结核,肾细胞癌,慢性间质性膀胱炎,多囊肾,血小板减少综合征,镰状细胞病,感染性心内膜炎,血吸虫病
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    体重减轻+血尿
+        ${Subjective}    Set Variable    体重减轻,血尿
         ${assert}    Create List    泌尿道感染    尿道炎    膀胱肿瘤    前列腺癌    肾炎    肾小球肾炎    肾结核    肾细胞癌    慢性间质性膀胱炎    多囊肾    血小板减少综合征    镰状细胞病    感染性心内膜炎    血吸虫病
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -8493,7 +8493,7 @@ Library           String
 232行-体重减轻+咳嗽,推出诊断:胃食管反流病,慢性阻塞性肺病,左心室衰竭,支气管扩张,咳嗽变异性哮喘,肺结核,肺肿瘤,间质性肺病,间质性纤维化性肺泡炎,喉恶性肿瘤
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    体重减轻+咳嗽
+        ${Subjective}    Set Variable    体重减轻,咳嗽
         ${assert}    Create List    胃食管反流病    慢性阻塞性肺病    左心室衰竭    支气管扩张    咳嗽变异性哮喘    肺结核    肺肿瘤    间质性肺病    间质性纤维化性肺泡炎    喉恶性肿瘤
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -8532,7 +8532,7 @@ Library           String
 233行-体重减轻+便血,推出诊断:上消化道出血,克罗恩病,溃疡性结肠炎,空肠憩室炎,空肠溃疡,麦克尔憩室,缺血性结肠炎,结肠憩室炎,结肠恶性肿瘤,直肠损伤,直肠息肉,小肠肿瘤,白血病,流行性出血热,钩虫病,阿米巴痢疾,血吸虫病,伤寒
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    体重减轻+便血
+        ${Subjective}    Set Variable    体重减轻,便血
         ${assert}    Create List    上消化道出血    克罗恩病    溃疡性结肠炎    空肠憩室炎    空肠溃疡    麦克尔憩室    缺血性结肠炎    结肠憩室炎    结肠恶性肿瘤    直肠损伤    直肠息肉    小肠肿瘤    白血病    流行性出血热    钩虫病    阿米巴痢疾    血吸虫病    伤寒
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -8571,7 +8571,7 @@ Library           String
 234行-体重减轻+腹胀,推出诊断:慢性胃炎,反流性食管炎,胃十二指肠溃疡,炎症性肠病,缺血性肠病,肝炎,肝脓肿,抑郁状态,焦虑状态,慢性胰腺炎,肠易激综合征,溃疡性结肠炎,克罗恩病,结核性腹膜炎,麦克尔憩室,子宫颈癌,子宫内膜癌,卵巢癌,肝细胞癌,绒毛膜癌,肠道寄生虫病,胃恶性肿瘤,结肠恶性肿瘤,肾肿瘤,膀胱肿瘤,输尿管肿瘤,结肠肿瘤,血卟啉病,铅中毒,肾上腺皮质功能减退症
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    体重减轻+腹胀
+        ${Subjective}    Set Variable    体重减轻,腹胀
         ${assert}    Create List    慢性胃炎    反流性食管炎    胃十二指肠溃疡    炎症性肠病    缺血性肠病    肝炎    肝脓肿    抑郁状态    焦虑状态    慢性胰腺炎    肠易激综合征    溃疡性结肠炎    克罗恩病    结核性腹膜炎    麦克尔憩室    子宫颈癌    子宫内膜癌    卵巢癌    肝细胞癌    绒毛膜癌    肠道寄生虫病    胃恶性肿瘤    结肠恶性肿瘤    肾肿瘤    膀胱肿瘤    输尿管肿瘤    结肠肿瘤    血卟啉病    铅中毒    肾上腺皮质功能减退症
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -8610,7 +8610,7 @@ Library           String
 235行-异常步态+肢体活动障碍,推出诊断:关节炎,脑血管意外,帕金森病,间歇性跛行,腓总神经麻痹,多发性硬化,腰骶神经根炎,马尾损伤,重症肌无力,脊髓痨,强直性肌营养不良,运动神经元病,小脑共济失调,癔症
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    异常步态+肢体活动障碍
+        ${Subjective}    Set Variable    异常步态,肢体活动障碍
         ${assert}    Create List    关节炎    脑血管意外    帕金森病    间歇性跛行    腓总神经麻痹    多发性硬化    腰骶神经根炎    马尾损伤    重症肌无力    脊髓痨    强直性肌营养不良    运动神经元病    小脑共济失调    癔症
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -8649,7 +8649,7 @@ Library           String
 236行-腰痛+血尿,推出诊断:泌尿道感染,肾结石,输尿管结石,膀胱肿瘤,肾炎,肾小球肾炎,尿道损伤,肾结核,肾细胞癌,慢性间质性膀胱炎,多囊肾,血吸虫病
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    腰痛+血尿
+        ${Subjective}    Set Variable    腰痛,血尿
         ${assert}    Create List    泌尿道感染    肾结石    输尿管结石    膀胱肿瘤    肾炎    肾小球肾炎    尿道损伤    肾结核    肾细胞癌    慢性间质性膀胱炎    多囊肾    血吸虫病
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -8688,7 +8688,7 @@ Library           String
 237行-腰痛+腹痛,推出诊断:急性胃肠炎,消化性溃疡,胆囊炎,胆石病,急性阑尾炎,急性心肌梗死,肾绞痛,肠梗阻,急性腹膜炎,消化道穿孔,肾盂肾炎,心绞痛,急性出血坏死性肠炎,肝炎,炎症性肠病,缺血性肠病,主动脉夹层,肠扭转,自发性腹膜炎,腹主动脉瘤破裂,门静脉血栓形成,腹壁挫伤,带状疱疹,胸膜炎,憩室炎,食管裂孔疝,泌尿道感染,慢性胰腺炎,肠易激综合征,溃疡性结肠炎,
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    腰痛+腹痛
+        ${Subjective}    Set Variable    腰痛,腹痛
         ${assert}    Create List    急性胃肠炎    消化性溃疡    胆囊炎    胆石病    急性阑尾炎    急性心肌梗死    肾绞痛    肠梗阻    急性腹膜炎    消化道穿孔    肾盂肾炎    心绞痛    急性出血坏死性肠炎    肝炎    炎症性肠病    缺血性肠病    主动脉夹层    肠扭转    自发性腹膜炎    腹主动脉瘤破裂    门静脉血栓形成    腹壁挫伤    带状疱疹    胸膜炎    憩室炎    食管裂孔疝    泌尿道感染    慢性胰腺炎    肠易激综合征    溃疡性结肠炎
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
@@ -8727,7 +8727,7 @@ Library           String
 238行-停经+下腹痛,推出诊断:先兆流产,稽留流产,异位妊娠,先兆早产不伴分娩,先兆临产,胎膜早破
         [Documentation]    断言:""
         ${Assessment}    Set Variable
-        ${Subjective}    Set Variable    停经+下腹痛
+        ${Subjective}    Set Variable    停经,下腹痛
         ${assert}    Create List    先兆流产    稽留流产    异位妊娠    先兆早产不伴分娩    先兆临产    胎膜早破
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
