@@ -1247,61 +1247,61 @@ Library           String
 
 
 
-消化科经典病历-4行,推出疑似诊断:消化性溃疡
-    [Documentation]    断言""
-    ${Assessment}    Set Variable
-    ${Subjective}    Set Variable    间断呕吐2个月#####患者消瘦体型，慢性病容，生命体征正常。浅表淋巴结未及。腹部可见巨大胃型，触诊张力高，振水音（+），肠鸣音正常，余未见异常。
-    #现病史值
-    ${presentHistory}    Set Variable
-    #既往史值
-    ${previousHistory}    Set Variable
-    #过敏史值
-    ${allergyHistory}    Set Variable
-    #个人史值
-    ${personalHistory}    Set Variable
-    #家族史值
-    ${familyHistory}    Set Variable
-    #月经史值
-    ${menstrualHistory}    Set Variable
-    #婚育史值
-    ${obstericalHistory}    Set Variable
-    #诊疗计划值
-    ${assessmentPlan}    Set Variable
-    #检查结果值
-    ${examinationResult}    Set Variable
-    #检验结果值
-    ${labTestResult}    Set Variable
-    #评分结果值
-    ${gradeResult}    Set Variable
-    #预防接种史值
-    ${vaccinationHistory}    Set Variable
-    #输血史值
-    ${bloodTransfusionHistory}    Set Variable
-    #生命体征值
-    ${vitalSigns}    Set Variable
-    #辅助检查
-    ${assistCheck}    Set Variable    立伟腹部平片：大量胃潴留，幽门梗阻。幽门螺杆菌（Hp）阳性。未见膈下游离气体。胃镜：十二指肠球部溃疡、球腔变形狭窄。活检病理：慢性炎症。腹部CT：幽门梗阻，十二指肠球部黏膜增厚。
-    #主要健康问题值
-    ${majorHealth}    Set Variable
-    ${assert}    Create List    消化性溃疡,
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"27","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    ...    currentDiseaseName=
-    # ...    newRecogFlag=
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    List Should Contain Sub List    ${aj[:10]}    ${assert}
+# 消化科经典病历-4行,推出疑似诊断:消化性溃疡
+#     [Documentation]    断言""
+#     ${Assessment}    Set Variable
+#     ${Subjective}    Set Variable    间断呕吐2个月#####患者消瘦体型，慢性病容，生命体征正常。浅表淋巴结未及。腹部可见巨大胃型，触诊张力高，振水音（+），肠鸣音正常，余未见异常。
+#     #现病史值
+#     ${presentHistory}    Set Variable
+#     #既往史值
+#     ${previousHistory}    Set Variable
+#     #过敏史值
+#     ${allergyHistory}    Set Variable
+#     #个人史值
+#     ${personalHistory}    Set Variable
+#     #家族史值
+#     ${familyHistory}    Set Variable
+#     #月经史值
+#     ${menstrualHistory}    Set Variable
+#     #婚育史值
+#     ${obstericalHistory}    Set Variable
+#     #诊疗计划值
+#     ${assessmentPlan}    Set Variable
+#     #检查结果值
+#     ${examinationResult}    Set Variable
+#     #检验结果值
+#     ${labTestResult}    Set Variable
+#     #评分结果值
+#     ${gradeResult}    Set Variable
+#     #预防接种史值
+#     ${vaccinationHistory}    Set Variable
+#     #输血史值
+#     ${bloodTransfusionHistory}    Set Variable
+#     #生命体征值
+#     ${vitalSigns}    Set Variable
+#     #辅助检查
+#     ${assistCheck}    Set Variable    立伟腹部平片：大量胃潴留，幽门梗阻。幽门螺杆菌（Hp）阳性。未见膈下游离气体。胃镜：十二指肠球部溃疡、球腔变形狭窄。活检病理：慢性炎症。腹部CT：幽门梗阻，十二指肠球部黏膜增厚。
+#     #主要健康问题值
+#     ${majorHealth}    Set Variable
+#     ${assert}    Create List    消化性溃疡,
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"27","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     ...    currentDiseaseName=
+#     # ...    newRecogFlag=
+#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
 
 
@@ -1414,8 +1414,9 @@ Library           String
 #     ...    examinationList=
 #     ...    newTestList=
 #     ...    operationRecord=
-#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}    ...    currentDiseaseName=
-#     ...    newRecogFlag
+#     ...    currentDiseaseName=#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]
+# }
+#     ...    newRecogFlag=
 #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
 #     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -1471,8 +1472,9 @@ Library           String
 #     ...    examinationList=
 #     ...    newTestList=
 #     ...    operationRecord=
-#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}    ...    currentDiseaseName=
-#     ...    newRecogFlag
+#     ...    currentDiseaseName=#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]
+# }
+#     ...    newRecogFlag=
 #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
 #     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -2117,8 +2119,9 @@ Library           String
 #     ...    examinationList=
 #     ...    newTestList=
 #     ...    operationRecord=
-#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}    ...    currentDiseaseName=
-#     ...    newRecogFlag
+#     ...    currentDiseaseName=#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]
+# }
+#     ...    newRecogFlag=
 #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
 #     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -2232,8 +2235,9 @@ Library           String
 #     ...    examinationList=
 #     ...    newTestList=
 #     ...    operationRecord=
-#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}    ...    currentDiseaseName=
-#     ...    newRecogFlag
+#     ...    currentDiseaseName=#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]
+# }
+#     ...    newRecogFlag=
 #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
 #     List Should Contain Sub List    ${aj}    ${assert}
 
@@ -2884,70 +2888,70 @@ Library           String
 
 
 
-神经科经典病历-10行,推出疑似诊断:偏头痛,颅内肿瘤
+# 神经科经典病历-10行,推出疑似诊断:偏头痛,颅内肿瘤
+#     [Documentation]    断言""
+#     ${Assessment}    Set Variable
+#     ${Subjective}    Set Variable    因“左侧头痛、恶心、呕吐7天，视物成双5天”就诊。#####神志清楚，对答切题，头颅五官无畸形，左眼睑下垂，左侧瞳孔直径3.5mm，对光反射减弱，右侧瞳孔直径2.5mm，对光反射灵敏，左侧眼球运动内收、上下视受限，外展正常，无眼球震颤，右侧眼球活动正常。
+#     #现病史值
+#     ${presentHistory}    Set Variable    患者7天前无诱因出现左侧搏动性头痛，以左颞、额部及眼眶为主，伴恶心、呕吐，呕吐为胃内容物，无先兆症状及发热、鼻塞、流涕、流泪、畏光等症状，自服止痛片无好转。2天后感眼花、视物成双、自觉左眼睑上抬无力。病程中无肢体乏力、步态不稳，不伴头晕、耳鸣、听力下降、吞咽困难、饮水呛咳、言语含糊及胸闷、气促等症状。患者诉近4年来有类似发作3次，每次持续约20余天自行恢复，不遗留任何症状。无毒物接触史，无烟酒嗜好，家族中无偏头痛患者及慢性遗传性疾病病史。
+#     #既往史值
+#     ${previousHistory}    Set Variable
+#     #过敏史值
+#     ${allergyHistory}    Set Variable
+#     #个人史值
+#     ${personalHistory}    Set Variable
+#     #家族史值
+#     ${familyHistory}    Set Variable
+#     #月经史值
+#     ${menstrualHistory}    Set Variable
+#     #婚育史值
+#     ${obstericalHistory}    Set Variable
+#     #诊疗计划值
+#     ${assessmentPlan}    Set Variable
+#     #检查结果值
+#     ${examinationResult}    Set Variable
+#     #检验结果值
+#     ${labTestResult}    Set Variable
+#     #评分结果值
+#     ${gradeResult}    Set Variable
+#     #预防接种史值
+#     ${vaccinationHistory}    Set Variable
+#     #输血史值
+#     ${bloodTransfusionHistory}    Set Variable
+#     #生命体征值
+#     ${vitalSigns}    Set Variable
+#     #辅助检查
+#     ${assistCheck}    Set Variable    头颅MRI平扫+增强扫描显示两侧海绵窦不对称，左侧海绵窦扩大，局部可见块影病变，T1相呈等信号，T2相呈稍低信号；增强扫描显示左侧海绵窦区肿块病灶明显强化；头颅MRA提示：左侧颈内动脉海绵窦段狭窄、粗糙。
+#     #主要健康问题值
+#     ${majorHealth}    Set Variable
+#     ${assert}    Create List    偏头痛    颅内肿瘤
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"0","age":"35","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "36.7","heartRate": "","lowBldPress": "65","highBldPress": "105"}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     ...    currentDiseaseName=
+#     # ...    newRecogFlag=
+#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     List Should Contain Sub List    ${aj[:10]}    ${assert}
+
+
+
+神经科经典病历-11行,推出疑似诊断:偏头痛
     [Documentation]    断言""
     ${Assessment}    Set Variable
-    ${Subjective}    Set Variable    因“左侧头痛、恶心、呕吐7天，视物成双5天”就诊。#####神志清楚，对答切题，头颅五官无畸形，左眼睑下垂，左侧瞳孔直径3.5mm，对光反射减弱，右侧瞳孔直径2.5mm，对光反射灵敏，左侧眼球运动内收、上下视受限，外展正常，无眼球震颤，右侧眼球活动正常。
+    ${Subjective}    Set Variable    反复头痛3年#####心脏各瓣膜区未闻及病理性杂音。神经系统检查：神清，言语清晰，眼球各方向活动自如，瞳孔等大正圆，脑神经未见异常，四肢肌力5 级，肌张力适中。双侧膝反射、踝反射对称存在，双侧Babinski 征阴性，颈软。
     #现病史值
-    ${presentHistory}    Set Variable    患者7天前无诱因出现左侧搏动性头痛，以左颞、额部及眼眶为主，伴恶心、呕吐，呕吐为胃内容物，无先兆症状及发热、鼻塞、流涕、流泪、畏光等症状，自服止痛片无好转。2天后感眼花、视物成双、自觉左眼睑上抬无力。病程中无肢体乏力、步态不稳，不伴头晕、耳鸣、听力下降、吞咽困难、饮水呛咳、言语含糊及胸闷、气促等症状。患者诉近4年来有类似发作3次，每次持续约20余天自行恢复，不遗留任何症状。无毒物接触史，无烟酒嗜好，家族中无偏头痛患者及慢性遗传性疾病病史。
-    #既往史值
-    ${previousHistory}    Set Variable
-    #过敏史值
-    ${allergyHistory}    Set Variable
-    #个人史值
-    ${personalHistory}    Set Variable
-    #家族史值
-    ${familyHistory}    Set Variable
-    #月经史值
-    ${menstrualHistory}    Set Variable
-    #婚育史值
-    ${obstericalHistory}    Set Variable
-    #诊疗计划值
-    ${assessmentPlan}    Set Variable
-    #检查结果值
-    ${examinationResult}    Set Variable
-    #检验结果值
-    ${labTestResult}    Set Variable
-    #评分结果值
-    ${gradeResult}    Set Variable
-    #预防接种史值
-    ${vaccinationHistory}    Set Variable
-    #输血史值
-    ${bloodTransfusionHistory}    Set Variable
-    #生命体征值
-    ${vitalSigns}    Set Variable
-    #辅助检查
-    ${assistCheck}    Set Variable    头颅MRI平扫+增强扫描显示两侧海绵窦不对称，左侧海绵窦扩大，局部可见块影病变，T1相呈等信号，T2相呈稍低信号；增强扫描显示左侧海绵窦区肿块病灶明显强化；头颅MRA提示：左侧颈内动脉海绵窦段狭窄、粗糙。
-    #主要健康问题值
-    ${majorHealth}    Set Variable
-    ${assert}    Create List    偏头痛    颅内肿瘤
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"35","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "36.7","heartRate": "","lowBldPress": "65","highBldPress": "105"}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    ...    currentDiseaseName=
-    # ...    newRecogFlag=
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    List Should Contain Sub List    ${aj[:10]}    ${assert}
-
-
-
-神经科经典病历-11行,推出疑似诊断:紧张性头痛,偏头痛
-    [Documentation]    断言""
-    ${Assessment}    Set Variable
-    ${Subjective}    Set Variable    “反复头痛3年”#####心脏各瓣膜区未闻及病理性杂音。神经系统检查：神清，言语清晰，眼球各方向活动自如，瞳孔等大正圆，脑神经未见异常，四肢肌力5 级，肌张力适中。双侧膝反射、踝反射对称存在，双侧Babinski 征阴性，颈软。
-    #现病史值
-    ${presentHistory}    Set Variable       个性敏感，无高血压、糖尿病史，家族中无类似疾病史。   “反复头痛3年”#####心脏各瓣膜区未闻及病理性杂音。神经系统检查：神清，言语清晰，眼球各方向活动自如，瞳孔等大正圆，脑神经未见异常，四肢肌力5 级，肌张力适中。双侧膝反射、踝反射对称存在，双侧Babinski 征阴性，颈软。  患者3年前出现头痛，为双枕部持续性钝痛，如带子紧束头部或呈头周紧箍感、压迫感或沉重感，偶有恶心，不伴呕吐、畏光或畏声、视力障碍等，几乎每日均有不适，曾行头部CT 检查未发现异常。头痛重时服用对乙酰氨基酚，头痛略减轻。体位改变不加重，自觉生气、紧张等情绪变化时明显，注意力转移可减轻。曾就诊于北京某大医院，诊断枕大神经痛，采用风池穴局部封闭，症状稍有减轻。头痛频繁发作，但日常生活不受影响。10天前自觉工作压力大症状加重，行头部MRI 检查未见异常，EEG 正常。为明确诊治，以“头痛待查”入院。病来有头晕、心烦、失眠、焦虑等症状，同时颈肩背部肌肉有僵硬感，捏压时肌肉感觉舒适。无发热、体重减轻、复视或耳鸣，无抽搐发作，无意识障碍，尿便正常。
+    ${presentHistory}    Set Variable    个性敏感，无高血压、糖尿病史，家族中无类似疾病史。反复头痛3年#####心脏各瓣膜区未闻及病理性杂音。神经系统检查：神清，言语清晰，眼球各方向活动自如，瞳孔等大正圆，脑神经未见异常，四肢肌力5 级，肌张力适中。双侧膝反射、踝反射对称存在，双侧Babinski 征阴性，颈软。  患者3年前出现头痛，为双枕部持续性钝痛，如带子紧束头部或呈头周紧箍感、压迫感或沉重感，偶有恶心，不伴呕吐、畏光或畏声、视力障碍等，几乎每日均有不适，曾行头部CT 检查未发现异常。头痛重时服用对乙酰氨基酚，头痛略减轻。体位改变不加重，自觉生气、紧张等情绪变化时明显，注意力转移可减轻。曾就诊于北京某大医院，诊断枕大神经痛，采用风池穴局部封闭，症状稍有减轻。头痛频繁发作，但日常生活不受影响。10天前自觉工作压力大症状加重，行头部MRI 检查未见异常，EEG 正常。为明确诊治，以头痛待查入院。病来有头晕、心烦、失眠、焦虑等症状，同时颈肩背部肌肉有僵硬感，捏压时肌肉感觉舒适。无发热、体重减轻、复视或耳鸣，无抽搐发作，无意识障碍，尿便正常。
     #既往史值
     ${previousHistory}    Set Variable    个性敏感，无高血压、糖尿病史，家族中无类似疾病史。
     #过敏史值
@@ -2978,7 +2982,7 @@ Library           String
     ${assistCheck}    Set Variable    头颅MRI、CT 检查和EEG 检查未见异常
     #主要健康问题值
     ${majorHealth}    Set Variable
-    ${assert}    Create List    紧张性头痛    偏头痛
+    ${assert}    Create List    偏头痛
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
@@ -3524,58 +3528,58 @@ Library           String
 
 
 
-神经科经典病历-21行,推出疑似诊断:脑梗死,高血压,2型糖尿病
-    [Documentation]    断言""
-    ${Assessment}    Set Variable
-    ${Subjective}    Set Variable    头晕，视物模糊，有头重脚轻感，行走不稳3天。#####神经系统：神清语利，双瞳孔等大等圆，对光反射灵敏，眼球活动自如，双眼右侧同向性偏盲，双侧额纹、唇沟对称，伸舌居中，软腭上提对称，咽反射（＋），四肢肌力、肌张力正常，四肢腱反射（＋），双手轮替动作协调，指鼻试验准确，双侧肢体深浅感觉对称存在，指绳试验不能，双侧巴氏征。
-    #现病史值
-    ${presentHistory}    Set Variable    患者于3天前吃午饭时出现双眼视物不清，眼前发花，自觉有视物不真实感，伴有头晕、头闷、憋胀感，伴头重脚轻，无视物旋转、恶心、呕吐、言语不清、意识障碍、肢体活动不灵等症状，当时未在意，2天前起床后自觉视物模糊加重，向左侧看比向右侧看清晰，有行走不稳感，就诊社区医院，考虑结膜炎，对症治疗，症状不能缓解。1天前就诊于我院急诊，头部CT检查：左侧顶枕区低密度影，为进一步诊治，入我院神经内科治疗。
-    #既往史值
-    ${previousHistory}    Set Variable    既往高血压病史10年，最高达180／110mmHg，规律服用吲达帕胺（寿比山）一天一次，一次2.5mg，血压控制不佳。
-    #过敏史值
-    ${allergyHistory}    Set Variable
-    #个人史值
-    ${personalHistory}    Set Variable    吸烟30年，40支／日，饮酒30年，白酒5两／日。
-    #家族史值
-    ${familyHistory}    Set Variable
-    #月经史值
-    ${menstrualHistory}    Set Variable
-    #婚育史值
-    ${obstericalHistory}    Set Variable
-    #诊疗计划值
-    ${assessmentPlan}    Set Variable
-    #检查结果值
-    ${examinationResult}    Set Variable
-    #检验结果值
-    ${labTestResult}    Set Variable
-    #评分结果值
-    ${gradeResult}    Set Variable
-    #预防接种史值
-    ${vaccinationHistory}    Set Variable
-    #输血史值
-    ${bloodTransfusionHistory}    Set Variable
-    #生命体征值
-    ${vitalSigns}    Set Variable
-    #辅助检查
-    ${assistCheck}    Set Variable    尿常规：葡萄糖（＋＋＋＋）；OGTT试验：空腹血糖10.44mmol／L↑，餐后1小时14.72mmol／L↑，餐后2小时血糖12.20mmol／L↑，餐后3小时血糖11.16mmol／L↑。
-    #主要健康问题值
-    ${majorHealth}    Set Variable
-    ${assert}    Create List    脑梗死    高血压    2型糖尿病
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"53","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "36.2","heartRate": "82","lowBldPress": "87","highBldPress": "148"}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    ...    currentDiseaseName=
-    # ...    newRecogFlag=
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    List Should Contain Sub List    ${aj[:10]}    ${assert}
+# 神经科经典病历-21行,推出疑似诊断:脑梗死,高血压,2型糖尿病
+#     [Documentation]    断言""
+#     ${Assessment}    Set Variable
+#     ${Subjective}    Set Variable    头晕，视物模糊，有头重脚轻感，行走不稳3天。#####神经系统：神清语利，双瞳孔等大等圆，对光反射灵敏，眼球活动自如，双眼右侧同向性偏盲，双侧额纹、唇沟对称，伸舌居中，软腭上提对称，咽反射（＋），四肢肌力、肌张力正常，四肢腱反射（＋），双手轮替动作协调，指鼻试验准确，双侧肢体深浅感觉对称存在，指绳试验不能，双侧巴氏征。
+#     #现病史值
+#     ${presentHistory}    Set Variable    患者于3天前吃午饭时出现双眼视物不清，眼前发花，自觉有视物不真实感，伴有头晕、头闷、憋胀感，伴头重脚轻，无视物旋转、恶心、呕吐、言语不清、意识障碍、肢体活动不灵等症状，当时未在意，2天前起床后自觉视物模糊加重，向左侧看比向右侧看清晰，有行走不稳感，就诊社区医院，考虑结膜炎，对症治疗，症状不能缓解。1天前就诊于我院急诊，头部CT检查：左侧顶枕区低密度影，为进一步诊治，入我院神经内科治疗。
+#     #既往史值
+#     ${previousHistory}    Set Variable    既往高血压病史10年，最高达180／110mmHg，规律服用吲达帕胺（寿比山）一天一次，一次2.5mg，血压控制不佳。
+#     #过敏史值
+#     ${allergyHistory}    Set Variable
+#     #个人史值
+#     ${personalHistory}    Set Variable    吸烟30年，40支／日，饮酒30年，白酒5两／日。
+#     #家族史值
+#     ${familyHistory}    Set Variable
+#     #月经史值
+#     ${menstrualHistory}    Set Variable
+#     #婚育史值
+#     ${obstericalHistory}    Set Variable
+#     #诊疗计划值
+#     ${assessmentPlan}    Set Variable
+#     #检查结果值
+#     ${examinationResult}    Set Variable
+#     #检验结果值
+#     ${labTestResult}    Set Variable
+#     #评分结果值
+#     ${gradeResult}    Set Variable
+#     #预防接种史值
+#     ${vaccinationHistory}    Set Variable
+#     #输血史值
+#     ${bloodTransfusionHistory}    Set Variable
+#     #生命体征值
+#     ${vitalSigns}    Set Variable
+#     #辅助检查
+#     ${assistCheck}    Set Variable    尿常规：葡萄糖（＋＋＋＋）；OGTT试验：空腹血糖10.44mmol／L↑，餐后1小时14.72mmol／L↑，餐后2小时血糖12.20mmol／L↑，餐后3小时血糖11.16mmol／L↑。
+#     #主要健康问题值
+#     ${majorHealth}    Set Variable
+#     ${assert}    Create List    脑梗死    高血压    2型糖尿病
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"53","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "36.2","heartRate": "82","lowBldPress": "87","highBldPress": "148"}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     ...    currentDiseaseName=
+#     # ...    newRecogFlag=
+#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     List Should Contain Sub List    ${aj[:10]}    ${assert}
