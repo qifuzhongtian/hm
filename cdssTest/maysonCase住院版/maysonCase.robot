@@ -3475,7 +3475,7 @@ Library           String
 # #     #####疑似诊断
 # #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
 # #     Should Contain    ${aj[:5]}    低血糖症
-
+#####
 # 小儿低血糖-病史新增:血糖20mg/dl+诊断：低血糖症，检查解读:新生儿低血糖
 #     [Documentation]    断言:""
 #     # ${timestamp}    Get Time    epoch
