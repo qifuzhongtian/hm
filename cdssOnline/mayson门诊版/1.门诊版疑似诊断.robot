@@ -27,34 +27,7 @@ Library           RequestsLibrary
 
 *** Test Cases ***
 
-# #######女  28  岁 因便秘1年余就诊，主诉大便由平常每日1次渐至每周1次，且伴有体重增加（约10kg），纳差，腹胀，易疲劳等症，病人曾在多家医院诊治，被诊断为慢性结肠炎，功能性消化不良等，但治疗未见好转 甲状腺功能减退症
-# 市场部全科版演示case-2行
-#     [Documentation]    主诉:女 28  岁 因便秘1年余就诊，主诉大便由平常每日1次渐至每周1次，且伴有体重增加（约10kg），纳差，腹胀，易疲劳等症，病人曾在多家医院诊治，被诊断为慢性结肠炎，功能性消化不良等，但治疗未见好转 甲状腺功能减退症
-#     ${getRes}    智能诊断4.0
-#     ...    userGuid=    doctorGuid=    serialNumber=    hospitalGuid=
-#     ...    symptom=因便秘1年余就诊，主诉大便由平常每日1次渐至每周1次，且伴有体重增加（约10kg），纳差，腹胀，易疲劳等症，病人曾在多家医院诊治，被诊断为慢性结肠炎，功能性消化不良等，但治疗未见好转
-#     ...    previousHistory=    personalHistory=    allergyHistory=    familyHistory=
-#     ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
-#     ...    heartRate=    age=28    ageType=岁    confirmDiagnosis=
-#     ...    confirmDiagnosisMap={"icdCode": "","key": "","value": "荨麻疹"}
-#     ...    presentHistory=
-#     ...    hasDetail=    symptomClickDiseaseId=
-#     #疑似诊断
-#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['suspectedDiseases']]
-#     #检查解读
-#     # ${aj}    Evaluate    [aj['examName'] for aj in $getRes['body']['regimenInfo']['examResponseList']]
-#     #治疗方案
-#     # ${aj}    Evaluate    [aj['examName'] for aj in $getRes['body']['regimenInfo']['itemInfoResponseList']]
-#     #评估表
-#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['maysonInfo']['illnessAssessList']]
-#     #检查解读
-#     # ${aj}    Evaluate    [aj['diagnosticPoint'] for aj in $getRes['body']['maysonInfo']['examinationInterpretList']]
-#     Should Contain    ${aj[:10]}    甲状腺功能减退症3
 
-
-###低血钠,血清钠146mmol/L-低钠血症
-#粘连性中耳炎 ,编辑中
-#
 
 
 疑似诊断
@@ -79,7 +52,6 @@ Library           RequestsLibrary
     #检查解读
     # ${aj}    Evaluate    [aj['diagnosticPoint'] for aj in $getRes['body']['maysonInfo']['examinationInterpretList']]
     Should Contain    ${aj}    荨麻疹
-
 
 
 # 推荐检查
@@ -182,5 +154,28 @@ Library           RequestsLibrary
 
 
 
+
+有确诊诊断,但没有推出疑似诊断,常见诊断中确诊诊断放到首位
+    [Documentation]
+    ${getRes}    智能诊断4.0
+    ...    userGuid=    doctorGuid=    serialNumber=    hospitalGuid=
+    ...    symptom=高同型半胱氨酸血症
+    ...    previousHistory=    personalHistory=    allergyHistory=    familyHistory=
+    ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
+    ...    heartRate=    age=    ageType=岁    confirmDiagnosis=
+    ...    confirmDiagnosisMap={"icdCode": "","key": "","value": "高同型半胱氨酸血症"}
+    ...    presentHistory=
+    ...    hasDetail=    symptomClickDiseaseId=
+    #疑似诊断
+    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['suspectedDiseases']]
+    #检查解读
+    # ${aj}    Evaluate    [aj['examName'] for aj in $getRes['body']['regimenInfo']['examResponseList']]
+    #治疗方案
+    # ${aj}    Evaluate    [aj['examName'] for aj in $getRes['body']['regimenInfo']['itemInfoResponseList']]
+    #评估表
+    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['maysonInfo']['illnessAssessList']]
+    #检查解读
+    # ${aj}    Evaluate    [aj['diagnosticPoint'] for aj in $getRes['body']['maysonInfo']['examinationInterpretList']]
+    Should Contain    ${aj}    高同型半胱氨酸血症
 
 
