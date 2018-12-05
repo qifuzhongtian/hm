@@ -96,10 +96,11 @@ ${base_url_ame}     http://10.46.74.95:8092
     [Return]    ${responsedata}
 
 查询药品与诊断
-    [Arguments]    ${name}
+    [Arguments]    ${hasAssessType}    ${name}
+    ${true}    Set Variable    ${true}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id_safe_medication}
     Create Session    api    ${base_url}    ${dict}
-    ${data}    Create Dictionary    name=${name}
+    ${data}    Create Dictionary    hasAssessType=${hasAssessType}    name=${name}
     ${addr}    Post Request    api    v_2_0/search/all    data=${data}
     ${responsedata}    To Json    ${addr.content}
     # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
@@ -1033,7 +1034,7 @@ ame管理_文档列表查询
 
 用药推荐
     [Arguments]    ${userGuid}    ${serialNumber}    ${patientInfo}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${mayson_url}    ${dict}
     ${patientInfo}    Evaluate    dict(${patientInfo})
     ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    patientInfo=${patientInfo}
@@ -1127,7 +1128,7 @@ mayson默认推荐搜索
     ...    ${operationRecord}
     ...    ${prescriptions}
     ...    ${currentDiseaseName}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${base_url}    ${dict}
     Create Session    api    ${mayson_url}    ${dict}
     ${patientInfo}    Evaluate    dict(${patientInfo})
@@ -1160,7 +1161,7 @@ mayson默认推荐搜索
     ...    ${deleteProgressNoteList}
     ...    ${labTestList}
     ...    ${examinationList}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${mayson_url}    ${dict}
     ${patientInfo}    Evaluate    dict(${patientInfo})
     ${physicalSign}    Evaluate    dict(${physicalSign})
@@ -1191,8 +1192,8 @@ mayson默认推荐搜索
     ...    ${historyItemList}
     ...    ${source}
     ...    ${resultContent}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
-    Create Session    api    ${base_url}    ${dict}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${mayson_url}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
     ${historyItemList}    Evaluate    [${historyItemList}]
     ${data}    Create Dictionary    recordId=${recordId}    assessId=${assessId}    assessName=${assessName}    patientGuid=${patientGuid}
@@ -1208,8 +1209,8 @@ mayson默认推荐搜索
 
 根据评估历史记录id查询评估记录
     [Arguments]    ${Id}
-    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
-    # Create Session    api    ${base_url}    ${dict}
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${mayson_url}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    Id=${Id}
     ${addr}    Post Request    api    /mayson/v_1_0/assesshistory/findhistorybyid    data=${data}
@@ -1222,8 +1223,8 @@ mayson默认推荐搜索
 
 评估表历史记录
     [Arguments]    ${patientGuid}    ${serialNumber}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
-    Create Session    api    ${base_url}    ${dict}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${mayson_url}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    patientGuid=${patientGuid}    serialNumber=${serialNumber}
     ${addr}    Post Request    api    /mayson/v_1_0/assesshistory/findhistorylist    data=${data}
@@ -1235,7 +1236,7 @@ mayson默认推荐搜索
 
 搜索文献
     [Arguments]    ${name}    ${diseaseId}    ${pageSize}    ${currentPage}    ${startDate}    ${endDate}    ${departmentId}    ${countryId}    ${orgName}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${doc_url}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    name=${name}    diseaseId=${diseaseId}    pageSize=${pageSize}    currentPage=${currentPage}    startDate=${startDate}    endDate=${endDate}    departmentId=${departmentId}    countryId=${countryId}    orgName=${orgName}
@@ -1248,7 +1249,7 @@ mayson默认推荐搜索
 
 最新文献
     [Arguments]
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${doc_url}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary
@@ -1260,7 +1261,7 @@ mayson默认推荐搜索
 
 文献详情
     [Arguments]    ${documentId}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${doc_url}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    documentId=${documentId}
@@ -1271,7 +1272,7 @@ mayson默认推荐搜索
 
 文献标签
     [Arguments]
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${doc_url}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary
@@ -1284,7 +1285,7 @@ mayson默认推荐搜索
 
 文献下载
     [Arguments]    ${fileName}    ${filePath}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${doc_url}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
     ${params}    Create Dictionary    fileName=${fileName}    filePath=${filePath}
@@ -1294,7 +1295,7 @@ mayson默认推荐搜索
 
 申请文献
     [Arguments]    ${documentName}    ${applyOrg}    ${applySection}    ${applyMessage}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${doc_url}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    documentName=${documentName}    applyOrg=${applyOrg}    applySection=${applySection}    applyMessage=${applyMessage}
@@ -1305,7 +1306,7 @@ mayson默认推荐搜索
 
 文献诊断字典
     [Arguments]
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${doc_url}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary
@@ -1316,7 +1317,7 @@ mayson默认推荐搜索
 
 文献申请列表
     [Arguments]    ${pageSize}    ${currentPage}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${doc_url}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    pageSize=${pageSize}    currentPage=${currentPage}
@@ -1330,7 +1331,7 @@ mayson默认推荐搜索
 
 修改文献热度
     [Arguments]    ${id}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${doc_url}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    id=${id}
@@ -1343,7 +1344,7 @@ mayson默认推荐搜索
 
 mayson默认推荐
     [Arguments]    ${doctorGuid}    ${department}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${mayson_url}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    doctorGuid=${doctorGuid}    department=${department}

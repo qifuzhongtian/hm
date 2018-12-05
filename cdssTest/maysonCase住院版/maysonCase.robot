@@ -20095,12 +20095,12 @@ Library           String
     # ${timestamp}    Get Time    epoch
     ${assert}    Create List    血电解质全套    乳酸脱氢酶测定    血常规    胸部X线(正侧位)    肝功能    肾功能    心电图    随机血糖    脑电图    抗癫痫药物水平监测    毒理学检测    滥用药物筛查    血乳酸    肌酸激酶
     ${Assessment}    Set Variable    癫痫持续状态
-    ${Subjective}    Set Variable    男，30岁，强直-痉挛反复发作2年，突发 意识丧失，四肢抽搐，脑电图示: 尖波、棘波、尖-慢波、棘-慢波等癫痫性波型,癫痫发作持续1小时
+    ${Subjective}    Set Variable    男，18岁，强直-痉挛反复发作2年，突发 意识丧失，四肢抽搐，脑电图示: 尖波、棘波、尖-慢波、棘-慢波等癫痫性波型,癫痫发作持续1小时
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
     ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"30","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+    ...    patientInfo={"gender":"1","age":"18","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -20204,12 +20204,12 @@ Library           String
     # ${timestamp}    Get Time    epoch
     ${assert}    Create List    血电解质全套    乳酸脱氢酶测定    血常规    胸部X线(正侧位)    肝功能    肾功能    头颅CT平扫    心电图    随机血糖    动脉血气分析    脑电图    腰椎穿刺脑脊液检查    抗癫痫药物水平监测    毒理学检测    滥用药物筛查    血乳酸    肌酸激酶
     ${Assessment}    Set Variable    癫痫持续状态
-    ${Subjective}    Set Variable    男，30岁，强直-痉挛反复发作2年，突发 意识丧失，四肢抽搐，脑电图示: 尖波、棘波、尖-慢波、棘-慢波等癫痫性波型,癫痫发作持续1小时,非惊厥性癫痫持续状态
+    ${Subjective}    Set Variable    男，18岁，强直-痉挛反复发作2年，突发 意识丧失，四肢抽搐，脑电图示: 尖波、棘波、尖-慢波、棘-慢波等癫痫性波型,癫痫发作持续1小时,非惊厥性癫痫持续状态
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
     ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"30","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+    ...    patientInfo={"gender":"1","age":"18","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
