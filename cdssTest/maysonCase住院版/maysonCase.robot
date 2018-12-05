@@ -17,204 +17,169 @@ Library           String
 # ----bodyTempr   Double  否   体温
 # ----heartRate   Integer 否   心率
 # ----lowBldPress Double  否   舒张压-低压
+
 # ----highBldPress    Double  否   收缩压-高压
 *** Variables ***
-# ${timestamp}${random}    Get Time    epoch
+# ${timestamp}${random}    Get Time    examinationpoch
 
 *** Test Cases ***
 
-############上消化道出血#############
+# ############上消化道出血#############
 
-上消化道出血-病史:男性，45岁，腹痛、腹泻、黑便2天、呕血3次,推荐疑似诊断:消化道出血
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    # ${assert}    Create List
-    ${Assessment}    Set Variable
-    ${Subjective}    Set Variable    男性，45岁，腹痛、腹泻、黑便2天、呕血3次
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    Should Contain    ${aj[:5]}    消化道出血
-    # Lists Should Be Equal    ${aj}    ${assert}
-
-
-
-上消化道出血-病史:手动输入诊断：上消化道出血,推荐检查:血常规、凝血酶原时间国际标准化比值(PT/ INR)、肝功能、碱性磷酸酶、总胆红素测 定、血清白蛋白(ALB)、肾功能、肌酐测 定、食管胃十二指肠镜检查
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    食管胃十二指肠镜检查    肾功能    肌酐测定    碱性磷酸酶    总胆红素测定    凝血酶原时间国际标准化比值(PT/INR)    血清白蛋白（ALB）    血常规    肝功能
-    ${Assessment}    Set Variable    上消化道出血
-    ${Subjective}    Set Variable    男性，45岁，腹痛、腹泻、黑便2天、呕血3次
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    ####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    消化道出血
-    List Should Contain Sub List    ${aj}    ${assert}
-
-
-
-
-上消化道出血-病史:手动输入诊断：上消化道出血,推荐评估表:上消化道出血GlasgowBlatchford评分(GBS)
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    # ${assert}    Create List    血常规
-    ${Assessment}    Set Variable    上消化道出血
-    ${Subjective}    Set Variable    男性，45岁，腹痛、腹泻、黑便2天、呕血3次
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    ####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    Should Contain    ${aj}    上消化道出血GlasgowBlatchford评分(GBS)
-    # Lists Should Be Equal    ${aj}    ${assert}
-
-
-
-
-上消化道出血-病史:手动输入诊断：上消化道出血,推荐治疗方案:药物初始治疗
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    # ${assert}    Create List
-    ${Assessment}    Set Variable    上消化道出血
-    ${Subjective}    Set Variable    男性，45岁，腹痛、腹泻、黑便2天、呕血3次
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    ####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    Should Contain    ${aj}    药物初始治疗
-    # Lists Should Be Equal    ${aj}    ${assert}
-
-
-
-上消化道出血-病史:手病历内容中输入评估表结果：Glasgow-Blatchford评分2,推荐检查增加:CT肠道造影
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    食管胃十二指肠镜检查    CT肠道造影    肾功能    肌酐测定    碱性磷酸酶    总胆红素测定    凝血酶原时间国际标准化比值(PT/INR)    血清白蛋白（ALB）    血常规    肝功能
-    ${Assessment}    Set Variable    上消化道出血
-    ${Subjective}    Set Variable    男性，45岁，腹痛、腹泻、黑便2天、呕血3次,Glasgow-Blatchford评分2
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    ####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj}    CT肠道造影
-    List Should Contain Sub List    ${aj}    ${assert}
-
-
-# 上消化道出血-病史:手病历内容中输入评估表结果：Glasgow-Blatchford评分2,推荐治疗增加：ICU治疗、提前静脉注射红霉素
+# 上消化道出血-病史:男性，45岁，腹痛、腹泻、黑便2天、呕血3次,推荐疑似诊断:消化道出血
 #     [Documentation]    断言:""
 #     # ${timestamp}    Get Time    epoch
-#     ${assert}    Create List    药物初始治疗    ICU治疗    提前静脉注射红霉素
+#     # ${assert}    Create List
+#     ${Assessment}    Set Variable
+#     ${Subjective}    Set Variable    男性，45岁，腹痛、腹泻、黑便2天、呕血3次
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     Should Contain    ${aj[:5]}    消化道出血
+#     # Lists Should Be Equal    ${aj}    ${assert}
+
+
+
+# 上消化道出血-病史:手动输入诊断：上消化道出血,推荐检查:血常规、凝血酶原时间国际标准化比值(PT/ INR)、肝功能、碱性磷酸酶、总胆红素测 定、血清白蛋白(ALB)、肾功能、肌酐测 定、食管胃十二指肠镜检查
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    食管胃十二指肠镜检查    肾功能    肌酐测定    碱性磷酸酶    总胆红素测定    凝血酶原时间国际标准化比值(PT/INR)    血清白蛋白（ALB）    血常规    肝功能
+#     ${Assessment}    Set Variable    上消化道出血
+#     ${Subjective}    Set Variable    男性，45岁，腹痛、腹泻、黑便2天、呕血3次
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     ####疑似诊断
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     # Should Contain    ${aj[:5]}    消化道出血
+#     List Should Contain Sub List    ${aj}    ${assert}
+
+
+
+
+# 上消化道出血-病史:手动输入诊断：上消化道出血,推荐评估表:上消化道出血GlasgowBlatchford评分(GBS)
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     # ${assert}    Create List    血常规
+#     ${Assessment}    Set Variable    上消化道出血
+#     ${Subjective}    Set Variable    男性，45岁，腹痛、腹泻、黑便2天、呕血3次
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     ####疑似诊断
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     Should Contain    ${aj}    上消化道出血GlasgowBlatchford评分(GBS)
+#     # Lists Should Be Equal    ${aj}    ${assert}
+
+
+
+
+# 上消化道出血-病史:手动输入诊断：上消化道出血,推荐治疗方案:药物初始治疗
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     # ${assert}    Create List
+#     ${Assessment}    Set Variable    上消化道出血
+#     ${Subjective}    Set Variable    男性，45岁，腹痛、腹泻、黑便2天、呕血3次
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     ####疑似诊断
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     Should Contain    ${aj}    药物初始治疗
+#     # Lists Should Be Equal    ${aj}    ${assert}
+
+
+
+# 上消化道出血-病史:手病历内容中输入评估表结果：Glasgow-Blatchford评分2,推荐检查增加:CT肠道造影
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    食管胃十二指肠镜检查    CT肠道造影    肾功能    肌酐测定    碱性磷酸酶    总胆红素测定    凝血酶原时间国际标准化比值(PT/INR)    血清白蛋白（ALB）    血常规    肝功能
 #     ${Assessment}    Set Variable    上消化道出血
 #     ${Subjective}    Set Variable    男性，45岁，腹痛、腹泻、黑便2天、呕血3次,Glasgow-Blatchford评分2
 #     [Setup]    Run Keywords    获取时间戳
@@ -231,9 +196,163 @@ Library           String
 #     ...    newTestList=
 #     ...    operationRecord=
 #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=    ...    newRecogFlag=1
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     ####疑似诊断
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     # Should Contain    ${aj}    CT肠道造影
+#     List Should Contain Sub List    ${aj}    ${assert}
+
+
+# # 上消化道出血-病史:手病历内容中输入评估表结果：Glasgow-Blatchford评分2,推荐治疗增加：ICU治疗、提前静脉注射红霉素
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     ${assert}    Create List    药物初始治疗    ICU治疗    提前静脉注射红霉素
+# #     ${Assessment}    Set Variable    上消化道出血
+# #     ${Subjective}    Set Variable    男性，45岁，腹痛、腹泻、黑便2天、呕血3次,Glasgow-Blatchford评分2
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=    ...    newRecogFlag=1
+# #     ...    operationRecord=
+# #     ...    prescriptions=
+# #     #####推荐检查评估表
+# #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     #####推荐检查
+# #     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     ######检查解读
+# #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #####推荐治疗方案
+# #     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     ####疑似诊断
+# #     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     # Should Contain    ${aj}    CT肠道造影
+# #     List Should Contain Sub List    ${aj}    ${assert}
+
+
+
+
+
+
+
+
+
+
+# ############下消化道出血#############
+
+# 下消化道出血-病史:男性，45岁，腹痛、腹泻、黑便2天、呕血3次,推荐疑似诊断:消化道出血
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     # ${assert}    Create List
+#     ${Assessment}    Set Variable
+#     ${Subjective}    Set Variable    男，45岁，反复无痛性便血3月，伴头晕乏力1小时，1小时前突感腹部不适、便急，随即解出大量（约300ml）鲜红混有血凝块的大便，伴头晕乏力，无呕血、恶心和呕吐
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
 #     ...    operationRecord=
-#     ...    prescriptions=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     Should Contain    ${aj[:5]}    消化道出血
+#     # Lists Should Be Equal    ${aj}    ${assert}
+
+# 下消化道出血-病史:手动输入诊断：下消化道出血,增加病例内容：大量便血,推荐检查:血常规、粪便常规、粪便隐血试验(OB试 验)、凝血功能监测、尿常规、肝功能、肾 功能、输血前四项、直肠指检、心电图、腹 部B超、胃肠X线钡餐检查、小肠镜检查、全结肠镜检查
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    全结肠镜检查    小肠镜检查    胃肠X线钡餐检查    尿常规    粪便常规    粪便隐血试验（OB试验）    血常规    肝功能    输血前四项    肾功能    直肠指检    凝血功能监测    心电图    腹部B超
+#     ${Assessment}    Set Variable    下消化道出血
+#     ${Subjective}    Set Variable    男，45岁，反复无痛性便血3月，伴头晕乏力1小时，1小时前突感腹部不适、便急，随即解出大量（约300ml）鲜红混有血凝块的大便，伴头晕乏力，无呕血、恶心和呕吐,大量便血
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     # Should Contain    ${aj[:5]}    消化道出血
+#     List Should Contain Sub List    ${aj}    ${assert}
+
+
+
+# 下消化道出血-病史:手动输入诊断：下消化道出血,推荐治疗：大量便血,推荐治疗:住院治疗、血管造影术、转入ICU
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    住院治疗    转入ICU    血管造影术
+#     ${Assessment}    Set Variable    下消化道出血
+#     ${Subjective}    Set Variable    男，45岁，反复无痛性便血3月，伴头晕乏力1小时，1小时前突感腹部不适、便急，随即解出大量（约300ml）鲜红混有血凝块的大便，伴头晕乏力，无呕血、恶心和呕吐,大量便血
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
 #     #####推荐检查评估表
 #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
 #     #####推荐检查
@@ -242,9 +361,46 @@ Library           String
 #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
 #     #####推荐治疗方案
 #     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-#     ####疑似诊断
+#     #####疑似诊断
 #     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-#     # Should Contain    ${aj}    CT肠道造影
+#     # Should Contain    ${aj[:5]}    消化道出血
+#     List Should Contain Sub List    ${aj}    ${assert}
+
+
+
+# 下消化道出血-病史:病历内容增加:低血压需要输血,推荐治疗增加:初始治疗
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    住院治疗    初始治疗    转入ICU    血管造影术
+#     ${Assessment}    Set Variable    下消化道出血
+#     ${Subjective}    Set Variable    男，45岁，反复无痛性便血3月，伴头晕乏力1小时，1小时前突感腹部不适、便急，随即解出大量（约300ml）鲜红混有血凝块的大便，伴头晕乏力，无呕血、恶心和呕吐,大量便血,低血压需要输血
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     # Should Contain    ${aj[:5]}    消化道出血
 #     List Should Contain Sub List    ${aj}    ${assert}
 
 
@@ -254,319 +410,196 @@ Library           String
 
 
 
+# ############下肢蜂窝织炎#############
 
-
-############下消化道出血#############
-
-下消化道出血-病史:男性，45岁，腹痛、腹泻、黑便2天、呕血3次,推荐疑似诊断:消化道出血
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    # ${assert}    Create List
-    ${Assessment}    Set Variable
-    ${Subjective}    Set Variable    男，45岁，反复无痛性便血3月，伴头晕乏力1小时，1小时前突感腹部不适、便急，随即解出大量（约300ml）鲜红混有血凝块的大便，伴头晕乏力，无呕血、恶心和呕吐
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    Should Contain    ${aj[:5]}    消化道出血
-    # Lists Should Be Equal    ${aj}    ${assert}
-
-下消化道出血-病史:手动输入诊断：下消化道出血,增加病例内容：大量便血,推荐检查:血常规、粪便常规、粪便隐血试验(OB试 验)、凝血功能监测、尿常规、肝功能、肾 功能、输血前四项、直肠指检、心电图、腹 部B超、胃肠X线钡餐检查、小肠镜检查、全结肠镜检查
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    全结肠镜检查    小肠镜检查    胃肠X线钡餐检查    尿常规    粪便常规    粪便隐血试验（OB试验）    血常规    肝功能    输血前四项    肾功能    直肠指检    凝血功能监测    心电图    腹部B超
-    ${Assessment}    Set Variable    下消化道出血
-    ${Subjective}    Set Variable    男，45岁，反复无痛性便血3月，伴头晕乏力1小时，1小时前突感腹部不适、便急，随即解出大量（约300ml）鲜红混有血凝块的大便，伴头晕乏力，无呕血、恶心和呕吐,大量便血
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    消化道出血
-    List Should Contain Sub List    ${aj}    ${assert}
-
-
-
-下消化道出血-病史:手动输入诊断：下消化道出血,推荐治疗：大量便血,推荐治疗:住院治疗、血管造影术、转入ICU
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    住院治疗    转入ICU    血管造影术
-    ${Assessment}    Set Variable    下消化道出血
-    ${Subjective}    Set Variable    男，45岁，反复无痛性便血3月，伴头晕乏力1小时，1小时前突感腹部不适、便急，随即解出大量（约300ml）鲜红混有血凝块的大便，伴头晕乏力，无呕血、恶心和呕吐,大量便血
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    消化道出血
-    List Should Contain Sub List    ${aj}    ${assert}
-
-
-
-下消化道出血-病史:病历内容增加:低血压需要输血,推荐治疗增加:初始治疗
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    住院治疗    初始治疗    转入ICU    血管造影术
-    ${Assessment}    Set Variable    下消化道出血
-    ${Subjective}    Set Variable    男，45岁，反复无痛性便血3月，伴头晕乏力1小时，1小时前突感腹部不适、便急，随即解出大量（约300ml）鲜红混有血凝块的大便，伴头晕乏力，无呕血、恶心和呕吐,大量便血,低血压需要输血
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    消化道出血
-    List Should Contain Sub List    ${aj}    ${assert}
-
-
-
-
-
-
-
-
-############下肢蜂窝织炎#############
-
-下肢蜂窝织炎-病史：女，23岁，左下肢疼痛，皮温升高，下肢患处红肿3天，检查结果示：血CRP升高，中性粒细胞增多，推荐疑似诊断:下肢蜂窝织炎
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    # ${assert}    Create List
-    ${Assessment}    Set Variable
-    ${Subjective}    Set Variable    女，23岁，左下肢疼痛，皮温升高，下肢患处红肿3天，检查结果示：血CRP升高，中性粒细胞增多
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"23","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    Should Contain    ${aj[:5]}    下肢蜂窝织炎
-    # Lists Should Be Equal    ${aj}    ${assert}
-
-
-
-下肢蜂窝织炎-手动输入诊断：下肢蜂窝织炎,补充病史：重度感染，推荐检查:血常规+分类、血液念珠菌培养、血液细菌培养、细菌培养+药敏、肌酐测定
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    血液细菌培养    血液念珠菌培养    细菌培养+药敏    肌酐测定    血常规+分类
-    ${Assessment}    Set Variable    下肢蜂窝织炎
-    ${Subjective}    Set Variable    女，23岁，左下肢疼痛，皮温升高，下肢患处红肿3天，检查结果示：血CRP升高，中性粒细胞增多,重度感染
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"23","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    下肢蜂窝织炎
-    List Should Contain Sub List    ${aj}    ${assert}
-
-
-
-下肢蜂窝织炎-手动输入诊断：下肢蜂窝织炎,补充病史：重度感染，推荐治疗:社区获得性感染(无药物过敏)、足疗程治疗、辅助抗菌治疗、住院治疗
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    足疗程治疗    住院治疗    社区获得性感染(无药物过敏)    辅助抗菌治疗
-    ${Assessment}    Set Variable    下肢蜂窝织炎
-    ${Subjective}    Set Variable    女，23岁，左下肢疼痛，皮温升高，下肢患处红肿3天，检查结果示：血CRP升高，中性粒细胞增多,重度感染
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"23","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    下肢蜂窝织炎
-    List Should Contain Sub List    ${aj}    ${assert}
-
-
-下肢蜂窝织炎-病历内容中输入：化脓感染，推荐治疗增加:切开引流、四肢清洁手术
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    足疗程治疗    切开引流    四肢清洁手术    住院治疗    社区获得性感染(无药物过敏)    辅助抗菌治疗
-    ${Assessment}    Set Variable    下肢蜂窝织炎
-    ${Subjective}    Set Variable    女，23岁，左下肢疼痛，皮温升高，下肢患处红肿3天，检查结果示：血CRP升高，中性粒细胞增多,重度感染,化脓感染
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"23","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    下肢蜂窝织炎
-    List Should Contain Sub List    ${aj}    ${assert}
-
-
-
-
-
-# #######
-#######下肢静脉曲张###
-
-# 下肢静脉曲张-主诉:女，35岁，左下肢浅静脉曲张，小腿胀痛不适1月，推荐疑似诊断:下肢静脉曲张
+# 下肢蜂窝织炎-病史：女，23岁，左下肢疼痛，皮温升高，下肢患处红肿3天，检查结果示：血CRP升高，中性粒细胞增多，推荐疑似诊断:下肢蜂窝织炎
 #     [Documentation]    断言:""
 #     # ${timestamp}    Get Time    epoch
+#     # ${assert}    Create List
 #     ${Assessment}    Set Variable
+#     ${Subjective}    Set Variable    女，23岁，左下肢疼痛，皮温升高，下肢患处红肿3天，检查结果示：血CRP升高，中性粒细胞增多
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"0","age":"23","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     Should Contain    ${aj[:5]}    下肢蜂窝织炎
+#     # Lists Should Be Equal    ${aj}    ${assert}
+
+
+
+# 下肢蜂窝织炎-手动输入诊断：下肢蜂窝织炎,补充病史：重度感染，推荐检查:血常规+分类、血液念珠菌培养、血液细菌培养、细菌培养+药敏、肌酐测定
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    血液细菌培养    血液念珠菌培养    细菌培养+药敏    肌酐测定    血常规+分类
+#     ${Assessment}    Set Variable    下肢蜂窝织炎
+#     ${Subjective}    Set Variable    女，23岁，左下肢疼痛，皮温升高，下肢患处红肿3天，检查结果示：血CRP升高，中性粒细胞增多,重度感染
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"0","age":"23","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     # Should Contain    ${aj[:5]}    下肢蜂窝织炎
+#     List Should Contain Sub List    ${aj}    ${assert}
+
+
+
+# 下肢蜂窝织炎-手动输入诊断：下肢蜂窝织炎,补充病史：重度感染，推荐治疗:社区获得性感染(无药物过敏)、足疗程治疗、辅助抗菌治疗、住院治疗
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    足疗程治疗    住院治疗    社区获得性感染(无药物过敏)    辅助抗菌治疗
+#     ${Assessment}    Set Variable    下肢蜂窝织炎
+#     ${Subjective}    Set Variable    女，23岁，左下肢疼痛，皮温升高，下肢患处红肿3天，检查结果示：血CRP升高，中性粒细胞增多,重度感染
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"0","age":"23","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     # Should Contain    ${aj[:5]}    下肢蜂窝织炎
+#     List Should Contain Sub List    ${aj}    ${assert}
+
+
+# 下肢蜂窝织炎-病历内容中输入：化脓感染，推荐治疗增加:切开引流、四肢清洁手术
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    足疗程治疗    切开引流    四肢清洁手术    住院治疗    社区获得性感染(无药物过敏)    辅助抗菌治疗
+#     ${Assessment}    Set Variable    下肢蜂窝织炎
+#     ${Subjective}    Set Variable    女，23岁，左下肢疼痛，皮温升高，下肢患处红肿3天，检查结果示：血CRP升高，中性粒细胞增多,重度感染,化脓感染
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"0","age":"23","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     # Should Contain    ${aj[:5]}    下肢蜂窝织炎
+#     List Should Contain Sub List    ${aj}    ${assert}
+
+
+
+
+
+# # #######
+# #######下肢静脉曲张###
+
+# # 下肢静脉曲张-主诉:女，35岁，左下肢浅静脉曲张，小腿胀痛不适1月，推荐疑似诊断:下肢静脉曲张
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     ${Assessment}    Set Variable
+# #     ${Subjective}    Set Variable    女，35岁，左下肢浅静脉曲张，小腿胀痛不适1月
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"0","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=    ...    newRecogFlag=1
+# #     #####推荐检查评估表
+# #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     #####推荐检查
+# #     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     ######检查解读
+# #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #####推荐治疗方案
+# #     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     #####疑似诊断
+# #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     Should Contain    ${aj[:5]}    下肢静脉曲张
+
+# 下肢静脉曲张-点击疑似诊断或手动输入：下肢静脉曲张，推荐检查：深静脉瓣膜功能检查
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${Assessment}    Set Variable    下肢静脉曲张
 #     ${Subjective}    Set Variable    女，35岁，左下肢浅静脉曲张，小腿胀痛不适1月
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
@@ -582,7 +615,304 @@ Library           String
 #     ...    newTestList=
 #     ...    operationRecord=
 #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=    ...    newRecogFlag=1
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     Should Contain    ${aj}    深静脉瓣膜功能检查
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     #Should Contain    ${aj[:5]}    下肢静脉曲张
+
+
+# 下肢静脉曲张-点击疑似诊断或手动输入：下肢静脉曲张，推荐评估表：静脉分类系统CEAP分级、下肢慢性静脉疾病CEAP分级
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    静脉分类系统CEAP分级    下肢慢性静脉疾病CEAP分级
+#     ${Assessment}    Set Variable    下肢静脉曲张
+#     ${Subjective}    Set Variable    女，35岁，左下肢浅静脉曲张，小腿胀痛不适1月
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"0","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     List Should Contain Sub List    ${aj}    ${assert}
+#     #####推荐检查
+#     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     #Should Contain    ${aj}    深静脉瓣膜功能检查
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     #Should Contain    ${aj[:5]}    下肢静脉曲张
+
+# 下肢静脉曲张-点击疑似诊断或手动输入：下肢静脉曲张，推荐治疗：随访观察、压力袜、消融治疗
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    压力袜    随访观察    消融治疗
+#     ${Assessment}    Set Variable    下肢静脉曲张
+#     ${Subjective}    Set Variable    女，35岁，左下肢浅静脉曲张，小腿胀痛不适1月
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"0","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     #Should Contain    ${aj}    深静脉瓣膜功能检查
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     List Should Contain Sub List    ${aj}    ${assert}
+#     #####疑似诊断
+#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     #Should Contain    ${aj[:5]}    下肢静脉曲张
+
+
+# 下肢静脉曲张-病历内容增加：穿着压力袜3个月症状无缓解，推荐检查增加：踝肱指数(ABI)
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    踝肱指数(ABI)    深静脉瓣膜功能检查
+#     ${Assessment}    Set Variable    下肢静脉曲张
+#     ${Subjective}    Set Variable    女，35岁，左下肢浅静脉曲张，小腿胀痛不适1月，穿着压力袜3个月症状无缓解
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"0","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     List Should Contain Sub List    ${aj}    ${assert}
+#     #Should Contain    ${aj}    深静脉瓣膜功能检查
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     #${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     #Should Contain    ${aj[:5]}    下肢静脉曲张
+
+# 下肢静脉曲张-病历内容增加：穿着压力袜3个月症状无缓解，推荐治疗增加：转诊血管科
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    转诊血管科    压力袜    随访观察    消融治疗
+#     ${Assessment}    Set Variable    下肢静脉曲张
+#     ${Subjective}    Set Variable    女，35岁，左下肢浅静脉曲张，小腿胀痛不适1月，穿着压力袜3个月症状无缓解
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"0","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     #Should Contain    ${aj}    深静脉瓣膜功能检查
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     List Should Contain Sub List    ${aj}    ${assert}
+#     #####疑似诊断
+#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     #Should Contain    ${aj[:5]}    下肢静脉曲张
+
+# # 下肢静脉曲张-点击自动回写评估表评估结果：静脉分类系统CEAP分级C0级，推荐治疗增加：生活方式干预治疗、药物治疗、硬化剂治疗
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     ${assert}    Create List    转诊血管科    生活方式干预治疗    药物治疗    硬化剂治疗    压力袜    随访观察    消融治疗
+# #     ${Assessment}    Set Variable    下肢静脉曲张
+# #     ${Subjective}    Set Variable    女，35岁，左下肢浅静脉曲张，小腿胀痛不适1月，穿着压力袜3个月症状无缓解，静脉分类系统CEAP分级C0级
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"0","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=    ...    newRecogFlag=1
+# #     #####推荐检查评估表
+# #     #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     #####推荐检查
+# #     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     #Should Contain    ${aj}    深静脉瓣膜功能检查
+# #     ######检查解读
+# #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #####推荐治疗方案
+# #     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     List Should Contain Sub List    ${aj}    ${assert}
+# #     #####疑似诊断
+# #     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     #Should Contain    ${aj[:5]}    下肢静脉曲张
+
+# # 下肢静脉曲张-手动修改评估表评估结果：静脉分类系统CEAP分级C2级，推荐治疗增加：加压治疗、手术治疗
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     ${assert}    Create List    转诊血管科    生活方式干预治疗    药物治疗    硬化剂治疗    压力袜    加压治疗    手术治疗    随访观察    消融治疗
+# #     ${Assessment}    Set Variable    下肢静脉曲张
+# #     ${Subjective}    Set Variable    女，35岁，左下肢浅静脉曲张，小腿胀痛不适1月，穿着压力袜3个月症状无缓解，静脉分类系统CEAP分级C2级
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"0","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=    ...    newRecogFlag=1
+# #     #####推荐检查评估表
+# #     #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     #####推荐检查
+# #     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     #Should Contain    ${aj}    深静脉瓣膜功能检查
+# #     ######检查解读
+# #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #####推荐治疗方案
+# #     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     List Should Contain Sub List    ${aj}    ${assert}
+# #     #####疑似诊断
+# #     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     #Should Contain    ${aj[:5]}    下肢静脉曲张
+
+# # 下肢静脉曲张-进一步添加并发症：静脉性溃疡，推荐治疗增加：综合个体化治疗方案
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     ${assert}    Create List    转诊血管科    生活方式干预治疗    药物治疗    硬化剂治疗    压力袜    综合个体化治疗方案    加压治疗    手术治疗    随访观察    消融治疗
+# #     ${Assessment}    Set Variable    下肢静脉曲张
+# #     ${Subjective}    Set Variable    女，35岁，左下肢浅静脉曲张，小腿胀痛不适1月，穿着压力袜3个月症状无缓解，静脉分类系统CEAP分级C2级，静脉性溃疡
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"0","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=    ...    newRecogFlag=1
+# #     #####推荐检查评估表
+# #     #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     #####推荐检查
+# #     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     #Should Contain    ${aj}    深静脉瓣膜功能检查
+# #     ######检查解读
+# #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #####推荐治疗方案
+# #     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     List Should Contain Sub List    ${aj}    ${assert}
+# #     #####疑似诊断
+# #     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     #Should Contain    ${aj[:5]}    下肢静脉曲张
+
+
+
+
+
+
+
+
+
+# ############主动脉瓣狭窄#############
+
+# 主动脉瓣狭窄-主诉：男，68岁，活动后气促10年，加重1周，突发晕厥1小时 ，心脏彩超显示主动脉瓣狭窄，推荐疑似诊断:主动脉瓣狭窄
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     # ${assert}    Create List
+#     ${Assessment}    Set Variable
+#     ${Subjective}    Set Variable    男，68岁，活动后气促10年，加重1周，突发晕厥1小时 ，心脏彩超显示主动脉瓣狭窄
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"68","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
 #     #####推荐检查评估表
 #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
 #     #####推荐检查
@@ -593,199 +923,20 @@ Library           String
 #     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
 #     #####疑似诊断
 #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-#     Should Contain    ${aj[:5]}    下肢静脉曲张
+#     Should Contain    ${aj[:5]}    主动脉瓣狭窄
+#     # Lists Should Be Equal    ${aj}    ${assert}
 
-下肢静脉曲张-点击疑似诊断或手动输入：下肢静脉曲张，推荐检查：深静脉瓣膜功能检查
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${Assessment}    Set Variable    下肢静脉曲张
-    ${Subjective}    Set Variable    女，35岁，左下肢浅静脉曲张，小腿胀痛不适1月
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    Should Contain    ${aj}    深静脉瓣膜功能检查
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    #Should Contain    ${aj[:5]}    下肢静脉曲张
-
-
-下肢静脉曲张-点击疑似诊断或手动输入：下肢静脉曲张，推荐评估表：静脉分类系统CEAP分级、下肢慢性静脉疾病CEAP分级
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    静脉分类系统CEAP分级    下肢慢性静脉疾病CEAP分级
-    ${Assessment}    Set Variable    下肢静脉曲张
-    ${Subjective}    Set Variable    女，35岁，左下肢浅静脉曲张，小腿胀痛不适1月
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    List Should Contain Sub List    ${aj}    ${assert}
-    #####推荐检查
-    #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    #Should Contain    ${aj}    深静脉瓣膜功能检查
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    #Should Contain    ${aj[:5]}    下肢静脉曲张
-
-下肢静脉曲张-点击疑似诊断或手动输入：下肢静脉曲张，推荐治疗：随访观察、压力袜、消融治疗
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    压力袜    随访观察    消融治疗
-    ${Assessment}    Set Variable    下肢静脉曲张
-    ${Subjective}    Set Variable    女，35岁，左下肢浅静脉曲张，小腿胀痛不适1月
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    #Should Contain    ${aj}    深静脉瓣膜功能检查
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    List Should Contain Sub List    ${aj}    ${assert}
-    #####疑似诊断
-    #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    #Should Contain    ${aj[:5]}    下肢静脉曲张
-
-
-下肢静脉曲张-病历内容增加：穿着压力袜3个月症状无缓解，推荐检查增加：踝肱指数(ABI)
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    踝肱指数(ABI)    深静脉瓣膜功能检查
-    ${Assessment}    Set Variable    下肢静脉曲张
-    ${Subjective}    Set Variable    女，35岁，左下肢浅静脉曲张，小腿胀痛不适1月，穿着压力袜3个月症状无缓解
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    List Should Contain Sub List    ${aj}    ${assert}
-    #Should Contain    ${aj}    深静脉瓣膜功能检查
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    #${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    #Should Contain    ${aj[:5]}    下肢静脉曲张
-
-下肢静脉曲张-病历内容增加：穿着压力袜3个月症状无缓解，推荐治疗增加：转诊血管科
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    转诊血管科    压力袜    随访观察    消融治疗
-    ${Assessment}    Set Variable    下肢静脉曲张
-    ${Subjective}    Set Variable    女，35岁，左下肢浅静脉曲张，小腿胀痛不适1月，穿着压力袜3个月症状无缓解
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    #Should Contain    ${aj}    深静脉瓣膜功能检查
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    List Should Contain Sub List    ${aj}    ${assert}
-    #####疑似诊断
-    #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    #Should Contain    ${aj[:5]}    下肢静脉曲张
-
-# 下肢静脉曲张-点击自动回写评估表评估结果：静脉分类系统CEAP分级C0级，推荐治疗增加：生活方式干预治疗、药物治疗、硬化剂治疗
+# 主动脉瓣狭窄-点击疑似诊断或手动输入：主动脉瓣狭窄，推荐检查:超声心动图、心电图、胸部X线、左心导管检 查、心脏核磁共振成像、心脏CT
 #     [Documentation]    断言:""
 #     # ${timestamp}    Get Time    epoch
-#     ${assert}    Create List    转诊血管科    生活方式干预治疗    药物治疗    硬化剂治疗    压力袜    随访观察    消融治疗
-#     ${Assessment}    Set Variable    下肢静脉曲张
-#     ${Subjective}    Set Variable    女，35岁，左下肢浅静脉曲张，小腿胀痛不适1月，穿着压力袜3个月症状无缓解，静脉分类系统CEAP分级C0级
+#     ${assert}    Create List    超声心动图    左心导管检查    胸部X线    心脏CT    心电图    心脏核磁共振成像
+#     ${Assessment}    Set Variable    主动脉瓣狭窄
+#     ${Subjective}    Set Variable    男，68岁，活动后气促10年，加重1周，突发晕厥1小时 ，心脏彩超显示主动脉瓣狭窄
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
 #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
 #     ...    doctorGuid=0210497    doctorName=
-#     ...    patientInfo={"gender":"0","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    patientInfo={"gender":"1","age":"68","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
 #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
 #     ...    definiteDiagnosis=
 #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -795,32 +946,32 @@ Library           String
 #     ...    newTestList=
 #     ...    operationRecord=
 #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=    ...    newRecogFlag=1
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
 #     #####推荐检查评估表
-#     #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
 #     #####推荐检查
-#     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-#     #Should Contain    ${aj}    深静脉瓣膜功能检查
+#     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
 #     ######检查解读
 #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
 #     #####推荐治疗方案
-#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-#     List Should Contain Sub List    ${aj}    ${assert}
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
 #     #####疑似诊断
-#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-#     #Should Contain    ${aj[:5]}    下肢静脉曲张
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     # Should Contain    ${aj[:5]}    主动脉瓣狭窄
+#     List Should Contain Sub List    ${aj}    ${assert}
 
-# 下肢静脉曲张-手动修改评估表评估结果：静脉分类系统CEAP分级C2级，推荐治疗增加：加压治疗、手术治疗
+# 主动脉瓣狭窄-点击疑似诊断或手动输入：主动脉瓣狭窄，推荐评估表:美国胸外科医师学会(STS)成人心脏手术风险计算器、虚弱指数评估、主动脉瓣狭窄分期评估表
 #     [Documentation]    断言:""
 #     # ${timestamp}    Get Time    epoch
-#     ${assert}    Create List    转诊血管科    生活方式干预治疗    药物治疗    硬化剂治疗    压力袜    加压治疗    手术治疗    随访观察    消融治疗
-#     ${Assessment}    Set Variable    下肢静脉曲张
-#     ${Subjective}    Set Variable    女，35岁，左下肢浅静脉曲张，小腿胀痛不适1月，穿着压力袜3个月症状无缓解，静脉分类系统CEAP分级C2级
+#     ${assert}    Create List    美国胸外科医师学会(STS)成人心脏手术风险计算器    虚弱指数评估    主动脉瓣狭窄分期评估表
+#     ${Assessment}    Set Variable    主动脉瓣狭窄
+#     ${Subjective}    Set Variable    男，68岁，活动后气促10年，加重1周，突发晕厥1小时 ，心脏彩超显示主动脉瓣狭窄
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
 #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
 #     ...    doctorGuid=0210497    doctorName=
-#     ...    patientInfo={"gender":"0","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    patientInfo={"gender":"1","age":"68","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
 #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
 #     ...    definiteDiagnosis=
 #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -830,32 +981,32 @@ Library           String
 #     ...    newTestList=
 #     ...    operationRecord=
 #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=    ...    newRecogFlag=1
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
 #     #####推荐检查评估表
-#     #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
 #     #####推荐检查
-#     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-#     #Should Contain    ${aj}    深静脉瓣膜功能检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
 #     ######检查解读
 #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
 #     #####推荐治疗方案
-#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-#     List Should Contain Sub List    ${aj}    ${assert}
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
 #     #####疑似诊断
-#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-#     #Should Contain    ${aj[:5]}    下肢静脉曲张
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     # Should Contain    ${aj[:5]}    主动脉瓣狭窄
+#     List Should Contain Sub List    ${aj}    ${assert}
 
-# 下肢静脉曲张-进一步添加并发症：静脉性溃疡，推荐治疗增加：综合个体化治疗方案
+# 主动脉瓣狭窄-病历内容中增加评估表结果：主动脉瓣瓣口面积1.2cm2，推荐治疗增加:无症状中度主动脉狭窄者监测与管理、中度主动脉狭窄者监测与管理
 #     [Documentation]    断言:""
 #     # ${timestamp}    Get Time    epoch
-#     ${assert}    Create List    转诊血管科    生活方式干预治疗    药物治疗    硬化剂治疗    压力袜    综合个体化治疗方案    加压治疗    手术治疗    随访观察    消融治疗
-#     ${Assessment}    Set Variable    下肢静脉曲张
-#     ${Subjective}    Set Variable    女，35岁，左下肢浅静脉曲张，小腿胀痛不适1月，穿着压力袜3个月症状无缓解，静脉分类系统CEAP分级C2级，静脉性溃疡
+#     ${assert}    Create List    会诊    中度主动脉狭窄者监测与管理    多学科会诊    无症状中度主动脉狭窄者监测与管理
+#     ${Assessment}    Set Variable    主动脉瓣狭窄
+#     ${Subjective}    Set Variable    男，68岁，活动后气促10年，加重1周，突发晕厥1小时 ，心脏彩超显示主动脉瓣狭窄,主动脉瓣瓣口面积1.2cm2
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
 #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
 #     ...    doctorGuid=0210497    doctorName=
-#     ...    patientInfo={"gender":"0","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    patientInfo={"gender":"1","age":"68","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
 #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
 #     ...    definiteDiagnosis=
 #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -865,602 +1016,38 @@ Library           String
 #     ...    newTestList=
 #     ...    operationRecord=
 #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=    ...    newRecogFlag=1
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
 #     #####推荐检查评估表
-#     #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
 #     #####推荐检查
-#     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-#     #Should Contain    ${aj}    深静脉瓣膜功能检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
 #     ######检查解读
 #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
 #     #####推荐治疗方案
 #     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-#     List Should Contain Sub List    ${aj}    ${assert}
 #     #####疑似诊断
-#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-#     #Should Contain    ${aj[:5]}    下肢静脉曲张
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     # Should Contain    ${aj[:5]}    主动脉瓣狭窄
+#     List Should Contain Sub List    ${aj}    ${assert}
 
 
 
 
 
+# # #######
+# #######乙型肝炎###
 
-
-
-
-############主动脉瓣狭窄#############
-
-主动脉瓣狭窄-主诉：男，68岁，活动后气促10年，加重1周，突发晕厥1小时 ，心脏彩超显示主动脉瓣狭窄，推荐疑似诊断:主动脉瓣狭窄
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    # ${assert}    Create List
-    ${Assessment}    Set Variable
-    ${Subjective}    Set Variable    男，68岁，活动后气促10年，加重1周，突发晕厥1小时 ，心脏彩超显示主动脉瓣狭窄
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"68","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    Should Contain    ${aj[:5]}    主动脉瓣狭窄
-    # Lists Should Be Equal    ${aj}    ${assert}
-
-主动脉瓣狭窄-点击疑似诊断或手动输入：主动脉瓣狭窄，推荐检查:超声心动图、心电图、胸部X线、左心导管检 查、心脏核磁共振成像、心脏CT
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    超声心动图    左心导管检查    胸部X线    心脏CT    心电图    心脏核磁共振成像
-    ${Assessment}    Set Variable    主动脉瓣狭窄
-    ${Subjective}    Set Variable    男，68岁，活动后气促10年，加重1周，突发晕厥1小时 ，心脏彩超显示主动脉瓣狭窄
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"68","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    主动脉瓣狭窄
-    List Should Contain Sub List    ${aj}    ${assert}
-
-主动脉瓣狭窄-点击疑似诊断或手动输入：主动脉瓣狭窄，推荐评估表:美国胸外科医师学会(STS)成人心脏手术风险计算器、虚弱指数评估、主动脉瓣狭窄分期评估表
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    美国胸外科医师学会(STS)成人心脏手术风险计算器    虚弱指数评估    主动脉瓣狭窄分期评估表
-    ${Assessment}    Set Variable    主动脉瓣狭窄
-    ${Subjective}    Set Variable    男，68岁，活动后气促10年，加重1周，突发晕厥1小时 ，心脏彩超显示主动脉瓣狭窄
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"68","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    主动脉瓣狭窄
-    List Should Contain Sub List    ${aj}    ${assert}
-
-主动脉瓣狭窄-病历内容中增加评估表结果：主动脉瓣瓣口面积1.2cm2，推荐治疗增加:无症状中度主动脉狭窄者监测与管理、中度主动脉狭窄者监测与管理
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    会诊    中度主动脉狭窄者监测与管理    多学科会诊    无症状中度主动脉狭窄者监测与管理
-    ${Assessment}    Set Variable    主动脉瓣狭窄
-    ${Subjective}    Set Variable    男，68岁，活动后气促10年，加重1周，突发晕厥1小时 ，心脏彩超显示主动脉瓣狭窄,主动脉瓣瓣口面积1.2cm2
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"68","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    主动脉瓣狭窄
-    List Should Contain Sub List    ${aj}    ${assert}
-
-
-
-
-
-# #######
-#######乙型肝炎###
-
-乙型肝炎-主诉:男，年龄30岁，皮肤发黄1周，恶心，腹胀伴乏力3天。既往2年前体检查有乙肝大三阳，推荐疑似诊断:乙型病毒性肝炎
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${Assessment}    Set Variable
-    ${Subjective}    Set Variable    男，年龄30岁，皮肤发黄1周，恶心，腹胀伴乏力3天。既往2年前体检查有乙肝大三阳
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"30","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    Should Contain    ${aj[:5]}    乙型病毒性肝炎
-
-乙型肝炎-手动输入诊断：乙型肝炎，推荐检查：乙肝五项、肝功能、血常规、腹部超声、胸部X线、凝血常规、高敏乙肝病毒DNA定量
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    乙肝五项    高敏乙肝病毒DNA定量    凝血常规    腹部超声    胸部X线    血常规    肝功能
-    ${Assessment}    Set Variable    乙型肝炎
-    ${Subjective}    Set Variable    男，年龄30岁，皮肤发黄1周，恶心，腹胀伴乏力3天。既往2年前体检查有乙肝大三阳
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"30","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    List Should Contain Sub List    ${aj}    ${assert}
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    #Should Contain    ${aj[:5]}    乙型病毒性肝炎
-
-乙型肝炎-手动输入诊断：乙型肝炎，推荐评估表：乙肝患者病情的评估
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    #${assert}    Create List    乙肝五项    高敏乙肝病毒DNA定量    凝血常规    腹部超声    胸部X线    血常规    肝功能
-    ${Assessment}    Set Variable    乙型肝炎
-    ${Subjective}    Set Variable    男，年龄30岁，皮肤发黄1周，恶心，腹胀伴乏力3天。既往2年前体检查有乙肝大三阳
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"30","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    Should Contain    ${aj}    乙肝患者病情的评估
-    #####推荐检查
-    #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    #Lists Should Be Equal    ${aj}    ${assert}
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    #Should Contain    ${aj[:5]}    乙型病毒性肝炎
-
-乙型肝炎-手动输入诊断：乙型肝炎，推荐治疗：一般治疗、保护肝功能治疗
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    一般治疗    保护肝功能治疗
-    ${Assessment}    Set Variable    乙型肝炎
-    ${Subjective}    Set Variable    男，年龄30岁，皮肤发黄1周，恶心，腹胀伴乏力3天。既往2年前体检查有乙肝大三阳
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"30","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #Should Contain    ${aj}    乙肝患者病情的评估
-    #####推荐检查
-    #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    #Lists Should Be Equal    ${aj}    ${assert}
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    List Should Contain Sub List    ${aj}    ${assert}
-    #####疑似诊断
-    #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    #Should Contain    ${aj[:5]}    乙型病毒性肝炎
-
-乙型肝炎-病历内容增加：慢性乙型肝炎，推荐检查增加：肝组织取活检
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    乙肝五项    肝组织取活检    高敏乙肝病毒DNA定量    凝血常规    腹部超声    胸部X线    血常规    肝功能
-    ${Assessment}    Set Variable    乙型肝炎
-    ${Subjective}    Set Variable    男，年龄30岁，皮肤发黄1周，恶心，腹胀伴乏力3天。既往2年前体检查有乙肝大三阳，慢性乙型肝炎
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"30","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    List Should Contain Sub List    ${aj}    ${assert}
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    #Should Contain    ${aj[:5]}    乙型病毒性肝炎
-
-乙型肝炎-病历内容增加：慢性乙型肝炎，推荐治疗增加：抗病毒治疗
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    抗病毒治疗    一般治疗    保护肝功能治疗
-    ${Assessment}    Set Variable    乙型肝炎
-    ${Subjective}    Set Variable    男，年龄30岁，皮肤发黄1周，恶心，腹胀伴乏力3天。既往2年前体检查有乙肝大三阳，慢性乙型肝炎
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"30","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    #Lists Should Be Equal    ${aj}    ${assert}
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    List Should Contain Sub List    ${aj}    ${assert}
-    #####疑似诊断
-    #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    #Should Contain    ${aj[:5]}    乙型病毒性肝炎
-
-
-
-
-
-
-
-
-
-############乳糜泻#############
-
-乳糜泻-病史:男，12岁，消瘦、乏力，腹痛，腹泻，间断黏液便，便后腹痛缓解,推荐疑似诊断:感染性腹泻
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    # ${assert}    Create List
-    ${Assessment}    Set Variable
-    ${Subjective}    Set Variable    男，12岁，消瘦、乏力，腹痛，腹泻，间断黏液便，便后腹痛缓解
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"12","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    Should Contain    ${aj[:5]}    感染性腹泻
-    # Lists Should Be Equal    ${aj}    ${assert}
-
-
-
-乳糜泻-病史增加:排便次数增多，胃镜示十二指肠糜烂，肠镜检查见直、乙结肠交界处片状糜烂性质待查,推荐疑似诊断:乳糜泻
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    # ${assert}    Create List
-    ${Assessment}    Set Variable
-    ${Subjective}    Set Variable    男，12岁，消瘦、乏力，腹痛，腹泻，间断黏液便，便后腹痛缓解,排便次数增多，胃镜示十二指肠糜烂，肠镜检查见直、乙结肠交界处片状糜烂性质待查
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"12","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    Should Contain    ${aj[:5]}    乳糜泻
-    # Lists Should Be Equal    ${aj}    ${assert}
-
-
-
-乳糜泻-点击疑似诊断或手动输入：乳糜泻,推荐检查:外周血涂片、乳糜泻组套检查、总免疫球蛋白A(IgA)水平、骨密度检查
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    外周血涂片    总免疫球蛋白A(IgA)水平    乳糜泻组套检查    骨密度检查
-    ${Assessment}    Set Variable    乳糜泻
-    ${Subjective}    Set Variable    男，12岁，消瘦、乏力，腹痛，腹泻，间断黏液便，便后腹痛缓解,排便次数增多，胃镜示十二指肠糜烂，肠镜检查见直、乙结肠交界处片状糜烂性质待查
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"12","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    乳糜泻
-    List Should Contain Sub List    ${aj}    ${assert}
-
-
-
-乳糜泻-点击疑似诊断或手动输入：乳糜泻,推荐治疗:转诊、无麸质饮食、缺乏营养的相应补充、随访
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    转诊    无麸质饮食    缺乏营养的相应补充    随访
-    ${Assessment}    Set Variable    乳糜泻
-    ${Subjective}    Set Variable    男，12岁，消瘦、乏力，腹痛，腹泻，间断黏液便，便后腹痛缓解,排便次数增多，胃镜示十二指肠糜烂，肠镜检查见直、乙结肠交界处片状糜烂性质待查
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"12","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    乳糜泻
-    List Should Contain Sub List    ${aj}    ${assert}
-
-
-
-乳糜泻-病历内容增加：脾功能减退,推荐治疗增加:接种疫苗
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    接种疫苗    转诊    无麸质饮食    缺乏营养的相应补充    随访
-    ${Assessment}    Set Variable    乳糜泻
-    ${Subjective}    Set Variable    男，12岁，消瘦、乏力，腹痛，腹泻，间断黏液便，便后腹痛缓解,排便次数增多，胃镜示十二指肠糜烂，肠镜检查见直、乙结肠交界处片状糜烂性质待查,脾功能减退
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"12","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    乳糜泻
-    List Should Contain Sub List    ${aj}    ${assert}
-
-
-
-
-
-
-
-# #######
-#######乳腺导管内乳头状瘤###
-
-# 乳腺导管内乳头状瘤-主诉:女，44岁，5年前左侧乳头溢液，彩超示:左乳腺多发结节，约0.4*0.6CM，有乳腺癌家族史，推荐疑似诊断:乳腺导管原位癌
+# 乙型肝炎-主诉:男，年龄30岁，皮肤发黄1周，恶心，腹胀伴乏力3天。既往2年前体检查有乙肝大三阳，推荐疑似诊断:乙型病毒性肝炎
 #     [Documentation]    断言:""
 #     # ${timestamp}    Get Time    epoch
 #     ${Assessment}    Set Variable
-#     ${Subjective}    Set Variable    女，44岁，5年前左侧乳头溢液，彩超示:左乳腺多发结节，约0.4*0.6CM，有乳腺癌家族史
+#     ${Subjective}    Set Variable    男，年龄30岁，皮肤发黄1周，恶心，腹胀伴乏力3天。既往2年前体检查有乙肝大三阳
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
 #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
 #     ...    doctorGuid=0210497    doctorName=
-#     ...    patientInfo={"gender":"0","age":"44","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    patientInfo={"gender":"1","age":"30","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
 #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
 #     ...    definiteDiagnosis=
 #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -1470,7 +1057,8 @@ Library           String
 #     ...    newTestList=
 #     ...    operationRecord=
 #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=    ...    newRecogFlag=1
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
 #     #####推荐检查评估表
 #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
 #     #####推荐检查
@@ -1481,18 +1069,19 @@ Library           String
 #     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
 #     #####疑似诊断
 #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-#     Should Contain    ${aj[:5]}    乳腺导管原位癌
+#     Should Contain    ${aj[:5]}    乙型病毒性肝炎
 
-# 乳腺导管内乳头状瘤-增加检查结果：脱落细胞分析示:乳腺导管内乳头状瘤细胞形态，推荐疑似诊断:乳腺导管内乳头状瘤
+# 乙型肝炎-手动输入诊断：乙型肝炎，推荐检查：乙肝五项、肝功能、血常规、腹部超声、胸部X线、凝血常规、高敏乙肝病毒DNA定量
 #     [Documentation]    断言:""
 #     # ${timestamp}    Get Time    epoch
-#     ${Assessment}    Set Variable
-#     ${Subjective}    Set Variable    女，44岁，5年前左侧乳头溢液，彩超示:左乳腺多发结节，约0.4*0.6CM，有乳腺癌家族史，脱落细胞分析示:乳腺导管内乳头状瘤细胞形态
+#     ${assert}    Create List    乙肝五项    高敏乙肝病毒DNA定量    凝血常规    腹部超声    胸部X线    血常规    肝功能
+#     ${Assessment}    Set Variable    乙型肝炎
+#     ${Subjective}    Set Variable    男，年龄30岁，皮肤发黄1周，恶心，腹胀伴乏力3天。既往2年前体检查有乙肝大三阳
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
 #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
 #     ...    doctorGuid=0210497    doctorName=
-#     ...    patientInfo={"gender":"0","age":"44","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    patientInfo={"gender":"1","age":"30","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
 #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
 #     ...    definiteDiagnosis=
 #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -1502,499 +1091,8 @@ Library           String
 #     ...    newTestList=
 #     ...    operationRecord=
 #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=    ...    newRecogFlag=1
-#     #####推荐检查评估表
-#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-#     #####推荐检查
-#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-#     ######检查解读
-#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-#     #####推荐治疗方案
-#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-#     #####疑似诊断
-#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-#     Should Contain    ${aj[:5]}    乳腺导管内乳头状瘤
-
-
-乳腺导管内乳头状瘤-明确诊断:乳腺导管内乳头状瘤，推荐评估表：乳腺癌风险评估(Gail模型)、美国BI-RADS分级
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    乳腺癌风险评估(Gail模型)    美国BI-RADS分级
-    ${Assessment}    Set Variable    乳腺导管内乳头状瘤
-    ${Subjective}    Set Variable    女，44岁，5年前左侧乳头溢液，彩超示:左乳腺多发结节，约0.4*0.6CM，有乳腺癌家族史，脱落细胞分析示:乳腺导管内乳头状瘤细胞形态，
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"44","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    List Should Contain Sub List    ${aj}    ${assert}
-    #####推荐检查
-    #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    #Lists Should Be Equal    ${aj}    ${assert}
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    #Should Contain    ${aj[:5]}    乳腺导管内乳头状瘤
-
-乳腺导管内乳头状瘤-明确诊断:乳腺导管内乳头状瘤，推荐治疗：全乳腺切除术
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    #${assert}    Create List    乳腺癌风险评估(Gail模型)    美国BI-RADS分级
-    ${Assessment}    Set Variable    乳腺导管内乳头状瘤
-    ${Subjective}    Set Variable    女，44岁，5年前左侧乳头溢液，彩超示:左乳腺多发结节，约0.4*0.6CM，有乳腺癌家族史，脱落细胞分析示:乳腺导管内乳头状瘤细胞形态，
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"44","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #Lists Should Be Equal    ${aj}    ${assert}
-    #####推荐检查
-    #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    #Lists Should Be Equal    ${aj}    ${assert}
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    Should Contain    ${aj}    全乳腺切除术
-    #####疑似诊断
-    #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    #Should Contain    ${aj[:5]}    乳腺导管内乳头状瘤
-
-
-乳腺导管内乳头状瘤-进一步增加诊断:外周型乳腺导管内乳头状瘤，推荐检查增加：乳腺MRI、细胞学检查、乳腺导管造影、乳管镜、乳腺粗针穿刺活检、乳腺钼靶、乳腺超声
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    乳腺超声    乳腺钼靶    乳腺导管造影    细胞学检查    乳管镜    乳腺MRI    乳腺粗针穿刺活检
-    ${Assessment}    Set Variable    乳腺导管内乳头状瘤，外周型乳腺导管内乳头状瘤
-    ${Subjective}    Set Variable    女，44岁，5年前左侧乳头溢液，彩超示:左乳腺多发结节，约0.4*0.6CM，有乳腺癌家族史，脱落细胞分析示:乳腺导管内乳头状瘤细胞形态，
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"44","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #Lists Should Be Equal    ${aj}    ${assert}
-    #####推荐检查
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    List Should Contain Sub List    ${aj}    ${assert}
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    #${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #Should Contain    ${aj}    全乳腺切除术
-    #####疑似诊断
-    #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    #Should Contain    ${aj[:5]}    乳腺导管内乳头状瘤
-
-乳腺导管内乳头状瘤-进一步增加诊断:外周型乳腺导管内乳头状瘤，推荐治疗增加：会诊
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    全乳腺切除术    会诊
-    ${Assessment}    Set Variable    乳腺导管内乳头状瘤，外周型乳腺导管内乳头状瘤
-    ${Subjective}    Set Variable    女，44岁，5年前左侧乳头溢液，彩超示:左乳腺多发结节，约0.4*0.6CM，有乳腺癌家族史，脱落细胞分析示:乳腺导管内乳头状瘤细胞形态，
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"44","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #Lists Should Be Equal    ${aj}    ${assert}
-    #####推荐检查
-    #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    #Lists Should Be Equal    ${aj}    ${assert}
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    List Should Contain Sub List    ${aj}    ${assert}
-    #Should Contain    ${aj}    全乳腺切除术
-    #####疑似诊断
-    #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    #Should Contain    ${aj[:5]}    乳腺导管内乳头状瘤
-
-
-
-
-
-
-
-
-
-
-
-
-# #######
-#######乳腺炎###
-
-乳腺炎-主诉:女，38岁，右侧乳房红肿、乳腺疼痛1周，推荐疑似诊断:急性乳腺炎
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${Assessment}    Set Variable
-    ${Subjective}    Set Variable    女，38岁，右侧乳房红肿、乳腺疼痛1周
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"38","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    Should Contain    ${aj[:5]}    急性乳腺炎
-
-
-乳腺炎-手动输入诊断：乳腺炎，推荐检查:乳腺空心针穿刺活检、乳腺超声、乳腺钼靶、分泌物细菌培养、血常规、乳管镜、乳腺MRI、C-反应蛋白、红细胞沉降率、血清免疫学检查、催乳素测定、风湿检查、结核菌素实验(PPD试验)、非结核菌分歧杆菌培养
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    乳腺超声    乳腺空心针穿刺活检    乳腺MRI    乳管镜    乳腺钼靶    分泌物细菌培养    结核菌素试验(PPD试验)    红细胞沉降率    非结核菌分歧杆菌培养    催乳素测定    风湿检查    C-反应蛋白    血常规    血清免疫学检查
-    ${Assessment}    Set Variable    乳腺炎
-    ${Subjective}    Set Variable    女，38岁，右侧乳房红肿、乳腺疼痛1周
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"38","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    List Should Contain Sub List    ${aj}    ${assert}
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    #Should Contain    ${aj[:5]}    急性乳腺炎
-
-乳腺炎-手动输入诊断：乳腺炎，推荐治疗：广谱抗生素、预防NPM复发、非甾体类镇痛药
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    广谱抗生素    预防 NPM 复发    非甾体类镇痛药
-    ${Assessment}    Set Variable    乳腺炎
-    ${Subjective}    Set Variable    女，38岁，右侧乳房红肿、乳腺疼痛1周
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"38","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    #Lists Should Be Equal    ${aj}    ${assert}
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    List Should Contain Sub List    ${aj}    ${assert}
-    #####疑似诊断
-    #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    #Should Contain    ${aj[:5]}    急性乳腺炎
-
-
-乳腺炎-病历内容增加：乳腺脓肿，推荐治疗增加：穿刺抽吸、切开引流术
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    广谱抗生素    非甾体类镇痛药    穿刺抽吸    切开引流术
-    ${Assessment}    Set Variable    乳腺炎
-    ${Subjective}    Set Variable    女，38岁，右侧乳房红肿、乳腺疼痛1周，乳腺脓肿
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"38","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    #Lists Should Be Equal    ${aj}    ${assert}
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    List Should Contain Sub List    ${aj}    ${assert}
-    #####疑似诊断
-    #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    #Should Contain    ${aj[:5]}    急性乳腺炎
-
-
-乳腺炎-诊断修改为：肉芽肿性小叶乳腺炎，推荐治疗变更：类固醇激素、肿块切除术、乳腺区段切除术
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    广谱抗生素    非甾体类镇痛药    类固醇激素    肿块切除术    乳腺区段切除术    穿刺抽吸    切开引流术
-    ${Assessment}    Set Variable    肉芽肿性小叶乳腺炎
-    ${Subjective}    Set Variable    女，38岁，右侧乳房红肿、乳腺疼痛1周，乳腺脓肿
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"38","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    #Lists Should Be Equal    ${aj}    ${assert}
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    List Should Contain Sub List    ${aj}    ${assert}
-    #####疑似诊断
-    #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    #Should Contain    ${aj[:5]}    急性乳腺炎
-
-乳腺炎-病历内容增加：乳腺瘘管，推荐治疗增加：免疫抑制剂、瘘管切除术、单纯皮下腺体切除术、单纯乳房切除术、乳房重建或假体植入术
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    广谱抗生素    非甾体类镇痛药    类固醇激素    肿块切除术    乳腺区段切除术    穿刺抽吸    切开引流术    免疫抑制剂    瘘管切除术    单纯皮下腺体切除术    单纯乳房切除术    乳房重建或假体植入术
-    ${Assessment}    Set Variable    肉芽肿性小叶乳腺炎
-    ${Subjective}    Set Variable    女，38岁，右侧乳房红肿、乳腺疼痛1周，乳腺脓肿，乳腺瘘管
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"38","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    #Lists Should Be Equal    ${aj}    ${assert}
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    List Should Contain Sub List    ${aj}    ${assert}
-    #####疑似诊断
-    #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    #Should Contain    ${aj[:5]}    急性乳腺炎
-
-
-乳腺炎-诊断修改为：乳腺导管扩张症，推荐治疗变更：瘘管切除术、抗分枝杆菌治疗、单纯皮下腺体切除术
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    抗分枝杆菌治疗    瘘管切除术    单纯皮下腺体切除术
-    ${Assessment}    Set Variable    乳腺导管扩张症
-    ${Subjective}    Set Variable    女，38岁，右侧乳房红肿、乳腺疼痛1周，乳腺脓肿，乳腺瘘管
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"38","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    #Lists Should Be Equal    ${aj}    ${assert}
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    List Should Contain Sub List    ${aj}    ${assert}
-    #####疑似诊断
-    #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    #Should Contain    ${aj[:5]}    急性乳腺炎
-
-
-
-
-
-
-
-# #######
-#######乳腺纤维腺瘤###
-
-乳腺纤维腺瘤-主诉:女，28岁，发现右乳外上象限肿块5年，近半月肿块增大较快。5年来肿物逐渐增大，月经周期对肿块大小无影响+输入查体结果：乳房肿块质地似橡皮球，肿块表面光滑，大小约2×1mm，界清，易于推动，无压痛，推荐疑似诊断:乳腺纤维腺瘤
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${Assessment}    Set Variable
-    ${Subjective}    Set Variable    女，28岁，发现右乳外上象限肿块5年，近半月肿块增大较快。5年来肿物逐渐增大，月经周期对肿块大小无影响，乳房肿块质地似橡皮球，肿块表面光滑，大小约2×1mm，界清，易于推动，无压痛
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"28","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    Should Contain    ${aj[:5]}    乳腺纤维腺瘤
-
-
-# 乳腺纤维腺瘤-点击疑似诊断或手动输入：乳腺纤维腺瘤，推荐检查:血常规、尿常规、肝功能、肾功能、输血前四项、凝血常规、电解质常规、性激素检查、尿妊娠试验、粪便常规、胸部X线、心电图、乳腺B超检查、乳腺钼靶、乳腺粗针穿刺活检
-#     [Documentation]    断言:""
-#     # ${timestamp}    Get Time    epoch
-#     ${assert}    Create List    乳腺粗针穿刺活检    乳腺钼靶    尿常规    乳腺B超检查    尿妊娠试验    粪便常规    血常规    性激素检查    肝功能    输血前四项    肾功能    电解质常规    凝血常规    胸部X线    心电图
-#     ${Assessment}    Set Variable    乳腺纤维腺瘤
-#     ${Subjective}    Set Variable    女，28岁，发现右乳外上象限肿块5年，近半月肿块增大较快。5年来肿物逐渐增大，月经周期对肿块大小无影响，乳房肿块质地似橡皮球，肿块表面光滑，大小约2×1mm，界清，易于推动，无压痛
-#     [Setup]    Run Keywords    获取时间戳
-#     ...    AND    获取随机数
-#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-#     ...    doctorGuid=0210497    doctorName=
-#     ...    patientInfo={"gender":"0","age":"28","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-#     ...    definiteDiagnosis=
-#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-#     ...    labTestList=
-#     ...    examinationList=
-#     ...    newTestList=
-#     ...    operationRecord=
-#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=    ...    newRecogFlag=1
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
 #     #####推荐检查评估表
 #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
 #     #####推荐检查
@@ -2006,19 +1104,19 @@ Library           String
 #     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
 #     #####疑似诊断
 #     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-#     #Should Contain    ${aj[:5]}    乳腺纤维腺瘤
+#     #Should Contain    ${aj[:5]}    乙型病毒性肝炎
 
-
-# 乳腺纤维腺瘤-点击疑似诊断或手动输入：乳腺纤维腺瘤，推荐评估表：真空辅助微创旋切术禁忌症评估
+# 乙型肝炎-手动输入诊断：乙型肝炎，推荐评估表：乙肝患者病情的评估
 #     [Documentation]    断言:""
 #     # ${timestamp}    Get Time    epoch
-#     ${Assessment}    Set Variable    乳腺纤维腺瘤
-#     ${Subjective}    Set Variable    女，28岁，发现右乳外上象限肿块5年，近半月肿块增大较快。5年来肿物逐渐增大，月经周期对肿块大小无影响，乳房肿块质地似橡皮球，肿块表面光滑，大小约2×1mm，界清，易于推动，无压痛
+#     #${assert}    Create List    乙肝五项    高敏乙肝病毒DNA定量    凝血常规    腹部超声    胸部X线    血常规    肝功能
+#     ${Assessment}    Set Variable    乙型肝炎
+#     ${Subjective}    Set Variable    男，年龄30岁，皮肤发黄1周，恶心，腹胀伴乏力3天。既往2年前体检查有乙肝大三阳
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
 #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
 #     ...    doctorGuid=0210497    doctorName=
-#     ...    patientInfo={"gender":"0","age":"28","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    patientInfo={"gender":"1","age":"30","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
 #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
 #     ...    definiteDiagnosis=
 #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -2028,10 +1126,11 @@ Library           String
 #     ...    newTestList=
 #     ...    operationRecord=
 #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=    ...    newRecogFlag=1
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
 #     #####推荐检查评估表
 #     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-#     Should Contain    ${aj}    真空辅助微创旋切术禁忌症评估
+#     Should Contain    ${aj}    乙肝患者病情的评估
 #     #####推荐检查
 #     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
 #     #Lists Should Be Equal    ${aj}    ${assert}
@@ -2041,12 +1140,811 @@ Library           String
 #     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
 #     #####疑似诊断
 #     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-#     #Should Contain    ${aj[:5]}    乳腺纤维腺瘤
+#     #Should Contain    ${aj[:5]}    乙型病毒性肝炎
 
-# 乳腺纤维腺瘤-点击疑似诊断或手动输入：乳腺纤维腺瘤直径3.1cm，推荐治疗：乳房肿物开放切除术
+# 乙型肝炎-手动输入诊断：乙型肝炎，推荐治疗：一般治疗、保护肝功能治疗
 #     [Documentation]    断言:""
 #     # ${timestamp}    Get Time    epoch
-#     ${Assessment}    Set Variable    乳腺纤维腺瘤直径3.1cm
+#     ${assert}    Create List    一般治疗    保护肝功能治疗
+#     ${Assessment}    Set Variable    乙型肝炎
+#     ${Subjective}    Set Variable    男，年龄30岁，皮肤发黄1周，恶心，腹胀伴乏力3天。既往2年前体检查有乙肝大三阳
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"30","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #Should Contain    ${aj}    乙肝患者病情的评估
+#     #####推荐检查
+#     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     #Lists Should Be Equal    ${aj}    ${assert}
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     List Should Contain Sub List    ${aj}    ${assert}
+#     #####疑似诊断
+#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     #Should Contain    ${aj[:5]}    乙型病毒性肝炎
+
+# 乙型肝炎-病历内容增加：慢性乙型肝炎，推荐检查增加：肝组织取活检
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    乙肝五项    肝组织取活检    高敏乙肝病毒DNA定量    凝血常规    腹部超声    胸部X线    血常规    肝功能
+#     ${Assessment}    Set Variable    乙型肝炎
+#     ${Subjective}    Set Variable    男，年龄30岁，皮肤发黄1周，恶心，腹胀伴乏力3天。既往2年前体检查有乙肝大三阳，慢性乙型肝炎
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"30","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     List Should Contain Sub List    ${aj}    ${assert}
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     #Should Contain    ${aj[:5]}    乙型病毒性肝炎
+
+# 乙型肝炎-病历内容增加：慢性乙型肝炎，推荐治疗增加：抗病毒治疗
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    抗病毒治疗    一般治疗    保护肝功能治疗
+#     ${Assessment}    Set Variable    乙型肝炎
+#     ${Subjective}    Set Variable    男，年龄30岁，皮肤发黄1周，恶心，腹胀伴乏力3天。既往2年前体检查有乙肝大三阳，慢性乙型肝炎
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"30","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     #Lists Should Be Equal    ${aj}    ${assert}
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     List Should Contain Sub List    ${aj}    ${assert}
+#     #####疑似诊断
+#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     #Should Contain    ${aj[:5]}    乙型病毒性肝炎
+
+
+
+
+
+
+
+
+
+# ############乳糜泻#############
+
+# 乳糜泻-病史:男，12岁，消瘦、乏力，腹痛，腹泻，间断黏液便，便后腹痛缓解,推荐疑似诊断:感染性腹泻
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     # ${assert}    Create List
+#     ${Assessment}    Set Variable
+#     ${Subjective}    Set Variable    男，12岁，消瘦、乏力，腹痛，腹泻，间断黏液便，便后腹痛缓解
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"12","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     Should Contain    ${aj[:5]}    感染性腹泻
+#     # Lists Should Be Equal    ${aj}    ${assert}
+
+
+
+# 乳糜泻-病史增加:排便次数增多，胃镜示十二指肠糜烂，肠镜检查见直、乙结肠交界处片状糜烂性质待查,推荐疑似诊断:乳糜泻
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     # ${assert}    Create List
+#     ${Assessment}    Set Variable
+#     ${Subjective}    Set Variable    男，12岁，消瘦、乏力，腹痛，腹泻，间断黏液便，便后腹痛缓解,排便次数增多，胃镜示十二指肠糜烂，肠镜检查见直、乙结肠交界处片状糜烂性质待查
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"12","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     Should Contain    ${aj[:5]}    乳糜泻
+#     # Lists Should Be Equal    ${aj}    ${assert}
+
+
+
+# 乳糜泻-点击疑似诊断或手动输入：乳糜泻,推荐检查:外周血涂片、乳糜泻组套检查、总免疫球蛋白A(IgA)水平、骨密度检查
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    外周血涂片    总免疫球蛋白A(IgA)水平    乳糜泻组套检查    骨密度检查
+#     ${Assessment}    Set Variable    乳糜泻
+#     ${Subjective}    Set Variable    男，12岁，消瘦、乏力，腹痛，腹泻，间断黏液便，便后腹痛缓解,排便次数增多，胃镜示十二指肠糜烂，肠镜检查见直、乙结肠交界处片状糜烂性质待查
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"12","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     # Should Contain    ${aj[:5]}    乳糜泻
+#     List Should Contain Sub List    ${aj}    ${assert}
+
+
+
+# 乳糜泻-点击疑似诊断或手动输入：乳糜泻,推荐治疗:转诊、无麸质饮食、缺乏营养的相应补充、随访
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    转诊    无麸质饮食    缺乏营养的相应补充    随访
+#     ${Assessment}    Set Variable    乳糜泻
+#     ${Subjective}    Set Variable    男，12岁，消瘦、乏力，腹痛，腹泻，间断黏液便，便后腹痛缓解,排便次数增多，胃镜示十二指肠糜烂，肠镜检查见直、乙结肠交界处片状糜烂性质待查
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"12","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     # Should Contain    ${aj[:5]}    乳糜泻
+#     List Should Contain Sub List    ${aj}    ${assert}
+
+
+
+# 乳糜泻-病历内容增加：脾功能减退,推荐治疗增加:接种疫苗
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    接种疫苗    转诊    无麸质饮食    缺乏营养的相应补充    随访
+#     ${Assessment}    Set Variable    乳糜泻
+#     ${Subjective}    Set Variable    男，12岁，消瘦、乏力，腹痛，腹泻，间断黏液便，便后腹痛缓解,排便次数增多，胃镜示十二指肠糜烂，肠镜检查见直、乙结肠交界处片状糜烂性质待查,脾功能减退
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"12","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     # Should Contain    ${aj[:5]}    乳糜泻
+#     List Should Contain Sub List    ${aj}    ${assert}
+
+
+
+
+
+
+
+# # #######
+# #######乳腺导管内乳头状瘤###
+
+# # 乳腺导管内乳头状瘤-主诉:女，44岁，5年前左侧乳头溢液，彩超示:左乳腺多发结节，约0.4*0.6CM，有乳腺癌家族史，推荐疑似诊断:乳腺导管原位癌
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     ${Assessment}    Set Variable
+# #     ${Subjective}    Set Variable    女，44岁，5年前左侧乳头溢液，彩超示:左乳腺多发结节，约0.4*0.6CM，有乳腺癌家族史
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"0","age":"44","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=    ...    newRecogFlag=1
+# #     #####推荐检查评估表
+# #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     #####推荐检查
+# #     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     ######检查解读
+# #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #####推荐治疗方案
+# #     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     #####疑似诊断
+# #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     Should Contain    ${aj[:5]}    乳腺导管原位癌
+
+# # 乳腺导管内乳头状瘤-增加检查结果：脱落细胞分析示:乳腺导管内乳头状瘤细胞形态，推荐疑似诊断:乳腺导管内乳头状瘤
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     ${Assessment}    Set Variable
+# #     ${Subjective}    Set Variable    女，44岁，5年前左侧乳头溢液，彩超示:左乳腺多发结节，约0.4*0.6CM，有乳腺癌家族史，脱落细胞分析示:乳腺导管内乳头状瘤细胞形态
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"0","age":"44","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=    ...    newRecogFlag=1
+# #     #####推荐检查评估表
+# #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     #####推荐检查
+# #     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     ######检查解读
+# #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #####推荐治疗方案
+# #     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     #####疑似诊断
+# #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     Should Contain    ${aj[:5]}    乳腺导管内乳头状瘤
+
+
+# 乳腺导管内乳头状瘤-明确诊断:乳腺导管内乳头状瘤，推荐评估表：乳腺癌风险评估(Gail模型)、美国BI-RADS分级
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    乳腺癌风险评估(Gail模型)    美国BI-RADS分级
+#     ${Assessment}    Set Variable    乳腺导管内乳头状瘤
+#     ${Subjective}    Set Variable    女，44岁，5年前左侧乳头溢液，彩超示:左乳腺多发结节，约0.4*0.6CM，有乳腺癌家族史，脱落细胞分析示:乳腺导管内乳头状瘤细胞形态，
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"0","age":"44","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     List Should Contain Sub List    ${aj}    ${assert}
+#     #####推荐检查
+#     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     #Lists Should Be Equal    ${aj}    ${assert}
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     #Should Contain    ${aj[:5]}    乳腺导管内乳头状瘤
+
+# 乳腺导管内乳头状瘤-明确诊断:乳腺导管内乳头状瘤，推荐治疗：全乳腺切除术
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     #${assert}    Create List    乳腺癌风险评估(Gail模型)    美国BI-RADS分级
+#     ${Assessment}    Set Variable    乳腺导管内乳头状瘤
+#     ${Subjective}    Set Variable    女，44岁，5年前左侧乳头溢液，彩超示:左乳腺多发结节，约0.4*0.6CM，有乳腺癌家族史，脱落细胞分析示:乳腺导管内乳头状瘤细胞形态，
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"0","age":"44","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #Lists Should Be Equal    ${aj}    ${assert}
+#     #####推荐检查
+#     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     #Lists Should Be Equal    ${aj}    ${assert}
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     Should Contain    ${aj}    全乳腺切除术
+#     #####疑似诊断
+#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     #Should Contain    ${aj[:5]}    乳腺导管内乳头状瘤
+
+
+# 乳腺导管内乳头状瘤-进一步增加诊断:外周型乳腺导管内乳头状瘤，推荐检查增加：乳腺MRI、细胞学检查、乳腺导管造影、乳管镜、乳腺粗针穿刺活检、乳腺钼靶、乳腺超声
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    乳腺超声    乳腺钼靶    乳腺导管造影    细胞学检查    乳管镜    乳腺MRI    乳腺粗针穿刺活检
+#     ${Assessment}    Set Variable    乳腺导管内乳头状瘤，外周型乳腺导管内乳头状瘤
+#     ${Subjective}    Set Variable    女，44岁，5年前左侧乳头溢液，彩超示:左乳腺多发结节，约0.4*0.6CM，有乳腺癌家族史，脱落细胞分析示:乳腺导管内乳头状瘤细胞形态，
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"0","age":"44","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #Lists Should Be Equal    ${aj}    ${assert}
+#     #####推荐检查
+#     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     List Should Contain Sub List    ${aj}    ${assert}
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     #${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #Should Contain    ${aj}    全乳腺切除术
+#     #####疑似诊断
+#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     #Should Contain    ${aj[:5]}    乳腺导管内乳头状瘤
+
+# 乳腺导管内乳头状瘤-进一步增加诊断:外周型乳腺导管内乳头状瘤，推荐治疗增加：会诊
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    全乳腺切除术    会诊
+#     ${Assessment}    Set Variable    乳腺导管内乳头状瘤，外周型乳腺导管内乳头状瘤
+#     ${Subjective}    Set Variable    女，44岁，5年前左侧乳头溢液，彩超示:左乳腺多发结节，约0.4*0.6CM，有乳腺癌家族史，脱落细胞分析示:乳腺导管内乳头状瘤细胞形态，
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"0","age":"44","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #Lists Should Be Equal    ${aj}    ${assert}
+#     #####推荐检查
+#     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     #Lists Should Be Equal    ${aj}    ${assert}
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     List Should Contain Sub List    ${aj}    ${assert}
+#     #Should Contain    ${aj}    全乳腺切除术
+#     #####疑似诊断
+#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     #Should Contain    ${aj[:5]}    乳腺导管内乳头状瘤
+
+
+
+
+
+
+
+
+
+
+
+
+# # #######
+# #######乳腺炎###
+
+# 乳腺炎-主诉:女，38岁，右侧乳房红肿、乳腺疼痛1周，推荐疑似诊断:急性乳腺炎
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${Assessment}    Set Variable
+#     ${Subjective}    Set Variable    女，38岁，右侧乳房红肿、乳腺疼痛1周
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"0","age":"38","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     Should Contain    ${aj[:5]}    急性乳腺炎
+
+
+# 乳腺炎-手动输入诊断：乳腺炎，推荐检查:乳腺空心针穿刺活检、乳腺超声、乳腺钼靶、分泌物细菌培养、血常规、乳管镜、乳腺MRI、C-反应蛋白、红细胞沉降率、血清免疫学检查、催乳素测定、风湿检查、结核菌素实验(PPD试验)、非结核菌分歧杆菌培养
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    乳腺超声    乳腺空心针穿刺活检    乳腺MRI    乳管镜    乳腺钼靶    分泌物细菌培养    结核菌素试验(PPD试验)    红细胞沉降率    非结核菌分歧杆菌培养    催乳素测定    风湿检查    C-反应蛋白    血常规    血清免疫学检查
+#     ${Assessment}    Set Variable    乳腺炎
+#     ${Subjective}    Set Variable    女，38岁，右侧乳房红肿、乳腺疼痛1周
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"0","age":"38","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     List Should Contain Sub List    ${aj}    ${assert}
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     #Should Contain    ${aj[:5]}    急性乳腺炎
+
+# 乳腺炎-手动输入诊断：乳腺炎，推荐治疗：广谱抗生素、预防NPM复发、非甾体类镇痛药
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    广谱抗生素    预防 NPM 复发    非甾体类镇痛药
+#     ${Assessment}    Set Variable    乳腺炎
+#     ${Subjective}    Set Variable    女，38岁，右侧乳房红肿、乳腺疼痛1周
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"0","age":"38","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     #Lists Should Be Equal    ${aj}    ${assert}
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     List Should Contain Sub List    ${aj}    ${assert}
+#     #####疑似诊断
+#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     #Should Contain    ${aj[:5]}    急性乳腺炎
+
+
+# 乳腺炎-病历内容增加：乳腺脓肿，推荐治疗增加：穿刺抽吸、切开引流术
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    广谱抗生素    非甾体类镇痛药    穿刺抽吸    切开引流术
+#     ${Assessment}    Set Variable    乳腺炎
+#     ${Subjective}    Set Variable    女，38岁，右侧乳房红肿、乳腺疼痛1周，乳腺脓肿
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"0","age":"38","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     #Lists Should Be Equal    ${aj}    ${assert}
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     List Should Contain Sub List    ${aj}    ${assert}
+#     #####疑似诊断
+#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     #Should Contain    ${aj[:5]}    急性乳腺炎
+
+
+# 乳腺炎-诊断修改为：肉芽肿性小叶乳腺炎，推荐治疗变更：类固醇激素、肿块切除术、乳腺区段切除术
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    广谱抗生素    非甾体类镇痛药    类固醇激素    肿块切除术    乳腺区段切除术    穿刺抽吸    切开引流术
+#     ${Assessment}    Set Variable    肉芽肿性小叶乳腺炎
+#     ${Subjective}    Set Variable    女，38岁，右侧乳房红肿、乳腺疼痛1周，乳腺脓肿
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"0","age":"38","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     #Lists Should Be Equal    ${aj}    ${assert}
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     List Should Contain Sub List    ${aj}    ${assert}
+#     #####疑似诊断
+#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     #Should Contain    ${aj[:5]}    急性乳腺炎
+
+# 乳腺炎-病历内容增加：乳腺瘘管，推荐治疗增加：免疫抑制剂、瘘管切除术、单纯皮下腺体切除术、单纯乳房切除术、乳房重建或假体植入术
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    广谱抗生素    非甾体类镇痛药    类固醇激素    肿块切除术    乳腺区段切除术    穿刺抽吸    切开引流术    免疫抑制剂    瘘管切除术    单纯皮下腺体切除术    单纯乳房切除术    乳房重建或假体植入术
+#     ${Assessment}    Set Variable    肉芽肿性小叶乳腺炎
+#     ${Subjective}    Set Variable    女，38岁，右侧乳房红肿、乳腺疼痛1周，乳腺脓肿，乳腺瘘管
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"0","age":"38","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     #Lists Should Be Equal    ${aj}    ${assert}
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     List Should Contain Sub List    ${aj}    ${assert}
+#     #####疑似诊断
+#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     #Should Contain    ${aj[:5]}    急性乳腺炎
+
+
+# 乳腺炎-诊断修改为：乳腺导管扩张症，推荐治疗变更：瘘管切除术、抗分枝杆菌治疗、单纯皮下腺体切除术
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    抗分枝杆菌治疗    瘘管切除术    单纯皮下腺体切除术
+#     ${Assessment}    Set Variable    乳腺导管扩张症
+#     ${Subjective}    Set Variable    女，38岁，右侧乳房红肿、乳腺疼痛1周，乳腺脓肿，乳腺瘘管
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"0","age":"38","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     #Lists Should Be Equal    ${aj}    ${assert}
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     List Should Contain Sub List    ${aj}    ${assert}
+#     #####疑似诊断
+#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     #Should Contain    ${aj[:5]}    急性乳腺炎
+
+
+
+
+
+
+
+# # #######
+# #######乳腺纤维腺瘤###
+
+# 乳腺纤维腺瘤-主诉:女，28岁，发现右乳外上象限肿块5年，近半月肿块增大较快。5年来肿物逐渐增大，月经周期对肿块大小无影响+输入查体结果：乳房肿块质地似橡皮球，肿块表面光滑，大小约2×1mm，界清，易于推动，无压痛，推荐疑似诊断:乳腺纤维腺瘤
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${Assessment}    Set Variable
 #     ${Subjective}    Set Variable    女，28岁，发现右乳外上象限肿块5年，近半月肿块增大较快。5年来肿物逐渐增大，月经周期对肿块大小无影响，乳房肿块质地似橡皮球，肿块表面光滑，大小约2×1mm，界清，易于推动，无压痛
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
@@ -2062,87 +1960,227 @@ Library           String
 #     ...    newTestList=
 #     ...    operationRecord=
 #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=    ...    newRecogFlag=1
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
 #     #####推荐检查评估表
-#     #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-#     #Should Contain    ${aj}    乳房肿物开放切除术
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
 #     #####推荐检查
-#     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-#     #Lists Should Be Equal    ${aj}    ${assert}
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
 #     ######检查解读
 #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
 #     #####推荐治疗方案
-#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-#     Should Contain    ${aj}    乳房肿物开放切除术
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
 #     #####疑似诊断
-#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-#     #Should Contain    ${aj[:5]}    乳腺纤维腺瘤
+#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     Should Contain    ${aj[:5]}    乳腺纤维腺瘤
 
-# 乳腺纤维腺瘤-病历内容增加：乳腺纤维腺瘤术后，推荐治疗增加：随访观察、术后止血治疗、术后镇痛治疗
+
+# # 乳腺纤维腺瘤-点击疑似诊断或手动输入：乳腺纤维腺瘤，推荐检查:血常规、尿常规、肝功能、肾功能、输血前四项、凝血常规、电解质常规、性激素检查、尿妊娠试验、粪便常规、胸部X线、心电图、乳腺B超检查、乳腺钼靶、乳腺粗针穿刺活检
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     ${assert}    Create List    乳腺粗针穿刺活检    乳腺钼靶    尿常规    乳腺B超检查    尿妊娠试验    粪便常规    血常规    性激素检查    肝功能    输血前四项    肾功能    电解质常规    凝血常规    胸部X线    心电图
+# #     ${Assessment}    Set Variable    乳腺纤维腺瘤
+# #     ${Subjective}    Set Variable    女，28岁，发现右乳外上象限肿块5年，近半月肿块增大较快。5年来肿物逐渐增大，月经周期对肿块大小无影响，乳房肿块质地似橡皮球，肿块表面光滑，大小约2×1mm，界清，易于推动，无压痛
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"0","age":"28","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=    ...    newRecogFlag=1
+# #     #####推荐检查评估表
+# #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     #####推荐检查
+# #     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     List Should Contain Sub List    ${aj}    ${assert}
+# #     ######检查解读
+# #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #####推荐治疗方案
+# #     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     #####疑似诊断
+# #     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     #Should Contain    ${aj[:5]}    乳腺纤维腺瘤
+
+
+# # 乳腺纤维腺瘤-点击疑似诊断或手动输入：乳腺纤维腺瘤，推荐评估表：真空辅助微创旋切术禁忌症评估
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     ${Assessment}    Set Variable    乳腺纤维腺瘤
+# #     ${Subjective}    Set Variable    女，28岁，发现右乳外上象限肿块5年，近半月肿块增大较快。5年来肿物逐渐增大，月经周期对肿块大小无影响，乳房肿块质地似橡皮球，肿块表面光滑，大小约2×1mm，界清，易于推动，无压痛
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"0","age":"28","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=    ...    newRecogFlag=1
+# #     #####推荐检查评估表
+# #     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     Should Contain    ${aj}    真空辅助微创旋切术禁忌症评估
+# #     #####推荐检查
+# #     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     #Lists Should Be Equal    ${aj}    ${assert}
+# #     ######检查解读
+# #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #####推荐治疗方案
+# #     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     #####疑似诊断
+# #     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     #Should Contain    ${aj[:5]}    乳腺纤维腺瘤
+
+# # 乳腺纤维腺瘤-点击疑似诊断或手动输入：乳腺纤维腺瘤直径3.1cm，推荐治疗：乳房肿物开放切除术
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     ${Assessment}    Set Variable    乳腺纤维腺瘤直径3.1cm
+# #     ${Subjective}    Set Variable    女，28岁，发现右乳外上象限肿块5年，近半月肿块增大较快。5年来肿物逐渐增大，月经周期对肿块大小无影响，乳房肿块质地似橡皮球，肿块表面光滑，大小约2×1mm，界清，易于推动，无压痛
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"0","age":"28","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=    ...    newRecogFlag=1
+# #     #####推荐检查评估表
+# #     #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     #Should Contain    ${aj}    乳房肿物开放切除术
+# #     #####推荐检查
+# #     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     #Lists Should Be Equal    ${aj}    ${assert}
+# #     ######检查解读
+# #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #####推荐治疗方案
+# #     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     Should Contain    ${aj}    乳房肿物开放切除术
+# #     #####疑似诊断
+# #     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     #Should Contain    ${aj[:5]}    乳腺纤维腺瘤
+
+# # 乳腺纤维腺瘤-病历内容增加：乳腺纤维腺瘤术后，推荐治疗增加：随访观察、术后止血治疗、术后镇痛治疗
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     ${assert}    Create List    随访观察    术后止血治疗    术后镇痛治疗    乳房肿物开放切除术
+# #     ${Assessment}    Set Variable    乳腺纤维腺瘤直径3.1cm
+# #     ${Subjective}    Set Variable    女，28岁，发现右乳外上象限肿块5年，近半月肿块增大较快。5年来肿物逐渐增大，月经周期对肿块大小无影响，乳房肿块质地似橡皮球，肿块表面光滑，大小约2×1mm，界清，易于推动，无压痛，乳腺纤维腺瘤术后
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"0","age":"28","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=    ...    newRecogFlag=1
+# #     #####推荐检查评估表
+# #     #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     #Should Contain    ${aj}    乳房肿物开放切除术
+# #     #####推荐检查
+# #     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     #Lists Should Be Equal    ${aj}    ${assert}
+# #     ######检查解读
+# #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #####推荐治疗方案
+# #     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     List Should Contain Sub List    ${aj}    ${assert}
+# #     #Should Contain    ${aj}    乳房肿物开放切除术
+# #     #####疑似诊断
+# #     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     #Should Contain    ${aj[:5]}    乳腺纤维腺瘤
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# # ############乳腺非典型增生#############
+
+# # 乳腺非典型增生-病史:女，33岁，左乳胀痛，左乳内触及一结节3月，三个月前自觉左乳外侧略有胀痛，月经前加重，局部可触及一约拇指指甲大小肿物，轻微压痛，局部皮肤无红肿，推荐疑似诊断:乳腺非典型增生
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     # ${assert}    Create List
+# #     ${Assessment}    Set Variable
+# #     ${Subjective}    Set Variable    女，33岁，左乳胀痛，左乳内触及一结节3月，三个月前自觉左乳外侧略有胀痛，月经前加重，局部可触及一约拇指指甲大小肿物，轻微压痛，局部皮肤无红肿
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"0","age":"33","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=    ...    newRecogFlag=1
+# #     #####推荐检查评估表
+# #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     #####推荐检查
+# #     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     ######检查解读
+# #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #####推荐治疗方案
+# #     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     #####疑似诊断
+# #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     Should Contain    ${aj[:5]}    乳腺非典型增生
+# #     # Lists Should Be Equal    ${aj}    ${assert}
+
+
+
+
+# 乳腺非典型增生-点击疑似诊断或手动输入：乳腺导管非典型增生，推荐检查:乳腺钼靶
 #     [Documentation]    断言:""
 #     # ${timestamp}    Get Time    epoch
-#     ${assert}    Create List    随访观察    术后止血治疗    术后镇痛治疗    乳房肿物开放切除术
-#     ${Assessment}    Set Variable    乳腺纤维腺瘤直径3.1cm
-#     ${Subjective}    Set Variable    女，28岁，发现右乳外上象限肿块5年，近半月肿块增大较快。5年来肿物逐渐增大，月经周期对肿块大小无影响，乳房肿块质地似橡皮球，肿块表面光滑，大小约2×1mm，界清，易于推动，无压痛，乳腺纤维腺瘤术后
-#     [Setup]    Run Keywords    获取时间戳
-#     ...    AND    获取随机数
-#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-#     ...    doctorGuid=0210497    doctorName=
-#     ...    patientInfo={"gender":"0","age":"28","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-#     ...    definiteDiagnosis=
-#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-#     ...    labTestList=
-#     ...    examinationList=
-#     ...    newTestList=
-#     ...    operationRecord=
-#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=    ...    newRecogFlag=1
-#     #####推荐检查评估表
-#     #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-#     #Should Contain    ${aj}    乳房肿物开放切除术
-#     #####推荐检查
-#     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-#     #Lists Should Be Equal    ${aj}    ${assert}
-#     ######检查解读
-#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-#     #####推荐治疗方案
-#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-#     List Should Contain Sub List    ${aj}    ${assert}
-#     #Should Contain    ${aj}    乳房肿物开放切除术
-#     #####疑似诊断
-#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-#     #Should Contain    ${aj[:5]}    乳腺纤维腺瘤
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# ############乳腺非典型增生#############
-
-# 乳腺非典型增生-病史:女，33岁，左乳胀痛，左乳内触及一结节3月，三个月前自觉左乳外侧略有胀痛，月经前加重，局部可触及一约拇指指甲大小肿物，轻微压痛，局部皮肤无红肿，推荐疑似诊断:乳腺非典型增生
-#     [Documentation]    断言:""
-#     # ${timestamp}    Get Time    epoch
-#     # ${assert}    Create List
-#     ${Assessment}    Set Variable
+#     ${assert}    Create List    乳腺钼靶
+#     ${Assessment}    Set Variable    乳腺导管非典型增生
 #     ${Subjective}    Set Variable    女，33岁，左乳胀痛，左乳内触及一结节3月，三个月前自觉左乳外侧略有胀痛，月经前加重，局部可触及一约拇指指甲大小肿物，轻微压痛，局部皮肤无红肿
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
@@ -2158,7 +2196,122 @@ Library           String
 #     ...    newTestList=
 #     ...    operationRecord=
 #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=    ...    newRecogFlag=1
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     # Should Contain    ${aj[:5]}    乳腺非典型增生
+#     List Should Contain Sub List    ${aj}    ${assert}
+
+
+# 乳腺非典型增生-点击疑似诊断或手动输入：乳腺导管非典型增生，推荐评分表:乳腺癌风险评估(Gail模型)
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    乳腺癌风险评估(Gail模型)
+#     ${Assessment}    Set Variable    乳腺导管非典型增生
+#     ${Subjective}    Set Variable    女，33岁，左乳胀痛，左乳内触及一结节3月，三个月前自觉左乳外侧略有胀痛，月经前加重，局部可触及一约拇指指甲大小肿物，轻微压痛，局部皮肤无红肿
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"0","age":"33","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     # Should Contain    ${aj[:5]}    乳腺非典型增生
+#     List Should Contain Sub List    ${aj}    ${assert}
+
+
+# 乳腺非典型增生-点击疑似诊断或手动输入：乳腺导管非典型增生，推荐治疗:转诊、药物治疗、预防性治疗、手术切除
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    转诊    预防性治疗    手术切除    药物治疗
+#     ${Assessment}    Set Variable    乳腺导管非典型增生
+#     ${Subjective}    Set Variable    女，33岁，左乳胀痛，左乳内触及一结节3月，三个月前自觉左乳外侧略有胀痛，月经前加重，局部可触及一约拇指指甲大小肿物，轻微压痛，局部皮肤无红肿
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"0","age":"33","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     # Should Contain    ${aj[:5]}    乳腺非典型增生
+#     List Should Contain Sub List    ${aj}    ${assert}
+
+
+
+
+
+
+# ############先天性胆管扩张症#############
+
+# 先天性胆管扩张症-病史：男，10岁，腹痛，哭闹不止，恶心、呕吐，皮肤颜色变黄，推荐疑似诊断:消化道穿孔
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     # ${assert}    Create List
+#     ${Assessment}    Set Variable
+#     ${Subjective}    Set Variable    男，10岁，腹痛，哭闹不止，恶心、呕吐，皮肤颜色变黄
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"10","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
 #     #####推荐检查评估表
 #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
 #     #####推荐检查
@@ -2169,499 +2322,383 @@ Library           String
 #     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
 #     #####疑似诊断
 #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-#     Should Contain    ${aj[:5]}    乳腺非典型增生
+#     Should Contain    ${aj[:5]}    消化道穿孔
+#     # Lists Should Be Equal    ${aj}    ${assert}
+
+
+# 先天性胆管扩张症-增加病史:检查结果示：间歇性黄疸加重，右上腹囊性包块，尿胆红素阳性，推荐疑似诊断:先天性胆管扩张症
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     # ${assert}    Create List
+#     ${Assessment}    Set Variable
+#     ${Subjective}    Set Variable    男，10岁，腹痛，哭闹不止，恶心、呕吐，皮肤颜色变黄,检查结果示：间歇性黄疸加重，右上腹囊性包块，尿胆红素阳性
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"10","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     Should Contain    ${aj[:5]}    先天性胆管扩张症
+#     # Lists Should Be Equal    ${aj}    ${assert}
+
+
+# 先天性胆管扩张症-手动输入诊断：先天性胆管扩张症，推荐检查:尿常规、粪便常规、血常规、C-反应蛋白、血型、血生化、凝血常规、乙肝五项、血气分析、胸部X线片（正位）、心电图、超声心动图、腹部B超、上腹部CT、磁共振胰胆管造影（MRCP)、CT三维重建、经内镜逆行胰胆道造影(ERCP)
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    尿常规    粪便常规    血常规    C-反应蛋白    血型    血生化    凝血常规    乙肝五项    血气分析    胸部X线片（正位）    心电图    超声心动图    腹部B超    上腹部CT    磁共振胰胆管造影（MRCP)    CT三维重建    经内镜逆行胰胆道造影(ERCP)
+#     ${Assessment}    Set Variable    先天性胆管扩张症
+#     ${Subjective}    Set Variable    男，10岁，腹痛，哭闹不止，恶心、呕吐，皮肤颜色变黄,检查结果示：间歇性黄疸加重，右上腹囊性包块，尿胆红素阳性
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"10","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     Should Contain    ${aj[:5]}    先天性胆管扩张症
 #     # Lists Should Be Equal    ${aj}    ${assert}
 
 
 
 
-乳腺非典型增生-点击疑似诊断或手动输入：乳腺导管非典型增生，推荐检查:乳腺钼靶
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    乳腺钼靶
-    ${Assessment}    Set Variable    乳腺导管非典型增生
-    ${Subjective}    Set Variable    女，33岁，左乳胀痛，左乳内触及一结节3月，三个月前自觉左乳外侧略有胀痛，月经前加重，局部可触及一约拇指指甲大小肿物，轻微压痛，局部皮肤无红肿
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"33","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    乳腺非典型增生
-    List Should Contain Sub List    ${aj}    ${assert}
+# # #######
+# #######前列腺癌###
+
+# # 前列腺癌-主诉:男，80岁，排尿不畅20余年，出现尿潴留1周，留置导尿管+检查结果输入：前列腺穿刺活检病理检查示前列腺癌，推荐疑似诊断:前列腺癌
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     ${Assessment}    Set Variable
+# #     ${Subjective}    Set Variable    男，80岁，排尿不畅20余年，出现尿潴留1周，留置导尿管，前列腺穿刺活检病理检查示前列腺癌
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"1","age":"80","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=    ...    newRecogFlag=1
+# #     #####推荐检查评估表
+# #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     #####推荐检查
+# #     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     ######检查解读
+# #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #####推荐治疗方案
+# #     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     #####疑似诊断
+# #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     Should Contain    ${aj[:5]}    前列腺癌
+
+# # 前列腺癌- 点击疑似诊断或手动输入：前列腺癌，推荐检查：前列腺特异抗原测定、直肠指检、前列腺穿刺活检、前列腺超声、前列腺MRI、前列腺CT、肾功能、血清睾酮测定、精液酸性磷酸酶、血清PSA值/前列腺体积比值
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     ${assert}    Create List    直肠指检    前列腺穿刺活检    前列腺超声    肾功能    前列腺CT    血清PSA值/前列腺体积比值    精液酸性磷酸酶    前列腺MRI    前列腺特异抗原测定    血清睾酮测定
+# #     ${Assessment}    Set Variable    前列腺癌
+# #     ${Subjective}    Set Variable    男，80岁，排尿不畅20余年，出现尿潴留1周，留置导尿管，前列腺穿刺活检病理检查示前列腺癌
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"1","age":"80","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=    ...    newRecogFlag=1
+# #     #####推荐检查评估表
+# #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     #####推荐检查
+# #     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     List Should Contain Sub List    ${aj}    ${assert}
+# #     ######检查解读
+# #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #####推荐治疗方案
+# #     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     #####疑似诊断
+# #     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     #Should Contain    ${aj[:5]}    前列腺癌
+
+# # 前列腺癌- 点击疑似诊断或手动输入：前列腺癌，推荐评估表：体力状况ECOG评分、功能状态Karnofsky评分、肿瘤患者生活质量评分(QOL)
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     ${assert}    Create List    体力状况ECOG评分    功能状态Karnofsky评分    肿瘤患者生活质量评分(QOL)
+# #     ${Assessment}    Set Variable    前列腺癌
+# #     ${Subjective}    Set Variable    男，80岁，排尿不畅20余年，出现尿潴留1周，留置导尿管，前列腺穿刺活检病理检查示前列腺癌
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"1","age":"80","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=    ...    newRecogFlag=1
+# #     #####推荐检查评估表
+# #     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     List Should Contain Sub List    ${aj}    ${assert}
+# #     #####推荐检查
+# #     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     #Lists Should Be Equal    ${aj}    ${assert}
+# #     ######检查解读
+# #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #####推荐治疗方案
+# #     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     #####疑似诊断
+# #     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     #Should Contain    ${aj[:5]}    前列腺癌
 
 
-乳腺非典型增生-点击疑似诊断或手动输入：乳腺导管非典型增生，推荐评分表:乳腺癌风险评估(Gail模型)
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    乳腺癌风险评估(Gail模型)
-    ${Assessment}    Set Variable    乳腺导管非典型增生
-    ${Subjective}    Set Variable    女，33岁，左乳胀痛，左乳内触及一结节3月，三个月前自觉左乳外侧略有胀痛，月经前加重，局部可触及一约拇指指甲大小肿物，轻微压痛，局部皮肤无红肿
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"33","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    乳腺非典型增生
-    List Should Contain Sub List    ${aj}    ${assert}
+# # 前列腺癌- 点击疑似诊断或手动输入：前列腺癌，推荐治疗：局部低温冷冻治疗、内分泌治疗、手术去势疗法、单纯去势疗法、全激素阻断疗法
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     ${assert}    Create List    内分泌治疗    手术去势疗法    单纯去势疗法    全激素阻断疗法    局部低温冷冻治疗
+# #     ${Assessment}    Set Variable    前列腺癌
+# #     ${Subjective}    Set Variable    男，80岁，排尿不畅20余年，出现尿潴留1周，留置导尿管，前列腺穿刺活检病理检查示前列腺癌
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"1","age":"80","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=    ...    newRecogFlag=1
+# #     #####推荐检查评估表
+# #     #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     #Lists Should Be Equal    ${aj}    ${assert}
+# #     #####推荐检查
+# #     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     #Lists Should Be Equal    ${aj}    ${assert}
+# #     ######检查解读
+# #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #####推荐治疗方案
+# #     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     List Should Contain Sub List    ${aj}    ${assert}
+# #     #####疑似诊断
+# #     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     #Should Contain    ${aj[:5]}    前列腺癌
 
+# # 前列腺癌- 病历内容增加：骨转移，推荐检查增加：β-骨胶原交联、骨特异性碱性磷酸酶、尿总钙、尿吡啶啉、尿脱氧吡啶啉、血钙、血磷、血清抗酒石酸酸性磷酸酶
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     ${assert}    Create List    直肠指检    前列腺穿刺活检    前列腺超声    血钙    血磷    尿总钙    前列腺MRI    血清睾酮测定    肾功能    前列腺CT    骨特异性碱性磷酸酶    β-骨胶原交联    尿脱氧吡啶啉    尿吡啶啉    血清抗酒石酸酸性磷酸酶    血清PSA值/前列腺体积比值    精液酸性磷酸酶    前列腺特异抗原测定
+# #     ${Assessment}    Set Variable    前列腺癌
+# #     ${Subjective}    Set Variable    男，80岁，排尿不畅20余年，出现尿潴留1周，留置导尿管，前列腺穿刺活检病理检查示前列腺癌，骨转移
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"1","age":"80","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=    ...    newRecogFlag=1
+# #     #####推荐检查评估表
+# #     #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     #Lists Should Be Equal    ${aj}    ${assert}
+# #     #####推荐检查
+# #     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     List Should Contain Sub List    ${aj}    ${assert}
+# #     ######检查解读
+# #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #####推荐治疗方案
+# #     #${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     #Lists Should Be Equal    ${aj}    ${assert}
+# #     #####疑似诊断
+# #     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     #Should Contain    ${aj[:5]}    前列腺癌
 
-乳腺非典型增生-点击疑似诊断或手动输入：乳腺导管非典型增生，推荐治疗:转诊、药物治疗、预防性治疗、手术切除
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    转诊    预防性治疗    手术切除    药物治疗
-    ${Assessment}    Set Variable    乳腺导管非典型增生
-    ${Subjective}    Set Variable    女，33岁，左乳胀痛，左乳内触及一结节3月，三个月前自觉左乳外侧略有胀痛，月经前加重，局部可触及一约拇指指甲大小肿物，轻微压痛，局部皮肤无红肿
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"33","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    乳腺非典型增生
-    List Should Contain Sub List    ${aj}    ${assert}
+# # 前列腺癌- 病历内容增加：难治性骨痛，推荐检查增加：同位素骨扫描
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     ${assert}    Create List    直肠指检    同位素骨扫描    前列腺穿刺活检    前列腺超声    血钙    血磷    尿总钙    前列腺MRI    血清睾酮测定    肾功能    前列腺CT    骨特异性碱性磷酸酶    β-骨胶原交联    尿脱氧吡啶啉    尿吡啶啉    血清抗酒石酸酸性磷酸酶    血清PSA值/前列腺体积比值    精液酸性磷酸酶    前列腺特异抗原测定
+# #     ${Assessment}    Set Variable    前列腺癌
+# #     ${Subjective}    Set Variable    男，80岁，排尿不畅20余年，出现尿潴留1周，留置导尿管，前列腺穿刺活检病理检查示前列腺癌，骨转移，难治性骨痛
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"1","age":"80","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=    ...    newRecogFlag=1
+# #     #####推荐检查评估表
+# #     #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     #Lists Should Be Equal    ${aj}    ${assert}
+# #     #####推荐检查
+# #     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     List Should Contain Sub List    ${aj}    ${assert}
+# #     ######检查解读
+# #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #####推荐治疗方案
+# #     #${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     #Lists Should Be Equal    ${aj}    ${assert}
+# #     #####疑似诊断
+# #     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     #Should Contain    ${aj[:5]}    前列腺癌
 
-
-
-
-
-
-############先天性胆管扩张症#############
-
-先天性胆管扩张症-病史：男，10岁，腹痛，哭闹不止，恶心、呕吐，皮肤颜色变黄，推荐疑似诊断:消化道穿孔
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    # ${assert}    Create List
-    ${Assessment}    Set Variable
-    ${Subjective}    Set Variable    男，10岁，腹痛，哭闹不止，恶心、呕吐，皮肤颜色变黄
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"10","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    Should Contain    ${aj[:5]}    消化道穿孔
-    # Lists Should Be Equal    ${aj}    ${assert}
-
-
-先天性胆管扩张症-增加病史:检查结果示：间歇性黄疸加重，右上腹囊性包块，尿胆红素阳性，推荐疑似诊断:先天性胆管扩张症
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    # ${assert}    Create List
-    ${Assessment}    Set Variable
-    ${Subjective}    Set Variable    男，10岁，腹痛，哭闹不止，恶心、呕吐，皮肤颜色变黄,检查结果示：间歇性黄疸加重，右上腹囊性包块，尿胆红素阳性
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"10","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    Should Contain    ${aj[:5]}    先天性胆管扩张症
-    # Lists Should Be Equal    ${aj}    ${assert}
-
-
-先天性胆管扩张症-手动输入诊断：先天性胆管扩张症，推荐检查:尿常规、粪便常规、血常规、C-反应蛋白、血型、血生化、凝血常规、乙肝五项、血气分析、胸部X线片（正位）、心电图、超声心动图、腹部B超、上腹部CT、磁共振胰胆管造影（MRCP)、CT三维重建、经内镜逆行胰胆道造影(ERCP)
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    尿常规    粪便常规    血常规    C-反应蛋白    血型    血生化    凝血常规    乙肝五项    血气分析    胸部X线片（正位）    心电图    超声心动图    腹部B超    上腹部CT    磁共振胰胆管造影（MRCP)    CT三维重建    经内镜逆行胰胆道造影(ERCP)
-    ${Assessment}    Set Variable    先天性胆管扩张症
-    ${Subjective}    Set Variable    男，10岁，腹痛，哭闹不止，恶心、呕吐，皮肤颜色变黄,检查结果示：间歇性黄疸加重，右上腹囊性包块，尿胆红素阳性
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"10","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    Should Contain    ${aj[:5]}    先天性胆管扩张症
-    # Lists Should Be Equal    ${aj}    ${assert}
+# # 前列腺癌- 病历内容增加：难治性骨痛，推荐治疗增加：姑息性放射治疗
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     ${assert}    Create List    姑息性放射治疗    内分泌治疗    手术去势疗法    单纯去势疗法    全激素阻断疗法    局部低温冷冻治疗
+# #     ${Assessment}    Set Variable    前列腺癌
+# #     ${Subjective}    Set Variable    男，80岁，排尿不畅20余年，出现尿潴留1周，留置导尿管，前列腺穿刺活检病理检查示前列腺癌，骨转移，难治性骨痛
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"1","age":"80","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=    ...    newRecogFlag=1
+# #     #####推荐检查评估表
+# #     #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     #Lists Should Be Equal    ${aj}    ${assert}
+# #     #####推荐检查
+# #     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     #Lists Should Be Equal    ${aj}    ${assert}
+# #     ######检查解读
+# #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #####推荐治疗方案
+# #     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     List Should Contain Sub List    ${aj}    ${assert}
+# #     #####疑似诊断
+# #     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     #Should Contain    ${aj[:5]}    前列腺癌
 
 
 
 
-# #######
-#######前列腺癌###
 
-# 前列腺癌-主诉:男，80岁，排尿不畅20余年，出现尿潴留1周，留置导尿管+检查结果输入：前列腺穿刺活检病理检查示前列腺癌，推荐疑似诊断:前列腺癌
+
+
+
+# # ############周围动脉病#############
+
+# # 周围动脉病-病史：男，56岁，间歇性跛行2个月，查体显示：双侧足背动脉搏动减弱，双下肢局部皮温下降，皮肤脱屑，推荐疑似诊断:周围动脉病
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     # ${assert}    Create List
+# #     ${Assessment}    Set Variable
+# #     ${Subjective}    Set Variable    男，56岁，间歇性跛行2个月，查体显示：双侧足背动脉搏动减弱，双下肢局部皮温下降，皮肤脱屑
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"1","age":"56","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=    ...    newRecogFlag=1
+# #     #####推荐检查评估表
+# #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     #####推荐检查
+# #     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     ######检查解读
+# #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #####推荐治疗方案
+# #     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     #####疑似诊断
+# #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     Should Contain    ${aj[:5]}    周围动脉病
+# #     # Lists Should Be Equal    ${aj}    ${assert}
+
+
+
+# 周围动脉病-点击疑似诊断或手动输入：周围动脉病，推荐检查:心电图、动态心电图、经食道超声心动图 (TEE)、胸主动脉MR血管造影、胸主动脉造影 成像(CTA)、踝肱指数(ABI)
 #     [Documentation]    断言:""
 #     # ${timestamp}    Get Time    epoch
-#     ${Assessment}    Set Variable
-#     ${Subjective}    Set Variable    男，80岁，排尿不畅20余年，出现尿潴留1周，留置导尿管，前列腺穿刺活检病理检查示前列腺癌
-#     [Setup]    Run Keywords    获取时间戳
-#     ...    AND    获取随机数
-#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-#     ...    doctorGuid=0210497    doctorName=
-#     ...    patientInfo={"gender":"1","age":"80","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-#     ...    definiteDiagnosis=
-#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-#     ...    labTestList=
-#     ...    examinationList=
-#     ...    newTestList=
-#     ...    operationRecord=
-#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=    ...    newRecogFlag=1
-#     #####推荐检查评估表
-#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-#     #####推荐检查
-#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-#     ######检查解读
-#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-#     #####推荐治疗方案
-#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-#     #####疑似诊断
-#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-#     Should Contain    ${aj[:5]}    前列腺癌
-
-# 前列腺癌- 点击疑似诊断或手动输入：前列腺癌，推荐检查：前列腺特异抗原测定、直肠指检、前列腺穿刺活检、前列腺超声、前列腺MRI、前列腺CT、肾功能、血清睾酮测定、精液酸性磷酸酶、血清PSA值/前列腺体积比值
-#     [Documentation]    断言:""
-#     # ${timestamp}    Get Time    epoch
-#     ${assert}    Create List    直肠指检    前列腺穿刺活检    前列腺超声    肾功能    前列腺CT    血清PSA值/前列腺体积比值    精液酸性磷酸酶    前列腺MRI    前列腺特异抗原测定    血清睾酮测定
-#     ${Assessment}    Set Variable    前列腺癌
-#     ${Subjective}    Set Variable    男，80岁，排尿不畅20余年，出现尿潴留1周，留置导尿管，前列腺穿刺活检病理检查示前列腺癌
-#     [Setup]    Run Keywords    获取时间戳
-#     ...    AND    获取随机数
-#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-#     ...    doctorGuid=0210497    doctorName=
-#     ...    patientInfo={"gender":"1","age":"80","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-#     ...    definiteDiagnosis=
-#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-#     ...    labTestList=
-#     ...    examinationList=
-#     ...    newTestList=
-#     ...    operationRecord=
-#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=    ...    newRecogFlag=1
-#     #####推荐检查评估表
-#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-#     #####推荐检查
-#     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-#     List Should Contain Sub List    ${aj}    ${assert}
-#     ######检查解读
-#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-#     #####推荐治疗方案
-#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-#     #####疑似诊断
-#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-#     #Should Contain    ${aj[:5]}    前列腺癌
-
-# 前列腺癌- 点击疑似诊断或手动输入：前列腺癌，推荐评估表：体力状况ECOG评分、功能状态Karnofsky评分、肿瘤患者生活质量评分(QOL)
-#     [Documentation]    断言:""
-#     # ${timestamp}    Get Time    epoch
-#     ${assert}    Create List    体力状况ECOG评分    功能状态Karnofsky评分    肿瘤患者生活质量评分(QOL)
-#     ${Assessment}    Set Variable    前列腺癌
-#     ${Subjective}    Set Variable    男，80岁，排尿不畅20余年，出现尿潴留1周，留置导尿管，前列腺穿刺活检病理检查示前列腺癌
-#     [Setup]    Run Keywords    获取时间戳
-#     ...    AND    获取随机数
-#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-#     ...    doctorGuid=0210497    doctorName=
-#     ...    patientInfo={"gender":"1","age":"80","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-#     ...    definiteDiagnosis=
-#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-#     ...    labTestList=
-#     ...    examinationList=
-#     ...    newTestList=
-#     ...    operationRecord=
-#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=    ...    newRecogFlag=1
-#     #####推荐检查评估表
-#     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-#     List Should Contain Sub List    ${aj}    ${assert}
-#     #####推荐检查
-#     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-#     #Lists Should Be Equal    ${aj}    ${assert}
-#     ######检查解读
-#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-#     #####推荐治疗方案
-#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-#     #####疑似诊断
-#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-#     #Should Contain    ${aj[:5]}    前列腺癌
-
-
-# 前列腺癌- 点击疑似诊断或手动输入：前列腺癌，推荐治疗：局部低温冷冻治疗、内分泌治疗、手术去势疗法、单纯去势疗法、全激素阻断疗法
-#     [Documentation]    断言:""
-#     # ${timestamp}    Get Time    epoch
-#     ${assert}    Create List    内分泌治疗    手术去势疗法    单纯去势疗法    全激素阻断疗法    局部低温冷冻治疗
-#     ${Assessment}    Set Variable    前列腺癌
-#     ${Subjective}    Set Variable    男，80岁，排尿不畅20余年，出现尿潴留1周，留置导尿管，前列腺穿刺活检病理检查示前列腺癌
-#     [Setup]    Run Keywords    获取时间戳
-#     ...    AND    获取随机数
-#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-#     ...    doctorGuid=0210497    doctorName=
-#     ...    patientInfo={"gender":"1","age":"80","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-#     ...    definiteDiagnosis=
-#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-#     ...    labTestList=
-#     ...    examinationList=
-#     ...    newTestList=
-#     ...    operationRecord=
-#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=    ...    newRecogFlag=1
-#     #####推荐检查评估表
-#     #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-#     #Lists Should Be Equal    ${aj}    ${assert}
-#     #####推荐检查
-#     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-#     #Lists Should Be Equal    ${aj}    ${assert}
-#     ######检查解读
-#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-#     #####推荐治疗方案
-#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-#     List Should Contain Sub List    ${aj}    ${assert}
-#     #####疑似诊断
-#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-#     #Should Contain    ${aj[:5]}    前列腺癌
-
-# 前列腺癌- 病历内容增加：骨转移，推荐检查增加：β-骨胶原交联、骨特异性碱性磷酸酶、尿总钙、尿吡啶啉、尿脱氧吡啶啉、血钙、血磷、血清抗酒石酸酸性磷酸酶
-#     [Documentation]    断言:""
-#     # ${timestamp}    Get Time    epoch
-#     ${assert}    Create List    直肠指检    前列腺穿刺活检    前列腺超声    血钙    血磷    尿总钙    前列腺MRI    血清睾酮测定    肾功能    前列腺CT    骨特异性碱性磷酸酶    β-骨胶原交联    尿脱氧吡啶啉    尿吡啶啉    血清抗酒石酸酸性磷酸酶    血清PSA值/前列腺体积比值    精液酸性磷酸酶    前列腺特异抗原测定
-#     ${Assessment}    Set Variable    前列腺癌
-#     ${Subjective}    Set Variable    男，80岁，排尿不畅20余年，出现尿潴留1周，留置导尿管，前列腺穿刺活检病理检查示前列腺癌，骨转移
-#     [Setup]    Run Keywords    获取时间戳
-#     ...    AND    获取随机数
-#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-#     ...    doctorGuid=0210497    doctorName=
-#     ...    patientInfo={"gender":"1","age":"80","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-#     ...    definiteDiagnosis=
-#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-#     ...    labTestList=
-#     ...    examinationList=
-#     ...    newTestList=
-#     ...    operationRecord=
-#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=    ...    newRecogFlag=1
-#     #####推荐检查评估表
-#     #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-#     #Lists Should Be Equal    ${aj}    ${assert}
-#     #####推荐检查
-#     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-#     List Should Contain Sub List    ${aj}    ${assert}
-#     ######检查解读
-#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-#     #####推荐治疗方案
-#     #${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-#     #Lists Should Be Equal    ${aj}    ${assert}
-#     #####疑似诊断
-#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-#     #Should Contain    ${aj[:5]}    前列腺癌
-
-# 前列腺癌- 病历内容增加：难治性骨痛，推荐检查增加：同位素骨扫描
-#     [Documentation]    断言:""
-#     # ${timestamp}    Get Time    epoch
-#     ${assert}    Create List    直肠指检    同位素骨扫描    前列腺穿刺活检    前列腺超声    血钙    血磷    尿总钙    前列腺MRI    血清睾酮测定    肾功能    前列腺CT    骨特异性碱性磷酸酶    β-骨胶原交联    尿脱氧吡啶啉    尿吡啶啉    血清抗酒石酸酸性磷酸酶    血清PSA值/前列腺体积比值    精液酸性磷酸酶    前列腺特异抗原测定
-#     ${Assessment}    Set Variable    前列腺癌
-#     ${Subjective}    Set Variable    男，80岁，排尿不畅20余年，出现尿潴留1周，留置导尿管，前列腺穿刺活检病理检查示前列腺癌，骨转移，难治性骨痛
-#     [Setup]    Run Keywords    获取时间戳
-#     ...    AND    获取随机数
-#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-#     ...    doctorGuid=0210497    doctorName=
-#     ...    patientInfo={"gender":"1","age":"80","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-#     ...    definiteDiagnosis=
-#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-#     ...    labTestList=
-#     ...    examinationList=
-#     ...    newTestList=
-#     ...    operationRecord=
-#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=    ...    newRecogFlag=1
-#     #####推荐检查评估表
-#     #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-#     #Lists Should Be Equal    ${aj}    ${assert}
-#     #####推荐检查
-#     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-#     List Should Contain Sub List    ${aj}    ${assert}
-#     ######检查解读
-#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-#     #####推荐治疗方案
-#     #${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-#     #Lists Should Be Equal    ${aj}    ${assert}
-#     #####疑似诊断
-#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-#     #Should Contain    ${aj[:5]}    前列腺癌
-
-# 前列腺癌- 病历内容增加：难治性骨痛，推荐治疗增加：姑息性放射治疗
-#     [Documentation]    断言:""
-#     # ${timestamp}    Get Time    epoch
-#     ${assert}    Create List    姑息性放射治疗    内分泌治疗    手术去势疗法    单纯去势疗法    全激素阻断疗法    局部低温冷冻治疗
-#     ${Assessment}    Set Variable    前列腺癌
-#     ${Subjective}    Set Variable    男，80岁，排尿不畅20余年，出现尿潴留1周，留置导尿管，前列腺穿刺活检病理检查示前列腺癌，骨转移，难治性骨痛
-#     [Setup]    Run Keywords    获取时间戳
-#     ...    AND    获取随机数
-#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-#     ...    doctorGuid=0210497    doctorName=
-#     ...    patientInfo={"gender":"1","age":"80","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-#     ...    definiteDiagnosis=
-#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-#     ...    labTestList=
-#     ...    examinationList=
-#     ...    newTestList=
-#     ...    operationRecord=
-#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=    ...    newRecogFlag=1
-#     #####推荐检查评估表
-#     #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-#     #Lists Should Be Equal    ${aj}    ${assert}
-#     #####推荐检查
-#     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-#     #Lists Should Be Equal    ${aj}    ${assert}
-#     ######检查解读
-#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-#     #####推荐治疗方案
-#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-#     List Should Contain Sub List    ${aj}    ${assert}
-#     #####疑似诊断
-#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-#     #Should Contain    ${aj[:5]}    前列腺癌
-
-
-
-
-
-
-
-
-# ############周围动脉病#############
-
-# 周围动脉病-病史：男，56岁，间歇性跛行2个月，查体显示：双侧足背动脉搏动减弱，双下肢局部皮温下降，皮肤脱屑，推荐疑似诊断:周围动脉病
-#     [Documentation]    断言:""
-#     # ${timestamp}    Get Time    epoch
-#     # ${assert}    Create List
-#     ${Assessment}    Set Variable
+#     ${assert}    Create List    胸主动脉造影成像（CTA）    胸主动脉MR血管造影    踝肱指数(ABI)    动态心电图    经食道超声心动图(TEE)    心电图
+#     ${Assessment}    Set Variable    周围动脉病
 #     ${Subjective}    Set Variable    男，56岁，间歇性跛行2个月，查体显示：双侧足背动脉搏动减弱，双下肢局部皮温下降，皮肤脱屑
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
@@ -2677,7 +2714,43 @@ Library           String
 #     ...    newTestList=
 #     ...    operationRecord=
 #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=    ...    newRecogFlag=1
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     # Should Contain    ${aj[:5]}    周围动脉病
+#     List Should Contain Sub List    ${aj}    ${assert}
+
+# 周围动脉病-点击疑似诊断或手动输入：周围动脉病，推荐治疗:西洛他唑治疗、管理周围动脉疾病危险因素、改善周围循环药物
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    西洛他唑治疗    管理周围动脉疾病危险因素    改善周围循环药物
+#     ${Assessment}    Set Variable    周围动脉病
+#     ${Subjective}    Set Variable    男，56岁，间歇性跛行2个月，查体显示：双侧足背动脉搏动减弱，双下肢局部皮温下降，皮肤脱屑
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"56","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
 #     #####推荐检查评估表
 #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
 #     #####推荐检查
@@ -2685,174 +2758,137 @@ Library           String
 #     ######检查解读
 #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
 #     #####推荐治疗方案
-#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
 #     #####疑似诊断
-#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-#     Should Contain    ${aj[:5]}    周围动脉病
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     # Should Contain    ${aj[:5]}    周围动脉病
 #     # Lists Should Be Equal    ${aj}    ${assert}
 
 
 
-周围动脉病-点击疑似诊断或手动输入：周围动脉病，推荐检查:心电图、动态心电图、经食道超声心动图 (TEE)、胸主动脉MR血管造影、胸主动脉造影 成像(CTA)、踝肱指数(ABI)
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    胸主动脉造影成像（CTA）    胸主动脉MR血管造影    踝肱指数(ABI)    动态心电图    经食道超声心动图(TEE)    心电图
-    ${Assessment}    Set Variable    周围动脉病
-    ${Subjective}    Set Variable    男，56岁，间歇性跛行2个月，查体显示：双侧足背动脉搏动减弱，双下肢局部皮温下降，皮肤脱屑
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"56","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    周围动脉病
-    List Should Contain Sub List    ${aj}    ${assert}
 
-周围动脉病-点击疑似诊断或手动输入：周围动脉病，推荐治疗:西洛他唑治疗、管理周围动脉疾病危险因素、改善周围循环药物
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    西洛他唑治疗    管理周围动脉疾病危险因素    改善周围循环药物
-    ${Assessment}    Set Variable    周围动脉病
-    ${Subjective}    Set Variable    男，56岁，间歇性跛行2个月，查体显示：双侧足背动脉搏动减弱，双下肢局部皮温下降，皮肤脱屑
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"56","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    周围动脉病
-    # Lists Should Be Equal    ${aj}    ${assert}
-
-
-
-
-周围动脉病-病历内容中输入：ABI=0.9，推荐治疗增加:抗血小板治疗
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    西洛他唑治疗    管理周围动脉疾病危险因素    改善周围循环药物
-    ${Assessment}    Set Variable    周围动脉病
-    ${Subjective}    Set Variable    男，56岁，间歇性跛行2个月，查体显示：双侧足背动脉搏动减弱，双下肢局部皮温下降，皮肤脱屑,ABI=0.9
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"56","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    周围动脉病
-    # Lists Should Be Equal    ${aj}    ${assert}
-
-
-
-
-
-
-周围动脉病-病历内容中输入：下肢苍白冰冷，推荐治疗增加:转诊
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    西洛他唑治疗    管理周围动脉疾病危险因素    改善周围循环药物    下肢苍白冰冷    转诊
-    ${Assessment}    Set Variable    周围动脉病
-    ${Subjective}    Set Variable    男，56岁，间歇性跛行2个月，查体显示：双侧足背动脉搏动减弱，双下肢局部皮温下降，皮肤脱屑,ABI=0.9
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"56","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    周围动脉病
-    # Lists Should Be Equal    ${aj}    ${assert}
-
-
-
-
-
-
-############周围神经病变#############
-
-# 周围神经病变-主诉：男，66岁，双下肢麻木伴针刺样疼痛2个月，加重3天，糖尿病史10 年，推荐疑似诊断:糖尿病
+# 周围动脉病-病历内容中输入：ABI=0.9，推荐治疗增加:抗血小板治疗
 #     [Documentation]    断言:""
 #     # ${timestamp}    Get Time    epoch
-#     # ${assert}    Create List
-#     ${Assessment}    Set Variable
+#     ${assert}    Create List    西洛他唑治疗    管理周围动脉疾病危险因素    改善周围循环药物
+#     ${Assessment}    Set Variable    周围动脉病
+#     ${Subjective}    Set Variable    男，56岁，间歇性跛行2个月，查体显示：双侧足背动脉搏动减弱，双下肢局部皮温下降，皮肤脱屑,ABI=0.9
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"56","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     # Should Contain    ${aj[:5]}    周围动脉病
+#     # Lists Should Be Equal    ${aj}    ${assert}
+
+
+
+
+
+
+# 周围动脉病-病历内容中输入：下肢苍白冰冷，推荐治疗增加:转诊
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    西洛他唑治疗    管理周围动脉疾病危险因素    改善周围循环药物    下肢苍白冰冷    转诊
+#     ${Assessment}    Set Variable    周围动脉病
+#     ${Subjective}    Set Variable    男，56岁，间歇性跛行2个月，查体显示：双侧足背动脉搏动减弱，双下肢局部皮温下降，皮肤脱屑,ABI=0.9
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"56","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     # Should Contain    ${aj[:5]}    周围动脉病
+#     # Lists Should Be Equal    ${aj}    ${assert}
+
+
+
+
+
+
+# ############周围神经病变#############
+
+# # 周围神经病变-主诉：男，66岁，双下肢麻木伴针刺样疼痛2个月，加重3天，糖尿病史10 年，推荐疑似诊断:糖尿病
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     # ${assert}    Create List
+# #     ${Assessment}    Set Variable
+# #     ${Subjective}    Set Variable    男，66岁，双下肢麻木伴针刺样疼痛2个月，加重3天，糖尿病史10年
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"1","age":"66","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=    ...    newRecogFlag=1
+# #     #####推荐检查评估表
+# #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     #####推荐检查
+# #     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     ######检查解读
+# #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #####推荐治疗方案
+# #     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     #####疑似诊断
+# #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     Should Contain    ${aj[:5]}    糖尿病
+# #     # Lists Should Be Equal    ${aj}    ${assert}
+
+
+# 周围神经病变-手动输入诊断：周围神经病变，推荐检查:肌电图检查、甲状腺功能、空腹血糖、葡萄 糖耐量试验、糖化血红蛋白、血清蛋白质免 疫固定电泳、血清维生素B12测定
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    糖化血红蛋白    葡萄糖耐量试验    血清蛋白质免疫固定电泳    甲状腺功能    血清维生素B12测定    空腹血糖    肌电图检查
+#     ${Assessment}    Set Variable    周围神经病变
 #     ${Subjective}    Set Variable    男，66岁，双下肢麻木伴针刺样疼痛2个月，加重3天，糖尿病史10年
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
@@ -2868,246 +2904,33 @@ Library           String
 #     ...    newTestList=
 #     ...    operationRecord=
 #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=    ...    newRecogFlag=1
-#     #####推荐检查评估表
-#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-#     #####推荐检查
-#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-#     ######检查解读
-#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-#     #####推荐治疗方案
-#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-#     #####疑似诊断
-#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-#     Should Contain    ${aj[:5]}    糖尿病
-#     # Lists Should Be Equal    ${aj}    ${assert}
-
-
-周围神经病变-手动输入诊断：周围神经病变，推荐检查:肌电图检查、甲状腺功能、空腹血糖、葡萄 糖耐量试验、糖化血红蛋白、血清蛋白质免 疫固定电泳、血清维生素B12测定
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    糖化血红蛋白    葡萄糖耐量试验    血清蛋白质免疫固定电泳    甲状腺功能    血清维生素B12测定    空腹血糖    肌电图检查
-    ${Assessment}    Set Variable    周围神经病变
-    ${Subjective}    Set Variable    男，66岁，双下肢麻木伴针刺样疼痛2个月，加重3天，糖尿病史10年
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"66","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    糖尿病
-    List Should Contain Sub List    ${aj}    ${assert}
-
-
-周围神经病变-手动输入诊断：周围神经病变，推荐治疗:对症治疗
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    对症治疗
-    ${Assessment}    Set Variable    周围神经病变
-    ${Subjective}    Set Variable    男，66岁，双下肢麻木伴针刺样疼痛2个月，加重3天，糖尿病史10年
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"66","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    糖尿病
-    List Should Contain Sub List    ${aj}    ${assert}
-
-
-周围神经病变-病历内容中输入：糖尿病性神经病变伴疼痛，推荐治疗增加:药物治疗
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    对症治疗    药物治疗
-    ${Assessment}    Set Variable    周围神经病变
-    ${Subjective}    Set Variable    男，66岁，双下肢麻木伴针刺样疼痛2个月，加重3天，糖尿病史10年,糖尿病性神经病变伴疼痛
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"66","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    糖尿病
-    List Should Contain Sub List    ${aj}    ${assert}
-
-
-
-
-# #######
-#######围手术期血糖控制###
-
-# 围手术期血糖控制-主诉:男，50岁，发现胆囊息肉2月，2型糖尿病病史15年，择期行腹腔镜胆囊切除术入院，推荐疑似诊断:胆囊息肉
-#     [Documentation]    断言:""
-#     # ${timestamp}    Get Time    epoch
-#     ${Assessment}    Set Variable
-#     ${Subjective}    Set Variable    男，50岁，发现胆囊息肉2月，2型糖尿病病史15年，择期行腹腔镜胆囊切除术入院
-#     [Setup]    Run Keywords    获取时间戳
-#     ...    AND    获取随机数
-#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-#     ...    doctorGuid=0210497    doctorName=
-#     ...    patientInfo={"gender":"1","age":"50","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-#     ...    definiteDiagnosis=
-#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-#     ...    labTestList=
-#     ...    examinationList=
-#     ...    newTestList=
-#     ...    operationRecord=
-#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=    ...    newRecogFlag=1
-#     #####推荐检查评估表
-#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-#     #####推荐检查
-#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-#     ######检查解读
-#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-#     #####推荐治疗方案
-#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-#     #####疑似诊断
-#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-#     Should Contain    ${aj[:5]}    胆囊息肉
-
-# 围手术期血糖控制-手动输入诊断：糖尿病围手术期血糖控制，推荐检查：糖化血红蛋白、血糖测定
-#     [Documentation]    断言:""
-#     # ${timestamp}    Get Time    epoch
-#     ${assert}    Create List    糖化血红蛋白    血糖测定
-#     ${Assessment}    Set Variable    糖尿病围手术期血糖控制
-#     ${Subjective}    Set Variable    男，50岁，发现胆囊息肉2月，2型糖尿病病史15年，择期行腹腔镜胆囊切除术入院
-#     [Setup]    Run Keywords    获取时间戳
-#     ...    AND    获取随机数
-#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-#     ...    doctorGuid=0210497    doctorName=
-#     ...    patientInfo={"gender":"1","age":"50","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-#     ...    definiteDiagnosis=
-#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-#     ...    labTestList=
-#     ...    examinationList=
-#     ...    newTestList=
-#     ...    operationRecord=
-#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=    ...    newRecogFlag=1
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
 #     #####推荐检查评估表
 #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
 #     #####推荐检查
 #     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-#     List Should Contain Sub List    ${aj}    ${assert}
 #     ######检查解读
 #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
 #     #####推荐治疗方案
 #     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
 #     #####疑似诊断
-#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-#     #Should Contain    ${aj[:5]}    胆囊息肉
-
-# 围手术期血糖控制-手动输入诊断：糖尿病围手术期血糖控制，推荐评估表：糖尿病足感染分类，1型糖尿病、2型糖尿病及单基因突变糖尿病的鉴别要点，糖尿病病因学分类(WHO,1999)
-#     [Documentation]    断言:""
-#     # ${timestamp}    Get Time    epoch
-#     ${assert}    Create List    糖尿病足感染分类    1型糖尿病、2型糖尿病及单基因突变糖尿病的鉴别要点    糖尿病病因学分类(WHO,1999)
-#     ${Assessment}    Set Variable    糖尿病围手术期血糖控制
-#     ${Subjective}    Set Variable    男，50岁，发现胆囊息肉2月，2型糖尿病病史15年，择期行腹腔镜胆囊切除术入院
-#     [Setup]    Run Keywords    获取时间戳
-#     ...    AND    获取随机数
-#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-#     ...    doctorGuid=0210497    doctorName=
-#     ...    patientInfo={"gender":"1","age":"50","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-#     ...    definiteDiagnosis=
-#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-#     ...    labTestList=
-#     ...    examinationList=
-#     ...    newTestList=
-#     ...    operationRecord=
-#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=    ...    newRecogFlag=1
-#     #####推荐检查评估表
-#     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     # Should Contain    ${aj[:5]}    糖尿病
 #     List Should Contain Sub List    ${aj}    ${assert}
-#     #####推荐检查
-#     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-#     #Lists Should Be Equal    ${aj}    ${assert}
-#     ######检查解读
-#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-#     #####推荐治疗方案
-#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-#     #####疑似诊断
-#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-#     #Should Contain    ${aj[:5]}    胆囊息肉
 
-# 围手术期血糖控制-手动输入诊断：糖尿病围手术期血糖控制，推荐治疗：会诊、术前管理、术中管理、麻醉后管理、基础胰岛素治疗、血糖控制目标
+
+# 周围神经病变-手动输入诊断：周围神经病变，推荐治疗:对症治疗
 #     [Documentation]    断言:""
 #     # ${timestamp}    Get Time    epoch
-#     ${assert}    Create List    血糖控制目标    会诊    术前管理    术中管理    麻醉后管理    基础胰岛素治疗
-#     ${Assessment}    Set Variable    糖尿病围手术期血糖控制
-#     ${Subjective}    Set Variable    男，50岁，发现胆囊息肉2月，2型糖尿病病史15年，择期行腹腔镜胆囊切除术入院
+#     ${assert}    Create List    对症治疗
+#     ${Assessment}    Set Variable    周围神经病变
+#     ${Subjective}    Set Variable    男，66岁，双下肢麻木伴针刺样疼痛2个月，加重3天，糖尿病史10年
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
 #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
 #     ...    doctorGuid=0210497    doctorName=
-#     ...    patientInfo={"gender":"1","age":"50","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    patientInfo={"gender":"1","age":"66","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
 #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
 #     ...    definiteDiagnosis=
 #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -3117,33 +2940,33 @@ Library           String
 #     ...    newTestList=
 #     ...    operationRecord=
 #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=    ...    newRecogFlag=1
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
 #     #####推荐检查评估表
-#     #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-#     #Lists Should Be Equal    ${aj}    ${assert}
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
 #     #####推荐检查
-#     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-#     #Lists Should Be Equal    ${aj}    ${assert}
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
 #     ######检查解读
 #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
 #     #####推荐治疗方案
 #     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-#     List Should Contain Sub List    ${aj}    ${assert}
 #     #####疑似诊断
-#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-#     #Should Contain    ${aj[:5]}    胆囊息肉
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     # Should Contain    ${aj[:5]}    糖尿病
+#     List Should Contain Sub List    ${aj}    ${assert}
 
-# 围手术期血糖控制-病历内容增加：血糖2.9mmol/L，推荐治疗增加：低血糖治疗
+
+# 周围神经病变-病历内容中输入：糖尿病性神经病变伴疼痛，推荐治疗增加:药物治疗
 #     [Documentation]    断言:""
 #     # ${timestamp}    Get Time    epoch
-#     ${assert}    Create List    血糖控制目标    会诊    术前管理    术中管理    麻醉后管理    低血糖治疗    基础胰岛素治疗
-#     ${Assessment}    Set Variable    糖尿病围手术期血糖控制
-#     ${Subjective}    Set Variable    男，50岁，发现胆囊息肉2月，2型糖尿病病史15年，择期行腹腔镜胆囊切除术入院，血糖2.9mmol/L
+#     ${assert}    Create List    对症治疗    药物治疗
+#     ${Assessment}    Set Variable    周围神经病变
+#     ${Subjective}    Set Variable    男，66岁，双下肢麻木伴针刺样疼痛2个月，加重3天，糖尿病史10年,糖尿病性神经病变伴疼痛
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
 #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
 #     ...    doctorGuid=0210497    doctorName=
-#     ...    patientInfo={"gender":"1","age":"50","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    patientInfo={"gender":"1","age":"66","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
 #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
 #     ...    definiteDiagnosis=
 #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -3153,21 +2976,199 @@ Library           String
 #     ...    newTestList=
 #     ...    operationRecord=
 #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=    ...    newRecogFlag=1
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
 #     #####推荐检查评估表
-#     #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-#     #Lists Should Be Equal    ${aj}    ${assert}
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
 #     #####推荐检查
-#     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-#     #Lists Should Be Equal    ${aj}    ${assert}
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
 #     ######检查解读
 #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
 #     #####推荐治疗方案
 #     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-#     List Should Contain Sub List    ${aj}    ${assert}
 #     #####疑似诊断
-#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-#     #Should Contain    ${aj[:5]}    胆囊息肉
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     # Should Contain    ${aj[:5]}    糖尿病
+#     List Should Contain Sub List    ${aj}    ${assert}
+
+
+
+
+# # #######
+# #######围手术期血糖控制###
+
+# # 围手术期血糖控制-主诉:男，50岁，发现胆囊息肉2月，2型糖尿病病史15年，择期行腹腔镜胆囊切除术入院，推荐疑似诊断:胆囊息肉
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     ${Assessment}    Set Variable
+# #     ${Subjective}    Set Variable    男，50岁，发现胆囊息肉2月，2型糖尿病病史15年，择期行腹腔镜胆囊切除术入院
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"1","age":"50","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=    ...    newRecogFlag=1
+# #     #####推荐检查评估表
+# #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     #####推荐检查
+# #     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     ######检查解读
+# #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #####推荐治疗方案
+# #     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     #####疑似诊断
+# #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     Should Contain    ${aj[:5]}    胆囊息肉
+
+# # 围手术期血糖控制-手动输入诊断：糖尿病围手术期血糖控制，推荐检查：糖化血红蛋白、血糖测定
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     ${assert}    Create List    糖化血红蛋白    血糖测定
+# #     ${Assessment}    Set Variable    糖尿病围手术期血糖控制
+# #     ${Subjective}    Set Variable    男，50岁，发现胆囊息肉2月，2型糖尿病病史15年，择期行腹腔镜胆囊切除术入院
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"1","age":"50","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=    ...    newRecogFlag=1
+# #     #####推荐检查评估表
+# #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     #####推荐检查
+# #     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     List Should Contain Sub List    ${aj}    ${assert}
+# #     ######检查解读
+# #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #####推荐治疗方案
+# #     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     #####疑似诊断
+# #     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     #Should Contain    ${aj[:5]}    胆囊息肉
+
+# # 围手术期血糖控制-手动输入诊断：糖尿病围手术期血糖控制，推荐评估表：糖尿病足感染分类，1型糖尿病、2型糖尿病及单基因突变糖尿病的鉴别要点，糖尿病病因学分类(WHO,1999)
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     ${assert}    Create List    糖尿病足感染分类    1型糖尿病、2型糖尿病及单基因突变糖尿病的鉴别要点    糖尿病病因学分类(WHO,1999)
+# #     ${Assessment}    Set Variable    糖尿病围手术期血糖控制
+# #     ${Subjective}    Set Variable    男，50岁，发现胆囊息肉2月，2型糖尿病病史15年，择期行腹腔镜胆囊切除术入院
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"1","age":"50","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=    ...    newRecogFlag=1
+# #     #####推荐检查评估表
+# #     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     List Should Contain Sub List    ${aj}    ${assert}
+# #     #####推荐检查
+# #     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     #Lists Should Be Equal    ${aj}    ${assert}
+# #     ######检查解读
+# #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #####推荐治疗方案
+# #     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     #####疑似诊断
+# #     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     #Should Contain    ${aj[:5]}    胆囊息肉
+
+# # 围手术期血糖控制-手动输入诊断：糖尿病围手术期血糖控制，推荐治疗：会诊、术前管理、术中管理、麻醉后管理、基础胰岛素治疗、血糖控制目标
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     ${assert}    Create List    血糖控制目标    会诊    术前管理    术中管理    麻醉后管理    基础胰岛素治疗
+# #     ${Assessment}    Set Variable    糖尿病围手术期血糖控制
+# #     ${Subjective}    Set Variable    男，50岁，发现胆囊息肉2月，2型糖尿病病史15年，择期行腹腔镜胆囊切除术入院
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"1","age":"50","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=    ...    newRecogFlag=1
+# #     #####推荐检查评估表
+# #     #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     #Lists Should Be Equal    ${aj}    ${assert}
+# #     #####推荐检查
+# #     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     #Lists Should Be Equal    ${aj}    ${assert}
+# #     ######检查解读
+# #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #####推荐治疗方案
+# #     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     List Should Contain Sub List    ${aj}    ${assert}
+# #     #####疑似诊断
+# #     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     #Should Contain    ${aj[:5]}    胆囊息肉
+
+# # 围手术期血糖控制-病历内容增加：血糖2.9mmol/L，推荐治疗增加：低血糖治疗
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     ${assert}    Create List    血糖控制目标    会诊    术前管理    术中管理    麻醉后管理    低血糖治疗    基础胰岛素治疗
+# #     ${Assessment}    Set Variable    糖尿病围手术期血糖控制
+# #     ${Subjective}    Set Variable    男，50岁，发现胆囊息肉2月，2型糖尿病病史15年，择期行腹腔镜胆囊切除术入院，血糖2.9mmol/L
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"1","age":"50","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=    ...    newRecogFlag=1
+# #     #####推荐检查评估表
+# #     #${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     #Lists Should Be Equal    ${aj}    ${assert}
+# #     #####推荐检查
+# #     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     #Lists Should Be Equal    ${aj}    ${assert}
+# #     ######检查解读
+# #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #####推荐治疗方案
+# #     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     List Should Contain Sub List    ${aj}    ${assert}
+# #     #####疑似诊断
+# #     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     #Should Contain    ${aj[:5]}    胆囊息肉
 
 
 
@@ -3181,13 +3182,46 @@ Library           String
 
 
 
-# #######
-#######女性不孕症###
+# # #######
+# #######女性不孕症###
 
-# 女性不孕症-主诉:女，年龄38岁，未避孕未孕7年余，男方37岁+检查结果输入：B超监测提示有排卵；子宫输卵管造影术提示双侧输卵管从根部阻塞；精液检查示未见异常，推荐疑似诊断:女性不孕症
+# # 女性不孕症-主诉:女，年龄38岁，未避孕未孕7年余，男方37岁+检查结果输入：B超监测提示有排卵；子宫输卵管造影术提示双侧输卵管从根部阻塞；精液检查示未见异常，推荐疑似诊断:女性不孕症
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     ${Assessment}    Set Variable
+# #     ${Subjective}    Set Variable    女，年龄38岁，未避孕未孕7年余，男方37岁，B超监测提示有排卵；子宫输卵管造影术提示双侧输卵管从根部阻塞；精液检查示未见异常
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"0","age":"38","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=    ...    newRecogFlag=1
+# #     #####推荐检查评估表
+# #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     #####推荐检查
+# #     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     ######检查解读
+# #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #####推荐治疗方案
+# #     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     #####疑似诊断
+# #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     Should Contain    ${aj[:5]}    女性不孕症
+
+# 女性不孕症-手动输入诊断：女性不孕症，推荐检查：血常规、性激素检查、盆腔超声、LH排卵预 测、双合诊、阴道分泌物常规(清洁度及滴 虫)/白带常规、输卵管通液检查、宫颈分泌物 涂片检查、子宫内膜活检、子宫输卵管造 影、阴道超声、宫腔镜检查、抗苗勒管激素 检测、性交后试验、染色体核型分析
 #     [Documentation]    断言:""
 #     # ${timestamp}    Get Time    epoch
-#     ${Assessment}    Set Variable
+#     ${assert}    Create List    子宫输卵管造影    阴道超声    输卵管通液检查    子宫内膜活检    性激素检查    宫腔镜检查    染色体核型分析    阴道分泌物常规(清洁度及滴虫)/白带常规    LH排卵预测    宫颈分泌物涂片检查    双合诊    血常规    性交后试验    抗苗勒管激素检测    盆腔超声
+#     ${Assessment}    Set Variable    女性不孕症
 #     ${Subjective}    Set Variable    女，年龄38岁，未避孕未孕7年余，男方37岁，B超监测提示有排卵；子宫输卵管造影术提示双侧输卵管从根部阻塞；精液检查示未见异常
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
@@ -3203,190 +3237,8 @@ Library           String
 #     ...    newTestList=
 #     ...    operationRecord=
 #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=    ...    newRecogFlag=1
-#     #####推荐检查评估表
-#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-#     #####推荐检查
-#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-#     ######检查解读
-#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-#     #####推荐治疗方案
-#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-#     #####疑似诊断
-#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-#     Should Contain    ${aj[:5]}    女性不孕症
-
-女性不孕症-手动输入诊断：女性不孕症，推荐检查：血常规、性激素检查、盆腔超声、LH排卵预 测、双合诊、阴道分泌物常规(清洁度及滴 虫)/白带常规、输卵管通液检查、宫颈分泌物 涂片检查、子宫内膜活检、子宫输卵管造 影、阴道超声、宫腔镜检查、抗苗勒管激素 检测、性交后试验、染色体核型分析
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    子宫输卵管造影    阴道超声    输卵管通液检查    子宫内膜活检    性激素检查    宫腔镜检查    染色体核型分析    阴道分泌物常规(清洁度及滴虫)/白带常规    LH排卵预测    宫颈分泌物涂片检查    双合诊    血常规    性交后试验    抗苗勒管激素检测    盆腔超声
-    ${Assessment}    Set Variable    女性不孕症
-    ${Subjective}    Set Variable    女，年龄38岁，未避孕未孕7年余，男方37岁，B超监测提示有排卵；子宫输卵管造影术提示双侧输卵管从根部阻塞；精液检查示未见异常
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"38","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    List Should Contain Sub List    ${aj}    ${assert}
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    #Should Contain    ${aj[:5]}    女性不孕症
-
-女性不孕症-手动输入诊断：女性不孕症，推荐治疗：全面评估、一般治疗、补充叶酸、辅助生殖技术
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    全面评估    一般治疗    辅助生殖技术    补充叶酸
-    ${Assessment}    Set Variable    女性不孕症
-    ${Subjective}    Set Variable    女，年龄38岁，未避孕未孕7年余，男方37岁，B超监测提示有排卵；子宫输卵管造影术提示双侧输卵管从根部阻塞；精液检查示未见异常
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"38","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    #Lists Should Be Equal    ${aj}    ${assert}
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    List Should Contain Sub List    ${aj}    ${assert}
-    #####疑似诊断
-    #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    #Should Contain    ${aj[:5]}    女性不孕症
-
-女性不孕症-病历内容增加：输卵管缺陷，推荐治疗增加：转诊
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    转诊    全面评估    一般治疗    辅助生殖技术    补充叶酸
-    ${Assessment}    Set Variable    女性不孕症
-    ${Subjective}    Set Variable    女，年龄38岁，未避孕未孕7年余，男方37岁，B超监测提示有排卵；子宫输卵管造影术提示双侧输卵管从根部阻塞；精液检查示未见异常，输卵管缺陷
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"38","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    #Lists Should Be Equal    ${aj}    ${assert}
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    List Should Contain Sub List    ${aj}    ${assert}
-    #####疑似诊断
-    #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    #Should Contain    ${aj[:5]}    女性不孕症
-
-
-
-
-
-
-
-
-# #######妇产科
-#######妊娠期新发高血压###
-
-# 妊娠期新发高血压-主诉:女，29岁，孕33周，头痛半月，加重1天，收缩压150mmHg，舒张压100mmHg，推荐疑似诊断:高血压
-#     [Documentation]    断言:""
-#     # ${timestamp}    Get Time    epoch
-#     ${Assessment}    Set Variable
-#     ${Subjective}    Set Variable    女，29岁，孕33周，头痛半月，加重1天，收缩压150mmHg，舒张压100mmHg
-#     [Setup]    Run Keywords    获取时间戳
-#     ...    AND    获取随机数
-#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-#     ...    doctorGuid=0210497    doctorName=
-#     ...    patientInfo={"gender":"0","age":"29","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-#     ...    definiteDiagnosis=
-#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-#     ...    labTestList=
-#     ...    examinationList=
-#     ...    newTestList=
-#     ...    operationRecord=
-#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=    ...    newRecogFlag=1
-#     #####推荐检查评估表
-#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-#     #####推荐检查
-#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-#     ######检查解读
-#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-#     #####推荐治疗方案
-#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-#     #####疑似诊断
-#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-#     Should Contain    ${aj[:5]}    高血压
-
-
-# 妊娠期新发高血压-手动输入诊断:妊娠期新发高血压，推荐检查:血压监测、尿蛋白/肌酐比值、血常规、肝功能、肾功能
-#     [Documentation]    断言:""
-#     # ${timestamp}    Get Time    epoch
-#     ${assert}    Create List    血压监测    肾功能    血常规    肝功能    尿蛋白/肌酐比值
-#     ${Assessment}    Set Variable    妊娠期新发高血压
-#     ${Subjective}    Set Variable    女，29岁，孕33周，头痛半月，加重1天，收缩压150mmHg，舒张压100mmHg
-#     [Setup]    Run Keywords    获取时间戳
-#     ...    AND    获取随机数
-#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-#     ...    doctorGuid=0210497    doctorName=
-#     ...    patientInfo={"gender":"0","age":"29","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-#     ...    definiteDiagnosis=
-#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-#     ...    labTestList=
-#     ...    examinationList=
-#     ...    newTestList=
-#     ...    operationRecord=
-#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=    ...    newRecogFlag=1
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
 #     #####推荐检查评估表
 #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
 #     #####推荐检查
@@ -3398,20 +3250,19 @@ Library           String
 #     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
 #     #####疑似诊断
 #     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-#     #Should Contain    ${aj[:5]}    高血压
+#     #Should Contain    ${aj[:5]}    女性不孕症
 
-
-# 妊娠期新发高血压-手动输入诊断:妊娠期新发高血压，推荐治疗:紧急评估
+# 女性不孕症-手动输入诊断：女性不孕症，推荐治疗：全面评估、一般治疗、补充叶酸、辅助生殖技术
 #     [Documentation]    断言:""
 #     # ${timestamp}    Get Time    epoch
-#     ${assert}    Create List    紧急评估
-#     ${Assessment}    Set Variable    妊娠期新发高血压
-#     ${Subjective}    Set Variable    女，29岁，孕33周，头痛半月，加重1天，收缩压150mmHg，舒张压100mmHg
+#     ${assert}    Create List    全面评估    一般治疗    辅助生殖技术    补充叶酸
+#     ${Assessment}    Set Variable    女性不孕症
+#     ${Subjective}    Set Variable    女，年龄38岁，未避孕未孕7年余，男方37岁，B超监测提示有排卵；子宫输卵管造影术提示双侧输卵管从根部阻塞；精液检查示未见异常
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
 #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
 #     ...    doctorGuid=0210497    doctorName=
-#     ...    patientInfo={"gender":"0","age":"29","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    patientInfo={"gender":"0","age":"38","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
 #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
 #     ...    definiteDiagnosis=
 #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -3421,7 +3272,8 @@ Library           String
 #     ...    newTestList=
 #     ...    operationRecord=
 #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=    ...    newRecogFlag=1
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
 #     #####推荐检查评估表
 #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
 #     #####推荐检查
@@ -3434,25 +3286,19 @@ Library           String
 #     List Should Contain Sub List    ${aj}    ${assert}
 #     #####疑似诊断
 #     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-#     #Should Contain    ${aj[:5]}    高血压
+#     #Should Contain    ${aj[:5]}    女性不孕症
 
-
-
-
-
-# #######儿科
-#######小儿低血糖###
-
-# 小儿低血糖-主诉:女，2天，患儿今日安静，嗜睡，反应差，于5分钟前发现出汗，推荐疑似诊断:低血糖症
+# 女性不孕症-病历内容增加：输卵管缺陷，推荐治疗增加：转诊
 #     [Documentation]    断言:""
 #     # ${timestamp}    Get Time    epoch
-#     ${Assessment}    Set Variable
-#     ${Subjective}    Set Variable    女，2天，患儿今日安静，嗜睡，反应差，于5分钟前发现出汗
+#     ${assert}    Create List    转诊    全面评估    一般治疗    辅助生殖技术    补充叶酸
+#     ${Assessment}    Set Variable    女性不孕症
+#     ${Subjective}    Set Variable    女，年龄38岁，未避孕未孕7年余，男方37岁，B超监测提示有排卵；子宫输卵管造影术提示双侧输卵管从根部阻塞；精液检查示未见异常，输卵管缺陷
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
 #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
 #     ...    doctorGuid=0210497    doctorName=
-#     ...    patientInfo={"gender":"0","age":"2","ageType":"天","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    patientInfo={"gender":"0","age":"38","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
 #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
 #     ...    definiteDiagnosis=
 #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -3462,94 +3308,177 @@ Library           String
 #     ...    newTestList=
 #     ...    operationRecord=
 #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=    ...    newRecogFlag=1
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
 #     #####推荐检查评估表
 #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
 #     #####推荐检查
-#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     #Lists Should Be Equal    ${aj}    ${assert}
 #     ######检查解读
 #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
 #     #####推荐治疗方案
-#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     List Should Contain Sub List    ${aj}    ${assert}
 #     #####疑似诊断
-#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-#     Should Contain    ${aj[:5]}    低血糖症
-
-小儿低血糖-病史新增:血糖20mg/dl+诊断：低血糖症，检查解读:新生儿低血糖
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${Assessment}    Set Variable    低血糖症
-    ${Subjective}    Set Variable    女，2天，患儿今日安静，嗜睡，反应差，于5分钟前发现出汗,血糖20mg/dl
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"2","ageType":"天","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    Should Contain    ${aj}    新生儿低血糖
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    #Should Contain    ${aj[:5]}    低血糖症
-
-小儿低血糖-病史新增：血糖20mg/dl+诊断：低血糖症，推荐检查:胰岛素测定、血清C-肽测定、血清皮质醇测定、生长激素测定、β-羟基丁酸、血液氨基酸分析、血浆酰基肉碱、血氨
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    血液氨基酸分析    血浆酰基肉碱    β-羟基丁酸    生长激素测定    胰岛素测定    血清C-肽测定    血氨    血清皮质醇测定
-    ${Assessment}    Set Variable    低血糖症
-    ${Subjective}    Set Variable    女，2天，患儿今日安静，嗜睡，反应差，于5分钟前发现出汗,血糖20mg/dl
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"2","ageType":"天","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    List Should Contain Sub List    ${aj}    ${assert}
-    ######检查解读
-    #${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #Should Contain    ${aj}    新生儿低血糖
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    #Should Contain    ${aj[:5]}    低血糖症
+#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     #Should Contain    ${aj[:5]}    女性不孕症
 
 
-# 小儿低血糖-病史新增:血糖20mg/dl+诊断：低血糖症，推荐治疗:转特护室治疗、喂食后复测血糖
+
+
+
+
+
+
+# # #######妇产科
+# #######妊娠期新发高血压###
+
+# # 妊娠期新发高血压-主诉:女，29岁，孕33周，头痛半月，加重1天，收缩压150mmHg，舒张压100mmHg，推荐疑似诊断:高血压
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     ${Assessment}    Set Variable
+# #     ${Subjective}    Set Variable    女，29岁，孕33周，头痛半月，加重1天，收缩压150mmHg，舒张压100mmHg
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"0","age":"29","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=    ...    newRecogFlag=1
+# #     #####推荐检查评估表
+# #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     #####推荐检查
+# #     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     ######检查解读
+# #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #####推荐治疗方案
+# #     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     #####疑似诊断
+# #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     Should Contain    ${aj[:5]}    高血压
+
+
+# # 妊娠期新发高血压-手动输入诊断:妊娠期新发高血压，推荐检查:血压监测、尿蛋白/肌酐比值、血常规、肝功能、肾功能
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     ${assert}    Create List    血压监测    肾功能    血常规    肝功能    尿蛋白/肌酐比值
+# #     ${Assessment}    Set Variable    妊娠期新发高血压
+# #     ${Subjective}    Set Variable    女，29岁，孕33周，头痛半月，加重1天，收缩压150mmHg，舒张压100mmHg
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"0","age":"29","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=    ...    newRecogFlag=1
+# #     #####推荐检查评估表
+# #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     #####推荐检查
+# #     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     List Should Contain Sub List    ${aj}    ${assert}
+# #     ######检查解读
+# #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #####推荐治疗方案
+# #     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     #####疑似诊断
+# #     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     #Should Contain    ${aj[:5]}    高血压
+
+
+# # 妊娠期新发高血压-手动输入诊断:妊娠期新发高血压，推荐治疗:紧急评估
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     ${assert}    Create List    紧急评估
+# #     ${Assessment}    Set Variable    妊娠期新发高血压
+# #     ${Subjective}    Set Variable    女，29岁，孕33周，头痛半月，加重1天，收缩压150mmHg，舒张压100mmHg
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"0","age":"29","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=    ...    newRecogFlag=1
+# #     #####推荐检查评估表
+# #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     #####推荐检查
+# #     #${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     #Lists Should Be Equal    ${aj}    ${assert}
+# #     ######检查解读
+# #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #####推荐治疗方案
+# #     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     List Should Contain Sub List    ${aj}    ${assert}
+# #     #####疑似诊断
+# #     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     #Should Contain    ${aj[:5]}    高血压
+
+
+
+
+
+# # #######儿科
+# #######小儿低血糖###
+
+# # 小儿低血糖-主诉:女，2天，患儿今日安静，嗜睡，反应差，于5分钟前发现出汗，推荐疑似诊断:低血糖症
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     ${Assessment}    Set Variable
+# #     ${Subjective}    Set Variable    女，2天，患儿今日安静，嗜睡，反应差，于5分钟前发现出汗
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"0","age":"2","ageType":"天","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=    ...    newRecogFlag=1
+# #     #####推荐检查评估表
+# #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     #####推荐检查
+# #     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     ######检查解读
+# #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #####推荐治疗方案
+# #     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     #####疑似诊断
+# #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     Should Contain    ${aj[:5]}    低血糖症
+
+# 小儿低血糖-病史新增:血糖20mg/dl+诊断：低血糖症，检查解读:新生儿低血糖
 #     [Documentation]    断言:""
 #     # ${timestamp}    Get Time    epoch
-#     ${assert}    Create List    转特护室治疗    喂食后复测血糖
 #     ${Assessment}    Set Variable    低血糖症
 #     ${Subjective}    Set Variable    女，2天，患儿今日安静，嗜睡，反应差，于5分钟前发现出汗,血糖20mg/dl
 #     [Setup]    Run Keywords    获取时间戳
@@ -3566,27 +3495,27 @@ Library           String
 #     ...    newTestList=
 #     ...    operationRecord=
 #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=    ...    newRecogFlag=1
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
 #     #####推荐检查评估表
 #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
 #     #####推荐检查
 #     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
 #     ######检查解读
-#     #${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-#     #Should Contain    ${aj}    新生儿低血糖
+#     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     Should Contain    ${aj}    新生儿低血糖
 #     #####推荐治疗方案
-#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-#     List Should Contain Sub List    ${aj}    ${assert}
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
 #     #####疑似诊断
 #     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
 #     #Should Contain    ${aj[:5]}    低血糖症
 
-# 小儿低血糖-病历内容增加：癫痫发作+诊断：低血糖症，推荐治疗:转特护室治疗、喂食后复测血糖、会诊
+# 小儿低血糖-病史新增：血糖20mg/dl+诊断：低血糖症，推荐检查:胰岛素测定、血清C-肽测定、血清皮质醇测定、生长激素测定、β-羟基丁酸、血液氨基酸分析、血浆酰基肉碱、血氨
 #     [Documentation]    断言:""
 #     # ${timestamp}    Get Time    epoch
-#     ${assert}    Create List    转特护室治疗    会诊    喂食后复测血糖
+#     ${assert}    Create List    血液氨基酸分析    血浆酰基肉碱    β-羟基丁酸    生长激素测定    胰岛素测定    血清C-肽测定    血氨    血清皮质醇测定
 #     ${Assessment}    Set Variable    低血糖症
-#     ${Subjective}    Set Variable    女，2天，患儿今日安静，嗜睡，反应差，于5分钟前发现出汗,血糖20mg/dl，癫痫发作
+#     ${Subjective}    Set Variable    女，2天，患儿今日安静，嗜睡，反应差，于5分钟前发现出汗,血糖20mg/dl
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
 #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
@@ -3601,22 +3530,92 @@ Library           String
 #     ...    newTestList=
 #     ...    operationRecord=
 #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=    ...    newRecogFlag=1
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
 #     #####推荐检查评估表
 #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
 #     #####推荐检查
-#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     List Should Contain Sub List    ${aj}    ${assert}
 #     ######检查解读
 #     #${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
 #     #Should Contain    ${aj}    新生儿低血糖
 #     #####推荐治疗方案
-#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-#     List Should Contain Sub List    ${aj}    ${assert}
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
 #     #####疑似诊断
 #     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
 #     #Should Contain    ${aj[:5]}    低血糖症
 
 
+# # 小儿低血糖-病史新增:血糖20mg/dl+诊断：低血糖症，推荐治疗:转特护室治疗、喂食后复测血糖
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     ${assert}    Create List    转特护室治疗    喂食后复测血糖
+# #     ${Assessment}    Set Variable    低血糖症
+# #     ${Subjective}    Set Variable    女，2天，患儿今日安静，嗜睡，反应差，于5分钟前发现出汗,血糖20mg/dl
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"0","age":"2","ageType":"天","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=    ...    newRecogFlag=1
+# #     #####推荐检查评估表
+# #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     #####推荐检查
+# #     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     ######检查解读
+# #     #${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #Should Contain    ${aj}    新生儿低血糖
+# #     #####推荐治疗方案
+# #     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     List Should Contain Sub List    ${aj}    ${assert}
+# #     #####疑似诊断
+# #     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     #Should Contain    ${aj[:5]}    低血糖症
+
+# # 小儿低血糖-病历内容增加：癫痫发作+诊断：低血糖症，推荐治疗:转特护室治疗、喂食后复测血糖、会诊
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     ${assert}    Create List    转特护室治疗    会诊    喂食后复测血糖
+# #     ${Assessment}    Set Variable    低血糖症
+# #     ${Subjective}    Set Variable    女，2天，患儿今日安静，嗜睡，反应差，于5分钟前发现出汗,血糖20mg/dl，癫痫发作
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"0","age":"2","ageType":"天","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=    ...    newRecogFlag=1
+# #     #####推荐检查评估表
+# #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     #####推荐检查
+# #     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     ######检查解读
+# #     #${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #Should Contain    ${aj}    新生儿低血糖
+# #     #####推荐治疗方案
+# #     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     List Should Contain Sub List    ${aj}    ${assert}
+# #     #####疑似诊断
+# #     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     #Should Contain    ${aj[:5]}    低血糖症
 
 
 
@@ -3624,14 +3623,52 @@ Library           String
 
 
 
-############小肠梗阻#############
 
-# 小肠梗阻-主诉：男，65岁，腹痛、腹胀伴呕吐13小时，13小时前无明显诱因出现腹部疼痛，呈阵发性胀痛,推荐疑似诊断：急性小肠梗阻
+
+# ############小肠梗阻#############
+
+# # 小肠梗阻-主诉：男，65岁，腹痛、腹胀伴呕吐13小时，13小时前无明显诱因出现腹部疼痛，呈阵发性胀痛,推荐疑似诊断：急性小肠梗阻
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     # ${assert}    Create List
+# #     ${Assessment}    Set Variable
+# #     ${Subjective}    Set Variable    男，65岁，腹痛、腹胀伴呕吐13小时，13小时前无明显诱因出现腹部疼痛，呈阵发性胀痛
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"1","age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=    ...    newRecogFlag=1
+# #     #####推荐检查评估表
+# #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     #####推荐检查
+# #     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     ######检查解读
+# #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #####推荐治疗方案
+# #     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     #####疑似诊断
+# #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     Should Contain    ${aj[:5]}    急性小肠梗阻
+# #     # Lists Should Be Equal    ${aj}    ${assert}
+
+
+
+# 小肠梗阻-手动输入诊断：急性小肠梗阻,补充病史：既往有腹部手术史,推荐检查:腹部CT、血生化、血气分析、血常规
 #     [Documentation]    断言:""
 #     # ${timestamp}    Get Time    epoch
-#     # ${assert}    Create List
-#     ${Assessment}    Set Variable
-#     ${Subjective}    Set Variable    男，65岁，腹痛、腹胀伴呕吐13小时，13小时前无明显诱因出现腹部疼痛，呈阵发性胀痛
+#     ${assert}    Create List    血气分析    血常规    腹部CT    血生化
+#     ${Assessment}    Set Variable    急性小肠梗阻
+#     ${Subjective}    Set Variable    男，65岁，腹痛、腹胀伴呕吐13小时，13小时前无明显诱因出现腹部疼痛，呈阵发性胀痛,既往有腹部手术史
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
 #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
@@ -3646,233 +3683,8 @@ Library           String
 #     ...    newTestList=
 #     ...    operationRecord=
 #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=    ...    newRecogFlag=1
-#     #####推荐检查评估表
-#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-#     #####推荐检查
-#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-#     ######检查解读
-#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-#     #####推荐治疗方案
-#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-#     #####疑似诊断
-#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-#     Should Contain    ${aj[:5]}    急性小肠梗阻
-#     # Lists Should Be Equal    ${aj}    ${assert}
-
-
-
-小肠梗阻-手动输入诊断：急性小肠梗阻,补充病史：既往有腹部手术史,推荐检查:腹部CT、血生化、血气分析、血常规
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    血气分析    血常规    腹部CT    血生化
-    ${Assessment}    Set Variable    急性小肠梗阻
-    ${Subjective}    Set Variable    男，65岁，腹痛、腹胀伴呕吐13小时，13小时前无明显诱因出现腹部疼痛，呈阵发性胀痛,既往有腹部手术史
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    性小肠梗阻
-    List Should Contain Sub List    ${aj}    ${assert}
-
-
-
-
-
-小肠梗阻-手动输入诊断：急性小肠梗阻,补充病史：既往有腹部手术史,推荐治疗:泛影葡胺激发
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    泛影葡胺激发
-    ${Assessment}    Set Variable    急性小肠梗阻
-    ${Subjective}    Set Variable    男，65岁，腹痛、腹胀伴呕吐13小时，13小时前无明显诱因出现腹部疼痛，呈阵发性胀痛,既往有腹部手术史
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    性小肠梗阻
-    List Should Contain Sub List    ${aj}    ${assert}
-
-
-小肠梗阻-病历内容中增加：绞窄性小肠梗阻,推荐治疗增加:会诊、手术探查、防治感染、鼻胃管减压术、补液治疗、手术治疗
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    鼻胃管减压术    补液治疗    会诊    手术探查    泛影葡胺激发    防治感染    手术治疗
-    ${Assessment}    Set Variable    急性小肠梗阻
-    ${Subjective}    Set Variable    男，65岁，腹痛、腹胀伴呕吐13小时，13小时前无明显诱因出现腹部疼痛，呈阵发性胀痛,既往有腹部手术史,绞窄性小肠梗阻
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    性小肠梗阻
-    List Should Contain Sub List    ${aj}    ${assert}
-
-
-
-
-小肠梗阻-进一步补充并发症：休克,推荐治疗增加:抗休克治疗
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    鼻胃管减压术    补液治疗    会诊    手术探查    泛影葡胺激发    防治感染    抗休克治疗    手术治疗
-    ${Assessment}    Set Variable    急性小肠梗阻
-    ${Subjective}    Set Variable    男，65岁，腹痛、腹胀伴呕吐13小时，13小时前无明显诱因出现腹部疼痛，呈阵发性胀痛,既往有腹部手术史,绞窄性小肠梗阻,休克
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    性小肠梗阻
-    List Should Contain Sub List    ${aj}    ${assert}
-
-
-
-
-
-
-# ############尿路结石#############
-
-# 尿路结石-主诉：男，35岁，无明显诱因腰痛2天，剧烈腰痛2小时,检查结果输入：影像学检查显示尿路有结石,推荐疑似诊断:泌尿系结石
-#     [Documentation]    断言:""
-#     # ${timestamp}    Get Time    epoch
-#     # ${assert}    Create List
-#     ${Assessment}    Set Variable
-#     ${Subjective}    Set Variable    男，35岁，无明显诱因腰痛2天，剧烈腰痛2小时,影像学检查显示尿路有结石
-#     [Setup]    Run Keywords    获取时间戳
-#     ...    AND    获取随机数
-#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-#     ...    doctorGuid=0210497    doctorName=
-#     ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-#     ...    definiteDiagnosis=
-#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-#     ...    labTestList=
-#     ...    examinationList=
-#     ...    newTestList=
-#     ...    operationRecord=
-#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=    ...    newRecogFlag=1
-#     #####推荐检查评估表
-#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-#     #####推荐检查
-#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-#     ######检查解读
-#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-#     #####推荐治疗方案
-#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-#     #####疑似诊断
-#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-#     Should Contain    ${aj[:5]}    泌尿系结石
-#     # Lists Should Be Equal    ${aj}    ${assert}
-
-
-# 尿路结石-手动输入诊断：尿路结石,推荐检查:尿常规、尿液培养、腹部X线、泌尿系超声、 静脉尿路造影、逆行肾盂造影、膀胱镜检+逆 行造影、泌尿系CT
-#     [Documentation]    断言:""
-#     # ${timestamp}    Get Time    epoch
-#     ${assert}    Create List    尿常规    尿液培养    腹部X线    泌尿系超声     静脉尿路造影    逆行肾盂造影    膀胱镜检+逆 行造影    泌尿系CT
-#     ${Assessment}    Set Variable    尿路结石
-#     ${Subjective}    Set Variable    男，35岁，无明显诱因腰痛2天，剧烈腰痛2小时,影像学检查显示尿路有结石
-#     [Setup]    Run Keywords    获取时间戳
-#     ...    AND    获取随机数
-#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-#     ...    doctorGuid=0210497    doctorName=
-#     ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-#     ...    definiteDiagnosis=
-#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-#     ...    labTestList=
-#     ...    examinationList=
-#     ...    newTestList=
-#     ...    operationRecord=
-#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=    ...    newRecogFlag=1
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
 #     #####推荐检查评估表
 #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
 #     #####推荐检查
@@ -3883,21 +3695,24 @@ Library           String
 #     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
 #     #####疑似诊断
 #     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-#     # Should Contain    ${aj[:5]}    泌尿系结石
+#     # Should Contain    ${aj[:5]}    性小肠梗阻
 #     List Should Contain Sub List    ${aj}    ${assert}
 
 
-# 尿路结石-手动输入诊断：尿路结石,推荐评估表:尿路结石的结石病因分析
+
+
+
+# 小肠梗阻-手动输入诊断：急性小肠梗阻,补充病史：既往有腹部手术史,推荐治疗:泛影葡胺激发
 #     [Documentation]    断言:""
 #     # ${timestamp}    Get Time    epoch
-#     # ${assert}    Create List    尿常规    尿液培养    腹部X线    泌尿系超声     静脉尿路造影    逆行肾盂造影    膀胱镜检+逆 行造影    泌尿系CT
-#     ${Assessment}    Set Variable    尿路结石
-#     ${Subjective}    Set Variable    男，35岁，无明显诱因腰痛2天，剧烈腰痛2小时,影像学检查显示尿路有结石
+#     ${assert}    Create List    泛影葡胺激发
+#     ${Assessment}    Set Variable    急性小肠梗阻
+#     ${Subjective}    Set Variable    男，65岁，腹痛、腹胀伴呕吐13小时，13小时前无明显诱因出现腹部疼痛，呈阵发性胀痛,既往有腹部手术史
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
 #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
 #     ...    doctorGuid=0210497    doctorName=
-#     ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    patientInfo={"gender":"1","age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
 #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
 #     ...    definiteDiagnosis=
 #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -3907,9 +3722,313 @@ Library           String
 #     ...    newTestList=
 #     ...    operationRecord=
 #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=    ...    newRecogFlag=1
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
 #     #####推荐检查评估表
-#     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     # Should Contain    ${aj[:5]}    性小肠梗阻
+#     List Should Contain Sub List    ${aj}    ${assert}
+
+
+# 小肠梗阻-病历内容中增加：绞窄性小肠梗阻,推荐治疗增加:会诊、手术探查、防治感染、鼻胃管减压术、补液治疗、手术治疗
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    鼻胃管减压术    补液治疗    会诊    手术探查    泛影葡胺激发    防治感染    手术治疗
+#     ${Assessment}    Set Variable    急性小肠梗阻
+#     ${Subjective}    Set Variable    男，65岁，腹痛、腹胀伴呕吐13小时，13小时前无明显诱因出现腹部疼痛，呈阵发性胀痛,既往有腹部手术史,绞窄性小肠梗阻
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     # Should Contain    ${aj[:5]}    性小肠梗阻
+#     List Should Contain Sub List    ${aj}    ${assert}
+
+
+
+
+# 小肠梗阻-进一步补充并发症：休克,推荐治疗增加:抗休克治疗
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    鼻胃管减压术    补液治疗    会诊    手术探查    泛影葡胺激发    防治感染    抗休克治疗    手术治疗
+#     ${Assessment}    Set Variable    急性小肠梗阻
+#     ${Subjective}    Set Variable    男，65岁，腹痛、腹胀伴呕吐13小时，13小时前无明显诱因出现腹部疼痛，呈阵发性胀痛,既往有腹部手术史,绞窄性小肠梗阻,休克
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"65","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     # Should Contain    ${aj[:5]}    性小肠梗阻
+#     List Should Contain Sub List    ${aj}    ${assert}
+
+
+
+
+
+
+# # ############尿路结石#############
+
+# # 尿路结石-主诉：男，35岁，无明显诱因腰痛2天，剧烈腰痛2小时,检查结果输入：影像学检查显示尿路有结石,推荐疑似诊断:泌尿系结石
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     # ${assert}    Create List
+# #     ${Assessment}    Set Variable
+# #     ${Subjective}    Set Variable    男，35岁，无明显诱因腰痛2天，剧烈腰痛2小时,影像学检查显示尿路有结石
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=    ...    newRecogFlag=1
+# #     #####推荐检查评估表
+# #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     #####推荐检查
+# #     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     ######检查解读
+# #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #####推荐治疗方案
+# #     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     #####疑似诊断
+# #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     Should Contain    ${aj[:5]}    泌尿系结石
+# #     # Lists Should Be Equal    ${aj}    ${assert}
+
+
+# # 尿路结石-手动输入诊断：尿路结石,推荐检查:尿常规、尿液培养、腹部X线、泌尿系超声、 静脉尿路造影、逆行肾盂造影、膀胱镜检+逆 行造影、泌尿系CT
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     ${assert}    Create List    尿常规    尿液培养    腹部X线    泌尿系超声     静脉尿路造影    逆行肾盂造影    膀胱镜检+逆 行造影    泌尿系CT
+# #     ${Assessment}    Set Variable    尿路结石
+# #     ${Subjective}    Set Variable    男，35岁，无明显诱因腰痛2天，剧烈腰痛2小时,影像学检查显示尿路有结石
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=    ...    newRecogFlag=1
+# #     #####推荐检查评估表
+# #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     #####推荐检查
+# #     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     ######检查解读
+# #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #####推荐治疗方案
+# #     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     #####疑似诊断
+# #     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     # Should Contain    ${aj[:5]}    泌尿系结石
+# #     List Should Contain Sub List    ${aj}    ${assert}
+
+
+# # 尿路结石-手动输入诊断：尿路结石,推荐评估表:尿路结石的结石病因分析
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     # ${assert}    Create List    尿常规    尿液培养    腹部X线    泌尿系超声     静脉尿路造影    逆行肾盂造影    膀胱镜检+逆 行造影    泌尿系CT
+# #     ${Assessment}    Set Variable    尿路结石
+# #     ${Subjective}    Set Variable    男，35岁，无明显诱因腰痛2天，剧烈腰痛2小时,影像学检查显示尿路有结石
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=    ...    newRecogFlag=1
+# #     #####推荐检查评估表
+# #     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     #####推荐检查
+# #     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     ######检查解读
+# #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #####推荐治疗方案
+# #     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     #####疑似诊断
+# #     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     Should Contain    ${aj}    尿路结石的结石病因分析
+# #     # Lists Should Be Equal    ${aj}    ${assert}
+
+
+
+
+# # 尿路结石-手动输入诊断：尿路结石,推荐治疗:疼痛的治疗、一般治疗、中医中药治疗、前尿道结石的处理、后尿道结石的处理
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     ${assert}    Create List    疼痛的治疗    一般治疗    中医中药治疗    前尿道结石的处理    后尿道结石的处理
+# #     ${Assessment}    Set Variable    尿路结石
+# #     ${Subjective}    Set Variable    男，35岁，无明显诱因腰痛2天，剧烈腰痛2小时,影像学检查显示尿路有结石
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=    ...    newRecogFlag=1
+# #     #####推荐检查评估表
+# #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     #####推荐检查
+# #     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     ######检查解读
+# #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #####推荐治疗方案
+# #     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     #####疑似诊断
+# #     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     # Should Contain    ${aj}    尿路结石的结石病因分析
+# #     List Should Contain Sub List    ${aj}    ${assert}
+
+
+
+
+# # 尿路结石-进一步补充并发症：尿路感染,推荐增加:控制感染
+# #     [Documentation]    断言:""
+# #     # ${timestamp}    Get Time    epoch
+# #     ${assert}    Create List    疼痛的治疗    一般治疗    中医中药治疗    前尿道结石的处理    后尿道结石的处理    控制感染
+# #     ${Assessment}    Set Variable    尿路结石
+# #     ${Subjective}    Set Variable    男，35岁，无明显诱因腰痛2天，剧烈腰痛2小时,影像学检查显示尿路有结石,尿路感染
+# #     [Setup]    Run Keywords    获取时间戳
+# #     ...    AND    获取随机数
+# #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+# #     ...    doctorGuid=0210497    doctorName=
+# #     ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+# #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+# #     ...    definiteDiagnosis=
+# #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+# #     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+# #     ...    labTestList=
+# #     ...    examinationList=
+# #     ...    newTestList=
+# #     ...    operationRecord=
+# #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=    ...    newRecogFlag=1
+# #     #####推荐检查评估表
+# #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+# #     #####推荐检查
+# #     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+# #     ######检查解读
+# #     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+# #     #####推荐治疗方案
+# #     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+# #     #####疑似诊断
+# #     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+# #     # Should Contain    ${aj}    尿路结石的结石病因分析
+# #     List Should Contain Sub List    ${aj}    ${assert}
+
+
+
+
+
+
+
+
+# ############帕金森#############
+
+# 帕金森-病史:女，59岁，右上肢动作不如从前灵活，有僵硬感并伴不自主抖动,推荐疑似诊断:帕金森病
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     # ${assert}    Create List
+#     ${Assessment}    Set Variable
+#     ${Subjective}    Set Variable    女，59岁，右上肢动作不如从前灵活，有僵硬感并伴不自主抖动
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"0","age":"59","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
 #     #####推荐检查
 #     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
 #     ######检查解读
@@ -3917,24 +4036,23 @@ Library           String
 #     #####推荐治疗方案
 #     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
 #     #####疑似诊断
-#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-#     Should Contain    ${aj}    尿路结石的结石病因分析
+#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     Should Contain    ${aj[:5]}    帕金森病
 #     # Lists Should Be Equal    ${aj}    ${assert}
 
 
 
-
-# 尿路结石-手动输入诊断：尿路结石,推荐治疗:疼痛的治疗、一般治疗、中医中药治疗、前尿道结石的处理、后尿道结石的处理
+# 帕金森-病史:点击疑似诊断或手动输入：帕金森病,推荐检查:全血细胞计数、血钙、促甲状腺激素检查、维生素B12、血浆铜蓝蛋白、DaTscan、头颅CT平扫、头颅MRI
 #     [Documentation]    断言:""
 #     # ${timestamp}    Get Time    epoch
-#     ${assert}    Create List    疼痛的治疗    一般治疗    中医中药治疗    前尿道结石的处理    后尿道结石的处理
-#     ${Assessment}    Set Variable    尿路结石
-#     ${Subjective}    Set Variable    男，35岁，无明显诱因腰痛2天，剧烈腰痛2小时,影像学检查显示尿路有结石
+#     ${assert}    Create List    全血细胞计数    血钙    促甲状腺激素检查    维生素B12    血浆铜蓝蛋白    DaTscan    头颅CT平扫    头颅MRI
+#     ${Assessment}    Set Variable    帕金森病
+#     ${Subjective}    Set Variable    女，59岁，右上肢动作不如从前灵活，有僵硬感并伴不自主抖动
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
 #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
 #     ...    doctorGuid=0210497    doctorName=
-#     ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    patientInfo={"gender":"0","age":"59","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
 #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
 #     ...    definiteDiagnosis=
 #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -3944,7 +4062,45 @@ Library           String
 #     ...    newTestList=
 #     ...    operationRecord=
 #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=    ...    newRecogFlag=1
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     # Should Contain    ${aj[:5]}    帕金森病
+#     List Should Contain Sub List    ${aj}    ${assert}
+
+
+
+# 帕金森-病史:点击疑似诊断或手动输入：帕金森病,推荐治疗:非麦角类DR激动剂、MAO-B抑制剂、复方左旋多巴
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    非麦角类DR激动剂    MAO-B抑制剂    复方左旋多巴
+#     ${Assessment}    Set Variable    帕金森病
+#     ${Subjective}    Set Variable    女，59岁，右上肢动作不如从前灵活，有僵硬感并伴不自主抖动
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"0","age":"59","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
 #     #####推荐检查评估表
 #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
 #     #####推荐检查
@@ -3955,23 +4111,22 @@ Library           String
 #     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
 #     #####疑似诊断
 #     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-#     # Should Contain    ${aj}    尿路结石的结石病因分析
+#     # Should Contain    ${aj[:5]}    帕金森病
 #     List Should Contain Sub List    ${aj}    ${assert}
 
 
 
-
-# 尿路结石-进一步补充并发症：尿路感染,推荐增加:控制感染
+# 帕金森-病史:进一步明确诊断：早发型帕金森,推荐治疗增加:金刚烷胺、复方左旋多巴＋COMT抑制剂
 #     [Documentation]    断言:""
 #     # ${timestamp}    Get Time    epoch
-#     ${assert}    Create List    疼痛的治疗    一般治疗    中医中药治疗    前尿道结石的处理    后尿道结石的处理    控制感染
-#     ${Assessment}    Set Variable    尿路结石
-#     ${Subjective}    Set Variable    男，35岁，无明显诱因腰痛2天，剧烈腰痛2小时,影像学检查显示尿路有结石,尿路感染
+#     ${assert}    Create List    复方左旋多巴    复方左旋多巴＋COMT抑制剂    非麦角类DR激动剂    MAO-B抑制剂    金刚烷胺
+#     ${Assessment}    Set Variable    早发型帕金森
+#     ${Subjective}    Set Variable    女，59岁，右上肢动作不如从前灵活，有僵硬感并伴不自主抖动
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
 #     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
 #     ...    doctorGuid=0210497    doctorName=
-#     ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    patientInfo={"gender":"0","age":"59","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
 #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
 #     ...    definiteDiagnosis=
 #     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -3981,7 +4136,8 @@ Library           String
 #     ...    newTestList=
 #     ...    operationRecord=
 #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=    ...    newRecogFlag=1
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
 #     #####推荐检查评估表
 #     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
 #     #####推荐检查
@@ -3992,163 +4148,8 @@ Library           String
 #     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
 #     #####疑似诊断
 #     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-#     # Should Contain    ${aj}    尿路结石的结石病因分析
+#     # Should Contain    ${aj[:5]}    帕金森病
 #     List Should Contain Sub List    ${aj}    ${assert}
-
-
-
-
-
-
-
-
-############帕金森#############
-
-帕金森-病史:女，59岁，右上肢动作不如从前灵活，有僵硬感并伴不自主抖动,推荐疑似诊断:帕金森病
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    # ${assert}    Create List
-    ${Assessment}    Set Variable
-    ${Subjective}    Set Variable    女，59岁，右上肢动作不如从前灵活，有僵硬感并伴不自主抖动
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"59","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    Should Contain    ${aj[:5]}    帕金森病
-    # Lists Should Be Equal    ${aj}    ${assert}
-
-
-
-帕金森-病史:点击疑似诊断或手动输入：帕金森病,推荐检查:全血细胞计数、血钙、促甲状腺激素检查、维生素B12、血浆铜蓝蛋白、DaTscan、头颅CT平扫、头颅MRI
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    全血细胞计数    血钙    促甲状腺激素检查    维生素B12    血浆铜蓝蛋白    DaTscan    头颅CT平扫    头颅MRI
-    ${Assessment}    Set Variable    帕金森病
-    ${Subjective}    Set Variable    女，59岁，右上肢动作不如从前灵活，有僵硬感并伴不自主抖动
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"59","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    帕金森病
-    List Should Contain Sub List    ${aj}    ${assert}
-
-
-
-帕金森-病史:点击疑似诊断或手动输入：帕金森病,推荐治疗:非麦角类DR激动剂、MAO-B抑制剂、复方左旋多巴
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    非麦角类DR激动剂    MAO-B抑制剂    复方左旋多巴
-    ${Assessment}    Set Variable    帕金森病
-    ${Subjective}    Set Variable    女，59岁，右上肢动作不如从前灵活，有僵硬感并伴不自主抖动
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"59","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    帕金森病
-    List Should Contain Sub List    ${aj}    ${assert}
-
-
-
-帕金森-病史:进一步明确诊断：早发型帕金森,推荐治疗增加:金刚烷胺、复方左旋多巴＋COMT抑制剂
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    复方左旋多巴    复方左旋多巴＋COMT抑制剂    非麦角类DR激动剂    MAO-B抑制剂    金刚烷胺
-    ${Assessment}    Set Variable    早发型帕金森
-    ${Subjective}    Set Variable    女，59岁，右上肢动作不如从前灵活，有僵硬感并伴不自主抖动
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"0","age":"59","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    帕金森病
-    List Should Contain Sub List    ${aj}    ${assert}
 
 
 
@@ -4706,40 +4707,40 @@ Library           String
 
 
 
-慢性髓系白血病-点击疑似诊断或手动输入：慢性髓系白血病,推荐检查:血常规、外周血涂片、荧光原位杂交检测 BCR-ABL基因重排、定性逆转录聚合酶链反 应检测BCR-ABL基因重排、JAK2 V617F或其 他突变的基因检测、电解质全套、肝功能、 肾功能、血糖、心电图、骨髓穿刺活检、荧 光原位杂交检测Ph染色体、定性逆转录聚合 酶链反应检测Ph染色体、骨髓血涂片、胸部X 线(正侧位)、HLA配型检查、血型
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    血常规    外周血涂片    荧光原位杂交检测 BCR-ABL基因重排    定性逆转录聚合酶链反 应检测BCR-ABL基因重排    JAK2 V617F或其 他突变的基因检测    电解质全套    肝功能     肾功能    血糖    心电图    骨髓穿刺活检    荧 光原位杂交检测Ph染色体    定性逆转录聚合 酶链反应检测Ph染色体    骨髓血涂片    胸部X 线(正侧位)    HLA配型检查    血型
-    ${Assessment}    Set Variable    慢性髓系白血病
-    ${Subjective}    Set Variable    男，年龄55岁，3个月前肚子越来越大，体重增长6斤，经常觉得乏力，低热，白细胞计数及血小板均升高,检查结果输入：骨髓象显示为慢性髓系白血病
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"55","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    Should Contain    ${aj[:5]}    慢性髓系白血病
-    # Lists Should Be Equal    ${aj}    ${assert}
+# 慢性髓系白血病-点击疑似诊断或手动输入：慢性髓系白血病,推荐检查:血常规、外周血涂片、荧光原位杂交检测 BCR-ABL基因重排、定性逆转录聚合酶链反 应检测BCR-ABL基因重排、JAK2 V617F或其 他突变的基因检测、电解质全套、肝功能、 肾功能、血糖、心电图、骨髓穿刺活检、荧 光原位杂交检测Ph染色体、定性逆转录聚合 酶链反应检测Ph染色体、骨髓血涂片、胸部X 线(正侧位)、HLA配型检查、血型
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    血常规    外周血涂片    荧光原位杂交检测 BCR-ABL基因重排    定性逆转录聚合酶链反 应检测BCR-ABL基因重排    JAK2 V617F或其 他突变的基因检测    电解质全套    肝功能     肾功能    血糖    心电图    骨髓穿刺活检    荧 光原位杂交检测Ph染色体    定性逆转录聚合 酶链反应检测Ph染色体    骨髓血涂片    胸部X 线(正侧位)    HLA配型检查    血型
+#     ${Assessment}    Set Variable    慢性髓系白血病
+#     ${Subjective}    Set Variable    男，年龄55岁，3个月前肚子越来越大，体重增长6斤，经常觉得乏力，低热，白细胞计数及血小板均升高,检查结果输入：骨髓象显示为慢性髓系白血病
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"55","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     Should Contain    ${aj[:5]}    慢性髓系白血病
+#     # Lists Should Be Equal    ${aj}    ${assert}
 
 
 慢性髓系白血病-点击疑似诊断或手动输入：慢性髓系白血病,推荐治疗增加:首选伊马替尼靶向药物治疗
@@ -8815,7 +8816,7 @@ Library           String
 #     #####疑似诊断
 #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
 #     Should Contain    ${aj[:5]}    胰腺囊肿
-######
+
 胰腺囊肿-手动输入诊断：胰腺囊肿，推荐检查:血常规、血清淀粉酶、肿瘤标志物测定、尿淀粉酶、腹部超声、胰腺CT、胰腺MRI
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
@@ -10084,40 +10085,40 @@ Library           String
 #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
 #     Should Contain    ${aj[:5]}    血小板减少症
 
-血小板减少-点击疑似诊断或手动输入：血小板减少症，推荐检查：血常规、外周血涂片、乳酸脱氢酶测定、肌酐测定、HCV血清学检测、狼疮抗凝血因子试验、HIV血清学检测、血浆凝血酶原时间测定、活化部分凝血活酶时间、D-二聚体测定、血清可溶性纤维蛋白单体复合物(SFMC)、血清维生素B12测定、抗心磷脂抗体、幽门螺杆菌粪便抗原检测、碳14呼气试验、幽门螺杆菌抗体检测（抗Hp-IgG、IgM、IgA）、抗核抗体测定、类风湿因子测定、可提取性核抗原检测、骨髓穿刺活检、血小板相关抗体（PAIg）、血小板相关补体（PAC3）、出凝血时间测定、毛细血管脆性实验、腹部彩色超声
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    血常规    肌酐测定    腹部彩色超声    D-二聚体测定    狼疮抗凝血因子试验    外周血涂片    乳酸脱氢酶测定    HIV血清学检测    HCV血清学检测    毛细血管脆性实验    血浆凝血酶原时间测定    出凝血时间测定    抗心磷脂抗体    血清可溶性纤维蛋白单体复合物(SFMC)    碳14呼气试验    抗核抗体测定    幽门螺杆菌粪便抗原检测    幽门螺杆菌抗体检测（抗Hp-IgG、IgM、IgA）    血小板相关补体（PAC3）    血小板相关抗体（PAIg）    类风湿因子测定    骨髓穿刺活检    可提取性核抗原检测    活化部分凝血活酶时间    血清维生素B12测定
-    ${Assessment}    Set Variable    血小板减少症
-    ${Subjective}    Set Variable    男，19岁，皮肤瘀点、瘀斑10天，伴发热、咽痛5天
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"19","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    List Should Contain Sub List    ${aj}    ${assert}
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    #Should Contain    ${aj[:5]}    血小板减少症
+# 血小板减少-点击疑似诊断或手动输入：血小板减少症，推荐检查：血常规、外周血涂片、乳酸脱氢酶测定、肌酐测定、HCV血清学检测、狼疮抗凝血因子试验、HIV血清学检测、血浆凝血酶原时间测定、活化部分凝血活酶时间、D-二聚体测定、血清可溶性纤维蛋白单体复合物(SFMC)、血清维生素B12测定、抗心磷脂抗体、幽门螺杆菌粪便抗原检测、碳14呼气试验、幽门螺杆菌抗体检测（抗Hp-IgG、IgM、IgA）、抗核抗体测定、类风湿因子测定、可提取性核抗原检测、骨髓穿刺活检、血小板相关抗体（PAIg）、血小板相关补体（PAC3）、出凝血时间测定、毛细血管脆性实验、腹部彩色超声
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    血常规    肌酐测定    腹部彩色超声    D-二聚体测定    狼疮抗凝血因子试验    外周血涂片    乳酸脱氢酶测定    HIV血清学检测    HCV血清学检测    毛细血管脆性实验    血浆凝血酶原时间测定    出凝血时间测定    抗心磷脂抗体    血清可溶性纤维蛋白单体复合物(SFMC)    碳14呼气试验    抗核抗体测定    幽门螺杆菌粪便抗原检测    幽门螺杆菌抗体检测（抗Hp-IgG、IgM、IgA）    血小板相关补体（PAC3）    血小板相关抗体（PAIg）    类风湿因子测定    骨髓穿刺活检    可提取性核抗原检测    活化部分凝血活酶时间    血清维生素B12测定
+#     ${Assessment}    Set Variable    血小板减少症
+#     ${Subjective}    Set Variable    男，19岁，皮肤瘀点、瘀斑10天，伴发热、咽痛5天
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"19","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     List Should Contain Sub List    ${aj}    ${assert}
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     #Should Contain    ${aj[:5]}    血小板减少症
 
 # 血小板减少-点击疑似诊断或手动输入：血小板减少症，推荐治疗：促血小板生成、增强血小板功能止血、停用所有肝素制品
 #     [Documentation]    断言:""
@@ -26341,79 +26342,79 @@ Library           String
     # Lists Should Be Equal    ${aj}    ${assert}
 
 
-鼻咽癌-点击疑似诊断或手动输入：鼻咽恶性肿瘤,推荐检查：头颅钆增强MRI、颈部CT增强扫描、纤维鼻咽喉镜检查
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    头颅钆增强MRI    颈部CT增强扫描    纤维鼻咽喉镜检查
-    ${Assessment}    Set Variable    鼻咽恶性肿瘤
-    ${Subjective}    Set Variable    男，45岁，双侧无明显诱因性耳鸣1年，加重3月伴头痛、鼻塞
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    鼻咽恶性肿瘤
-    List Should Contain Sub List    ${aj}    ${assert}
+# 鼻咽癌-点击疑似诊断或手动输入：鼻咽恶性肿瘤,推荐检查：头颅钆增强MRI、颈部CT增强扫描、纤维鼻咽喉镜检查
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    头颅钆增强MRI    颈部CT增强扫描    纤维鼻咽喉镜检查
+#     ${Assessment}    Set Variable    鼻咽恶性肿瘤
+#     ${Subjective}    Set Variable    男，45岁，双侧无明显诱因性耳鸣1年，加重3月伴头痛、鼻塞
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     # Should Contain    ${aj[:5]}    鼻咽恶性肿瘤
+#     List Should Contain Sub List    ${aj}    ${assert}
 
 
 
 
 
-鼻咽癌-点击疑似诊断或手动输入：鼻咽恶性肿瘤,推荐评估表：鼻咽癌UICC/AJCC分期第8版
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    # ${assert}    Create List    头颅钆增强MRI    颈部CT增强扫描    纤维鼻咽喉镜检查
-    ${Assessment}    Set Variable    鼻咽恶性肿瘤
-    ${Subjective}    Set Variable    男，45岁，双侧无明显诱因性耳鸣1年，加重3月伴头痛、鼻塞
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=1
-    #####推荐检查评估表
-    ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    Should Contain    ${aj[:5]}    鼻咽癌UICC/AJCC分期第8版
-    # Lists Should Be Equal    ${aj}    ${assert}
+# 鼻咽癌-点击疑似诊断或手动输入：鼻咽恶性肿瘤,推荐评估表：鼻咽癌UICC/AJCC分期第8版
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     # ${assert}    Create List    头颅钆增强MRI    颈部CT增强扫描    纤维鼻咽喉镜检查
+#     ${Assessment}    Set Variable    鼻咽恶性肿瘤
+#     ${Subjective}    Set Variable    男，45岁，双侧无明显诱因性耳鸣1年，加重3月伴头痛、鼻塞
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=1
+#     #####推荐检查评估表
+#     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     Should Contain    ${aj[:5]}    鼻咽癌UICC/AJCC分期第8版
+#     # Lists Should Be Equal    ${aj}    ${assert}
 
 
 

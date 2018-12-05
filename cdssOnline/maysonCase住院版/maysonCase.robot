@@ -4628,39 +4628,39 @@ Library           String
 
 
 
-慢性髓系白血病-点击疑似诊断或手动输入：慢性髓系白血病,推荐检查:血常规、外周血涂片、荧光原位杂交检测 BCR-ABL基因重排、定性逆转录聚合酶链反 应检测BCR-ABL基因重排、JAK2 V617F或其 他突变的基因检测、电解质全套、肝功能、 肾功能、血糖、心电图、骨髓穿刺活检、荧 光原位杂交检测Ph染色体、定性逆转录聚合 酶链反应检测Ph染色体、骨髓血涂片、胸部X 线(正侧位)、HLA配型检查、血型
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    血常规    外周血涂片    荧光原位杂交检测 BCR-ABL基因重排    定性逆转录聚合酶链反 应检测BCR-ABL基因重排    JAK2 V617F或其 他突变的基因检测    电解质全套    肝功能     肾功能    血糖    心电图    骨髓穿刺活检    荧 光原位杂交检测Ph染色体    定性逆转录聚合 酶链反应检测Ph染色体    骨髓血涂片    胸部X 线(正侧位)    HLA配型检查    血型
-    ${Assessment}    Set Variable    慢性髓系白血病
-    ${Subjective}    Set Variable    男，年龄55岁，3个月前肚子越来越大，体重增长6斤，经常觉得乏力，低热，白细胞计数及血小板均升高,检查结果输入：骨髓象显示为慢性髓系白血病
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"55","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    ...    currentDiseaseName=
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    Should Contain    ${aj[:5]}    慢性髓系白血病
-    # Lists Should Be Equal    ${aj}    ${assert}
+# 慢性髓系白血病-点击疑似诊断或手动输入：慢性髓系白血病,推荐检查:血常规、外周血涂片、荧光原位杂交检测 BCR-ABL基因重排、定性逆转录聚合酶链反 应检测BCR-ABL基因重排、JAK2 V617F或其 他突变的基因检测、电解质全套、肝功能、 肾功能、血糖、心电图、骨髓穿刺活检、荧 光原位杂交检测Ph染色体、定性逆转录聚合 酶链反应检测Ph染色体、骨髓血涂片、胸部X 线(正侧位)、HLA配型检查、血型
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    血常规    外周血涂片    荧光原位杂交检测 BCR-ABL基因重排    定性逆转录聚合酶链反 应检测BCR-ABL基因重排    JAK2 V617F或其 他突变的基因检测    电解质全套    肝功能     肾功能    血糖    心电图    骨髓穿刺活检    荧 光原位杂交检测Ph染色体    定性逆转录聚合 酶链反应检测Ph染色体    骨髓血涂片    胸部X 线(正侧位)    HLA配型检查    血型
+#     ${Assessment}    Set Variable    慢性髓系白血病
+#     ${Subjective}    Set Variable    男，年龄55岁，3个月前肚子越来越大，体重增长6斤，经常觉得乏力，低热，白细胞计数及血小板均升高,检查结果输入：骨髓象显示为慢性髓系白血病
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"55","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     ...    currentDiseaseName=
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     Should Contain    ${aj[:5]}    慢性髓系白血病
+#     # Lists Should Be Equal    ${aj}    ${assert}
 
 
 慢性髓系白血病-点击疑似诊断或手动输入：慢性髓系白血病,推荐治疗增加:首选伊马替尼靶向药物治疗
@@ -9927,39 +9927,39 @@ Library           String
 #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
 #     Should Contain    ${aj[:5]}    血小板减少症
 
-血小板减少-点击疑似诊断或手动输入：血小板减少症，推荐检查：血常规、外周血涂片、乳酸脱氢酶测定、肌酐测定、HCV血清学检测、狼疮抗凝血因子试验、HIV血清学检测、血浆凝血酶原时间测定、活化部分凝血活酶时间、D-二聚体测定、血清可溶性纤维蛋白单体复合物(SFMC)、血清维生素B12测定、抗心磷脂抗体、幽门螺杆菌粪便抗原检测、碳14呼气试验、幽门螺杆菌抗体检测（抗Hp-IgG、IgM、IgA）、抗核抗体测定、类风湿因子测定、可提取性核抗原检测、骨髓穿刺活检、血小板相关抗体（PAIg）、血小板相关补体（PAC3）、出凝血时间测定、毛细血管脆性实验、腹部彩色超声
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    血常规    肌酐测定    腹部彩色超声    D-二聚体测定    狼疮抗凝血因子试验    外周血涂片    乳酸脱氢酶测定    HIV血清学检测    HCV血清学检测    毛细血管脆性实验    血浆凝血酶原时间测定    出凝血时间测定    抗心磷脂抗体    血清可溶性纤维蛋白单体复合物(SFMC)    碳14呼气试验    抗核抗体测定    幽门螺杆菌粪便抗原检测    幽门螺杆菌抗体检测（抗Hp-IgG、IgM、IgA）    血小板相关补体（PAC3）    血小板相关抗体（PAIg）    类风湿因子测定    骨髓穿刺活检    可提取性核抗原检测    活化部分凝血活酶时间    血清维生素B12测定
-    ${Assessment}    Set Variable    血小板减少症
-    ${Subjective}    Set Variable    男，19岁，皮肤瘀点、瘀斑10天，伴发热、咽痛5天
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"19","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    ...    currentDiseaseName=
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    List Should Contain Sub List    ${aj}    ${assert}
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    #Should Contain    ${aj[:5]}    血小板减少症
+# 血小板减少-点击疑似诊断或手动输入：血小板减少症，推荐检查：血常规、外周血涂片、乳酸脱氢酶测定、肌酐测定、HCV血清学检测、狼疮抗凝血因子试验、HIV血清学检测、血浆凝血酶原时间测定、活化部分凝血活酶时间、D-二聚体测定、血清可溶性纤维蛋白单体复合物(SFMC)、血清维生素B12测定、抗心磷脂抗体、幽门螺杆菌粪便抗原检测、碳14呼气试验、幽门螺杆菌抗体检测（抗Hp-IgG、IgM、IgA）、抗核抗体测定、类风湿因子测定、可提取性核抗原检测、骨髓穿刺活检、血小板相关抗体（PAIg）、血小板相关补体（PAC3）、出凝血时间测定、毛细血管脆性实验、腹部彩色超声
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    血常规    肌酐测定    腹部彩色超声    D-二聚体测定    狼疮抗凝血因子试验    外周血涂片    乳酸脱氢酶测定    HIV血清学检测    HCV血清学检测    毛细血管脆性实验    血浆凝血酶原时间测定    出凝血时间测定    抗心磷脂抗体    血清可溶性纤维蛋白单体复合物(SFMC)    碳14呼气试验    抗核抗体测定    幽门螺杆菌粪便抗原检测    幽门螺杆菌抗体检测（抗Hp-IgG、IgM、IgA）    血小板相关补体（PAC3）    血小板相关抗体（PAIg）    类风湿因子测定    骨髓穿刺活检    可提取性核抗原检测    活化部分凝血活酶时间    血清维生素B12测定
+#     ${Assessment}    Set Variable    血小板减少症
+#     ${Subjective}    Set Variable    男，19岁，皮肤瘀点、瘀斑10天，伴发热、咽痛5天
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"19","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     ...    currentDiseaseName=
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     List Should Contain Sub List    ${aj}    ${assert}
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     #Should Contain    ${aj[:5]}    血小板减少症
 
 # 血小板减少-点击疑似诊断或手动输入：血小板减少症，推荐治疗：促血小板生成、增强血小板功能止血、停用所有肝素制品
 #     [Documentation]    断言:""
@@ -25907,77 +25907,77 @@ Library           String
     # Lists Should Be Equal    ${aj}    ${assert}
 
 
-鼻咽癌-点击疑似诊断或手动输入：鼻咽恶性肿瘤,推荐检查：头颅钆增强MRI、颈部CT增强扫描、纤维鼻咽喉镜检查
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    头颅钆增强MRI    颈部CT增强扫描    纤维鼻咽喉镜检查
-    ${Assessment}    Set Variable    鼻咽恶性肿瘤
-    ${Subjective}    Set Variable    男，45岁，双侧无明显诱因性耳鸣1年，加重3月伴头痛、鼻塞
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    ...    currentDiseaseName=
-    #####推荐检查评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    # Should Contain    ${aj[:5]}    鼻咽恶性肿瘤
-    List Should Contain Sub List    ${aj}    ${assert}
+# 鼻咽癌-点击疑似诊断或手动输入：鼻咽恶性肿瘤,推荐检查：头颅钆增强MRI、颈部CT增强扫描、纤维鼻咽喉镜检查
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     ${assert}    Create List    头颅钆增强MRI    颈部CT增强扫描    纤维鼻咽喉镜检查
+#     ${Assessment}    Set Variable    鼻咽恶性肿瘤
+#     ${Subjective}    Set Variable    男，45岁，双侧无明显诱因性耳鸣1年，加重3月伴头痛、鼻塞
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     ...    currentDiseaseName=
+#     #####推荐检查评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     # Should Contain    ${aj[:5]}    鼻咽恶性肿瘤
+#     List Should Contain Sub List    ${aj}    ${assert}
 
 
 
 
 
-鼻咽癌-点击疑似诊断或手动输入：鼻咽恶性肿瘤,推荐评估表：鼻咽癌UICC/AJCC分期第8版
-    [Documentation]    断言:""
-    # ${timestamp}    Get Time    epoch
-    # ${assert}    Create List    头颅钆增强MRI    颈部CT增强扫描    纤维鼻咽喉镜检查
-    ${Assessment}    Set Variable    鼻咽恶性肿瘤
-    ${Subjective}    Set Variable    男，45岁，双侧无明显诱因性耳鸣1年，加重3月伴头痛、鼻塞
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    ...    currentDiseaseName=
-    #####推荐检查评估表
-    ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    #####推荐检查
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    ######检查解读
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    #####推荐治疗方案
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    #####疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    Should Contain    ${aj[:5]}    鼻咽癌UICC/AJCC分期第8版
-    # Lists Should Be Equal    ${aj}    ${assert}
+# 鼻咽癌-点击疑似诊断或手动输入：鼻咽恶性肿瘤,推荐评估表：鼻咽癌UICC/AJCC分期第8版
+#     [Documentation]    断言:""
+#     # ${timestamp}    Get Time    epoch
+#     # ${assert}    Create List    头颅钆增强MRI    颈部CT增强扫描    纤维鼻咽喉镜检查
+#     ${Assessment}    Set Variable    鼻咽恶性肿瘤
+#     ${Subjective}    Set Variable    男，45岁，双侧无明显诱因性耳鸣1年，加重3月伴头痛、鼻塞
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     ...    currentDiseaseName=
+#     #####推荐检查评估表
+#     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     #####推荐检查
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     ######检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     #####推荐治疗方案
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     #####疑似诊断
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     Should Contain    ${aj[:5]}    鼻咽癌UICC/AJCC分期第8版
+#     # Lists Should Be Equal    ${aj}    ${assert}
 
 
 
