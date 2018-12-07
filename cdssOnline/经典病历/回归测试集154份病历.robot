@@ -6385,7 +6385,7 @@ Library           String
 
 
 
-回归测试集-100行,推出疑似诊断top:5:断言
+回归测试集-100行,推出疑似诊断top:5:急性上呼吸道感染
     [Documentation]
     ${Assessment}    Set Variable
     ${Subjective}    Set Variable    主诉:流涕半月，发热、咽痛、咳嗽3天。
@@ -6421,7 +6421,7 @@ Library           String
     ${assistCheck}    Set Variable
     #主要健康问题值
     ${majorHealth}    Set Variable
-    ${assert}    Create List    断言
+    ${assert}    Create List    急性上呼吸道感染
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
