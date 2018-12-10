@@ -3825,7 +3825,7 @@ Library           String
     ${Assessment}    Set Variable
     ${Subjective}    Set Variable    主诉:右鼻出血1年。
     #现病史值
-    ${presentHistory}    Set Variable    主诉:右鼻出血1年。
+    ${presentHistory}    Set Variable    现病史:患者1年前无明显诱因下自感出现右侧鼻出血及鼻塞，每次出血量不多，无嗅觉下降，无头晕头痛，无鼻腔恶臭，无胸痛胸闷。一直未重视未诊治，症状持续并逐渐加重。2天前来我院耳鼻咽喉科门诊就诊，行鼻内镜及鼻窦CT检查，建议住院手术治疗；今为求进一步诊治，门诊拟鼻腔肿物、高血压病予以收入住院手术治疗。起病来，患者神志清，精神可，大小便无殊，胃纳无影响，夜眠欠佳，体重无明显变化。
     #既往史值
     ${previousHistory}    Set Variable
     #过敏史值
