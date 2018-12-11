@@ -537,17 +537,17 @@ Library           String
 回归测试集-9行,推出疑似诊断top:10:手足口病
     [Documentation]
     ${Assessment}    Set Variable
-    ${Subjective}    Set Variable
+    ${Subjective}    Set Variable    发热伴双足底疱疹半天。
     #现病史值
-    ${presentHistory}    Set Variable
+    ${presentHistory}    Set Variable    患儿于昨日下午出现发热，哭吵不安，发现双足底出现散在少许小疱疹，伴四肢惊醒、抖动不安、拒食，无畏寒及抽搐，无咳嗽，无气促及呼吸困难，无腹泻，在浠水县人民医院感染科就诊，测体温39.7℃，无畏寒及抽搐，给予输液治疗（具体不详）后出现哭闹、呕吐，为进一步治疗，来我院就诊，以“手足口病”收入院。患儿自起病以来，精神尚可，食欲差，二便如常。
     #既往史值
-    ${previousHistory}    Set Variable
+    ${previousHistory}    Set Variable    一般健康状况标志：一般。疾病史（含外伤）：39天因肺炎在浠水县妇幼保健院住院治疗；54天因肺炎在浠水县人民医院住院治疗；传染病史：无。预防接种史：按计划接种。
     #过敏史值
     ${allergyHistory}    Set Variable
     #个人史值
-    ${personalHistory}    Set Variable
+    ${personalHistory}    Set Variable    出生史: 第2胎第2产；出生时体重3.3kg； 足月 胎龄40\script1 \script0 周；窒息：无生产情况: 剖宫产； 好；喂养史：母乳喂养； 添加辅食时间：6月； 母乳期营养及健康：好；生长发育史：抬头3月；坐6月；走13月；萌牙6月； 说话时间8月； 其他无； 饮食正常； 睡眠良好； 其它异常习惯：无； 入学状况：幼儿期。
     #家族史值
-    ${familyHistory}    Set Variable
+    ${familyHistory}    Set Variable    （注意与患者现病史有关的遗传病及传染性疾病） 非近亲 无 无 无。
     #月经史值
     ${menstrualHistory}    Set Variable
     #婚育史值
@@ -2255,7 +2255,7 @@ Library           String
 #     ...    operationRecord=
 #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
-    ...    newRecogFlag=
+    # ...    newRecogFlag=
 #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
 #     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -2495,7 +2495,7 @@ Library           String
 #     ...    newTestList=
 #     ...    operationRecord=
 #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    ..    currentDiseaseName=
+    # ..    currentDiseaseName=
 #     ...    newRecogFlag=
 #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
 #     List Should Contain Sub List    ${aj[:5]}    ${assert}
@@ -3825,7 +3825,7 @@ Library           String
     ${Assessment}    Set Variable
     ${Subjective}    Set Variable    主诉:右鼻出血1年。
     #现病史值
-    ${presentHistory}    Set Variable    主诉:右鼻出血1年。
+    ${presentHistory}    Set Variable    现病史:患者1年前无明显诱因下自感出现右侧鼻出血及鼻塞，每次出血量不多，无嗅觉下降，无头晕头痛，无鼻腔恶臭，无胸痛胸闷。一直未重视未诊治，症状持续并逐渐加重。2天前来我院耳鼻咽喉科门诊就诊，行鼻内镜及鼻窦CT检查，建议住院手术治疗；今为求进一步诊治，门诊拟鼻腔肿物、高血压病予以收入住院手术治疗。起病来，患者神志清，精神可，大小便无殊，胃纳无影响，夜眠欠佳，体重无明显变化。
     #既往史值
     ${previousHistory}    Set Variable
     #过敏史值
