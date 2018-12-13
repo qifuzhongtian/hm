@@ -64,6 +64,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -121,6 +122,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -179,6 +181,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -236,6 +239,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -295,6 +299,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -352,6 +357,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -412,6 +418,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -470,6 +477,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -528,6 +536,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -587,6 +596,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -646,6 +656,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -706,6 +717,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -766,6 +778,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -826,6 +839,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -887,6 +901,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -946,6 +961,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -1004,6 +1020,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -1064,6 +1081,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -1123,6 +1141,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -1181,6 +1200,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -1241,6 +1261,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -1300,6 +1321,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -1360,6 +1382,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -1419,6 +1442,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -1479,6 +1503,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -1539,6 +1564,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -1599,6 +1625,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -1657,6 +1684,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -1716,6 +1744,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -1777,6 +1806,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -1836,6 +1866,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -1897,6 +1928,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -1955,6 +1987,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -2013,6 +2046,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -2072,6 +2106,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -2136,6 +2171,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -2195,6 +2231,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -2317,6 +2354,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -2376,6 +2414,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -2436,6 +2475,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -2497,6 +2537,7 @@ Library           String
 #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ..    currentDiseaseName=
 #     ...    newRecogFlag=
+...    newModelFlag=1
 #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
 #     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -2556,6 +2597,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -2615,6 +2657,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -2676,6 +2719,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -2736,6 +2780,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -2796,6 +2841,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -2855,6 +2901,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -2915,6 +2962,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -2975,6 +3023,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -3037,6 +3086,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -3096,6 +3146,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -3158,6 +3209,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -3216,6 +3268,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -3275,6 +3328,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -3335,6 +3389,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -3394,6 +3449,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -3455,6 +3511,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -3516,6 +3573,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -3575,6 +3633,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -3634,6 +3693,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -3694,6 +3754,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -3756,6 +3817,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -3814,6 +3876,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -3873,6 +3936,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -3932,6 +3996,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -3992,6 +4057,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -4052,6 +4118,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -4112,6 +4179,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -4170,6 +4238,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -4229,6 +4298,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -4288,6 +4358,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -4347,6 +4418,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -4407,6 +4479,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -4466,6 +4539,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -4525,6 +4599,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -4585,6 +4660,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -4645,6 +4721,7 @@ Library           String
     # ...    currentDiseaseName=
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -4705,6 +4782,7 @@ Library           String
     # ...    currentDiseaseName=
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -4765,6 +4843,7 @@ Library           String
     # ...    currentDiseaseName=
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -4825,6 +4904,7 @@ Library           String
     # ...    currentDiseaseName=
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -4885,6 +4965,7 @@ Library           String
     # ...    currentDiseaseName=
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -4949,6 +5030,7 @@ Library           String
     # ...    currentDiseaseName=
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -5009,6 +5091,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -5067,6 +5150,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -5126,6 +5210,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -5185,6 +5270,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -5243,6 +5329,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -5304,6 +5391,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -5363,67 +5451,69 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
 
 
 
-回归测试集-83行,推出疑似诊断top:10:不稳定型心绞痛
-    [Documentation]
-    ${Assessment}    Set Variable
-    ${Subjective}    Set Variable    主诉:胸闷、气促伴双下肢浮肿4天。现病史:患者4天前始出现阵发性胸闷，位于心前区后方，巴掌大范围，呈憋闷感，向下颌部放射，多于体力活动时或赶路时出现，休息半小时可缓解，伴双下肢浮肿，需高枕卧位休息，无寒战发热，无明显心悸胸痛，无咳嗽咳痰，无黑朦晕厥，无腹痛腹胀，开始未重视，在家休息上述症状未见好转，今来我院急诊就医，拟冠心病？高血压并心功能不全住院。患者病来神清，精神可，二便无殊，胃纳及睡眠一般，体重无明显变化。既往有高血压病2年余，定期服药治疗（复方利血平）。
-    #现病史值
-    ${presentHistory}    Set Variable
-    #既往史值
-    ${previousHistory}    Set Variable
-    #过敏史值
-    ${allergyHistory}    Set Variable
-    #个人史值
-    ${personalHistory}    Set Variable
-    #家族史值
-    ${familyHistory}    Set Variable
-    #月经史值
-    ${menstrualHistory}    Set Variable
-    #婚育史值
-    ${obstericalHistory}    Set Variable
-    #诊疗计划值
-    ${assessmentPlan}    Set Variable
-    #检查结果值
-    ${examinationResult}    Set Variable
-    #检验结果值
-    ${labTestResult}    Set Variable
-    #评分结果值
-    ${gradeResult}    Set Variable
-    #预防接种史值
-    ${vaccinationHistory}    Set Variable
-    #输血史值
-    ${bloodTransfusionHistory}    Set Variable
-    #生命体征值
-    ${vitalSigns}    Set Variable
-    #辅助检查
-    ${assistCheck}    Set Variable
-    #主要健康问题值
-    ${majorHealth}    Set Variable
-    ${assert}    Create List    不稳定型心绞痛
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"69","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    List Should Contain Sub List    ${aj[:10]}    ${assert}
+# 回归测试集-83行,推出疑似诊断top:10:不稳定型心绞痛
+#     [Documentation]
+#     ${Assessment}    Set Variable
+#     ${Subjective}    Set Variable    主诉:胸闷、气促伴双下肢浮肿4天。现病史:患者4天前始出现阵发性胸闷，位于心前区后方，巴掌大范围，呈憋闷感，向下颌部放射，多于体力活动时或赶路时出现，休息半小时可缓解，伴双下肢浮肿，需高枕卧位休息，无寒战发热，无明显心悸胸痛，无咳嗽咳痰，无黑朦晕厥，无腹痛腹胀，开始未重视，在家休息上述症状未见好转，今来我院急诊就医，拟冠心病？高血压并心功能不全住院。患者病来神清，精神可，二便无殊，胃纳及睡眠一般，体重无明显变化。既往有高血压病2年余，定期服药治疗（复方利血平）。
+#     #现病史值
+#     ${presentHistory}    Set Variable
+#     #既往史值
+#     ${previousHistory}    Set Variable
+#     #过敏史值
+#     ${allergyHistory}    Set Variable
+#     #个人史值
+#     ${personalHistory}    Set Variable
+#     #家族史值
+#     ${familyHistory}    Set Variable
+#     #月经史值
+#     ${menstrualHistory}    Set Variable
+#     #婚育史值
+#     ${obstericalHistory}    Set Variable
+#     #诊疗计划值
+#     ${assessmentPlan}    Set Variable
+#     #检查结果值
+#     ${examinationResult}    Set Variable
+#     #检验结果值
+#     ${labTestResult}    Set Variable
+#     #评分结果值
+#     ${gradeResult}    Set Variable
+#     #预防接种史值
+#     ${vaccinationHistory}    Set Variable
+#     #输血史值
+#     ${bloodTransfusionHistory}    Set Variable
+#     #生命体征值
+#     ${vitalSigns}    Set Variable
+#     #辅助检查
+#     ${assistCheck}    Set Variable
+#     #主要健康问题值
+#     ${majorHealth}    Set Variable
+#     ${assert}    Create List    不稳定型心绞痛
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
+#     ...    doctorGuid=0210497    doctorName=
+#     ...    patientInfo={"gender":"1","age":"69","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     # ...    currentDiseaseName=
+#     ...    newRecogFlag=
+#     ...    newModelFlag=1
+#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
 
 
@@ -5481,6 +5571,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -5540,6 +5631,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -5600,6 +5692,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -5659,6 +5752,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -5719,6 +5813,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -5780,6 +5875,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -5838,6 +5934,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -5897,6 +5994,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -5958,6 +6056,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -6017,6 +6116,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -6078,6 +6178,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -6140,6 +6241,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -6199,6 +6301,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -6259,6 +6362,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -6319,6 +6423,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -6378,6 +6483,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -6438,6 +6544,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -6498,6 +6605,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -6559,6 +6667,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -6622,6 +6731,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:103]}    ${assert}
 
@@ -6683,6 +6793,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -6744,6 +6855,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -6802,6 +6914,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -6862,6 +6975,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -6923,6 +7037,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -6983,6 +7098,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -7043,6 +7159,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:110]}    ${assert}
 
@@ -7102,6 +7219,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -7161,6 +7279,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -7221,6 +7340,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -7282,6 +7402,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -7342,6 +7463,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -7402,6 +7524,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -7463,6 +7586,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -7522,6 +7646,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -7580,6 +7705,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -7639,6 +7765,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -7698,6 +7825,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -7757,6 +7885,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -7814,7 +7943,7 @@ Library           String
 #     ...    newTestList=
 #     ...    operationRecord=
 #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    ...    currentDiseaseName=
+    # ...    currentDiseaseName=
     # ...    newRecogFlag=
 #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
 #     List Should Contain Sub List    ${aj[:5]}    ${assert}
@@ -7875,6 +8004,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -7935,6 +8065,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -7994,6 +8125,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -8052,6 +8184,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -8111,6 +8244,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -8170,6 +8304,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -8230,6 +8365,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -8289,6 +8425,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -8348,6 +8485,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -8407,7 +8545,7 @@ Library           String
 #     ...    newTestList=
 #     ...    operationRecord=
 #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    ...    currentDiseaseName=
+    # ...    currentDiseaseName=
     # ...    newRecogFlag=
 #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
 #     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -8468,6 +8606,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -8527,7 +8666,7 @@ Library           String
 #     ...    newTestList=
 #     ...    operationRecord=
 #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    ...    currentDiseaseName=
+    # ...    currentDiseaseName=
     # ...    newRecogFlag=
 #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
 #     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -8590,6 +8729,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -8650,6 +8790,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -8709,6 +8850,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -8768,6 +8910,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -8826,7 +8969,7 @@ Library           String
 #     ...    newTestList=
 #     ...    operationRecord=
 #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    ...    currentDiseaseName=
+    # ...    currentDiseaseName=
     # ...    newRecogFlag=
 #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
 #     List Should Contain Sub List    ${aj[:5]}    ${assert}
@@ -8885,7 +9028,7 @@ Library           String
 #     ...    newTestList=
 #     ...    operationRecord=
 #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    ...    currentDiseaseName=
+    # ...    currentDiseaseName=
     # ...    newRecogFlag=
 #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
 #     List Should Contain Sub List    ${aj[:5]}    ${assert}
@@ -8945,6 +9088,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -9004,6 +9148,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -9063,6 +9208,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -9123,6 +9269,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -9184,6 +9331,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -9243,6 +9391,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -9302,6 +9451,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -9362,6 +9512,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -9421,6 +9572,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -9480,6 +9632,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -9540,6 +9693,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -9599,6 +9753,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -9659,6 +9814,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -9719,6 +9875,7 @@ Library           String
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
+    ...    newModelFlag=1
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 

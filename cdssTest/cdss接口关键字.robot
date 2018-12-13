@@ -876,7 +876,7 @@ ame管理_文档列表查询
 智能推荐
     [Arguments]    ${userGuid}    ${serialNumber}    ${doctorGuid}    ${doctorName}    ${pageSource}    ${patientInfo}
     ...    ${physicalSign}    ${definiteDiagnosis}    ${progressNoteList}    ${deleteProgressNoteList}    ${labTestList}    ${examinationList}
-    ...    ${newTestList}    ${operationRecord}    ${prescriptions}    ${newRecogFlag}
+    ...    ${newTestList}    ${operationRecord}    ${prescriptions}    ${newRecogFlag}        ${newModelFlag}
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=D7928B9182ABF6E0A6A6EBB71B353585
     # Create Session    api    ${base_url}    ${dict}
@@ -893,7 +893,7 @@ ame管理_文档列表查询
     ${prescriptions}    Evaluate    ${prescriptions}
     ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    doctorGuid=${doctorGuid}    doctorName=${doctorName}    pageSource=${pageSource}
     ...    patientInfo=${patientInfo}    physicalSign=${physicalSign}    definiteDiagnosis=${definiteDiagnosis}    progressNoteList=${progressNoteList}    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}
-    ...    examinationList=${examinationList}    prescriptions=${prescriptions}    newTestList=${newTestList}    operationRecord=${operationRecord}    newRecogFlag=${newRecogFlag}
+    ...    examinationList=${examinationList}    prescriptions=${prescriptions}    newTestList=${newTestList}    operationRecord=${operationRecord}    newRecogFlag=${newRecogFlag}    newModelFlag=${newModelFlag}
     ${addr}    Post Request    api    mayson/v_1_0/intelligent_recommendation    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
