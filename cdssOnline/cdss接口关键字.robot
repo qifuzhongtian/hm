@@ -12,6 +12,7 @@ ${base_url}     http://apollo.huimeionline.com
 
 #mayson生产环境
 ${mayson_url}     http://mayson.huimeionline.com/cdss
+# ${mayson_url}     http://pd-mayson.huimeionline.com/cdss
 # ${mayson_url}       http://test-mayson.huimeionline.com/cdss
 #ovf模板地址
 # ${mayson_url}     http://192.168.1.13/cdss
@@ -1128,6 +1129,7 @@ mayson默认推荐搜索
     ...    ${operationRecord}
     ...    ${prescriptions}
     ...    ${currentDiseaseName}
+    ...    ${medicalOrders}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${base_url}    ${dict}
     Create Session    api    ${mayson_url}    ${dict}
@@ -1141,10 +1143,11 @@ mayson默认推荐搜索
     ${newTestList}    Evaluate    [${newTestList}]
     ${operationRecord}    Evaluate    dict(${operationRecord})
     ${prescriptions}    Evaluate    ${prescriptions}
+    ${medicalOrders}    Evaluate    dict(${medicalOrders})
     ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    doctorGuid=${doctorGuid}    doctorName=${doctorName}    pageSource=${pageSource}    patientInfo=${patientInfo}
     ...    physicalSign=${physicalSign}    definiteDiagnosis=${definiteDiagnosis}    progressNoteList=${progressNoteList}
     ...    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}    examinationList=${examinationList}
-    ...    newTestList=${newTestList}    operationRecord=${operationRecord}    prescriptions=${prescriptions}    currentDiseaseName=${currentDiseaseName}
+    ...    newTestList=${newTestList}    operationRecord=${operationRecord}    prescriptions=${prescriptions}    currentDiseaseName=${currentDiseaseName}    medicalOrders=${medicalOrders}
     ${addr}    Post Request    api    mayson/v_1_0/intelligent_recommendation    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
