@@ -54,35 +54,35 @@ Library           RequestsLibrary
     Should Contain    ${aj}    荨麻疹
 
 
-# 推荐检查
-#     [Documentation]
-#     ${getRes}    智能诊断4.0
-#     ...    userGuid=    doctorGuid=    serialNumber=    hospitalGuid=
-#     ...    symptom=荨麻疹
-#     ...    previousHistory=    personalHistory=    allergyHistory=    familyHistory=
-#     ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
-#     ...    heartRate=    age=    ageType=岁    confirmDiagnosis=
-#     ...    confirmDiagnosisMap={"icdCode": "","key": "34146","value": "尿常规"}
-#     ...    presentHistory=
-#     ...    hasDetail=    symptomClickDiseaseId=
-#     #疑似诊断
-#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['suspectedDiseases']]
-#     #检查解读
-#     ${aj}    Evaluate    [aj['examName'] for aj in $getRes['body']['regimenInfo']['examResponseList']]
-#     #治疗方案
-#     # ${aj}    Evaluate    [aj['examName'] for aj in $getRes['body']['regimenInfo']['itemInfoResponseList']]
-#     #评估表
-#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['maysonInfo']['illnessAssessList']]
-#     #检查解读
-#     # ${aj}    Evaluate    [aj['diagnosticPoint'] for aj in $getRes['body']['maysonInfo']['examinationInterpretList']]
-#     Should Contain    ${aj}    尿常规
+推荐检查
+    [Documentation]
+    ${getRes}    智能诊断4.0
+    ...    userGuid=    doctorGuid=    serialNumber=    hospitalGuid=
+    ...    symptom=
+    ...    previousHistory=    personalHistory=    allergyHistory=    familyHistory=
+    ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
+    ...    heartRate=    age=    ageType=岁    confirmDiagnosis=
+    ...    confirmDiagnosisMap={"icdCode": "","key": "","value": "鼻损伤"}
+    ...    presentHistory=
+    ...    hasDetail=    symptomClickDiseaseId=
+    #疑似诊断
+    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['suspectedDiseases']]
+    #检查解读
+    ${aj}    Evaluate    [aj['examName'] for aj in $getRes['body']['regimenInfo']['examResponseList']]
+    #治疗方案
+    # ${aj}    Evaluate    [aj['examName'] for aj in $getRes['body']['regimenInfo']['itemInfoResponseList']]
+    #评估表
+    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['maysonInfo']['illnessAssessList']]
+    #检查解读
+    # ${aj}    Evaluate    [aj['diagnosticPoint'] for aj in $getRes['body']['maysonInfo']['examinationInterpretList']]
+    Should Contain    ${aj}    头颅X线
 
 
 检查解读
     [Documentation]
     ${getRes}    智能诊断4.0
     ...    userGuid=    doctorGuid=    serialNumber=    hospitalGuid=
-    ...    symptom=急性胸痛,长期卧床.肌钙蛋白T：0.5 ug/L,消化道穿孔
+    ...    symptom=呼出气一氧化氮升高
     ...    previousHistory=    personalHistory=    allergyHistory=    familyHistory=
     ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
     ...    heartRate=    age=    ageType=岁    confirmDiagnosis=
@@ -99,7 +99,7 @@ Library           RequestsLibrary
     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['maysonInfo']['illnessAssessList']]
     #检查解读
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['maysonInfo']['examinationInterpretList']]
-    Should Contain    ${aj}    急性心肌梗死
+    Should Contain    ${aj}    变应性哮喘
 
 
 推荐评估表
@@ -177,5 +177,7 @@ Library           RequestsLibrary
     #检查解读
     # ${aj}    Evaluate    [aj['diagnosticPoint'] for aj in $getRes['body']['maysonInfo']['examinationInterpretList']]
     Should Contain    ${aj}    高同型半胱氨酸血症
+
+
 
 
