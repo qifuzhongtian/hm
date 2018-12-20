@@ -1,39 +1,48 @@
 *** Variables ***
+######################apollo######################
+#apollo生产环境
 ${base_url}     http://apollo.huimeionline.com
-# ${base_url}     http://192.168.1.13/cdss
-# ${base_url}    http://10.117.64.153:8080
-# ${base_url}     http://pretest-apollo.huimeionline.com
-#pd
-# ${base_url}     http://pd-apollo.huimeionline.com
-#153
-# ${base_url}       http://10.117.64.153:8080
-#mayson测试环境
-# ${mayson_url}     http://test-mayson.huimeionline.com/cdss
 
+#apollo测试环境
+# ${base_url}    http://10.117.64.153:8080
+
+#apollo预发环境
+# ${base_url}     http://pretest-apollo.huimeionline.com
+
+#apolloPD环境
+# ${base_url}     http://pd-apollo.huimeionline.com
+
+
+
+######################mayson######################
 #mayson生产环境
 ${mayson_url}     http://mayson.huimeionline.com/cdss
+
+#maysonPD环境
 # ${mayson_url}     http://pd-mayson.huimeionline.com/cdss
+
+#mayson测试环境
 # ${mayson_url}       http://test-mayson.huimeionline.com/cdss
-#ovf模板地址
-# ${mayson_url}     http://192.168.1.13/cdss
-# ${mayson_url}     http://test-mayson.huimeionline.com/cdss
+
+#mayson预发环境
 # ${mayson_url}     http://pretest-mayson.huimeionline.com/cdss
 
-#黄石
-# ${mayson_url}     http://172.16.81.47/cdss
+
+######################文献######################
+#文献生产环境
+${doc_url}       http://doc.huimeionline.com/doc
 
 #文献测试环境
 # ${doc_url}       http://test-doc.huimeionline.com/
 
-#文献生产环境
-${doc_url}       http://doc.huimeionline.com/
+
+######################ovf模板地址######################
+# ${mayson_url}     http://192.168.1.13/cdss
+# ${base_url}     http://192.168.1.13/cdss
 
 
 
 
-# ${base_url}       http://118.178.109.153
-#其中一台145
-# ${base_url}     http://10.46.74.95:8080
 #####线上识别接口地址 http://10.165.102.219:8080/v_3_0/recognize
 
 #妇产科诊断性别_测试环境
@@ -236,7 +245,7 @@ ${base_url_ame}     http://10.46.74.95:8092
 疾病详情
     [Arguments]    ${diseaseId}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    diseaseId=${diseaseId}
     ${addr}    Post Request    api    v_2_0/disease/detail    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -263,7 +272,7 @@ ${base_url_ame}     http://10.46.74.95:8092
 梅奥疾病详情
     [Arguments]    ${diseaseId}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    diseaseId=${diseaseId}
     ${addr}    Post Request    api    v_2_0/disease/mayo    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -276,7 +285,7 @@ ${base_url_ame}     http://10.46.74.95:8092
 疾病处置详细
     [Arguments]    ${diseaseId}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    diseaseId=${diseaseId}
     ${addr}    Post Request    api    v_2_0/disease/treatment    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -289,7 +298,7 @@ ${base_url_ame}     http://10.46.74.95:8092
 相关疾病
     [Arguments]    ${diseaseId}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    diseaseId=${diseaseId}
     ${addr}    Post Request    api    v_2_0/disease/reference    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -474,27 +483,6 @@ ${base_url_ame}     http://10.46.74.95:8092
     [Return]    ${responsedata}
 
 
-
-
-# his
-    # log    ${responsedata['body']['suspectedDiseases'][0]}
-    # log    ${responsedata['body']['suspectedDiseases'][0]['id']}
-    # Should Be Equal As Strings    ${responsedata['body']['suspectedDiseases'][0]['id']}    ${msg}
-    # Should Be Equal As Strings    ${str1}    ${msg}
-    # Delete All Sessions
-    # 疾病详情2
-    #    [Arguments]    ${msg}    ${diseaseId}
-    #    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    #    Create Session    api    ${base_url}    ${dict}
-    #    ${data}    Create Dictionary    diseaseId=${diseaseId}
-    #    ${addr}    Post Request    api    v_2_0/disease/detail    data=${data}
-    #    ${responsedata}    To Json    ${addr.content}
-    #    log    ${addr.content}
-    #    log    ${responsedata}
-    #    # ${str}    Get From Dictionary    ${responsedata}    head
-    #    Should Be Equal As Strings    ${responsedata['head']['message']}    ${msg}
-    #    # log    ${responsedata['head']['message']}
-    #    Delete All Sessions
 
 病例识别
     [Arguments]    ${symptom}    ${gender}    ${age}    ${ageType}
@@ -1056,10 +1044,10 @@ ame管理_文档列表查询
 
 mayson搜索
     [Arguments]    ${name}    ${hasAssessType}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id_safe_medication}
-    Create Session    api    ${base_url}    ${dict}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    name=${name}    hasAssessType=${hasAssessType}
-    ${addr}    Post Request    api    v_2_3/search/all    data=${data}
+    ${addr}    Post Request    api    v_2_0/search/all    data=${data}
     ${responsedata}    To Json    ${addr.content}
     # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
     [Return]    ${responsedata}
@@ -1105,6 +1093,32 @@ mayson默认推荐搜索
     # Create Session    api    http://10.46.74.95:8080    ${dict}
     Create Session    api    ${base_url}    ${dict}
     ${data}    Create Dictionary    userGuid=${userGuid}    doctorGuid=${doctorGuid}    serialNumber=${serialNumber}    hospitalGuid=${hospitalGuid}    symptom=${symptom}    previousHistory=${previousHistory}    personalHistory=${personalHistory}    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}
+    ...    weight=${weight}    gender=${gender}    bodyTempr=${bodyTempr}    lowBldPress=${lowBldPress}    highBldPress=${highBldPress}    examInfo=${examInfo}
+    ...    heartRate=${heartRate}    age=${age}    ageType=${ageType}    confirmDiagnosis=${confirmDiagnosis}    confirmDiagnosisMap=${confirmDiagnosisMap}    presentHistory=${presentHistory}    hasDetail=${hasDetail}    symptomClickDiseaseId=${symptomClickDiseaseId}
+    # ...    examItems[]=${examItems}
+    ${addr}    Post Request    api    v_4_0/diagnose_through_interrogation    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # Should Contain    ${aj[:15]}    ${msg}
+    # Delete All Sessions
+    [Return]    ${responsedata}
+
+
+
+
+智能推荐门诊
+    [Arguments]    ${userGuid}    ${serialNumber}    ${doctorGuid}    ${hospitalGuid}    ${symptom}    ${drugCommonNames}    ${examinationList}    ${newTestList}    ${labTestList}    ${previousHistory}    ${personalHistory}    ${allergyHistory}    ${familyHistory}    ${weight}
+    ...    ${gender}    ${bodyTempr}    ${lowBldPress}    ${highBldPress}    ${examInfo}    ${heartRate}
+    ...    ${age}    ${ageType}    ${confirmDiagnosis}    ${confirmDiagnosisMap}    ${presentHistory}    ${hasDetail}    ${symptomClickDiseaseId}
+    # ...    ${examItems}
+    ${confirmDiagnosisMap}    Evaluate    [${confirmDiagnosisMap}]
+    ${drugCommonNames}    Evaluate    [${drugCommonNames}]
+    ${examinationList}    Evaluate    [${examinationList}]
+    ${newTestList}    Evaluate    [${newTestList}]
+    ${labTestList}    Evaluate    [${labTestList}]
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    http://10.46.74.95:8080    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
+    ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    doctorGuid=${doctorGuid}    hospitalGuid=${hospitalGuid}    symptom=${symptom}    drugCommonNames=${drugCommonNames}    examinationList=${examinationList}    newTestList=${newTestList}    labTestList=${labTestList}    previousHistory=${previousHistory}    personalHistory=${personalHistory}    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}
     ...    weight=${weight}    gender=${gender}    bodyTempr=${bodyTempr}    lowBldPress=${lowBldPress}    highBldPress=${highBldPress}    examInfo=${examInfo}
     ...    heartRate=${heartRate}    age=${age}    ageType=${ageType}    confirmDiagnosis=${confirmDiagnosis}    confirmDiagnosisMap=${confirmDiagnosisMap}    presentHistory=${presentHistory}    hasDetail=${hasDetail}    symptomClickDiseaseId=${symptomClickDiseaseId}
     # ...    examItems[]=${examItems}
@@ -1243,7 +1257,7 @@ mayson默认推荐搜索
     Create Session    api    ${doc_url}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    name=${name}    diseaseId=${diseaseId}    pageSize=${pageSize}    currentPage=${currentPage}    startDate=${startDate}    endDate=${endDate}    departmentId=${departmentId}    countryId=${countryId}    orgName=${orgName}
-    ${addr}    Post Request    api    /doc/seer/document/search    data=${data}
+    ${addr}    Post Request    api    /seer/document/search    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
@@ -1256,7 +1270,7 @@ mayson默认推荐搜索
     Create Session    api    ${doc_url}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary
-    ${addr}    Post Request    api    /doc/seer/document/newest    data=${data}
+    ${addr}    Post Request    api    /seer/document/newest    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
@@ -1268,7 +1282,7 @@ mayson默认推荐搜索
     Create Session    api    ${doc_url}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    documentId=${documentId}
-    ${addr}    Post Request    api    /doc/seer/v_1_0/document/detail    data=${data}
+    ${addr}    Post Request    api    /seer/v_1_0/document/detail    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
@@ -1279,7 +1293,7 @@ mayson默认推荐搜索
     Create Session    api    ${doc_url}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary
-    ${addr}    Post Request    api    /doc/seer/document/label    data=${data}
+    ${addr}    Post Request    api    /seer/document/label    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
@@ -1292,7 +1306,7 @@ mayson默认推荐搜索
     Create Session    api    ${doc_url}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
     ${params}    Create Dictionary    fileName=${fileName}    filePath=${filePath}
-    ${addr}    Get Request    api    /doc/seer/document/download    params=${params}
+    ${addr}    Get Request    api    /seer/document/download    params=${params}
     # ${responsedata}    To Json    ${addr.content}
     [Return]    ${addr}
 
@@ -1302,7 +1316,7 @@ mayson默认推荐搜索
     Create Session    api    ${doc_url}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    documentName=${documentName}    applyOrg=${applyOrg}    applySection=${applySection}    applyMessage=${applyMessage}
-    ${addr}    Post Request    api    /doc/seer/document/apply    data=${data}
+    ${addr}    Post Request    api    /seer/document/apply    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
@@ -1313,7 +1327,7 @@ mayson默认推荐搜索
     Create Session    api    ${doc_url}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary
-    ${addr}    Post Request    api    /doc/seer/document/disease_dict    data=${data}
+    ${addr}    Post Request    api    /seer/document/disease_dict    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
@@ -1324,7 +1338,7 @@ mayson默认推荐搜索
     Create Session    api    ${doc_url}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    pageSize=${pageSize}    currentPage=${currentPage}
-    ${addr}    Post Request    api    /doc/seer/document/apply_list    data=${data}
+    ${addr}    Post Request    api    /seer/document/apply_list    data=${data}
     ${responsedata}    To Json    ${addr.content}
     ${id}    Get From Dictionary    ${responsedata['body']['customerList'][0]}    id
     Set Global Variable    ${id}
@@ -1338,7 +1352,7 @@ mayson默认推荐搜索
     Create Session    api    ${doc_url}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    id=${id}
-    ${addr}    Post Request    api    /doc/seer/document/update_hot    data=${data}
+    ${addr}    Post Request    api    /seer/document/update_hot    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 

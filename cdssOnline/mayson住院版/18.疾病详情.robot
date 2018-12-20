@@ -5,17 +5,10 @@ Library           RequestsLibrary
 Suite Teardown    Delete All Sessions
 
 *** Test Cases ***
-12.1 疾病详情显示正常
+疾病详情显示正常
     [Documentation]    断言:"titleId"
     ${getRes}    疾病详情    diseaseId=8456C0ADE0
     # Should Be Equal As Strings    ${getRes['body']['catalogueList'][0]['titleId']}    341548
     ${aj}    Evaluate    [aj['title'] for aj in $getRes['body']['docContentList']]
     Should Contain    ${aj}    腰肌劳损
-
-
-# 12.2 疾病详情diseaseId输入错误,详情显示失败
-#     [Documentation]    断言:"titleId"
-#     ${getRes}    疾病详情    diseaseId=8457C0ACE01333
-#     Should Be Equal As Strings    ${getRes['head']['message']}    程序异常！
-
 
