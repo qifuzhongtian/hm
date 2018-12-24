@@ -52,8 +52,8 @@ Library           String
     ${assert}    Create List    慢性阻塞性肺病伴急性加重    心力衰竭
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"79","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "36","heartRate": "80","lowBldPress": "80","highBldPress": "130"}
     ...    definiteDiagnosis=
@@ -65,6 +65,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -111,9 +112,9 @@ Library           String
     ${assert}    Create List    肺炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"","age":"39","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"1","age":"39","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "90","lowBldPress": "80","highBldPress": "120"}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -124,6 +125,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -169,9 +171,9 @@ Library           String
     ${assert}    Create List    支气管哮喘    心力衰竭
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"","age":"42","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"1","age":"42","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "37","heartRate": "120","lowBldPress": "75","highBldPress": "120"}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -182,6 +184,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -226,8 +229,8 @@ Library           String
     ${assert}    Create List    慢性阻塞性肺病伴急性加重    慢性肺源性心脏病    呼吸衰竭    肺性脑病
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"63","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "37","heartRate": "116","lowBldPress": "80","highBldPress": "140"}
     ...    definiteDiagnosis=
@@ -239,6 +242,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj}    ${assert}
@@ -285,8 +289,8 @@ Library           String
     ${assert}    Create List    肺炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "40","heartRate": "100","lowBldPress": "75","highBldPress": "120"}
     ...    definiteDiagnosis=
@@ -298,6 +302,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -346,8 +351,8 @@ Library           String
     ${assert}    Create List    支气管扩张    肺脓肿
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"24","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "102","lowBldPress": "80","highBldPress": "130"}
     ...    definiteDiagnosis=
@@ -359,6 +364,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -405,8 +411,8 @@ Library           String
     ${assert}    Create List    肺脓肿    肺炎    肺结核
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"40","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "39","heartRate": "108","lowBldPress": "80","highBldPress": "130"}
     ...    definiteDiagnosis=
@@ -418,6 +424,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -463,8 +470,8 @@ Library           String
     ${assert}    Create List    肺结核    肺脓肿    支气管扩张
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"20","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "92","lowBldPress": "80","highBldPress": "130"}
     ...    definiteDiagnosis=
@@ -476,6 +483,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -520,8 +528,8 @@ Library           String
     ${assert}    Create List    肺炎    肺脓肿
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"59","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "38","heartRate": "88","lowBldPress": "80","highBldPress": "140"}
     ...    definiteDiagnosis=
@@ -533,6 +541,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -580,9 +589,9 @@ Library           String
     ${assert}    Create List    自发性气胸    气胸
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"","age":"25","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"1","age":"25","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "112","lowBldPress": "75","highBldPress": "110"}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -593,6 +602,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -640,8 +650,8 @@ Library           String
     ${assert}    Create List    肺栓塞
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"55","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "38","heartRate": "112","lowBldPress": "70","highBldPress": "105"}
     ...    definiteDiagnosis=
@@ -653,6 +663,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj}    ${assert}
@@ -698,8 +709,8 @@ Library           String
     ${assert}    Create List    支气管哮喘
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"12","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -711,6 +722,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -757,8 +769,8 @@ Library           String
     ${assert}    Create List    胸膜炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"20","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "38","heartRate": "102","lowBldPress": "70","highBldPress": "110"}
     ...    definiteDiagnosis=
@@ -770,6 +782,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -816,8 +829,8 @@ Library           String
     ${assert}    Create List    气胸    自发性气胸    肺栓塞
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"21","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "37","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -829,6 +842,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -875,8 +889,8 @@ Library           String
     ${assert}    Create List    支气管扩张    肺结核    肺脓肿    急性肺栓塞    肺曲霉病
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"51","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "37","heartRate": "88","lowBldPress": "90","highBldPress": "150"}
     ...    definiteDiagnosis=
@@ -888,6 +902,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -933,8 +948,8 @@ Library           String
     ${assert}    Create List    肺脓肿    支气管扩张
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"61","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "36","heartRate": "80","lowBldPress": "80","highBldPress": "120"}
     ...    definiteDiagnosis=
@@ -946,6 +961,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj}    ${assert}
@@ -992,8 +1008,8 @@ Library           String
     ${assert}    Create List    支气管哮喘    慢性支气管炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"42","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "37","heartRate": "130","lowBldPress": "70","highBldPress": "120"}
     ...    definiteDiagnosis=
@@ -1005,6 +1021,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -1052,9 +1069,9 @@ Library           String
     ${assert}    Create List    支气管哮喘
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"","age":"21","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"1","age":"21","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "120","lowBldPress": "70","highBldPress": "110"}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -1065,6 +1082,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj}    ${assert}
@@ -1110,9 +1128,9 @@ Library           String
     ${assert}    Create List    支气管哮喘
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"","age":"39","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"1","age":"39","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "37","heartRate": "130","lowBldPress": "80","highBldPress": "120"}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -1123,6 +1141,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj}    ${assert}
@@ -1168,8 +1187,8 @@ Library           String
     ${assert}    Create List    急性胰腺炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"30","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "37.2","heartRate": "91","lowBldPress": "87","highBldPress": "105"}
     ...    definiteDiagnosis=
@@ -1181,6 +1200,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -1227,8 +1247,8 @@ Library           String
     ${assert}    Create List    肝硬化
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"69","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "36.8","heartRate": "82","lowBldPress": "70","highBldPress": "130"}
     ...    definiteDiagnosis=
@@ -1240,6 +1260,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -1286,8 +1307,8 @@ Library           String
 #     ${assert}    Create List    消化性溃疡,
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
-#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-#     ...    doctorGuid=0210497    doctorName=
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+#     ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
 #     ...    patientInfo={"gender":"1","age":"27","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
 #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
 #     ...    definiteDiagnosis=
@@ -1298,7 +1319,7 @@ Library           String
 #     ...    newTestList=
 #     ...    operationRecord=
 #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-#     ...    currentDiseaseName=
+#     ...    currentDiseaseName=        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
 #     # ...    newRecogFlag=
 #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
 #     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -1344,9 +1365,9 @@ Library           String
     ${assert}    Create List
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -1357,6 +1378,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -1403,8 +1425,8 @@ Library           String
 #     ${assert}    Create List    肠易激综合征    感染性腹泻
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
-#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-#     ...    doctorGuid=0210497    doctorName=
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+#     ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
 #     ...    patientInfo={"gender":"1","age":"38","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
 #     ...    physicalSign={"bodyTempr": "36.4","heartRate": "64","lowBldPress": "70","highBldPress": "120"}
 #     ...    definiteDiagnosis=
@@ -1414,7 +1436,7 @@ Library           String
 #     ...    examinationList=
 #     ...    newTestList=
 #     ...    operationRecord=
-#     ...    currentDiseaseName=#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]
+#     ...    currentDiseaseName=        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]
 # }
 #     ...    newRecogFlag=
 #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
@@ -1461,8 +1483,8 @@ Library           String
 #     ${assert}    Create List    原发性硬化性胆管炎
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
-#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-#     ...    doctorGuid=0210497    doctorName=
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+#     ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
 #     ...    patientInfo={"gender":"0","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
 #     ...    physicalSign={"bodyTempr": "35.2","heartRate": "90","lowBldPress": "85","highBldPress": "120"}
 #     ...    definiteDiagnosis=
@@ -1472,7 +1494,7 @@ Library           String
 #     ...    examinationList=
 #     ...    newTestList=
 #     ...    operationRecord=
-#     ...    currentDiseaseName=#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]
+#     ...    currentDiseaseName=        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]
 # }
 #     ...    newRecogFlag=
 #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
@@ -1521,8 +1543,8 @@ Library           String
     ${assert}    Create List    胃食管反流病,
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "37.2","heartRate": "70","lowBldPress": "80","highBldPress": "135"}
     ...    definiteDiagnosis=
@@ -1534,6 +1556,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -1579,8 +1602,8 @@ Library           String
     ${assert}    Create List    细菌性痢疾
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"26","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "38.2","heartRate": "90","lowBldPress": "72","highBldPress": "118"}
     ...    definiteDiagnosis=
@@ -1592,6 +1615,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -1638,8 +1662,8 @@ Library           String
     ${assert}    Create List    消化性溃疡
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"36","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "85","lowBldPress": "77","highBldPress": "128"}
     ...    definiteDiagnosis=
@@ -1651,6 +1675,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -1698,9 +1723,9 @@ Library           String
     ${assert}    Create List    胃恶性肿瘤
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"1","age":"","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -1711,6 +1736,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -1757,8 +1783,8 @@ Library           String
     ${assert}    Create List    急性胰腺炎    胆囊炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"43","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "37.8","heartRate": "120","lowBldPress": "90","highBldPress": "130"}
     ...    definiteDiagnosis=
@@ -1770,6 +1796,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -1815,8 +1842,8 @@ Library           String
     ${assert}    Create List   胃炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"57","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1828,6 +1855,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -1874,8 +1902,8 @@ Library           String
     ${assert}    Create List    轮状病毒性肠炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"10","ageType":"月","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "38","heartRate": "135","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1887,6 +1915,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -1932,8 +1961,8 @@ Library           String
     ${assert}    Create List    胃炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"46","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "36.5","heartRate": "72","lowBldPress": "85","highBldPress": "145"}
     ...    definiteDiagnosis=
@@ -1945,6 +1974,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -1990,8 +2020,8 @@ Library           String
     ${assert}    Create List    结肠恶性肿瘤    贫血
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"79","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "36.5","heartRate": "70","lowBldPress": "70","highBldPress": "110"}
     ...    definiteDiagnosis=
@@ -2003,6 +2033,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj}    ${assert}
@@ -2049,8 +2080,8 @@ Library           String
     ${assert}    Create List    肝脓肿
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"40","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "38.5","heartRate": "104","lowBldPress": "80","highBldPress": "130"}
     ...    definiteDiagnosis=
@@ -2062,6 +2093,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj}    ${assert}
@@ -2108,8 +2140,8 @@ Library           String
 #     ${assert}    Create List    原发性肝癌    肝硬化失代偿期
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
-#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-#     ...    doctorGuid=0210497    doctorName=
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+#     ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
 #     ...    patientInfo={"gender":"1","age":"55","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
 #     ...    physicalSign={"bodyTempr": "36.8","heartRate": "","lowBldPress": "","highBldPress": ""}
 #     ...    definiteDiagnosis=
@@ -2119,7 +2151,7 @@ Library           String
 #     ...    examinationList=
 #     ...    newTestList=
 #     ...    operationRecord=
-#     ...    currentDiseaseName=#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]
+#     ...    currentDiseaseName=        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]
 # }
 #     ...    newRecogFlag=
 #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
@@ -2166,8 +2198,8 @@ Library           String
     ${assert}    Create List    食管癌
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"47","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "36.5","heartRate": "80","lowBldPress": "87","highBldPress": "130"}
     ...    definiteDiagnosis=
@@ -2179,6 +2211,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -2224,8 +2257,8 @@ Library           String
 #     ${assert}    Create List    急性阿米巴痢疾
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
-#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-#     ...    doctorGuid=0210497    doctorName=
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+#     ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
 #     ...    patientInfo={"gender":"1","age":"25","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
 #     ...    physicalSign={"bodyTempr": "38","heartRate": "80","lowBldPress": "78","highBldPress": "120"}
 #     ...    definiteDiagnosis=
@@ -2235,7 +2268,7 @@ Library           String
 #     ...    examinationList=
 #     ...    newTestList=
 #     ...    operationRecord=
-#     ...    currentDiseaseName=#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]
+#     ...    currentDiseaseName=        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]
 # }
 #     ...    newRecogFlag=
 #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
@@ -2282,8 +2315,8 @@ Library           String
     ${assert}    Create List    胰恶性肿瘤
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"73","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2295,6 +2328,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -2340,8 +2374,8 @@ Library           String
     ${assert}    Create List    胰恶性肿瘤
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"57","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "89","lowBldPress": "75","highBldPress": "120"}
     ...    definiteDiagnosis=
@@ -2353,6 +2387,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj}    ${assert}
@@ -2399,8 +2434,8 @@ Library           String
     ${assert}    Create List    消化性溃疡
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"14","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "37.2","heartRate": "95","lowBldPress": "60","highBldPress": "95"}
     ...    definiteDiagnosis=
@@ -2412,6 +2447,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -2458,8 +2494,8 @@ Library           String
     ${assert}    Create List    流行性乙型脑炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"2","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "39.6","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2471,6 +2507,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -2516,8 +2553,8 @@ Library           String
     ${assert}    Create List    流行性乙型脑炎    脑膜炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"32","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "38.4","heartRate": "112","lowBldPress": "100","highBldPress": "150"}
     ...    definiteDiagnosis=
@@ -2529,6 +2566,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj}    ${assert}
@@ -2574,8 +2612,8 @@ Library           String
     ${assert}    Create List    脑膜炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"24","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "37.6","heartRate": "68","lowBldPress": "64","highBldPress": "107"}
     ...    definiteDiagnosis=
@@ -2587,6 +2625,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -2633,9 +2672,9 @@ Library           String
     ${assert}    Create List    脑膜炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
-    ...    patientInfo={"gender":"","age":"32","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"1","age":"32","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "80","lowBldPress": "70","highBldPress": "120"}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -2646,6 +2685,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -2694,8 +2734,8 @@ Library           String
     ${assert}    Create List    脑出血
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"10","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "36","heartRate": "110","lowBldPress": "68","highBldPress": "98"}
     ...    definiteDiagnosis=
@@ -2707,6 +2747,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj}    ${assert}
@@ -2753,8 +2794,8 @@ Library           String
     ${assert}    Create List    脑出血    脑梗死
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"48","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "36.4","heartRate": "62","lowBldPress": "120","highBldPress": "190"}
     ...    definiteDiagnosis=
@@ -2766,6 +2807,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -2811,8 +2853,8 @@ Library           String
     ${assert}    Create List    脑梗死
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"66","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2824,6 +2866,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj}    ${assert}
@@ -2869,8 +2912,8 @@ Library           String
     ${assert}    Create List    偏头痛
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"30","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "36.7","heartRate": "86","lowBldPress": "70","highBldPress": "115"}
     ...    definiteDiagnosis=
@@ -2882,6 +2925,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj}    ${assert}
@@ -2927,8 +2971,8 @@ Library           String
 #     ${assert}    Create List    偏头痛    颅内肿瘤
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
-#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-#     ...    doctorGuid=0210497    doctorName=
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+#     ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
 #     ...    patientInfo={"gender":"0","age":"35","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
 #     ...    physicalSign={"bodyTempr": "36.7","heartRate": "","lowBldPress": "65","highBldPress": "105"}
 #     ...    definiteDiagnosis=
@@ -2939,7 +2983,7 @@ Library           String
 #     ...    newTestList=
 #     ...    operationRecord=
 #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-#     ...    currentDiseaseName=
+#     ...    currentDiseaseName=        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
 #     # ...    newRecogFlag=
 #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
 #     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -2985,8 +3029,8 @@ Library           String
     ${assert}    Create List    偏头痛
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"29","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "36.3","heartRate": "64","lowBldPress": "114","highBldPress": "72"}
     ...    definiteDiagnosis=
@@ -2998,6 +3042,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -3042,8 +3087,8 @@ Library           String
     ${assert}    Create List    颅内感染    脑膜炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"36","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "38.9","heartRate": "99","lowBldPress": "89","highBldPress": "139"}
     ...    definiteDiagnosis=
@@ -3055,6 +3100,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -3101,8 +3147,8 @@ Library           String
     ${assert}    Create List    病毒性脑炎    细菌性脑膜炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"23","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "38","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3114,6 +3160,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -3158,8 +3205,8 @@ Library           String
     ${assert}    Create List    急性脊髓炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"44","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "37.8","heartRate": "78","lowBldPress": "70","highBldPress": "104"}
     ...    definiteDiagnosis=
@@ -3171,6 +3218,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj}    ${assert}
@@ -3216,8 +3264,8 @@ Library           String
     ${assert}    Create List    帕金森病
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"58","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "72","lowBldPress": "67","highBldPress": "114"}
     ...    definiteDiagnosis=
@@ -3229,6 +3277,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj}    ${assert}
@@ -3273,8 +3322,8 @@ Library           String
     ${assert}    Create List    特发性震颤
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"50","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3286,6 +3335,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -3331,8 +3381,8 @@ Library           String
     ${assert}    Create List
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"28","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "90","lowBldPress": "79","highBldPress": "126"}
     ...    definiteDiagnosis=
@@ -3344,6 +3394,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -3389,8 +3440,8 @@ Library           String
     ${assert}    Create List    低钾型周期性麻痹
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"22","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "37","heartRate": "80","lowBldPress": "75","highBldPress": "105"}
     ...    definiteDiagnosis=
@@ -3402,6 +3453,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj}    ${assert}
@@ -3448,8 +3500,8 @@ Library           String
     ${assert}    Create List    蛛网膜下腔出血    高血压
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"55","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "36.4","heartRate": "99","lowBldPress": "74","highBldPress": "130"}
     ...    definiteDiagnosis=
@@ -3461,6 +3513,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
@@ -3507,8 +3560,8 @@ Library           String
     ${assert}    Create List    癫痫样发作
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-    ...    doctorGuid=0210497    doctorName=
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"8","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3520,6 +3573,7 @@ Library           String
     ...    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     # ...    newRecogFlag=
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj}    ${assert}
@@ -3567,8 +3621,8 @@ Library           String
 #     ${assert}    Create List    脑梗死    高血压    2型糖尿病
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
-#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
-#     ...    doctorGuid=0210497    doctorName=
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+#     ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
 #     ...    patientInfo={"gender":"1","age":"53","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
 #     ...    physicalSign={"bodyTempr": "36.2","heartRate": "82","lowBldPress": "87","highBldPress": "148"}
 #     ...    definiteDiagnosis=
@@ -3579,7 +3633,7 @@ Library           String
 #     ...    newTestList=
 #     ...    operationRecord=
 #     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-#     ...    currentDiseaseName=
+#     ...    currentDiseaseName=        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
 #     # ...    newRecogFlag=
 #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
 #     List Should Contain Sub List    ${aj[:10]}    ${assert}

@@ -1055,10 +1055,10 @@ mayson搜索
 
 mayson默认推荐搜索
     [Arguments]    ${doctorGuid}    ${department}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id_xw}
-    Create Session    api    http://47.95.203.183    ${dict}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    doctorGuid=${doctorGuid}    department=${department}
-    ${addr}    Post Request    api    cdss/mayson/track/default_recommend    data=${data}
+    ${addr}    Post Request    api    /mayson/track/default_recommend    data=${data}
     ${responsedata}    To Json    ${addr.content}
     # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
     [Return]    ${responsedata}

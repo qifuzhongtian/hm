@@ -1103,11 +1103,11 @@ Library           String
         List Should Contain Sub List    ${aj}    ${assert}
 
 
-36行-气急,推出诊断:心力衰竭,肺部感染,胸腔积液,冠状动脉粥样硬化性心脏病,慢性阻塞性肺病伴有急性下呼吸道感染,肺炎,急性支气管炎,支气管扩张伴感染,肺恶性肿瘤,间质性肺病,急性喉气管炎,急性心肌梗死
+36行-气急,推出诊断:心力衰竭,肺部感染,胸腔积液,冠状动脉粥样硬化性心脏病,慢性阻塞性肺病伴有急性下呼吸道感染,肺炎,急性支气管炎,支气管扩张伴感染,支气管或肺恶性肿瘤,间质性肺病,急性喉气管炎,急性心肌梗死
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    气急
-        ${assert}    Create List    心力衰竭    肺部感染    胸腔积液    冠状动脉粥样硬化性心脏病    慢性阻塞性肺病伴有急性下呼吸道感染    肺炎    急性支气管炎    支气管扩张伴感染    肺恶性肿瘤    间质性肺病    急性喉气管炎    急性心肌梗死
+        ${assert}    Create List    心力衰竭    肺部感染    胸腔积液    冠状动脉粥样硬化性心脏病    慢性阻塞性肺病伴有急性下呼吸道感染    肺炎    急性支气管炎    支气管扩张伴感染    支气管或肺恶性肿瘤    间质性肺病    急性喉气管炎    急性心肌梗死
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
@@ -1141,11 +1141,11 @@ Library           String
         List Should Contain Sub List    ${aj}    ${assert}
 
 
-37行-气促,推出诊断:心力衰竭,肺部感染,胸腔积液,冠状动脉粥样硬化性心脏病,慢性阻塞性肺病伴有急性下呼吸道感染,肺炎,急性支气管炎,支气管扩张伴感染,肺恶性肿瘤,间质性肺病,急性喉气管炎,急性心肌梗死
+37行-气促,推出诊断:心力衰竭,肺部感染,胸腔积液,冠状动脉粥样硬化性心脏病,慢性阻塞性肺病伴有急性下呼吸道感染,肺炎,急性支气管炎,支气管扩张伴感染,支气管或肺恶性肿瘤,间质性肺病,急性喉气管炎,急性心肌梗死
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    气促
-        ${assert}    Create List    心力衰竭    肺部感染    胸腔积液    冠状动脉粥样硬化性心脏病    慢性阻塞性肺病伴有急性下呼吸道感染    肺炎    急性支气管炎    支气管扩张伴感染    肺恶性肿瘤    间质性肺病    急性喉气管炎    急性心肌梗死
+        ${assert}    Create List    心力衰竭    肺部感染    胸腔积液    冠状动脉粥样硬化性心脏病    慢性阻塞性肺病伴有急性下呼吸道感染    肺炎    急性支气管炎    支气管扩张伴感染    支气管或肺恶性肿瘤    间质性肺病    急性喉气管炎    急性心肌梗死
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
@@ -7476,11 +7476,11 @@ Library           String
 
 
 
-201行-胸痛+咯血,推出诊断:肺部感染,肺栓塞,肺恶性肿瘤,肺水肿,支气管扩张,结节性多动脉炎,肺结核,气管肿瘤,呼吸道内异物,系统性红斑狼疮,肺挫伤,ANCA相关性血管炎,曲霉病,肺肾综合征,白塞病,抗磷脂综合征
+201行-胸痛+咯血,推出诊断:肺部感染,肺栓塞,支气管或肺恶性肿瘤,肺水肿,支气管扩张,结节性多动脉炎,肺结核,气管肿瘤,呼吸道内异物,系统性红斑狼疮,肺挫伤,ANCA相关性血管炎,曲霉病,肺肾综合征,白塞病,抗磷脂综合征
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    胸痛,咯血
-        ${assert}    Create List    肺部感染    肺栓塞    肺恶性肿瘤    肺水肿    支气管扩张    结节性多动脉炎    肺结核    气管肿瘤    呼吸道内异物    系统性红斑狼疮    肺挫伤    ANCA相关性血管炎    曲霉病    肺肾综合征    白塞病    抗磷脂综合征
+        ${assert}    Create List    肺部感染    肺栓塞    支气管或肺恶性肿瘤    肺水肿    支气管扩张    结节性多动脉炎    肺结核    气管肿瘤    呼吸道内异物    系统性红斑狼疮    肺挫伤    ANCA相关性血管炎    曲霉病    肺肾综合征    白塞病    抗磷脂综合征
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
@@ -7556,11 +7556,11 @@ Library           String
 
 
 
-203行-呼吸困难+水肿,推出诊断:慢性阻塞性肺病,充血性心力衰竭,冠状动脉粥样硬化性心脏病,肺栓塞,心肌病,心脏瓣膜病,肺恶性肿瘤,胸腔积液,主动脉狭窄,由右向左分流的先天性心脏病,由左向右分流的先天性心脏病,肥胖症,腹水,肺动脉高压,缩窄性心包炎,心包积液
+203行-呼吸困难+水肿,推出诊断:慢性阻塞性肺病,充血性心力衰竭,冠状动脉粥样硬化性心脏病,肺栓塞,心肌病,心脏瓣膜病,支气管或肺恶性肿瘤,胸腔积液,主动脉狭窄,由右向左分流的先天性心脏病,由左向右分流的先天性心脏病,肥胖症,腹水,肺动脉高压,缩窄性心包炎,心包积液
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    呼吸困难,水肿
-        ${assert}    Create List    慢性阻塞性肺病    充血性心力衰竭    冠状动脉粥样硬化性心脏病    肺栓塞    心肌病    心脏瓣膜病    肺恶性肿瘤    胸腔积液    主动脉狭窄    由右向左分流的先天性心脏病    由左向右分流的先天性心脏病    肥胖症    腹水    肺动脉高压    缩窄性心包炎    心包积液
+        ${assert}    Create List    慢性阻塞性肺病    充血性心力衰竭    冠状动脉粥样硬化性心脏病    肺栓塞    心肌病    心脏瓣膜病    支气管或肺恶性肿瘤    胸腔积液    主动脉狭窄    由右向左分流的先天性心脏病    由左向右分流的先天性心脏病    肥胖症    腹水    肺动脉高压    缩窄性心包炎    心包积液
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
@@ -7998,11 +7998,11 @@ Library           String
 
 
 
-214行-发热+呼吸急促,推出诊断:慢性阻塞性肺病,肺部感染,胸腔积液,慢性阻塞性肺病伴有急性下呼吸道感染,肺炎,急性支气管炎,支气管扩张伴感染,急性喉气管炎,肺恶性肿瘤,间质性肺病
+214行-发热+呼吸急促,推出诊断:慢性阻塞性肺病,肺部感染,胸腔积液,慢性阻塞性肺病伴有急性下呼吸道感染,肺炎,急性支气管炎,支气管扩张伴感染,急性喉气管炎,支气管或肺恶性肿瘤,间质性肺病
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    发热,呼吸急促
-        ${assert}    Create List    慢性阻塞性肺病    肺部感染    胸腔积液    慢性阻塞性肺病伴有急性下呼吸道感染    肺炎    急性支气管炎    支气管扩张伴感染    急性喉气管炎    肺恶性肿瘤    间质性肺病
+        ${assert}    Create List    慢性阻塞性肺病    肺部感染    胸腔积液    慢性阻塞性肺病伴有急性下呼吸道感染    肺炎    急性支气管炎    支气管扩张伴感染    急性喉气管炎    支气管或肺恶性肿瘤    间质性肺病
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    pageSource=
