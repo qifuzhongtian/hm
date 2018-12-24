@@ -59,34 +59,34 @@ Library           String
     Should Contain    ${aj}    荨麻疹
 
 
-推荐检查
-    [Documentation]
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    智能推荐门诊
-    ...    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    doctorGuid=    hospitalGuid=
-    ...    symptom=
-    ...    drugCommonNames=
-    ...    examinationList=
-    ...    newTestList=
-    ...    labTestList=
-    ...    previousHistory=    personalHistory=    allergyHistory=    familyHistory=
-    ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
-    ...    heartRate=    age=    ageType=岁    confirmDiagnosis=
-    ...    confirmDiagnosisMap={"icdCode": "","key": "","value": "鼻损伤"}
-    ...    presentHistory=
-    ...    hasDetail=    symptomClickDiseaseId=
-    #疑似诊断
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['suspectedDiseases']]
-    #检查解读
-    ${aj}    Evaluate    [aj['examName'] for aj in $getRes['body']['regimenInfo']['examResponseList']]
-    #治疗方案
-    # ${aj}    Evaluate    [aj['examName'] for aj in $getRes['body']['regimenInfo']['itemInfoResponseList']]
-    #评估表
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['maysonInfo']['illnessAssessList']]
-    #检查解读
-    # ${aj}    Evaluate    [aj['diagnosticPoint'] for aj in $getRes['body']['maysonInfo']['examinationInterpretList']]
-    Should Contain    ${aj}    头颅X线
+# 推荐检查
+#     [Documentation]
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    智能推荐门诊
+#     ...    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    doctorGuid=    hospitalGuid=
+#     ...    symptom=
+#     ...    drugCommonNames=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    labTestList=
+#     ...    previousHistory=    personalHistory=    allergyHistory=    familyHistory=
+#     ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
+#     ...    heartRate=    age=    ageType=岁    confirmDiagnosis=
+#     ...    confirmDiagnosisMap={"icdCode": "","key": "","value": "鼻损伤"}
+#     ...    presentHistory=
+#     ...    hasDetail=    symptomClickDiseaseId=
+#     #疑似诊断
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['suspectedDiseases']]
+#     #检查解读
+#     ${aj}    Evaluate    [aj['examName'] for aj in $getRes['body']['regimenInfo']['examResponseList']]
+#     #治疗方案
+#     # ${aj}    Evaluate    [aj['examName'] for aj in $getRes['body']['regimenInfo']['itemInfoResponseList']]
+#     #评估表
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['maysonInfo']['illnessAssessList']]
+#     #检查解读
+#     # ${aj}    Evaluate    [aj['diagnosticPoint'] for aj in $getRes['body']['maysonInfo']['examinationInterpretList']]
+#     Should Contain    ${aj}    头颅X线
 
 
 检查解读
