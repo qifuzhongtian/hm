@@ -339,7 +339,6 @@ ${base_url_ame}     http://10.46.74.95:8092
     log    ${aj}
     log    ${aj[:3]}
     Should Contain    ${aj}    ${msg}
-    # Should Contain    ${aj[:15]}    ${msg}
     Delete All Sessions
 
 
@@ -361,7 +360,6 @@ ${base_url_ame}     http://10.46.74.95:8092
     log    ${aj}
     log    ${aj[:3]}
     Should Contain    ${aj}    ${msg}
-    # Should Contain    ${aj[:15]}    ${msg}
     Delete All Sessions
 
 
@@ -385,7 +383,6 @@ ${base_url_ame}     http://10.46.74.95:8092
     # log    ${aj}
     # log    ${aj[:3]}
     # Should Contain    ${aj}    ${msg}
-    # Should Contain    ${aj[:15]}    ${msg}
     Delete All Sessions
     # 测试一下
     # ${ajson}    Evaluate    {"api": "api.name","v": "1.0","code": "10000","error_msg": "success","data": {"userlist": [{"uid": "94901","nickName": "test1",}, {"uid": "1010640","nickName": "test2",}, {"uid": "1012130","nickName": "test3",}]}}
@@ -413,7 +410,6 @@ ${base_url_ame}     http://10.46.74.95:8092
     log    ${aj[:5]}
     # Run Keyword If
     Should Contain    ${aj[:5]}    ${msg}
-    # Should Contain    ${aj[:15]}    ${msg}
     Delete All Sessions
 
 智能诊断top6
@@ -435,7 +431,6 @@ ${base_url_ame}     http://10.46.74.95:8092
     log    ${aj[:6]}
     # Run Keyword If
     Should Contain    ${aj[:5]}    ${msg}
-    # Should Contain    ${aj[:15]}    ${msg}
     Delete All Sessions
 
 智能诊断前top15
@@ -457,7 +452,6 @@ ${base_url_ame}     http://10.46.74.95:8092
     log    ${aj[:3]}
     # Run Keyword If
     Should Contain    ${aj}    ${msg}
-    # Should Contain    ${aj[:15]}    ${msg}
     Delete All Sessions
     # 测试一下
     # ${ajson}    Evaluate    {"api": "api.name","v": "1.0","code": "10000","error_msg": "success","data": {"userlist": [{"uid": "94901","nickName": "test1",}, {"uid": "1010640","nickName": "test2",}, {"uid": "1012130","nickName": "test3",}]}}
@@ -478,7 +472,6 @@ ${base_url_ame}     http://10.46.74.95:8092
     # ...    examItems[]=${examItems}
     ${addr}    Post Request    api    v_2_3/diagnose_through_interrogation    data=${data}
     ${responsedata}    To Json    ${addr.content}
-    # Should Contain    ${aj[:15]}    ${msg}
     # Delete All Sessions
     [Return]    ${responsedata}
 
@@ -491,7 +484,6 @@ ${base_url_ame}     http://10.46.74.95:8092
     ${data}    Create Dictionary    symptom=${symptom}    gender=${gender}    age=${age}   ageType=${ageType}
     ${addr}    Post Request    api    /recognize    data=${data}
     ${responsedata}    To Json    ${addr.content}
-    # Should Contain    ${aj[:15]}    ${msg}
     # Delete All Sessions
     [Return]    ${responsedata}
 
@@ -550,7 +542,6 @@ test
     ${data}    Create Dictionary    query=${query}
     ${addr}    Post Request    api    /disease/disease/_search?_source=false    data=${data}
     ${responsedata}    To Json    ${addr.content}
-    # Should Contain    ${aj[:15]}    ${msg}
     # Delete All Sessions
     [Return]    ${responsedata}
 
@@ -564,7 +555,7 @@ test
 #     ${data}    Create Dictionary    query=${query}
 #     ${addr}    Post Request    api    /disease/disease/_search?_source=false    data=${data}
 #     ${responsedata}    To Json    ${addr.content}
-#     # Should Contain    ${aj[:15]}    ${msg}
+#
 #     # Delete All Sessions
 #     [Return]    ${responsedata}
 
@@ -961,7 +952,6 @@ ame管理_文档列表查询
     ${data}    Create Dictionary    bodyTempr=${bodyTempr}    age=${age}   ageType=${ageType}    highBldPress=${highBldPress}    lowBldPress=${lowBldPress}    pregnancyStatus=${pregnancyStatus}    recordInfo=${recordInfo}
     ${addr}    Post Request    api    /v_4_0/recognize    data=${data}
     ${responsedata}    To Json    ${addr.content}
-    # Should Contain    ${aj[:15]}    ${msg}
     # Delete All Sessions
     [Return]    ${responsedata}
 
@@ -1098,7 +1088,6 @@ mayson默认推荐搜索
     # ...    examItems[]=${examItems}
     ${addr}    Post Request    api    v_4_0/diagnose_through_interrogation    data=${data}
     ${responsedata}    To Json    ${addr.content}
-    # Should Contain    ${aj[:15]}    ${msg}
     # Delete All Sessions
     [Return]    ${responsedata}
 
@@ -1124,7 +1113,6 @@ mayson默认推荐搜索
     # ...    examItems[]=${examItems}
     ${addr}    Post Request    api    v_4_0/diagnose_through_interrogation    data=${data}
     ${responsedata}    To Json    ${addr.content}
-    # Should Contain    ${aj[:15]}    ${msg}
     # Delete All Sessions
     [Return]    ${responsedata}
 

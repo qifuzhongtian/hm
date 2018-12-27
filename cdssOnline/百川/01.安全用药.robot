@@ -16,12 +16,12 @@ Suite Teardown    Delete All Sessions
 
 *** Test Cases ***
 
-1.1 相互作用等级为'谨慎'的两种药,grade=2
-    [Documentation]    断言:"grade=2"
-    ${drugIds}    Create List    8126    5714
-    ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
-    Should Be Equal As Strings    ${getRes['body']['interactionList'][0]['grade']}    2
+# 1.1 相互作用等级为'谨慎'的两种药,grade=2
+#     [Documentation]    断言:"grade=2"
+#     ${drugIds}    Create List    8126    5714
+#     ${drugCommonNames}    Create List
+#     ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
+#     Should Be Equal As Strings    ${getRes['body']['interactionList'][0]['grade']}    2
 
 
 
@@ -284,12 +284,12 @@ Suite Teardown    Delete All Sessions
 
 ################################待审核
 
-1.34 相互作用等级grade为'2不适用'的药,用药审核结果为'待审核'
-    [Documentation]    断言:"safeStatus=2"
-    ${drugIds}    Create List    8126    5714
-    ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
-    Should Be Equal As Strings    ${getRes['body']['safeStatus']}    2
+# 1.34 相互作用等级grade为'2不适用'的药,用药审核结果为'待审核'
+#     [Documentation]    断言:"safeStatus=2"
+#     ${drugIds}    Create List    8126    5714
+#     ${drugCommonNames}    Create List
+#     ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
+#     Should Be Equal As Strings    ${getRes['body']['safeStatus']}    2
 
 1.35 人群禁忌等级grade为'2不适用'的药+高血压用药重复,用药审核结果为'待审核'
     [Documentation]    断言:"safeStatus=2"
@@ -313,12 +313,12 @@ Suite Teardown    Delete All Sessions
 #######    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}    symptom=    confirmDiagnosis=
 #######    Should Be Equal As Strings    ${getRes['body']['safeStatus']}    2
 
-1.37 相互作用=2,高血压用药重复,用药审核结果为'待审核'
-    [Documentation]    断言:"safeStatus=2"
-    ${drugIds}    Create List    8126    5714    5323    5647
-    ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=50    ageType=岁    drugIds=${drugIds}    symptom=    confirmDiagnosis=
-    Should Be Equal As Strings    ${getRes['body']['safeStatus']}    2
+# 1.37 相互作用=2,高血压用药重复,用药审核结果为'待审核'
+#     [Documentation]    断言:"safeStatus=2"
+#     ${drugIds}    Create List    8126    5714    5323    5647
+#     ${drugCommonNames}    Create List
+#     ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=50    ageType=岁    drugIds=${drugIds}    symptom=    confirmDiagnosis=
+#     Should Be Equal As Strings    ${getRes['body']['safeStatus']}    2
 
 1.38 相互作用=2,人群禁忌=2,高血压用药重复,用药审核结果为'待审核'
     [Documentation]    断言:"safeStatus=2"
