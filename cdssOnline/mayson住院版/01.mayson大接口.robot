@@ -119,12 +119,12 @@ Library           String
     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     #Should Contain    ${aj[:5]}    心率失常
 
-推荐治疗:药源性QT间期延长防治、高位胸左侧交感神经节切断术、转诊
+推荐治疗:药接种疫苗,维持治疗
     [Documentation]    断言:""
     # ${timestamp}    Get Time    epoch
-    ${assert}    Create List    转诊    药源性QT间期延长防治    高位胸左侧交感神经节切断术
-    ${Assessment}    Set Variable    QT间期延长
-    ${Subjective}    Set Variable    男，年龄60岁，反复发作晕厥4年，心电图显示窦性心律，心率100次／分，QT 间期0.56秒，偶发室性期前收缩,继发性QT间期延长
+    ${assert}    Create List    接种疫苗    维持治疗
+    ${Assessment}    Set Variable    支气管哮喘
+    ${Subjective}    Set Variable    双肺哮鸣音
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
