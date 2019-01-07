@@ -50,8 +50,8 @@ Library           String
     ${assert}    Create List    泌尿道感染
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"72","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -61,7 +61,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -108,8 +108,8 @@ Library           String
     ${assert}    Create List    前列腺增生
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"72","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -119,7 +119,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -167,8 +167,8 @@ Library           String
     ${assert}    Create List    肠梗阻
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"56","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -178,7 +178,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -225,8 +225,8 @@ Library           String
     ${assert}    Create List    胃炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"56","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -236,7 +236,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -285,8 +285,8 @@ Library           String
     ${assert}    Create List    川崎病
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"2","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -296,7 +296,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -343,8 +343,8 @@ Library           String
     ${assert}    Create List    痛风
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"77","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -354,7 +354,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -404,8 +404,8 @@ Library           String
     ${assert}    Create List    急性乳腺炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"39","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -415,7 +415,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -463,8 +463,8 @@ Library           String
     ${assert}    Create List    病态窦房结综合征
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"82","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -474,7 +474,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -522,8 +522,8 @@ Library           String
     ${assert}    Create List    带状疱疹
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"53","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -533,7 +533,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -582,8 +582,8 @@ Library           String
     ${assert}    Create List    手足口病
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"1","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -593,7 +593,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -642,8 +642,8 @@ Library           String
     ${assert}    Create List    帕金森病    帕金森综合征
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"69","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -653,7 +653,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -703,8 +703,8 @@ Library           String
     ${assert}    Create List    支气管哮喘
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"54","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -714,7 +714,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -764,8 +764,8 @@ Library           String
     ${assert}    Create List    扁桃体炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"1","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -775,7 +775,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -825,8 +825,8 @@ Library           String
     ${assert}    Create List    前列腺增生
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"66","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -836,7 +836,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -887,8 +887,8 @@ Library           String
     ${assert}    Create List    尿潴留
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"66","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -898,7 +898,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -947,8 +947,8 @@ Library           String
     ${assert}    Create List    2型糖尿病
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"74","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -958,7 +958,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -1006,8 +1006,8 @@ Library           String
     ${assert}    Create List    附睾炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"37","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1017,7 +1017,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -1067,8 +1067,8 @@ Library           String
     ${assert}    Create List    上消化道出血
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"63","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1078,7 +1078,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -1127,8 +1127,8 @@ Library           String
     ${assert}    Create List    急性阑尾炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1138,7 +1138,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -1186,9 +1186,9 @@ Library           String
     ${assert}    Create List    心房颤动
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"1","age":"","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -1197,7 +1197,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -1247,8 +1247,8 @@ Library           String
     ${assert}    Create List    肺恶性肿瘤
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"76","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1258,7 +1258,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -1307,8 +1307,8 @@ Library           String
     ${assert}    Create List    肛周脓肿
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"32","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1318,7 +1318,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -1368,8 +1368,8 @@ Library           String
     ${assert}    Create List    溃疡性结肠炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"54","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1379,7 +1379,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -1428,8 +1428,8 @@ Library           String
     ${assert}    Create List    白内障
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"60","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1439,7 +1439,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -1489,8 +1489,8 @@ Library           String
     ${assert}    Create List    急性胰腺炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"55","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1500,7 +1500,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -1550,8 +1550,8 @@ Library           String
     ${assert}    Create List    银屑病
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"56","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1561,7 +1561,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -1611,8 +1611,8 @@ Library           String
     ${assert}    Create List    过敏性紫癜
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"18","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1622,7 +1622,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -1670,8 +1670,8 @@ Library           String
     ${assert}    Create List    过敏性紫癜
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"17","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1681,7 +1681,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -1730,8 +1730,8 @@ Library           String
     ${assert}    Create List    腹股沟疝
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"52","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1741,7 +1741,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -1792,8 +1792,8 @@ Library           String
     ${assert}    Create List    脑出血
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"57","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1803,7 +1803,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -1852,8 +1852,8 @@ Library           String
     ${assert}    Create List    包皮过长
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"6","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1863,7 +1863,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -1914,8 +1914,8 @@ Library           String
     ${assert}    Create List    包皮过长
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"26","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -1925,7 +1925,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -1973,9 +1973,9 @@ Library           String
     ${assert}    Create List    慢性阻塞性肺病伴急性加重
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"1","age":"","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -1984,7 +1984,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -2032,9 +2032,9 @@ Library           String
     ${assert}    Create List    泌尿系结石    输尿管结石
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"","age":"","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -2043,7 +2043,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -2092,9 +2092,9 @@ Library           String
     ${assert}    Create List    输尿管梗阻
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"","age":"","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -2103,7 +2103,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -2157,8 +2157,8 @@ Library           String
     ${assert}    Create List    卵巢扭转    盆腔积液
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"49","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2168,7 +2168,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -2217,8 +2217,8 @@ Library           String
     ${assert}    Create List    甲状腺癌    结节性甲状腺肿
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"39","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2228,7 +2228,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -2279,8 +2279,8 @@ Library           String
 #     ${assert}    Create List    甲状腺功能亢进症
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
-#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-#     ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+#     ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
 #     ...    patientInfo={"gender":"0","age":"39","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
 #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
 #     ...    definiteDiagnosis=
@@ -2290,7 +2290,7 @@ Library           String
 #     ...    examinationList=
 #     ...    newTestList=
 #     ...    operationRecord=
-#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     # ...    newRecogFlag=
 #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
@@ -2340,8 +2340,8 @@ Library           String
     ${assert}    Create List    水痘    手足口病    川崎病
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"9","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2351,7 +2351,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -2400,8 +2400,8 @@ Library           String
     ${assert}    Create List    带状疱疹
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"9","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2411,7 +2411,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -2461,8 +2461,8 @@ Library           String
     ${assert}    Create List    肺栓塞
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"61","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2472,7 +2472,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -2523,8 +2523,8 @@ Library           String
 #     ${assert}    Create List    输尿管结石
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
-#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-#     ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+#     ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
 #     ...    patientInfo={"gender":"1","age":"72","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
 #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
 #     ...    definiteDiagnosis=
@@ -2534,7 +2534,7 @@ Library           String
 #     ...    examinationList=
 #     ...    newTestList=
 #     ...    operationRecord=
-#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ..    currentDiseaseName=
 #     ...    newRecogFlag=
 ...    newModelFlag=1
@@ -2583,8 +2583,8 @@ Library           String
     ${assert}    Create List    泌尿道感染
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"72","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2594,7 +2594,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -2643,8 +2643,8 @@ Library           String
     ${assert}    Create List    骨盆骨折
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"49","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2654,7 +2654,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -2705,8 +2705,8 @@ Library           String
     ${assert}    Create List    高血压性心脏病    心力衰竭
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"76","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2716,7 +2716,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -2766,8 +2766,8 @@ Library           String
     ${assert}    Create List    妊娠剧吐    妊娠
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"28","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2777,7 +2777,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -2827,9 +2827,9 @@ Library           String
     ${assert}    Create List    肺部感染
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"0","age":"","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"0","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -2838,7 +2838,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -2887,8 +2887,8 @@ Library           String
     ${assert}    Create List    泌尿道感染
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"71","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2898,7 +2898,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -2948,8 +2948,8 @@ Library           String
     ${assert}    Create List    胆囊炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"47","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -2959,7 +2959,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -3009,8 +3009,8 @@ Library           String
     ${assert}    Create List    肺炎支原体性肺炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"4","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3020,7 +3020,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -3072,9 +3072,9 @@ Library           String
     ${assert}    Create List    支气管肺炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"1","age":"","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -3083,7 +3083,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -3132,8 +3132,8 @@ Library           String
     ${assert}    Create List    脑梗死
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"96","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3143,7 +3143,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -3195,8 +3195,8 @@ Library           String
     ${assert}    Create List    脑出血
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"53","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3206,7 +3206,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -3254,8 +3254,8 @@ Library           String
     ${assert}    Create List    2型糖尿病
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"53","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3265,7 +3265,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -3314,8 +3314,8 @@ Library           String
     ${assert}    Create List    脑梗死
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"71","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3325,7 +3325,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -3375,8 +3375,8 @@ Library           String
     ${assert}    Create List    脑出血
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"78","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3386,7 +3386,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -3435,9 +3435,9 @@ Library           String
     ${assert}    Create List    高热惊厥
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"1","age":"","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -3446,7 +3446,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -3497,8 +3497,8 @@ Library           String
     ${assert}    Create List    左心室衰竭
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"67","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3508,7 +3508,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -3559,8 +3559,8 @@ Library           String
     ${assert}    Create List    慢性阻塞性肺病伴急性加重
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"65","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3570,7 +3570,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -3619,8 +3619,8 @@ Library           String
     ${assert}    Create List    胎膜早破
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"26","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3630,7 +3630,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -3679,8 +3679,8 @@ Library           String
     ${assert}    Create List    足月临产
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"26","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3690,7 +3690,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -3740,8 +3740,8 @@ Library           String
     ${assert}    Create List    胆囊结石    胆囊炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"69","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3751,7 +3751,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -3803,8 +3803,8 @@ Library           String
     ${assert}    Create List    胆囊结石
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"60","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3814,7 +3814,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -3862,8 +3862,8 @@ Library           String
     ${assert}    Create List    胆囊炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"60","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3873,7 +3873,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -3922,8 +3922,8 @@ Library           String
     ${assert}    Create List    鼻咽恶性肿瘤    鼻息肉
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"56","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3933,7 +3933,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -3982,8 +3982,8 @@ Library           String
     ${assert}    Create List    输尿管结石
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"54","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -3993,7 +3993,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -4043,8 +4043,8 @@ Library           String
     ${assert}    Create List    耳源性眩晕    梅尼埃病    良性阵发性眩晕    前庭周围性眩晕
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"55","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4054,7 +4054,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -4104,9 +4104,9 @@ Library           String
     ${assert}    Create List    输尿管结石
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"男","age":"27","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"1","age":"27","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -4115,7 +4115,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -4165,8 +4165,8 @@ Library           String
     ${assert}    Create List    单纯性下肢静脉曲张
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"44","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4176,7 +4176,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -4224,8 +4224,8 @@ Library           String
     ${assert}    Create List    足月临产
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"25","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4235,7 +4235,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -4284,8 +4284,8 @@ Library           String
     ${assert}    Create List    心绞痛    不稳定型心绞痛
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"65","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4295,7 +4295,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -4344,9 +4344,9 @@ Library           String
     ${assert}    Create List    支气管炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"0","age":"","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"0","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -4355,7 +4355,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -4404,8 +4404,8 @@ Library           String
     ${assert}    Create List    急性阑尾炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"65","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4415,7 +4415,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -4465,8 +4465,8 @@ Library           String
     ${assert}    Create List    急性阑尾炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"29","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4476,7 +4476,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -4525,9 +4525,9 @@ Library           String
     ${assert}    Create List    急性支气管炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"1","age":"","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -4536,7 +4536,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -4585,8 +4585,8 @@ Library           String
     ${assert}    Create List    乳房恶性肿瘤
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"65","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4596,7 +4596,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -4646,8 +4646,8 @@ Library           String
     ${assert}    Create List    面神经麻痹
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"48","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4657,7 +4657,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -4706,9 +4706,9 @@ Library           String
     ${assert}    Create List    支气管肺炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"1","age":"","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -4717,7 +4717,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     # ...    currentDiseaseName=
     ...    newRecogFlag=
@@ -4767,8 +4767,8 @@ Library           String
     ${assert}    Create List    股骨颈骨折
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"32","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4778,7 +4778,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     # ...    currentDiseaseName=
     ...    newRecogFlag=
@@ -4828,8 +4828,8 @@ Library           String
     ${assert}    Create List    支气管肺炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"65","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4839,7 +4839,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     # ...    currentDiseaseName=
     ...    newRecogFlag=
@@ -4889,8 +4889,8 @@ Library           String
     ${assert}    Create List    肾结石
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"75","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4900,7 +4900,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     # ...    currentDiseaseName=
     ...    newRecogFlag=
@@ -4950,8 +4950,8 @@ Library           String
     ${assert}    Create List    变应性鼻炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"70","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -4961,7 +4961,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     # ...    currentDiseaseName=
     ...    newRecogFlag=
@@ -5015,8 +5015,8 @@ Library           String
     ${assert}    Create List    子宫内膜息肉
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5026,7 +5026,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     # ...    currentDiseaseName=
     ...    newRecogFlag=
@@ -5077,8 +5077,8 @@ Library           String
     ${assert}    Create List    前列腺增生
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"65","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5088,7 +5088,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -5136,9 +5136,9 @@ Library           String
     ${assert}    Create List    面神经麻痹
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"","age":"","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -5147,7 +5147,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -5196,9 +5196,9 @@ Library           String
     ${assert}    Create List    急性乳腺炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"","age":"","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -5207,7 +5207,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -5256,8 +5256,8 @@ Library           String
     ${assert}    Create List    脑梗死
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"58","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5267,7 +5267,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -5315,8 +5315,8 @@ Library           String
     ${assert}    Create List    蛛网膜下出血
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"64","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5326,7 +5326,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -5377,8 +5377,8 @@ Library           String
     ${assert}    Create List    胆囊炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"65","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5388,7 +5388,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -5437,8 +5437,8 @@ Library           String
     ${assert}    Create List    不稳定型心绞痛
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"69","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5448,7 +5448,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -5497,8 +5497,8 @@ Library           String
 #     ${assert}    Create List    不稳定型心绞痛
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
-#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-#     ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+#     ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
 #     ...    patientInfo={"gender":"1","age":"69","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
 #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
 #     ...    definiteDiagnosis=
@@ -5508,7 +5508,7 @@ Library           String
 #     ...    examinationList=
 #     ...    newTestList=
 #     ...    operationRecord=
-#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
 #     # ...    currentDiseaseName=
 #     ...    newRecogFlag=
 #     ...    newModelFlag=1
@@ -5557,8 +5557,8 @@ Library           String
     ${assert}    Create List    股骨颈骨折
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"78","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5568,7 +5568,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -5617,9 +5617,9 @@ Library           String
     ${assert}    Create List    良性阵发性眩晕
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"","age":"","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -5628,7 +5628,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -5678,8 +5678,8 @@ Library           String
     ${assert}    Create List    前列腺增生
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"85","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5689,7 +5689,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -5738,9 +5738,9 @@ Library           String
     ${assert}    Create List    支气管扩张    肺恶性肿瘤
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"","age":"","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -5749,7 +5749,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -5799,8 +5799,8 @@ Library           String
     ${assert}    Create List    急性冠脉综合征
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"81","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5810,7 +5810,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -5861,8 +5861,8 @@ Library           String
     ${assert}    Create List    蛛网膜下出血
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"84","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -5872,7 +5872,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -5920,9 +5920,9 @@ Library           String
     ${assert}    Create List    脑出血
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"","age":"","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -5931,7 +5931,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -5980,9 +5980,9 @@ Library           String
     ${assert}    Create List    糖尿病
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"","age":"","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -5991,7 +5991,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -6042,8 +6042,8 @@ Library           String
     ${assert}    Create List    胫骨骨折
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"49","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6053,7 +6053,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -6102,8 +6102,8 @@ Library           String
     ${assert}    Create List    慢性阻塞性肺病伴急性加重
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"61","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6113,7 +6113,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -6164,9 +6164,9 @@ Library           String
     ${assert}    Create List    前列腺炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"","age":"","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -6175,7 +6175,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -6227,9 +6227,9 @@ Library           String
     ${assert}    Create List    癫痫持续状态
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"","age":"","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -6238,7 +6238,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -6287,8 +6287,8 @@ Library           String
     ${assert}    Create List    泌尿道感染
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"59","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6298,7 +6298,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -6348,8 +6348,8 @@ Library           String
     ${assert}    Create List    脑梗死
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"55","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6359,7 +6359,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -6409,8 +6409,8 @@ Library           String
     ${assert}    Create List    慢性阻塞性肺病伴急性加重
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"83","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6420,7 +6420,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -6469,9 +6469,9 @@ Library           String
     ${assert}    Create List    肺炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"","age":"","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -6480,7 +6480,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -6530,8 +6530,8 @@ Library           String
     ${assert}    Create List    急性上呼吸道感染
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"23","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6541,7 +6541,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -6591,8 +6591,8 @@ Library           String
     ${assert}    Create List    肺栓塞
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"68","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6602,7 +6602,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -6653,8 +6653,8 @@ Library           String
     ${assert}    Create List    急性会厌炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"73","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6664,7 +6664,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -6717,8 +6717,8 @@ Library           String
     ${assert}    Create List    肠梗阻
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"83","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6728,7 +6728,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -6779,8 +6779,8 @@ Library           String
     ${assert}    Create List    变应性鼻炎    鼻息肉    慢性鼻窦炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"53","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6790,7 +6790,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -6841,8 +6841,8 @@ Library           String
     ${assert}    Create List    声带息肉
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"29","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6852,7 +6852,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -6900,9 +6900,9 @@ Library           String
     ${assert}    Create List    子宫平滑肌瘤
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"0","age":"","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"0","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -6911,7 +6911,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -6961,8 +6961,8 @@ Library           String
     ${assert}    Create List    急性冠脉综合征
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"56","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -6972,7 +6972,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -7023,8 +7023,8 @@ Library           String
     ${assert}    Create List    前庭周围性眩晕    良性阵发性眩晕    持续性姿势-感知性头晕    耳源性眩晕    梅尼埃病    短暂性脑缺血发作
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"66","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7034,7 +7034,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -7084,8 +7084,8 @@ Library           String
     ${assert}    Create List    泌尿系结石
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"72","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7095,7 +7095,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -7145,8 +7145,8 @@ Library           String
     ${assert}    Create List    肠梗阻
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"86","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7156,7 +7156,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -7205,8 +7205,8 @@ Library           String
     ${assert}    Create List    面神经麻痹
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"31","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7216,7 +7216,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -7265,8 +7265,8 @@ Library           String
     ${assert}    Create List    消化道出血    消化性溃疡
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"77","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7276,7 +7276,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -7326,8 +7326,8 @@ Library           String
     ${assert}    Create List    乳腺纤维腺瘤
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"39","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7337,7 +7337,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -7388,8 +7388,8 @@ Library           String
     ${assert}    Create List    慢性阻塞性肺病伴急性加重
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"74","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7399,7 +7399,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -7449,8 +7449,8 @@ Library           String
     ${assert}    Create List    肺炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"4","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7460,7 +7460,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -7510,9 +7510,9 @@ Library           String
     ${assert}    Create List    胆囊结石    胆囊炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"0","age":"","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"0","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -7521,7 +7521,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -7572,9 +7572,9 @@ Library           String
     ${assert}    Create List    女性盆腔炎性疾病
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"0","age":"","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"0","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -7583,7 +7583,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -7632,8 +7632,8 @@ Library           String
     ${assert}    Create List    急性阑尾炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"70","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7643,7 +7643,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -7691,8 +7691,8 @@ Library           String
     ${assert}    Create List    子宫平滑肌瘤
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"47","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7702,7 +7702,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -7751,9 +7751,9 @@ Library           String
     ${assert}    Create List    痔
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"0","age":"","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"0","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -7762,7 +7762,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -7811,8 +7811,8 @@ Library           String
     ${assert}    Create List    膀胱炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"85","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -7822,7 +7822,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -7871,9 +7871,9 @@ Library           String
     ${assert}    Create List    慢性阻塞性肺病伴急性加重
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"0","age":"","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"0","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -7882,7 +7882,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -7931,9 +7931,9 @@ Library           String
 #     ${assert}    Create List    直肠恶性肿瘤
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
-#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-#     ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
-#     ...    patientInfo={"gender":"0","age":"","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+#     ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+#     ...    patientInfo={"gender":"0","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
 #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
 #     ...    definiteDiagnosis=
 #     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -7942,7 +7942,7 @@ Library           String
 #     ...    examinationList=
 #     ...    newTestList=
 #     ...    operationRecord=
-#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     # ...    newRecogFlag=
 #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
@@ -7990,9 +7990,9 @@ Library           String
     ${assert}    Create List    过敏性紫癜
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"0","age":"","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"0","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -8001,7 +8001,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -8051,8 +8051,8 @@ Library           String
     ${assert}    Create List    脑梗死
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"77","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8062,7 +8062,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -8111,9 +8111,9 @@ Library           String
     ${assert}    Create List    肾结石
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"0","age":"","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"0","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -8122,7 +8122,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -8170,8 +8170,8 @@ Library           String
     ${assert}    Create List    胃炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"84","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8181,7 +8181,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -8230,9 +8230,9 @@ Library           String
     ${assert}    Create List    急性支气管炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"0","age":"","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"0","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -8241,7 +8241,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -8290,8 +8290,8 @@ Library           String
     ${assert}    Create List    急性阑尾炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"42","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8301,7 +8301,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -8351,8 +8351,8 @@ Library           String
     ${assert}    Create List    混合痔
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"65","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8362,7 +8362,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -8411,8 +8411,8 @@ Library           String
     ${assert}    Create List    直肠恶性肿瘤
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"63","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8422,7 +8422,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -8471,8 +8471,8 @@ Library           String
     ${assert}    Create List    急性ST段抬高型心肌梗死
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"70","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8482,7 +8482,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -8533,8 +8533,8 @@ Library           String
 #     ${assert}    Create List    癫痫
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
-#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-#     ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+#     ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
 #     ...    patientInfo={"gender":"0","age":"60","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
 #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
 #     ...    definiteDiagnosis=
@@ -8544,7 +8544,7 @@ Library           String
 #     ...    examinationList=
 #     ...    newTestList=
 #     ...    operationRecord=
-#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     # ...    newRecogFlag=
 #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
@@ -8592,8 +8592,8 @@ Library           String
     ${assert}    Create List    女性盆腔炎性疾病
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"43","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8603,7 +8603,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -8654,9 +8654,9 @@ Library           String
 #     ${assert}    Create List    急性阑尾炎
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
-#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-#     ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
-#     ...    patientInfo={"gender":"0","age":"","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+#     ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+#     ...    patientInfo={"gender":"0","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
 #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
 #     ...    definiteDiagnosis=
 #     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -8665,7 +8665,7 @@ Library           String
 #     ...    examinationList=
 #     ...    newTestList=
 #     ...    operationRecord=
-#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     # ...    newRecogFlag=
 #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
@@ -8715,8 +8715,8 @@ Library           String
     ${assert}    Create List    急性宫颈炎    急性阴道炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"50","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8726,7 +8726,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -8776,8 +8776,8 @@ Library           String
     ${assert}    Create List    肺恶性肿瘤
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"61","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8787,7 +8787,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -8836,9 +8836,9 @@ Library           String
     ${assert}    Create List    不稳定型心绞痛
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"0","age":"","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"0","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -8847,7 +8847,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -8896,8 +8896,8 @@ Library           String
     ${assert}    Create List    慢性阻塞性肺病伴急性加重
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"72","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -8907,7 +8907,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -8957,8 +8957,8 @@ Library           String
 #     ${assert}    Create List    癫痫
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
-#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-#     ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+#     ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
 #     ...    patientInfo={"gender":"1","age":"78","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
 #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
 #     ...    definiteDiagnosis=
@@ -8968,7 +8968,7 @@ Library           String
 #     ...    examinationList=
 #     ...    newTestList=
 #     ...    operationRecord=
-#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     # ...    newRecogFlag=
 #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
@@ -9016,8 +9016,8 @@ Library           String
 #     ${assert}    Create List    慢性阻塞性肺病伴急性加重
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
-#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-#     ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+#     ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
 #     ...    patientInfo={"gender":"0","age":"78","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
 #     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
 #     ...    definiteDiagnosis=
@@ -9027,7 +9027,7 @@ Library           String
 #     ...    examinationList=
 #     ...    newTestList=
 #     ...    operationRecord=
-#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     # ...    newRecogFlag=
 #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
@@ -9074,8 +9074,8 @@ Library           String
     ${assert}    Create List    脑梗死
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"83","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9085,7 +9085,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -9134,8 +9134,8 @@ Library           String
     ${assert}    Create List    病态窦房结综合征
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"56","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9145,7 +9145,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -9194,8 +9194,8 @@ Library           String
     ${assert}    Create List    直肠恶性肿瘤
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"77","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9205,7 +9205,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -9255,8 +9255,8 @@ Library           String
     ${assert}    Create List    胆囊炎
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"69","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9266,7 +9266,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -9317,9 +9317,9 @@ Library           String
     ${assert}    Create List    阿尔茨海默病性痴呆
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"0","age":"","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"0","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -9328,7 +9328,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -9377,9 +9377,9 @@ Library           String
     ${assert}    Create List    慢性阻塞性肺病伴急性加重
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"0","age":"","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"0","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -9388,7 +9388,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -9437,9 +9437,9 @@ Library           String
     ${assert}    Create List    胆囊结石
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"0","age":"","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"0","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -9448,7 +9448,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -9498,8 +9498,8 @@ Library           String
     ${assert}    Create List    肺部感染
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"69","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9509,7 +9509,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -9558,8 +9558,8 @@ Library           String
     ${assert}    Create List    胰恶性肿瘤
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"88","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9569,7 +9569,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -9618,8 +9618,8 @@ Library           String
     ${assert}    Create List    系统性红斑狼疮
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"30","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9629,7 +9629,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -9679,8 +9679,8 @@ Library           String
     ${assert}    Create List    脑梗死
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"58","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9690,7 +9690,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -9739,8 +9739,8 @@ Library           String
     ${assert}    Create List    急性ST段抬高型心肌梗死
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"82","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9750,7 +9750,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -9800,8 +9800,8 @@ Library           String
     ${assert}    Create List    痛风
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"0","age":"62","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9811,7 +9811,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1
@@ -9861,8 +9861,8 @@ Library           String
     ${assert}    Create List    声带息肉
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=
-    ...    doctorGuid=0210497    doctorName=    inpatientDepartment=儿科
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
     ...    patientInfo={"gender":"1","age":"43","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
@@ -9872,7 +9872,7 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     ...    newRecogFlag=
     ...    newModelFlag=1

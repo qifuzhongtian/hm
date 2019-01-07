@@ -819,24 +819,6 @@ ame管理_文档列表查询
     #    [Return]    ${responsedata}
     [Return]    ${responsedata}
 
-识别接口
-    [Arguments]    ${symptom}    ${assert}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=78D211AA892A8155EF18F4CDB967043A
-    Create Session    api    http://10.117.64.153:8080    ${dict}
-    # Create Session    api    http://10.165.102.219:9088    ${dict}
-    # Create Session    api    http://10.165.102.219:8080    ${dict}
-    #95环境
-    # Create Session    api    http://10.46.74.95:8099    ${dict}
-    #线上
-    # Create Session    api    http://47.95.203.183:8080    ${dict}
-    ${data}    Create Dictionary    symptom=${symptom}    previousHistory=    personalHistory=    allergyHistory=    familyHistory=
-    ...    weight=    gender=    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
-    ...    heartRate=    age=    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap[]=    presentHistory=
-    ${addr}    Post Request    api    /v_4_0/recognize    data=${data}
-    ${responsedata}    To Json    ${addr.content}
-    ${aj}    Evaluate    [aj['word'] for aj in $responsedata['body']['recognizeResultList']]
-    Should Contain    ${aj}    ${assert}    ignore_case=true
-
 智能推荐_xml
     [Arguments]    ${userGuid}    ${serialNumber}    ${patientInfo}    ${physicalSign}    ${definiteDiagnosis}    ${progressNoteList}
     ...    ${deleteProgressNoteList}    ${labTestList}    ${examinationList}
@@ -874,11 +856,11 @@ ame管理_文档列表查询
     [Return]    ${responsedata}
 
 智能推荐
-    [Arguments]    ${userGuid}    ${serialNumber}    ${doctorGuid}    ${patientName}    ${doctorName}    ${inpatientDepartment}    ${pageSource}    ${patientInfo}
+    [Arguments]    ${userGuid}    ${serialNumber}    ${doctorGuid}    ${patientName}    ${doctorName}    ${admissionTime}    ${inpatientDepartment}    ${pageSource}    ${patientInfo}
     ...    ${physicalSign}    ${definiteDiagnosis}    ${progressNoteList}    ${deleteProgressNoteList}    ${labTestList}    ${examinationList}
     ...    ${newTestList}    ${operationRecord}    ${prescriptions}    ${newRecogFlag}        ${newModelFlag}
-    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=D7928B9182ABF6E0A6A6EBB71B353585
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=D7928B9182ABF6E0A6A6EBB71B353585
     # Create Session    api    ${base_url}    ${dict}
     Create Session    api    ${mayson_url}    ${dict}
     ${patientInfo}    Evaluate    dict(${patientInfo})
@@ -891,7 +873,7 @@ ame管理_文档列表查询
     ${newTestList}    Evaluate    [${newTestList}]
     ${operationRecord}    Evaluate    dict(${operationRecord})
     ${prescriptions}    Evaluate    ${prescriptions}
-    ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    doctorGuid=${doctorGuid}    doctorName=${doctorName}    inpatientDepartment=${inpatientDepartment}    pageSource=${pageSource}
+    ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    patientName=${patientName}    doctorGuid=${doctorGuid}    doctorName=${doctorName}    admissionTime=${admissionTime}    inpatientDepartment=${inpatientDepartment}    pageSource=${pageSource}
     ...    patientInfo=${patientInfo}    physicalSign=${physicalSign}    definiteDiagnosis=${definiteDiagnosis}    progressNoteList=${progressNoteList}    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}
     ...    examinationList=${examinationList}    prescriptions=${prescriptions}    newTestList=${newTestList}    operationRecord=${operationRecord}    newRecogFlag=${newRecogFlag}    newModelFlag=${newModelFlag}
     ${addr}    Post Request    api    mayson/v_1_0/intelligent_recommendation    data=${data}
