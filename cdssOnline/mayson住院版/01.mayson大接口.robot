@@ -495,8 +495,8 @@ Library           String
 
 
 
-诊断鉴别:心律失常的鉴别依据,推出:昏厥
-    [Documentation]    断言:昏厥
+诊断鉴别:心律失常的鉴别依据,推出:心律失常
+    [Documentation]    断言:心律失常
     # ${timestamp}    Get Time    epoch
     ${Assessment}    Set Variable
     ${Subjective}    Set Variable    男，年龄60岁，反复发作晕厥4年，心电图显示窦性心律，心率100次／分，QT 间期0.56秒，偶发室性期前收缩
@@ -526,7 +526,7 @@ Library           String
     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
     #####疑似诊断
     ${aj}    Evaluate    [aj for aj in $getRes['body']['symptomTypes']]
-    Should Contain    ${aj[:5]}    晕厥
+    Should Contain    ${aj[:5]}    心律失常
 
 
 
