@@ -384,7 +384,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"0","age":"15","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"0","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -466,7 +466,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -632,7 +632,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"14","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -715,7 +715,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"14","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -1383,7 +1383,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -1421,7 +1421,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -1459,7 +1459,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -1497,7 +1497,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -1536,7 +1536,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -1845,7 +1845,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -1885,7 +1885,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"61","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -2890,7 +2890,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -2967,7 +2967,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -3082,7 +3082,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -3121,7 +3121,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -3429,7 +3429,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -3545,7 +3545,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -3584,7 +3584,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -3778,7 +3778,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"20","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -3972,7 +3972,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -4011,7 +4011,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -4089,7 +4089,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -4476,7 +4476,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -4515,7 +4515,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -4591,7 +4591,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -4630,7 +4630,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -4903,7 +4903,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -4981,7 +4981,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -5253,7 +5253,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"17","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"1","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -5292,7 +5292,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"13","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"1","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -5874,7 +5874,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"14","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -5913,7 +5913,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"18","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -5990,7 +5990,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -6029,7 +6029,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -6067,7 +6067,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -6106,7 +6106,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -6651,7 +6651,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"0","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"0","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -6850,7 +6850,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -6890,7 +6890,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -7010,7 +7010,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -7050,7 +7050,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -7250,7 +7250,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -7367,7 +7367,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -7406,7 +7406,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -7886,7 +7886,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"14","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -8047,7 +8047,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -8608,7 +8608,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -8648,7 +8648,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -8808,7 +8808,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=1    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
