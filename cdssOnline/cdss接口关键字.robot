@@ -39,7 +39,7 @@ ${doc_url}       http://doc.huimeionline.com/doc
 ######################ovf模板地址######################
 # ${mayson_url}     http://192.168.1.13/cdss
 # ${base_url}     http://192.168.1.13/cdss
-
+${null}           null
 
 
 
@@ -70,6 +70,7 @@ ${base_url_ame}     http://10.46.74.95:8092
 
 
 *** Keywords ***
+
 获取时间戳
     ${timestamp}    Get Time    epoch
     Set Global Variable    ${timestamp}
@@ -944,17 +945,36 @@ ame管理_文档列表查询
 
 
 
+# 识别接口
+#     [Arguments]    ${bodyTempr}    ${age}    ${ageType}    ${highBldPress}    ${lowBldPress}    ${pregnancyStatus}    ${recordInfo}
+#     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+#     ${recordInfo}    Evaluate    dict(${recordInfo})
+#     Create Session    api    http://10.252.128.72:9088/inference    ${dict}
+#     ${data}    Create Dictionary    bodyTempr=${bodyTempr}    age=${age}   ageType=${ageType}    highBldPress=${highBldPress}    lowBldPress=${lowBldPress}    pregnancyStatus=${pregnancyStatus}    recordInfo=${recordInfo}
+#     ${addr}    Post Request    api    /v_4_0/recognize    data=${data}
+#     ${responsedata}    To Json    ${addr.content}
+#     # Delete All Sessions
+#     [Return]    ${responsedata}
+
+
+
 识别接口
-    [Arguments]    ${bodyTempr}    ${age}    ${ageType}    ${highBldPress}    ${lowBldPress}    ${pregnancyStatus}    ${recordInfo}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    ${recordInfo}    Evaluate    dict(${recordInfo})
-    Create Session    api    http://10.252.128.72:9088/inference    ${dict}
-    ${data}    Create Dictionary    bodyTempr=${bodyTempr}    age=${age}   ageType=${ageType}    highBldPress=${highBldPress}    lowBldPress=${lowBldPress}    pregnancyStatus=${pregnancyStatus}    recordInfo=${recordInfo}
+    [Arguments]    ${symptom}    ${assert}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=78D211AA892A8155EF18F4CDB967043A
+    Create Session    api    http://10.117.64.153:8080    ${dict}
+    # Create Session    api    http://10.165.102.219:9088    ${dict}
+    # Create Session    api    http://10.165.102.219:8080    ${dict}
+    #95环境
+    # Create Session    api    http://10.46.74.95:8099    ${dict}
+    #线上
+    # Create Session    api    http://47.95.203.183:8080    ${dict}
+    ${data}    Create Dictionary    symptom=${symptom}    previousHistory=    personalHistory=    allergyHistory=    familyHistory=
+    ...    weight=    gender=    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
+    ...    heartRate=    age=    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap[]=    presentHistory=
     ${addr}    Post Request    api    /v_4_0/recognize    data=${data}
     ${responsedata}    To Json    ${addr.content}
-    # Delete All Sessions
-    [Return]    ${responsedata}
-
+    ${aj}    Evaluate    [aj['word'] for aj in $responsedata['body']['recognizeResultList']]
+    Should Contain    ${aj}    ${assert}    ignore_case=true
 
 
 
@@ -1372,6 +1392,17 @@ mayson默认推荐
 
 
 
+风火山林甲状腺接口
+    [Arguments]    ${examinationDesc}    ${assert}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${mayson_url}    ${dict}
+    ${data}    Create Dictionary    userGuid=99999999999    serialNumber=99999999999    gender=1    age=60    ageType=岁    examinationName=    examinationDesc=${examinationDesc}    examinationResult=
+    ${addr}    Post Request    api    /mayson/v_1_1/smart_recommend    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    ${aj}    Evaluate    [aj['interpretPostil'] for aj in $responsedata['body']['examinationInterpretList']]
+    Should Contain    ${aj}    ${assert}
+
+
 检验检查详情
     [Arguments]    ${examId}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -1402,8 +1433,7 @@ mayson默认推荐
     ${prescriptions}    Evaluate    ${prescriptions}
     ${medicalOrders}    Evaluate    dict(${medicalOrders})
     ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    doctorGuid=${doctorGuid}    doctorName=${doctorName}    pageSource=${pageSource}
-    ...    patientInfo=${patientInfo}    physicalSign=${physicalSign}    definiteDiagnosis=${definiteDiagnosis}    progressNoteList=${progressNoteList}    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}
-    ...    examinationList=${examinationList}    newTestList=${newTestList}    operationRecord=${operationRecord}    prescriptions=${prescriptions}    currentDiseaseName=${currentDiseaseName}    medicalOrders=${medicalOrders}
+      ...    examinationList=${examinationList}    newTestList=${newTestList}    operationRecord=${operationRecord}    prescriptions=${prescriptions}    currentDiseaseName=${currentDiseaseName}    medicalOrders=${medicalOrders}
     ${addr}    Post Request    api    mayson/v_1_0/intelligent_recommendation    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
