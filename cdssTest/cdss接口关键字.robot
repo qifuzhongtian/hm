@@ -819,6 +819,20 @@ ame管理_文档列表查询
     #    [Return]    ${responsedata}
     [Return]    ${responsedata}
 
+识别接口
+    [Arguments]    ${bodyTempr}    ${age}    ${ageType}    ${highBldPress}    ${lowBldPress}    ${pregnancyStatus}
+    ...    ${recordInfo}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    ${recordInfo}    Evaluate    dict(${recordInfo})
+    Create Session    api    http://10.252.128.72:9088/inference    ${dict}
+    ${data}    Create Dictionary    bodyTempr=${bodyTempr}    age=${age}    ageType=${ageType}    highBldPress=${highBldPress}    lowBldPress=${lowBldPress}
+    ...    pregnancyStatus=${pregnancyStatus}    recordInfo=${recordInfo}
+    ${addr}    Post Request    api    /v_4_0/recognize    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # Should Contain    ${aj[:15]}    ${msg}
+    # Delete All Sessions
+    [Return]    ${responsedata}
+    
 智能推荐_xml
     [Arguments]    ${userGuid}    ${serialNumber}    ${patientInfo}    ${physicalSign}    ${definiteDiagnosis}    ${progressNoteList}
     ...    ${deleteProgressNoteList}    ${labTestList}    ${examinationList}
