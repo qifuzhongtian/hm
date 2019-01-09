@@ -38,14 +38,14 @@ Library           RequestsLibrary
     Should Contain    ${aj[:10]}    甲状腺功能减退症
 
 
-######男 38  岁 "突发上腹部疼痛，阵发性加剧，伴恶心、呕吐10小时, 体格检查：血压： 130/80mmHg, 腹平坦，上腹部压痛明显，无肌紧张、反跳痛，肝脾区无叩击痛，移动性浊音阴性，双侧桡动脉、股动脉搏动可 腹部CT：腹主动脉内仍可见低密度隔膜，并分为真假两腔"  急性胰腺炎
-市场部全科版演示case-3行
-    [Documentation]    主诉:男 38  岁 "突发上腹部疼痛，阵发性加剧，伴恶心、呕吐10小时,体格检查：血压： 130/80mmHg, 腹平坦，上腹部压痛明显，无肌紧张、反跳痛，肝脾区无叩击痛，移动性浊音阴性，双侧桡动脉、股动脉搏动可腹部CT：腹主动脉内仍可见低密度隔膜，并分为真假两腔"  急性胰腺炎
-    ${getRes}    智能诊断2.3    symptom="突发上腹部疼痛，阵发性加剧，伴恶心、呕吐10小时,.体格检查：血压:130/80mmHg,腹平坦，上腹部压痛明显，无肌紧张、反跳痛，肝脾区无叩击痛，移动性浊音阴性，双侧桡动脉、股动脉搏动可 腹部CT：腹主动脉内仍可见低密度隔膜，并分为真假两腔"    previousHistory=    personalHistory=    allergyHistory=    familyHistory=
-    ...    weight=    gender=1    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
-    ...    heartRate=    age=38    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=    presentHistory=
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][1]['diseases']]
-    Should Contain    ${aj[:10]}    急性胰腺炎
+# ######男 38  岁 "突发上腹部疼痛，阵发性加剧，伴恶心、呕吐10小时, 体格检查：血压： 130/80mmHg, 腹平坦，上腹部压痛明显，无肌紧张、反跳痛，肝脾区无叩击痛，移动性浊音阴性，双侧桡动脉、股动脉搏动可 腹部CT：腹主动脉内仍可见低密度隔膜，并分为真假两腔"  急性胰腺炎
+# 市场部全科版演示case-3行
+#     [Documentation]    主诉:男 38  岁 "突发上腹部疼痛，阵发性加剧，伴恶心、呕吐10小时,体格检查：血压： 130/80mmHg, 腹平坦，上腹部压痛明显，无肌紧张、反跳痛，肝脾区无叩击痛，移动性浊音阴性，双侧桡动脉、股动脉搏动可腹部CT：腹主动脉内仍可见低密度隔膜，并分为真假两腔"  急性胰腺炎
+#     ${getRes}    智能诊断2.3    symptom="突发上腹部疼痛，阵发性加剧，伴恶心、呕吐10小时,.体格检查：血压:130/80mmHg,腹平坦，上腹部压痛明显，无肌紧张、反跳痛，肝脾区无叩击痛，移动性浊音阴性，双侧桡动脉、股动脉搏动可 腹部CT：腹主动脉内仍可见低密度隔膜，并分为真假两腔"    previousHistory=    personalHistory=    allergyHistory=    familyHistory=
+#     ...    weight=    gender=1    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
+#     ...    heartRate=    age=38    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=    presentHistory=
+#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][1]['diseases']]
+#     Should Contain    ${aj[:10]}    急性胰腺炎
 
 
 ########女 14  岁 "间断喘憋5年，外院诊断哮喘5年，吸入激素治疗，疗效不明显，仍发作喘憋，有时自行缓解 追问：喘息与体位有关。查体颈部局限性哮鸣音 肺功能：舒张试验（-）CXR(-)"  气管内异物
