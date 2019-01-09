@@ -470,16 +470,16 @@ Library           String
         List Should Contain Sub List    ${aj}    ${assert}
 
 
-15行-慢性腹痛,推出诊断:泌尿道感染,便秘,慢性胃炎,反流性食管炎,胃十二指肠溃疡,慢性胆囊炎,胆石病,病毒性感染,炎症性肠病,慢性胰腺炎,肠易激综合征,溃疡性结肠炎,克罗恩病,肾积水,泌尿系结石,子宫肌瘤,结核性腹膜炎,麦克尔憩室,子宫颈癌,子宫内膜癌,缺血性肠病,肝炎,肝细胞癌,肝脓肿,抑郁状态,焦虑状态,绒毛膜癌,肠道寄生虫病,带状疱疹
+15行-慢性腹痛,推出诊断:泌尿道感染,便秘,慢性胃炎,反流性食管炎,胃十二指肠溃疡,慢性胆囊炎,胆石病,病毒性感染,炎症性肠病,慢性胰腺炎,肠易激综合征,溃疡性结肠炎,克罗恩病,肾积水,泌尿系结石,子宫肌瘤,结核性腹膜炎,麦克尔憩室,子宫颈癌,子宫内膜癌,缺血性肠病,肝炎,肝细胞癌,肝脓肿,抑郁状态,焦虑状态,绒毛膜癌,肠道寄生虫病,带状疱疹,食物过敏
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    慢性腹痛
-        ${assert}    Create List    泌尿道感染    便秘    慢性胃炎    反流性食管炎    胃十二指肠溃疡    慢性胆囊炎    胆石病    病毒性感染    炎症性肠病    慢性胰腺炎    肠易激综合征    溃疡性结肠炎    克罗恩病    肾积水    泌尿系结石    子宫肌瘤    结核性腹膜炎    麦克尔憩室    子宫颈癌    子宫内膜癌    缺血性肠病    肝炎    肝细胞癌    肝脓肿    抑郁状态    焦虑状态    绒毛膜癌    肠道寄生虫病    带状疱疹
+        ${assert}    Create List    泌尿道感染    便秘    慢性胃炎    反流性食管炎    胃十二指肠溃疡    慢性胆囊炎    胆石病    病毒性感染    炎症性肠病    慢性胰腺炎    肠易激综合征    溃疡性结肠炎    克罗恩病    肾积水    泌尿系结石    子宫肌瘤    结核性腹膜炎    麦克尔憩室    子宫颈癌    子宫内膜癌    缺血性肠病    肝炎    肝细胞癌    肝脓肿    抑郁状态    焦虑状态    绒毛膜癌    肠道寄生虫病    带状疱疹    食物过敏
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=675    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"0","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"0","age":"14","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -612,11 +612,11 @@ Library           String
 
 
 
-20行-腹泻,推出诊断:牛奶过敏反应,诺如病毒肠炎,大肠杆菌性肠炎,细菌性肠炎,炎症性肠病,肠道念珠菌病,乳糖不耐受,药物相关性腹泻,急性上呼吸道感染,支气管肺炎,过敏性腹泻,短肠综合征,泌尿道感染,食物过敏,囊性纤维化病,小肠肿瘤,蛋白丢失性胃肠病,慢性胰腺炎,甲状腺功能亢进症,糖尿病
+20行-腹泻,推出诊断:牛奶过敏反应,诺如病毒肠炎,大肠杆菌性肠炎,细菌性肠炎,炎症性肠病,肠道念珠菌病,乳糖不耐受,药物相关性腹泻,急性上呼吸道感染,支气管肺炎,过敏性腹泻,短肠综合征,泌尿道感染,食物过敏,囊性纤维化病,小肠肿瘤,蛋白丢失性胃肠病,慢性胰腺炎,原发性甲状腺功能亢进症,糖尿病
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    腹泻
-        ${assert}    Create List    牛奶过敏反应    诺如病毒肠炎    大肠杆菌性肠炎    细菌性肠炎    炎症性肠病    肠道念珠菌病    乳糖不耐受    药物相关性腹泻    急性上呼吸道感染    支气管肺炎    过敏性腹泻    短肠综合征    泌尿道感染    食物过敏    囊性纤维化病    小肠肿瘤    蛋白丢失性胃肠病    慢性胰腺炎    甲状腺功能亢进症    糖尿病
+        ${assert}    Create List    牛奶过敏反应    诺如病毒肠炎    大肠杆菌性肠炎    细菌性肠炎    炎症性肠病    肠道念珠菌病    乳糖不耐受    药物相关性腹泻    急性上呼吸道感染    支气管肺炎    过敏性腹泻    短肠综合征    泌尿道感染    食物过敏    囊性纤维化病    小肠肿瘤    蛋白丢失性胃肠病    慢性胰腺炎    原发性甲状腺功能亢进症    糖尿病
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
@@ -641,11 +641,11 @@ Library           String
 
 
 
-21行-腹泻,推出诊断:感染性腹泻,急性胃肠炎,炎症性肠病,胃肠功能紊乱,细菌性食物中毒,药物相关性腹泻,憩室炎,腹胀满病,乳糖不耐受,肠肿瘤,酒精滥用,乳糜泻,阑尾炎,甲状腺功能亢进症,肠吸收不良,过敏性腹泻,阿米巴病,卵巢恶性肿瘤,钩虫病
+21行-腹泻,推出诊断:感染性腹泻,急性胃肠炎,炎症性肠病,胃肠功能紊乱,细菌性食物中毒,药物相关性腹泻,憩室炎,腹胀满病,乳糖不耐受,肠肿瘤,酒精滥用,乳糜泻,阑尾炎,原发性甲状腺功能亢进症,肠吸收不良,过敏性腹泻,阿米巴病,卵巢恶性肿瘤,钩虫病
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    腹泻
-        ${assert}    Create List    感染性腹泻    急性胃肠炎    炎症性肠病    胃肠功能紊乱    细菌性食物中毒    药物相关性腹泻    憩室炎    腹胀满病    乳糖不耐受    肠肿瘤    酒精滥用    乳糜泻    阑尾炎    甲状腺功能亢进症    肠吸收不良    过敏性腹泻    阿米巴病    卵巢恶性肿瘤    钩虫病
+        ${assert}    Create List    感染性腹泻    急性胃肠炎    炎症性肠病    胃肠功能紊乱    细菌性食物中毒    药物相关性腹泻    憩室炎    腹胀满病    乳糖不耐受    肠肿瘤    酒精滥用    乳糜泻    阑尾炎    原发性甲状腺功能亢进症    肠吸收不良    过敏性腹泻    阿米巴病    卵巢恶性肿瘤    钩虫病
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
@@ -1453,11 +1453,11 @@ Library           String
         List Should Contain Sub List    ${aj}    ${assert}
 
 
-44行-闭经,推出诊断:妊娠,情绪冲动和紧张状态,多囊卵巢综合征,女性更年期综合征,卵巢早衰,药物相关性停经,甲状腺功能亢进症,甲状腺功能减退症,神经性厌食,口服避孕药,高催乳素血症,肾上腺皮质功能减退症,过度训练,库欣综合征,先天性肾上腺皮质增生症,产后垂体功能减退症,卵巢肿瘤,垂体肿瘤,垂体前叶功能减退危象,处女膜闭锁,下丘脑功能不良,糖尿病
+44行-闭经,推出诊断:妊娠,情绪冲动和紧张状态,多囊卵巢综合征,女性更年期综合征,卵巢早衰,药物相关性停经,甲状腺功能亢进症,甲状腺功能减退症,神经性厌食,口服避孕药,高催乳素血症,肾上腺皮质功能减退症,过度训练,库欣综合征,产后垂体功能减退症,卵巢肿瘤,垂体肿瘤,垂体前叶功能减退危象,处女膜闭锁,下丘脑功能不良,糖尿病
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    闭经
-        ${assert}    Create List    妊娠    情绪冲动和紧张状态    多囊卵巢综合征    女性更年期综合征    卵巢早衰    药物相关性停经    甲状腺功能亢进症    甲状腺功能减退症    神经性厌食    口服避孕药    高催乳素血症    肾上腺皮质功能减退症    过度训练    库欣综合征    先天性肾上腺皮质增生症    产后垂体功能减退症    卵巢肿瘤    垂体肿瘤    垂体前叶功能减退危象    处女膜闭锁    下丘脑功能不良    糖尿病
+        ${assert}    Create List    妊娠    情绪冲动和紧张状态    多囊卵巢综合征    女性更年期综合征    卵巢早衰    药物相关性停经    甲状腺功能亢进症    甲状腺功能减退症    神经性厌食    口服避孕药    高催乳素血症    肾上腺皮质功能减退症    过度训练    库欣综合征    产后垂体功能减退症    卵巢肿瘤    垂体肿瘤    垂体前叶功能减退危象    处女膜闭锁    下丘脑功能不良    糖尿病
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
@@ -1492,16 +1492,16 @@ Library           String
         List Should Contain Sub List    ${aj}    ${assert}
 
 
-45行-月经过多,推出诊断:功能障碍性子宫出血,宫颈息肉,子宫内膜息肉,子宫内膜异位症,子宫肌瘤,青春期月经过多,女性更年期综合征,子宫内膜炎,子宫腺肌病,宫内节育器不良反应,慢性盆腔炎,甲状腺功能减退症,凝血障碍,高催乳素血症,子宫内膜癌,库欣综合征,肾上腺皮质功能减退症
+45行-月经过多,推出诊断:功能障碍性子宫出血,宫颈息肉,子宫内膜息肉,子宫内膜异位症,子宫肌瘤,女性更年期综合征,子宫内膜炎,子宫腺肌病,宫内节育器不良反应,慢性盆腔炎,甲状腺功能减退症,凝血障碍,高催乳素血症,子宫内膜癌,库欣综合征,肾上腺皮质功能减退症
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    月经过多
-        ${assert}    Create List    功能障碍性子宫出血    宫颈息肉    子宫内膜息肉    子宫内膜异位症    子宫肌瘤    青春期月经过多    女性更年期综合征    子宫内膜炎    子宫腺肌病    宫内节育器不良反应    慢性盆腔炎    甲状腺功能减退症    凝血障碍    高催乳素血症    子宫内膜癌    库欣综合征    肾上腺皮质功能减退症
+        ${assert}    Create List    功能障碍性子宫出血    宫颈息肉    子宫内膜息肉    子宫内膜异位症    子宫肌瘤    女性更年期综合征    子宫内膜炎    子宫腺肌病    宫内节育器不良反应    慢性盆腔炎    甲状腺功能减退症    凝血障碍    高催乳素血症    子宫内膜癌    库欣综合征    肾上腺皮质功能减退症
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=675    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"0","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"0","age":"18","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -1730,11 +1730,11 @@ Library           String
 
 
 
-51行-幻觉,推出诊断:伴有滥用可能性的精神兴奋剂的有害效应,极度疲劳,使用酒精引起的精神性障碍,谵妄,代谢紊乱,癫痫,高热惊厥,颅内占位性病变,抑郁性精神病,急性应激反应,低氧血症,嗜睡,躁狂发作,代谢性脑病,帕金森病,路易体痴呆,精神分裂症,脑震荡后综合征伴有滥用可能性的精神兴奋剂的有害效应,极度疲劳,使用酒精引起的精神性障碍,谵妄,代谢紊乱,癫痫,高热惊厥,颅内占位性病变,抑郁性精神病,急性应激反应,低氧血症,嗜睡,躁狂发作,代谢性脑病,帕金森病,路易体痴呆,精神分裂症,脑震荡后综合征
+51行-幻觉,推出诊断:伴有滥用可能性的精神兴奋剂的有害效应,极度疲劳,使用酒精引起的精神性障碍,谵妄,代谢紊乱,癫痫,颅内占位性病变,抑郁性精神病,急性应激反应,低氧血症,嗜睡,躁狂发作,代谢性脑病,帕金森病,精神分裂症,脑震荡后综合征
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    幻觉
-        ${assert}    Create List    伴有滥用可能性的精神兴奋剂的有害效应    极度疲劳    使用酒精引起的精神性障碍    谵妄    代谢紊乱    癫痫    高热惊厥    颅内占位性病变    抑郁性精神病    急性应激反应    低氧血症    嗜睡    躁狂发作    代谢性脑病    帕金森病    路易体痴呆    精神分裂症    脑震荡后综合征
+        ${assert}    Create List    伴有滥用可能性的精神兴奋剂的有害效应    极度疲劳    使用酒精引起的精神性障碍    谵妄    代谢紊乱    癫痫    颅内占位性病变    抑郁性精神病    急性应激反应    低氧血症    嗜睡    躁狂发作    代谢性脑病    帕金森病    精神分裂症    脑震荡后综合征
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
@@ -1929,16 +1929,16 @@ Library           String
 
 
 
-56行-性欲减退,推出诊断:抑郁状态,围绝经期综合征,酒精有害性使用,性功能障碍,雄激素部分缺乏综合征,甲状腺功能减退症,药物相关性性欲减退,下丘脑功能不良,库欣综合征,肾上腺皮质功能减退症,垂体疾患,慢性肾衰竭,睾丸功能障碍,肾上腺肿瘤,睾丸肿瘤
+56行-性欲减退,推出诊断:抑郁状态,围绝经期综合征,酒精有害性使用,性功能障碍,雄激素部分缺乏综合征,甲状腺功能减退症,药物相关性性欲减退,下丘脑功能不良,库欣综合征,肾上腺皮质功能减退症,垂体疾患,慢性肾衰竭,肾上腺肿瘤
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    性欲减退
-        ${assert}    Create List    抑郁状态    围绝经期综合征    酒精有害性使用    性功能障碍    雄激素部分缺乏综合征    甲状腺功能减退症    药物相关性性欲减退    下丘脑功能不良    库欣综合征    肾上腺皮质功能减退症    垂体疾患    慢性肾衰竭    睾丸功能障碍    肾上腺肿瘤    睾丸肿瘤
+        ${assert}    Create List    抑郁状态    围绝经期综合征    酒精有害性使用    性功能障碍    雄激素部分缺乏综合征    甲状腺功能减退症    药物相关性性欲减退    下丘脑功能不良    库欣综合征    肾上腺皮质功能减退症    垂体疾患    慢性肾衰竭    肾上腺肿瘤
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=675    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"0","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"0","age":"18","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -1977,7 +1977,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=675    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"0","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"0","age":"66","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -2047,11 +2047,11 @@ Library           String
 
 
 
-59行-耳聋,推出诊断:突发特发性听觉丧失,混合性耳聋,耵聍栓塞,中耳炎,外耳道炎,咽鼓管炎,鼓膜穿孔,耳鼓膜创伤性破裂,颞骨骨折,听骨链中断,老年性耳聋,梅尼埃病,耳蜗性耳硬化症,噪音性耳聋,听神经炎,听神经瘤,鼻息肉,鼻咽良性肿瘤,鼻咽恶性肿瘤,药物性耳聋,耳蜗血管病变,维生素B12缺乏症,中耳胆脂瘤,外耳胆脂瘤,先天性外耳道闭锁,流行性脑脊髓膜炎,流行性腮腺炎,外耳带状疱疹,风疹,水痘
+59行-耳聋,推出诊断:突发特发性听觉丧失,混合性耳聋,耵聍栓塞,中耳炎,外耳道炎,咽鼓管炎,鼓膜穿孔,耳鼓膜创伤性破裂,颞骨骨折,听骨链中断,老年性耳聋,梅尼埃病,耳蜗性耳硬化症,噪音性耳聋,听神经炎,听神经瘤,鼻息肉,鼻咽良性肿瘤,鼻咽恶性肿瘤,药物性耳聋,耳蜗血管病变,维生素B12缺乏症,中耳胆脂瘤,外耳胆脂瘤,先天性外耳道闭锁,流行性脑脊髓膜炎,外耳带状疱疹,风疹,水痘
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    耳聋
-        ${assert}    Create List    突发特发性听觉丧失    混合性耳聋    耵聍栓塞    中耳炎    外耳道炎    咽鼓管炎    鼓膜穿孔    耳鼓膜创伤性破裂    颞骨骨折    听骨链中断    老年性耳聋    梅尼埃病    耳蜗性耳硬化症    噪音性耳聋    听神经炎    听神经瘤    鼻息肉    鼻咽良性肿瘤    鼻咽恶性肿瘤    药物性耳聋    耳蜗血管病变    维生素B12缺乏症    中耳胆脂瘤    外耳胆脂瘤    先天性外耳道闭锁    流行性脑脊髓膜炎    流行性腮腺炎    外耳带状疱疹    风疹    水痘
+        ${assert}    Create List    突发特发性听觉丧失    混合性耳聋    耵聍栓塞    中耳炎    外耳道炎    咽鼓管炎    鼓膜穿孔    耳鼓膜创伤性破裂    颞骨骨折    听骨链中断    老年性耳聋    梅尼埃病    耳蜗性耳硬化症    噪音性耳聋    听神经炎    听神经瘤    鼻息肉    鼻咽良性肿瘤    鼻咽恶性肿瘤    药物性耳聋    耳蜗血管病变    维生素B12缺乏症    中耳胆脂瘤    外耳胆脂瘤    先天性外耳道闭锁    流行性脑脊髓膜炎    外耳带状疱疹    风疹    水痘
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
@@ -2208,11 +2208,11 @@ Library           String
 
 
 
-63行-面部疼痛,推出诊断:鼻窦炎,三叉神经痛,牙周脓肿,牙冠周脓肿,牙龈脓肿,颞下颌关节功能障碍,带状疱疹,偏头痛,巨细胞动脉炎,丛集性头痛,阻塞性腮腺炎,腮腺脓肿,流行性腮腺炎,颈椎病,上颌骨囊肿,下颌骨囊肿,颌面间隙感染,非典型性面部痛,鼻咽恶性肿瘤,颅后窝脑膜瘤,青光眼,神经梅毒
+63行-面部疼痛,推出诊断:鼻窦炎,三叉神经痛,牙周脓肿,牙冠周脓肿,牙龈脓肿,颞下颌关节功能障碍,带状疱疹,偏头痛,巨细胞动脉炎,丛集性头痛,阻塞性腮腺炎,腮腺脓肿,颈椎病,上颌骨囊肿,下颌骨囊肿,颌面间隙感染,非典型性面部痛,鼻咽恶性肿瘤,颅后窝脑膜瘤,青光眼,神经梅毒
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    面部疼痛
-        ${assert}    Create List    鼻窦炎    三叉神经痛    牙周脓肿    牙冠周脓肿    牙龈脓肿    颞下颌关节功能障碍    带状疱疹    偏头痛    巨细胞动脉炎    丛集性头痛    阻塞性腮腺炎    腮腺脓肿    流行性腮腺炎    颈椎病    上颌骨囊肿    下颌骨囊肿    颌面间隙感染    非典型性面部痛    鼻咽恶性肿瘤    颅后窝脑膜瘤    青光眼    神经梅毒
+        ${assert}    Create List    鼻窦炎    三叉神经痛    牙周脓肿    牙冠周脓肿    牙龈脓肿    颞下颌关节功能障碍    带状疱疹    偏头痛    巨细胞动脉炎    丛集性头痛    阻塞性腮腺炎    腮腺脓肿    颈椎病    上颌骨囊肿    下颌骨囊肿    颌面间隙感染    非典型性面部痛    鼻咽恶性肿瘤    颅后窝脑膜瘤    青光眼    神经梅毒
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
@@ -2296,7 +2296,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=675    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"0","age":"14","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"0","age":"15","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -2326,11 +2326,11 @@ Library           String
         List Should Contain Sub List    ${aj}    ${assert}
 
 
-66行-面部肿胀,推出诊断:流行性腮腺炎,血管神经性水肿,牙周脓肿,颌面部外伤,腮腺导管结石,颌下腺导管结石,急性腮腺炎,颌面间隙感染,下颌角肥大伴咬肌肥大,牙龈囊肿,黏液性水肿,带状疱疹,腮腺肿瘤,上颌骨恶性肿瘤,下颌骨恶性肿瘤,库欣病,鼻咽恶性肿瘤,伯基特淋巴瘤流行性腮腺炎,血管神经性水肿,牙周脓肿,颌面部外伤,腮腺导管结石,颌下腺导管结石,急性腮腺炎,颌面间隙感染,下颌角肥大伴咬肌肥大,牙龈囊肿,黏液性水肿,带状疱疹,腮腺肿瘤,上颌骨恶性肿瘤,下颌骨恶性肿瘤,库欣病,鼻咽恶性肿瘤,伯基特淋巴瘤
+66行-面部肿胀,推出诊断:血管神经性水肿,牙周脓肿,颌面部外伤,腮腺导管结石,颌下腺导管结石,急性腮腺炎,颌面间隙感染,下颌角肥大伴咬肌肥大,牙龈囊肿,黏液性水肿,带状疱疹,腮腺肿瘤,上颌骨恶性肿瘤,下颌骨恶性肿瘤,库欣病,鼻咽恶性肿瘤,伯基特淋巴瘤
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    面部肿胀
-        ${assert}    Create List    流行性腮腺炎    血管神经性水肿    牙周脓肿    颌面部外伤    腮腺导管结石    颌下腺导管结石    急性腮腺炎    颌面间隙感染    下颌角肥大伴咬肌肥大    牙龈囊肿    黏液性水肿    带状疱疹    腮腺肿瘤    上颌骨恶性肿瘤    下颌骨恶性肿瘤    库欣病    鼻咽恶性肿瘤    伯基特淋巴瘤
+        ${assert}    Create List    血管神经性水肿    牙周脓肿    颌面部外伤    腮腺导管结石    颌下腺导管结石    急性腮腺炎    颌面间隙感染    下颌角肥大伴咬肌肥大    牙龈囊肿    黏液性水肿    带状疱疹    腮腺肿瘤    上颌骨恶性肿瘤    下颌骨恶性肿瘤    库欣病    鼻咽恶性肿瘤    伯基特淋巴瘤
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
@@ -2455,7 +2455,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=675    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"0","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"0","age":"27","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -2763,11 +2763,11 @@ Library           String
 
 
 
-77行-口腔溃疡,推出诊断:外伤,口腔阿弗他溃疡,溃疡性龈炎,新生儿鹅口疮,缺铁性贫血,维生素B12缺乏性贫血,叶酸盐缺乏性贫血,柯萨奇病毒感染,克罗恩病,溃疡性结肠炎,带状疱疹,单纯疱疹,传染性单核细胞增多症,口腔扁平苔藓,鳞状细胞癌,唾液腺癌,自身免疫病,白血病,急性粒细胞缺乏症,结核病,艾滋病
+77行-口腔溃疡,推出诊断:外伤,口腔阿弗他溃疡,溃疡性龈炎,缺铁性贫血,维生素B12缺乏性贫血,叶酸盐缺乏性贫血,柯萨奇病毒感染,克罗恩病,溃疡性结肠炎,带状疱疹,单纯疱疹,传染性单核细胞增多症,口腔扁平苔藓,鳞状细胞癌,唾液腺癌,自身免疫病,白血病,急性粒细胞缺乏症,结核病,艾滋病
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    口腔溃疡
-        ${assert}    Create List    外伤    口腔阿弗他溃疡    溃疡性龈炎    新生儿鹅口疮    缺铁性贫血    维生素B12缺乏性贫血    叶酸盐缺乏性贫血    柯萨奇病毒感染    克罗恩病    溃疡性结肠炎    带状疱疹    单纯疱疹    传染性单核细胞增多症    口腔扁平苔藓    鳞状细胞癌    唾液腺癌    自身免疫病    白血病    急性粒细胞缺乏症    结核病    艾滋病
+        ${assert}    Create List    外伤    口腔阿弗他溃疡    溃疡性龈炎    缺铁性贫血    维生素B12缺乏性贫血    叶酸盐缺乏性贫血    柯萨奇病毒感染    克罗恩病    溃疡性结肠炎    带状疱疹    单纯疱疹    传染性单核细胞增多症    口腔扁平苔藓    鳞状细胞癌    唾液腺癌    自身免疫病    白血病    急性粒细胞缺乏症    结核病    艾滋病
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
@@ -3039,11 +3039,11 @@ Library           String
 
 
 
-84行-多汗,推出诊断:绝经期和女性更年期状态,焦虑状态,炎症,低血糖,甲状腺功能亢进症,药物相关性多汗,戒断综合征,晕厥,疼痛,手汗症,结核病,艾滋病,心内膜炎,布鲁氏菌病,恶性肿瘤,中枢神经系统疾患,厚皮性骨膜病,肢端肥大症和垂体性巨人症,类癌瘤综合征,嗜铬细胞瘤,结缔组织病
+84行-多汗,推出诊断:焦虑状态,炎症,低血糖,甲状腺功能亢进症,药物相关性多汗,戒断综合征,晕厥,疼痛,手汗症,结核病,艾滋病,心内膜炎,布鲁氏菌病,恶性肿瘤,中枢神经系统疾患,厚皮性骨膜病,肢端肥大症和垂体性巨人症,类癌瘤综合征,嗜铬细胞瘤,结缔组织病
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    多汗
-        ${assert}    Create List    绝经期和女性更年期状态    焦虑状态    炎症    低血糖    甲状腺功能亢进症    药物相关性多汗    戒断综合征    晕厥    疼痛    手汗症    结核病    艾滋病    心内膜炎    布鲁氏菌病    恶性肿瘤    中枢神经系统疾患    厚皮性骨膜病    肢端肥大症和垂体性巨人症    类癌瘤综合征    嗜铬细胞瘤    结缔组织病
+        ${assert}    Create List    焦虑状态    炎症    低血糖    甲状腺功能亢进症    药物相关性多汗    戒断综合征    晕厥    疼痛    手汗症    结核病    艾滋病    心内膜炎    布鲁氏菌病    恶性肿瘤    中枢神经系统疾患    厚皮性骨膜病    肢端肥大症和垂体性巨人症    类癌瘤综合征    嗜铬细胞瘤    结缔组织病
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
@@ -3157,11 +3157,11 @@ Library           String
 
 
 
-87行-长期发热,推出诊断:结核病,慢性鼻窦炎,慢性化脓性中耳炎,风湿热,慢性肾盂肾炎,慢性肾小球肾炎,慢性盆腔炎,慢性胆管炎,慢性细菌性前列腺炎,脓肿,克罗恩病,溃疡性结肠炎,药物性发热,类风湿性关节炎,白血病,甲状腺功能亢进症,感染性心内膜炎,系统性红斑狼疮,结节性多动脉炎,多发性肌炎,恶性肿瘤,艾滋病,传染性单核细胞增多症,疟疾,莱姆病,放线菌病
+87行-长期发热,推出诊断:结核病,慢性鼻窦炎,慢性化脓性中耳炎,风湿热,慢性肾盂肾炎,慢性肾小球肾炎,慢性盆腔炎,慢性胆管炎,脓肿,克罗恩病,溃疡性结肠炎,药物性发热,类风湿性关节炎,白血病,甲状腺功能亢进症,感染性心内膜炎,系统性红斑狼疮,结节性多动脉炎,多发性肌炎,恶性肿瘤,艾滋病,传染性单核细胞增多症,疟疾,莱姆病,放线菌病
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    长期发热
-        ${assert}    Create List    结核病    慢性鼻窦炎    慢性化脓性中耳炎    风湿热    慢性肾盂肾炎    慢性肾小球肾炎    慢性盆腔炎    慢性胆管炎    慢性细菌性前列腺炎    脓肿    克罗恩病    溃疡性结肠炎    药物性发热    类风湿性关节炎    白血病    甲状腺功能亢进症    感染性心内膜炎    系统性红斑狼疮    结节性多动脉炎    多发性肌炎    恶性肿瘤    艾滋病    传染性单核细胞增多症    疟疾    莱姆病    放线菌病
+        ${assert}    Create List    结核病    慢性鼻窦炎    慢性化脓性中耳炎    风湿热    慢性肾盂肾炎    慢性肾小球肾炎    慢性盆腔炎    慢性胆管炎    脓肿    克罗恩病    溃疡性结肠炎    药物性发热    类风湿性关节炎    白血病    甲状腺功能亢进症    感染性心内膜炎    系统性红斑狼疮    结节性多动脉炎    多发性肌炎    恶性肿瘤    艾滋病    传染性单核细胞增多症    疟疾    莱姆病    放线菌病
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
@@ -3275,16 +3275,16 @@ Library           String
         List Should Contain Sub List    ${aj}    ${assert}
 
 
-90行-晕厥,推出诊断:心律失常,长QT综合征,低血糖性晕厥,急性心肌梗死,脑血管病,短暂性脑缺血发作,主动脉瓣狭窄,黏液瘤,肺动脉瓣狭窄,原发性肺动脉高压,肺栓塞,法洛四联症,血管迷走神经性晕厥,颈动脉窦性晕厥,排尿性晕厥,咳嗽性晕厥,吞咽性晕厥,热性晕厥,多发性大动脉炎,锁骨下动脉盗血综合征,体位性低血压,重度贫血,癔症性晕厥,焦虑性神经症,通气过度
+90行-晕厥,推出诊断:心律失常,长QT综合征,低血糖性晕厥,急性心肌梗死,脑血管病,短暂性脑缺血发作,主动脉瓣狭窄,黏液瘤,肺动脉瓣狭窄,原发性肺动脉高压,肺栓塞,血管迷走神经性晕厥,颈动脉窦性晕厥,排尿性晕厥,咳嗽性晕厥,吞咽性晕厥,热性晕厥,多发性大动脉炎,锁骨下动脉盗血综合征,体位性低血压,重度贫血,癔症性晕厥,焦虑性神经症,通气过度
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    晕厥
-        ${assert}    Create List    心律失常    长QT综合征    低血糖性晕厥    急性心肌梗死    脑血管病    短暂性脑缺血发作    主动脉瓣狭窄    黏液瘤    肺动脉瓣狭窄    原发性肺动脉高压    肺栓塞    法洛四联症    血管迷走神经性晕厥    颈动脉窦性晕厥    排尿性晕厥    咳嗽性晕厥    吞咽性晕厥    热性晕厥    多发性大动脉炎    锁骨下动脉盗血综合征    体位性低血压    重度贫血    癔症性晕厥    焦虑性神经症    通气过度
+        ${assert}    Create List    心律失常    长QT综合征    低血糖性晕厥    急性心肌梗死    脑血管病    短暂性脑缺血发作    主动脉瓣狭窄    黏液瘤    肺动脉瓣狭窄    原发性肺动脉高压    肺栓塞    血管迷走神经性晕厥    颈动脉窦性晕厥    排尿性晕厥    咳嗽性晕厥    吞咽性晕厥    热性晕厥    多发性大动脉炎    锁骨下动脉盗血综合征    体位性低血压    重度贫血    癔症性晕厥    焦虑性神经症    通气过度
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=675    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"0","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"0","age":"39","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -3354,16 +3354,16 @@ Library           String
 
 
 
-92行-便血,推出诊断:上消化道出血,克罗恩病,痔,肛裂,肛瘘,溃疡性结肠炎,急性出血坏死性肠炎,结肠息肉,空肠憩室炎,急性细菌性痢疾,空肠溃疡,麦克尔憩室,缺血性结肠炎,小肠肿瘤,肠套叠,结肠憩室炎,结肠恶性肿瘤,直肠损伤,直肠息肉,白血病,血小板减少性紫癜,血友病,遗传性出血性毛细血管扩张,流行性出血热,钩虫病,阿米巴痢疾,血吸虫病,伤寒
+92行-便血,推出诊断:上消化道出血,克罗恩病,痔,肛裂,肛瘘,溃疡性结肠炎,急性出血坏死性肠炎,结肠息肉,空肠憩室炎,急性细菌性痢疾,空肠溃疡,麦克尔憩室,缺血性结肠炎,小肠肿瘤,结肠憩室炎,结肠恶性肿瘤,直肠损伤,直肠息肉,白血病,血小板减少性紫癜,血友病,遗传性出血性毛细血管扩张,流行性出血热,钩虫病,阿米巴痢疾,血吸虫病,伤寒
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    便血
-        ${assert}    Create List    上消化道出血    克罗恩病    痔    肛裂    肛瘘    溃疡性结肠炎    急性出血坏死性肠炎    结肠息肉    空肠憩室炎    急性细菌性痢疾    空肠溃疡    麦克尔憩室    缺血性结肠炎    小肠肿瘤    肠套叠    结肠憩室炎    结肠恶性肿瘤    直肠损伤    直肠息肉    白血病    血小板减少性紫癜    血友病    遗传性出血性毛细血管扩张    流行性出血热    钩虫病    阿米巴痢疾    血吸虫病    伤寒
+        ${assert}    Create List    上消化道出血    克罗恩病    痔    肛裂    肛瘘    溃疡性结肠炎    急性出血坏死性肠炎    结肠息肉    空肠憩室炎    急性细菌性痢疾    空肠溃疡    麦克尔憩室    缺血性结肠炎    小肠肿瘤    结肠憩室炎    结肠恶性肿瘤    直肠损伤    直肠息肉    白血病    血小板减少性紫癜    血友病    遗传性出血性毛细血管扩张    流行性出血热    钩虫病    阿米巴痢疾    血吸虫病    伤寒
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=675    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"0","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"0","age":"39","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -3562,7 +3562,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=675    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"0","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"0","age":"55","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -3632,11 +3632,11 @@ Library           String
 
 
 
-99行-紧张,推出诊断:抑郁状态,甲状腺功能亢进症,器质性脑病,心悸,焦虑［回避］型人格障碍,广泛性焦虑障碍,经前紧张征,惊恐障碍,强迫性神经症,恐怖性焦虑障碍,药物不良反应,酒精滥用,戒断综合征,躯体化障碍,创伤后应激障碍,精神病
+99行-紧张,推出诊断:抑郁状态,原发性甲状腺功能亢进症,器质性脑病,心悸,焦虑［回避］型人格障碍,广泛性焦虑障碍,经前紧张征,惊恐障碍,强迫性神经症,恐怖性焦虑障碍,药物不良反应,酒精滥用,戒断综合征,躯体化障碍,创伤后应激障碍,精神病
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    紧张
-        ${assert}    Create List    抑郁状态    甲状腺功能亢进症    器质性脑病    心悸    焦虑［回避］型人格障碍    广泛性焦虑障碍    经前紧张征    惊恐障碍    强迫性神经症    恐怖性焦虑障碍    药物不良反应    酒精滥用    戒断综合征    躯体化障碍    创伤后应激障碍    精神病
+        ${assert}    Create List    抑郁状态    原发性甲状腺功能亢进症    器质性脑病    心悸    焦虑［回避］型人格障碍    广泛性焦虑障碍    经前紧张征    惊恐障碍    强迫性神经症    恐怖性焦虑障碍    药物不良反应    酒精滥用    戒断综合征    躯体化障碍    创伤后应激障碍    精神病
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
@@ -3672,11 +3672,11 @@ Library           String
 
 
 
-100行-焦虑,推出诊断:抑郁状态,甲状腺功能亢进症,器质性脑病,心悸,焦虑［回避］型人格障碍,广泛性焦虑障碍,经前紧张征,惊恐障碍,强迫性神经症,恐怖性焦虑障碍,药物不良反应,酒精滥用,戒断综合征,躯体化障碍,创伤后应激障碍,精神病
+100行-焦虑,推出诊断:抑郁状态,原发性甲状腺功能亢进症,器质性脑病,心悸,焦虑［回避］型人格障碍,广泛性焦虑障碍,经前紧张征,惊恐障碍,强迫性神经症,恐怖性焦虑障碍,药物不良反应,酒精滥用,戒断综合征,躯体化障碍,创伤后应激障碍,精神病
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    焦虑
-        ${assert}    Create List    抑郁状态    甲状腺功能亢进症    器质性脑病    心悸    焦虑［回避］型人格障碍    广泛性焦虑障碍    经前紧张征    惊恐障碍    强迫性神经症    恐怖性焦虑障碍    药物不良反应    酒精滥用    戒断综合征    躯体化障碍    创伤后应激障碍    精神病
+        ${assert}    Create List    抑郁状态    原发性甲状腺功能亢进症    器质性脑病    心悸    焦虑［回避］型人格障碍    广泛性焦虑障碍    经前紧张征    惊恐障碍    强迫性神经症    恐怖性焦虑障碍    药物不良反应    酒精滥用    戒断综合征    躯体化障碍    创伤后应激障碍    精神病
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
@@ -3712,11 +3712,11 @@ Library           String
 
 
 
-101行-不育,推出诊断:精子异常,与不排卵有关的女性不孕症,输卵管起因的女性不孕症,子宫内膜异位症,宫颈粘液异常,多囊卵巢综合征,闭经,子宫平滑肌瘤,子宫内膜息肉,宫颈起因的女性不孕症,贫血,甲状腺疾患,女性生殖器先天性畸形,性功能障碍,肾上腺皮质肿瘤,染色体异常,子宫内膜结核
+101行-不育,推出诊断:与不排卵有关的女性不孕症,输卵管起因的女性不孕症,子宫内膜异位症,宫颈粘液异常,多囊卵巢综合征,闭经,子宫平滑肌瘤,子宫内膜息肉,宫颈起因的女性不孕症,贫血,甲状腺疾患,女性生殖器先天性畸形,性功能障碍,肾上腺皮质肿瘤,染色体异常,子宫内膜结核
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    不育
-        ${assert}    Create List    精子异常    与不排卵有关的女性不孕症    输卵管起因的女性不孕症    子宫内膜异位症    宫颈粘液异常    多囊卵巢综合征    闭经    子宫平滑肌瘤    子宫内膜息肉    宫颈起因的女性不孕症    贫血    甲状腺疾患    女性生殖器先天性畸形    性功能障碍    肾上腺皮质肿瘤    染色体异常    子宫内膜结核
+        ${assert}    Create List    与不排卵有关的女性不孕症    输卵管起因的女性不孕症    子宫内膜异位症    宫颈粘液异常    多囊卵巢综合征    闭经    子宫平滑肌瘤    子宫内膜息肉    宫颈起因的女性不孕症    贫血    甲状腺疾患    女性生殖器先天性畸形    性功能障碍    肾上腺皮质肿瘤    染色体异常    子宫内膜结核
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
@@ -3752,11 +3752,11 @@ Library           String
 
 
 
-102行-不孕,推出诊断:精子异常,与不排卵有关的女性不孕症,输卵管起因的女性不孕症,子宫内膜异位症,宫颈粘液异常,多囊卵巢综合征,闭经,子宫平滑肌瘤,子宫内膜息肉,宫颈起因的女性不孕症,贫血,甲状腺疾患,女性生殖器先天性畸形,性功能障碍,肾上腺皮质肿瘤,染色体异常,子宫内膜结核
+102行-不孕,推出诊断:与不排卵有关的女性不孕症,输卵管起因的女性不孕症,子宫内膜异位症,宫颈粘液异常,多囊卵巢综合征,闭经,子宫平滑肌瘤,子宫内膜息肉,宫颈起因的女性不孕症,贫血,甲状腺疾患,女性生殖器先天性畸形,性功能障碍,肾上腺皮质肿瘤,染色体异常,子宫内膜结核
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    不孕
-        ${assert}    Create List    精子异常    与不排卵有关的女性不孕症    输卵管起因的女性不孕症    子宫内膜异位症    宫颈粘液异常    多囊卵巢综合征    闭经    子宫平滑肌瘤    子宫内膜息肉    宫颈起因的女性不孕症    贫血    甲状腺疾患    女性生殖器先天性畸形    性功能障碍    肾上腺皮质肿瘤    染色体异常    子宫内膜结核
+        ${assert}    Create List    与不排卵有关的女性不孕症    输卵管起因的女性不孕症    子宫内膜异位症    宫颈粘液异常    多囊卵巢综合征    闭经    子宫平滑肌瘤    子宫内膜息肉    宫颈起因的女性不孕症    贫血    甲状腺疾患    女性生殖器先天性畸形    性功能障碍    肾上腺皮质肿瘤    染色体异常    子宫内膜结核
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
@@ -3880,7 +3880,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=675    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"0","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"0","age":"20","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -3911,11 +3911,11 @@ Library           String
 
 
 
-106行-跛行,推出诊断:外伤,髋关节滑膜炎,反应性关节炎,老年性关节炎,化脓性关节炎,股骨上端(非创伤性)骨骺滑脱,幼年型股骨骺骨软骨病,特发性脊柱侧弯，其他的,先天性髋脱位,双下肢不等长,骨髓炎,风湿热,系统性红斑狼疮,皮肌炎,佝偻病,少关节性幼年型关节炎,幼年型类风湿性关节炎,假肥大型肌营养不良症,骨恶性肿瘤
+106行-跛行,推出诊断:外伤,髋关节滑膜炎,反应性关节炎,老年性关节炎,化脓性关节炎,股骨上端(非创伤性)骨骺滑脱,特发性脊柱侧弯,其他的,双下肢不等长,骨髓炎,风湿热,系统性红斑狼疮,皮肌炎,骨恶性肿瘤
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    跛行
-        ${assert}    Create List    外伤    髋关节滑膜炎    反应性关节炎    老年性关节炎    化脓性关节炎    股骨上端(非创伤性)骨骺滑脱    幼年型股骨骺骨软骨病    特发性脊柱侧弯，其他的    先天性髋脱位    双下肢不等长    骨髓炎    风湿热    系统性红斑狼疮    皮肌炎    佝偻病    少关节性幼年型关节炎    幼年型类风湿性关节炎    假肥大型肌营养不良症    骨恶性肿瘤
+        ${assert}    Create List    外伤    髋关节滑膜炎    反应性关节炎    老年性关节炎    化脓性关节炎    股骨上端(非创伤性)骨骺滑脱    特发性脊柱侧弯    其他的    双下肢不等长    骨髓炎    风湿热    系统性红斑狼疮    皮肌炎    骨恶性肿瘤
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
@@ -4040,7 +4040,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=675    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"0","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"0","age":"14","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -4150,11 +4150,11 @@ Library           String
 
 
 
-112行-震颤,推出诊断:焦虑状态,甲状腺功能亢进症,特发性震颤,帕金森病,帕金森综合征,戒断综合征,药物不良反应,高碳酸血症,多发性硬化,小脑共济失调,急性肝衰竭,肝豆状核变性,癔症,脑膜脑炎
+112行-震颤,推出诊断:焦虑状态,原发性甲状腺功能亢进症,特发性震颤,帕金森病,帕金森综合征,戒断综合征,药物不良反应,高碳酸血症,多发性硬化,小脑共济失调,急性肝衰竭,肝豆状核变性,癔症,脑膜脑炎
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    震颤
-        ${assert}    Create List    焦虑状态    甲状腺功能亢进症    特发性震颤    帕金森病    帕金森综合征    戒断综合征    药物不良反应    高碳酸血症    多发性硬化    小脑共济失调    急性肝衰竭    肝豆状核变性    癔症    脑膜脑炎
+        ${assert}    Create List    焦虑状态    原发性甲状腺功能亢进症    特发性震颤    帕金森病    帕金森综合征    戒断综合征    药物不良反应    高碳酸血症    多发性硬化    小脑共济失调    急性肝衰竭    肝豆状核变性    癔症    脑膜脑炎
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
@@ -4229,11 +4229,11 @@ Library           String
         List Should Contain Sub List    ${aj}    ${assert}
 
 
-114行-体重下降,推出诊断:糖尿病,营养性消瘦,甲状腺功能亢进症,消化性溃疡,慢性胃炎,炎症性肠病,肠易激综合征,慢性肝炎,贫血,抑郁症,焦虑状态,慢性阻塞性肺病,类风湿性关节炎,慢性心力衰竭,心肌病,慢性胰腺炎,恶性肿瘤,慢性肾功能衰竭,痴呆,药物相关性消瘦,神经性厌食,肝衰竭,败血症,系统性红斑狼疮,艾滋病,垂体功能减退症
+114行-体重下降,推出诊断:糖尿病,营养性消瘦,原发性甲状腺功能亢进症,消化性溃疡,慢性胃炎,炎症性肠病,肠易激综合征,慢性肝炎,贫血,抑郁症,焦虑状态,慢性阻塞性肺病,类风湿性关节炎,慢性心力衰竭,心肌病,慢性胰腺炎,恶性肿瘤,慢性肾功能衰竭,痴呆,药物相关性消瘦,神经性厌食,肝衰竭,败血症,系统性红斑狼疮,艾滋病,垂体功能减退症
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    体重下降
-        ${assert}    Create List    糖尿病    营养性消瘦    甲状腺功能亢进症    消化性溃疡    慢性胃炎    炎症性肠病    肠易激综合征    慢性肝炎    贫血    抑郁症    焦虑状态    慢性阻塞性肺病    类风湿性关节炎    慢性心力衰竭    心肌病    慢性胰腺炎    恶性肿瘤    慢性肾功能衰竭    痴呆    药物相关性消瘦    神经性厌食    肝衰竭    败血症    系统性红斑狼疮    艾滋病    垂体功能减退症
+        ${assert}    Create List    糖尿病    营养性消瘦    原发性甲状腺功能亢进症    消化性溃疡    慢性胃炎    炎症性肠病    肠易激综合征    慢性肝炎    贫血    抑郁症    焦虑状态    慢性阻塞性肺病    类风湿性关节炎    慢性心力衰竭    心肌病    慢性胰腺炎    恶性肿瘤    慢性肾功能衰竭    痴呆    药物相关性消瘦    神经性厌食    肝衰竭    败血症    系统性红斑狼疮    艾滋病    垂体功能减退症
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
@@ -4269,11 +4269,11 @@ Library           String
 
 
 
-115行-皮肤水疱,推出诊断:外伤,身体烧伤,单纯疱疹,带状疱疹,手足口病,水痘,湿疹,天疱疮,类天疱疮,疱疹样皮炎,下肢水肿,大疱性脓疱病,药物相关性水疱,多形红斑,血卟啉病,中毒性表皮坏死松解症,大疱性表皮松解症,变应性血管炎
+115行-皮肤水疱,推出诊断:外伤,身体烧伤,单纯疱疹,带状疱疹,水痘,湿疹,天疱疮,类天疱疮,疱疹样皮炎,下肢水肿,大疱性脓疱病,药物相关性水疱,多形红斑,血卟啉病,中毒性表皮坏死松解症,大疱性表皮松解症,变应性血管炎
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    皮肤水疱
-        ${assert}    Create List    外伤    身体烧伤    单纯疱疹    带状疱疹    手足口病    水痘    湿疹    天疱疮    类天疱疮    疱疹样皮炎    下肢水肿    大疱性脓疱病    药物相关性水疱    多形红斑    血卟啉病    中毒性表皮坏死松解症    大疱性表皮松解症    变应性血管炎
+        ${assert}    Create List    外伤    身体烧伤    单纯疱疹    带状疱疹    水痘    湿疹    天疱疮    类天疱疮    疱疹样皮炎    下肢水肿    大疱性脓疱病    药物相关性水疱    多形红斑    血卟啉病    中毒性表皮坏死松解症    大疱性表皮松解症    变应性血管炎
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
@@ -4308,11 +4308,11 @@ Library           String
         List Should Contain Sub List    ${aj}    ${assert}
 
 
-116行-皮肤红斑,推出诊断:蜂窝织炎,痛风,身体烧伤,中毒性红斑,酒渣鼻,妊娠,肝病,甲状腺功能亢进症,药物光毒性反应,受压区Ⅰ期压疮,多形红斑,系统性红斑狼疮,火激红斑,固定性药疹,网状青斑症,艾滋病,结节性红斑,硬红斑,莱姆病
+116行-皮肤红斑,推出诊断:蜂窝织炎,痛风,身体烧伤,中毒性红斑,酒渣鼻,妊娠,肝病,原发性甲状腺功能亢进症,药物光毒性反应,受压区Ⅰ期压疮,多形红斑,系统性红斑狼疮,火激红斑,固定性药疹,网状青斑症,艾滋病,结节性红斑,硬红斑,莱姆病
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    皮肤红斑
-        ${assert}    Create List    蜂窝织炎    痛风    身体烧伤    中毒性红斑    酒渣鼻    妊娠    肝病    甲状腺功能亢进症    药物光毒性反应    受压区Ⅰ期压疮    多形红斑    系统性红斑狼疮    火激红斑    固定性药疹    网状青斑症    艾滋病    结节性红斑    硬红斑    莱姆病
+        ${assert}    Create List    蜂窝织炎    痛风    身体烧伤    中毒性红斑    酒渣鼻    妊娠    肝病    原发性甲状腺功能亢进症    药物光毒性反应    受压区Ⅰ期压疮    多形红斑    系统性红斑狼疮    火激红斑    固定性药疹    网状青斑症    艾滋病    结节性红斑    硬红斑    莱姆病
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
@@ -4427,11 +4427,11 @@ Library           String
 
 
 
-119行-紫癜,推出诊断:外伤,老年性紫癜,肝病,血管内压增高性紫癜,药物相关性紫癜,血管炎,血小板减少,肾衰竭,感染性心内膜炎,冷球蛋白血症,凝血障碍,脑膜炎球菌血症,立氏立克次体性斑疹热,维生素C缺乏后遗症,维生素K缺乏病,弥散性血管内凝血,埃勒斯-当洛斯综合征
+119行-紫癜,推出诊断:外伤,肝病,血管内压增高性紫癜,药物相关性紫癜,血管炎,血小板减少,肾衰竭,感染性心内膜炎,冷球蛋白血症,凝血障碍,脑膜炎球菌血症,立氏立克次体性斑疹热,维生素C缺乏后遗症,维生素K缺乏病,弥散性血管内凝血,埃勒斯-当洛斯综合征
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    紫癜
-        ${assert}    Create List    外伤    老年性紫癜    肝病    血管内压增高性紫癜    药物相关性紫癜    血管炎    血小板减少    肾衰竭    感染性心内膜炎    冷球蛋白血症    凝血障碍    脑膜炎球菌血症    立氏立克次体性斑疹热    维生素C缺乏后遗症    维生素K缺乏病    弥散性血管内凝血    埃勒斯-当洛斯综合征
+        ${assert}    Create List    外伤    肝病    血管内压增高性紫癜    药物相关性紫癜    血管炎    血小板减少    肾衰竭    感染性心内膜炎    冷球蛋白血症    凝血障碍    脑膜炎球菌血症    立氏立克次体性斑疹热    维生素C缺乏后遗症    维生素K缺乏病    弥散性血管内凝血    埃勒斯-当洛斯综合征
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
@@ -4587,11 +4587,11 @@ Library           String
 
 
 
-123行-皮肤瘙痒,推出诊断:变应性接触性皮炎,荨麻疹,疥疮,特应性皮炎,玫瑰糠疹,银屑病,黄疸,缺铁性贫血,糖尿病,甲状腺功能亢进症,甲状腺功能减退症,尿毒症,扁平苔藓,痱子,妊娠疱疹,疱疹样皮炎,心因性瘙痒症,白血病,慢性骨髓增生性疾病,瘙痒症,药物不良反应
+123行-皮肤瘙痒,推出诊断:变应性接触性皮炎,荨麻疹,疥疮,特应性皮炎,玫瑰糠疹,银屑病,黄疸,缺铁性贫血,糖尿病,原发性甲状腺功能亢进症,甲状腺功能减退症,尿毒症,扁平苔藓,痱子,妊娠疱疹,疱疹样皮炎,心因性瘙痒症,白血病,慢性骨髓增生性疾病,瘙痒症,药物不良反应
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    皮肤瘙痒
-        ${assert}    Create List    变应性接触性皮炎    荨麻疹    疥疮    特应性皮炎    玫瑰糠疹    银屑病    黄疸    缺铁性贫血    糖尿病    甲状腺功能亢进症    甲状腺功能减退症    尿毒症    扁平苔藓    痱子    妊娠疱疹    疱疹样皮炎    心因性瘙痒症    白血病    慢性骨髓增生性疾病    瘙痒症    药物不良反应
+        ${assert}    Create List    变应性接触性皮炎    荨麻疹    疥疮    特应性皮炎    玫瑰糠疹    银屑病    黄疸    缺铁性贫血    糖尿病    原发性甲状腺功能亢进症    甲状腺功能减退症    尿毒症    扁平苔藓    痱子    妊娠疱疹    疱疹样皮炎    心因性瘙痒症    白血病    慢性骨髓增生性疾病    瘙痒症    药物不良反应
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
@@ -4705,11 +4705,11 @@ Library           String
         List Should Contain Sub List    ${aj}    ${assert}
 
 
-126行-肛周疼痛,推出诊断:肛裂,血栓性痔,肛周脓肿,痉挛性肛门直肠痛,血肿,直肠肛门恶性肿瘤,提肛肌综合征,克罗恩病,尾骨痛,会阴下降综合征,前列腺炎,卵巢囊肿,卵巢肿瘤,孤立性直肠溃疡综合征,肛周结核,马尾综合征,子宫内膜异位症,肛门损伤,盆腔肿瘤
+126行-肛周疼痛,推出诊断:肛裂,血栓性痔,肛周脓肿,痉挛性肛门直肠痛,血肿,直肠肛门恶性肿瘤,提肛肌综合征,克罗恩病,尾骨痛,会阴下降综合征,卵巢囊肿,卵巢肿瘤,孤立性直肠溃疡综合征,肛周结核,马尾综合征,子宫内膜异位症,肛门损伤,盆腔肿瘤
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    肛周疼痛
-        ${assert}    Create List    肛裂    血栓性痔    肛周脓肿    痉挛性肛门直肠痛    血肿    直肠肛门恶性肿瘤    提肛肌综合征    克罗恩病    尾骨痛    会阴下降综合征    前列腺炎    卵巢囊肿    卵巢肿瘤    孤立性直肠溃疡综合征    肛周结核    马尾综合征    子宫内膜异位症    肛门损伤    盆腔肿瘤
+        ${assert}    Create List    肛裂    血栓性痔    肛周脓肿    痉挛性肛门直肠痛    血肿    直肠肛门恶性肿瘤    提肛肌综合征    克罗恩病    尾骨痛    会阴下降综合征    卵巢囊肿    卵巢肿瘤    孤立性直肠溃疡综合征    肛周结核    马尾综合征    子宫内膜异位症    肛门损伤    盆腔肿瘤
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
@@ -4745,11 +4745,11 @@ Library           String
 
 
 
-127行-肛门疼痛,推出诊断:肛裂,血栓性痔,肛周脓肿,痉挛性肛门直肠痛,血肿,直肠肛门恶性肿瘤,提肛肌综合征,克罗恩病,尾骨痛,会阴下降综合征,前列腺炎,卵巢囊肿,卵巢肿瘤,孤立性直肠溃疡综合征,肛周结核,马尾综合征,子宫内膜异位症,肛门损伤,盆腔肿瘤
+127行-肛门疼痛,推出诊断:肛裂,血栓性痔,肛周脓肿,痉挛性肛门直肠痛,血肿,直肠肛门恶性肿瘤,提肛肌综合征,克罗恩病,尾骨痛,会阴下降综合征,卵巢囊肿,卵巢肿瘤,孤立性直肠溃疡综合征,肛周结核,马尾综合征,子宫内膜异位症,肛门损伤,盆腔肿瘤
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    肛门疼痛
-        ${assert}    Create List    肛裂    血栓性痔    肛周脓肿    痉挛性肛门直肠痛    血肿    直肠肛门恶性肿瘤    提肛肌综合征    克罗恩病    尾骨痛    会阴下降综合征    前列腺炎    卵巢囊肿    卵巢肿瘤    孤立性直肠溃疡综合征    肛周结核    马尾综合征    子宫内膜异位症    肛门损伤    盆腔肿瘤
+        ${assert}    Create List    肛裂    血栓性痔    肛周脓肿    痉挛性肛门直肠痛    血肿    直肠肛门恶性肿瘤    提肛肌综合征    克罗恩病    尾骨痛    会阴下降综合征    卵巢囊肿    卵巢肿瘤    孤立性直肠溃疡综合征    肛周结核    马尾综合征    子宫内膜异位症    肛门损伤    盆腔肿瘤
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
@@ -4784,11 +4784,11 @@ Library           String
         List Should Contain Sub List    ${aj}    ${assert}
 
 
-128行-直肠出血,推出诊断:痔,肛裂,胃肠炎,炎症性肠病,缺血性肠病,直肠恶性肿瘤,直肠憩室,绒毛状腺瘤,直肠损伤,肠套叠,麦克尔憩室,结肠恶性肿瘤,药物相关性直肠出血,凝血障碍,肠血管疾患
+128行-直肠出血,推出诊断:痔,肛裂,胃肠炎,炎症性肠病,缺血性肠病,直肠恶性肿瘤,直肠憩室,绒毛状腺瘤,直肠损伤,麦克尔憩室,结肠恶性肿瘤,药物相关性直肠出血,凝血障碍,肠血管疾患
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    直肠出血
-        ${assert}    Create List    痔    肛裂    胃肠炎    炎症性肠病    缺血性肠病    直肠恶性肿瘤    直肠憩室    绒毛状腺瘤    直肠损伤    肠套叠    麦克尔憩室    结肠恶性肿瘤    药物相关性直肠出血    凝血障碍    肠血管疾患
+        ${assert}    Create List    痔    肛裂    胃肠炎    炎症性肠病    缺血性肠病    直肠恶性肿瘤    直肠憩室    绒毛状腺瘤    直肠损伤    麦克尔憩室    结肠恶性肿瘤    药物相关性直肠出血    凝血障碍    肠血管疾患
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
@@ -5025,11 +5025,11 @@ Library           String
 
 
 
-134行-尿频,推出诊断:膀胱炎,尿道炎,膀胱过度活动症,膀胱结石,糖尿病,尿道综合征,前列腺炎,肾盂肾炎,妊娠,尿崩症,精神性多饮,慢性间质性膀胱炎,焦虑状态,输尿管结石,卵巢囊肿,药物相关性多尿,膀胱颈狭窄,盆腔肿物,盆腔炎,膀胱肿瘤,膀胱结核,肾结核
+134行-尿频,推出诊断:膀胱炎,尿道炎,膀胱过度活动症,膀胱结石,糖尿病,尿道综合征,肾盂肾炎,妊娠,尿崩症,精神性多饮,慢性间质性膀胱炎,焦虑状态,输尿管结石,卵巢囊肿,药物相关性多尿,膀胱颈狭窄,盆腔肿物,盆腔炎,膀胱肿瘤,膀胱结核,肾结核
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    尿频
-        ${assert}    Create List    膀胱炎    尿道炎    膀胱过度活动症    膀胱结石    糖尿病    尿道综合征    前列腺炎    肾盂肾炎    妊娠    尿崩症    精神性多饮    慢性间质性膀胱炎    焦虑状态    输尿管结石    卵巢囊肿    药物相关性多尿    膀胱颈狭窄    盆腔肿物    盆腔炎    膀胱肿瘤    膀胱结核    肾结核
+        ${assert}    Create List    膀胱炎    尿道炎    膀胱过度活动症    膀胱结石    糖尿病    尿道综合征    肾盂肾炎    妊娠    尿崩症    精神性多饮    慢性间质性膀胱炎    焦虑状态    输尿管结石    卵巢囊肿    药物相关性多尿    膀胱颈狭窄    盆腔肿物    盆腔炎    膀胱肿瘤    膀胱结核    肾结核
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
@@ -5114,7 +5114,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=675    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"0","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -5384,11 +5384,11 @@ Library           String
 
 
 
-143行-发育迟缓,推出诊断:青春期延迟,甲状腺功能亢进症,特纳综合征,神经性厌食,低促性腺激素性腺功能减退症,下丘脑综合征,垂体肿物,糖尿病,肾衰竭,囊性纤维化病,乳糜泻,高催乳素血症,先天性肾上腺皮质增生症,库欣综合征,药物相关性青春期发育迟缓,放射性损伤,生长激素缺乏症,卵巢功能障碍,甲状腺功能减退症,单纯性性腺发育不全,睾丸下降不全
+143行-发育迟缓,推出诊断:青春期延迟,原发性甲状腺功能亢进症,神经性厌食,低促性腺激素性腺功能减退症,下丘脑综合征,垂体肿物,糖尿病,肾衰竭,囊性纤维化病,乳糜泻,先天性肾上腺皮质增生症,库欣综合征,药物相关性青春期发育迟缓,放射性损伤,生长激素缺乏症,甲状腺功能减退症,单纯性性腺发育不全,睾丸下降不全
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    发育迟缓
-        ${assert}    Create List    青春期延迟    甲状腺功能亢进症    特纳综合征    神经性厌食    低促性腺激素性腺功能减退症    下丘脑综合征    垂体肿物    糖尿病    肾衰竭    囊性纤维化病    乳糜泻    高催乳素血症    先天性肾上腺皮质增生症    库欣综合征    药物相关性青春期发育迟缓    放射性损伤    生长激素缺乏症    卵巢功能障碍    甲状腺功能减退症    单纯性性腺发育不全    睾丸下降不全
+        ${assert}    Create List    青春期延迟    原发性甲状腺功能亢进症    神经性厌食    低促性腺激素性腺功能减退症    下丘脑综合征    垂体肿物    糖尿病    肾衰竭    囊性纤维化病    乳糜泻    先天性肾上腺皮质增生症    库欣综合征    药物相关性青春期发育迟缓    放射性损伤    生长激素缺乏症    甲状腺功能减退症    单纯性性腺发育不全    睾丸下降不全
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
@@ -5424,11 +5424,11 @@ Library           String
 
 
 
-144行-生长缓慢,推出诊断:体质性生长发育延迟,呕吐,肠吸收不良,感染,内分泌疾患,泌尿道感染,慢性胃肠炎,唐氏综合征,特纳综合征,胎儿营养不良,产程和分娩并发症,早产婴儿，其他的,胎儿和新生儿受母体内有害物质的影响,胎儿和新生儿受母体其他药物的影响,胎儿和新生儿受母体传染病和寄生虫病的影响,大脑性瘫痪,肝功能不全,心功能不全,肾衰竭,支气管哮喘，危重,恶性肿瘤,结核病,艾滋病,寄生虫病,囊性纤维化病,代谢障碍,Prader-Willi综合征,小颌畸形
+144行-生长缓慢,推出诊断:体质性生长发育延迟,呕吐,肠吸收不良,感染,内分泌疾患,泌尿道感染,慢性胃肠炎,唐氏综合征,特纳综合征,胎儿营养不良,早产婴儿，其他的,胎儿和新生儿受母体内有害物质的影响,胎儿和新生儿受母体其他药物的影响,胎儿和新生儿受母体传染病和寄生虫病的影响,大脑性瘫痪,肝功能不全,心功能不全,肾衰竭,支气管哮喘，危重,恶性肿瘤,结核病,艾滋病,寄生虫病,囊性纤维化病,代谢障碍,Prader-Willi综合征,小颌畸形
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    生长缓慢
-        ${assert}    Create List    体质性生长发育延迟    呕吐    肠吸收不良    感染    内分泌疾患    泌尿道感染    慢性胃肠炎    唐氏综合征    特纳综合征    胎儿营养不良    产程和分娩并发症    早产婴儿，其他的    胎儿和新生儿受母体内有害物质的影响    胎儿和新生儿受母体其他药物的影响    胎儿和新生儿受母体传染病和寄生虫病的影响    大脑性瘫痪    肝功能不全    心功能不全    肾衰竭    支气管哮喘，危重    恶性肿瘤    结核病    艾滋病    寄生虫病    囊性纤维化病    代谢障碍    Prader-Willi综合征    小颌畸形
+        ${assert}    Create List    体质性生长发育延迟    呕吐    肠吸收不良    感染    内分泌疾患    泌尿道感染    慢性胃肠炎    唐氏综合征    特纳综合征    胎儿营养不良    早产婴儿，其他的    胎儿和新生儿受母体内有害物质的影响    胎儿和新生儿受母体其他药物的影响    胎儿和新生儿受母体传染病和寄生虫病的影响    大脑性瘫痪    肝功能不全    心功能不全    肾衰竭    支气管哮喘，危重    恶性肿瘤    结核病    艾滋病    寄生虫病    囊性纤维化病    代谢障碍    Prader-Willi综合征    小颌畸形
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
@@ -5472,7 +5472,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=675    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"0","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"0","age":"14","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -5753,7 +5753,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=675    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"0","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"0","age":"18","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -5793,7 +5793,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=675    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"0","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"0","age":"14","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -5872,7 +5872,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=675    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"0","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"0","age":"15","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -5981,11 +5981,11 @@ Library           String
         List Should Contain Sub List    ${aj}    ${assert}
 
 
-158行-水肿,推出诊断:肾小球肾炎,肾病综合征,心力衰竭,肝病,血管神经性水肿
+158行-水肿,推出诊断:肾小球肾炎,肾病综合征,急性心力衰竭,肝病,血管神经性水肿
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    水肿
-        ${assert}    Create List    肾小球肾炎    肾病综合征    心力衰竭    肝病    血管神经性水肿
+        ${assert}    Create List    肾小球肾炎    肾病综合征    急性心力衰竭    肝病    血管神经性水肿
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
@@ -6030,7 +6030,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=675    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"0","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"0","age":"14","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -6070,7 +6070,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=675    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"0","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"0","age":"18","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -6109,7 +6109,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=675    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"0","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"0","age":"4305","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -6140,11 +6140,11 @@ Library           String
 
 
 
-162行-乳房肿大,推出诊断:青春期乳房肥大,药物相关性男性乳房肿大,肝病,肺原位癌,甲状腺功能亢进症,甲状腺功能减退症,高催乳素血症,血液透析并发症,慢性肾衰竭,睾丸恶性肿瘤,肾上腺恶性肿瘤,隐睾,睾丸功能减退症,克兰费尔特综合征,两性畸形，不可归类在他处者,男性假两性畸形，不可归类在他处者,肢端肥大症,McCune-Albright综合征,肾上腺皮质增生,乳腺癌
+162行-乳房肿大,推出诊断:青春期乳房肥大,药物相关性男性乳房肿大,肝病,肺原位癌,甲状腺功能亢进症,原发性甲状腺功能亢进症,血液透析并发症,慢性肾衰竭,睾丸恶性肿瘤,肾上腺恶性肿瘤,隐睾,睾丸功能减退症,克兰费尔特综合征,两性畸形，不可归类在他处者,男性假两性畸形，不可归类在他处者,肢端肥大症,McCune-Albright综合征,肾上腺皮质增生,乳腺癌
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    乳房肿大
-        ${assert}    Create List    青春期乳房肥大    药物相关性男性乳房肿大    肝病    肺原位癌    甲状腺功能亢进症    甲状腺功能减退症    高催乳素血症    血液透析并发症    慢性肾衰竭    睾丸恶性肿瘤    肾上腺恶性肿瘤    隐睾    睾丸功能减退症    克兰费尔特综合征    两性畸形，不可归类在他处者    男性假两性畸形，不可归类在他处者    肢端肥大症    McCune-Albright综合征    肾上腺皮质增生    乳腺癌
+        ${assert}    Create List    青春期乳房肥大    药物相关性男性乳房肿大    肝病    肺原位癌    甲状腺功能亢进症    原发性甲状腺功能亢进症    血液透析并发症    慢性肾衰竭    睾丸恶性肿瘤    肾上腺恶性肿瘤    隐睾    睾丸功能减退症    克兰费尔特综合征    两性畸形，不可归类在他处者    男性假两性畸形，不可归类在他处者    肢端肥大症    McCune-Albright综合征    肾上腺皮质增生    乳腺癌
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
@@ -6818,16 +6818,16 @@ Library           String
 
 
 
-180行-毛发过多,推出诊断:多囊卵巢综合征,绝经期和女性更年期状态,神经性厌食,多毛症,药物相关性毛发过多,类固醇激素并发症,先天性肾上腺皮质增生症,卵巢肿瘤,肾上腺肿瘤,甲状腺功能减退症,迟发性皮肤卟啉症,库欣综合征,肢端肥大症
+180行-毛发过多,推出诊断:多囊卵巢综合征,绝经期和女性更年期状态,神经性厌食,多毛症,药物相关性毛发过多,类固醇激素并发症,卵巢肿瘤,肾上腺肿瘤,甲状腺功能减退症,迟发性皮肤卟啉症,库欣综合征,肢端肥大症
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    毛发过多
-        ${assert}    Create List    多囊卵巢综合征    绝经期和女性更年期状态    神经性厌食    多毛症    药物相关性毛发过多    类固醇激素并发症    先天性肾上腺皮质增生症    卵巢肿瘤    肾上腺肿瘤    甲状腺功能减退症    迟发性皮肤卟啉症    库欣综合征    肢端肥大症
+        ${assert}    Create List    多囊卵巢综合征    绝经期和女性更年期状态    神经性厌食    多毛症    药物相关性毛发过多    类固醇激素并发症    卵巢肿瘤    肾上腺肿瘤    甲状腺功能减退症    迟发性皮肤卟啉症    库欣综合征    肢端肥大症
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=675    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"0","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"0","age":"50","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -7432,11 +7432,11 @@ Library           String
 
 
 
-195行-腹痛+尿频,推出诊断:膀胱炎,膀胱过度活动症,膀胱结石,前列腺炎,输尿管结石,尿道炎,肾盂肾炎,盆腔炎,膀胱颈狭窄,盆腔肿物,膀胱肿瘤,膀胱结核,肾结核
+195行-腹痛+尿频,推出诊断:膀胱炎,膀胱过度活动症,膀胱结石,前列腺炎,输尿管结石,尿道炎,肾盂肾炎,膀胱颈狭窄,盆腔肿物,膀胱肿瘤,膀胱结核,肾结核
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    腹痛+尿频
-        ${assert}    Create List    膀胱炎    膀胱过度活动症    膀胱结石    前列腺炎    输尿管结石    尿道炎    肾盂肾炎    盆腔炎    膀胱颈狭窄    盆腔肿物    膀胱肿瘤    膀胱结核    肾结核
+        ${assert}    Create List    膀胱炎    膀胱过度活动症    膀胱结石    前列腺炎    输尿管结石    尿道炎    肾盂肾炎    膀胱颈狭窄    盆腔肿物    膀胱肿瘤    膀胱结核    肾结核
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
@@ -7481,7 +7481,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=675    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"0","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"0","age":"3","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -7521,7 +7521,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=675    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"0","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"0","age":"3","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -8084,16 +8084,16 @@ Library           String
 
 
 
-211行-发热+腹泻,推出诊断:感染性腹泻,急性胃肠炎,炎症性肠病,细菌性食物中毒,憩室炎,肠肿瘤,乳糜泻,阑尾炎,甲状腺功能亢进症,阿米巴病,卵巢恶性肿瘤,钩虫病
+211行-发热+腹泻,推出诊断:感染性腹泻,急性胃肠炎,炎症性肠病,细菌性食物中毒,憩室炎,肠肿瘤,乳糜泻,阑尾炎,原发性甲状腺功能亢进症,阿米巴病,卵巢恶性肿瘤,钩虫病
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    发热+腹泻
-        ${assert}    Create List    感染性腹泻    急性胃肠炎    炎症性肠病    细菌性食物中毒    憩室炎    肠肿瘤    乳糜泻    阑尾炎    甲状腺功能亢进症    阿米巴病    卵巢恶性肿瘤    钩虫病
+        ${assert}    Create List    感染性腹泻    急性胃肠炎    炎症性肠病    细菌性食物中毒    憩室炎    肠肿瘤    乳糜泻    阑尾炎    原发性甲状腺功能亢进症    阿米巴病    卵巢恶性肿瘤    钩虫病
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=675    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"0","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"0","age":"14","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -8135,7 +8135,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=675    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"0","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"0","age":"14","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -8751,7 +8751,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=675    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"0","age":"45","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"0","age":"3","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -9038,7 +9038,7 @@ Library           String
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
         ...    doctorGuid=675    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-        ...    patientInfo={"gender":"0","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    patientInfo={"gender":"0","age":"50","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
         ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
         ...    definiteDiagnosis=
         ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -9234,11 +9234,11 @@ Library           String
 
 
 
-239行-急性腹痛,推出诊断:急性胃肠炎,消化性溃疡,急性胆囊炎,急性阑尾炎,急性心肌梗死,肾绞痛,肠梗阻,急性腹膜炎,消化道穿孔,肾盂肾炎,心绞痛,急性出血坏死性肠炎,肝炎,炎症性肠病,缺血性肠病,主动脉夹层,肠扭转,自发性腹膜炎,腹主动脉瘤破裂,门静脉血栓形成,腹壁挫伤,带状疱疹,胸膜炎,肠易激综合征,便秘,细菌性食物中毒,憩室炎,胃恶性肿瘤,结肠恶性肿瘤,食管裂孔疝
+239行-急性腹痛,推出诊断:急性胃肠炎,消化性溃疡,急性胆囊炎,急性阑尾炎,急性心肌梗死,肾绞痛,肠梗阻,急性腹膜炎,消化道穿孔,肾盂肾炎,心绞痛,急性出血坏死性肠炎,肝炎,炎症性肠病,缺血性肠病,主动脉夹层,肠扭转,自发性腹膜炎,腹主动脉瘤破裂,门静脉血栓形成,腹壁挫伤,带状疱疹,胸膜炎,肠易激综合征,便秘,细菌性食物中毒,憩室炎,胃恶性肿瘤,结肠恶性肿瘤,食管裂孔疝,糖尿病酮症酸中毒,腹型过敏性紫癜,尿毒症,铅中毒,乳糖不耐受,肌痛,肾上腺皮质功能减退症
         [Documentation]    断言:""
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    急性腹痛
-        ${assert}    Create List    急性胃肠炎    消化性溃疡    急性胆囊炎    急性阑尾炎    急性心肌梗死    肾绞痛    肠梗阻    急性腹膜炎    消化道穿孔    肾盂肾炎    心绞痛    急性出血坏死性肠炎    肝炎    炎症性肠病    缺血性肠病    主动脉夹层    肠扭转    自发性腹膜炎    腹主动脉瘤破裂    门静脉血栓形成    腹壁挫伤    带状疱疹    胸膜炎    肠易激综合征    便秘    细菌性食物中毒    憩室炎    胃恶性肿瘤    结肠恶性肿瘤    食管裂孔疝
+        ${assert}    Create List    急性胃肠炎    消化性溃疡    急性胆囊炎    急性阑尾炎    急性心肌梗死    肾绞痛    肠梗阻    急性腹膜炎    消化道穿孔    肾盂肾炎    心绞痛    急性出血坏死性肠炎    肝炎    炎症性肠病    缺血性肠病    主动脉夹层    肠扭转    自发性腹膜炎    腹主动脉瘤破裂    门静脉血栓形成    腹壁挫伤    带状疱疹    胸膜炎    肠易激综合征    便秘    细菌性食物中毒    憩室炎    胃恶性肿瘤    结肠恶性肿瘤    食管裂孔疝    糖尿病酮症酸中毒    腹型过敏性紫癜    尿毒症    铅中毒    乳糖不耐受    肌痛    肾上腺皮质功能减退症
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
@@ -9271,4 +9271,204 @@ Library           String
         ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
         # Lists should Be Equal    ${aj}    ${assert}
         List Should Contain Sub List    ${aj}    ${assert}
+
+
+240行-慢性腹痛,推出诊断:泌尿道感染,便秘,慢性胃炎,反流性食管炎,胃十二指肠溃疡,慢性胆囊炎,胆石病,病毒性感染,炎症性肠病,慢性胰腺炎,肠易激综合征,溃疡性结肠炎,克罗恩病,肾积水,泌尿系结石,结核性腹膜炎,麦克尔憩室,缺血性肠病,肝炎,肝细胞癌,肝脓肿,抑郁状态,焦虑状态,肠道寄生虫病,带状疱疹,食物过敏
+        [Documentation]    断言:""
+        ${Assessment}    Set Variable
+        ${Subjective}    Set Variable    慢性腹痛
+        ${assert}    Create List    泌尿道感染    便秘    慢性胃炎    反流性食管炎    胃十二指肠溃疡    慢性胆囊炎    胆石病    病毒性感染    炎症性肠病    慢性胰腺炎    肠易激综合征    溃疡性结肠炎    克罗恩病    肾积水    泌尿系结石    结核性腹膜炎    麦克尔憩室    缺血性肠病    肝炎    肝细胞癌    肝脓肿    抑郁状态    焦虑状态    肠道寄生虫病    带状疱疹    食物过敏
+        [Setup]    Run Keywords    获取时间戳
+        ...    AND    获取随机数
+        ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+        ...    doctorGuid=675    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+        ...    patientInfo={"gender":"1","age":"35","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+        ...    definiteDiagnosis=
+        ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+        ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGid":"","recordTime":""}
+        ...    labTestList=
+        ...    examinationList=
+        ...    newTestList=
+        ...    operationRecord=
+        ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
+        # ...    newRecogFlag=1
+        #####推荐检查评估表
+        # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+        #####推荐检查
+        # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+        ######检查解读
+        # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+        ######质控
+        # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['qualityControlResponse']['therapeuticPlanList']]
+        # Should Contain    ${aj}    流行性感冒
+        #####推荐治疗方案
+        # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+        #####疑似诊断
+        ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+        # Lists should Be Equal    ${aj}    ${assert}
+        List Should Contain Sub List    ${aj}    ${assert}
+
+
+
+
+241行-月经过多,推出诊断:功能障碍性子宫出血,宫颈息肉,子宫内膜息肉,子宫内膜异位症,子宫肌瘤,青春期月经过多,子宫内膜炎,子宫腺肌病,慢性盆腔炎,甲状腺功能减退症,凝血障碍,高催乳素血症,库欣综合征,肾上腺皮质功能减退症
+        [Documentation]    断言:""
+        ${Assessment}    Set Variable
+        ${Subjective}    Set Variable    月经过多
+        ${assert}    Create List    功能障碍性子宫出血    宫颈息肉    子宫内膜息肉    子宫内膜异位症    子宫肌瘤    青春期月经过多    子宫内膜炎    子宫腺肌病    慢性盆腔炎    甲状腺功能减退症    凝血障碍    高催乳素血症    库欣综合征    肾上腺皮质功能减退症
+        [Setup]    Run Keywords    获取时间戳
+        ...    AND    获取随机数
+        ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+        ...    doctorGuid=675    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+        ...    patientInfo={"gender":"0","age":"13","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+        ...    definiteDiagnosis=
+        ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+        ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGid":"","recordTime":""}
+        ...    labTestList=
+        ...    examinationList=
+        ...    newTestList=
+        ...    operationRecord=
+        ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
+        # ...    newRecogFlag=1
+        #####推荐检查评估表
+        # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+        #####推荐检查
+        # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+        ######检查解读
+        # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+        ######质控
+        # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['qualityControlResponse']['therapeuticPlanList']]
+        # Should Contain    ${aj}    流行性感冒
+        #####推荐治疗方案
+        # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+        #####疑似诊断
+        ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+        # Lists should Be Equal    ${aj}    ${assert}
+        List Should Contain Sub List    ${aj}    ${assert}
+
+
+242行-性欲减退,推出诊断:抑郁状态,酒精有害性使用,性功能障碍,雄激素部分缺乏综合征,甲状腺功能减退症,药物相关性性欲减退,下丘脑功能不良,库欣综合征,肾上腺皮质功能减退症,垂体疾患,慢性肾衰竭,睾丸功能障碍,肾上腺肿瘤,睾丸肿瘤
+        [Documentation]    断言:""
+        ${Assessment}    Set Variable
+        ${Subjective}    Set Variable    性欲减退
+        ${assert}    Create List    抑郁状态    酒精有害性使用    性功能障碍    雄激素部分缺乏综合征    甲状腺功能减退症    药物相关性性欲减退    下丘脑功能不良    库欣综合征    肾上腺皮质功能减退症    垂体疾患    慢性肾衰竭    睾丸功能障碍    肾上腺肿瘤    睾丸肿瘤
+        [Setup]    Run Keywords    获取时间戳
+        ...    AND    获取随机数
+        ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+        ...    doctorGuid=675    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+        ...    patientInfo={"gender":"1","age":"18","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+        ...    definiteDiagnosis=
+        ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+        ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGid":"","recordTime":""}
+        ...    labTestList=
+        ...    examinationList=
+        ...    newTestList=
+        ...    operationRecord=
+        ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
+        # ...    newRecogFlag=1
+        #####推荐检查评估表
+        # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+        #####推荐检查
+        # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+        ######检查解读
+        # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+        ######质控
+        # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['qualityControlResponse']['therapeuticPlanList']]
+        # Should Contain    ${aj}    流行性感冒
+        #####推荐治疗方案
+        # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+        #####疑似诊断
+        ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+        # Lists should Be Equal    ${aj}    ${assert}
+        List Should Contain Sub List    ${aj}    ${assert}
+
+
+
+243行-性欲减退,推出诊断:精子异常,贫血,甲状腺疾患,性功能障碍,肾上腺皮质肿瘤,染色体异常
+        [Documentation]    断言:""
+        ${Assessment}    Set Variable
+        ${Subjective}    Set Variable    性欲减退
+        ${assert}    Create List    精子异常    贫血    甲状腺疾患    性功能障碍    肾上腺皮质肿瘤    染色体异常
+        [Setup]    Run Keywords    获取时间戳
+        ...    AND    获取随机数
+        ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+        ...    doctorGuid=675    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+        ...    patientInfo={"gender":"1","age":"18","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+        ...    definiteDiagnosis=
+        ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+        ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGid":"","recordTime":""}
+        ...    labTestList=
+        ...    examinationList=
+        ...    newTestList=
+        ...    operationRecord=
+        ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
+        # ...    newRecogFlag=1
+        #####推荐检查评估表
+        # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+        #####推荐检查
+        # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+        ######检查解读
+        # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+        ######质控
+        # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['qualityControlResponse']['therapeuticPlanList']]
+        # Should Contain    ${aj}    流行性感冒
+        #####推荐治疗方案
+        # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+        #####疑似诊断
+        ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+        # Lists should Be Equal    ${aj}    ${assert}
+        List Should Contain Sub List    ${aj}    ${assert}
+
+
+
+244行-跛行,推出诊断:外伤,髋关节滑膜炎,反应性关节炎,化脓性关节炎,股骨上端(非创伤性)骨骺滑脱,幼年型股骨骺骨软骨病,特发性脊柱侧弯，其他的,先天性髋脱位,双下肢不等长,骨髓炎,佝偻病,少关节性幼年型关节炎,幼年型类风湿性关节炎,假肥大型肌营养不良症,骨恶性肿瘤
+        [Documentation]    断言:""
+        ${Assessment}    Set Variable
+        ${Subjective}    Set Variable    跛行
+        ${assert}    Create List    外伤    髋关节滑膜炎    反应性关节炎    化脓性关节炎    股骨上端(非创伤性)骨骺滑脱    幼年型股骨骺骨软骨病    特发性脊柱侧弯，其他的    先天性髋脱位    双下肢不等长    骨髓炎    佝偻病    少关节性幼年型关节炎    幼年型类风湿性关节炎    假肥大型肌营养不良症    骨恶性肿瘤
+        [Setup]    Run Keywords    获取时间戳
+        ...    AND    获取随机数
+        ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+        ...    doctorGuid=675    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+        ...    patientInfo={"gender":"1","age":"18","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+        ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+        ...    definiteDiagnosis=
+        ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"诊断依据及鉴别诊断","value":""},{"key":"病例特点","value":""},{"key":"出院医嘱","value":""},{"key": "诊断依据及鉴别诊断1","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}
+        ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGid":"","recordTime":""}
+        ...    labTestList=
+        ...    examinationList=
+        ...    newTestList=
+        ...    operationRecord=
+        ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+        ...    currentDiseaseName=
+        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
+        # ...    newRecogFlag=1
+        #####推荐检查评估表
+        # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+        #####推荐检查
+        # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+        ######检查解读
+        # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+        ######质控
+        # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['qualityControlResponse']['therapeuticPlanList']]
+        # Should Contain    ${aj}    流行性感冒
+        #####推荐治疗方案
+        # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+        #####疑似诊断
+        ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+        # Lists should Be Equal    ${aj}    ${assert}
+        List Should Contain Sub List    ${aj}    ${assert}
+
 
