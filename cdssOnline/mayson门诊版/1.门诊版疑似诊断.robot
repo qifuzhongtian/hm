@@ -89,13 +89,13 @@ Library           String
 #     Should Contain    ${aj}    头颅X线
 
 
-检查解读
+检查解读:主要为变应性哮喘
     [Documentation]
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    智能推荐门诊
     ...    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    doctorGuid=    hospitalGuid=
-    ...    symptom=呼出气一氧化氮升高
+    ...    symptom=呼出气一氧化氮升高，男，年龄8岁，高热、流涕2天，流感病毒抗体滴度增高
     ...    drugCommonNames=
     ...    examinationList=
     ...    newTestList=
@@ -103,7 +103,7 @@ Library           String
     ...    newTestList=
     ...    previousHistory=    personalHistory=    allergyHistory=    familyHistory=
     ...    weight=    gender=0    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
-    ...    heartRate=    age=    ageType=岁    confirmDiagnosis=
+    ...    heartRate=    age=6    ageType=岁    confirmDiagnosis=
     ...    confirmDiagnosisMap={"icdCode": "L50.900","key": "34146","value": "荨麻疹"}
     ...    presentHistory=
     ...    hasDetail=    symptomClickDiseaseId=
@@ -117,7 +117,7 @@ Library           String
     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['maysonInfo']['illnessAssessList']]
     #检查解读
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['maysonInfo']['examinationInterpretList']]
-    Should Contain    ${aj}    变应性哮喘
+    Should Contain    ${aj}    主要为变应性哮喘
 
 
 推荐评估表
