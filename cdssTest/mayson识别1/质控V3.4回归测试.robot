@@ -229,7 +229,7 @@ Library           RequestsLibrary
     PESI评分 0分    5    岁    PESI评分>=0
     PaO2：50mmHg    5    岁    PaO2<=55mmHg
     PaCO2：8kPa    5    岁    PaCO2>6kPa
-    PaO2：52mmHg    5    岁    PaCO2>45mmHg
+    PaO2：52mmHg    5    岁    PaO2>45mmHg
     扩张型心肌病心功能不全 心功能Ⅳ级（NYHA分级）    5    岁    NYHA分级IV级
     慢性充血性心力衰竭急性发作，心功能4级（NYHA分级）    5    岁    NYHA分级IV级
     N端-B型钠尿肽前体测定    5    岁    NT-proBNP检测
