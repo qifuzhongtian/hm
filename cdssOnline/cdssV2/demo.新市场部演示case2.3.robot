@@ -68,13 +68,13 @@ Library           RequestsLibrary
     Should Contain    ${aj[:10]}    结肠恶性肿瘤
 
 
-#########女 35  岁 妊娠26周，先兆子痫住产科。凌晨1点突感胸痛，血压160/100mmHg  主动脉夹层
-市场部全科版演示case-6行
-    [Documentation]    主诉:妊娠26周，先兆子痫住产科。凌晨1点突感胸痛，血压160/100mmHg
-    ${getRes}    智能诊断2.3    symptom=妊娠26周，先兆子痫住产科。凌晨1点突感胸痛    previousHistory=    personalHistory=    allergyHistory=    familyHistory=
-    ...    weight=    gender=0    bodyTempr=    lowBldPress=100    highBldPress=160    examInfo=
-    ...    heartRate=    age=35    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=    presentHistory=
-    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][1]['diseases']]
-    Should Contain    ${aj[:10]}    主动脉夹层
+# #########女 35  岁 妊娠26周，先兆子痫住产科。凌晨1点突感胸痛，血压160/100mmHg  主动脉夹层
+# 市场部全科版演示case-6行
+#     [Documentation]    主诉:妊娠26周，先兆子痫住产科。凌晨1点突感胸痛，血压160/100mmHg
+#     ${getRes}    智能诊断2.3    symptom=妊娠26周，先兆子痫住产科。凌晨1点突感胸痛    previousHistory=    personalHistory=    allergyHistory=    familyHistory=
+#     ...    weight=    gender=0    bodyTempr=    lowBldPress=100    highBldPress=160    examInfo=
+#     ...    heartRate=    age=35    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=    presentHistory=
+#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseGroups'][1]['diseases']]
+#     Should Contain    ${aj[:10]}    主动脉夹层
 
 

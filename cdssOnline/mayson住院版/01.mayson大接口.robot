@@ -11,9 +11,7 @@ Library           String
 *** Test Cases ***
 
 
-# ########
-# # ##########
-# #
+#########
 
 推荐疑似诊断:心律失常
     [Documentation]    断言:心律失常
@@ -499,7 +497,7 @@ Library           String
     [Documentation]    断言:晕厥
     # ${timestamp}    Get Time    epoch
     ${Assessment}    Set Variable
-    ${Subjective}    Set Variable    男，年龄60岁，反复发作晕厥4年，心电图显示窦性心律，心率100次／分，QT 间期0.56秒，偶发室性期前收缩
+    ${Subjective}    Set Variable    男，年龄60岁，晕厥4年，心电图显示窦性心律，心率100次／分，QT 间期0.56秒，偶发室性期前收缩
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
