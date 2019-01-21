@@ -17,7 +17,7 @@ Library           String
 ############评估历史#############
 
 文献详情
-    [Documentation]    断言:""
+    [Documentation]
     ${getRes}   文献详情    documentId=9410C674FE
     # ${aj}    Evaluate    [aj['cnTitle'] for aj in $getRes['body']['documentList']]
     # Should Contain    ${aj}    脑出血急性期血压管理新进展

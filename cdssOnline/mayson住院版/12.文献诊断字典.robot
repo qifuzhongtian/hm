@@ -14,7 +14,7 @@ Library           String
 
 
 文献诊断字典
-    [Documentation]    断言:""
+    [Documentation]
     ${getRes}   文献诊断字典
     ${aj}    Evaluate    [aj['section'] for aj in $getRes['body']]
     Should Contain    ${aj}    心脏科

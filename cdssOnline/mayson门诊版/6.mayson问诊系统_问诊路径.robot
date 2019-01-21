@@ -15,7 +15,6 @@ mayson问诊系统_问诊路径
     ${getRes}   问诊路径    symptomId=4    age=8    ageType=岁    sex=88    patientName=jackdaw    saveFlag=true
     ${aj}    Evaluate    [aj['nodeDesc'] for aj in $getRes['body']['result']]
     Should Contain    ${aj}    体重轻微减轻（10周内＜4kg）？
-    # Should Be Equal As Strings    ${getRes['body']}    1
 
 
 

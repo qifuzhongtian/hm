@@ -28,7 +28,7 @@ Library           String
 ############评估历史#############
 
 保存评估历史记录
-    [Documentation]    断言:""
+    [Documentation]
     # ${timestamp}    Get Time    epoch
     # ${assert}    Create List
     # ${Assessment}    Set Variable

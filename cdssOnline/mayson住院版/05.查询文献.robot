@@ -22,7 +22,7 @@ Library           String
 ############评估历史#############
 
 搜索文献
-    [Documentation]    断言:""
+    [Documentation]
     ${getRes}   搜索文献    name=血    diseaseId=    pageSize=10    currentPage=1
     ...    startDate=0    endDate=0    departmentId=0    countryId=0    orgName=
     ${aj}    Evaluate    [aj['cnTitle'] for aj in $getRes['body']['documentList']]
@@ -30,7 +30,7 @@ Library           String
     # Should Be Equal As Strings    ${getRes['head']['error']}    0
 
 按筛选文献搜索
-    [Documentation]    断言:""
+    [Documentation]
     ${getRes}   搜索文献    name=血    diseaseId=    pageSize=10    currentPage=1
     ...    startDate=2017    endDate=2018    departmentId=1    countryId=12    orgName=中国
     ${aj}    Evaluate    [aj['cnTitle'] for aj in $getRes['body']['documentList']]

@@ -34,5 +34,3 @@ Suite Teardown    Delete All Sessions
     ${getRes}    药品查询    drugName=jp
     ${aj}    Evaluate    [aj['drugCommonName'] for aj in $getRes['body']['drugList']]
     Should Contain    ${aj}    乌拉地尔氯化钠注射液
-
-    # Should Be Equal As Strings    ${getRes['body']['drugList'][0]['drugCommonName']}    乌拉地尔氯化钠注射液

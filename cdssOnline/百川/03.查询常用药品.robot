@@ -9,7 +9,7 @@ Library           RequestsLibrary    # 字段名 类型 是否必须 说明
 
 *** Test Cases ***
 3.1 查询常用药品
-    [Documentation]    断言""
+    [Documentation]
     [Tags]
     ${getRes}    查询常用药品
     ${aj}    Evaluate    [aj['name'] for aj in $getRes['body']]

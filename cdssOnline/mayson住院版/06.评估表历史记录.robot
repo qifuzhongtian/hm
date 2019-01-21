@@ -29,7 +29,7 @@ Library           String
 ############评估历史#############
 
 评估表历史记录
-    [Documentation]    断言:""
+    [Documentation]
     ${getRes}   评估表历史记录    patientGuid=4361    serialNumber=7225
     ${aj}    Evaluate    [aj['assessName'] for aj in $getRes['body'][0]['assessList']]
     Should Contain    ${aj}    川崎病心脏移植治疗评估表

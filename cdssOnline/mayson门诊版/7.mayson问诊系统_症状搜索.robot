@@ -15,7 +15,6 @@ mayson问诊系统_症状搜索
     ${getRes}   症状搜索    symptom=发热
     ${aj}    Evaluate    [aj['SYMP_NAME'] for aj in $getRes['body']]
     Should Contain    ${aj}    发热
-    # Should Be Equal As Strings    ${getRes['body']['conclusion']['c']['EXPL']}    头部严重受伤，导致出血，会引起头痛、呕吐。
 
 
 

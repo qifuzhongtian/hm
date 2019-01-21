@@ -9,12 +9,12 @@ Library           RequestsLibrary
 
 *** Test Cases ***
 1.1 ame登录成功
-    [Documentation]    断言error:""
+    [Documentation]
     ${getRes}    ame登录    userName=developer    password=9d06407716dd900dc25e2771cbdfa1dc
     Should Be Equal As Strings    ${getRes['head']['error']}    0
 
 1.2 ame登录失败
-    [Documentation]    断言error:""
+    [Documentation]
     ${getRes}    ame登录    userName=developer    password=1231b94610ad1e3e77d85cc6aad61bb68a6
     Should Be Equal As Strings    ${getRes['head']['error']}    4002
 

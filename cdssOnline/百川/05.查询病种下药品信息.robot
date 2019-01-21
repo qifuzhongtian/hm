@@ -10,7 +10,7 @@ Library           RequestsLibrary
 
 *** Test Cases ***
 5.1 查询病种下药品信息
-    [Documentation]    断言=""
+    [Documentation]
     ${getRes}    查询病种下药品信息    id=3
     ${aj}    Evaluate    [aj['name'] for aj in $getRes['body']['labelList']]
     Should Contain    ${aj}    一线药物

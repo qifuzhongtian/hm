@@ -29,7 +29,7 @@ Library           String
 ############评估历史#############
 
 根据评估历史记录id查询评估记录
-    [Documentation]    断言:""
+    [Documentation]
     ${getRes}    根据评估历史记录id查询评估记录    Id=${assessHistoryId}
     Should Be Equal As Strings    ${getRes['head']['error']}    0
 

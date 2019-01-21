@@ -14,7 +14,7 @@ Library           String
 *** Test Cases ***
 
 文献申请列表
-    [Documentation]    断言:""
+    [Documentation]
     ${getRes}   文献申请列表    pageSize=100    currentPage=1
     ${aj}    Evaluate    [aj['documentName'] for aj in $getRes['body']['customerList']]
     Should Contain    ${aj}    测试申请文献

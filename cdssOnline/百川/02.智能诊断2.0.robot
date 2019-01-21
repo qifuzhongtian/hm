@@ -10,7 +10,7 @@ Suite Teardown    Delete All Sessions
 
 *** Test Cases ***
 1.市场部案例一
-    [Documentation]    主诉:突发上腹部疼痛，阵发性加剧，伴恶心、呕吐10小时.期望诊断结果返回的diseaseName top5含有'肠扭转'
+    [Documentation]
     ${getRes}    智能诊断2.3    symptom=突发上腹部疼痛，阵发性加剧，伴恶心、呕吐10小时    previousHistory=    personalHistory=    allergyHistory=    familyHistory=
     ...    weight=    gender=1    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
     ...    heartRate=    age=38    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap=    presentHistory=

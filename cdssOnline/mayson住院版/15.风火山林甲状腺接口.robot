@@ -11,7 +11,7 @@ Library           String    # 字段名 类型    是否必须    说明    # { 
 
 *** Test Cases ***
 风火山林甲状腺case1
-    [Documentation]    断言:""
+    [Documentation]
     [Tags]    skip
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
@@ -22,7 +22,7 @@ Library           String    # 字段名 类型    是否必须    说明    # { 
     Should Contain    ${aj}    甲状腺结节
 
 风火山林甲状腺case2
-    [Documentation]    断言:""
+    [Documentation]
     [Tags]    skip
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
@@ -30,3 +30,7 @@ Library           String    # 字段名 类型    是否必须    说明    # { 
     ...    examinationName=甲状腺检查报告    examinationDesc=甲状腺左叶偏大，可触及多个结节，最大的直径（1.5）cm，质稍硬，光滑，随吞咽活动，无压痛。    examinationResult=双叶甲状腺内见多个低回声及实性结节，最大一个大小约（1.8）×（0.9）cm，结节周边有血管环绕。
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
     Should Contain    ${aj}    甲状腺结节
+
+
+
+

@@ -6,7 +6,7 @@ Suite Teardown    Delete All Sessions
 
 *** Test Cases ***
 3.1常见个人史
-    [Documentation]    断言:""
+    [Documentation]
     ${getRes}    常见个人史    gender=1
     Should Be Equal As Strings    ${getRes['body']['personalHistoryList'][0]['historyType']}    用药史
     # test

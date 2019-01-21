@@ -10,7 +10,7 @@ Suite Teardown    Delete All Sessions
 
 *** Test Cases ***
 搜索诊断
-    [Documentation]    断言:""
+    [Documentation]    断言:"高血压"
     ${getRes}    mayson搜索    hasAssessType=${true}    name=血压
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseList']]
     Should Contain    ${aj}    高血压

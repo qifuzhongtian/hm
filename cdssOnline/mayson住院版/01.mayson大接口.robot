@@ -82,7 +82,7 @@ Library           String
     #Should Contain    ${aj[:5]}    心率失常
 
 推荐评估表：引起QT间期延长的常见药物
-    [Documentation]    断言:""
+    [Documentation]
     # ${timestamp}    Get Time    epoch
     #${assert}    Create List    静息12导联心电图    甲状腺功能    血电解质
     ${Assessment}    Set Variable    QT间期延长
@@ -118,7 +118,7 @@ Library           String
     #Should Contain    ${aj[:5]}    心率失常
 
 推荐治疗:药接种疫苗,维持治疗
-    [Documentation]    断言:""
+    [Documentation]
     # ${timestamp}    Get Time    epoch
     ${assert}    Create List    接种疫苗    维持治疗
     ${Assessment}    Set Variable    支气管哮喘
@@ -156,7 +156,7 @@ Library           String
 
 
 # 推荐检查解读：流行性感冒
-#     [Documentation]    断言:""
+#     [Documentation]
 #     # ${timestamp}    Get Time    epoch
 #     ${Assessment}    Set Variable
 #     ${Subjective}    Set Variable    男，年龄8岁，高热、流涕2天，流感病毒抗体滴度增高
@@ -543,7 +543,7 @@ Library           String
 
 
 质控:急性脑梗死,推出质控治疗方案:强化降脂治疗
-    [Documentation]    断言:""
+    [Documentation]
     # ${timestamp}    Get Time    epoch
     ${Assessment}    Set Variable    急性脑梗死
     ${Subjective}    Set Variable
@@ -580,7 +580,7 @@ Library           String
 
 
 # 质控:急性脑梗死+质控消失条件:阿托伐他汀钙片,不应推出质控:强化降脂治疗
-#     [Documentation]    断言:""
+#     [Documentation]
 #     # ${timestamp}    Get Time    epoch
 #     ${Assessment}    Set Variable    急性脑梗死
 #     ${Subjective}    Set Variable
@@ -623,7 +623,7 @@ Library           String
 ########
 
 # 质控-医嘱--强化降脂1111
-#     [Documentation]    断言:""
+#     [Documentation]
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
 #     # ${timestamp}    Get Time    epoch
@@ -637,7 +637,7 @@ Library           String
 #     should Not Contain    ${aj}    强化降脂治疗
 
 # 质控-医嘱--强化降脂
-#     [Documentation]    断言:""
+#     [Documentation]
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
 #     # ${timestamp}    Get Time    epoch
@@ -661,7 +661,7 @@ Library           String
 
 
 # 质控-医嘱--检验-呼吸道病毒筛查
-#     [Documentation]    断言:""
+#     [Documentation]
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
 #     # ${timestamp}    Get Time    epoch
@@ -675,7 +675,7 @@ Library           String
 #     should Not Contain    ${aj}    呼吸道病毒筛查
 
 # 质控-医嘱--检查-肺功能检查
-#     [Documentation]    断言:""
+#     [Documentation]
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
 #     # ${timestamp}    Get Time    epoch
@@ -690,7 +690,7 @@ Library           String
 #     should Not Contain    ${getRes['body']['qualityControlResponse']}    examinationRecommendList
 
 # 质控-医嘱--手术-PCI手术
-#     [Documentation]    断言:""
+#     [Documentation]
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
 #     # ${timestamp}    Get Time    epoch

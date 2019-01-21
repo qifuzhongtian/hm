@@ -10,7 +10,7 @@ Library           RequestsLibrary
 
 *** Test Cases ***
 4.1 查询病种列表
-    [Documentation]    断言""
+    [Documentation]
     ${getRes}    查询病种列表
     ${aj}    Evaluate    [aj['name'] for aj in $getRes['body']]
     Should Contain    ${aj}    2型糖尿病

@@ -22,7 +22,7 @@ Library           String
 ############评估历史#############
 
 最新文献
-    [Documentation]    断言:""
+    [Documentation]
     ${getRes}   最新文献
     ${aj}    Evaluate    [aj for aj in $getRes['body']['searchDiagnose']]
     Should Contain    ${aj}    心肌病
