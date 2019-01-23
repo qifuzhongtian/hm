@@ -12,7 +12,7 @@ Library           String
 
 
 回归测试集-2行,推出疑似诊断top:5:泌尿道感染
-    [Documentation]    断言""
+    [Documentation]
     ${Assessment}    Set Variable
     ${Subjective}    Set Variable    进行性排尿困难2年，加重伴发热2天。
     #现病史值
@@ -70,7 +70,7 @@ Library           String
 
 
 回归测试集-2行,推出疑似诊断top:10:前列腺增生
-    [Documentation]    断言""
+    [Documentation]
     ${Assessment}    Set Variable
     ${Subjective}    Set Variable    进行性排尿困难2年，加重伴发热2天。
     #现病史值
@@ -129,7 +129,7 @@ Library           String
 
 
 回归测试集-3行,推出疑似诊断top:5:肠梗阻
-    [Documentation]    断言""
+    [Documentation]
     ${Assessment}    Set Variable
     ${Subjective}    Set Variable    腹痛腹胀5小时余。
     #现病史值
@@ -187,7 +187,7 @@ Library           String
 
 
 回归测试集-3行,推出疑似诊断top:10:胃炎
-    [Documentation]    断言""
+    [Documentation]
     ${Assessment}    Set Variable
     ${Subjective}    Set Variable    腹痛腹胀5小时余。
     #现病史值
@@ -247,7 +247,7 @@ Library           String
 
 
 回归测试集-4行,推出疑似诊断top:10:川崎病
-    [Documentation]    断言""
+    [Documentation]
     ${Assessment}    Set Variable
     ${Subjective}    Set Variable    发热5天。
     #现病史值
@@ -305,7 +305,7 @@ Library           String
 
 
 回归测试集-5行,推出疑似诊断top:5:痛风
-    [Documentation]    断言""
+    [Documentation]
     ${Assessment}    Set Variable
     ${Subjective}    Set Variable    反复关节肿痛3年，再发3天。
     #现病史值
@@ -366,7 +366,7 @@ Library           String
 
 
 回归测试集-6行,推出疑似诊断top:5:急性乳腺炎
-    [Documentation]    断言""
+    [Documentation]
     ${Assessment}    Set Variable
     ${Subjective}    Set Variable    非哺乳期右侧乳腺红肿疼痛并肿块4天。
     #现病史值
@@ -425,7 +425,7 @@ Library           String
 
 
 回归测试集-7行,推出疑似诊断top:5:病态窦房结综合征
-    [Documentation]    断言""
+    [Documentation]
     ${Assessment}    Set Variable
     ${Subjective}    Set Variable    突发心悸伴晕厥1次半天。
     #现病史值
