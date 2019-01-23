@@ -2287,11 +2287,11 @@ Library           String
         List Should Contain Sub List    ${aj}    ${assert}
 
 
-65行-面部皮疹,推出诊断:痤疮,硬红斑,脂溢性湿疹,脓疱疮,口周皮炎,黄褐斑,药物光毒性反应,带状疱疹,变应性湿疹,酒渣鼻,白色糠疹,特应性皮炎,丹毒,瘀斑,银屑病,白癜风,玫瑰糠疹,多形性红斑,系统性红斑狼疮,二尖瓣狭窄,结节性硬化症,寻常性狼疮,肉瘤病,皮肌炎
+65行-面部皮疹,推出诊断:痤疮,硬红斑,脂溢性湿疹,脓疱疮,口周皮炎,黄褐斑,药物光毒性反应,带状疱疹,变应性湿疹,酒渣鼻,白色糠疹,特应性皮炎,丹毒,瘀斑,白癜风,玫瑰糠疹,多形性红斑,系统性红斑狼疮,二尖瓣狭窄,结节性硬化症,寻常性狼疮,肉瘤病,皮肌炎
         [Documentation]
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    面部皮疹
-        ${assert}    Create List    痤疮    硬红斑    脂溢性湿疹    脓疱疮    口周皮炎    黄褐斑    药物光毒性反应    带状疱疹    变应性湿疹    酒渣鼻    白色糠疹    特应性皮炎    丹毒    瘀斑    银屑病    白癜风    玫瑰糠疹    多形性红斑    系统性红斑狼疮    二尖瓣狭窄    结节性硬化症    寻常性狼疮    肉瘤病    皮肌炎
+        ${assert}    Create List    痤疮    硬红斑    脂溢性湿疹    脓疱疮    口周皮炎    黄褐斑    药物光毒性反应    带状疱疹    变应性湿疹    酒渣鼻    白色糠疹    特应性皮炎    丹毒    瘀斑    白癜风    玫瑰糠疹    多形性红斑    系统性红斑狼疮    二尖瓣狭窄    结节性硬化症    寻常性狼疮    肉瘤病    皮肌炎
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
@@ -9314,11 +9314,11 @@ Library           String
 
 
 
-241行-月经过多,推出诊断:功能障碍性子宫出血,青春期月经过多,子宫内膜炎,甲状腺功能减退症,凝血障碍,高催乳素血症,库欣综合征,肾上腺皮质功能减退症
+241行-月经过多,推出诊断:功能障碍性子宫出血,青春期月经过多,甲状腺功能减退症,凝血障碍,高催乳素血症,库欣综合征,肾上腺皮质功能减退症
         [Documentation]
         ${Assessment}    Set Variable
         ${Subjective}    Set Variable    月经过多
-        ${assert}    Create List    功能障碍性子宫出血    青春期月经过多    子宫内膜炎    甲状腺功能减退症    凝血障碍    高催乳素血症    库欣综合征    肾上腺皮质功能减退症
+        ${assert}    Create List    功能障碍性子宫出血    青春期月经过多    甲状腺功能减退症    凝血障碍    高催乳素血症    库欣综合征    肾上腺皮质功能减退症
         [Setup]    Run Keywords    获取时间戳
         ...    AND    获取随机数
         ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
