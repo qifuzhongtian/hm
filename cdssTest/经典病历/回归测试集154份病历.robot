@@ -12,7 +12,7 @@ Library           String
 
 
 回归测试集-2行,推出疑似诊断top:5:泌尿道感染
-    [Documentation]    断言""
+    [Documentation]
     ${Assessment}    Set Variable
     ${Subjective}    Set Variable    进行性排尿困难2年，加重伴发热2天。
     #现病史值
@@ -61,16 +61,16 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
 
 回归测试集-2行,推出疑似诊断top:10:前列腺增生
-    [Documentation]    断言""
+    [Documentation]
     ${Assessment}    Set Variable
     ${Subjective}    Set Variable    进行性排尿困难2年，加重伴发热2天。
     #现病史值
@@ -119,17 +119,17 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
 
 
 回归测试集-3行,推出疑似诊断top:5:肠梗阻
-    [Documentation]    断言""
+    [Documentation]
     ${Assessment}    Set Variable
     ${Subjective}    Set Variable    腹痛腹胀5小时余。
     #现病史值
@@ -178,16 +178,16 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
 
 回归测试集-3行,推出疑似诊断top:10:胃炎
-    [Documentation]    断言""
+    [Documentation]
     ${Assessment}    Set Variable
     ${Subjective}    Set Variable    腹痛腹胀5小时余。
     #现病史值
@@ -236,10 +236,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -247,7 +247,7 @@ Library           String
 
 
 回归测试集-4行,推出疑似诊断top:10:川崎病
-    [Documentation]    断言""
+    [Documentation]
     ${Assessment}    Set Variable
     ${Subjective}    Set Variable    发热5天。
     #现病史值
@@ -296,16 +296,16 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
 
 回归测试集-5行,推出疑似诊断top:5:痛风
-    [Documentation]    断言""
+    [Documentation]
     ${Assessment}    Set Variable
     ${Subjective}    Set Variable    反复关节肿痛3年，再发3天。
     #现病史值
@@ -354,10 +354,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -366,7 +366,7 @@ Library           String
 
 
 回归测试集-6行,推出疑似诊断top:5:急性乳腺炎
-    [Documentation]    断言""
+    [Documentation]
     ${Assessment}    Set Variable
     ${Subjective}    Set Variable    非哺乳期右侧乳腺红肿疼痛并肿块4天。
     #现病史值
@@ -415,17 +415,17 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
 
 
 回归测试集-7行,推出疑似诊断top:5:病态窦房结综合征
-    [Documentation]    断言""
+    [Documentation]
     ${Assessment}    Set Variable
     ${Subjective}    Set Variable    突发心悸伴晕厥1次半天。
     #现病史值
@@ -474,10 +474,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -533,10 +533,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -593,10 +593,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -653,10 +653,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -714,10 +714,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -775,10 +775,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -836,10 +836,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -898,10 +898,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -958,10 +958,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -1017,10 +1017,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -1078,10 +1078,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -1138,10 +1138,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -1197,10 +1197,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -1258,10 +1258,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -1318,10 +1318,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -1379,10 +1379,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -1439,10 +1439,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -1500,10 +1500,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -1561,10 +1561,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -1622,10 +1622,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -1681,10 +1681,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -1741,10 +1741,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -1803,10 +1803,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -1863,10 +1863,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -1925,10 +1925,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -1984,10 +1984,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -2034,7 +2034,7 @@ Library           String
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
     ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ...    patientInfo={"gender":"","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -2043,10 +2043,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -2094,7 +2094,7 @@ Library           String
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
     ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ...    patientInfo={"gender":"","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -2103,10 +2103,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -2168,10 +2168,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -2228,10 +2228,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -2290,9 +2290,10 @@ Library           String
 #     ...    examinationList=
 #     ...    newTestList=
 #     ...    operationRecord=
-#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
     # ...    currentDiseaseName=
     # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
 #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
 #     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -2351,10 +2352,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -2411,10 +2412,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -2472,10 +2473,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -2534,10 +2535,9 @@ Library           String
 #     ...    examinationList=
 #     ...    newTestList=
 #     ...    operationRecord=
-#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ..    currentDiseaseName=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     ..    currentDiseaseName=
 #     ...    newRecogFlag=
-...    newModelFlag=1
 #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
 #     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -2594,10 +2594,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -2654,10 +2654,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -2716,10 +2716,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -2777,10 +2777,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -2838,10 +2838,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -2898,10 +2898,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -2959,10 +2959,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -3020,10 +3020,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -3083,10 +3083,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -3143,10 +3143,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -3206,10 +3206,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -3265,10 +3265,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -3325,10 +3325,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -3386,10 +3386,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -3446,10 +3446,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -3508,10 +3508,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -3570,10 +3570,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -3630,10 +3630,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -3690,10 +3690,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -3751,10 +3751,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -3814,10 +3814,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -3873,10 +3873,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -3933,10 +3933,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -3993,10 +3993,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -4054,10 +4054,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -4106,7 +4106,7 @@ Library           String
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
     ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"1","age":"27","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ...    patientInfo={"gender":"男","age":"27","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -4115,10 +4115,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -4176,10 +4176,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -4235,10 +4235,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -4295,10 +4295,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -4355,10 +4355,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -4415,10 +4415,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -4476,10 +4476,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -4536,10 +4536,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -4596,10 +4596,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -4657,10 +4657,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -4717,11 +4717,11 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -4778,11 +4778,11 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -4839,11 +4839,11 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -4900,11 +4900,11 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -4961,11 +4961,11 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -5026,11 +5026,11 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -5088,10 +5088,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -5138,7 +5138,7 @@ Library           String
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
     ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ...    patientInfo={"gender":"","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -5147,10 +5147,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -5198,7 +5198,7 @@ Library           String
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
     ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ...    patientInfo={"gender":"","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -5207,10 +5207,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -5267,10 +5267,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -5326,10 +5326,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -5388,10 +5388,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -5448,72 +5448,72 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
 
 
 
-# 回归测试集-83行,推出疑似诊断top:10:不稳定型心绞痛
-#     [Documentation]
-#     ${Assessment}    Set Variable
-#     ${Subjective}    Set Variable    主诉:胸闷、气促伴双下肢浮肿4天。现病史:患者4天前始出现阵发性胸闷，位于心前区后方，巴掌大范围，呈憋闷感，向下颌部放射，多于体力活动时或赶路时出现，休息半小时可缓解，伴双下肢浮肿，需高枕卧位休息，无寒战发热，无明显心悸胸痛，无咳嗽咳痰，无黑朦晕厥，无腹痛腹胀，开始未重视，在家休息上述症状未见好转，今来我院急诊就医，拟冠心病？高血压并心功能不全住院。患者病来神清，精神可，二便无殊，胃纳及睡眠一般，体重无明显变化。既往有高血压病2年余，定期服药治疗（复方利血平）。
-#     #现病史值
-#     ${presentHistory}    Set Variable
-#     #既往史值
-#     ${previousHistory}    Set Variable
-#     #过敏史值
-#     ${allergyHistory}    Set Variable
-#     #个人史值
-#     ${personalHistory}    Set Variable
-#     #家族史值
-#     ${familyHistory}    Set Variable
-#     #月经史值
-#     ${menstrualHistory}    Set Variable
-#     #婚育史值
-#     ${obstericalHistory}    Set Variable
-#     #诊疗计划值
-#     ${assessmentPlan}    Set Variable
-#     #检查结果值
-#     ${examinationResult}    Set Variable
-#     #检验结果值
-#     ${labTestResult}    Set Variable
-#     #评分结果值
-#     ${gradeResult}    Set Variable
-#     #预防接种史值
-#     ${vaccinationHistory}    Set Variable
-#     #输血史值
-#     ${bloodTransfusionHistory}    Set Variable
-#     #生命体征值
-#     ${vitalSigns}    Set Variable
-#     #辅助检查
-#     ${assistCheck}    Set Variable
-#     #主要健康问题值
-#     ${majorHealth}    Set Variable
-#     ${assert}    Create List    不稳定型心绞痛
-#     [Setup]    Run Keywords    获取时间戳
-#     ...    AND    获取随机数
-#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
-#     ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-#     ...    patientInfo={"gender":"1","age":"69","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
-#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-#     ...    definiteDiagnosis=
-#     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
-#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
-#     ...    labTestList=
-#     ...    examinationList=
-#     ...    newTestList=
-#     ...    operationRecord=
-#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-#     # ...    currentDiseaseName=
-#     ...    newRecogFlag=
-#     ...    newModelFlag=1
-#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-#     List Should Contain Sub List    ${aj[:10]}    ${assert}
+回归测试集-83行,推出疑似诊断top:10:不稳定型心绞痛
+    [Documentation]
+    ${Assessment}    Set Variable
+    ${Subjective}    Set Variable    主诉:胸闷、气促伴双下肢浮肿4天。现病史:患者4天前始出现阵发性胸闷，位于心前区后方，巴掌大范围，呈憋闷感，向下颌部放射，多于体力活动时或赶路时出现，休息半小时可缓解，伴双下肢浮肿，需高枕卧位休息，无寒战发热，无明显心悸胸痛，无咳嗽咳痰，无黑朦晕厥，无腹痛腹胀，开始未重视，在家休息上述症状未见好转，今来我院急诊就医，拟冠心病？高血压并心功能不全住院。患者病来神清，精神可，二便无殊，胃纳及睡眠一般，体重无明显变化。既往有高血压病2年余，定期服药治疗（复方利血平）。
+    #现病史值
+    ${presentHistory}    Set Variable
+    #既往史值
+    ${previousHistory}    Set Variable
+    #过敏史值
+    ${allergyHistory}    Set Variable
+    #个人史值
+    ${personalHistory}    Set Variable
+    #家族史值
+    ${familyHistory}    Set Variable
+    #月经史值
+    ${menstrualHistory}    Set Variable
+    #婚育史值
+    ${obstericalHistory}    Set Variable
+    #诊疗计划值
+    ${assessmentPlan}    Set Variable
+    #检查结果值
+    ${examinationResult}    Set Variable
+    #检验结果值
+    ${labTestResult}    Set Variable
+    #评分结果值
+    ${gradeResult}    Set Variable
+    #预防接种史值
+    ${vaccinationHistory}    Set Variable
+    #输血史值
+    ${bloodTransfusionHistory}    Set Variable
+    #生命体征值
+    ${vitalSigns}    Set Variable
+    #辅助检查
+    ${assistCheck}    Set Variable
+    #主要健康问题值
+    ${majorHealth}    Set Variable
+    ${assert}    Create List    不稳定型心绞痛
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+    ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
+    ...    patientInfo={"gender":"1","age":"69","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+    ...    definiteDiagnosis=
+    ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
+    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+    ...    labTestList=
+    ...    examinationList=
+    ...    newTestList=
+    ...    operationRecord=
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
+    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+    List Should Contain Sub List    ${aj[:10]}    ${assert}
 
 
 
@@ -5568,10 +5568,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -5619,7 +5619,7 @@ Library           String
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
     ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ...    patientInfo={"gender":"","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -5628,10 +5628,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -5689,10 +5689,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -5740,7 +5740,7 @@ Library           String
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
     ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ...    patientInfo={"gender":"","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -5749,10 +5749,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -5810,10 +5810,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -5872,10 +5872,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -5922,7 +5922,7 @@ Library           String
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
     ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ...    patientInfo={"gender":"","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -5931,10 +5931,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -5982,7 +5982,7 @@ Library           String
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
     ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ...    patientInfo={"gender":"","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -5991,10 +5991,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -6053,10 +6053,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -6113,10 +6113,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -6166,7 +6166,7 @@ Library           String
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
     ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ...    patientInfo={"gender":"","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -6175,10 +6175,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -6229,7 +6229,7 @@ Library           String
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
     ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ...    patientInfo={"gender":"","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -6238,10 +6238,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -6298,10 +6298,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -6359,10 +6359,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -6420,10 +6420,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -6471,7 +6471,7 @@ Library           String
     ...    AND    获取随机数
     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
     ...    doctorGuid=0210497    doctorName=hmkj    admissionTime=2018-12-12    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"1","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
+    ...    patientInfo={"gender":"","age":"45","ageType":"岁","maritalStatus":"","pregnancyStatus":"0"}
     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    definiteDiagnosis=
     ...    progressNoteList={"doctorGuid":"0201","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${presentHistory}"},{"key":"既往史","value":"${previousHistory}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"过敏史","value":"${allergyHistory}"},{"key":"个人史","value":"${personalHistory}"},{"key":"家族史","value":"${familyHistory}"},{"key":"月经史","value":"${menstrualHistory}"},{"key":"婚育史","value":"${obstericalHistory}"},{"key":"其他诊断","value":""},{"key":"诊疗计划","value":"${assessmentPlan}"},{"key":"检查结果","value":"${examinationResult}"},{"key":"检验结果","value":"${labTestResult}"},{"key":"评分结果","value":"${gradeResult}"},{"key":"预防接种史","value":"${vaccinationHistory}"},{"key":"输血史","value":"${bloodTransfusionHistory}"},{"key":"生命体征","value":"${vitalSigns}"},{"key":"辅助检查","value":"${assistCheck}"},{"key":"","value":"${majorHealth}"}],"progressType":"2","progressGuid":"22222","recordTime":""}
@@ -6480,10 +6480,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -6541,10 +6541,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -6602,10 +6602,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -6664,10 +6664,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -6728,10 +6728,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:103]}    ${assert}
 
@@ -6790,10 +6790,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -6852,10 +6852,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -6911,10 +6911,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -6972,10 +6972,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -7034,10 +7034,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -7095,10 +7095,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -7156,10 +7156,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:110]}    ${assert}
 
@@ -7216,10 +7216,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -7276,10 +7276,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -7337,10 +7337,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -7399,10 +7399,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -7460,10 +7460,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -7521,10 +7521,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -7583,10 +7583,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -7643,10 +7643,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -7702,10 +7702,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -7762,10 +7762,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -7822,10 +7822,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -7882,10 +7882,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -7942,9 +7942,9 @@ Library           String
 #     ...    examinationList=
 #     ...    newTestList=
 #     ...    operationRecord=
-#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    # ...    newRecogFlag=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     ...    currentDiseaseName=
+# ...    newRecogFlag=        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
 #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
 #     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -8001,10 +8001,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -8062,10 +8062,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -8122,10 +8122,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -8181,10 +8181,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -8241,10 +8241,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -8301,10 +8301,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -8362,10 +8362,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -8422,10 +8422,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -8482,10 +8482,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -8544,9 +8544,9 @@ Library           String
 #     ...    examinationList=
 #     ...    newTestList=
 #     ...    operationRecord=
-#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    # ...    newRecogFlag=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     ...    currentDiseaseName=
+# ...    newRecogFlag=        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
 #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
 #     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -8603,10 +8603,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -8665,9 +8665,9 @@ Library           String
 #     ...    examinationList=
 #     ...    newTestList=
 #     ...    operationRecord=
-#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    # ...    newRecogFlag=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     ...    currentDiseaseName=
+# ...    newRecogFlag=        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
 #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
 #     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -8726,10 +8726,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -8787,10 +8787,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -8847,10 +8847,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -8907,10 +8907,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -8968,9 +8968,9 @@ Library           String
 #     ...    examinationList=
 #     ...    newTestList=
 #     ...    operationRecord=
-#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    # ...    newRecogFlag=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     ...    currentDiseaseName=
+# ...    newRecogFlag=        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
 #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
 #     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -9027,9 +9027,9 @@ Library           String
 #     ...    examinationList=
 #     ...    newTestList=
 #     ...    operationRecord=
-#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    # ...    newRecogFlag=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     ...    currentDiseaseName=
+# ...    newRecogFlag=        ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
 #     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
 #     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -9085,10 +9085,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -9145,10 +9145,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -9205,10 +9205,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -9266,10 +9266,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -9328,10 +9328,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -9388,10 +9388,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -9448,10 +9448,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -9509,10 +9509,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -9569,10 +9569,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -9629,10 +9629,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -9690,10 +9690,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:10]}    ${assert}
 
@@ -9750,10 +9750,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -9811,10 +9811,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 
@@ -9872,10 +9872,10 @@ Library           String
     ...    examinationList=
     ...    newTestList=
     ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"45","unit":"","frequency":"","pathway":"","specification":""}]}
-    # ...    currentDiseaseName=
-    ...    newRecogFlag=
-    ...    newModelFlag=1
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+    ...    currentDiseaseName=
+    # ...    newRecogFlag=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     List Should Contain Sub List    ${aj[:5]}    ${assert}
 

@@ -874,12 +874,20 @@ ame管理_文档列表查询
     [Return]    ${responsedata}
 
 智能推荐
-    [Arguments]    ${userGuid}    ${serialNumber}    ${doctorGuid}    ${patientName}    ${doctorName}    ${admissionTime}
-    ...    ${inpatientDepartment}    ${pageSource}    ${patientInfo}    ${physicalSign}    ${definiteDiagnosis}    ${progressNoteList}
-    ...    ${deleteProgressNoteList}    ${labTestList}    ${examinationList}    ${newTestList}    ${operationRecord}    ${prescriptions}
-    ...    ${newRecogFlag}    ${newModelFlag}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=7195F12825788F09375C2DB1E922F108
-    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=D7928B9182ABF6E0A6A6EBB71B353585
+    [Arguments]    ${userGuid}    ${serialNumber}    ${patientName}    ${doctorGuid}    ${doctorName}    ${admissionTime}    ${inpatientDepartment}    ${pageSource}
+    ...    ${patientInfo}
+    ...    ${physicalSign}
+    ...    ${definiteDiagnosis}
+    ...    ${progressNoteList}
+    ...    ${deleteProgressNoteList}
+    ...    ${labTestList}
+    ...    ${examinationList}
+    ...    ${newTestList}
+    ...    ${operationRecord}
+    ...    ${prescriptions}
+    ...    ${currentDiseaseName}
+    ...    ${medicalOrders}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${base_url}    ${dict}
     Create Session    api    ${mayson_url}    ${dict}
     ${patientInfo}    Evaluate    dict(${patientInfo})
@@ -892,13 +900,15 @@ ame管理_文档列表查询
     ${newTestList}    Evaluate    [${newTestList}]
     ${operationRecord}    Evaluate    dict(${operationRecord})
     ${prescriptions}    Evaluate    ${prescriptions}
-    ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    patientName=${patientName}    doctorGuid=${doctorGuid}    doctorName=${doctorName}
-    ...    admissionTime=${admissionTime}    inpatientDepartment=${inpatientDepartment}    pageSource=${pageSource}    patientInfo=${patientInfo}    physicalSign=${physicalSign}    definiteDiagnosis=${definiteDiagnosis}
-    ...    progressNoteList=${progressNoteList}    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}    examinationList=${examinationList}    prescriptions=${prescriptions}    newTestList=${newTestList}
-    ...    operationRecord=${operationRecord}    newRecogFlag=${newRecogFlag}    newModelFlag=${newModelFlag}
+    ${medicalOrders}    Evaluate    dict(${medicalOrders})
+    ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    patientName=${patientName}    doctorGuid=${doctorGuid}    doctorName=${doctorName}    admissionTime=${admissionTime}    inpatientDepartment=${inpatientDepartment}    pageSource=${pageSource}    patientInfo=${patientInfo}
+    ...    physicalSign=${physicalSign}    definiteDiagnosis=${definiteDiagnosis}    progressNoteList=${progressNoteList}
+    ...    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}    examinationList=${examinationList}
+    ...    newTestList=${newTestList}    operationRecord=${operationRecord}    prescriptions=${prescriptions}    currentDiseaseName=${currentDiseaseName}    medicalOrders=${medicalOrders}
     ${addr}    Post Request    api    mayson/v_1_0/intelligent_recommendation    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+
 
 智能推荐模板
     [Arguments]    ${userGuid}    ${serialNumber}    ${patientInfo}    ${progressNoteList}    # ...    ${doctorGuid}
