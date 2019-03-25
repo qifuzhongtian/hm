@@ -2,7 +2,7 @@
 #mayson生产环境
 ${mayson_url}     http://mayson.huimeionline.com/cdss
 #apollo生产环境
-# ${base_url}       http://apollo.huimeionline.com
+${base_url}       http://apollo.huimeionline.com
 #文献生产环境
 ${doc_url}        http://doc.huimeionline.com/doc
 #ame生产环境
@@ -13,7 +13,7 @@ ${base_url_sf}    http://10.27.213.55:9092
 
 ######################apollo######################
 #apollo测试环境
-${base_url}     http://10.117.64.153:8080
+# ${base_url}     http://10.117.64.153:8080
 #apollo预发环境
 # ${base_url}     http://pretest-apollo.huimeionline.com
 #apolloPD环境
