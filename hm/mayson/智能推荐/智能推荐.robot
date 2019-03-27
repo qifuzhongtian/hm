@@ -580,29 +580,29 @@ Library           String
 
 
 
-质控:医嘱-检验,推出:呼吸道病毒筛查
-    [Documentation]
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    # ${timestamp}    Get Time    epoch
-    ${Assessment}    Set Variable    社区获得性肺炎
-    ${Subjective}    Set Variable    群聚性发病
-    ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
-    ...    doctorGuid=0210497    doctorName=测试医生    admissionTime=2018-12-12    inpatientDepartment=儿科
-    ...    patientInfo={"gender":"1","age":"19","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
-    ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
-    ...    definiteDiagnosis=
-    ...    progressNoteList={"progressGuid": "1542285932572","progressType": 2,"msgType": 2,"messageList": [{"key": "姓名","value": "lm--3.3-2"}, {"key": "科室","value": "内分泌科"}, {"key": "住院号","value": "1542285932572"}, {"key": "记录时间","value": ""}, {"key": "现病史","value": ""}, {"key": "体格检查","value": ""}, {"key": "初步诊断","value": "${Assessment}"}, {"key": "其他诊断","value": ""}, {"key": "诊断依据","value": ""}, {"key": "诊疗计划","value": ""}, {"key": "检查结果","value": ""}, {"key": "检验结果","value": ""}, {"key": "评估结果","value": ""}, {"key": "诊断记录","value": ""}, {"key": "医生签名","value": ""}]}
-    ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGid":"","recordTime":""}
-    ...    labTestList=
-    ...    examinationList=
-    ...    newTestList=
-    ...    operationRecord=
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
-    ...    currentDiseaseName=
-    ...    medicalOrders=
-    ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['qualityControlResponse']['examinationRecommendList']]
-    should  Contain    ${aj}    呼吸道病毒筛查
+# 质控:医嘱-检验,推出:呼吸道病毒筛查
+#     [Documentation]
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     # ${timestamp}    Get Time    epoch
+#     ${Assessment}    Set Variable    社区获得性肺炎
+#     ${Subjective}    Set Variable    群聚性发病
+#     ${getRes}    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
+#     ...    doctorGuid=0210497    doctorName=测试医生    admissionTime=2018-12-12    inpatientDepartment=儿科
+#     ...    patientInfo={"gender":"1","age":"19","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}
+#     ...    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+#     ...    definiteDiagnosis=
+#     ...    progressNoteList={"progressGuid": "1542285932572","progressType": 2,"msgType": 2,"messageList": [{"key": "姓名","value": "lm--3.3-2"}, {"key": "科室","value": "内分泌科"}, {"key": "住院号","value": "1542285932572"}, {"key": "记录时间","value": ""}, {"key": "现病史","value": ""}, {"key": "体格检查","value": ""}, {"key": "初步诊断","value": "${Assessment}"}, {"key": "其他诊断","value": ""}, {"key": "诊断依据","value": ""}, {"key": "诊疗计划","value": ""}, {"key": "检查结果","value": ""}, {"key": "检验结果","value": ""}, {"key": "评估结果","value": ""}, {"key": "诊断记录","value": ""}, {"key": "医生签名","value": ""}]}
+#     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGid":"","recordTime":""}
+#     ...    labTestList=
+#     ...    examinationList=
+#     ...    newTestList=
+#     ...    operationRecord=
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}
+#     ...    currentDiseaseName=
+#     ...    medicalOrders=
+#     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['qualityControlResponse']['examinationRecommendList']]
+#     should  Contain    ${aj}    呼吸道病毒筛查
 
 
 
