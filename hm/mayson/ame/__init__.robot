@@ -1,2 +1,2 @@
 *** Settings ***
-Force Tags        mayson
+Force Tags        skip
