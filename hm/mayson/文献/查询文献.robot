@@ -12,10 +12,10 @@ Library           String    # 字段名 类型    是否必须    说明    # { 
 *** Test Cases ***
 搜索文献
     ############评估历史#############
-    ${getRes}    搜索文献    name=血    diseaseId=    pageSize=10    currentPage=1    startDate=0
+    ${getRes}    搜索文献    name=幽门螺杆菌    diseaseId=    pageSize=10    currentPage=1    startDate=0
     ...    endDate=0    departmentId=0    countryId=0    orgName=
     ${aj}    Evaluate    [aj['cnTitle'] for aj in $getRes['body']['documentList']]
-    Should Contain    ${aj}    脑出血后脑血流低灌注的临床研究进展
+    Should Contain    ${aj}    治疗幽门螺杆菌对胃癌的预防作用
     # Should Be Equal As Strings    ${getRes['head']['error']}    0
 
 按筛选文献搜索
