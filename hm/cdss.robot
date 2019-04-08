@@ -54,6 +54,7 @@ ${base_url_95}    http://10.46.74.95:9200
 ${base_url_219}    http://10.165.102.219:9200
 #宏利号
 ${Huimei_id}      7195F12825788F09375C2DB1E922F108
+#亚心id
 ${Huimei_id2}      831ECD7EBA1EDBCE677AC9DB679DF815
 ${Huimei_his}     01217002C571E1622927516DB4A1C803
 ${Huimei_id_safe_medication}    7195F12825788F09375C2DB1E922F108
@@ -1252,7 +1253,7 @@ mayson默认推荐
     ...    ${inpatientDepartment}    ${pageSource}    ${requestSource}    ${patientInfo}    ${physicalSign}    ${definiteDiagnosis}    ${progressNoteList}
     ...    ${deleteProgressNoteList}    ${labTestList}    ${examinationList}    ${newTestList}    ${operationRecord}    ${prescriptions}
     ...    ${currentDiseaseName}    ${medicalOrders}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id2}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${base_url}    ${dict}
     Create Session    api    ${mayson_profile}    ${dict}
     ${patientInfo}    Evaluate    dict(${patientInfo})
