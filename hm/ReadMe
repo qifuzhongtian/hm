@@ -28,9 +28,9 @@ fuxi接口url {fuxi_data},改成 http://负载ip/node/active ,adminse 修改 ${a
  
 
 自动化脚本的执行：使用以下命令进行执行,
-住院版执行:pybot mayson
-门诊版执行:pybot cdss
-伏羲和adminSe执行:pybot fuxi adminse
+住院版执行:pybot -e skip mayson
+门诊版执行:pybot -e skip cdss
+伏羲和adminSe执行:pybot -e skip fuxi adminse
 
 自动化测试执行完后，在执行命令的目录下会生成report.html,log.html文件，我们通过sz log.html的命令来下载日志文件，查看自动化的结果。
 
