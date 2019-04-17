@@ -2,7 +2,9 @@
 #mayson生产环境
 ${mayson_url}     http://mayson.huimeionline.com/cdss
 #apollo生产环境
-${base_url}       http://apollo.huimeionline.com
+# ${base_url}       http://apollo.huimeionline.com
+# ${base_url}       http://10.165.102.219:8080
+${base_url}       http://mayson.huimeionline.com/cdss
 #文献生产环境
 ${doc_url}        http://doc.huimeionline.com/doc
 #ame生产环境
@@ -1021,11 +1023,16 @@ mayson默认推荐搜索
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
+
+
 智能推荐test
-    [Arguments]    ${userGuid}    ${serialNumber}    ${patientInfo}    ${physicalSign}    ${definiteDiagnosis}    ${progressNoteList}
-    ...    ${deleteProgressNoteList}    ${labTestList}    ${examinationList}
+    [Arguments]    ${userGuid}    ${serialNumber}    ${patientName}    ${doctorGuid}    ${doctorName}    ${admissionTime}
+    ...    ${inpatientDepartment}    ${pageSource}    ${patientInfo}    ${physicalSign}    ${definiteDiagnosis}    ${progressNoteList}
+    ...    ${deleteProgressNoteList}    ${labTestList}    ${examinationList}    ${newTestList}    ${operationRecord}    ${prescriptions}
+    ...    ${currentDiseaseName}    ${medicalOrders}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${mayson_url}    ${dict}
+    # Create Session    api    ${base_url}    ${dict}
+    Create Session    api    http://10.117.64.153:8080    ${dict}
     ${patientInfo}    Evaluate    dict(${patientInfo})
     ${physicalSign}    Evaluate    dict(${physicalSign})
     ${definiteDiagnosis}    Evaluate    [${definiteDiagnosis}]
@@ -1033,12 +1040,38 @@ mayson默认推荐搜索
     ${deleteProgressNoteList}    Evaluate    [${deleteProgressNoteList}]
     ${labTestList}    Evaluate    [${labTestList}]
     ${examinationList}    Evaluate    [${examinationList}]
-    ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    patientInfo=${patientInfo}    physicalSign=${physicalSign}    definiteDiagnosis=${definiteDiagnosis}
-    ...    progressNoteList=${progressNoteList}    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}    examinationList=${examinationList}
-    ${addr}    Post Request    api    mayson/v_1_0/intelligent_recommendation    data=${data}
+    ${newTestList}    Evaluate    [${newTestList}]
+    ${operationRecord}    Evaluate    dict(${operationRecord})
+    ${prescriptions}    Evaluate    ${prescriptions}
+    ${medicalOrders}    Evaluate    dict(${medicalOrders})
+    ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    patientName=${patientName}    doctorGuid=${doctorGuid}    doctorName=${doctorName}
+    ...    admissionTime=${admissionTime}    inpatientDepartment=${inpatientDepartment}    pageSource=${pageSource}    patientInfo=${patientInfo}    physicalSign=${physicalSign}    definiteDiagnosis=${definiteDiagnosis}
+    ...    progressNoteList=${progressNoteList}    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}    examinationList=${examinationList}    newTestList=${newTestList}    operationRecord=${operationRecord}
+    ...    prescriptions=${prescriptions}    currentDiseaseName=${currentDiseaseName}    medicalOrders=${medicalOrders}
+    ${addr}    Post Request    api    mayson/v_2_0/intelligent_recommendation    data=${data}
     ${responsedata}    To Json    ${addr.content}
-    ########历史评估表################
     [Return]    ${responsedata}
+
+
+
+# 智能推荐test
+#     [Arguments]    ${userGuid}    ${serialNumber}    ${patientInfo}    ${physicalSign}    ${definiteDiagnosis}    ${progressNoteList}
+#     ...    ${deleteProgressNoteList}    ${labTestList}    ${examinationList}
+#     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+#     Create Session    api    ${mayson_url}    ${dict}
+#     ${patientInfo}    Evaluate    dict(${patientInfo})
+#     ${physicalSign}    Evaluate    dict(${physicalSign})
+#     ${definiteDiagnosis}    Evaluate    [${definiteDiagnosis}]
+#     ${progressNoteList}    Evaluate    [${progressNoteList}]
+#     ${deleteProgressNoteList}    Evaluate    [${deleteProgressNoteList}]
+#     ${labTestList}    Evaluate    [${labTestList}]
+#     ${examinationList}    Evaluate    [${examinationList}]
+#     ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    patientInfo=${patientInfo}    physicalSign=${physicalSign}    definiteDiagnosis=${definiteDiagnosis}
+#     ...    progressNoteList=${progressNoteList}    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}    examinationList=${examinationList}
+#     ${addr}    Post Request    api    mayson/v_1_0/intelligent_recommendation    data=${data}
+#     ${responsedata}    To Json    ${addr.content}
+#     ########历史评估表################
+#     [Return]    ${responsedata}
 
 保存评估历史记录
     [Arguments]    ${recordId}    ${assessId}    ${assessName}    ${patientGuid}    ${serialNumber}    ${assessResult}
