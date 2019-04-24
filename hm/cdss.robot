@@ -7,6 +7,8 @@ ${mayson_url}     http://mayson.huimeionline.com/cdss
 ${base_url}       http://mayson.huimeionline.com/cdss
 #文献生产环境
 ${doc_url}        http://doc.huimeionline.com/doc
+#文献前端环境
+${doc_fe}         http://doc.huimeionline.com
 #ame生产环境
 ${base_url_ame}    http://10.46.74.95:8092
 ${base_url_sf}    http://10.27.213.55:9092
@@ -59,7 +61,6 @@ ${Huimei_id_his}    D7928B9182ABF6E0A6A6EBB71B353585
 ${Huimei_id_xw}    8C946583A4EE9174D7B2D1697066BFA2
 #amcPc版
 ${base_url_amc}    http://amc.huimeionline.com
-${doc_fe}         http://doc.huimeionline.com
 
 *** Keywords ***
 获取时间戳
