@@ -1,4 +1,4 @@
-内网robotframework安装使用操作手册
+﻿内网robotframework安装使用操作手册
 
 robotframework安装：
 
@@ -23,13 +23,14 @@ http://git.huimei-inc.com/yinbo/apiTesting/tree/master/hm
 各类客户id，由于我们在内网统一使用“我是尹宏利”的${Huimei_id}测试key进行验证,所有的key都改成这个
 文献接口的路径修改，因线上与医院内网文献接口路径不一致，需要在内网改为 路径设置为：http://负载ip/cdss
 
-fuxi接口url {fuxi_data},改成 http://负载ip/node/active ,adminse 修改 ${adminse} http://负载ip
+fuxi接口url {fuxi_data},改成 http://负载ip/node/active ,adminse 修改 ${adminse}、${doc_online}  http://负载ip,修改${doc_online} 
 
  
 
 自动化脚本的执行：使用以下命令进行执行,
 住院版执行:pybot -e skip mayson
 门诊版执行:pybot -e skip cdss
+新版质控医院执行（如亚心）:pybot -e profileskip mayson
 伏羲和adminSe执行:pybot -e skip fuxi adminse
 
 自动化测试执行完后，在执行命令的目录下会生成report.html,log.html文件，我们通过sz log.html的命令来下载日志文件，查看自动化的结果。

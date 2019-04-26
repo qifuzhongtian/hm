@@ -9,6 +9,8 @@ ${base_url}       http://mayson.huimeionline.com/cdss
 ${doc_url}        http://doc.huimeionline.com/doc
 #文献前端环境
 ${doc_fe}         http://doc.huimeionline.com
+#文献线上
+${doc_online}     http://120.26.223.139
 #ame生产环境
 ${base_url_ame}    http://10.46.74.95:8092
 ${base_url_sf}    http://10.27.213.55:9092
