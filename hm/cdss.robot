@@ -1007,6 +1007,7 @@ mayson默认推荐搜索
     ...    admissionTime=${admissionTime}    inpatientDepartment=${inpatientDepartment}    pageSource=${pageSource}    patientInfo=${patientInfo}    physicalSign=${physicalSign}    definiteDiagnosis=${definiteDiagnosis}
     ...    progressNoteList=${progressNoteList}    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}    examinationList=${examinationList}    newTestList=${newTestList}    operationRecord=${operationRecord}
     ...    prescriptions=${prescriptions}    currentDiseaseName=${currentDiseaseName}    medicalOrders=${medicalOrders}
+    log    ${data}
     ${addr}    Post Request    api    mayson/v_1_0/intelligent_recommendation    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
@@ -1062,6 +1063,7 @@ mayson默认推荐搜索
     ${historyItemList}    Evaluate    [${historyItemList}]
     ${data}    Create Dictionary    recordId=${recordId}    assessId=${assessId}    assessName=${assessName}    patientGuid=${patientGuid}    serialNumber=${serialNumber}
     ...    assessResult=${assessResult}    assessConclusion=${assessConclusion}    historyItemList=${historyItemList}    source=${source}    resultContent=${resultContent}
+    log    ${data}
     ${addr}    Post Request    api    /mayson/v_1_0/assesshistory/save    data=${data}
     ${responsedata}    To Json    ${addr.content}
     ${assessHistoryId}    Get From Dictionary    ${responsedata['body']}    assessHistoryId
@@ -1279,6 +1281,7 @@ mayson默认推荐
     ...    admissionTime=${admissionTime}    inpatientDepartment=${inpatientDepartment}    pageSource=${pageSource}    requestSource=${requestSource}    patientInfo=${patientInfo}    physicalSign=${physicalSign}
     ...    definiteDiagnosis=${definiteDiagnosis}    progressNoteList=${progressNoteList}    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}    examinationList=${examinationList}    newTestList=${newTestList}
     ...    operationRecord=${operationRecord}    prescriptions=${prescriptions}    currentDiseaseName=${currentDiseaseName}    medicalOrders=${medicalOrders}
+    log    ${data}
     ${addr}    Post Request    api    mayson/v_1_1/intelligent_recommendation    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
@@ -1392,3 +1395,115 @@ adminse登录
     ${addr}    Get Request    api
     #${responsedata}    To Json    ${addr.content}
     [Return]    ${addr}
+
+病情评估_儿童哮喘
+    [Arguments]    ${userGuid}    ${serialNumber}    ${age}    ${ageType}    ${chronicDiseaseId}    ${sex}
+    ...    ${riskFactorId}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${base_url}    ${dict}
+    # Create Session    api    ${mayson_url}    ${dict}
+    ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    age=${age}    ageType=${ageType}    chronicDiseaseId=${chronicDiseaseId}
+    ...    sex=${sex}    riskFactorId=${riskFactorId}
+    ${addr}    Post Request    api    /ncds/v_1_0/chronicdisease/asthma/recommend    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+药物治疗
+    [Arguments]    ${userGuid}    ${serialNumber}    ${age}    ${ageType}    ${chronic_disease_id}    ${sex}
+    ...    ${categoryId}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${base_url}    ${dict}
+    # Create Session    api    ${mayson_url}    ${dict}
+    ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    age=${age}    ageType=${ageType}    chronic_disease_id=${chronic_disease_id}
+    ...    sex=${sex}    categoryId=${categoryId}
+    ${addr}    Post Request    api    /ncds/v_1_0/chronicdisease/medicine    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+患者教育
+    [Arguments]    ${userGuid}    ${serialNumber}    ${age}    ${ageType}    ${chronicDiseaseId}    ${sex}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${base_url}    ${dict}
+    # Create Session    api    ${mayson_url}    ${dict}
+    ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    age=${age}    ageType=${ageType}    diseaseId=${chronicDiseaseId}
+    ...    sex=${sex}
+    ${addr}    Post Request    api    /v_2_0/disease/patientInstructor    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+慢病打开
+    [Arguments]    ${userGuid}    ${serialNumber}    ${age}    ${ageType}    ${chronicDiseaseId}    ${sex}
+    ...    ${assistExamineDiabetesPojo}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${base_url}    ${dict}
+    # Create Session    api    ${mayson_url}    ${dict}
+    ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    age=${age}    ageType=${ageType}    chronicDiseaseId=${chronicDiseaseId}
+    ...    sex=${sex}    assistExamineDiabetesPojo=${assistExamineDiabetesPojo}
+    ${addr}    Post Request    api    /ncds/v_1_0/chronicdisease/init    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+病情评估_糖尿病
+    [Arguments]    ${userGuid}    ${serialNumber}    ${age}    ${ageType}    ${chronicDiseaseId}    ${sex}
+    ...    ${riskFactorId}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${base_url}    ${dict}
+    # Create Session    api    ${mayson_url}    ${dict}
+    ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    age=${age}    ageType=${ageType}    chronicDiseaseId=${chronicDiseaseId}
+    ...    sex=${sex}    riskFactorId=${riskFactorId}
+    ${addr}    Post Request    api    /ncds/v_1_0/chronicdisease/recommend    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+慢病打开_三高
+    [Arguments]    ${userGuid}    ${serialNumber}    ${age}    ${ageType}    ${chronicDiseaseId}    ${sex}
+    ...    ${assistExamineDiabetesPojo}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${base_url}    ${dict}
+    # Create Session    api    ${mayson_url}    ${dict}
+    ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    age=${age}    ageType=${ageType}    chronicDiseaseId=${chronicDiseaseId}
+    ...    sex=${sex}    assistExamineDiabetesPojo=${assistExamineDiabetesPojo}
+    ${addr}    Post Request    api    /ncds/v_1_0/chronicdisease/threehigh/baseinfo/init    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+慢病打开_高血压
+    [Arguments]    ${userGuid}    ${serialNumber}    ${age}    ${ageType}    ${chronicDiseaseId}    ${sex}
+    ...    ${assistExamineDiabetesPojo}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${base_url}    ${dict}
+    # Create Session    api    ${mayson_url}    ${dict}
+    ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    age=${age}    ageType=${ageType}    chronicDiseaseId=${chronicDiseaseId}
+    ...    sex=${sex}    assistExamineDiabetesPojo=${assistExamineDiabetesPojo}
+    ${addr}    Post Request    api    /ncds/v_1_1/blood_pressure_exam_info_acquire    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+病情评估_高血压
+    [Arguments]    ${userGuid}    ${serialNumber}    ${age}    ${ageType}    ${bloodPressure}    ${gender}
+    ...    ${dangerFactors}    ${deeperConfirms}    ${pastMedicalHistory}    ${targetOrganDamages}    ${personalHistory}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${base_url}    ${dict}
+    # Create Session    api    ${mayson_url}    ${dict}
+    ${bloodPressure}    Evaluate    dict(${bloodPressure})
+    ${dangerFactors}    Evaluate    [${dangerFactors}]
+    ${deeperConfirms}    Evaluate    [${deeperConfirms}]
+    ${pastMedicalHistory}    Evaluate    [${pastMedicalHistory}]
+    ${targetOrganDamages}    Evaluate    [${targetOrganDamages}]
+    ${personalHistory}    Evaluate    [${personalHistory}]
+    ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    age=${age}    ageType=${ageType}    bloodPressure=${bloodPressure}
+    ...    gender=${gender}    dangerFactors=${dangerFactors}    deeperConfirms=${deeperConfirms}    pastMedicalHistory=${pastMedicalHistory}    targetOrganDamages=${targetOrganDamages}    personalHistory=${personalHistory}
+    ${addr}    Post Request    api    /ncds/v_1_1/hbp_treatment_recommend    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+药物治疗_高血压
+    [Arguments]    ${userGuid}    ${serialNumber}    ${age}    ${ageType}    ${classification}    ${sex}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${base_url}    ${dict}
+    # Create Session    api    ${mayson_url}    ${dict}
+    ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    age=${age}    ageType=${ageType}    classification=${classification}
+    ...    sex=${sex}
+    ${addr}    Post Request    api    /ncds/v_1_1/antihypertensive_drug    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
