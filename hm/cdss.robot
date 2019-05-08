@@ -1035,7 +1035,7 @@ mayson默认推荐搜索
     ...    admissionTime=${admissionTime}    inpatientDepartment=${inpatientDepartment}    pageSource=${pageSource}    patientInfo=${patientInfo}    physicalSign=${physicalSign}    definiteDiagnosis=${definiteDiagnosis}
     ...    progressNoteList=${progressNoteList}    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}    examinationList=${examinationList}    newTestList=${newTestList}    operationRecord=${operationRecord}
     ...    prescriptions=${prescriptions}    currentDiseaseName=${currentDiseaseName}    medicalOrders=${medicalOrders}
-    ${addr}    Post Request    api    mayson/v_2_0/intelligent_recommendation    data=${data}
+    ${addr}    Post Request    api    mayson/v_1_0/intelligent_recommendation    data=${data}
     ${responsedata}    To Json    ${addr.content}    # 智能推荐test    #    [Arguments]    ${userGuid}
     ...    # ${serialNumber}    ${patientInfo}    ${physicalSign}    ${definiteDiagnosis}    # ${progressNoteList}    #
     ...    # ...    ${deleteProgressNoteList}    ${labTestList}    ${examinationList}    #    ${dict}
