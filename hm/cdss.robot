@@ -18,6 +18,8 @@ ${fuxi_data}      http://fuxi.huimeionline.com/node/active/
 ${adminse}        http://admin-se.huimeionline.com/
 #amcPc版       修改成http://负载ip/cdss
 ${base_url_amc}    http://amc.huimeionline.com
+# ${mayson_profile}    修改成http://负载ip/cdss
+${mayson_profile}    http://profile.huimeionline.com/cdss
 #=======以下内容不需要修改==============#
 ######################apollo######################
 ${base_url_sf} 		http://10.27.213.55:9092
@@ -35,8 +37,6 @@ ${base_url_sf} 		http://10.27.213.55:9092
 #mayson测试环境
 # ${mayson_url}    http://test-mayson.huimeionline.com/cdss
 # ${mayson_url}    http://profile.huimeionline.com/cdss
-# ${mayson_profile}    http://test-profile.huimeionline.com/cdss
-${mayson_profile}    http://profile.huimeionline.com/cdss
 #mayson预发环境
 # ${mayson_url}    http://pretest-mayson.huimeionline.com/cdss
 ######################文献######################
