@@ -1,24 +1,26 @@
 *** Variables ***
-#mayson生产环境
+#=======医院内网需要修改的==============#
+#mayson生产环境  修改成http://负载ip/cdss
 ${mayson_url}     http://mayson.huimeionline.com/cdss
-#apollo生产环境
-# ${base_url}     http://apollo.huimeionline.com
-# ${base_url}     http://10.165.102.219:8080
+#apollo生产环境  修改成http://负载ip/cdss
 ${base_url}       http://mayson.huimeionline.com/cdss
-#文献生产环境
+#文献生产环境     修改成http://负载ip/cdss
 ${doc_url}        http://doc.huimeionline.com/doc
-#文献前端环境
+#文献前端环境     修改成http://负载ip/wenxian
 ${doc_fe}         http://doc.huimeionline.com
-#文献线上
+#文献线上         修改成http://负载ip
 ${doc_online}     http://120.26.223.139
-#ame生产环境
+#ame生产环境      修改成http://负载ip
 ${base_url_ame}    http://10.46.74.95:8092
-${base_url_sf}    http://10.27.213.55:9092
-#fuxi验证接口
+#fuxi验证接口   修改成 http://负载ip/node/active
 ${fuxi_data}      http://fuxi.huimeionline.com/node/active/
-#adminse
+#adminse        修改成http://负载ip
 ${adminse}        http://admin-se.huimeionline.com/
+#amcPc版       修改成http://负载ip/cdss
+${base_url_amc}    http://amc.huimeionline.com
+#=======以下内容不需要修改==============#
 ######################apollo######################
+${base_url_sf} 		http://10.27.213.55:9092
 #apollo测试环境
 # ${base_url}     http://10.117.64.153:8080
 #apollo预发环境
@@ -61,8 +63,7 @@ ${Huimei_id_jd}    C3E74C229156E6B31534E946BCDEBA94
 ${Huimei_id_his}    D7928B9182ABF6E0A6A6EBB71B353585
 ##宣武医院
 ${Huimei_id_xw}    8C946583A4EE9174D7B2D1697066BFA2
-#amcPc版
-${base_url_amc}    http://amc.huimeionline.com
+
 
 *** Keywords ***
 获取时间戳
@@ -777,7 +778,7 @@ ame登录
 ame查询
     [Arguments]    ${name}
     ${dict}    Create Dictionary    Content-Type=application/json
-    # Create Session    api    ${base_url_ame}    ${dict}
+    #Create Session    api    ${base_url_ame}    ${dict}
     ${data}    Create Dictionary    name=${name}
     ${addr}    Post Request    api    ame/search    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -1263,7 +1264,8 @@ mayson默认推荐
     ...    ${inpatientDepartment}    ${pageSource}    ${requestSource}    ${patientInfo}    ${physicalSign}    ${definiteDiagnosis}
     ...    ${progressNoteList}    ${deleteProgressNoteList}    ${labTestList}    ${examinationList}    ${newTestList}    ${operationRecord}
     ...    ${prescriptions}    ${currentDiseaseName}    ${medicalOrders}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}    Cookie=${Cookie_value}
     # Create Session    api    ${base_url}    ${dict}
     Create Session    api    ${mayson_profile}    ${dict}
     ${patientInfo}    Evaluate    dict(${patientInfo})
