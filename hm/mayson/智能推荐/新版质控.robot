@@ -455,7 +455,7 @@ Library           DateTime
     Should Contain    ${aj}    痰培养
 
 
-新版质控:社区获得性肺炎-小儿,推出质控推荐检查,出院记录,推出检查:肺炎病原学检查
+新版质控:社区获得性肺炎-小儿,推出质控推荐检查,出院记录,推出检查:痰涂片染色及细菌培养
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -479,7 +479,7 @@ Library           DateTime
     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     #####质控推荐检查
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['qualityControlResponse']['examinationRecommendList']]
-    Should Contain    ${aj}    肺炎病原学检查
+    Should Contain    ${aj}    痰涂片染色及细菌培养
 
 
 
