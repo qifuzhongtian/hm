@@ -17,7 +17,7 @@ ${mayson_url}     http://test-mayson.huimeionline.com/cdss
 # ${mayson_url}    http://pd-mayson.huimeionline.com/cdss
 #预发环境
 # ${mayson_url}    http://test-mayson.huimeionline.com/cdss
-${base_url}       http://10.117.64.153:8080
+${base_url}       http://test-mayson.huimeionline.com/cdss
 ${doc_url}        http://test-doc.huimeionline.com/
 ##负载
 # ${mayson_url}    http://192.168.1.13/cdss
@@ -27,7 +27,7 @@ ${doc_url}        http://test-doc.huimeionline.com/
 #95
 # ${base_url}     http://10.46.74.95:9200
 ##测试
-${Huimei_id}      78D211AA892A8155EF18F4CDB967043A
+${Huimei_id}      7195F12825788F09375C2DB1E922F108
 # ${Huimei_id}    7195F12825788F09375C2DB1E922F108
 ###建德线上
 # ${Huimei_id_jd}    C3E74C229156E6B31534E946BCDEBA94
@@ -1253,6 +1253,7 @@ mayson默认推荐
     ${responsedata}    To Json    ${addr.content}
     ${aj}    Evaluate    [aj['word'] for aj in $responsedata['body']['recognizeResultList']]
     Should Contain    ${aj}    ${assert}    ignore_case=true
+
 智能推荐_鉴别诊断
     [Arguments]    ${userGuid}    ${serialNumber}    ${patientName}    ${doctorGuid}    ${doctorName}    ${admissionTime}
     ...    ${inpatientDepartment}    ${pageSource}    ${requestSource}    ${patientInfo}    ${physicalSign}    ${definiteDiagnosis}
