@@ -20,6 +20,7 @@ ${adminse}        http://admin-se.huimeionline.com/
 ${base_url_amc}    http://amc.huimeionline.com
 # ${mayson_profile}    修改成http://负载ip/cdss
 ${mayson_profile}    http://profile.huimeionline.com/cdss
+# ${mayson_profile}    http://test-profile.huimeionline.com/cdss
 #=======以下内容不需要修改==============#
 ######################apollo######################
 ${base_url_sf} 		http://10.27.213.55:9092
@@ -1057,18 +1058,31 @@ mayson默认推荐搜索
 
 保存评估历史记录
     [Arguments]    ${recordId}    ${assessId}    ${assessName}    ${patientGuid}    ${serialNumber}    ${assessResult}
-    ...    ${assessConclusion}    ${historyItemList}    ${source}    ${resultContent}
+    ...    ${assessConclusion}    ${historyItemList}    ${source}    ${resultContent}    ${assessItemWordIds}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${mayson_url}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
     ${historyItemList}    Evaluate    [${historyItemList}]
+    ${assessItemWordIds}    Evaluate    [${assessItemWordIds}]
     ${data}    Create Dictionary    recordId=${recordId}    assessId=${assessId}    assessName=${assessName}    patientGuid=${patientGuid}    serialNumber=${serialNumber}
-    ...    assessResult=${assessResult}    assessConclusion=${assessConclusion}    historyItemList=${historyItemList}    source=${source}    resultContent=${resultContent}
-    log    ${data}
+    ...    assessResult=${assessResult}    assessConclusion=${assessConclusion}    historyItemList=${historyItemList}    source=${source}    resultContent=${resultContent}    assessItemWordIds=${assessItemWordIds}
     ${addr}    Post Request    api    /mayson/v_1_0/assesshistory/save    data=${data}
     ${responsedata}    To Json    ${addr.content}
     ${assessHistoryId}    Get From Dictionary    ${responsedata['body']}    assessHistoryId
     Set Global Variable    ${assessHistoryId}
+    [Return]    ${responsedata}
+
+
+查询惠每评估表
+    [Arguments]    ${doctorGuid}    ${assessId}    ${serialNumber}    ${userGuid}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${mayson_url}    ${dict}
+    # Create Session    api    ${mayson_url}    ${dict}
+    ${data}    Create Dictionary    doctorGuid=${doctorGuid}    assessId=${assessId}    serialNumber=${serialNumber}    userGuid=${userGuid}
+    ${addr}    Post Request    api    /mayson/v_1_0/assess/query    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    # ${assessHistoryId}    Get From Dictionary    ${responsedata['body']}    assessHistoryId
+    # Set Global Variable    ${assessHistoryId}
     [Return]    ${responsedata}
 
 根据评估历史记录id查询评估记录
