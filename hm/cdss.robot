@@ -1057,12 +1057,12 @@ mayson默认推荐搜索
 
 保存评估历史记录
     [Arguments]    ${recordId}    ${assessId}    ${assessName}    ${patientGuid}    ${serialNumber}    ${assessResult}
-    ...    ${assessConclusion}    ${historyItemList}    ${source}    ${resultContent}
+    ...    ${assessConclusion}    ${historyItemList}    ${source}    ${resultContent}    ${assessItemWordIds}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${mayson_url}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
     ${historyItemList}    Evaluate    [${historyItemList}]
-    #${assessItemWordIds}    Evaluate    [${assessItemWordIds}]
+    ${assessItemWordIds}    Evaluate    [${assessItemWordIds}]
     ${data}    Create Dictionary    recordId=${recordId}    assessId=${assessId}    assessName=${assessName}    patientGuid=${patientGuid}    serialNumber=${serialNumber}
     ...    assessResult=${assessResult}    assessConclusion=${assessConclusion}    historyItemList=${historyItemList}    source=${source}    resultContent=${resultContent}
     ${addr}    Post Request    api    /mayson/v_1_0/assesshistory/save    data=${data}
@@ -1520,20 +1520,4 @@ adminse登录
     ...    sex=${sex}
     ${addr}    Post Request    api    /ncds/v_1_1/antihypertensive_drug    data=${data}
     ${responsedata}    To Json    ${addr.content}
-    [Return]    ${responsedata}
-
-保存评估历史记录_profile
-    [Arguments]    ${recordId}    ${assessId}    ${assessName}    ${patientGuid}    ${serialNumber}    ${assessResult}
-    ...    ${assessConclusion}    ${historyItemList}    ${source}    ${resultContent}    ${assessItemWordIds}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${mayson_url}    ${dict}
-    # Create Session    api    ${mayson_url}    ${dict}
-    ${historyItemList}    Evaluate    [${historyItemList}]
-    ${assessItemWordIds}    Evaluate    [${assessItemWordIds}]
-    ${data}    Create Dictionary    recordId=${recordId}    assessId=${assessId}    assessName=${assessName}    patientGuid=${patientGuid}    serialNumber=${serialNumber}
-    ...    assessResult=${assessResult}    assessConclusion=${assessConclusion}    historyItemList=${historyItemList}    source=${source}    resultContent=${resultContent}    assessItemWordIds=${assessItemWordIds}
-    ${addr}    Post Request    api    /mayson/v_1_0/assesshistory/save    data=${data}
-    ${responsedata}    To Json    ${addr.content}
-    ${assessHistoryId}    Get From Dictionary    ${responsedata['body']}    assessHistoryId
-    Set Global Variable    ${assessHistoryId}
     [Return]    ${responsedata}
