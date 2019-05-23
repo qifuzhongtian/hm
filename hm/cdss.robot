@@ -1,29 +1,29 @@
 *** Variables ***
 #=======医院内网需要修改的==============#
-#mayson生产环境  修改成http://负载ip/cdss
+#mayson生产环境       修改成http://负载ip/cdss
 ${mayson_url}     http://mayson.huimeionline.com/cdss
-#apollo生产环境  修改成http://负载ip/cdss
+#apollo生产环境       修改成http://负载ip/cdss
 ${base_url}       http://mayson.huimeionline.com/cdss
-#文献生产环境     修改成http://负载ip/cdss
+#文献生产环境           修改成http://负载ip/cdss
 ${doc_url}        http://doc.huimeionline.com/doc
-#文献前端环境     修改成http://负载ip/wenxian
+#文献前端环境           修改成http://负载ip/wenxian
 ${doc_fe}         http://doc.huimeionline.com
-#文献线上         修改成http://负载ip
+#文献线上             修改成http://负载ip
 ${doc_online}     http://120.26.223.139
-#ame生产环境      修改成http://负载ip
+#ame生产环境          修改成http://负载ip
 ${base_url_ame}    http://10.46.74.95:8092
-#fuxi验证接口   修改成 http://负载ip/node/active
+#fuxi验证接口         修改成 http://负载ip/node/active
 ${fuxi_data}      http://fuxi.huimeionline.com/node/active/
-#adminse        修改成http://负载ip
+#adminse          修改成http://负载ip
 ${adminse}        http://admin-se.huimeionline.com/
-#amcPc版       修改成http://负载ip/cdss
+#amcPc版           修改成http://负载ip/cdss
 ${base_url_amc}    http://amc.huimeionline.com
 # ${mayson_profile}    修改成http://负载ip/cdss
 ${mayson_profile}    http://profile.huimeionline.com/cdss
 # ${mayson_profile}    http://test-profile.huimeionline.com/cdss
 #=======以下内容不需要修改==============#
 ######################apollo######################
-${base_url_sf} 		http://10.27.213.55:9092
+${base_url_sf}    http://10.27.213.55:9092
 #apollo测试环境
 # ${base_url}     http://10.117.64.153:8080
 #apollo预发环境
@@ -64,7 +64,6 @@ ${Huimei_id_jd}    C3E74C229156E6B31534E946BCDEBA94
 ${Huimei_id_his}    D7928B9182ABF6E0A6A6EBB71B353585
 ##宣武医院
 ${Huimei_id_xw}    8C946583A4EE9174D7B2D1697066BFA2
-
 
 *** Keywords ***
 获取时间戳
@@ -1058,25 +1057,24 @@ mayson默认推荐搜索
 
 保存评估历史记录
     [Arguments]    ${recordId}    ${assessId}    ${assessName}    ${patientGuid}    ${serialNumber}    ${assessResult}
-    ...    ${assessConclusion}    ${historyItemList}    ${source}    ${resultContent}    ${assessItemWordIds}
+    ...    ${assessConclusion}    ${historyItemList}    ${source}    ${resultContent}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${mayson_url}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
     ${historyItemList}    Evaluate    [${historyItemList}]
-    ${assessItemWordIds}    Evaluate    [${assessItemWordIds}]
+    #${assessItemWordIds}    Evaluate    [${assessItemWordIds}]
     ${data}    Create Dictionary    recordId=${recordId}    assessId=${assessId}    assessName=${assessName}    patientGuid=${patientGuid}    serialNumber=${serialNumber}
-    ...    assessResult=${assessResult}    assessConclusion=${assessConclusion}    historyItemList=${historyItemList}    source=${source}    resultContent=${resultContent}    assessItemWordIds=${assessItemWordIds}
+    ...    assessResult=${assessResult}    assessConclusion=${assessConclusion}    historyItemList=${historyItemList}    source=${source}    resultContent=${resultContent}
     ${addr}    Post Request    api    /mayson/v_1_0/assesshistory/save    data=${data}
     ${responsedata}    To Json    ${addr.content}
     ${assessHistoryId}    Get From Dictionary    ${responsedata['body']}    assessHistoryId
     Set Global Variable    ${assessHistoryId}
     [Return]    ${responsedata}
 
-
 查询惠每评估表
     [Arguments]    ${doctorGuid}    ${assessId}    ${serialNumber}    ${userGuid}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${mayson_url}    ${dict}
+    Create Session    api    ${mayson_profile}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    doctorGuid=${doctorGuid}    assessId=${assessId}    serialNumber=${serialNumber}    userGuid=${userGuid}
     ${addr}    Post Request    api    /mayson/v_1_0/assess/query    data=${data}
@@ -1522,4 +1520,20 @@ adminse登录
     ...    sex=${sex}
     ${addr}    Post Request    api    /ncds/v_1_1/antihypertensive_drug    data=${data}
     ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+保存评估历史记录_profile
+    [Arguments]    ${recordId}    ${assessId}    ${assessName}    ${patientGuid}    ${serialNumber}    ${assessResult}
+    ...    ${assessConclusion}    ${historyItemList}    ${source}    ${resultContent}    ${assessItemWordIds}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${mayson_url}    ${dict}
+    # Create Session    api    ${mayson_url}    ${dict}
+    ${historyItemList}    Evaluate    [${historyItemList}]
+    ${assessItemWordIds}    Evaluate    [${assessItemWordIds}]
+    ${data}    Create Dictionary    recordId=${recordId}    assessId=${assessId}    assessName=${assessName}    patientGuid=${patientGuid}    serialNumber=${serialNumber}
+    ...    assessResult=${assessResult}    assessConclusion=${assessConclusion}    historyItemList=${historyItemList}    source=${source}    resultContent=${resultContent}    assessItemWordIds=${assessItemWordIds}
+    ${addr}    Post Request    api    /mayson/v_1_0/assesshistory/save    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    ${assessHistoryId}    Get From Dictionary    ${responsedata['body']}    assessHistoryId
+    Set Global Variable    ${assessHistoryId}
     [Return]    ${responsedata}
