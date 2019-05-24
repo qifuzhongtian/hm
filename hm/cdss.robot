@@ -21,6 +21,8 @@ ${base_url_amc}    http://amc.huimeionline.com
 # ${mayson_profile}    修改成http://负载ip/cdss
 ${mayson_profile}    http://profile.huimeionline.com/cdss
 # ${mayson_profile}    http://test-profile.huimeionline.com/cdss
+# gdms            修改成http://负载ip
+${base_gdms}      http://gdms.huimeionline.com
 #=======以下内容不需要修改==============#
 ######################apollo######################
 ${base_url_sf}    http://10.27.213.55:9092
