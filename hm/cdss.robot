@@ -4,6 +4,7 @@
 ${mayson_url}     http://mayson.huimeionline.com/cdss
 #apollo生产环境       修改成http://负载ip/cdss
 ${base_url}       http://mayson.huimeionline.com/cdss
+# ${base_url}       http://192.168.1.15/cdss
 #文献生产环境           修改成http://负载ip/cdss
 ${doc_url}        http://doc.huimeionline.com/doc
 #文献前端环境           修改成http://负载ip/wenxian
@@ -23,6 +24,12 @@ ${mayson_profile}    http://profile.huimeionline.com/cdss
 # ${mayson_profile}    http://test-profile.huimeionline.com/cdss
 # gdms            修改成http://负载ip
 ${base_gdms}      http://gdms.huimeionline.com
+
+
+${athena_url}      http://test-mayson.huimeionline.com
+# ${athena_url}      http://10.117.64.153:8080
+
+
 #=======以下内容不需要修改==============#
 ######################apollo######################
 ${base_url_sf}    http://10.27.213.55:9092
@@ -39,6 +46,7 @@ ${base_url_sf}    http://10.27.213.55:9092
 # ${mayson_url}    http://dev-mayson.huimeionline.com/cdss
 #mayson测试环境
 # ${mayson_url}    http://test-mayson.huimeionline.com/cdss
+# ${mayson_url}    http://192.168.1.15/cdss
 # ${mayson_url}    http://profile.huimeionline.com/cdss
 #mayson预发环境
 # ${mayson_url}    http://pretest-mayson.huimeionline.com/cdss
@@ -930,7 +938,7 @@ mayson默认推荐搜索
     ...    ${weight}    ${gender}    ${bodyTempr}    ${lowBldPress}    ${highBldPress}    ${examInfo}
     ...    ${heartRate}    ${age}    ${ageType}    ${confirmDiagnosis}    ${confirmDiagnosisMap}    ${presentHistory}
     # ...    ${examItems}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id_his}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${base_url}    ${dict}
     ${data}    Create Dictionary    symptom=${symptom}    uuid=${uuid}    previousHistory=${previousHistory}    personalHistory=${personalHistory}    allergyHistory=${allergyHistory}
     ...    familyHistory=${familyHistory}    weight=${weight}    gender=${gender}    bodyTempr=${bodyTempr}    lowBldPress=${lowBldPress}    highBldPress=${highBldPress}
@@ -1015,14 +1023,15 @@ mayson默认推荐搜索
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-智能推荐test
+
+智能推荐v2
     [Arguments]    ${userGuid}    ${serialNumber}    ${patientName}    ${doctorGuid}    ${doctorName}    ${admissionTime}
     ...    ${inpatientDepartment}    ${pageSource}    ${patientInfo}    ${physicalSign}    ${definiteDiagnosis}    ${progressNoteList}
     ...    ${deleteProgressNoteList}    ${labTestList}    ${examinationList}    ${newTestList}    ${operationRecord}    ${prescriptions}
     ...    ${currentDiseaseName}    ${medicalOrders}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${base_url}    ${dict}
-    Create Session    api    http://10.117.64.153:8080    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${patientInfo}    Evaluate    dict(${patientInfo})
     ${physicalSign}    Evaluate    dict(${physicalSign})
     ${definiteDiagnosis}    Evaluate    [${definiteDiagnosis}]
@@ -1038,7 +1047,37 @@ mayson默认推荐搜索
     ...    admissionTime=${admissionTime}    inpatientDepartment=${inpatientDepartment}    pageSource=${pageSource}    patientInfo=${patientInfo}    physicalSign=${physicalSign}    definiteDiagnosis=${definiteDiagnosis}
     ...    progressNoteList=${progressNoteList}    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}    examinationList=${examinationList}    newTestList=${newTestList}    operationRecord=${operationRecord}
     ...    prescriptions=${prescriptions}    currentDiseaseName=${currentDiseaseName}    medicalOrders=${medicalOrders}
-    ${addr}    Post Request    api    mayson/v_1_0/intelligent_recommendation    data=${data}
+    log    ${data}
+    ${addr}    Post Request    api    mayson/v_2_0/intelligent_recommendation    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+智能推荐test
+    [Arguments]    ${userGuid}    ${serialNumber}    ${patientName}    ${doctorGuid}    ${doctorName}    ${admissionTime}
+    ...    ${inpatientDepartment}    ${pageSource}    ${patientInfo}    ${physicalSign}    ${definiteDiagnosis}    ${progressNoteList}
+    ...    ${deleteProgressNoteList}    ${labTestList}    ${examinationList}    ${newTestList}    ${operationRecord}    ${prescriptions}
+    ...    ${currentDiseaseName}    ${medicalOrders}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${base_url}    ${dict}
+    Create Session    api    http://test-mayson.huimeionline.com/cdss    ${dict}
+    ${patientInfo}    Evaluate    dict(${patientInfo})
+    ${physicalSign}    Evaluate    dict(${physicalSign})
+    ${definiteDiagnosis}    Evaluate    [${definiteDiagnosis}]
+    ${progressNoteList}    Evaluate    [${progressNoteList}]
+    ${deleteProgressNoteList}    Evaluate    [${deleteProgressNoteList}]
+    ${labTestList}    Evaluate    [${labTestList}]
+    ${examinationList}    Evaluate    [${examinationList}]
+    ${newTestList}    Evaluate    [${newTestList}]
+    ${operationRecord}    Evaluate    dict(${operationRecord})
+    ${prescriptions}    Evaluate    ${prescriptions}
+    ${medicalOrders}    Evaluate    dict(${medicalOrders})
+    ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    patientName=${patientName}    doctorGuid=${doctorGuid}    doctorName=${doctorName}
+    ...    admissionTime=${admissionTime}    inpatientDepartment=${inpatientDepartment}    pageSource=${pageSource}    patientInfo=${patientInfo}    physicalSign=${physicalSign}    definiteDiagnosis=${definiteDiagnosis}
+    ...    progressNoteList=${progressNoteList}    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}    examinationList=${examinationList}    newTestList=${newTestList}    operationRecord=${operationRecord}
+    ...    prescriptions=${prescriptions}    currentDiseaseName=${currentDiseaseName}    medicalOrders=${medicalOrders}
+    ${addr}    Post Request    api    mayson/v_2_0/intelligent_recommendation    data=${data}
     ${responsedata}    To Json    ${addr.content}    # 智能推荐test    #    [Arguments]    ${userGuid}
     ...    # ${serialNumber}    ${patientInfo}    ${physicalSign}    ${definiteDiagnosis}    # ${progressNoteList}    #
     ...    # ...    ${deleteProgressNoteList}    ${labTestList}    ${examinationList}    #    ${dict}
@@ -1523,3 +1562,19 @@ adminse登录
     ${addr}    Post Request    api    /ncds/v_1_1/antihypertensive_drug    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+
+
+
+
+药品详情_对接版
+    [Arguments]    ${drugId}    ${customEnv}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${athena_url}    ${dict}
+    ${params}    Create Dictionary    drugId=${drugId}    customEnv=${customEnv}
+    ${addr}    Get Request    api    /athena/v_1_0/article/drug?    params=${params}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+
