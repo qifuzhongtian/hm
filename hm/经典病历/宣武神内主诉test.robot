@@ -453,7 +453,7 @@ Library           DateTime
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
-    ${Subjective}    Set Variable    主诉：:双下肢进行性无力1年余。
+    ${Subjective}    Set Variable    主诉：:言语不利、记忆力下降一周
     ${assert}    Create List    阿尔茨海默病    痴呆    脑梗死    脑萎缩
     ${getRes}    智能推荐test    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2
     ...    doctorGuid=0210497    doctorName=测试医生    admissionTime=2018-12-12    inpatientDepartment=心脏科    patientInfo={"gender":"1","age":"19","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
