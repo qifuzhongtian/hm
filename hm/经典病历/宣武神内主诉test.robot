@@ -547,7 +547,7 @@ Library           DateTime
     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     #log    ${aj}
     #List Should Contain Sub List    ${aj}    ${assert}
-    Should Not Contain    ${getRes['body']}    diseaseHospitalList
+    List Should Contain Sub List    ${aj}    ${assert}
 
 36-主诉：:左侧面部和肢体麻木7天。
     [Setup]    Run Keywords    获取时间戳
@@ -566,7 +566,7 @@ Library           DateTime
     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     #log    ${aj}
     #List Should Contain Sub List    ${aj}    ${assert}
-    Should Not Contain    ${getRes['body']}    diseaseHospitalList
+    List Should Contain Sub List    ${aj}    ${assert}
 
 37-主诉：:肢体活动不利伴头晕4年余。
     [Setup]    Run Keywords    获取时间戳
@@ -584,7 +584,7 @@ Library           DateTime
     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     #log    ${aj}
     #List Should Contain Sub List    ${aj}    ${assert}
-    Should Not Contain    ${getRes['body']}    diseaseHospitalList
+    List Should Contain Sub List    ${aj}    ${assert}
 
 38-主诉：:左面部、上肢麻木6天
     [Setup]    Run Keywords    获取时间戳
@@ -603,7 +603,7 @@ Library           DateTime
     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     #log    ${aj}
     #List Should Contain Sub List    ${aj}    ${assert}
-    Should Not Contain    ${getRes['body']}    diseaseHospitalList
+    List Should Contain Sub List    ${aj}    ${assert}
 
 39-主诉：:发现椎动脉狭窄6天。
     [Setup]    Run Keywords    获取时间戳
@@ -638,7 +638,7 @@ Library           DateTime
     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     #log    ${aj}
     #List Should Contain Sub List    ${aj}    ${assert}
-    Should Not Contain    ${getRes['body']}    diseaseHospitalList
+    List Should Contain Sub List    ${aj}    ${assert}
 
 41-主诉：:发作性头晕2周。
     [Setup]    Run Keywords    获取时间戳
@@ -655,7 +655,7 @@ Library           DateTime
     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     #log    ${aj}
     #List Should Contain Sub List    ${aj}    ${assert}
-    Should Not Contain    ${getRes['body']}    diseaseHospitalList
+    List Should Contain Sub List    ${aj}    ${assert}
 
 42-主诉：:突发意识障碍、言语不利伴右侧肢体无力2月
     [Setup]    Run Keywords    获取时间戳
@@ -670,7 +670,7 @@ Library           DateTime
     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     #log    ${aj}
     #List Should Contain Sub List    ${aj}    ${assert}
-    Should Not Contain    ${getRes['body']}    diseaseHospitalList
+    List Should Contain Sub List    ${aj}    ${assert}
 
 43-主诉：:行动迟缓半年，加重1个月
     [Setup]    Run Keywords    获取时间戳
@@ -685,7 +685,7 @@ Library           DateTime
     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     #log    ${aj}
     #List Should Contain Sub List    ${aj}    ${assert}
-    Should Not Contain    ${getRes['body']}    diseaseHospitalList
+    List Should Contain Sub List    ${aj}    ${assert}
 
 44-主诉：:双下肢无力伴行走不稳1月余
     [Setup]    Run Keywords    获取时间戳
@@ -700,7 +700,7 @@ Library           DateTime
     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     #log    ${aj}
     #List Should Contain Sub List    ${aj}    ${assert}
-    Should Not Contain    ${getRes['body']}    diseaseHospitalList
+    List Should Contain Sub List    ${aj}    ${assert}
 
 45-主诉：:运动迟缓1年。
     [Setup]    Run Keywords    获取时间戳
@@ -715,7 +715,7 @@ Library           DateTime
     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     #log    ${aj}
     #List Should Contain Sub List    ${aj}    ${assert}
-    Should Not Contain    ${getRes['body']}    diseaseHospitalList
+    List Should Contain Sub List    ${aj}    ${assert}
 
 46-主诉：:头颅核磁发现新发脑梗死病灶4天。
     [Setup]    Run Keywords    获取时间戳
@@ -753,7 +753,7 @@ Library           DateTime
     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     #log    ${aj}
     #List Should Contain Sub List    ${aj}    ${assert}
-    Should Not Contain    ${getRes['body']}    diseaseHospitalList
+    List Should Contain Sub List    ${aj}    ${assert}
 
 48-主诉：:突发头痛伴右侧肢体无力4天
     [Setup]    Run Keywords    获取时间戳
@@ -769,7 +769,7 @@ Library           DateTime
     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     #log    ${aj}
     #List Should Contain Sub List    ${aj}    ${assert}
-    Should Not Contain    ${getRes['body']}    diseaseHospitalList
+    List Should Contain Sub List    ${aj}    ${assert}
 
 49-主诉：:头晕、头痛、视物成双、左眼上睑下垂1周
     [Setup]    Run Keywords    获取时间戳
@@ -785,7 +785,7 @@ Library           DateTime
     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     #log    ${aj}
     #List Should Contain Sub List    ${aj}    ${assert}
-    Should Not Contain    ${getRes['body']}    diseaseHospitalList
+    List Should Contain Sub List    ${aj}    ${assert}
 
 50-主诉：:左侧肢体无力伴麻木3天。
     [Setup]    Run Keywords    获取时间戳
@@ -801,7 +801,7 @@ Library           DateTime
     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     #log    ${aj}
     #List Should Contain Sub List    ${aj}    ${assert}
-    Should Not Contain    ${getRes['body']}    diseaseHospitalList
+    List Should Contain Sub List    ${aj}    ${assert}
 
 
 
