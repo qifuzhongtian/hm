@@ -26,8 +26,8 @@ ${mayson_profile}    http://profile.huimeionline.com/cdss
 ${base_gdms}      http://gdms.huimeionline.com
 
 
-${athena_url}      http://test-mayson.huimeionline.com
-# ${athena_url}      http://10.117.64.153:8080
+# ${athena_url}      http://test-mayson.huimeionline.com
+${athena_url}      http://10.117.64.153:8080
 
 
 #=======以下内容不需要修改==============#
@@ -52,7 +52,7 @@ ${base_url_sf}    http://10.27.213.55:9092
 # ${mayson_url}    http://pretest-mayson.huimeionline.com/cdss
 ######################文献######################
 #文献测试环境
-# ${doc_url}      http://test-doc.huimeionline.com/
+${doc_url}      http://test-doc.huimeionline.com/doc
 ######################ovf模板地址######################
 # ${mayson_url}    http://192.168.1.13/cdss
 # ${base_url}     http://192.168.1.13/cdss
@@ -1576,5 +1576,71 @@ adminse登录
     [Return]    ${responsedata}
 
 
+
+
+检查检验_对接版
+    [Arguments]    ${examId}    ${customEnv}    ${examType}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${athena_url}    ${dict}
+    ${params}    Create Dictionary    examId=${examId}    customEnv=${customEnv}    examType=${examType}
+    ${addr}    Get Request    api    /athena/v_1_0/article/exam?    params=${params}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+
+检查建议_对接版
+    [Arguments]    ${diseaseId}    ${customEnv}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${athena_url}    ${dict}
+    ${params}    Create Dictionary    diseaseId=${diseaseId}    customEnv=${customEnv}
+    ${addr}    Get Request    api    /athena/v_1_0/article/exam_advice?    params=${params}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+
+
+处置建议_对接版
+    [Arguments]    ${diseaseId}    ${customEnv}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${athena_url}    ${dict}
+    ${params}    Create Dictionary    diseaseId=${diseaseId}    customEnv=${customEnv}
+    ${addr}    Get Request    api    /athena/v_1_0/article/dispose_advice?    params=${params}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+用药建议_对接版
+    [Arguments]    ${diseaseId}    ${customEnv}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${athena_url}    ${dict}
+    ${params}    Create Dictionary    diseaseId=${diseaseId}    customEnv=${customEnv}
+    ${addr}    Get Request    api    /athena/v_1_0/article/drug_advice?    params=${params}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+患者指导_对接版
+    [Arguments]    ${diseaseId}    ${customEnv}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${athena_url}    ${dict}
+    ${params}    Create Dictionary    diseaseId=${diseaseId}    customEnv=${customEnv}
+    ${addr}    Get Request    api    /athena/v_1_0/article/patient_guide?    params=${params}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+疾病险情_对接版
+    [Arguments]    ${diseaseId}    ${customEnv}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${athena_url}    ${dict}
+    ${params}    Create Dictionary    diseaseId=${diseaseId}    customEnv=${customEnv}
+    ${addr}    Get Request    api    /athena/v_1_0/article/disease?    params=${params}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
 
 
