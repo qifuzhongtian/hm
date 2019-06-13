@@ -16,7 +16,7 @@ Library           String    # 字段名    类型    是否必须    说明    #
 
 *** Test Cases ***
 mayson用药推荐
-    [Documentation]    断言:"药品名称"
+    [Documentation]    断言:"药品名称"n
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ...    AND    智能推荐    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    doctorGuid=0210497

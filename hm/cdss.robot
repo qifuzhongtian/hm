@@ -46,13 +46,12 @@ ${base_url_sf}    http://10.27.213.55:9092
 # ${mayson_url}    http://dev-mayson.huimeionline.com/cdss
 #mayson测试环境
 # ${mayson_url}    http://test-mayson.huimeionline.com/cdss
-# ${mayson_url}    http://192.168.1.15/cdss
 # ${mayson_url}    http://profile.huimeionline.com/cdss
 #mayson预发环境
 # ${mayson_url}    http://pretest-mayson.huimeionline.com/cdss
 ######################文献######################
 #文献测试环境
-${doc_url}      http://test-doc.huimeionline.com/doc
+# ${doc_url}      http://test-doc.huimeionline.com/doc
 ######################ovf模板地址######################
 # ${mayson_url}    http://192.168.1.13/cdss
 # ${base_url}     http://192.168.1.13/cdss
