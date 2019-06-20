@@ -1,7 +1,8 @@
 *** Variables ***
 #=======医院内网需要修改的==============#
 #mayson生产环境       修改成http://负载ip/cdss
-${mayson_url}     http://mayson.huimeionline.com/cdss
+# ${mayson_url}     http://mayson.huimeionline.com/cdss
+${mayson_url}     http://profile.huimeionline.com/cdss
 #apollo生产环境       修改成http://负载ip/cdss
 ${base_url}       http://mayson.huimeionline.com/cdss
 # ${base_url}       http://192.168.1.15/cdss
@@ -1030,7 +1031,7 @@ mayson默认推荐搜索
     ...    ${currentDiseaseName}    ${medicalOrders}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${base_url}    ${dict}
-    Create Session    api    ${mayson_url}    ${dict}
+    Create Session    api    ${mayson_profile}    ${dict}
     ${patientInfo}    Evaluate    dict(${patientInfo})
     ${physicalSign}    Evaluate    dict(${physicalSign})
     ${definiteDiagnosis}    Evaluate    [${definiteDiagnosis}]
@@ -1337,6 +1338,7 @@ mayson默认推荐
     ...    operationRecord=${operationRecord}    prescriptions=${prescriptions}    currentDiseaseName=${currentDiseaseName}    medicalOrders=${medicalOrders}
     log    ${data}
     ${addr}    Post Request    api    mayson/v_1_1/intelligent_recommendation    data=${data}
+    # ${addr}    Post Request    api    mayson/v_2_0/intelligent_recommendation    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
