@@ -1,8 +1,8 @@
 *** Variables ***
 #=======医院内网需要修改的==============#
 #mayson生产环境       修改成http://负载ip/cdss
-# ${mayson_url}     http://mayson.huimeionline.com/cdss
-${mayson_url}     http://profile.huimeionline.com/cdss
+${mayson_url}     http://mayson.huimeionline.com/cdss
+# ${mayson_url}     http://profile.huimeionline.com/cdss
 #apollo生产环境       修改成http://负载ip/cdss
 ${base_url}       http://mayson.huimeionline.com/cdss
 # ${base_url}       http://192.168.1.15/cdss
