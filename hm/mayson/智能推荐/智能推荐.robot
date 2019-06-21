@@ -318,7 +318,7 @@ Library           String
     # Lists should Be Equal    ${aj}    ${assert}
     # List should contain sub list    ${aj}    ${assert}
 
-诊断鉴别:心律失常的鉴别依据,推出:晕厥
+诊断鉴别:心动过速的鉴别依据,推出:晕厥
     [Documentation]    断言:晕厥
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数

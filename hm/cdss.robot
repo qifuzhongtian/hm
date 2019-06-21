@@ -5,6 +5,7 @@ ${mayson_url}     http://mayson.huimeionline.com/cdss
 # ${mayson_url}     http://profile.huimeionline.com/cdss
 #apollo生产环境       修改成http://负载ip/cdss
 ${base_url}       http://mayson.huimeionline.com/cdss
+# ${base_url}       http://172.16.3.75/cdss
 # ${base_url}       http://192.168.1.15/cdss
 #文献生产环境           修改成http://负载ip/cdss
 ${doc_url}        http://doc.huimeionline.com/doc
@@ -26,10 +27,8 @@ ${mayson_profile}    http://profile.huimeionline.com/cdss
 # gdms            修改成http://负载ip
 ${base_gdms}      http://gdms.huimeionline.com
 
-
 # ${athena_url}      http://test-mayson.huimeionline.com
 ${athena_url}      http://10.117.64.153:8080
-
 
 #=======以下内容不需要修改==============#
 ######################apollo######################
