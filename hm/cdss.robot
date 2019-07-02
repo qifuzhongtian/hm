@@ -2,6 +2,7 @@
 #=======医院内网需要修改的==============#
 #mayson生产环境       修改成http://负载ip/cdss
 ${mayson_url}     http://mayson.huimeionline.com/cdss
+# ${mayson_url}     http://172.16.3.75/cdss
 # ${mayson_url}     http://profile.huimeionline.com/cdss
 #apollo生产环境       修改成http://负载ip/cdss
 ${base_url}       http://mayson.huimeionline.com/cdss
@@ -22,8 +23,9 @@ ${adminse}        http://admin-se.huimeionline.com/
 #amcPc版           修改成http://负载ip/cdss
 ${base_url_amc}    http://amc.huimeionline.com
 # ${mayson_profile}    修改成http://负载ip/cdss
+# ${mayson_profile}    http://test-mayson.huimeionline.com/cdss
+# ${mayson_profile}    http://172.16.3.61:8080
 ${mayson_profile}    http://profile.huimeionline.com/cdss
-# ${mayson_profile}    http://test-profile.huimeionline.com/cdss
 # gdms            修改成http://负载ip
 ${base_gdms}      http://gdms.huimeionline.com
 
@@ -717,7 +719,7 @@ amcPc客户信息
 
 问诊路径
     [Arguments]    ${symptomId}    ${age}    ${ageType}    ${sex}    ${patientName}    ${saveFlag}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_his}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${mayson_url}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    symptomId=${symptomId}    age=${age}    ageType=${ageType}    sex=${sex}    patientName=${patientName}
@@ -729,7 +731,7 @@ amcPc客户信息
 答题记录
     [Arguments]    ${nodeId}    ${algoIdList}    ${seqIdList}    ${symptomIdList}    ${algoId}    ${seqId}
     ...    ${age}    ${ageType}    ${sex}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_his}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${mayson_url}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
     ${algoIdList}    Create List    ${algoIdList}
@@ -743,7 +745,7 @@ amcPc客户信息
 
 提交记录
     [Arguments]    ${nodeId}    ${algoId}    ${seqId}    ${age}    ${ageType}    ${sex}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_his}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${mayson_url}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    nodeId=${nodeId}    algoId=${algoId}    seqId=${seqId}    age=${age}    ageType=${ageType}
@@ -753,7 +755,7 @@ amcPc客户信息
     [Return]    ${responsedata}
 
 历史搜索
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_his}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${mayson_url}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary
@@ -763,7 +765,7 @@ amcPc客户信息
 
 症状搜索
     [Arguments]    ${symptom}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_his}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${mayson_url}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    symptom=${symptom}
