@@ -6,6 +6,7 @@ ${mayson_url}     http://mayson.huimeionline.com/cdss
 # ${mayson_url}     http://profile.huimeionline.com/cdss
 #apollo生产环境       修改成http://负载ip/cdss
 ${base_url}       http://mayson.huimeionline.com/cdss
+# ${base_url}       http://172.16.3.79/cdss
 # ${base_url}       http://172.16.3.75/cdss
 # ${base_url}       http://192.168.1.15/cdss
 #文献生产环境           修改成http://负载ip/cdss
@@ -23,9 +24,9 @@ ${adminse}        http://admin-se.huimeionline.com/
 #amcPc版           修改成http://负载ip/cdss
 ${base_url_amc}    http://amc.huimeionline.com
 # ${mayson_profile}    修改成http://负载ip/cdss
-# ${mayson_profile}    http://test-mayson.huimeionline.com/cdss
-# ${mayson_profile}    http://172.16.3.61:8080
 ${mayson_profile}    http://profile.huimeionline.com/cdss
+# ${mayson_profile}    http://172.16.3.61:8080
+# ${mayson_profile}    http://profile.huimeionline.com/cdss
 # gdms            修改成http://负载ip
 ${base_gdms}      http://gdms.huimeionline.com
 
@@ -89,7 +90,7 @@ ${Huimei_id_xw}    8C946583A4EE9174D7B2D1697066BFA2
 安全用药
     [Arguments]    ${drugCommonNames}    ${gender}    ${age}    ${ageType}    ${drugIds}    ${symptom}
     ...    ${confirmDiagnosis}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id_safe_medication}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${base_url}    ${dict}
     ${data}    Create Dictionary    drugCommonNames=${drugCommonNames}    gender=${gender}    age=${age}    ageType=${ageType}    drugIds=${drugIds}
     ...    symptom=${symptom}    confirmDiagnosis=${confirmDiagnosis}

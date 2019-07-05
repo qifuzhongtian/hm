@@ -30,6 +30,7 @@ fuxi接口url {fuxi_data},改成 http://负载ip/node/active ,adminse 修改 ${a
 自动化脚本的执行：使用以下命令进行执行,
 住院版执行:pybot -e skip mayson
 门诊版执行:pybot -e skip cdss
+社区版执行:pybot community
 新版质控医院执行（如亚心）:pybot -e profileskip mayson
 伏羲和adminSe执行:pybot -e skip fuxi adminse
 gdms执行 ：pybot -e skip GDMS
@@ -40,7 +41,9 @@ gdms执行 ：pybot -e skip GDMS
 
 
 
-
+更新时间：2019-07-05
+更新地点：
+更新内容：增加社区版
 
 
 版本说明
