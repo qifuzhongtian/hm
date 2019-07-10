@@ -13,8 +13,8 @@ ${base_url}       http://mayson.huimeionline.com/cdss
 # ${base_url}       http://172.16.3.75/cdss
 # ${base_url}       http://192.168.1.15/cdss
 #文献生产环境           修改成http://负载ip/cdss
-# ${doc_url}        http://doc.huimeionline.com/doc
-${doc_url}        http://10.46.74.95:8080/doc
+${doc_url}        http://doc.huimeionline.com/doc
+# ${doc_url}        http://10.46.74.95:8080/doc
 #文献前端环境           修改成http://负载ip/wenxian
 ${doc_fe}         http://doc.huimeionline.com
 #文献线上             修改成http://负载ip
@@ -32,8 +32,8 @@ ${base_url_amc}    http://amc.huimeionline.com
 # ${mayson_profile}     http://test-mayson.huimeionline.com/cdss
 # ${mayson_profile}    http://10.46.74.95:8080
 # ${mayson_profile}    http://172.16.3.61:8080
-# ${mayson_profile}    http://profile.huimeionline.com/cdss
-${mayson_profile}    http://test-profile.huimeionline.com/cdss
+${mayson_profile}    http://profile.huimeionline.com/cdss
+# ${mayson_profile}    http://test-profile.huimeionline.com/cdss
 # gdms            修改成http://负载ip
 ${base_gdms}      http://gdms.huimeionline.com
 
