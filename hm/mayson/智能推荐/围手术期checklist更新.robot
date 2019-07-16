@@ -23,7 +23,7 @@ Library           DateTime
     ...    medicalOrders={"orderType": "6","orderId": "1562668327867","uuid": "1294-20778","frequency": "","orderContent": "主动脉-冠状动脉搭桥术","recordId": 20778,"incisionType": "","id": 438947,"timelinessFlag": 1,"level": "","operationType":"4","preoperativeDiagnose": "","orderCreateTime":"2019-07-11 20:45:34","executeTime":"2019-07-11 20:45:34","stopTime":"2019-07-11 20:45:34","unit": "ml","dosageform": "","position": "","status": 1,"dosage": "50","description": "","orderClass": 1,"anesthesia": "","customerId": 1294,"doctorGuid": "0000012061","specification": "","sample": "","orderFlag": 1,"pathway": "","orderCode": "2136"}
     ...    AND   围手术期checklist    operationId=${operationId}    recordId=${recordId}
     ${getRes}    围手术期checklist更新    recordId=${recordId}
-    ...    checkListItem={"accessId":717,"checkItemName":"手术风险评估","checkListItemId":1014,"checkSource":0,"checkType":1,"checkTypeName":"术前评估","checkedStatus":1,"clOperationId":21,"completeNum":3,"customerId":1001,"id":908,"ignoreStatus":0,"operationId":319484,"operationName":"CABG手术","recordId":${recordId},"remark":"需行CABG的患者，术前应完善术前病情评估及手术复杂程度分级评估","ruleId":8,"sortNum":8,"totalNum":3}
+    ...    checkListItem={"accessId":717,"checkItemName":"手术风险评估","checkListItemId":1014,"checkSource":0,"checkType":1,"checkTypeName":"术前评估","checkedStatus":1,"clOperationId":21,"completeNum":3,"customerId":1001,"id":${id},"ignoreStatus":0,"operationId":319484,"operationName":"CABG手术","recordId":${recordId},"remark":"需行CABG的患者，术前应完善术前病情评估及手术复杂程度分级评估","ruleId":8,"sortNum":8,"totalNum":3}
     Should Be Equal As Strings    ${getRes['head']['message']}    更新成功！
 
 

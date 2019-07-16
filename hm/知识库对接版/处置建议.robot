@@ -14,6 +14,3 @@ Library           String
     ${aj}    Evaluate    [aj['title'] for aj in $getRes['body']['catalogueList']]
     Should Contain    ${aj}    一般治疗
 
-
-
-# http://10.117.64.153:8080/athena/v_1_0/article/dispose_advice?diseaseId=898265&customEnv=3

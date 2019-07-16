@@ -38,7 +38,7 @@ ${mayson_profile}    http://profile.huimeionline.com/cdss
 ${base_gdms}      http://gdms.huimeionline.com
 
 ${athena_url}      http://mayson.huimeionline.com
-# ${athena_url}      http://10.117.64.153:8080
+# ${athena_url}      http://10.117.64.153:8095
 
 #=======以下内容不需要修改==============#
 ######################apollo######################
@@ -1388,8 +1388,8 @@ mayson默认推荐
     ${responsedata}    To Json    ${addr.content}
     # ${operationId}    Get from Dictionary    ${responsedata["body"]["qualityControlResponse"]["checkListResp"][0]}    operationId
     # Set Global variable    ${operationId}
-    # ${recordId}    Get from Dictionary    ${responsedata["body"]}    recordId
-    # Set Global variable    ${recordId}
+    ${id}    Get from Dictionary    ${responsedata["body"]['checkListResp'][0]['checkListItem'][0][0]}    id
+    Set Global variable    ${id}
     [Return]    ${responsedata}
 
 
@@ -1722,4 +1722,27 @@ adminse登录
     ${addr}    Post Request    api    /sentry/v_2_0/qc/result    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+
+
+
+文献图片差异
+    [Arguments]
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${athena_url}    ${dict}
+    ${params}    Create Dictionary
+    ${addr}    Get Request    api    /athena/file/imgCompare    params=${params}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+文献文件差异
+    [Arguments]
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${athena_url}    ${dict}
+    ${params}    Create Dictionary
+    ${addr}    Get Request    api    /athena/file/defrct_def    params=${params}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
 
