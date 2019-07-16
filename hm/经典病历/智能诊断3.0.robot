@@ -3,6 +3,7 @@ Suite Teardown    Delete All Sessions    # Suite Setup    Delete All Sessions   
 ...               # hospitalGuid String 是 医院ID（惠每分配）    # gender Integer 否 性别1男,0女    # age double 否 年龄    # ageType String 否 岁、月、天    # bodyTempr Double 否 体温    # weight Double 否 体重    # heartRate Integer 否 心率
 ...               # lowBldPress Integer 否 收缩压    # highBldPress Integer 否 舒张压    # examInfo String 否 检查    # previousHistory String 否 既往史    # personalHistory String 否 个人史    # allergyHistory String 否 过敏史    # familyHistory String 否 家族史
 ...               # symptom String 否 主诉    # confirmDiagnosis String 否 已确定诊断    # assistCheck    辅助检查
+Force Tags        skip    profileskip
 Resource          ../cdss.robot
 Library           Collections
 Library           RequestsLibrary

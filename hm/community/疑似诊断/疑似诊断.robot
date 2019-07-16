@@ -4,6 +4,8 @@ Resource          ../../cdss.robot
 Library           Collections
 Library           RequestsLibrary
 Library           String
+Force Tags        skip    profileskip
+
 *** Test Cases ***
 疑似诊断
     [Setup]    Run Keywords    获取时间戳

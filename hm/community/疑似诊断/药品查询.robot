@@ -3,6 +3,7 @@ Suite Teardown    Delete All Sessions    # 字段名 类型 是否必须 说明 
 Resource          ../../cdss.robot
 Library           Collections
 Library           RequestsLibrary
+Force Tags        skip    profileskip
 
 *** Test Cases ***
 2.1 药品查询,输入存在的药品名称,查询成功

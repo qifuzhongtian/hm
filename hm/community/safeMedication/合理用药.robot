@@ -2,6 +2,8 @@
 Suite Teardown    Delete All Sessions    # 字段名 类型    是否必须    说明    # gender    Integer    性别1.男，0.女
 ...               # age Double    年龄    # ageType String    岁/月/天/    # drugIds List    是    药品ID集合
 ...               # symptom String    患者主诉
+Force Tags        skip    profileskip
+
 Resource          ../../cdss.robot
 Library           Collections    # Resource    ../cdss接口关键字.robot
 Library           RequestsLibrary

@@ -3,6 +3,7 @@ Suite Teardown    Delete All Sessions
 Resource          ../../cdss.robot
 Library           Collections
 Library           RequestsLibrary
+Force Tags        skip    profileskip
 
 *** Test Cases ***
 5.1 诊断依据

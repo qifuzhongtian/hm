@@ -13,12 +13,12 @@ Library           String
 
 
 
-新版质控统计明细
-    ${id}    Set Variable    32
+# 新版质控统计明细
+#     ${id}    Set Variable    32
 
-    ${getRes}    新版质控统计明细    id=${id}
+#     ${getRes}    新版质控统计明细    id=${id}
 
-    Should Be Equal As Strings    ${getRes['code']}    200
+#     Should Be Equal As Strings    ${getRes['code']}    200
 
 
 

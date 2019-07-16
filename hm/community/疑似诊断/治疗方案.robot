@@ -3,6 +3,7 @@ Suite Teardown    Delete All Sessions    # Suite Setup    Delete All Sessions
 Resource          ../../cdss.robot
 Library           Collections
 Library           RequestsLibrary
+Force Tags        skip    profileskip
 
 *** Variables ***
 # ${assert}
