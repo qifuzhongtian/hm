@@ -1393,6 +1393,7 @@ mayson默认推荐
     [Return]    ${responsedata}
 
 
+<<<<<<< HEAD
 围手术期checklist更新
     [Arguments]    ${checkListItem}    ${recordId}
     ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
@@ -1404,6 +1405,8 @@ mayson默认推荐
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
+=======
+>>>>>>> 0d453a85b4e99a9cf295065d6adfcdb6367312f7
 登录
     [Arguments]    ${name}    ${password}
     ${dict}    Create Dictionary    Content-Type=application/json
@@ -1714,12 +1717,20 @@ adminse登录
     ...    ${operate}    ${guid}    ${type}    ${qcDiseaseDiagnosisList}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${base_url}    ${dict}
+<<<<<<< HEAD
     Create Session    api    ${mayson_profile}    ${dict}
+=======
+    Create Session    api    ${mayson_url}    ${dict}
+>>>>>>> 0d453a85b4e99a9cf295065d6adfcdb6367312f7
     ${qcDiseaseDiagnosisList}    Evaluate    dict(${qcDiseaseDiagnosisList})
     ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}
     ...    projectId=${projectId}    doctorGuid=${doctorGuid}    operate=${operate}    guid=${guid}
     ...    type=${type}    qcDiseaseDiagnosisList=${qcDiseaseDiagnosisList}
+<<<<<<< HEAD
     ${addr}    Post Request    api    /sentry/v_2_0/qc/result    data=${data}
+=======
+    ${addr}    Post Request    api    cdss/sentry/v_2_0/qc/result    data=${data}
+>>>>>>> 0d453a85b4e99a9cf295065d6adfcdb6367312f7
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
