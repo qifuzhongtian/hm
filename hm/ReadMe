@@ -38,6 +38,13 @@ gdms执行 ：pybot -e skip GDMS
 
 
 
+stable_190715版本说明 
+更新时间：2019-07-05
+更新地点：
+更新内容：增加围手术期相关接口
+		增加文献图片/文件对比两接口,需要修改${athena_url}为服务器ip
+		
+
 
 
 
@@ -56,3 +63,5 @@ gdms执行 ：pybot -e skip GDMS
 		添加adminse检查检验查看
 		添加fuxi新版质控统计明细
 		添加fuxi新版质控统计
+
+
