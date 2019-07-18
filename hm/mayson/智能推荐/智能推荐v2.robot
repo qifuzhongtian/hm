@@ -1,6 +1,6 @@
 *** Settings ***
 Suite Teardown    Delete All Sessions    # Suite Setup    获取时间戳
-Force Tags        skip    profileskip
+# Force Tags        skip
 Resource          ../../cdss.robot
 Library           Collections
 Library           RequestsLibrary

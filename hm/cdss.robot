@@ -38,6 +38,7 @@ ${mayson_profile}    http://profile.huimeionline.com/cdss
 ${base_gdms}      http://gdms.huimeionline.com
 
 ${athena_url}      http://mayson.huimeionline.com
+${athenaDoc_url}      http://mayson.huimeionline.com:8095
 # ${athena_url}      http://10.117.64.153:8095
 
 #=======以下内容不需要修改==============#
@@ -1329,8 +1330,8 @@ mayson默认推荐
     ...    definiteDiagnosis=${definiteDiagnosis}    progressNoteList=${progressNoteList}    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}    examinationList=${examinationList}    newTestList=${newTestList}
     ...    operationRecord=${operationRecord}    prescriptions=${prescriptions}    currentDiseaseName=${currentDiseaseName}    medicalOrders=${medicalOrders}
     log    ${data}
-    ${addr}    Post Request    api    mayson/v_1_1/intelligent_recommendation    data=${data}
-    # ${addr}    Post Request    api    mayson/v_2_0/intelligent_recommendation    data=${data}
+    # ${addr}    Post Request    api    mayson/v_1_1/intelligent_recommendation    data=${data}
+    ${addr}    Post Request    api    mayson/v_2_0/intelligent_recommendation    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
@@ -1728,7 +1729,7 @@ adminse登录
 文献图片差异
     [Arguments]
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${athena_url}    ${dict}
+    Create Session    api    ${athenaDoc_url}    ${dict}
     ${params}    Create Dictionary
     ${addr}    Get Request    api    /athena/file/imgCompare    params=${params}
     ${responsedata}    To Json    ${addr.content}
@@ -1738,7 +1739,7 @@ adminse登录
 文献文件差异
     [Arguments]
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${athena_url}    ${dict}
+    Create Session    api    ${athenaDoc_url}    ${dict}
     ${params}    Create Dictionary
     ${addr}    Get Request    api    /athena/file/defrct_def    params=${params}
     ${responsedata}    To Json    ${addr.content}
