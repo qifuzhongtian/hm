@@ -38,6 +38,7 @@ ${mayson_profile}    http://profile.huimeionline.com/cdss
 ${base_gdms}      http://gdms.huimeionline.com
 
 ${athena_url}      http://mayson.huimeionline.com
+##文献图片/文件差异接口,修改为http://athena_ip:8095形式
 ${athenaDoc_url}      http://mayson.huimeionline.com:8095
 # ${athena_url}      http://10.117.64.153:8095
 
