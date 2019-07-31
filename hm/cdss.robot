@@ -8,12 +8,15 @@ ${mayson_url}     http://mayson.huimeionline.com/cdss
 # ${mayson_url}     http://profile.huimeionline.com/cdss
 #apollo生产环境       修改成http://负载ip/cdss
 ${base_url}       http://mayson.huimeionline.com/cdss
+# ${base_url}       http://test-mayson.huimeionline.com/cdss
 # ${base_url}       http://10.46.74.95:8080
 # ${base_url}       http://172.16.3.79/cdss
 # ${base_url}       http://172.16.3.75/cdss
 # ${base_url}       http://192.168.1.15/cdss
 #文献生产环境           修改成http://负载ip/cdss
-${doc_url}        http://doc.huimeionline.com/doc
+# ${doc_url}        http://doc.huimeionline.com/doc
+${doc_url}        http://profile-doc.huimeionline.com/doc
+# ${doc_url}        http://test-profile-doc.huimeionline.com/doc
 # ${doc_url}        http://10.46.74.95:8080/doc
 #文献前端环境           修改成http://负载ip/wenxian
 ${doc_fe}         http://doc.huimeionline.com
@@ -23,10 +26,13 @@ ${doc_online}     http://120.26.223.139
 ${base_url_ame}    http://10.46.74.95:8092
 #fuxi验证接口         修改成 http://负载ip/node/active
 ${fuxi_data}      http://fuxi.huimeionline.com/node/active/
+# ${fuxi_data}      http://test-fuxi.huimeionline.com/node/active/
 #adminse          修改成http://负载ip
 ${adminse}        http://admin-se.huimeionline.com/
+# ${adminse}        http://test-admin-se.huimeionline.com/
 #amcPc版           修改成http://负载ip/cdss
 ${base_url_amc}    http://amc.huimeionline.com
+# ${base_url_amc}    http://test-amc.huimeionline.com
 # ${mayson_profile}    修改成http://负载ip/cdss
 # ${mayson_profile}    http://profile.huimeionline.com/cdss
 # ${mayson_profile}     http://test-mayson.huimeionline.com/cdss
@@ -37,7 +43,8 @@ ${mayson_profile}    http://profile.huimeionline.com/cdss
 # gdms            修改成http://负载ip
 ${base_gdms}      http://gdms.huimeionline.com
 
-${athena_url}      http://mayson.huimeionline.com
+# ${athena_url}      http://mayson.huimeionline.com
+${athena_url}      http://10.117.64.153:8080
 ##文献图片/文件差异接口,修改为http://athena_ip:8095形式
 ${athenaDoc_url}      http://mayson.huimeionline.com:8095
 # ${athena_url}      http://10.117.64.153:8095
@@ -1746,5 +1753,41 @@ adminse登录
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
+
+
+
+
+检验检查操作说明
+    [Arguments]    ${examId}    ${examType}    ${customEnv}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${athena_url}    ${dict}
+    ${params}    Create Dictionary    examId=${examId}    examType=${examType}    customEnv=${customEnv}
+    ${addr}    Get Request    api    athena/v_1_0/article/page/exam?    params=${params}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+药品说明书
+    [Arguments]    ${drugId}    ${customEnv}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${athena_url}    ${dict}
+    ${params}    Create Dictionary    drugId=${drugId}    customEnv=${customEnv}
+    ${addr}    Get Request    api    /athena/v_1_0/article/drug?    params=${params}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+
+
+手术合理性
+    [Arguments]    ${patientGuid}    ${serialNumber}    ${department}    ${doctorGuid}    ${examId}    ${examType}    ${customEnv}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${athena_url}    ${dict}
+    ${data}    Create Dictionary    patientGuid=${patientGuid}    serialNumber=${serialNumber}    department=${department}    doctorGuid=${doctorGuid}    examId=${examId}    examType=${examType}
+    ...    customEnv=${customEnv}
+    ${addr}    Post Request    api    mayson/v_1_0/logical_exam    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
 
 
