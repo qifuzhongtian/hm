@@ -1,11 +1,11 @@
 *** Variables ***
 #=======医院内网需要修改的==============#
 #mayson生产环境       修改成http://负载ip/cdss
-${mayson_url}     http://mayson.huimeionline.com/cdss
+# ${mayson_url}     http://mayson.huimeionline.com/cdss
 # ${mayson_url}     http://test-mayson.huimeionline.com/cdss
 # ${mayson_url}     http://10.46.74.95:8080
 # ${mayson_url}     http://172.16.3.75/cdss
-# ${mayson_url}     http://profile.huimeionline.com/cdss
+${mayson_url}     http://profile.huimeionline.com/cdss
 #apollo生产环境       修改成http://负载ip/cdss
 ${base_url}       http://mayson.huimeionline.com/cdss
 # ${base_url}       http://test-mayson.huimeionline.com/cdss
@@ -900,7 +900,7 @@ ame管理_文档列表查询
     Create Session    api    ${mayson_url}    ${dict}
     ${patientInfo}    Evaluate    dict(${patientInfo})
     ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    patientInfo=${patientInfo}
-    ${addr}    Post Request    api    mayson/v_1_0/medication_regimen    data=${data}
+    ${addr}    Post Request    api    mayson/v_2_0/medication_regimen    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
@@ -1791,7 +1791,7 @@ VTE1.2
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${athena_url}    ${dict}
     ${params}    Create Dictionary    examId=${examId}    examType=${examType}    customEnv=${customEnv}
-    ${addr}    Get Request    api    athena/v_1_0/article/page/exam?    params=${params}
+    ${addr}    Get Request    api    cdss/athena/v_1_0/article/page/exam?    params=${params}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
@@ -1818,5 +1818,17 @@ VTE1.2
     ${addr}    Post Request    api    cdss/mayson/v_1_0/logical_exam    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+
+
+
+
+# 检验检查操作说明
+#     [Arguments]    ${examId}    ${examType}
+#     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+#     Create Session    api    ${athena_url}    ${dict}
+#     ${params}    Create Dictionary    examId=${examId}    examType=${examType}
+#     ${addr}    Get Request    api    cdss/athena/v_1_0/article/exam?    params=${params}
+#     ${responsedata}    To Json    ${addr.content}
+#     [Return]    ${responsedata}
 
 
