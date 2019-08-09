@@ -5,9 +5,9 @@
 # ${mayson_url}     http://test-mayson.huimeionline.com/cdss
 # ${mayson_url}     http://10.46.74.95:8080
 # ${mayson_url}     http://172.16.3.75/cdss
-${mayson_url}     http://profile.huimeionline.com/cdss
+${mayson_url}     http://mayson.huimeionline.com/cdss
 #apollo生产环境       修改成http://负载ip/cdss
-${base_url}       http://mayson.huimeionline.com/cdss
+${base_url}       http://profile.huimeionline.com/cdss
 # ${base_url}       http://test-mayson.huimeionline.com/cdss
 # ${base_url}       http://10.46.74.95:8080
 # ${base_url}       http://172.16.3.79/cdss
