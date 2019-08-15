@@ -33,6 +33,7 @@ ${base_url_amc}    http://amc.huimeionline.com
 # ${mayson_profile}    http://profile.huimeionline.com/cdss
 # ${mayson_profile}    http://172.16.3.61:8080
 ${mayson_profile}    http://profile.huimeionline.com/cdss
+# ${mayson_profile}    http://test-mayson.huimeionline.com/cdss
 # gdms            修改成http://负载ip
 ${base_gdms}      http://gdms.huimeionline.com
 
@@ -75,6 +76,7 @@ ${base_url_95}    http://10.46.74.95:9200
 ${base_url_219}    http://10.165.102.219:9200
 #宏利号
 ${Huimei_id}      7195F12825788F09375C2DB1E922F108
+# ${Huimei_id}      D7928B9182ABF6E0A6A6EBB71B353585
 #亚心id
 ${Huimei_id2}     831ECD7EBA1EDBCE677AC9DB679DF815
 ${Huimei_his}     01217002C571E1622927516DB4A1C803
@@ -728,8 +730,8 @@ amcPc客户信息
 问诊路径
     [Arguments]    ${symptomId}    ${age}    ${ageType}    ${sex}    ${patientName}    ${saveFlag}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${mayson_url}    ${dict}
-    # Create Session    api    ${mayson_url}    ${dict}
+    Create Session    api    ${base_url}    ${dict}
+    # Create Session    api    ${base_url}    ${dict}
     ${data}    Create Dictionary    symptomId=${symptomId}    age=${age}    ageType=${ageType}    sex=${sex}    patientName=${patientName}
     ...    saveFlag=${saveFlag}
     ${addr}    Post Request    api    /amc/node_tree    data=${data}
@@ -740,8 +742,8 @@ amcPc客户信息
     [Arguments]    ${nodeId}    ${algoIdList}    ${seqIdList}    ${symptomIdList}    ${algoId}    ${seqId}
     ...    ${age}    ${ageType}    ${sex}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${mayson_url}    ${dict}
-    # Create Session    api    ${mayson_url}    ${dict}
+    Create Session    api    ${base_url}    ${dict}
+    # Create Session    api    ${base_url}    ${dict}
     ${algoIdList}    Create List    ${algoIdList}
     ${seqIdList}    Create List    ${seqIdList}
     ${symptomIdList}    Create List    ${symptomIdList}
@@ -754,7 +756,7 @@ amcPc客户信息
 提交记录
     [Arguments]    ${nodeId}    ${algoId}    ${seqId}    ${age}    ${ageType}    ${sex}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${mayson_url}    ${dict}
+    Create Session    api    ${base_url}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    nodeId=${nodeId}    algoId=${algoId}    seqId=${seqId}    age=${age}    ageType=${ageType}
     ...    sex=${sex}
@@ -774,7 +776,7 @@ amcPc客户信息
 症状搜索
     [Arguments]    ${symptom}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${mayson_url}    ${dict}
+    Create Session    api    ${base_url}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    symptom=${symptom}
     ${addr}    Post Request    api    amc/v_4_0/symptom    data=${data}
@@ -975,7 +977,7 @@ mayson默认推荐搜索
     ${labTestList}    Evaluate    [${labTestList}]
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    http://10.46.74.95:8080    ${dict}
-    Create Session    api    ${mayson_url}    ${dict}
+    Create Session    api    ${base_url}    ${dict}
     ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    doctorGuid=${doctorGuid}    hospitalGuid=${hospitalGuid}    symptom=${symptom}
     ...    drugCommonNames=${drugCommonNames}    examinationList=${examinationList}    newTestList=${newTestList}    labTestList=${labTestList}    previousHistory=${previousHistory}    personalHistory=${personalHistory}
     ...    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}    weight=${weight}    gender=${gender}    bodyTempr=${bodyTempr}    lowBldPress=${lowBldPress}
@@ -1018,7 +1020,7 @@ mayson默认推荐搜索
 
 智能推荐v2
     [Arguments]    ${userGuid}    ${serialNumber}    ${patientName}    ${doctorGuid}    ${doctorName}    ${admissionTime}
-    ...    ${inpatientDepartment}    ${pageSource}    ${patientInfo}    ${physicalSign}    ${definiteDiagnosis}    ${progressNoteList}
+    ...    ${inpatientDepartment}    ${pageSource}    ${requestSource}    ${patientInfo}    ${physicalSign}    ${definiteDiagnosis}    ${progressNoteList}
     ...    ${deleteProgressNoteList}    ${labTestList}    ${examinationList}    ${newTestList}    ${operationRecord}    ${prescriptions}
     ...    ${currentDiseaseName}    ${medicalOrders}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -1036,7 +1038,7 @@ mayson默认推荐搜索
     ${prescriptions}    Evaluate    ${prescriptions}
     ${medicalOrders}    Evaluate    dict(${medicalOrders})
     ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    patientName=${patientName}    doctorGuid=${doctorGuid}    doctorName=${doctorName}
-    ...    admissionTime=${admissionTime}    inpatientDepartment=${inpatientDepartment}    pageSource=${pageSource}    patientInfo=${patientInfo}    physicalSign=${physicalSign}    definiteDiagnosis=${definiteDiagnosis}
+    ...    admissionTime=${admissionTime}    inpatientDepartment=${inpatientDepartment}    pageSource=${pageSource}    requestSource=${requestSource}    patientInfo=${patientInfo}    physicalSign=${physicalSign}    definiteDiagnosis=${definiteDiagnosis}
     ...    progressNoteList=${progressNoteList}    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}    examinationList=${examinationList}    newTestList=${newTestList}    operationRecord=${operationRecord}
     ...    prescriptions=${prescriptions}    currentDiseaseName=${currentDiseaseName}    medicalOrders=${medicalOrders}
     log    ${data}
@@ -1361,8 +1363,8 @@ mayson默认推荐
     ...    definiteDiagnosis=${definiteDiagnosis}    progressNoteList=${progressNoteList}    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}    examinationList=${examinationList}    newTestList=${newTestList}
     ...    operationRecord=${operationRecord}    prescriptions=${prescriptions}    currentDiseaseName=${currentDiseaseName}    medicalOrders=${medicalOrders}
     log    ${data}
-    ${addr}    Post Request    api    mayson/v_1_1/intelligent_recommendation    data=${data}
-    # ${addr}    Post Request    api    mayson/v_2_0/intelligent_recommendation    data=${data}
+    # ${addr}    Post Request    api    mayson/v_1_1/intelligent_recommendation    data=${data}
+    ${addr}    Post Request    api    mayson/v_2_0/intelligent_recommendation    data=${data}
     ${responsedata}    To Json    ${addr.content}
     ${operationId}    Get from Dictionary    ${responsedata["body"]["qualityControlResponse"]["checkListResp"][0]}    operationId
     Set Global variable    ${operationId}
