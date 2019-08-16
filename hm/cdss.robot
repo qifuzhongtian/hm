@@ -21,8 +21,8 @@ ${doc_online}     http://120.26.223.139
 #ame生产环境          修改成http://负载ip
 ${base_url_ame}    http://10.46.74.95:8092
 #fuxi验证接口         修改成 http://负载ip/node/active
-${fuxi_data}      http://fuxi.huimeionline.com/node/active/
-# ${fuxi_data}      http://test-fuxi.huimeionline.com/node/active/
+${fuxi_data}      http://fuxi.huimeionline.com/node/
+# ${fuxi_data}      http://test-fuxi.huimeionline.com/node/
 #adminse          修改成http://负载ip
 ${adminse}        http://admin-se.huimeionline.com/
 # ${adminse}        http://test-admin-se.huimeionline.com/
@@ -1411,7 +1411,7 @@ mayson默认推荐
     ${dict}    Create Dictionary    Content-Type=application/json
     Create Session    api    ${fuxi_data}    ${dict}
     ${data}    Create Dictionary    name=${name}    password=${password}
-    ${addr}    Post Request    api    login    data=${data}
+    ${addr}    Post Request    api    active/login    data=${data}
     ${responsedata}    To Json    ${addr.content}
     # ${str}    Get From Dictionary    ${responsedata}    head
     # ${str1}    Get From Dictionary    ${str}    error
@@ -1425,7 +1425,7 @@ mayson默认推荐
     #${dict}    Create Dictionary    Content-Type=application/json
     #Create Session    api    ${fuxi_data}    ${dict}
     ${data}    Create Dictionary    id=${id}
-    ${addr}    Post Request    api    queryChartConfig    data=${data}
+    ${addr}    Post Request    api    /active/queryChartConfig    data=${data}
     ${responsedata}    To Json    ${addr.content}
     # ${str}    Get From Dictionary    ${responsedata}    head
     # ${str1}    Get From Dictionary    ${str}    error
@@ -1439,7 +1439,7 @@ mayson默认推荐
     #${dict}    Create Dictionary    Content-Type=application/json
     #Create Session    api    ${fuxi_data}    ${dict}
     ${data}    Create Dictionary    id=${id}
-    ${addr}    Post Request    api    queryChartConfig    data=${data}
+    ${addr}    Post Request    api    active/queryChartConfig    data=${data}
     ${responsedata}    To Json    ${addr.content}
     # ${str}    Get From Dictionary    ${responsedata}    head
     # ${str1}    Get From Dictionary    ${str}    error
@@ -1825,3 +1825,21 @@ VTE1.2
 #     [Return]    ${responsedata}
 
 
+
+伏羲调度任务更新
+    [Arguments]    ${id}    ${remark}    ${sourceLinkId}    ${taskDate}    ${taskHour}    ${taskMinute}
+    ...    ${taskName}    ${taskSecond}    ${taskSql}    ${taskStatus}    ${taskType}    ${taskWeek}
+    #${dict}    Create Dictionary    Content-Type=application/json
+    #Create Session    api    ${fuxi_data}    ${dict}
+    ${data}    Create Dictionary    id=${id}    remark=${remark}    sourceLinkId=${sourceLinkId}    taskDate=${taskDate}    taskHour=${taskHour}
+    ...    taskMinute=${taskMinute}    taskName=${taskName}    taskSecond=${taskSecond}    taskSql=${taskSql}    taskStatus=${taskStatus}    taskType=${taskType}
+    ...    taskWeek=${taskWeek}
+    ${addr}    Post Request    api    task/updateTaskInfo    data=${data}
+    log    ${addr}
+    ${responsedata}    To Json    ${addr.content}
+    # ${str}    Get From Dictionary    ${responsedata}    head
+    # ${str1}    Get From Dictionary    ${str}    error
+    # Should Be Equal As Strings    ${str1}    ${msg}
+    # Should Be Equal As Strings    ${responsedata['body']['interactionList'][0]['grade']}    ${msg}
+    # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
+    [Return]    ${responsedata}
