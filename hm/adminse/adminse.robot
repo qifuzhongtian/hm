@@ -29,7 +29,7 @@ Library           String
 
 
 检查检验查看
-    ${getRes}    检查检验查看    customerId=15
+    ${getRes}    检查检验查看    customerId=1001
     ...    index=${1}
     ...    pageSize=${20}
     ...    orderBy=${2}

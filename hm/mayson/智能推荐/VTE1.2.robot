@@ -142,7 +142,7 @@ VTE1.2:内科住院患者出血风险评估
 
 
 
-VTE1.2:手术患者深静脉血栓栓塞症风险评估表(Caprini评分表)
+VTE1.2:通过时间:手术患者深静脉血栓栓塞症风险评估表(Caprini评分表)
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
