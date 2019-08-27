@@ -1,11 +1,11 @@
 *** Variables ***
 #=======医院内网需要修改的==============#
 #mayson生产环境       修改成http://负载ip/cdss
-# ${mayson_url}     http://mayson.huimeionline.com/cdss
+${mayson_url}     http://profile.huimeionline.com/cdss
 # ${mayson_url}     http://test-mayson.huimeionline.com/cdss
 # ${mayson_url}     http://10.46.74.95:8080
 # ${mayson_url}     http://172.16.3.75/cdss
-${mayson_url}     http://profile.huimeionline.com/cdss
+# ${mayson_url}     http://profile.huimeionline.com/cdss
 #apollo生产环境       修改成http://负载ip/cdss
 ${base_url}       http://mayson.huimeionline.com/cdss
 # ${base_url}       http://test-mayson.huimeionline.com/cdss
@@ -1835,7 +1835,6 @@ VTE1.2
     ...    taskMinute=${taskMinute}    taskName=${taskName}    taskSecond=${taskSecond}    taskSql=${taskSql}    taskStatus=${taskStatus}    taskType=${taskType}
     ...    taskWeek=${taskWeek}
     ${addr}    Post Request    api    task/updateTaskInfo    data=${data}
-    log    ${addr}
     ${responsedata}    To Json    ${addr.content}
     # ${str}    Get From Dictionary    ${responsedata}    head
     # ${str1}    Get From Dictionary    ${str}    error
@@ -1843,3 +1842,26 @@ VTE1.2
     # Should Be Equal As Strings    ${responsedata['body']['interactionList'][0]['grade']}    ${msg}
     # Should Be Equal As Strings    ${responsedata${slice}}    ${msg}
     [Return]    ${responsedata}
+
+
+
+
+
+快速确认
+    [Arguments]    ${aiResult}    ${assessId}    ${assessItem}    ${assessPostil}    ${assessResultItemList}    ${compare}
+    ...    ${expressId}    ${fileName}    ${ignore}    ${productId}    ${projectId}    ${qcDiseaseDiagnosisList}    ${doctorGuid}    ${pageSource}    ${recordId}    ${assessResultType}
+    ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}    Cookie=${Cookie_value}
+    Create Session    api    ${mayson_profile}    ${dict}
+    ${aiResult}    Evaluate    dict(${aiResult})
+    ${assessResultItemList}    Evaluate    [${assessResultItemList}]
+    ${qcDiseaseDiagnosisList}    Evaluate    [${qcDiseaseDiagnosisList}]
+    ${data}    Create Dictionary    aiResult=${aiResult}    assessId=${assessId}    assessItem=${assessItem}    assessPostil=${assessPostil}    assessResultItemList=${assessResultItemList}
+    ...    compare=${compare}    expressId=${expressId}
+    ...    fileName=${fileName}    ignore=${ignore}    productId=${productId}    projectId=${projectId}    qcDiseaseDiagnosisList=${qcDiseaseDiagnosisList}    doctorGuid=${doctorGuid}    pageSource=${pageSource}    recordId=${recordId}    assessResultType=${assessResultType}
+    # ${addr}    Post Request    api    mayson/v_1_1/intelligent_recommendation    data=${data}
+    ${addr}    Post Request    api    /sentry/assess/save    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
