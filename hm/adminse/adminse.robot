@@ -1,6 +1,6 @@
 *** Settings ***
 # Suite Setup    获取时间戳
-Suite Setup      adminse登录    name=qa    password=befe9f8a14346e3e52c762f333395796
+Suite Setup      adminse登录    name=qa    password=e3ceb5881a0a1fdaad01296d7554868d
 # ...    AND    checkuser
 Suite Teardown    Delete All Sessions
 Resource          ../cdss.robot
