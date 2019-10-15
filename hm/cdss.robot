@@ -29,11 +29,11 @@ ${adminse}        http://admin-se.huimeionline.com/
 #amcPc版           修改成http://负载ip/cdss
 ${base_url_amc}    http://amc.huimeionline.com
 # ${base_url_amc}    http://test-amc.huimeionline.com
-# ${mayson_profile}    修改成http://负载ip/cdss
-# ${mayson_profile}    http://profile.huimeionline.com/cdss
-# ${mayson_profile}    http://172.16.3.61:8080
-${mayson_profile}    http://profile.huimeionline.com/cdss
-# ${mayson_profile}    http://test-mayson.huimeionline.com/cdss
+# ${mayson_url}    修改成http://负载ip/cdss
+# ${mayson_url}    http://profile.huimeionline.com/cdss
+# ${mayson_url}    http://172.16.3.61:8080
+# ${mayson_url}    http://profile.huimeionline.com/cdss
+# ${mayson_url}    http://test-mayson.huimeionline.com/cdss
 # gdms            修改成http://负载ip
 ${base_gdms}      http://gdms.huimeionline.com
 
@@ -78,13 +78,11 @@ ${base_url_219}    http://10.165.102.219:9200
 ${Huimei_id}      7195F12825788F09375C2DB1E922F108
 # ${Huimei_id}      D7928B9182ABF6E0A6A6EBB71B353585
 #亚心id
-${Huimei_id2}     831ECD7EBA1EDBCE677AC9DB679DF815
 ${Huimei_his}     01217002C571E1622927516DB4A1C803
-${Huimei_id_safe_medication}    7195F12825788F09375C2DB1E922F108
+${Huimei_id}    7195F12825788F09375C2DB1E922F108
 ###建德
 ${Huimei_id_jd}    C3E74C229156E6B31534E946BCDEBA94
 #his
-${Huimei_id_his}    D7928B9182ABF6E0A6A6EBB71B353585
 
 *** Keywords ***
 获取时间戳
@@ -114,7 +112,7 @@ ${Huimei_id_his}    D7928B9182ABF6E0A6A6EBB71B353585
 
 药品查询
     [Arguments]    ${drugName}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id_safe_medication}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${base_url}    ${dict}
     ${data}    Create Dictionary    drugName=${drugName}
     ${addr}    Post Request    api    hmsm/v_1_0/drug/search    data=${data}
@@ -127,7 +125,7 @@ ${Huimei_id_his}    D7928B9182ABF6E0A6A6EBB71B353585
 查询药品与诊断
     [Arguments]    ${hasAssessType}    ${name}
     ${true}    Set Variable    ${true}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id_safe_medication}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${base_url}    ${dict}
     ${data}    Create Dictionary    hasAssessType=${hasAssessType}    name=${name}
     ${addr}    Post Request    api    v_2_0/search/all    data=${data}
@@ -147,7 +145,7 @@ ${Huimei_id_his}    D7928B9182ABF6E0A6A6EBB71B353585
 
 诊断依据
     [Arguments]    ${diseaseId}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id_safe_medication}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${base_url}    ${dict}
     ${data}    Create Dictionary    diseaseId=${diseaseId}
     ${addr}    Post Request    api    v_2_0/disease/basis    data=${data}
@@ -1025,7 +1023,7 @@ mayson默认推荐搜索
     ...    ${currentDiseaseName}    ${medicalOrders}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${base_url}    ${dict}
-    Create Session    api    ${mayson_profile}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${patientInfo}    Evaluate    dict(${patientInfo})
     ${physicalSign}    Evaluate    dict(${physicalSign})
     ${definiteDiagnosis}    Evaluate    [${definiteDiagnosis}]
@@ -1110,7 +1108,7 @@ mayson默认推荐搜索
 查询惠每评估表
     [Arguments]    ${doctorGuid}    ${assessId}    ${serialNumber}    ${userGuid}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${mayson_profile}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     # Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    doctorGuid=${doctorGuid}    assessId=${assessId}    serialNumber=${serialNumber}    userGuid=${userGuid}
     ${addr}    Post Request    api    /mayson/v_1_0/assess/query    data=${data}
@@ -1315,7 +1313,7 @@ mayson默认推荐
     ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}    Cookie=${Cookie_value}
     # Create Session    api    ${base_url}    ${dict}
-    Create Session    api    ${mayson_profile}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${patientInfo}    Evaluate    dict(${patientInfo})
     ${physicalSign}    Evaluate    dict(${physicalSign})
     ${definiteDiagnosis}    Evaluate    [${definiteDiagnosis}]
@@ -1347,7 +1345,7 @@ mayson默认推荐
     ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}    Cookie=${Cookie_value}
     # Create Session    api    ${base_url}    ${dict}
-    Create Session    api    ${mayson_profile}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${patientInfo}    Evaluate    dict(${patientInfo})
     ${physicalSign}    Evaluate    dict(${physicalSign})
     ${definiteDiagnosis}    Evaluate    [${definiteDiagnosis}]
@@ -1385,7 +1383,7 @@ mayson默认推荐
     ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}    Cookie=${Cookie_value}
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=D7928B9182ABF6E0A6A6EBB71B353585    Cookie=${Cookie_value}
-    Create Session    api    ${mayson_profile}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    operationId=${operationId}    recordId=${recordId}
     ${addr}    Post Request    api    sentry/v_2_0/cl/get_check_list    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -1401,7 +1399,7 @@ mayson默认推荐
     ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}    Cookie=${Cookie_value}
     ${checkListItem}    Evaluate    [[${checkListItem}]]
-    Create Session    api    ${mayson_profile}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    checkListItem=${checkListItem}    recordId=${recordId}
     ${addr}    Post Request    api    sentry/v_2_0/cl/update    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -1717,7 +1715,7 @@ adminse登录
     ...    ${operate}    ${guid}    ${type}    ${qcDiseaseDiagnosisList}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${base_url}    ${dict}
-    Create Session    api    ${mayson_profile}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${qcDiseaseDiagnosisList}    Evaluate    dict(${qcDiseaseDiagnosisList})
     ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}
     ...    projectId=${projectId}    doctorGuid=${doctorGuid}    operate=${operate}    guid=${guid}
@@ -1757,7 +1755,7 @@ VTE1.2
     ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}    Cookie=${Cookie_value}
     # Create Session    api    ${base_url}    ${dict}
-    Create Session    api    ${mayson_profile}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${patientInfo}    Evaluate    dict(${patientInfo})
     ${physicalSign}    Evaluate    dict(${physicalSign})
     ${definiteDiagnosis}    Evaluate    [${definiteDiagnosis}]
@@ -1847,13 +1845,12 @@ VTE1.2
 
 
 
-
 快速确认
     [Arguments]    ${aiResult}    ${assessId}    ${assessItem}    ${assessPostil}    ${assessResultItemList}    ${compare}
     ...    ${expressId}    ${fileName}    ${ignore}    ${productId}    ${projectId}    ${qcDiseaseDiagnosisList}    ${doctorGuid}    ${pageSource}    ${recordId}    ${assessResultType}
     ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}    Cookie=${Cookie_value}
-    Create Session    api    ${mayson_profile}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${aiResult}    Evaluate    dict(${aiResult})
     ${assessResultItemList}    Evaluate    [${assessResultItemList}]
     ${qcDiseaseDiagnosisList}    Evaluate    [${qcDiseaseDiagnosisList}]
@@ -1866,3 +1863,28 @@ VTE1.2
     [Return]    ${responsedata}
 
 
+
+
+病案首页_病历质控
+    [Arguments]    ${patientGuid}    ${serialNumber}    ${doctorGuid}    ${pageSource}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
+    ${data}    Create Dictionary    patientGuid=${patientGuid}    serialNumber=${serialNumber}    doctorGuid=${doctorGuid}    pageSource=${pageSource}
+    ${addr}    Post Request    api    mayson/v_1_0/medical_record_recommend    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    ${recordId}    Get from Dictionary    ${responsedata["body"]}    recordId
+    Set Global variable    ${recordId}
+    [Return]    ${responsedata}
+
+
+
+病历质控初始化数据
+    [Arguments]    ${patientGuid}    ${serialNumber}    ${doctorGuid}    ${pageSource}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
+    ${data}    Create Dictionary    patientGuid=${patientGuid}    serialNumber=${serialNumber}    doctorGuid=${doctorGuid}    pageSource=${pageSource}
+    ${addr}    Post Request    api    mayson/v_1_0/init_mc_data    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
