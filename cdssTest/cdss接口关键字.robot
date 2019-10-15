@@ -829,9 +829,10 @@ ame管理_文档列表查询
     # Create Session    api    http://10.46.74.95:9125    ${dict}
     #线上
     # Create Session    api    http://47.95.203.183:8080    ${dict}
-    ${data}    Create Dictionary    symptom=${symptom}    previousHistory=    personalHistory=    allergyHistory=    familyHistory=
-    ...    weight=    gender=    bodyTempr=    lowBldPress=    highBldPress=    examInfo=
-    ...    heartRate=    age=    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap[]=    presentHistory=
+    ${data}    Create Dictionary    recognizePath=http://10.27.213.55:9126    symptom=${symptom}    previousHistory=    personalHistory=    allergyHistory=
+    ...    familyHistory=    weight=    gender=    bodyTempr=    lowBldPress=    highBldPress=
+    ...    examInfo=    heartRate=    age=    ageType=岁    confirmDiagnosis=    confirmDiagnosisMap[]=
+    ...    presentHistory=
     ${addr}    Post Request    api    /v_4_0/recognize    data=${data}
     ${responsedata}    To Json    ${addr.content}
     ${aj}    Evaluate    [aj['word'] for aj in $responsedata['body']['recognizeResultList']]
@@ -874,19 +875,10 @@ ame管理_文档列表查询
     [Return]    ${responsedata}
 
 智能推荐
-    [Arguments]    ${userGuid}    ${serialNumber}    ${patientName}    ${doctorGuid}    ${doctorName}    ${admissionTime}    ${inpatientDepartment}    ${pageSource}
-    ...    ${patientInfo}
-    ...    ${physicalSign}
-    ...    ${definiteDiagnosis}
-    ...    ${progressNoteList}
-    ...    ${deleteProgressNoteList}
-    ...    ${labTestList}
-    ...    ${examinationList}
-    ...    ${newTestList}
-    ...    ${operationRecord}
-    ...    ${prescriptions}
-    ...    ${currentDiseaseName}
-    ...    ${medicalOrders}
+    [Arguments]    ${userGuid}    ${serialNumber}    ${patientName}    ${doctorGuid}    ${doctorName}    ${admissionTime}
+    ...    ${inpatientDepartment}    ${pageSource}    ${patientInfo}    ${physicalSign}    ${definiteDiagnosis}    ${progressNoteList}
+    ...    ${deleteProgressNoteList}    ${labTestList}    ${examinationList}    ${newTestList}    ${operationRecord}    ${prescriptions}
+    ...    ${currentDiseaseName}    ${medicalOrders}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${base_url}    ${dict}
     Create Session    api    ${mayson_url}    ${dict}
@@ -901,14 +893,13 @@ ame管理_文档列表查询
     ${operationRecord}    Evaluate    dict(${operationRecord})
     ${prescriptions}    Evaluate    ${prescriptions}
     ${medicalOrders}    Evaluate    dict(${medicalOrders})
-    ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    patientName=${patientName}    doctorGuid=${doctorGuid}    doctorName=${doctorName}    admissionTime=${admissionTime}    inpatientDepartment=${inpatientDepartment}    pageSource=${pageSource}    patientInfo=${patientInfo}
-    ...    physicalSign=${physicalSign}    definiteDiagnosis=${definiteDiagnosis}    progressNoteList=${progressNoteList}
-    ...    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}    examinationList=${examinationList}
-    ...    newTestList=${newTestList}    operationRecord=${operationRecord}    prescriptions=${prescriptions}    currentDiseaseName=${currentDiseaseName}    medicalOrders=${medicalOrders}
+    ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    patientName=${patientName}    doctorGuid=${doctorGuid}    doctorName=${doctorName}
+    ...    admissionTime=${admissionTime}    inpatientDepartment=${inpatientDepartment}    pageSource=${pageSource}    patientInfo=${patientInfo}    physicalSign=${physicalSign}    definiteDiagnosis=${definiteDiagnosis}
+    ...    progressNoteList=${progressNoteList}    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}    examinationList=${examinationList}    newTestList=${newTestList}    operationRecord=${operationRecord}
+    ...    prescriptions=${prescriptions}    currentDiseaseName=${currentDiseaseName}    medicalOrders=${medicalOrders}
     ${addr}    Post Request    api    mayson/v_1_0/intelligent_recommendation    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
-
 
 智能推荐模板
     [Arguments]    ${userGuid}    ${serialNumber}    ${patientInfo}    ${progressNoteList}    # ...    ${doctorGuid}
@@ -1262,3 +1253,66 @@ mayson默认推荐
     ${responsedata}    To Json    ${addr.content}
     ${aj}    Evaluate    [aj['word'] for aj in $responsedata['body']['recognizeResultList']]
     Should Contain    ${aj}    ${assert}    ignore_case=true
+
+智能推荐_鉴别诊断
+    [Arguments]    ${userGuid}    ${serialNumber}    ${patientName}    ${doctorGuid}    ${doctorName}    ${admissionTime}
+    ...    ${inpatientDepartment}    ${pageSource}    ${requestSource}    ${patientInfo}    ${physicalSign}    ${definiteDiagnosis}
+    ...    ${progressNoteList}    ${deleteProgressNoteList}    ${labTestList}    ${examinationList}    ${newTestList}    ${operationRecord}
+    ...    ${prescriptions}    ${currentDiseaseName}    ${medicalOrders}
+    ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}    Cookie=${Cookie_value}
+    Create Session    api    ${base_url}    ${dict}
+    #Create Session    api    ${mayson_profile}    ${dict}
+    ${patientInfo}    Evaluate    dict(${patientInfo})
+    ${physicalSign}    Evaluate    dict(${physicalSign})
+    ${definiteDiagnosis}    Evaluate    [${definiteDiagnosis}]
+    ${progressNoteList}    Evaluate    [${progressNoteList}]
+    ${deleteProgressNoteList}    Evaluate    [${deleteProgressNoteList}]
+    ${labTestList}    Evaluate    [${labTestList}]
+    ${examinationList}    Evaluate    [${examinationList}]
+    ${newTestList}    Evaluate    [${newTestList}]
+    ${operationRecord}    Evaluate    dict(${operationRecord})
+    ${prescriptions}    Evaluate    ${prescriptions}
+    ${medicalOrders}    Evaluate    dict(${medicalOrders})
+    ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    patientName=${patientName}    doctorGuid=${doctorGuid}    doctorName=${doctorName}
+    ...    admissionTime=${admissionTime}    inpatientDepartment=${inpatientDepartment}    pageSource=${pageSource}    requestSource=${requestSource}    patientInfo=${patientInfo}    physicalSign=${physicalSign}
+    ...    definiteDiagnosis=${definiteDiagnosis}    progressNoteList=${progressNoteList}    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}    examinationList=${examinationList}    newTestList=${newTestList}
+    ...    operationRecord=${operationRecord}    prescriptions=${prescriptions}    currentDiseaseName=${currentDiseaseName}    medicalOrders=${medicalOrders}
+    log    ${data}
+    ${addr}    Post Request    api    mayson/v_2_0/intelligent_recommendation    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+算法识别-new
+    [Arguments]    ${contents}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=78D211AA892A8155EF18F4CDB967043A
+    Create Session    api    http://10.27.213.55:9092    ${dict}
+    ${contents}    evaluate    [${contents}]
+    ${data}    Create Dictionary    contents=${contents}
+    ${addr}    Post Request    api    /inference    data=${data}
+    log    ${data}
+    ${responsedata}    To Json    ${addr.content}
+    #${aj}    Evaluate    [aj['conceptName'] for aj in $responsedata['body']['contentResults'][0]['sentences'][0]['concepts']]
+    #Should Contain    ${aj}    ${conceptName}    ignore_case=true
+    [Return]    ${responsedata}
+
+算法识别-new2
+    [Arguments]    ${testName}    ${testSample}    ${testItemName}    ${testItemUnit}    ${testItemValue}    ${testNormalRange}
+    ...    ${conceptName}    ${entityAttribute}
+    #${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=78D211AA892A8155EF18F4CDB967043A
+    #Create Session    api    http://10.27.213.55:9092    ${dict}
+    #${contents}    evaluate    [${contents}]
+    #${data}    Create Dictionary    contents=${contents}
+    #${addr}    Post Request    api    /inference    data=${data}
+    #log    ${data}
+    #${responsedata}    To Json    ${addr.content}
+    ${entityAttribute}    Create List    ${entityAttribute}
+    #log    ${entityAttribute}
+    ${getRes}    算法识别-new    contents={"content":[{"testName":"${testName}","testNumber":"17533850","testSample":"${testSample}","recordDate":"2019-05-27T10:53:03","testDate":"2019-05-27T10:53:03","reportDate":"2019-05-27T10:53:03","samplingDate":"2019-05-27T10:53:03","testGuid":"1518955","recordTypeId":4001,"dictionaryAttributeId":62,"progressId":1518955,"recordId":986225,"testItems":[{"testItemName":"${testItemName}","testItemEnname":"","testItemUnit":"${testItemUnit}","testItemValue":"${testItemValue}","testNormalRange":"${testNormalRange}","equipment":"","testMethod":"","testItemValueAttributive":[]}]}],"type":62}
+    #log    ${getRes}
+    ${aj}    Evaluate    [aj['conceptName'] for aj in $getRes['body']['contentResults'][0]['sentences'][0]['concepts']]
+    Should Contain    ${aj}    ${conceptName}    ignore_case=true
+    ${aj2}    Evaluate    [aj['properties']['entityAttribute'] for aj in $getRes['body']['contentResults'][0]['sentences'][0]['concepts']]
+    #log    ${aj2}
+    Should Contain    ${aj2}    ${entityAttribute}
+    #Lists should Contain    ${aj2}    ${entityAttribute}
