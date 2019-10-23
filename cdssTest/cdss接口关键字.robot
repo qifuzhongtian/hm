@@ -1298,7 +1298,7 @@ mayson默认推荐
 
 算法识别-new2
     [Arguments]    ${testName}    ${testSample}    ${testItemName}    ${testItemUnit}    ${testItemValue}    ${testNormalRange}
-    ...    ${equipment}    ${testItemEnname}    ${testMethod}    ${testItemValueAttributive}    ${conceptName}    ${entityAttribute}
+    ...    ${testItemEnname}    ${testMethod}    ${equipment}    ${testItemValueAttributive}    ${conceptName}    ${entityAttribute}
     #${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=78D211AA892A8155EF18F4CDB967043A
     #Create Session    api    http://10.27.213.55:9092    ${dict}
     #${contents}    evaluate    [${contents}]
