@@ -1298,7 +1298,7 @@ mayson默认推荐
 
 算法识别-new2
     [Arguments]    ${testName}    ${testSample}    ${testItemName}    ${testItemUnit}    ${testItemValue}    ${testNormalRange}
-    ...    ${conceptName}    ${entityAttribute}
+    ...    ${equipment}    ${testItemEnname}    ${testMethod}    ${testItemValueAttributive}    ${conceptName}    ${entityAttribute}
     #${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=78D211AA892A8155EF18F4CDB967043A
     #Create Session    api    http://10.27.213.55:9092    ${dict}
     #${contents}    evaluate    [${contents}]
@@ -1308,7 +1308,7 @@ mayson默认推荐
     #${responsedata}    To Json    ${addr.content}
     ${entityAttribute}    Create List    ${entityAttribute}
     #log    ${entityAttribute}
-    ${getRes}    算法识别-new    contents={"content":[{"testName":"${testName}","testNumber":"17533850","testSample":"${testSample}","recordDate":"2019-05-27T10:53:03","testDate":"2019-05-27T10:53:03","reportDate":"2019-05-27T10:53:03","samplingDate":"2019-05-27T10:53:03","testGuid":"1518955","recordTypeId":4001,"dictionaryAttributeId":62,"progressId":1518955,"recordId":986225,"testItems":[{"testItemName":"${testItemName}","testItemEnname":"","testItemUnit":"${testItemUnit}","testItemValue":"${testItemValue}","testNormalRange":"${testNormalRange}","equipment":"","testMethod":"","testItemValueAttributive":[]}]}],"type":62}
+    ${getRes}    算法识别-new    contents={"content":[{"testName":"${testName}","testNumber":"17533850","testSample":"${testSample}","recordDate":"2019-05-27T10:53:03","testDate":"2019-05-27T10:53:03","reportDate":"2019-05-27T10:53:03","samplingDate":"2019-05-27T10:53:03","testGuid":"1518955","recordTypeId":4001,"dictionaryAttributeId":62,"progressId":1518955,"recordId":986225,"testItems":[{"testItemName":"${testItemName}","testItemEnname":"${testItemEnname}","testItemUnit":"${testItemUnit}","testItemValue":"${testItemValue}","testNormalRange":"${testNormalRange}","equipment":"${equipment}","testMethod":"${testMethod}","testItemValueAttributive":[${testItemValueAttributive}]}]}],"type":62}
     #log    ${getRes}
     ${aj}    Evaluate    [aj['conceptName'] for aj in $getRes['body']['contentResults'][0]['sentences'][0]['concepts']]
     Should Contain    ${aj}    ${conceptName}    ignore_case=true
