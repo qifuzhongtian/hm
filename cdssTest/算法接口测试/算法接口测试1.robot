@@ -5,7 +5,7 @@ Library           Collections
 Library           RequestsLibrary
 
 *** Test Cases ***
-算法测试2
+算法识别
     凝血检测(4项aptt+pt+d-二聚体+fib)    null    血浆凝血酶原时间    s    15.4    9.4~11.9    ${EMPTY}
     ...    \    \    \    凝血酶原时间(PT)    升高
     凝血检测(4项aptt+pt+d-二聚体+fib)    null    血浆d-二聚体    ug/ml    6.454    0~0.5    ${EMPTY}
@@ -113,7 +113,7 @@ Library           RequestsLibrary
     肾功能测定(3项urea、crea、ua)    null    血清尿酸    μmol/l    429    155~357    ${EMPTY}
     ...    \    \    \    血尿酸    升高
     肾功能测定(3项urea、crea、ua)    null    肾小球滤过率    ml/min    13    66~143    ${EMPTY}
-    ...    \    \    \    血肾小球滤过率(GFR)    降低
+    ...    \    \    \    血肾小球滤过率(eGFR)    降低
     肾功能测定(3项urea、crea、ua)    null    血清尿素    mmol/l    49.62    3.1~8.8    ${EMPTY}
     ...    \    \    \    血尿素(Urea)    升高
     胸腹水生化检测(5项tp等)    null    胸腹水糖    mmol/l    19.32    3.9~6.1    ${EMPTY}
@@ -179,7 +179,7 @@ Library           RequestsLibrary
     肝功能测定(11项tp等)    null    血清碱性磷酸酶    u/l    149    35~135    ${EMPTY}
     ...    \    \    \    血碱性磷酸酶    升高
     肝功能测定(11项tp等)    null    肾小球滤过率    ml/min    20    66~143    ${EMPTY}
-    ...    \    \    \    血肾小球滤过率(GFR)    降低
+    ...    \    \    \    血肾小球滤过率(eGFR)    降低
     肝功能测定(11项tp等)    null    血清肌酐    μmol/l    222    41~81    ${EMPTY}
     ...    \    \    \    血肌酐    升高
     肝功能测定(11项tp等)    null    血清尿素    mmol/l    36.58    3.1~8.8    ${EMPTY}
@@ -227,7 +227,7 @@ Library           RequestsLibrary
     超敏c反应蛋白测定    null    血清乳酸脱氢酶    u/l    827    120~250    ${EMPTY}
     ...    \    \    \    血乳酸脱氢酶(LDH)    升高
     超敏c反应蛋白测定    null    肾小球滤过率    ml/min    25    66~143    ${EMPTY}
-    ...    \    \    \    血肾小球滤过率(GFR)    降低
+    ...    \    \    \    血肾小球滤过率(eGFR)    降低
     超敏c反应蛋白测定    null    血清白/球    \    0.8    1.2~2.4    ${EMPTY}
     ...    \    \    \    血白球比    降低
     超敏c反应蛋白测定    null    天门冬氨酸氨基转移酶    iu/l    35    0~35    ${EMPTY}
@@ -401,7 +401,7 @@ Library           RequestsLibrary
     生化(28项tp等测定)    null    血清白/球    \    1.1    1.2~2.4    ${EMPTY}
     ...    \    \    \    血白球比    降低
     生化(28项tp等测定)    null    肾小球滤过率    ml/min    39    66~143    ${EMPTY}
-    ...    \    \    \    血肾小球滤过率(GFR)    降低
+    ...    \    \    \    血肾小球滤过率(eGFR)    降低
     生化(28项tp等测定)    null    总胆固醇/高密度胆固醇    \    3.75    2.5~3    ${EMPTY}
     ...    \    \    \    血总胆固醇/高密度脂蛋白胆固醇比值(TC/HDL)    升高
     生化(28项tp等测定)    null    γ-谷氨酰基转移酶    u/l    19    9~64    ${EMPTY}
@@ -571,13 +571,13 @@ Library           RequestsLibrary
     肝功能测定(11项tp等)    null    n末端b型利钠肽原    pg/ml    1760    0~125    ${EMPTY}
     ...    \    \    \    血N端-B型钠尿肽前体(NT-ProBNP)    升高
     肾功能测定(3项urea、crea、ua)    null    肾小球滤过率    ml/min    72    66~143    ${EMPTY}
-    ...    \    \    \    血肾小球滤过率(GFR)    正常
+    ...    \    \    \    血肾小球滤过率(eGFR)    正常
     肾功能测定(3项urea、crea、ua)    null    血清尿素    mmol/l    7.67    3.1~8    ${EMPTY}
     ...    \    \    \    血尿素(Urea)    正常
     肝功能测定(11项tp等)    null    镁测定    mmol/l    0.95    0.75~1.02    ${EMPTY}
     ...    \    \    \    血镁    正常
     肝功能测定(11项tp等)    null    肾小球滤过率    ml/min    78    66~143    ${EMPTY}
-    ...    \    \    \    血肾小球滤过率(GFR)    正常
+    ...    \    \    \    血肾小球滤过率(eGFR)    正常
     肝功能测定(11项tp等)    null    血清肌酐    μmol/l    93    57~97    ${EMPTY}
     ...    \    \    \    血肌酐    正常
     肝功能测定(11项tp等)    null    氯测定    mmol/l    117.9    99~110    ${EMPTY}
@@ -643,7 +643,7 @@ Library           RequestsLibrary
     电解质测定(4项k、na、cl、mg)    null    镁测定    mmol/l    1    0.75~1.02    ${EMPTY}
     ...    \    \    \    血镁    正常
     电解质测定(4项k、na、cl、mg)    null    肾小球滤过率    ml/min    34    66~143    ${EMPTY}
-    ...    \    \    \    血肾小球滤过率(GFR)    降低
+    ...    \    \    \    血肾小球滤过率(eGFR)    降低
     电解质测定(4项k、na、cl、mg)    null    血清尿素    mmol/l    12.5    3.1~8    ${EMPTY}
     ...    \    \    \    血尿素(Urea)    升高
     肾功能测定(3项urea、crea、ua)    null    钠测定    mmol/l    150.2    137~147    ${EMPTY}
@@ -695,7 +695,7 @@ Library           RequestsLibrary
     电解质测定(6项k、na、cl、ca、phos、mg)    null    血清白/球    \    0.7    1.2~2.4    ${EMPTY}
     ...    \    \    \    血白球比    降低
     电解质测定(6项k、na、cl、ca、phos、mg)    null    肾小球滤过率    ml/min    37    66~143    ${EMPTY}
-    ...    \    \    \    血肾小球滤过率(GFR)    降低
+    ...    \    \    \    血肾小球滤过率(eGFR)    降低
     电解质测定(6项k、na、cl、ca、phos、mg)    null    天门冬氨酸氨基转移酶    iu/l    39    0~50    ${EMPTY}
     ...    \    \    \    血天冬氨酸氨基转移酶(AST)    正常
     电解质测定(6项k、na、cl、ca、phos、mg)    null    γ-谷氨酰基转移酶    u/l    155    9~64    ${EMPTY}
@@ -791,7 +791,7 @@ Library           RequestsLibrary
     生化(28项tp等测定)    null    血清尿酸    μmol/l    308    208~428    ${EMPTY}
     ...    \    \    \    血尿酸    正常
     生化(28项tp等测定)    null    肾小球滤过率    ml/min    85    66~143    ${EMPTY}
-    ...    \    \    \    血肾小球滤过率(GFR)    正常
+    ...    \    \    \    血肾小球滤过率(eGFR)    正常
     生化(28项tp等测定)    null    超敏c反应蛋白    mg/l    1.06    0~3    ${EMPTY}
     ...    \    \    \    血超敏C反应蛋白    正常
     生化(28项tp等测定)    null    血清肌酐    μmol/l    81    57~117    ${EMPTY}
@@ -933,7 +933,7 @@ Library           RequestsLibrary
     b型钠尿肽前体(pro-bnp)测定    null    n末端b型利钠肽原    pg/ml    173.2    0~125    ${EMPTY}
     ...    \    \    \    血N端-B型钠尿肽前体(NT-ProBNP)    升高
     b型钠尿肽前体(pro-bnp)测定    null    肾小球滤过率    ml/min    74    66~143    ${EMPTY}
-    ...    \    \    \    血肾小球滤过率(GFR)    正常
+    ...    \    \    \    血肾小球滤过率(eGFR)    正常
     b型钠尿肽前体(pro-bnp)测定    null    血清尿素    mmol/l    4.76    3.1~8.8    ${EMPTY}
     ...    \    \    \    血尿素(Urea)    正常
     肾功能测定(3项urea、crea、ua)    null    血清直接胆红素    μmol/l    1    0~3.4    ${EMPTY}
@@ -991,7 +991,7 @@ Library           RequestsLibrary
     电解质测定(6项k、na、cl、ca、phos、mg)    null    血清白/球    \    1.4    1.2~2.4    ${EMPTY}
     ...    \    \    \    血白球比    正常
     电解质测定(6项k、na、cl、ca、phos、mg)    null    肾小球滤过率    ml/min    93    66~143    ${EMPTY}
-    ...    \    \    \    血肾小球滤过率(GFR)    正常
+    ...    \    \    \    血肾小球滤过率(eGFR)    正常
     电解质测定(6项k、na、cl、ca、phos、mg)    null    血清肌酐    μmol/l    64    57~117    ${EMPTY}
     ...    \    \    \    血肌酐    正常
     肾功能测定(3项urea、crea、ua)    null    游离三碘甲状原氨酸    pg/ml    2.38    2.14~4.21    ${EMPTY}
@@ -1069,7 +1069,7 @@ Library           RequestsLibrary
     电解质测定(4项k、na、cl、mg)    null    血清肌酸激酶    u/l    64    50~310    ${EMPTY}
     ...    \    \    \    血肌酸激酶(CK)    正常
     电解质测定(4项k、na、cl、mg)    null    肾小球滤过率    ml/min    96    66~143    ${EMPTY}
-    ...    \    \    \    血肾小球滤过率(GFR)    正常
+    ...    \    \    \    血肾小球滤过率(eGFR)    正常
     电解质测定(4项k、na、cl、mg)    null    总胆固醇/高密度胆固醇    \    4.63    2.5~3    ${EMPTY}
     ...    \    \    \    血总胆固醇/高密度脂蛋白胆固醇比值(TC/HDL)    升高
     电解质测定(4项k、na、cl、mg)    null    丙氨酸氨基转移酶    iu/l    24.5    0~50    ${EMPTY}
@@ -1267,7 +1267,7 @@ Library           RequestsLibrary
     降钙素原/乳酸测定    null    镁测定    mmol/l    0.71    0.75~1.02    ${EMPTY}
     ...    \    \    \    血镁    降低
     降钙素原/乳酸测定    null    肾小球滤过率    ml/min    123    66~143    ${EMPTY}
-    ...    \    \    \    血肾小球滤过率(GFR)    正常
+    ...    \    \    \    血肾小球滤过率(eGFR)    正常
     降钙素原/乳酸测定    null    钙测定    mmol/l    2.25    2.11~2.52    ${EMPTY}
     ...    \    \    \    血钙    正常
     降钙素原/乳酸测定    null    钠测定    mmol/l    137    137~147    ${EMPTY}
@@ -1571,7 +1571,7 @@ Library           RequestsLibrary
     血清肌钙蛋白i测定(化学发光法)    null    血清尿素    mmol/l    5.23    3.1~8.8    ${EMPTY}
     ...    \    \    \    血尿素(Urea)    正常
     血清肌钙蛋白i测定(化学发光法)    null    肾小球滤过率    ml/min    92    66~143    ${EMPTY}
-    ...    \    \    \    血肾小球滤过率(GFR)    正常
+    ...    \    \    \    血肾小球滤过率(eGFR)    正常
     全血细胞计数+五分类    null    血红蛋白    g/l    152.3    115~150    ${EMPTY}
     ...    \    \    \    血液血红蛋白    升高
     全血细胞计数+五分类    null    红细胞压积    %    45.77    35~45    ${EMPTY}
@@ -1751,7 +1751,7 @@ Library           RequestsLibrary
     超敏c反应蛋白测定    null    血清尿素    mmol/l    7.33    3.1~8.8    ${EMPTY}
     ...    \    \    \    血尿素(Urea)    正常
     超敏c反应蛋白测定    null    肾小球滤过率    ml/min    83    66~143    ${EMPTY}
-    ...    \    \    \    血肾小球滤过率(GFR)    正常
+    ...    \    \    \    血肾小球滤过率(eGFR)    正常
     全血细胞计数+五分类    null    血红蛋白    g/l    143.2    131~172    ${EMPTY}
     ...    \    \    \    血液血红蛋白    正常
     全血细胞计数+五分类    null    淋巴细胞绝对值    10^9/l    3.77    1.1~3.2    ${EMPTY}
@@ -2193,7 +2193,7 @@ Library           RequestsLibrary
     血清药物浓度测定(化学发光法)-地高辛    null    血清尿素    mmol/l    6.19    3.1~8.8    ${EMPTY}
     ...    \    \    \    血尿素(Urea)    正常
     血清药物浓度测定(化学发光法)-地高辛    null    肾小球滤过率    ml/min    94    66~143    ${EMPTY}
-    ...    \    \    \    血肾小球滤过率(GFR)    正常
+    ...    \    \    \    血肾小球滤过率(eGFR)    正常
     葡萄糖测定(各种酶法)门诊    null    血清直接胆红素    μmol/l    4.2    0~3.4    ${EMPTY}
     ...    \    \    \    血直接胆红素(DBIL)    升高
     葡萄糖测定(各种酶法)门诊    null    血清尿酸    μmol/l    390    208~428    ${EMPTY}
@@ -2205,7 +2205,7 @@ Library           RequestsLibrary
     葡萄糖测定(各种酶法)门诊    null    血清白/球    \    1.8    1.2~2.4    ${EMPTY}
     ...    \    \    \    血白球比    正常
     葡萄糖测定(各种酶法)门诊    null    肾小球滤过率    ml/min    109    66~143    ${EMPTY}
-    ...    \    \    \    血肾小球滤过率(GFR)    正常
+    ...    \    \    \    血肾小球滤过率(eGFR)    正常
     葡萄糖测定(各种酶法)门诊    null    总胆固醇/高密度胆固醇    \    5.79    2.5~3    ${EMPTY}
     ...    \    \    \    血总胆固醇/高密度脂蛋白胆固醇比值(TC/HDL)    升高
     葡萄糖测定(各种酶法)门诊    null    血清总胆红素    μmol/l    30.3    5~21    ${EMPTY}
@@ -2257,7 +2257,7 @@ Library           RequestsLibrary
     肝功能测定(5项tp+alb+alt+tbil+dbil)    null    血清白蛋白    g/l    43.4    40~55    ${EMPTY}
     ...    \    \    \    血白蛋白    正常
     肝功能测定(5项tp+alb+alt+tbil+dbil)    null    肾小球滤过率    ml/min    110    66~143    ${EMPTY}
-    ...    \    \    \    血肾小球滤过率(GFR)    正常
+    ...    \    \    \    血肾小球滤过率(eGFR)    正常
     肝功能测定(5项tp+alb+alt+tbil+dbil)    null    血清尿素    mmol/l    3.8    2.6~7.5    ${EMPTY}
     ...    \    \    \    血尿素(Urea)    正常
     肝功能测定(5项tp+alb+alt+tbil+dbil)    null    血清白/球    \    1.3    1.2~2.4    ${EMPTY}
@@ -2335,7 +2335,7 @@ Library           RequestsLibrary
     血清肌酸激酶测定(速率法)    null    血清尿素    mmol/l    3.61    3.1~8    ${EMPTY}
     ...    \    \    \    血尿素(Urea)    正常
     血清肌酸激酶测定(速率法)    null    肾小球滤过率    ml/min    131    66~143    ${EMPTY}
-    ...    \    \    \    血肾小球滤过率(GFR)    正常
+    ...    \    \    \    血肾小球滤过率(eGFR)    正常
     血清肌酸激酶测定(速率法)    null    血清肌酸激酶    u/l    1084    50~310    ${EMPTY}
     ...    \    \    \    血肌酸激酶(CK)    升高
     肝功能测定(11项tp等)    null    非高密度脂蛋白胆固醇    mmol/l    3.05    2.05~5.65    ${EMPTY}
@@ -2423,7 +2423,7 @@ Library           RequestsLibrary
     血脂测定(5项chol+tg+hdl-c+ldl-c+hscrp)    null    血清白/球    \    1.6    1.2~2.4    ${EMPTY}
     ...    \    \    \    血白球比    正常
     血脂测定(5项chol+tg+hdl-c+ldl-c+hscrp)    null    肾小球滤过率    ml/min    98    66~143    ${EMPTY}
-    ...    \    \    \    血肾小球滤过率(GFR)    正常
+    ...    \    \    \    血肾小球滤过率(eGFR)    正常
     血脂测定(5项chol+tg+hdl-c+ldl-c+hscrp)    null    天门冬氨酸氨基转移酶    iu/l    22.2    0~35    ${EMPTY}
     ...    \    \    \    血天冬氨酸氨基转移酶(AST)    正常
     血脂测定(5项chol+tg+hdl-c+ldl-c+hscrp)    null    总胆固醇/高密度胆固醇    \    3.62    2.5~3    ${EMPTY}
