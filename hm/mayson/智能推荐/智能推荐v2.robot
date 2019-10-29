@@ -245,72 +245,72 @@ Library           String
     # Lists should Be Equal    ${aj}    ${assert}
     # List should contain sub list    ${aj}    ${assert}
 
-手术禁忌
-    [Documentation]    断言:"妊娠期女性"
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    # ${timestamp}    Get Time    epoch
-    # ${assert}    Create List
-    #诊断
-    ${Assessment}    Set Variable
-    #主诉
-    ${Subjective}    Set Variable
-    #现病史
-    ${Subjective2}    Set Variable    妊娠
-    #既往史
-    ${Subjective3}    Set Variable
-    #出院诊断
-    ${dischargeInstruction}    Set Variable
-    ${getRes}    智能推荐v2    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2    requestSource=    doctorGuid=0210497
-    ...    doctorName=测试医生    admissionTime=2018-12-12    inpatientDepartment=儿科    patientInfo={"gender":0,"age":"22","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${Subjective2}"},{"key":"既往史","value":"${Subjective3}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"出院诊断","value":"${dischargeInstruction}"},{"key":"辅助检查","value":""}],"progressType":${1},"progressGuid":"22222","recordTime":""}    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}    labTestList=    examinationList=    newTestList={"testType": 2,"testId": "905","testName": "食道钡餐透视"}    operationRecord={"recordNumber":1234567,"position":"","incisionType":"切片","anesthesia":"没有","preoperativeDiagnose":"","operationList":[{"operationId":6598,"operationName":"乳腺导管选择性切除术(单根)","operationType":"","operationDesc":"","operationTime":""},{"operationId":6614,"operationName":"单侧乳房切除术","operationType":1}]}
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}    currentDiseaseName=    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['dischargeInstruction']]
-    # ${aj}    Evaluate    [aj['name'] for aj in $getRes['body']['operationRecommendList'][0]['complications']]
-    ${aj}    Evaluate    [aj['crowd'] for aj in $getRes['body']['logicalExamInfo']['stopExamList']]
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    Should Contain    ${aj}    妊娠期女性
-    # Should Be Equal As Strings    ${getRes['body']['logicalOperationInfo']['dangerOperationList'][0]['operation']['orgOperationName']}    1
-    # Lists should Be Equal    ${aj}    ${assert}
-    # List should contain sub list    ${aj}    ${assert}
+# 手术禁忌
+#     [Documentation]    断言:"妊娠期女性"
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     # ${timestamp}    Get Time    epoch
+#     # ${assert}    Create List
+#     #诊断
+#     ${Assessment}    Set Variable
+#     #主诉
+#     ${Subjective}    Set Variable
+#     #现病史
+#     ${Subjective2}    Set Variable    妊娠
+#     #既往史
+#     ${Subjective3}    Set Variable
+#     #出院诊断
+#     ${dischargeInstruction}    Set Variable
+#     ${getRes}    智能推荐v2    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2    requestSource=    doctorGuid=0210497
+#     ...    doctorName=测试医生    admissionTime=2018-12-12    inpatientDepartment=儿科    patientInfo={"gender":0,"age":"22","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${Subjective2}"},{"key":"既往史","value":"${Subjective3}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"出院诊断","value":"${dischargeInstruction}"},{"key":"辅助检查","value":""}],"progressType":${1},"progressGuid":"22222","recordTime":""}    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}    labTestList=    examinationList=    newTestList={"testType": 2,"testId": "905","testName": "食道钡餐透视"}    operationRecord={"recordNumber":1234567,"position":"","incisionType":"切片","anesthesia":"没有","preoperativeDiagnose":"","operationList":[{"operationId":6598,"operationName":"乳腺导管选择性切除术(单根)","operationType":"","operationDesc":"","operationTime":""},{"operationId":6614,"operationName":"单侧乳房切除术","operationType":1}]}
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}    currentDiseaseName=    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['dischargeInstruction']]
+#     # ${aj}    Evaluate    [aj['name'] for aj in $getRes['body']['operationRecommendList'][0]['complications']]
+#     ${aj}    Evaluate    [aj['crowd'] for aj in $getRes['body']['logicalExamInfo']['stopExamList']]
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     Should Contain    ${aj}    妊娠期女性
+#     # Should Be Equal As Strings    ${getRes['body']['logicalOperationInfo']['dangerOperationList'][0]['operation']['orgOperationName']}    1
+#     # Lists should Be Equal    ${aj}    ${assert}
+#     # List should contain sub list    ${aj}    ${assert}
 
-合理性检验
-    [Documentation]    电视食道钡餐透视禁止用于妊娠期女性,断言:"妊娠期女性"
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    # ${timestamp}    Get Time    epoch
-    # ${assert}    Create List
-    #诊断
-    ${Assessment}    Set Variable
-    #主诉
-    ${Subjective}    Set Variable
-    #现病史
-    ${Subjective2}    Set Variable    妊娠
-    #既往史
-    ${Subjective3}    Set Variable
-    #出院诊断
-    ${dischargeInstruction}    Set Variable
-    ${getRes}    智能推荐v2    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2    requestSource=    doctorGuid=0210497
-    ...    doctorName=测试医生    admissionTime=2018-12-12    inpatientDepartment=儿科    patientInfo={"gender":0,"age":"22","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
-    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${Subjective2}"},{"key":"既往史","value":"${Subjective3}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"出院诊断","value":"${dischargeInstruction}"},{"key":"辅助检查","value":""}],"progressType":${1},"progressGuid":"22222","recordTime":""}    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}    labTestList=    examinationList=    newTestList={"testType": 2,"testId": "903","testName": "食道钡餐透视"}    operationRecord={"recordNumber":1234567,"position":"","incisionType":"切片","anesthesia":"没有","preoperativeDiagnose":"","operationList":[{"operationId":6598,"operationName":"乳腺导管选择性切除术(单根)","operationType":"","operationDesc":"","operationTime":""},{"operationId":6614,"operationName":"单侧乳房切除术","operationType":1}]}
-    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}    currentDiseaseName=    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
-    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
-    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
-    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
-    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['dischargeInstruction']]
-    # ${aj}    Evaluate    [aj['name'] for aj in $getRes['body']['operationRecommendList'][0]['complications']]
-    # ${aj}    Evaluate    [aj['crowd'] for aj in $getRes['body']['logicalOperationInfo']['dangerOperationList']]
-    ${aj}    Evaluate    [aj['crowd'] for aj in $getRes['body']['logicalExamInfo']['stopExamList']]
-    # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
-    Should Contain    ${aj}    妊娠期女性
-    # Should Be Equal As Strings    ${getRes['body']['logicalOperationInfo']['dangerOperationList'][0]['operation']['orgOperationName']}    1
-    # Lists should Be Equal    ${aj}    ${assert}
-    # List should contain sub list    ${aj}    ${assert}
+# 合理性检验
+#     [Documentation]    电视食道钡餐透视禁止用于妊娠期女性,断言:"妊娠期女性"
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     # ${timestamp}    Get Time    epoch
+#     # ${assert}    Create List
+#     #诊断
+#     ${Assessment}    Set Variable
+#     #主诉
+#     ${Subjective}    Set Variable
+#     #现病史
+#     ${Subjective2}    Set Variable    妊娠
+#     #既往史
+#     ${Subjective3}    Set Variable
+#     #出院诊断
+#     ${dischargeInstruction}    Set Variable
+#     ${getRes}    智能推荐v2    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2    requestSource=    doctorGuid=0210497
+#     ...    doctorName=测试医生    admissionTime=2018-12-12    inpatientDepartment=儿科    patientInfo={"gender":0,"age":"22","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}    definiteDiagnosis=
+#     ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":"${Subjective2}"},{"key":"既往史","value":"${Subjective3}"},{"key":"初步诊断","value":"${Assessment}"},{"key":"出院诊断","value":"${dischargeInstruction}"},{"key":"辅助检查","value":""}],"progressType":${1},"progressGuid":"22222","recordTime":""}    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}    labTestList=    examinationList=    newTestList={"testType": 2,"testId": "903","testName": "食道钡餐透视"}    operationRecord={"recordNumber":1234567,"position":"","incisionType":"切片","anesthesia":"没有","preoperativeDiagnose":"","operationList":[{"operationId":6598,"operationName":"乳腺导管选择性切除术(单根)","operationType":"","operationDesc":"","operationTime":""},{"operationId":6614,"operationName":"单侧乳房切除术","operationType":1}]}
+#     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}    currentDiseaseName=    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
+#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+#     # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+#     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+#     # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['dischargeInstruction']]
+#     # ${aj}    Evaluate    [aj['name'] for aj in $getRes['body']['operationRecommendList'][0]['complications']]
+#     # ${aj}    Evaluate    [aj['crowd'] for aj in $getRes['body']['logicalOperationInfo']['dangerOperationList']]
+#     ${aj}    Evaluate    [aj['crowd'] for aj in $getRes['body']['logicalExamInfo']['stopExamList']]
+#     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+#     Should Contain    ${aj}    妊娠期女性
+#     # Should Be Equal As Strings    ${getRes['body']['logicalOperationInfo']['dangerOperationList'][0]['operation']['orgOperationName']}    1
+#     # Lists should Be Equal    ${aj}    ${assert}
+#     # List should contain sub list    ${aj}    ${assert}
 
 诊断鉴别:心律失常的鉴别依据,推出:晕厥
     [Documentation]    断言:晕厥
@@ -335,3 +335,121 @@ Library           String
     ${aj}    Evaluate    [aj for aj in $getRes['body']['symptomTypes']]
     Should Contain    ${aj[:5]}    晕厥
     ######
+
+
+
+检验/检查合理性,相对禁忌:头颅MRI检查不建议用于变态反应性呼吸道疾病患者
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    # ${timestamp}    Get Time    epoch
+    ${Assessment}    Set Variable    过敏性肺炎
+    ${Subjective}    Set Variable
+    ${getRes}    智能推荐_新版质控    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2    requestSource=
+    ...    doctorGuid=0210497    doctorName=测试医生    admissionTime=2018-12-12    inpatientDepartment=心脏科    patientInfo={"gender":"1","age":"19","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+    ...    definiteDiagnosis=    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key": "诊断依据及鉴别诊断","value": ""},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment} "},{"key":"出院诊断","value":"${Assessment}"},{"key":"出院情况","value":""},{"key":"手术名称","value":""}],"progressType":${2},"progressGuid":"22222","recordTime":""}    deleteProgressNoteList={"progressGuid":"","progressType":"2","doctorGid":"","recordTime":""}    labTestList=    examinationList=    newTestList=
+    ...    operationRecord=    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}    currentDiseaseName=
+    ...    medicalOrders={"orderClass":1,"orderType":2,"sample":"","position":"","frequency":"","orderId":"1572252688999","description":"","createTime":"2019-10-28 16:51:23","orderCode":"69","orderContent":"头颅MRI","orderFlag":1}
+    #####推荐检查评估表
+    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+    #####推荐检查
+    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    ######检查解读
+    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+    ######质控
+    #${aj}    Evaluate    [aj['caseIntegrity'] for aj in $getRes['body']['qualityControlResponse']['caseIntegrityRecommendList']]
+    #####推荐治疗方案
+    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+    #####疑似诊断
+    #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+    #####质控推荐检查
+    ${aj}    Evaluate    [aj['crowd'] for aj in $getRes['body']['logicalExamInfo']['dangerTabooList']]
+    Should Contain    ${aj}    变态反应性呼吸道疾病患者
+
+
+
+
+诊断合理性提示:头诊断 [睾丸恶性肿瘤] 不适宜于女性患者，请核实相关信息
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    # ${timestamp}    Get Time    epoch
+    ${Assessment}    Set Variable    睾丸癌
+    ${Subjective}    Set Variable
+    ${getRes}    智能推荐_新版质控    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2    requestSource=
+    ...    doctorGuid=0210497    doctorName=测试医生    admissionTime=2018-12-12    inpatientDepartment=心脏科    patientInfo={"gender":"0","age":"19","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+    ...    definiteDiagnosis=    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key": "诊断依据及鉴别诊断","value": ""},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment} "},{"key":"出院诊断","value":"${Assessment}"},{"key":"出院情况","value":""},{"key":"手术名称","value":""}],"progressType":${2},"progressGuid":"22222","recordTime":""}    deleteProgressNoteList={"progressGuid":"","progressType":"2","doctorGid":"","recordTime":""}    labTestList=    examinationList=    newTestList=
+    ...    operationRecord=    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}    currentDiseaseName=
+    ...    medicalOrders={"orderClass":1,"orderType":2,"sample":"","position":"","frequency":"","orderId":"1572252688999","description":"","createTime":"2019-10-28 16:51:23","orderCode":"69","orderContent":"头颅MRI","orderFlag":1}
+    #####推荐检查评估表
+    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+    #####推荐检查
+    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    ######检查解读
+    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+    ######质控
+    #${aj}    Evaluate    [aj['caseIntegrity'] for aj in $getRes['body']['qualityControlResponse']['caseIntegrityRecommendList']]
+    #####推荐治疗方案
+    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+    #####疑似诊断
+    #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+    #####诊断合理性提示
+    ${aj}    Evaluate    [aj['crowd'] for aj in $getRes['body']['logicalDiseaseInfo']['dangerTabooList']]
+    Should Contain    ${aj}    女性
+
+
+重复性合理性提示:5分钟禁止同时重复开具尿常规
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    # ${timestamp}    Get Time    epoch
+    ${Assessment}    Set Variable
+    ${Subjective}    Set Variable
+    ${getRes}    智能推荐_新版质控    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2    requestSource=
+    ...    doctorGuid=0210497    doctorName=测试医生    admissionTime=2018-12-12    inpatientDepartment=心脏科    patientInfo={"gender":"0","age":"19","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+    ...    definiteDiagnosis=    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key": "诊断依据及鉴别诊断","value": ""},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment} "},{"key":"出院诊断","value":"${Assessment}"},{"key":"出院情况","value":""},{"key":"手术名称","value":""}],"progressType":${2},"progressGuid":"22222","recordTime":""}    deleteProgressNoteList={"progressGuid":"","progressType":"2","doctorGid":"","recordTime":""}    labTestList=    examinationList=    newTestList=
+    ...    operationRecord=    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}    currentDiseaseName=
+    ...    medicalOrders={"orderClass":1,"orderType":1,"sample":"尿液","position":"","frequency":"","orderId":"1571975052451","description":"","createTime":"2019-10-25 11:44:10","orderCode":"32","orderContent":"尿常规","orderFlag":1},{"orderClass":1,"orderType":1,"sample":"","position":"","frequency":"","orderId":"1571974752291","description":"","createTime":"2019-10-25 11:40:10","orderCode":"32","orderContent":"尿常规","orderFlag":1}
+    #####推荐检查评估表
+    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+    #####推荐检查
+    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    ######检查解读
+    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+    ######质控
+    #${aj}    Evaluate    [aj['caseIntegrity'] for aj in $getRes['body']['qualityControlResponse']['caseIntegrityRecommendList']]
+    #####推荐治疗方案
+    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+    #####疑似诊断
+    #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+    #####重复性合理性提示
+    ${aj}    Evaluate    [aj['intervalDesc'] for aj in $getRes['body']['repeatabilityInfo']['stopTabooList']]
+    Should Contain    ${aj}    5分钟内
+
+
+
+手术合理性提示:全人工心脏移植术禁止用于肾衰竭者
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    # ${timestamp}    Get Time    epoch
+    ${Assessment}    Set Variable    急性肾衰竭
+    ${Subjective}    Set Variable
+    ${getRes}    智能推荐_新版质控    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2    requestSource=
+    ...    doctorGuid=0210497    doctorName=测试医生    admissionTime=2018-12-12    inpatientDepartment=心脏科    patientInfo={"gender":"0","age":"19","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+    ...    definiteDiagnosis=    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key": "诊断依据及鉴别诊断","value": ""},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment} "},{"key":"出院诊断","value":"${Assessment}"},{"key":"出院情况","value":""},{"key":"手术名称","value":""}],"progressType":${2},"progressGuid":"22222","recordTime":""}    deleteProgressNoteList={"progressGuid":"","progressType":"2","doctorGid":"","recordTime":""}    labTestList=    examinationList=    newTestList=
+    ...    operationRecord=    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}    currentDiseaseName=
+    ...    medicalOrders={"orderClass":1,"orderType":6,"sample":"","position":"","frequency":"","orderId":"1572252688999","description":"","createTime":"2019-10-28 16:51:23","orderCode":"2267","orderContent":"全人工心脏移植术","orderFlag":1}
+    #####推荐检查评估表
+    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+    #####推荐检查
+    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    ######检查解读
+    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+    ######质控
+    #${aj}    Evaluate    [aj['caseIntegrity'] for aj in $getRes['body']['qualityControlResponse']['caseIntegrityRecommendList']]
+    #####推荐治疗方案
+    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+    #####疑似诊断
+    #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
+    #####手术合理性提示
+    ${aj}    Evaluate    [aj['crowd'] for aj in $getRes['body']['logicalOperationInfo']['stopTabooList']]
+    Should Contain    ${aj}    肾衰竭者
+
+

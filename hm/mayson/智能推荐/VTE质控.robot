@@ -12,7 +12,7 @@ Library           DateTime
 *** Test Cases ***
 
 
-VTE1:手术患者深静脉血栓栓塞症风险评估表(Caprini评分表)
+VTE1:外科VTE风险评估(Caprini评分表)
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -37,7 +37,7 @@ VTE1:手术患者深静脉血栓栓塞症风险评估表(Caprini评分表)
     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     #####质控推荐检查
     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['qualityControlResponse']['illnessAssessList']]
-    Should Contain    ${aj}    手术患者深静脉血栓栓塞症风险评估表(Caprini评分表)
+    Should Contain    ${aj}    外科VTE风险评估(Caprini评分表)
 
 
 
@@ -71,7 +71,7 @@ Caprini评分：5分,推出质控:外科住院患者出血风险评估
     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     #####质控推荐检查
     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['qualityControlResponse']['illnessAssessList']]
-    Should Contain    ${aj}    外科住院患者出血风险评估
+    Should Contain    ${aj}    外科出血风险评估
 
 
 

@@ -28,14 +28,8 @@ ${adminse}        http://admin-se.huimeionline.com/
 # ${adminse}        http://test-admin-se.huimeionline.com/
 #amcPc版           修改成http://负载ip/cdss
 ${base_url_amc}    http://amc.huimeionline.com
-# ${base_url_amc}    http://test-amc.huimeionline.com
-# ${mayson_url}    修改成http://负载ip/cdss
-# ${mayson_url}    http://profile.huimeionline.com/cdss
-# ${mayson_url}    http://172.16.3.61:8080
-# ${mayson_url}    http://profile.huimeionline.com/cdss
-# ${mayson_url}    http://test-mayson.huimeionline.com/cdss
-# gdms            修改成http://负载ip
 ${base_gdms}      http://gdms.huimeionline.com
+${songshan_url}      http://songshan.huimeionline.com
 
 ${athena_url}      http://profile.huimeionline.com
 # ${athena_url}      http://10.117.64.153:8080
@@ -1844,7 +1838,6 @@ VTE1.2
 
 
 
-
 快速确认
     [Arguments]    ${aiResult}    ${assessId}    ${assessItem}    ${assessPostil}    ${assessResultItemList}    ${compare}
     ...    ${expressId}    ${fileName}    ${ignore}    ${productId}    ${projectId}    ${qcDiseaseDiagnosisList}    ${doctorGuid}    ${pageSource}    ${recordId}    ${assessResultType}
@@ -1861,7 +1854,6 @@ VTE1.2
     ${addr}    Post Request    api    /sentry/assess/save    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
-
 
 
 
@@ -1888,3 +1880,34 @@ VTE1.2
     ${addr}    Post Request    api    mayson/v_1_0/init_mc_data    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+
+
+
+
+嵩山登录
+    [Arguments]    ${name}    ${password}
+    # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${songshan_url}        ${dict}
+    ${data}    Create Dictionary    name=${name}    password=${password}
+    ${addr}    Post Request    api    manage/userLogin    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+病历查询患者列表
+    [Arguments]    ${order}    ${time_start}    ${time_end}    ${inpatient_department}    ${serial_number}    ${patient_name}
+    ...    ${doctor_name}    ${problem_start}    ${problem_end}    ${status}    ${page_size}    ${current_index}
+    # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}    Cookie=${Cookie_value}
+    # Create Session    api    ${songshan_url}        ${dict}
+    ${order}    Evaluate    dict(${order})
+    ${data}    Create Dictionary    order=${order}    time_start=${time_start}    time_end=${time_end}    inpatient_department=${inpatient_department}    serial_number=${serial_number}
+    ...    patient_name=${patient_name}    doctor_name=${doctor_name}
+    ...    problem_start=${problem_start}    problem_end=${problem_end}    status=${status}    page_size=${page_size}    current_index=${current_index}
+    ${addr}    Post Request    api    /mc/mcRecordInfoList    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+

@@ -41,5 +41,4 @@ Library           DateTime
     # ${aj}    Evaluate    [aj['remark'] for aj in $getRes['body']['mediaclRecordResult']['reasonableList']]
     #####及时性
     # ${aj}    Evaluate    [aj['remark'] for aj in $getRes['body']['mediaclRecordResult']['timelyList']]
-
     Should Contain    ${aj}    入院记录-初步诊断、确定诊断未填写或初步诊断、确定诊断书写有缺陷
