@@ -20,7 +20,7 @@ Library           String    # 字段名 类型    是否必须    说明    # { 
 
 按筛选文献搜索
     ${getRes}    搜索文献    name=血    diseaseId=    pageSize=10    currentPage=1    startDate=2017
-    ...    endDate=2018    departmentId=1    countryId=12    orgName=中国
+    ...    endDate=2018    departmentId=1    countryId=0    orgName=中国
     ${aj}    Evaluate    [aj['cnTitle'] for aj in $getRes['body']['documentList']]
     Should Contain    ${aj}    非甾体消炎药相关消化道溃疡与溃疡并发症的预防与治疗规范建议
     # Should Be Equal As Strings    ${getRes['head']['error']}    0
