@@ -295,7 +295,7 @@ Library           DateTime
     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     #####质控推荐检查
     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['qualityControlResponse']['illnessAssessList']]
-    Should Contain    ${aj}    慢性阻塞性肺炎的综合评估
+    Should Contain    ${aj}    慢性阻塞性肺病的综合评估
 
 # 新版质控:脓毒症,推出评估表:英国国家早期预警评分(NEWS)
 #     [Setup]    Run Keywords    获取时间戳
