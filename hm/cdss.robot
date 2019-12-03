@@ -2,10 +2,13 @@
 #=======医院内网需要修改的==============#
 #mayson生产环境       修改成http://负载ip/cdss
 ${mayson_url}     http://profile.huimeionline.com/cdss
+# ${mayson_url}     http://172.16.3.68:8080
 # ${mayson_url}     http://test-mayson.huimeionline.com/cdss
 #apollo生产环境       修改成http://负载ip/cdss
 ${base_url}       http://mayson.huimeionline.com/cdss
 # ${base_url}       http://test-mayson.huimeionline.com/cdss
+#{url}内部平台 ,各种山 泰山,改这个
+${inside_url}        http://10.117.68.109
 #文献生产环境           修改成http://负载ip/cdss
 # ${doc_url}        http://doc.huimeionline.com/doc
 ${doc_url}        http://profile-doc.huimeionline.com/doc
@@ -25,10 +28,15 @@ ${adminse}        http://admin-se.huimeionline.com/
 #amcPc版           修改成http://负载ip/cdss
 ${base_url_amc}    http://amc.huimeionline.com
 ${base_gdms}      http://gdms.huimeionline.com
-${songshan_url}      http://songshan.huimeionline.com
-${taishan_url}      http://taishan.huimei.com
-${tesla_url}        http://tesla.huimeionline.com
-${mayson_url}      http://profile.huimeionline.com
+#嵩山 3021
+${songshan_url}      ${inside_url}:3021
+#泰山 3019
+${taishan_url}      ${inside_url}:3019
+${inside_url}      http://10.117.68.109
+#华山 3020
+${huashan_url}        ${inside_url}:3020
+#特斯拉:3016
+${tesla_url}        ${inside_url}:3016
 # ${mayson_url}      http://10.117.64.153:8080
 ##文献图片/文件差异接口,修改为http://athena_ip:8095形式
 ${athenaDoc_url}      http://mayson.huimeionline.com:8095
@@ -1822,7 +1830,7 @@ VTE2快速确认
     [Arguments]
     # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    # Create Session    api    ${taishan_url}        ${dict}
+    # Create Session    api    ${inside_url}        ${dict}
     ${data}    Create Dictionary
     ${addr}    Post Request    api    product/homeList    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -1839,6 +1847,22 @@ VTE2快速确认
     ${addr}    Post Request    api    manage/userLogin    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+
+
+
+
+
+
+特斯拉统计管理
+    [Arguments]    ${start_time}    ${end_time}    ${disease}    ${doctor}    ${patient}    ${project}    ${specialDisease}    ${time_type}    ${query_type}
+    # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${tesla_url}        ${dict}
+    ${data}    Create Dictionary    start_time=${start_time}    end_time=${end_time}    disease=${disease}    doctor=${doctor}    patient=${patient}    project=${project}    specialDisease=${specialDisease}    time_type=${time_type}    query_type=${query_type}
+    ${addr}    Post Request    api    statistic/relationDic    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
 
 
 
@@ -1870,3 +1894,33 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     # Delete All Sessions
     [Return]    ${responsedata}
+
+
+
+
+
+
+华山登录
+    [Arguments]    ${name}    ${password}    ${type}
+    # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${huashan_url}        ${dict}
+    ${data}    Create Dictionary    name=${name}    password=${password}    type=${type}
+    ${addr}    Post Request    api    user/login    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+华山知识维护
+    [Arguments]
+    # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${huashan_url}        ${dict}
+    ${data}    Create Dictionary
+    ${addr}    Post Request    api    article/typeCount    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+

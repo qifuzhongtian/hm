@@ -377,7 +377,7 @@ Library           String
 
 
 
-诊断合理性提示:头诊断 [睾丸恶性肿瘤] 不适宜于女性患者，请核实相关信息
+诊断合理性提示:诊断 [睾丸恶性肿瘤] 不适宜于女性患者，请核实相关信息
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
