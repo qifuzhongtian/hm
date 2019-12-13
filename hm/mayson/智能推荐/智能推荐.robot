@@ -343,3 +343,5 @@ Library           String
     #####疑似诊断
     ${aj}    Evaluate    [aj for aj in $getRes['body']['symptomTypes']]
     Should Contain    ${aj[:5]}    晕厥
+
+

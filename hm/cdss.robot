@@ -935,16 +935,18 @@ mayson默认推荐搜索
     ${examinationList}    Evaluate    [${examinationList}]
     ${newTestList}    Evaluate    [${newTestList}]
     ${labTestList}    Evaluate    [${labTestList}]
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}    Cookie=${Cookie_value}
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    http://10.46.74.95:8080    ${dict}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    doctorGuid=${doctorGuid}    hospitalGuid=${hospitalGuid}    symptom=${symptom}
     ...    drugCommonNames=${drugCommonNames}    examinationList=${examinationList}    newTestList=${newTestList}    labTestList=${labTestList}    previousHistory=${previousHistory}    personalHistory=${personalHistory}
     ...    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}    weight=${weight}    gender=${gender}    bodyTempr=${bodyTempr}    lowBldPress=${lowBldPress}
     ...    highBldPress=${highBldPress}    examInfo=${examInfo}    heartRate=${heartRate}    age=${age}    ageType=${ageType}    confirmDiagnosis=${confirmDiagnosis}
     ...    confirmDiagnosisMap=${confirmDiagnosisMap}    presentHistory=${presentHistory}    hasDetail=${hasDetail}    symptomClickDiseaseId=${symptomClickDiseaseId}
     # ...    examItems[]=${examItems}
-    ${addr}    Post Request    api    v_4_0/diagnose_through_interrogation    data=${data}
+    ${addr}    Post Request    api    v_5_0/diagnose_through_interrogation    data=${data}
     ${responsedata}    To Json    ${addr.content}
     # Delete All Sessions
     [Return]    ${responsedata}
