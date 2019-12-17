@@ -2,10 +2,12 @@
 #=======医院内网需要修改的==============#
 #mayson生产环境       修改成http://负载ip/cdss
 ${mayson_url}     http://profile.huimeionline.com/cdss
+# ${mayson_url}     http://172.16.4.3:8080
 # ${mayson_url}     http://172.16.3.68:8080
 # ${mayson_url}     http://test-mayson.huimeionline.com/cdss
 #apollo生产环境       修改成http://负载ip/cdss
 ${base_url}       http://mayson.huimeionline.com/cdss
+# ${base_url}     http://172.16.4.3:8080
 # ${base_url}       http://test-mayson.huimeionline.com/cdss
 #{url}内部平台 ,各种山 泰山,改这个
 ${inside_url}        http://10.117.68.109
@@ -57,6 +59,7 @@ ${base_url_95}    http://10.46.74.95:9200
 ${base_url_219}    http://10.165.102.219:9200
 #测试号
 ${Huimei_id}      7195F12825788F09375C2DB1E922F108
+# ${Huimei_id}      C3B844493A477BCF3D7B73A5E902B269
 # ${Huimei_id}      D7928B9182ABF6E0A6A6EBB71B353585
 
 *** Keywords ***
