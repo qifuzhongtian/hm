@@ -18,7 +18,7 @@ Library           DateTime
     ...    familyHistory=    weight=    bodyTempr=37    lowBldPress=80    highBldPress=100    heartRate=100
     ...    height=    waistline=    presentHistory=    symptomClickDiseaseId=    confirmDiagnosis=    gender=0
     ...    age=30    ageType=岁    symptom=    confirmDiagnosisMap=    drugCommonNames=    examinationList=
-    ...    newTestList=    labTestList=    patientName=张大斌    inpatientDepartment=急诊内科    progressNoteList={"progressGuid": "15716579618310065329", "progressType": "16", "msgType": 0,"progressMessage": "${progressMessage}", "createTime": "2019-10-21 19:39:21", "recordTime": "2019-10-21 19:39:21", "progressTemplateName": "急诊静脉溶栓记录及抢救记录", "progressSection": "抢救记录" }    patientInfo=
+    ...    newTestList=    labTestList=    patientName=张大斌    inpatientDepartment=急诊内科    progressNoteList={"progressGuid": "15716579618310065329", "progressType": "16", "msgType": 0,"progressMessage": "${progressMessage}", "createTime": "2019-10-21 19:39:21", "recordTime": "2019-10-21 19:39:21", "progressTemplateName": "急诊静脉溶栓记录及抢救记录", "progressSection": "抢救记录" }    patientInfo={}
     ...    doctorName=张医生    doctorGuid=345
     ${aj}    Evaluate    [aj['group_condition'] for aj in $getRes['body']['green_channel']['channels']]
     Should Contain    ${aj}    脑梗死患者满足脑卒中数据填报入组要求
