@@ -20,7 +20,8 @@ ${doc_fe}         http://doc.huimeionline.com
 #文献线上             修改成http://负载ip
 ${doc_online}     http://120.26.223.139
 #ame生产环境          修改成http://负载ip
-${base_url_ame}    http://10.46.74.95:8092
+${ame_url}    http://ame.huimeionline.com
+# ${ame_url}    http://10.46.74.95:8092
 #fuxi验证接口         修改成 http://负载ip/node/active
 ${fuxi_data}      http://fuxi.huimeionline.com/node/
 # ${fuxi_data}    http://test-fuxi.huimeionline.com/node/
@@ -748,7 +749,7 @@ amcPc客户信息
 ame登录
     [Arguments]    ${userName}    ${password}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url_ame}    ${dict}
+    Create Session    api    ${ame_url}    ${dict}
     ${data}    Create Dictionary    userName=${userName}    password=${password}
     ${addr}    Post Request    api    ame/login    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -759,7 +760,7 @@ ame登录
 ame查询
     [Arguments]    ${name}
     ${dict}    Create Dictionary    Content-Type=application/json
-    #Create Session    api    ${base_url_ame}    ${dict}
+    #Create Session    api    ${ame_url}    ${dict}
     ${data}    Create Dictionary    name=${name}
     ${addr}    Post Request    api    ame/search    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -770,7 +771,7 @@ ame查询
 ame管理_用户登录
     [Arguments]    ${doctorName}    ${password}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url_ame}    ${dict}
+    Create Session    api    ${ame_url}    ${dict}
     ${data}    Create Dictionary    doctorName=${doctorName}    password=${password}
     ${addr}    Post Request    api    role/userLogin    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -781,7 +782,7 @@ ame管理_用户登录
 ame管理_文档关联诊断sug
     [Arguments]    ${diseaseName}
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    # Create Session    api    ${base_url_ame}    ${dict}
+    # Create Session    api    ${ame_url}    ${dict}
     ${params}    Create Dictionary    diseaseName=${diseaseName}
     ${addr}    Get Request    api    /etXml/queryXmlDiseaseSug?pId=22943,11    params=${params}
     ${responsedata}    To Json    ${addr.content}
@@ -793,7 +794,7 @@ ame管理_文档列表查询
     [Arguments]    ${zhName}    ${enName}    ${languageType}    ${type}    ${modifyStart}    ${modifyEnd}
     ...    ${index}    ${pageSize}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    # Create Session    api    ${base_url_ame}    ${dict}
+    # Create Session    api    ${ame_url}    ${dict}
     ${data}    Create Dictionary    zhName=${zhName}    enName=${enName}    languageType=${languageType}    type=${type}    modifyStart=${modifyStart}
     ...    modifyEnd=${modifyEnd}    index=${index}    pageSize=${pageSize}
     ${addr}    Post Request    api    /etXml/queryEtXmlList    data=${data}
