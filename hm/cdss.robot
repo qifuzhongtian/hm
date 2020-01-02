@@ -83,7 +83,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
 药品查询
     [Arguments]    ${drugName}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    drugName=${drugName}
     ${addr}    Post Request    api    hmsm/v_1_0/drug/search    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -888,14 +888,29 @@ mayson默认推荐搜索
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-评估表历史记录
+# 评估表历史记录
+#     [Arguments]    ${patientGuid}    ${serialNumber}
+#     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+#     Create Session    api    ${mayson_url}    ${dict}
+#     ${data}    Create Dictionary    patientGuid=${patientGuid}    serialNumber=${serialNumber}
+#     ${addr}    Post Request    api    /mayson/v_1_0/assesshistory/findhistorylist    data=${data}
+#     ${responsedata}    To Json    ${addr.content}
+#     [Return]    ${responsedata}
+
+
+查询评估表历史列表
     [Arguments]    ${patientGuid}    ${serialNumber}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    patientGuid=${patientGuid}    serialNumber=${serialNumber}
     ${addr}    Post Request    api    /mayson/v_1_0/assesshistory/findhistorylist    data=${data}
     ${responsedata}    To Json    ${addr.content}
+    # ${assessHistoryId}    Get From Dictionary    ${responsedata['body']}    assessHistoryId
+    # Set Global Variable    ${assessHistoryId}
     [Return]    ${responsedata}
+
+
+
 
 搜索文献
     [Arguments]    ${name}    ${diseaseId}    ${pageSize}    ${currentPage}    ${startDate}    ${endDate}
@@ -1562,3 +1577,5 @@ VTE2快速确认
     ${addr}    Post Request    api    article/typeCount    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+
+

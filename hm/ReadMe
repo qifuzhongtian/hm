@@ -28,13 +28,38 @@ fuxi接口url {fuxi_data},改成 http://负载ip/node/active ,adminse 修改 ${a
  
 
 自动化脚本的执行：使用以下命令进行执行,
-住院版执行:pybot -e skip mayson
-门诊版执行:pybot -e skip cdss
+住院版执行:pybot -e profileskip mayson
+门诊版执行:pybot -e profileskip cdss
 社区版执行:pybot community
-新版质控医院执行（如亚心）:pybot -e profileskip mayson
 伏羲和adminSe执行:pybot -e skip fuxi adminse
 gdms执行 ：pybot -e skip GDMS
 自动化测试执行完后，在执行命令的目录下会生成report.html,log.html文件，我们通过sz log.html的命令来下载日志文件，查看自动化的结果。
+
+
+
+
+
+stable_191230版本说明
+接口修改:查询惠每评估表,评估表历史列表,评估表保存历史记录,评估表历史记录,评根据id查询评估记录
+疑似诊断测试代码修改
+
+
+
+
+stable_191215版本说明
+增加参考来源,病历质控,疑似诊断合理性规则测试
+VTE质控测试case修改
+修改ame的tag
+修改绿道接口
+
+
+
+stable_19115版本说明
+新增vte3.0接口
+智能推荐接口添加参数		 
+VTE增加否定case					  
+vte,病历质控测试代码优化
+
 
 
 stable_19115版本说明
@@ -75,5 +100,6 @@ stable_190715版本说明
 		添加adminse检查检验查看
 		添加fuxi新版质控统计明细
 		添加fuxi新版质控统计
+
 
 
