@@ -486,7 +486,7 @@ Library           String
     #####疑似诊断
     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     #####质控推荐检查
-    ${aj}    Evaluate    [aj['sourceDetail'] for aj in $getRes['body']['qualityControlResponse']['illnessAssessList'][2]['ruleSources']]
+    ${aj}    Evaluate    [aj['sourceDetail'] for aj in $getRes['body']['qualityControlResponse']['illnessAssessList'][1]['ruleSources']]
     Should Contain    ${aj}    深静脉血栓形成的诊断和治疗指南(第三版)（2017）
     # log    $getRes['body']['qualityControlResponse']['illnessAssessList']
     # Should Contain    $getRes['body']['qualityControlResponse']['illnessAssessList'][0]['ruleSources']    ruleSources
