@@ -2,13 +2,11 @@
 #=======医院内网需要修改的==============#
 #mayson生产环境       修改成http://负载ip/cdss
 ${mayson_url}     http://profile.huimeionline.com/cdss
-# ${mayson_url}     http://172.16.4.178/cdss
 # ${mayson_url}    http://172.16.4.3:8080
 # ${mayson_url}    http://172.16.3.68:8080
 # ${mayson_url}    http://test-mayson.huimeionline.com/cdss
 #apollo生产环境       修改成http://负载ip/cdss
 ${base_url}       http://mayson.huimeionline.com/cdss
-# ${base_url}       http:///172.16.4.178m/cdss
 # ${base_url}     http://172.16.4.3:8080
 # ${base_url}     http://test-mayson.huimeionline.com/cdss
 #{url}内部平台 ,各种山 泰山,改这个
@@ -29,7 +27,6 @@ ${fuxi_data}      http://fuxi.huimeionline.com/node/
 # ${fuxi_data}    http://test-fuxi.huimeionline.com/node/
 #adminse          修改成http://负载ip
 ${adminse}        http://admin-se.huimeionline.com/
-# ${adminse}        http://172.16.4.178:83/
 # ${adminse}      http://test-admin-se.huimeionline.com/
 #amcPc版           修改成http://负载ip/cdss
 ${base_url_amc}    http://amc.huimeionline.com
@@ -44,7 +41,7 @@ ${huashan_url}    ${inside_url}:3020
 #特斯拉:3016
 ${tesla_url}      ${inside_url}:3016
 #绿道               修改成对应的ip端口
-${lvdao_url}      http://lvdao.huimeionline.com/
+${lvdao_url}      ${inside_url}:3022
 ##文献图片/文件差异接口,修改为http://athena_ip:8095形式
 ${athenaDoc_url}    http://mayson.huimeionline.com:8095
 #=======以下内容不需要修改==============#
@@ -61,8 +58,6 @@ ${base_url_95}    http://10.46.74.95:9200
 ${base_url_219}    http://10.165.102.219:9200
 #测试号
 ${Huimei_id}      7195F12825788F09375C2DB1E922F108
-#demo
-# ${Huimei_id}      844EA725CAE0C9635A37C25C1E9FDADF
 # ${Huimei_id}    C3B844493A477BCF3D7B73A5E902B269
 # ${Huimei_id}    D7928B9182ABF6E0A6A6EBB71B353585
 
@@ -1446,12 +1441,11 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-
 病案首页_病历质控
-    [Arguments]    ${userGuid}    ${serialNumber}    ${doctorGuid}    ${pageSource}
+    [Arguments]    ${patientGuid}    ${serialNumber}    ${doctorGuid}    ${pageSource}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${mayson_url}    ${dict}
-    ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    doctorGuid=${doctorGuid}    pageSource=${pageSource}
+    ${data}    Create Dictionary    patientGuid=${patientGuid}    serialNumber=${serialNumber}    doctorGuid=${doctorGuid}    pageSource=${pageSource}
     ${addr}    Post Request    api    mayson/v_1_0/medical_record_recommend    data=${data}
     ${responsedata}    To Json    ${addr.content}
     ${recordId}    Get from Dictionary    ${responsedata["body"]}    recordId
