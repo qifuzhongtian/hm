@@ -20,8 +20,8 @@ ${doc_fe}         http://doc.huimeionline.com
 #文献线上             修改成http://负载ip
 ${doc_online}     http://120.26.223.139
 #ame生产环境          修改成http://负载ip
-${ame_url}    http://ame.huimeionline.com
-# ${ame_url}    http://10.46.74.95:8092
+${ame_url}        http://ame.huimeionline.com
+# ${ame_url}      http://10.46.74.95:8092
 #fuxi验证接口         修改成 http://负载ip/node/active
 ${fuxi_data}      http://fuxi.huimeionline.com/node/
 # ${fuxi_data}    http://test-fuxi.huimeionline.com/node/
@@ -40,9 +40,10 @@ ${inside_url}     http://10.117.68.109
 ${huashan_url}    ${inside_url}:3020
 #特斯拉:3016
 ${tesla_url}      ${inside_url}:3016
+#绿道               修改成对应的ip端口
+${lvdao_url}      http://lvdao.huimeionline.com/
 ##文献图片/文件差异接口,修改为http://athena_ip:8095形式
 ${athenaDoc_url}    http://mayson.huimeionline.com:8095
-
 #=======以下内容不需要修改==============#
 ######################apollo######################
 ${base_url_sf}    http://10.27.213.55:9092
@@ -191,9 +192,6 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
     ${addr}    Post Request    api    v_2_0/disease/detail    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
-
-
-
 
 梅奥疾病详情
     [Arguments]    ${diseaseId}
@@ -463,7 +461,6 @@ amc进入
     ${hms}    Get From Dictionary    ${responsedata['head']}    _hms
     Set Global Variable    ${hms}
     [Return]    ${responsedata}
-
 
 amc下一题
     [Arguments]    ${questionId}    ${type}    ${answer}
@@ -805,6 +802,7 @@ mayson默认推荐搜索
     ...    admissionTime=${admissionTime}    inpatientDepartment=${inpatientDepartment}    pageSource=${pageSource}    requestSource=${requestSource}    patientInfo=${patientInfo}    physicalSign=${physicalSign}
     ...    definiteDiagnosis=${definiteDiagnosis}    progressNoteList=${progressNoteList}    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}    examinationList=${examinationList}    newTestList=${newTestList}
     ...    operationRecord=${operationRecord}    prescriptions=${prescriptions}    currentDiseaseName=${currentDiseaseName}    medicalOrders=${medicalOrders}    openInterdict=${openInterdict}
+    log    ${data}
     ${addr}    Post Request    api    mayson/v_2_0/intelligent_recommendation    data=${data}
     ${responsedata}    To Json    ${addr.content}
     ${recordId}    Get from Dictionary    ${responsedata["body"]}    recordId
@@ -834,8 +832,7 @@ mayson默认推荐搜索
     ...    progressNoteList=${progressNoteList}    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}    examinationList=${examinationList}    newTestList=${newTestList}    operationRecord=${operationRecord}
     ...    prescriptions=${prescriptions}    currentDiseaseName=${currentDiseaseName}    medicalOrders=${medicalOrders}
     ${addr}    Post Request    api    mayson/v_2_0/intelligent_recommendation    data=${data}
-    ${responsedata}    To Json    ${addr.content}
-    # 智能推荐test    #    [Arguments]    ${userGuid}
+    ${responsedata}    To Json    ${addr.content}    # 智能推荐test    #    [Arguments]    ${userGuid}
     ...    # ${serialNumber}    ${patientInfo}    ${physicalSign}    ${definiteDiagnosis}    # ${progressNoteList}    #
     ...    # ...    ${deleteProgressNoteList}    ${labTestList}    ${examinationList}    #    ${dict}
     ...    # Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}    #    Create Session    api
@@ -886,17 +883,15 @@ mayson默认推荐搜索
     ${data}    Create Dictionary    Id=${Id}
     ${addr}    Post Request    api    /mayson/v_1_0/assesshistory/findhistorybyid    data=${data}
     ${responsedata}    To Json    ${addr.content}
+    # 评估表历史记录
+    #    [Arguments]    ${patientGuid}    ${serialNumber}
+    #    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    #    Create Session    api    ${mayson_url}    ${dict}
+    #    ${data}    Create Dictionary    patientGuid=${patientGuid}    serialNumber=${serialNumber}
+    #    ${addr}    Post Request    api    /mayson/v_1_0/assesshistory/findhistorylist    data=${data}
+    #    ${responsedata}    To Json    ${addr.content}
+    #    [Return]    ${responsedata}
     [Return]    ${responsedata}
-
-# 评估表历史记录
-#     [Arguments]    ${patientGuid}    ${serialNumber}
-#     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-#     Create Session    api    ${mayson_url}    ${dict}
-#     ${data}    Create Dictionary    patientGuid=${patientGuid}    serialNumber=${serialNumber}
-#     ${addr}    Post Request    api    /mayson/v_1_0/assesshistory/findhistorylist    data=${data}
-#     ${responsedata}    To Json    ${addr.content}
-#     [Return]    ${responsedata}
-
 
 查询评估表历史列表
     [Arguments]    ${patientGuid}    ${serialNumber}
@@ -908,9 +903,6 @@ mayson默认推荐搜索
     # ${assessHistoryId}    Get From Dictionary    ${responsedata['body']}    assessHistoryId
     # Set Global Variable    ${assessHistoryId}
     [Return]    ${responsedata}
-
-
-
 
 搜索文献
     [Arguments]    ${name}    ${diseaseId}    ${pageSize}    ${currentPage}    ${startDate}    ${endDate}
@@ -1578,4 +1570,11 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-
+绿道登录
+    [Arguments]    ${name}    ${password}    ${type}    ${time}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${lvdao_url}    ${dict}
+    ${data}    Create Dictionary    name=${name}    password=${password}    type=${type}    time=${time}
+    ${addr}    Post Request    api    manage/userLogin    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
