@@ -22,10 +22,12 @@ Library           DateTime
     # ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGid":"","recordTime":""}    labTestList=    examinationList=    newTestList=    operationRecord=
     # ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}        currentDiseaseName=
     # ...    medicalOrders={"orderType": "6","orderId": "1562668327867","uuid": "1219-20778","frequency": "","orderContent": "主动脉-冠状动脉搭桥术","recordId": 20778,"incisionType": "","id": 438947,"timelinessFlag": 1,"level": "","operationType":"4","preoperativeDiagnose": "","orderCreateTime":"2019-07-11 20:45:34","executeTime":"2019-07-11 20:45:34","stopTime":"2019-07-11 20:45:34","unit": "ml","dosageform": "","position": "","status": 1,"dosage": "50","description": "","orderClass": 1,"anesthesia": "","customerId": 1294,"doctorGuid": "0000012061","specification": "","sample": "","orderFlag": 1,"pathway": "","orderCode": "2136"}
-    ...    AND    病历质控初始化数据    patientGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    doctorGuid=1001    pageSource=${1}
-    ${getRes}    病案首页_病历质控    patientGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    doctorGuid=1001    pageSource=${1}
+    ...    AND    病历质控初始化数据    patientGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    doctorGuid=${1}    pageSource=${1}
+    ${getRes}    病案首页_病历质控    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    doctorGuid=${1}    pageSource=${1}
     ${aj}    Evaluate    [aj['remark'] for aj in $getRes['body']['completeList']]
     Should Contain    ${aj}    病案首页-籍贯未填写
+
+
 
 
 
@@ -139,3 +141,7 @@ Library           DateTime
     #####及时性
     # ${aj}    Evaluate    [aj['remark'] for aj in $getRes['body']['mediaclRecordResult']['timelyList']]
     Should not Contain    ${aj}    入院记录应在患者入院24小时内完成
+
+
+
+
