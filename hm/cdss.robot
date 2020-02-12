@@ -1442,10 +1442,10 @@ VTE2快速确认
     [Return]    ${responsedata}
 
 病案首页_病历质控
-    [Arguments]    ${patientGuid}    ${serialNumber}    ${doctorGuid}    ${pageSource}
+    [Arguments]    ${userGuid}    ${serialNumber}    ${doctorGuid}    ${pageSource}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${mayson_url}    ${dict}
-    ${data}    Create Dictionary    patientGuid=${patientGuid}    serialNumber=${serialNumber}    doctorGuid=${doctorGuid}    pageSource=${pageSource}
+    ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    doctorGuid=${doctorGuid}    pageSource=${pageSource}
     ${addr}    Post Request    api    mayson/v_1_0/medical_record_recommend    data=${data}
     ${responsedata}    To Json    ${addr.content}
     ${recordId}    Get from Dictionary    ${responsedata["body"]}    recordId
