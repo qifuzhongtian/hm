@@ -1578,3 +1578,28 @@ VTE2快速确认
     ${addr}    Post Request    api    manage/userLogin    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+
+绿道入组
+    [Arguments]    ${end}    ${groupId}    ${index}    ${joinWay}    ${needRecommend}    ${pageSize}
+    ...    ${reportId}    ${seachBody}    ${start}
+    # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${tesla_url}    ${dict}
+    ${data}    Create Dictionary    end=${end}    groupId=${groupId}    index=${index}    joinWay=${joinWay}    needRecommend=${needRecommend}
+    ...    pageSize=${pageSize}    reportId==${reportId}    seachBody=${seachBody}    start=${start}
+    ${addr}    Post Request    api    patient/getcasesList    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+绿道填报
+    [Arguments]    ${end}    ${from}    ${index}    ${pageSize}    ${seachBody}    ${start}
+    ...    ${status}
+    # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${tesla_url}    ${dict}
+    ${data}    Create Dictionary    end=${end}    from=${from}    index=${index}    pageSize=${pageSize}    seachBody=${seachBody}
+    ...    start=${start}    status=${status}
+    log    ${data}
+    ${addr}    Post Request    api    patient/getPatientList    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
