@@ -23,7 +23,7 @@ ${doc_online}     http://120.26.223.139
 ${ame_url}        http://ame.huimeionline.com
 # ${ame_url}      http://10.46.74.95:8092
 #fuxi验证接口         修改成 http://负载ip/node/active
-${fuxi_data}      http://fuxi.huimeionline.com/node/
+${fuxi_data}      http://fuxi.huimeionline.com/
 # ${fuxi_data}    http://test-fuxi.huimeionline.com/node/
 #adminse          修改成http://负载ip
 ${adminse}        http://admin-se.huimeionline.com/
@@ -1603,3 +1603,29 @@ VTE2快速确认
     ${addr}    Post Request    api    patient/getPatientList    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+
+
+
+
+
+评估表html转PDF
+    [Arguments]    ${htmlStr}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${mayson_url}    ${dict}
+    ${data}    Create Dictionary    htmlStr=${htmlStr}
+    ${addr}    Post Request    api    mayson/api/assess_to_pdf    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+
+评估表打印下载
+    [Arguments]    ${pdfName}    ${pdfPath}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${mayson_url}    ${dict}
+    ${params}    Create Dictionary    pdfName=${pdfName}    pdfPath=${pdfPath}
+    ${addr}    Get Request    api    /mayson/api/assess_pdf_download?hmj={"Huimei_id":"D7928B9182ABF6E0A6A6EBB71B353585"}    params=${params}
+    # ${responsedata}    To Json    ${addr.content}
+    [Return]    ${addr}
+

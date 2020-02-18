@@ -1,6 +1,6 @@
 *** Settings ***
 # Suite Setup    获取时间戳
-Suite Setup      登录    name=demo    password=84240742fd06ce7710d63b332aa1760e
+Suite Setup      登录    name=qa    password=b98ad386ccff23f74fed60bda2e586f0
 Suite Teardown    Delete All Sessions
 Resource          ../cdss.robot
 Library           Collections
