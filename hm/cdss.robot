@@ -58,7 +58,6 @@ ${base_url_95}    http://10.46.74.95:9200
 ${base_url_219}    http://10.165.102.219:9200
 #测试号
 ${Huimei_id}      7195F12825788F09375C2DB1E922F108
-# ${Huimei_id}    C3B844493A477BCF3D7B73A5E902B269
 # ${Huimei_id}    D7928B9182ABF6E0A6A6EBB71B353585
 
 *** Keywords ***
@@ -274,21 +273,6 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
     ${responsedata}    To Json    ${addr.content}
     Delete All Sessions
 
-智能诊断top5
-    [Arguments]    ${slice}    ${msg}    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}
-    ...    ${familyHistory}    ${weight}    ${gender}    ${bodyTempr}    ${lowBldPress}    ${highBldPress}
-    ...    ${examInfo}    ${heartRate}    ${age}    ${ageType}    ${confirmDiagnosis}    ${confirmDiagnosisMap}
-    ...    ${presentHistory}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
-    ${data}    Create Dictionary    symptom=${symptom}    previousHistory=${previousHistory}    personalHistory=${personalHistory}    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}
-    ...    weight=${weight}    gender=${gender}    bodyTempr=${bodyTempr}    lowBldPress=${lowBldPress}    highBldPress=${highBldPress}    examInfo=${examInfo}
-    ...    heartRate=${heartRate}    age=${age}    ageType=${ageType}    confirmDiagnosis=${confirmDiagnosis}    confirmDiagnosisMap[]=${confirmDiagnosisMap}    presentHistory=${presentHistory}
-    ${addr}    Post Request    api    v_2_2/diagnose_through_interrogation    data=${data}
-    ${responsedata}    To Json    ${addr.content}
-    ${aj}    Evaluate    [aj${slice} for aj in $responsedata['body']['suspectedDiseases']]
-    Should Contain    ${aj[:5]}    ${msg}
-    Delete All Sessions
 
 智能诊断2.3
     [Arguments]    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}    ${familyHistory}    ${weight}
@@ -321,13 +305,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-随机字符-2
-    [Arguments]    ${arg1}    ${arg2}=123    @{arg3}
-    [Return]    ${arg1}    ${arg2}
 
-随机字符-3
-    [Arguments]    ${arg1}    ${arg2}=123    @{arg3}
-    [Return]    ${arg1}
 
 test
     [Arguments]    ${symptom}
@@ -1605,9 +1583,6 @@ VTE2快速确认
     [Return]    ${responsedata}
 
 
-
-
-
 评估表html转PDF
     [Arguments]    ${htmlStr}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -1616,8 +1591,6 @@ VTE2快速确认
     ${addr}    Post Request    api    mayson/api/assess_to_pdf    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
-
-
 
 
 评估表打印下载
