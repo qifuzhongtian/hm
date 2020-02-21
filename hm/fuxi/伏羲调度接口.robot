@@ -1,5 +1,5 @@
 *** Settings ***
-Suite Setup       登录    name=qa    password=b98ad386ccff23f74fed60bda2e586f0    # Suite Setup    获取时间戳
+Suite Setup       登录    name=test    password=3470a55fa7e388375d2586e971b0dca8    # Suite Setup    获取时间戳
 Suite Teardown    Delete All Sessions
 Resource          ../cdss.robot
 Library           Collections
