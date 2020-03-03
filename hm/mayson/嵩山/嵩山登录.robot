@@ -13,7 +13,7 @@ Library           DateTime
 嵩山登录
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    嵩山登录    name=admin    password=732cc37c8ec5a38f750889f1cf7129eb
+    ${getRes}    嵩山登录    name=privateTesting    password=38ebcce4a466e04bf443d54ca52cd44f
     Should Contain    ${getRes['msg']}    success
 
 

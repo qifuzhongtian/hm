@@ -1,5 +1,5 @@
 *** Settings ***
-Suite Setup       绿道登录    name=admin    password=ff33b65e9a491a9f322da8b5e4379c4a    time=0    type=0
+Suite Setup       绿道登录    name=privateTesting    password=38ebcce4a466e04bf443d54ca52cd44f    time=0    type=0
 Suite Teardown    Delete All Sessions
 Force Tags        skip
 Resource          ../../cdss.robot

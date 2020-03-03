@@ -13,7 +13,7 @@ Library           DateTime
 泰山首页列表
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ...    AND    泰山登录    name=admin    password=732cc37c8ec5a38f750889f1cf7129eb
+    ...    AND    泰山登录    name=privateTesting    password=38ebcce4a466e04bf443d54ca52cd44f
     ${getRes}    泰山首页列表
     ${aj}    Evaluate    [aj['name'] for aj in $getRes['data']['loginList']]
     Should Contain    ${aj}    临床质量管理平台

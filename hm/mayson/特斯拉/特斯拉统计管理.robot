@@ -1,5 +1,5 @@
 *** Settings ***
-Suite Setup       特斯拉登录    name=admin    password=732cc37c8ec5a38f750889f1cf7129eb    time=0    type=0
+Suite Setup       特斯拉登录    name=privateTesting    password=38ebcce4a466e04bf443d54ca52cd44f    time=0    type=0
 Force Tags    skip
 Suite Teardown    Delete All Sessions
 Resource          ../../cdss.robot

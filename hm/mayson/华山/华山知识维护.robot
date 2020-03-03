@@ -1,5 +1,5 @@
 *** Settings ***
-Suite Setup       华山登录    name=admin    password=ff33b65e9a491a9f322da8b5e4379c4a    type=0
+Suite Setup       华山登录    name=privateTestingprivateTesting    password=38ebcce4a466e04bf443d54ca52cd44f    type=0
 Force Tags    skip
 Suite Teardown    Delete All Sessions
 Resource          ../../cdss.robot
