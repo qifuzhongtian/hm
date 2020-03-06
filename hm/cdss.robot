@@ -1449,6 +1449,7 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
+
 病历查询患者列表
     [Arguments]    ${order}    ${time_start}    ${time_end}    ${inpatient_department}    ${serial_number}    ${patient_name}
     ...    ${doctor_name}    ${problem_start}    ${problem_end}    ${status}    ${page_size}    ${current_index}
@@ -1461,6 +1462,8 @@ VTE2快速确认
     ...    current_index=${current_index}
     ${addr}    Post Request    api    /mc/mcRecordInfoList    data=${data}
     ${responsedata}    To Json    ${addr.content}
+    ${record_id}    Get From Dictionary    ${responsedata['data']['list'][0]}    record_id
+    Set Global Variable    ${record_id}
     [Return]    ${responsedata}
 
 泰山登录
@@ -1601,4 +1604,54 @@ VTE2快速确认
     ${addr}    Get Request    api    /mayson/api/assess_pdf_download?hmj={"Huimei_id":"D7928B9182ABF6E0A6A6EBB71B353585"}    params=${params}
     # ${responsedata}    To Json    ${addr.content}
     [Return]    ${addr}
+
+
+
+病历查询基础信息
+    [Arguments]
+    # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}    Cookie=${Cookie_value}
+    # Create Session    api    ${songshan_url}    ${dict}
+    ${data}    Create Dictionary
+    ${addr}    Post Request    api    /mc/mcBaseInfo    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+病历详情
+    [Arguments]    ${record_id}
+    # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}    Cookie=${Cookie_value}
+    # Create Session    api    ${songshan_url}    ${dict}
+    ${data}    Create Dictionary    record_id=${record_id}
+    ${addr}    Post Request    api    /mc/mcRecordInfoDetail    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    ${record_id}    Get From Dictionary    ${responsedata['data']['detail']}    record_id
+    Set Global Variable    ${record_id}
+    [Return]    ${responsedata}
+
+
+
+驳回批注下载
+    [Arguments]    ${param}    ${filePath}
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${songshan_url}    ${dict}
+    ${params}    Create Dictionary    param=${param}    filePath=${filePath}
+    ${addr}    Get Request    api    /mc/mcRecordInfoDownload    params=${params}
+    # ${responsedata}    To Json    ${addr.content}
+    [Return]    ${addr}
+
+
+
+
+病历详情结果列表
+    [Arguments]    ${record_id}    ${result}
+    # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}    Cookie=${Cookie_value}
+    # Create Session    api    ${songshan_url}    ${dict}
+    ${data}    Create Dictionary    record_id=${record_id}    result=${result}
+    ${addr}    Post Request    api    /mc/mcRecordInfoResultList    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
 
