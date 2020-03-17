@@ -6,8 +6,8 @@ ${mayson_url}     http://profile.huimeionline.com/cdss
 # ${mayson_url}    http://172.16.3.68:8080
 # ${mayson_url}    http://test-mayson.huimeionline.com/cdss
 #apollo生产环境       修改成http://负载ip/cdss
-${base_url}       http://mayson.huimeionline.com/cdss
-# ${base_url}     http://172.16.4.3:8080
+# ${base_url}       http://mayson.huimeionline.com/cdss
+${base_url}     http://172.16.4.3:8080
 # ${base_url}     http://test-mayson.huimeionline.com/cdss
 #{url}内部平台 ,各种山 泰山,改这个
 ${inside_url}     http://10.117.68.109
@@ -757,7 +757,6 @@ mayson默认推荐搜索
     ${addr}    Post Request    api    mayson/v_1_0/intelligent_recommendation    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
-
 智能推荐v2
     [Arguments]    ${userGuid}    ${serialNumber}    ${patientName}    ${doctorGuid}    ${doctorName}    ${admissionTime}
     ...    ${inpatientDepartment}    ${pageSource}    ${requestSource}    ${patientInfo}    ${physicalSign}    ${definiteDiagnosis}
@@ -784,7 +783,11 @@ mayson默认推荐搜索
     ${addr}    Post Request    api    mayson/v_2_0/intelligent_recommendation    data=${data}
     ${responsedata}    To Json    ${addr.content}
     ${recordId}    Get from Dictionary    ${responsedata["body"]}    recordId
+    ${serialNumber}    Get from Dictionary    ${responsedata["body"]["patientInfo"]}    serialNumber
+    ${userGuid}    Get from Dictionary    ${responsedata["body"]["patientInfo"]}    userGuid
     Set Global variable    ${recordId}
+    Set Global variable    ${userGuid}
+    Set Global variable    ${serialNumber}
     [Return]    ${responsedata}
 
 智能推荐test
@@ -1655,3 +1658,30 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
+
+
+统计_获取科室类别
+    [Arguments]    ${order}    ${type}    ${date}
+    # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}    Cookie=${Cookie_value}
+    # Create Session    api    ${songshan_url}    ${dict}
+    ${order}    Evaluate    dict(${order})
+    ${data}    Create Dictionary    order=${order}    type=${type}    date=${date}
+    ${addr}    Post Request    api    /tj/getTJDepartByCategory    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+快速确认评估表
+    [Arguments]    ${assessDictName}    ${assessId}    ${assessName}    ${assessResult}    ${assessValue}    ${assessValueUnit}    ${displayResult}    ${expressId}    ${productId}
+    ...    ${projectId}    ${assessResultItemList}    ${doctorGuid}    ${serialNumber}    ${userGuid}    ${pageSource}    ${recordId}    ${assessResultType}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${mayson_url}    ${dict}
+    ${assessResultItemList}    Evaluate    [${assessResultItemList}]
+    ${data}    Create Dictionary    assessDictName=${assessDictName}    assessId=${assessId}    assessName=${assessName}    assessResult=${assessResult}    assessValue=${assessValue}
+    ...    assessValueUnit=${assessValueUnit}    displayResult=${displayResult}    expressId=${expressId}    productId=${productId}    projectId=${projectId}    assessResultItemList=${assessResultItemList}
+    ...    doctorGuid=${doctorGuid}    serialNumber=${serialNumber}    userGuid=${userGuid}    pageSource=${pageSource}    recordId=${recordId}    assessResultType=${assessResultType}
+    ${addr}    Post Request    api    /sentry/assess/save    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
