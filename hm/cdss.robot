@@ -1456,9 +1456,6 @@ VTE2快速确认
 病历查询患者列表
     [Arguments]    ${order}    ${time_start}    ${time_end}    ${inpatient_department}    ${serial_number}    ${patient_name}
     ...    ${doctor_name}    ${problem_start}    ${problem_end}    ${status}    ${page_size}    ${current_index}
-    # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
-    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}    Cookie=${Cookie_value}
-    # Create Session    api    ${songshan_url}    ${dict}
     ${order}    Evaluate    dict(${order})
     ${data}    Create Dictionary    order=${order}    time_start=${time_start}    time_end=${time_end}    inpatient_department=${inpatient_department}    serial_number=${serial_number}
     ...    patient_name=${patient_name}    doctor_name=${doctor_name}    problem_start=${problem_start}    problem_end=${problem_end}    status=${status}    page_size=${page_size}
@@ -1612,9 +1609,6 @@ VTE2快速确认
 
 病历查询基础信息
     [Arguments]
-    # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
-    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}    Cookie=${Cookie_value}
-    # Create Session    api    ${songshan_url}    ${dict}
     ${data}    Create Dictionary
     ${addr}    Post Request    api    /mc/mcBaseInfo    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -1624,9 +1618,6 @@ VTE2快速确认
 
 病历详情
     [Arguments]    ${record_id}
-    # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
-    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}    Cookie=${Cookie_value}
-    # Create Session    api    ${songshan_url}    ${dict}
     ${data}    Create Dictionary    record_id=${record_id}
     ${addr}    Post Request    api    /mc/mcRecordInfoDetail    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -1650,9 +1641,6 @@ VTE2快速确认
 
 病历详情结果列表
     [Arguments]    ${record_id}    ${result}
-    # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
-    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}    Cookie=${Cookie_value}
-    # Create Session    api    ${songshan_url}    ${dict}
     ${data}    Create Dictionary    record_id=${record_id}    result=${result}
     ${addr}    Post Request    api    /mc/mcRecordInfoResultList    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -1662,14 +1650,95 @@ VTE2快速确认
 
 统计_获取科室类别
     [Arguments]    ${order}    ${type}    ${date}
-    # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
-    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}    Cookie=${Cookie_value}
-    # Create Session    api    ${songshan_url}    ${dict}
     ${order}    Evaluate    dict(${order})
     ${data}    Create Dictionary    order=${order}    type=${type}    date=${date}
     ${addr}    Post Request    api    /tj/getTJDepartByCategory    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+
+
+
+统计_获取基本信息
+    [Arguments]    ${type}    ${date}
+    ${data}    Create Dictionary    type=${type}    date=${date}
+    ${addr}    Post Request    api    /tj/getTJBasInfo    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+
+统计_获取科室显示
+    [Arguments]    ${order}    ${type}    ${date}
+    ${order}    Evaluate    dict(${order})
+    ${data}    Create Dictionary    order=${order}    type=${type}    date=${date}
+    ${addr}    Post Request    api    /tj/getTJDepartByDispaly    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+统计_获取统计趋势
+    [Arguments]    ${type}    ${date}
+    ${data}    Create Dictionary    type=${type}    date=${date}
+    ${addr}    Post Request    api    /tj/getTJTrend    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+统计_获取级别基本信息
+    [Arguments]    ${type}    ${date}
+    ${data}    Create Dictionary    type=${type}    date=${date}
+    ${addr}    Post Request    api    /tj/getTJBasInfo    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+
+统计_获取科室级别
+    [Arguments]    ${order}    ${type}    ${date}
+    ${order}    Evaluate    dict(${order})
+    ${data}    Create Dictionary    order=${order}    type=${type}    date=${date}
+    ${addr}    Post Request    api    /tj/getTJDepartByGrade    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+
+统计_获取科室级别显示
+    [Arguments]    ${order}    ${type}    ${date}
+    ${order}    Evaluate    dict(${order})
+    ${data}    Create Dictionary    order=${order}    type=${type}    date=${date}
+    ${addr}    Post Request    api    /tj/getGradeDepartByDispaly    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+
+病历质控规则查询显示列表
+    [Arguments]    ${content}    ${filter_type}    ${category_id}    ${black_type}    ${order}    ${current_index}    ${page_size}
+    ${order}    Evaluate    dict(${order})
+    ${data}    Create Dictionary    content=${content}    filter_type=${filter_type}    category_id=${category_id}    black_type=${black_type}    order=${order}    current_index=${current_index}    page_size=${page_size}
+    ${addr}    Post Request    api    /mc/mcRuleList    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+
+病历质控规则下载
+    [Arguments]
+    ${Cookie_value}    Set_variable    SONGSHANSESSIONID=442534a4d0506c9c3737a474a419d2ba0ad2c2901303911a    userInfo=%7B%22id%22%3A13%2C%22name%22%3A%22privateTesting%22%2C%22create_time%22%3A%222020-02-19T07%3A17%3A27.000Z%22%2C%22modify_time%22%3A%222020-02-19T07%3A17%3A27.000Z%22%2C%22BURRIED_URL%22%3A%22http%3A//mayson.huimeionline.com%22%7D
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}    Cookie=${Cookie_value}
+    Create Session    api    ${mayson_url}    ${dict}
+    ${params}    Create Dictionary
+    ${addr}    Get Request    api    /mc/mcRuleDownload    params=${params}
+    # ${responsedata}    To Json    ${addr.content}
+    [Return]    ${addr}
+
 
 
 
