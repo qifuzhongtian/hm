@@ -6,11 +6,11 @@ ${mayson_url}     http://profile.huimeionline.com/cdss
 # ${mayson_url}    http://172.16.3.68:8080
 # ${mayson_url}    http://test-mayson.huimeionline.com/cdss
 #apollo生产环境       修改成http://负载ip/cdss
-# ${base_url}       http://mayson.huimeionline.com/cdss
-${base_url}     http://172.16.4.3:8080
+# ${base_url}     http://mayson.huimeionline.com/cdss
+${base_url}       http://172.16.4.3:8080
 # ${base_url}     http://test-mayson.huimeionline.com/cdss
 #{url}内部平台 ,各种山 泰山,改这个
-${inside_url}     http://10.117.68.109
+${inside_url}     http://172.16.3.40
 #文献生产环境           修改成http://负载ip/cdss
 # ${doc_url}      http://doc.huimeionline.com/doc
 ${doc_url}        http://profile-doc.huimeionline.com/doc
@@ -42,6 +42,8 @@ ${huashan_url}    ${inside_url}:3020
 ${tesla_url}      ${inside_url}:3016
 #绿道               修改成对应的ip端口
 ${lvdao_url}      ${inside_url}:3022
+#庄周
+${zhuangzhou_url}    ${inside_url}:3023
 ##文献图片/文件差异接口,修改为http://athena_ip:8095形式
 ${athenaDoc_url}    http://mayson.huimeionline.com:8095
 #=======以下内容不需要修改==============#
@@ -273,7 +275,6 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
     ${responsedata}    To Json    ${addr.content}
     Delete All Sessions
 
-
 智能诊断2.3
     [Arguments]    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}    ${familyHistory}    ${weight}
     ...    ${gender}    ${bodyTempr}    ${lowBldPress}    ${highBldPress}    ${examInfo}    ${heartRate}
@@ -304,8 +305,6 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
     ${addr}    Post Request    api    v_2_0/disease/search    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
-
-
 
 test
     [Arguments]    ${symptom}
@@ -757,6 +756,7 @@ mayson默认推荐搜索
     ${addr}    Post Request    api    mayson/v_1_0/intelligent_recommendation    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+
 智能推荐v2
     [Arguments]    ${userGuid}    ${serialNumber}    ${patientName}    ${doctorGuid}    ${doctorName}    ${admissionTime}
     ...    ${inpatientDepartment}    ${pageSource}    ${requestSource}    ${patientInfo}    ${physicalSign}    ${definiteDiagnosis}
@@ -1452,7 +1452,6 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-
 病历查询患者列表
     [Arguments]    ${order}    ${time_start}    ${time_end}    ${inpatient_department}    ${serial_number}    ${patient_name}
     ...    ${doctor_name}    ${problem_start}    ${problem_end}    ${status}    ${page_size}    ${current_index}
@@ -1585,7 +1584,6 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-
 评估表html转PDF
     [Arguments]    ${htmlStr}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -1594,7 +1592,6 @@ VTE2快速确认
     ${addr}    Post Request    api    mayson/api/assess_to_pdf    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
-
 
 评估表打印下载
     [Arguments]    ${pdfName}    ${pdfPath}
@@ -1605,16 +1602,11 @@ VTE2快速确认
     # ${responsedata}    To Json    ${addr.content}
     [Return]    ${addr}
 
-
-
 病历查询基础信息
-    [Arguments]
     ${data}    Create Dictionary
     ${addr}    Post Request    api    /mc/mcBaseInfo    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
-
-
 
 病历详情
     [Arguments]    ${record_id}
@@ -1625,8 +1617,6 @@ VTE2快速确认
     Set Global Variable    ${record_id}
     [Return]    ${responsedata}
 
-
-
 驳回批注下载
     [Arguments]    ${param}    ${filePath}
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -1636,17 +1626,12 @@ VTE2快速确认
     # ${responsedata}    To Json    ${addr.content}
     [Return]    ${addr}
 
-
-
-
 病历详情结果列表
     [Arguments]    ${record_id}    ${result}
     ${data}    Create Dictionary    record_id=${record_id}    result=${result}
     ${addr}    Post Request    api    /mc/mcRecordInfoResultList    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
-
-
 
 统计_获取科室类别
     [Arguments]    ${order}    ${type}    ${date}
@@ -1656,17 +1641,12 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-
-
 统计_获取基本信息
     [Arguments]    ${type}    ${date}
     ${data}    Create Dictionary    type=${type}    date=${date}
     ${addr}    Post Request    api    /tj/getTJBasInfo    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
-
-
-
 
 统计_获取科室显示
     [Arguments]    ${order}    ${type}    ${date}
@@ -1676,8 +1656,6 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-
-
 统计_获取统计趋势
     [Arguments]    ${type}    ${date}
     ${data}    Create Dictionary    type=${type}    date=${date}
@@ -1685,16 +1663,12 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-
 统计_获取级别基本信息
     [Arguments]    ${type}    ${date}
     ${data}    Create Dictionary    type=${type}    date=${date}
     ${addr}    Post Request    api    /tj/getTJBasInfo    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
-
-
-
 
 统计_获取科室级别
     [Arguments]    ${order}    ${type}    ${date}
@@ -1704,9 +1678,6 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-
-
-
 统计_获取科室级别显示
     [Arguments]    ${order}    ${type}    ${date}
     ${order}    Evaluate    dict(${order})
@@ -1715,22 +1686,17 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-
-
-
 病历质控规则查询显示列表
-    [Arguments]    ${content}    ${filter_type}    ${category_id}    ${black_type}    ${order}    ${current_index}    ${page_size}
+    [Arguments]    ${content}    ${filter_type}    ${category_id}    ${black_type}    ${order}    ${current_index}
+    ...    ${page_size}
     ${order}    Evaluate    dict(${order})
-    ${data}    Create Dictionary    content=${content}    filter_type=${filter_type}    category_id=${category_id}    black_type=${black_type}    order=${order}    current_index=${current_index}    page_size=${page_size}
+    ${data}    Create Dictionary    content=${content}    filter_type=${filter_type}    category_id=${category_id}    black_type=${black_type}    order=${order}
+    ...    current_index=${current_index}    page_size=${page_size}
     ${addr}    Post Request    api    /mc/mcRuleList    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-
-
-
 病历质控规则下载
-    [Arguments]
     ${Cookie_value}    Set_variable    SONGSHANSESSIONID=442534a4d0506c9c3737a474a419d2ba0ad2c2901303911a    userInfo=%7B%22id%22%3A13%2C%22name%22%3A%22privateTesting%22%2C%22create_time%22%3A%222020-02-19T07%3A17%3A27.000Z%22%2C%22modify_time%22%3A%222020-02-19T07%3A17%3A27.000Z%22%2C%22BURRIED_URL%22%3A%22http%3A//mayson.huimeionline.com%22%7D
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}    Cookie=${Cookie_value}
     Create Session    api    ${mayson_url}    ${dict}
@@ -1739,12 +1705,10 @@ VTE2快速确认
     # ${responsedata}    To Json    ${addr.content}
     [Return]    ${addr}
 
-
-
-
 快速确认评估表
-    [Arguments]    ${assessDictName}    ${assessId}    ${assessName}    ${assessResult}    ${assessValue}    ${assessValueUnit}    ${displayResult}    ${expressId}    ${productId}
-    ...    ${projectId}    ${assessResultItemList}    ${doctorGuid}    ${serialNumber}    ${userGuid}    ${pageSource}    ${recordId}    ${assessResultType}
+    [Arguments]    ${assessDictName}    ${assessId}    ${assessName}    ${assessResult}    ${assessValue}    ${assessValueUnit}
+    ...    ${displayResult}    ${expressId}    ${productId}    ${projectId}    ${assessResultItemList}    ${doctorGuid}
+    ...    ${serialNumber}    ${userGuid}    ${pageSource}    ${recordId}    ${assessResultType}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${mayson_url}    ${dict}
     ${assessResultItemList}    Evaluate    [${assessResultItemList}]
@@ -1755,3 +1719,35 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
+庄周登录
+    [Arguments]    ${name}    ${password}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${zhuangzhou_url}    ${dict}
+    #Create Session    api    http://172.16.3.64:3023    ${dict}
+    ${data}    Create Dictionary    name=${name}    password=${password}
+    log    ${data}
+    ${addr}    Post Request    api    user/login    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+庄周_填报汇总
+    [Arguments]    ${startDate}    ${endDate}    ${type}
+    #${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    #Create Session    api    ${zhuangzhou_url}    ${dict}
+    #Create Session    api    http://172.16.3.64:3023    ${dict}
+    ${data}    Create Dictionary    startDate=${startDate}    endDate=${endDate}    type=${type}
+    log    ${data}
+    ${addr}    Post Request    api    fillSummary/list    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+庄周_患者统计
+    [Arguments]    ${startDate}    ${endDate}
+    #${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    #Create Session    api    ${zhuangzhou_url}    ${dict}
+    #Create Session    api    http://172.16.3.64:3023    ${dict}
+    ${data}    Create Dictionary    startDate=${startDate}    endDate=${endDate}
+    log    ${data}
+    ${addr}    Post Request    api    patientsStatistics/list    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
