@@ -6,13 +6,8 @@ ${mayson_url}     http://profile.huimeionline.com/cdss
 # ${mayson_url}    http://172.16.3.68:8080
 # ${mayson_url}    http://test-mayson.huimeionline.com/cdss
 #apollo生产环境       修改成http://负载ip/cdss
-<<<<<<< HEAD
-# ${base_url}     http://mayson.huimeionline.com/cdss
-${base_url}       http://172.16.4.3:8080
-=======
 ${base_url}       http://mayson.huimeionline.com/cdss
 # ${base_url}     http://172.16.4.3:8080
->>>>>>> 4c87a09032bf713a853bf7204feddae5bb4318bf
 # ${base_url}     http://test-mayson.huimeionline.com/cdss
 #{url}内部平台 ,各种山 泰山,改这个
 ${inside_url}     http://172.16.3.40
