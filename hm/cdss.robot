@@ -1711,15 +1711,14 @@ VTE2快速确认
     [Return]    ${addr}
 
 快速确认评估表
-    [Arguments]    ${assessDictName}    ${assessId}    ${assessName}    ${assessResult}    ${assessValue}    ${assessValueUnit}
-    ...    ${displayResult}    ${expressId}    ${productId}    ${projectId}    ${assessResultItemList}    ${doctorGuid}
-    ...    ${serialNumber}    ${userGuid}    ${pageSource}    ${recordId}    ${assessResultType}
+    [Arguments]    ${assessDictName}    ${assessId}    ${assessName}    ${assessResult}    ${assessValue}    ${assessValueUnit}    ${displayResult}    ${expressId}    ${productId}
+    ...    ${projectId}    ${assessResultItemList}    ${doctorGuid}    ${serialNumber}    ${userGuid}    ${pageSource}    ${recordId}    ${assessResultType}    ${ruleNumber}    ${isConfirmNurse}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${mayson_url}    ${dict}
     ${assessResultItemList}    Evaluate    [${assessResultItemList}]
     ${data}    Create Dictionary    assessDictName=${assessDictName}    assessId=${assessId}    assessName=${assessName}    assessResult=${assessResult}    assessValue=${assessValue}
     ...    assessValueUnit=${assessValueUnit}    displayResult=${displayResult}    expressId=${expressId}    productId=${productId}    projectId=${projectId}    assessResultItemList=${assessResultItemList}
-    ...    doctorGuid=${doctorGuid}    serialNumber=${serialNumber}    userGuid=${userGuid}    pageSource=${pageSource}    recordId=${recordId}    assessResultType=${assessResultType}
+    ...    doctorGuid=${doctorGuid}    serialNumber=${serialNumber}    userGuid=${userGuid}    pageSource=${pageSource}    recordId=${recordId}    assessResultType=${assessResultType}    ruleNumber=${ruleNumber}    isConfirmNurse=${isConfirmNurse}
     ${addr}    Post Request    api    /sentry/assess/save    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
