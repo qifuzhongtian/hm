@@ -12,3 +12,7 @@ Library           DateTime
 患者统计
     ${getRes}    庄周_患者统计    startDate=2020-03-24    endDate=2020-03-30
     Should Contain    ${getRes['msg']}    success
+
+
+
+

@@ -400,6 +400,9 @@ Library           String
     Should Contain    ${aj}    女性
 
 
+
+
+
 重复性合理性提示:5分钟禁止同时重复开具尿常规
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数

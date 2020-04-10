@@ -32,3 +32,5 @@ VTE2快速确认_暂不采用
     ...    qcDiseaseDiagnosisList={"diseaseId":1001}    doctorGuid=1    pageSource=2    recordId=1870894    assessResultType=2
     Should Contain    ${getRes['body']}    保存评估历史成功!
 
+
+
