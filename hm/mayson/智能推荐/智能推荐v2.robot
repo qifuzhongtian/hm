@@ -619,7 +619,7 @@ Library           String
 
 
 异常指标推荐
-    [Documentation]    断言:
+    [Documentation]    断言:尿红细胞
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
