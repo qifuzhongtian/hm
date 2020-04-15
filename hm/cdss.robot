@@ -1,23 +1,23 @@
 *** Variables ***
 #=======医院内网需要修改的==============#
 #mayson生产环境       修改成http://负载ip/cdss
-# ${mayson_url}     http://profile.huimeionline.com/cdss
+${mayson_url}     http://profile.huimeionline.com/cdss
 # ${mayson_url}    http://test-mayson.huimeionline.com/cdss
 #演示环境
-${mayson_url}     http://172.16.4.178/cdss
+# ${mayson_url}     http://172.16.4.178/cdss
 #apollo生产环境       修改成http://负载ip/cdss
-# ${base_url}       http://mayson.huimeionline.com/cdss
-${base_url}     http://172.16.4.3:8080
+${base_url}       http://mayson.huimeionline.com/cdss
+# ${base_url}     http://172.16.4.3:8080
 # ${base_url}     http://test-mayson.huimeionline.com/cdss
 #{url}内部平台 ,各种山 泰山,改这个
-# ${inside_url}     http://172.16.3.40
+${inside_url}     http://172.16.3.40
 #内部平台-demo环境
-${inside_url}     http://172.16.4.178
+# ${inside_url}     http://172.16.4.178
 #文献生产环境           修改成http://负载ip/cdss
-# ${doc_url}        http://profile-doc.huimeionline.com/doc
+${doc_url}        http://profile-doc.huimeionline.com/doc
 # ${doc_url}      http://test-profile-doc.huimeionline.com/doc
 #演示环境
-${doc_url}      http://172.16.4.178/cdss
+# ${doc_url}      http://172.16.4.178/cdss
 
 #文献前端环境           修改成http://负载ip/wenxian
 ${doc_fe}         http://doc.huimeionline.com
