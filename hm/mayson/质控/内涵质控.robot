@@ -11,7 +11,6 @@ Library           DateTime
 
 *** Test Cases ***
 
-
 内涵质控
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
@@ -22,3 +21,5 @@ Library           DateTime
     ...    ruleCodes=${ruleCodes}
     ${aj}    Evaluate    [aj['ruleCode'] for aj in $getRes['result']]
     Should Contain    ${aj}    nh1
+
+
