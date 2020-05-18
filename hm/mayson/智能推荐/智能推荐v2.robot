@@ -9,6 +9,9 @@ Library           String
 *** Variables ***
 
 *** Test Cases ***
+
+
+
 推荐疑似诊断:心律失常
     [Documentation]    断言:心律失常
     [Setup]    Run Keywords    获取时间戳
@@ -33,6 +36,8 @@ Library           String
     #####疑似诊断
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     Should Contain    ${aj[:5]}    心律失常
+
+
 
 推荐检查:静息12导联心电图
     [Setup]    Run Keywords    获取时间戳

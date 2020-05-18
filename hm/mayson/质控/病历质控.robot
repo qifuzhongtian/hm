@@ -35,7 +35,7 @@ Library           DateTime
     #####疑似诊断
     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     #####完整性
-    ${aj}    Evaluate    [aj['ruleCategory'] for aj in $getRes['body']['medicalRecordResult']['completeList']]
+    ${aj}    Evaluate    [aj['ruleCategory'] for aj in $getRes['body']['medicalRecordResult']['admissionRecordResults']]
     #一致性
     # ${aj}    Evaluate    [aj['remark'] for aj in $getRes['body']['mediaclRecordResult']['agreementList']]
     #####
