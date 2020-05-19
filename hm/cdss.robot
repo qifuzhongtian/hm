@@ -1473,6 +1473,21 @@ VTE2快速确认
     Set Global Variable    ${record_id}
     [Return]    ${responsedata}
 
+
+
+问题分析列表
+    [Arguments]    ${order}    ${name_id}    ${category_id}    ${time_start}    ${time_end}    ${inpatient_department}    ${display_type}    ${line_item_veto}
+    ...    ${page_size}    ${current_index}
+    ${order}    Evaluate    dict(${order})
+    ${data}    Create Dictionary    order=${order}    name_id=${name_id}    category_id=${category_id}    time_start=${time_start}    time_end=${time_end}    inpatient_department=${inpatient_department}    display_type=${display_type}
+    ...    line_item_veto=${line_item_veto}    page_size=${page_size}
+    ...    current_index=${current_index}
+    ${addr}    Post Request    api    /mc/ruleProblemList    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
 泰山登录
     [Arguments]    ${name}    ${password}
     # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
