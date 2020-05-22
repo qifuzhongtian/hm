@@ -1805,3 +1805,29 @@ VTE2快速确认
     ${addr}    Post Request    api    v_1_0/medical_record_profile    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+
+
+
+房颤指征
+    [Arguments]    ${recordId}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${mayson_url}    ${dict}
+    ${data}    Create Dictionary    recordId=${recordId}
+    ${addr}    Post Request    api    mayson/v_1_0/mayson_response_cache    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+
+房颤申请会诊
+    [Arguments]    ${userGuid}    ${serialNumber}    ${recordId}    ${ruleNumber}    ${ruleRemark}    ${warnLevel}    ${type}
+    ...    ${receiver}    ${projectId}    ${projectName}    ${qcDiseaseDiagnosisList}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${mayson_url}    ${dict}
+    ${qcDiseaseDiagnosisList}    Evaluate    [${qcDiseaseDiagnosisList}]
+    ${data}    Create Dictionary    recordId=${recordId}    userGuid=${userGuid}    serialNumber=${serialNumber}    ruleNumber=${ruleNumber}    ruleRemark=${ruleRemark}    warnLevel=${warnLevel}
+    ...    type=${type}    receiver=${receiver}    projectId=${projectId}    projectName=${projectName}    qcDiseaseDiagnosisList=${qcDiseaseDiagnosisList}
+    ${addr}    Post Request    api    sentry/v_2_0/qc/applyForConsultation    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}

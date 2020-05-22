@@ -10,8 +10,6 @@ Library           String
 
 *** Test Cases ***
 
-
-
 推荐疑似诊断:心律失常
     [Documentation]    断言:心律失常
     [Setup]    Run Keywords    获取时间戳

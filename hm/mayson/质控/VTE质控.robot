@@ -490,7 +490,6 @@ VTE4.0:深静脉血栓(DVT)Wells差异对比
     ${assert}    Set Variable    深静脉血栓(DVT)Wells评分
     ${index}    Get Index From List    ${aj}    ${assert}
     ${assessResult}    Set Variable    ${getRes['body']['qualityControlResponse']['illnessAssessList'][${index}]['aiResult']['assessResult']}
-
     Should Contain    ${assessResult}    患者发生DVT中度可能性
 
 
@@ -526,5 +525,7 @@ VTE4.2:护士确认的评估表
     ${assert}    Set Variable    外科VTE风险评估(Caprini评分表)
     ${index}    Get Index From List    ${aj}    ${assert}
     ${isConfirmNurse}    Set Variable    ${getRes['body']['qualityControlResponse']['illnessAssessList'][${index}]['isConfirmNurse']}
-
     Should Be Equal As Integers    ${isConfirmNurse}    1
+
+
+
