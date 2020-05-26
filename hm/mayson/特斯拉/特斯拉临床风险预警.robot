@@ -11,10 +11,11 @@ Library           DateTime
 *** Variables ***
 
 *** Test Cases ***
-特斯拉统计管理
+特斯拉临床风险预警
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    特斯拉统计管理    start_time=2019-11-02    end_time=2019-12-01
-    ...    disease=true    doctor=true    patient=false    project=false    specialDisease=    time_type=${2}    query_type=null
+    ${getRes}    特斯拉临床风险预警    start_time=2020-04-26    end_time=2020-05-25    dept_type=    dept_name=
+    ...    disease_code=    disease_class=    doctor_code=    doctor_name=    patient_name=    time_type=${2}    order={"name": "discharge_date","sort": "asc"}    current_index=${1}    page_size=${20}
     Should Contain    ${getRes['msg']}    success
+
 

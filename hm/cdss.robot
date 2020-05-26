@@ -1529,6 +1529,23 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
+
+特斯拉临床风险预警
+    [Arguments]    ${start_time}    ${end_time}    ${dept_type}    ${dept_name}    ${disease_code}    ${disease_class}    ${doctor_code}    ${doctor_name}
+    ...    ${patient_name}    ${time_type}    ${order}    ${current_index}    ${page_size}
+    # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${tesla_url}    ${dict}
+    ${order}    Evaluate    ${order}
+    ${data}    Create Dictionary    start_time=${start_time}    end_time=${end_time}    dept_type=${dept_type}    dept_name=${dept_name}    disease_code=${disease_code}    disease_class=${disease_class}    doctor_code=${doctor_code}
+    ...    doctor_name=${doctor_name}    patient_name=${patient_name}    time_type=${time_type}    order=${order}    current_index=${current_index}    page_size=${page_size}
+    ${addr}    Post Request    api    statistic/qcItemDetailList    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+
 智能推荐-绿道
     [Arguments]    ${userGuid}    ${serialNumber}    ${previousHistory}    ${personalHistory}    ${allergyHistory}    ${familyHistory}
     ...    ${weight}    ${bodyTempr}    ${lowBldPress}    ${highBldPress}    ${heartRate}    ${height}
