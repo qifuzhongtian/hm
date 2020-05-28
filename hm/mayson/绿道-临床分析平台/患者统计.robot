@@ -13,6 +13,7 @@ Library           DateTime
     ${getRes}    庄周_患者统计    startDate=2020-03-24    endDate=2020-03-30
     Should Contain    ${getRes['msg']}    success
 
-
-
-
+患者信息
+    ${getRes}    庄周_患者信息    disease_duration_type=    endDate=2020-05-27    group_name=    index=1    not_treat_reason=
+    ...    source_way=    startDate=2020-02-28
+    Should Contain    ${getRes['msg']}    success

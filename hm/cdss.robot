@@ -4,7 +4,7 @@
 ${mayson_url}     http://profile.huimeionline.com/cdss
 # ${mayson_url}    http://test-mayson.huimeionline.com/cdss
 #演示环境
-# ${mayson_url}     http://172.16.4.178/cdss
+# ${mayson_url}    http://172.16.4.178/cdss
 #apollo生产环境       修改成http://负载ip/cdss
 ${base_url}       http://mayson.huimeionline.com/cdss
 # ${base_url}     http://172.16.4.3:8080
@@ -12,18 +12,16 @@ ${base_url}       http://mayson.huimeionline.com/cdss
 #{url}内部平台 ,各种山 泰山,改这个
 ${inside_url}     http://172.16.3.40
 #内部平台-demo环境
-# ${inside_url}     http://172.16.4.178
+# ${inside_url}    http://172.16.4.178
 #文献生产环境           修改成http://负载ip/cdss
 ${doc_url}        http://profile-doc.huimeionline.com/doc
 # ${doc_url}      http://test-profile-doc.huimeionline.com/doc
 #演示环境
 # ${doc_url}      http://172.16.4.178/cdss
-
 #内涵质控
-${connotation_url}     http://172.16.3.68
+${connotation_url}    http://172.16.3.68
 #测试环境
-# ${mayson_url}      http://10.27.213.55
-
+# ${mayson_url}    http://10.27.213.55
 #文献前端环境           修改成http://负载ip/wenxian
 ${doc_fe}         http://doc.huimeionline.com
 #文献线上             修改成http://负载ip
@@ -38,7 +36,7 @@ ${adminse}        http://admin-se.huimeionline.com/
 # ${adminse}      http://test-admin-se.huimeionline.com/
 #amcPc版           修改成http://负载ip/cdss
 ${base_url_amc}    http://amc.huimeionline.com
-# ${base_gdms}      http://gdms.huimeionline.com
+# ${base_gdms}    http://gdms.huimeionline.com
 #嵩山 3021
 ${songshan_url}    ${inside_url}:3021
 #泰山 3019
@@ -1473,20 +1471,15 @@ VTE2快速确认
     Set Global Variable    ${record_id}
     [Return]    ${responsedata}
 
-
-
 问题分析列表
-    [Arguments]    ${order}    ${name_id}    ${category_id}    ${time_start}    ${time_end}    ${inpatient_department}    ${display_type}    ${line_item_veto}
-    ...    ${page_size}    ${current_index}
+    [Arguments]    ${order}    ${name_id}    ${category_id}    ${time_start}    ${time_end}    ${inpatient_department}
+    ...    ${display_type}    ${line_item_veto}    ${page_size}    ${current_index}
     ${order}    Evaluate    dict(${order})
-    ${data}    Create Dictionary    order=${order}    name_id=${name_id}    category_id=${category_id}    time_start=${time_start}    time_end=${time_end}    inpatient_department=${inpatient_department}    display_type=${display_type}
-    ...    line_item_veto=${line_item_veto}    page_size=${page_size}
-    ...    current_index=${current_index}
+    ${data}    Create Dictionary    order=${order}    name_id=${name_id}    category_id=${category_id}    time_start=${time_start}    time_end=${time_end}
+    ...    inpatient_department=${inpatient_department}    display_type=${display_type}    line_item_veto=${line_item_veto}    page_size=${page_size}    current_index=${current_index}
     ${addr}    Post Request    api    /mc/ruleProblemList    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
-
-
 
 泰山登录
     [Arguments]    ${name}    ${password}
@@ -1529,22 +1522,20 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-
 特斯拉临床风险预警
-    [Arguments]    ${start_time}    ${end_time}    ${dept_type}    ${dept_name}    ${disease_code}    ${disease_class}    ${doctor_code}    ${doctor_name}
-    ...    ${patient_name}    ${time_type}    ${order}    ${current_index}    ${page_size}
+    [Arguments]    ${start_time}    ${end_time}    ${dept_type}    ${dept_name}    ${disease_code}    ${disease_class}
+    ...    ${doctor_code}    ${doctor_name}    ${patient_name}    ${time_type}    ${order}    ${current_index}
+    ...    ${page_size}
     # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${tesla_url}    ${dict}
     ${order}    Evaluate    ${order}
-    ${data}    Create Dictionary    start_time=${start_time}    end_time=${end_time}    dept_type=${dept_type}    dept_name=${dept_name}    disease_code=${disease_code}    disease_class=${disease_class}    doctor_code=${doctor_code}
-    ...    doctor_name=${doctor_name}    patient_name=${patient_name}    time_type=${time_type}    order=${order}    current_index=${current_index}    page_size=${page_size}
+    ${data}    Create Dictionary    start_time=${start_time}    end_time=${end_time}    dept_type=${dept_type}    dept_name=${dept_name}    disease_code=${disease_code}
+    ...    disease_class=${disease_class}    doctor_code=${doctor_code}    doctor_name=${doctor_name}    patient_name=${patient_name}    time_type=${time_type}    order=${order}
+    ...    current_index=${current_index}    page_size=${page_size}
     ${addr}    Post Request    api    statistic/qcItemDetailList    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
-
-
-
 
 智能推荐-绿道
     [Arguments]    ${userGuid}    ${serialNumber}    ${previousHistory}    ${personalHistory}    ${allergyHistory}    ${familyHistory}
@@ -1746,14 +1737,17 @@ VTE2快速确认
     [Return]    ${addr}
 
 快速确认评估表
-    [Arguments]    ${assessDictName}    ${assessId}    ${assessName}    ${assessResult}    ${assessValue}    ${assessValueUnit}    ${displayResult}    ${expressId}    ${productId}
-    ...    ${projectId}    ${assessResultItemList}    ${doctorGuid}    ${serialNumber}    ${userGuid}    ${pageSource}    ${recordId}    ${assessResultType}    ${ruleNumber}    ${isConfirmNurse}
+    [Arguments]    ${assessDictName}    ${assessId}    ${assessName}    ${assessResult}    ${assessValue}    ${assessValueUnit}
+    ...    ${displayResult}    ${expressId}    ${productId}    ${projectId}    ${assessResultItemList}    ${doctorGuid}
+    ...    ${serialNumber}    ${userGuid}    ${pageSource}    ${recordId}    ${assessResultType}    ${ruleNumber}
+    ...    ${isConfirmNurse}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${mayson_url}    ${dict}
     ${assessResultItemList}    Evaluate    [${assessResultItemList}]
     ${data}    Create Dictionary    assessDictName=${assessDictName}    assessId=${assessId}    assessName=${assessName}    assessResult=${assessResult}    assessValue=${assessValue}
     ...    assessValueUnit=${assessValueUnit}    displayResult=${displayResult}    expressId=${expressId}    productId=${productId}    projectId=${projectId}    assessResultItemList=${assessResultItemList}
-    ...    doctorGuid=${doctorGuid}    serialNumber=${serialNumber}    userGuid=${userGuid}    pageSource=${pageSource}    recordId=${recordId}    assessResultType=${assessResultType}    ruleNumber=${ruleNumber}    isConfirmNurse=${isConfirmNurse}
+    ...    doctorGuid=${doctorGuid}    serialNumber=${serialNumber}    userGuid=${userGuid}    pageSource=${pageSource}    recordId=${recordId}    assessResultType=${assessResultType}
+    ...    ruleNumber=${ruleNumber}    isConfirmNurse=${isConfirmNurse}
     ${addr}    Post Request    api    /sentry/assess/save    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
@@ -1791,8 +1785,6 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-
-
 内涵质控
     [Arguments]    ${masterProfile}    ${recordDatas}    ${recordId}    ${ruleCodes}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -1806,8 +1798,6 @@ VTE2快速确认
     ${addr}    Post Request    api    v_1_0/quality_control    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
-
-
 
 内涵首页质控
     [Arguments]    ${masterProfile}    ${recordDatas}    ${recordId}    ${ruleCodes}
@@ -1823,8 +1813,6 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-
-
 房颤指征
     [Arguments]    ${recordId}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -1834,17 +1822,120 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-
-
-
 房颤申请会诊
-    [Arguments]    ${userGuid}    ${serialNumber}    ${recordId}    ${ruleNumber}    ${ruleRemark}    ${warnLevel}    ${type}
-    ...    ${receiver}    ${projectId}    ${projectName}    ${qcDiseaseDiagnosisList}
+    [Arguments]    ${userGuid}    ${serialNumber}    ${recordId}    ${ruleNumber}    ${ruleRemark}    ${warnLevel}
+    ...    ${type}    ${receiver}    ${projectId}    ${projectName}    ${qcDiseaseDiagnosisList}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${mayson_url}    ${dict}
     ${qcDiseaseDiagnosisList}    Evaluate    [${qcDiseaseDiagnosisList}]
-    ${data}    Create Dictionary    recordId=${recordId}    userGuid=${userGuid}    serialNumber=${serialNumber}    ruleNumber=${ruleNumber}    ruleRemark=${ruleRemark}    warnLevel=${warnLevel}
-    ...    type=${type}    receiver=${receiver}    projectId=${projectId}    projectName=${projectName}    qcDiseaseDiagnosisList=${qcDiseaseDiagnosisList}
+    ${data}    Create Dictionary    recordId=${recordId}    userGuid=${userGuid}    serialNumber=${serialNumber}    ruleNumber=${ruleNumber}    ruleRemark=${ruleRemark}
+    ...    warnLevel=${warnLevel}    type=${type}    receiver=${receiver}    projectId=${projectId}    projectName=${projectName}    qcDiseaseDiagnosisList=${qcDiseaseDiagnosisList}
     ${addr}    Post Request    api    sentry/v_2_0/qc/applyForConsultation    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+庄周_患者信息
+    [Arguments]    ${disease_duration_type}    ${endDate}    ${group_name}    ${index}    ${not_treat_reason}    ${source_way}
+    ...    ${startDate}
+    #${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    #Create Session    api    ${zhuangzhou_url}    ${dict}
+    #Create Session    api    http://172.16.3.64:3023    ${dict}
+    ${data}    Create Dictionary    disease_duration_type=${disease_duration_type}    endDate=${endDate}    group_name=${group_name}    index=${index}    not_treat_reason=${not_treat_reason}
+    ...    source_way=${source_way}    startDate=${startDate}
+    log    ${data}
+    ${addr}    Post Request    api    patientsStatistics/patientInfo    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+特斯拉_出院人次
+    [Arguments]    ${dept_code}    ${dept_name}    ${dept_type}    ${disease_class}    ${disease_code}    ${end_time}
+    ...    ${query_type}    ${start_time}    ${time_type}
+    # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${tesla_url}    ${dict}
+    ${data}    Create Dictionary    dept_code=${dept_code}    dept_name=${dept_name}    dept_type=${dept_type}    disease_class=${disease_class}    disease_code=${disease_code}
+    ...    end_time=${end_time}    query_type=${query_type}    start_time=${start_time}    time_type=${time_type}
+    ${addr}    Post Request    api    statistic/patientVisitData    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+特斯拉_住院天数
+    [Arguments]    ${dept_name}    ${dept_type}    ${disease_class}    ${disease_code}    ${end_time}    ${start_time}
+    ...    ${time_type}
+    # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${tesla_url}    ${dict}
+    ${data}    Create Dictionary    dept_name=${dept_name}    dept_type=${dept_type}    disease_class=${disease_class}    disease_code=${disease_code}    end_time=${end_time}
+    ...    start_time=${start_time}    time_type=${time_type}
+    ${addr}    Post Request    api    statistic/patientInhouseNum    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+特斯拉_年龄分布
+    [Arguments]    ${dept_code}    ${dept_name}    ${dept_type}    ${disease_class}    ${disease_code}    ${end_time}
+    ...    ${start_time}    ${time_type}
+    # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${tesla_url}    ${dict}
+    ${data}    Create Dictionary    dept_code=${dept_code}    dept_name=${dept_name}    dept_type=${dept_type}    disease_class=${disease_class}    disease_code=${disease_code}
+    ...    end_time=${end_time}    start_time=${start_time}    time_type=${time_type}
+    ${addr}    Post Request    api    statistic/patientAgeSpread    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+特斯拉_主管医生
+    [Arguments]    ${dept_code}    ${dept_name}    ${dept_type}    ${disease_class}    ${disease_code}    ${end_time}
+    ...    ${start_time}    ${time_type}
+    # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${tesla_url}    ${dict}
+    ${data}    Create Dictionary    dept_code=${dept_code}    dept_name=${dept_name}    dept_type=${dept_type}    disease_class=${disease_class}    disease_code=${disease_code}
+    ...    end_time=${end_time}    start_time=${start_time}    time_type=${time_type}
+    ${addr}    Post Request    api    statistic/patientDoctor    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+特斯拉_单病种概况
+    [Arguments]    ${dept_name}    ${dept_type}    ${disease_class}    ${disease_code}    ${end_time}    ${start_time}
+    ...    ${time_type}    ${doctor_code}    ${doctor_name}    ${current_index}
+    # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${tesla_url}    ${dict}
+    ${data}    Create Dictionary    dept_name=${dept_name}    dept_type=${dept_type}    disease_class=${disease_class}    disease_code=${disease_code}    end_time=${end_time}
+    ...    start_time=${start_time}    time_type=${time_type}    doctor_code=${doctor_code}    doctor_name=${doctor_name}    current_index=${current_index}
+    ${addr}    Post Request    api    statistic/qcItemDetailList    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+特斯拉_医生质控监测
+    [Arguments]    ${dept_name}    ${dept_type}    ${disease_class}    ${disease_code}    ${end_time}    ${start_time}
+    ...    ${time_type}    ${project_code}
+    # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${tesla_url}    ${dict}
+    ${data}    Create Dictionary    dept_name=${dept_name}    dept_type=${dept_type}    disease_class=${disease_class}    disease_code=${disease_code}    end_time=${end_time}
+    ...    start_time=${start_time}    time_type=${time_type}    project_code=${project_code}
+    ${addr}    Post Request    api    statistic/qcDoctorChartData    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+特斯拉_科室质控监测
+    [Arguments]    ${dept_name}    ${dept_type}    ${disease_class}    ${disease_code}    ${end_time}    ${start_time}
+    ...    ${time_type}    ${project_code}
+    # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${tesla_url}    ${dict}
+    ${data}    Create Dictionary    dept_name=${dept_name}    dept_type=${dept_type}    disease_class=${disease_class}    disease_code=${disease_code}    end_time=${end_time}
+    ...    start_time=${start_time}    time_type=${time_type}    project_code=${project_code}
+    ${addr}    Post Request    api    statistic/qcDepartmentChartData    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+绿道_全局
+    # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
+    # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${tesla_url}    ${dict}
+    ${data}    Create Dictionary
+    ${addr}    Post Request    api    patient/groupAll    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
