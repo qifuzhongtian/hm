@@ -6,6 +6,7 @@ Suite Teardown    Delete All Sessions    # Suite Setup    Run Keywords    amc进
 Resource          ../cdss.robot
 Library           Collections
 Library           RequestsLibrary    # 字段名 类型 是否必须 说明
+Force Tags        profileskip    skip
 
 *** Test Cases ***
 4.1 查询病种列表

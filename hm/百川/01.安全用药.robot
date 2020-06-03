@@ -5,6 +5,7 @@ Suite Teardown    Delete All Sessions    # 字段名 类型    是否必须    �
 Resource          ../cdss.robot
 Library           Collections    # Resource    ../cdss接口关键字.robot
 Library           RequestsLibrary
+Force Tags        profileskip    skip
 
 *** Variables ***
 

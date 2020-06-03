@@ -838,15 +838,14 @@ mayson默认推荐搜索
     [Return]    ${responsedata}
 
 保存评估历史记录
-    [Arguments]    ${recordId}    ${assessId}    ${assessName}    ${patientGuid}    ${serialNumber}    ${assessResult}
-    ...    ${assessConclusion}    ${historyItemList}    ${source}    ${resultContent}    ${assessItemWordIds}    ${assessResultSource}
+    [Arguments]    ${recordId}    ${assessId}    ${assessName}    ${patientGuid}    ${serialNumber}    ${assessResult}    ${assessRemark}
+    ...    ${assessConclusion}    ${historyItemList}    ${source}    ${resultContent}    ${assessItemWordIds}    ${pageSource}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${mayson_url}    ${dict}
     ${historyItemList}    Evaluate    [${historyItemList}]
     ${assessItemWordIds}    Evaluate    [${assessItemWordIds}]
-    ${data}    Create Dictionary    recordId=${recordId}    assessId=${assessId}    assessName=${assessName}    patientGuid=${patientGuid}    serialNumber=${serialNumber}
-    ...    assessResult=${assessResult}    assessConclusion=${assessConclusion}    historyItemList=${historyItemList}    source=${source}    resultContent=${resultContent}    assessItemWordIds=${assessItemWordIds}
-    ...    assessResultSource=${assessResultSource}
+    ${data}    Create Dictionary    recordId=${recordId}    assessId=${assessId}    assessName=${assessName}    patientGuid=${patientGuid}    serialNumber=${serialNumber}    assessRemark=${assessRemark}
+    ...    assessResult=${assessResult}    assessConclusion=${assessConclusion}    historyItemList=${historyItemList}    source=${source}    resultContent=${resultContent}    assessItemWordIds=${assessItemWordIds}    pageSource=${pageSource}
     ${addr}    Post Request    api    /mayson/v_1_0/assesshistory/save    data=${data}
     ${responsedata}    To Json    ${addr.content}
     ${assessHistoryId}    Get From Dictionary    ${responsedata['body']}    assessHistoryId
@@ -1937,5 +1936,19 @@ VTE2快速确认
     # Create Session    api    ${tesla_url}    ${dict}
     ${data}    Create Dictionary
     ${addr}    Post Request    api    patient/groupAll    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+通用识别
+    [Arguments]    ${contents}
+    ${contents}    Evaluate    [${contents}]
+    # ${contents}    Evaluate    dict(${contents})
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    http://172.16.3.68:9088    ${dict}
+    ${data}    Create Dictionary    contents=${contents}
+    # ${addr}    Post Request    api    :9088/inference    data=${data}
+    ${addr}    Post Request    api    /inference    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}

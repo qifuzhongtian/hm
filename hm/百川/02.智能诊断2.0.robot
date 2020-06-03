@@ -5,6 +5,7 @@ Suite Teardown    Delete All Sessions    # 字段名 类型 是否必须 说明 
 Resource          ../cdss.robot
 Library           Collections
 Library           RequestsLibrary
+Force Tags        profileskip    skip
 
 *** Test Cases ***
 1.市场部案例一
