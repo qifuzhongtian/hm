@@ -1946,7 +1946,7 @@ VTE2快速确认
     ${contents}    Evaluate    [${contents}]
     # ${contents}    Evaluate    dict(${contents})
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    http://172.16.3.68:9088    ${dict}
+    Create Session    api    ${connotation_url}:9088    ${dict}
     ${data}    Create Dictionary    contents=${contents}
     # ${addr}    Post Request    api    :9088/inference    data=${data}
     ${addr}    Post Request    api    /inference    data=${data}
