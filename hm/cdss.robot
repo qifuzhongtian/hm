@@ -1458,11 +1458,11 @@ VTE2快速确认
     [Return]    ${responsedata}
 
 病历查询患者列表
-    [Arguments]    ${order}    ${time_start}    ${time_end}    ${inpatient_department}    ${serial_number}    ${patient_name}
-    ...    ${doctor_name}    ${problem_start}    ${problem_end}    ${status}    ${page_size}    ${current_index}
+    [Arguments]    ${order}    ${time_start}    ${time_end}    ${time_type}    ${inpatient_department}    ${patient_area}    ${display_id}    ${case_no}    ${serial_number}    ${patient_name}
+    ...    ${doctor_name}    ${problem_start}    ${problem_end}    ${status}    ${name_id_list}    ${display_type}    ${line_item_veto}    ${index_start}    ${index_end}    ${total_start}    ${total_end}    ${category_id}    ${page_size}    ${current_index}
     ${order}    Evaluate    dict(${order})
-    ${data}    Create Dictionary    order=${order}    time_start=${time_start}    time_end=${time_end}    inpatient_department=${inpatient_department}    serial_number=${serial_number}
-    ...    patient_name=${patient_name}    doctor_name=${doctor_name}    problem_start=${problem_start}    problem_end=${problem_end}    status=${status}    page_size=${page_size}
+    ${data}    Create Dictionary    order=${order}    time_start=${time_start}    time_end=${time_end}    time_type=${time_type}    inpatient_department=${inpatient_department}    patient_area=${patient_area}    display_id=${display_id}    case_no=${case_no}    serial_number=${serial_number}
+    ...    patient_name=${patient_name}    doctor_name=${doctor_name}    problem_start=${problem_start}    problem_end=${problem_end}    status=${status}    name_id_list=${name_id_list}    display_type=${display_type}    line_item_veto=${line_item_veto}    index_start=${index_start}    index_end=${index_end}    total_start=${total_start}    total_end=${total_end}    category_id=${category_id}    page_size=${page_size}
     ...    current_index=${current_index}
     ${addr}    Post Request    api    /mc/mcRecordInfoList    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -1735,6 +1735,18 @@ VTE2快速确认
     # ${responsedata}    To Json    ${addr.content}
     [Return]    ${addr}
 
+
+
+
+病历查询问题描述列表
+    ${data}    Create Dictionary
+    ${addr}    Post Request    api    /mc/mcProjectList    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+
 快速确认评估表
     [Arguments]    ${assessDictName}    ${assessId}    ${assessName}    ${assessResult}    ${assessValue}    ${assessValueUnit}
     ...    ${displayResult}    ${expressId}    ${productId}    ${projectId}    ${assessResultItemList}    ${doctorGuid}
@@ -1952,3 +1964,16 @@ VTE2快速确认
     ${addr}    Post Request    api    /inference    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+
+
+
+人工操作病历质控结果
+    [Arguments]    ${recordId}    ${touch}    ${operateItems}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${mayson_url}    ${dict}
+    ${operateItems}    Evaluate    [${operateItems}]
+    ${data}    Create Dictionary    recordId=${recordId}    touch=${touch}    operateItems=${operateItems}
+    ${addr}    Post Request    api    /sentry/mc/project_operate    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
