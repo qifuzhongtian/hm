@@ -1716,15 +1716,18 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
+
 病历质控规则查询显示列表
-    [Arguments]    ${content}    ${filter_type}    ${category_id}    ${black_type}    ${order}    ${current_index}
+    [Arguments]    ${content}    ${filter_type}    ${category_id}    ${black_type}    ${order}    ${recommend_level}    ${current_index}
     ...    ${page_size}
     ${order}    Evaluate    dict(${order})
-    ${data}    Create Dictionary    content=${content}    filter_type=${filter_type}    category_id=${category_id}    black_type=${black_type}    order=${order}
+    ${data}    Create Dictionary    content=${content}    filter_type=${filter_type}    category_id=${category_id}    black_type=${black_type}    order=${order}    recommend_level=${recommend_level}
     ...    current_index=${current_index}    page_size=${page_size}
     ${addr}    Post Request    api    /mc/mcRuleList    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+
+
 
 病历质控规则下载
     ${Cookie_value}    Set_variable    SONGSHANSESSIONID=442534a4d0506c9c3737a474a419d2ba0ad2c2901303911a    userInfo=%7B%22id%22%3A13%2C%22name%22%3A%22privateTesting%22%2C%22create_time%22%3A%222020-02-19T07%3A17%3A27.000Z%22%2C%22modify_time%22%3A%222020-02-19T07%3A17%3A27.000Z%22%2C%22BURRIED_URL%22%3A%22http%3A//mayson.huimeionline.com%22%7D
@@ -1736,6 +1739,13 @@ VTE2快速确认
     [Return]    ${addr}
 
 
+用户列表
+    [Arguments]    ${user_name}    ${dep_name}    ${patient_area}
+    ${data}    Create Dictionary    user_name=${user_name}    dep_name=${dep_name}    patient_area=${patient_area}
+    ${addr}    Post Request    api    /manage/userList    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
 
 
 病历查询问题描述列表
@@ -1745,7 +1755,12 @@ VTE2快速确认
     [Return]    ${responsedata}
 
 
-
+规则提醒级别配置
+    [Arguments]    ${group_code}    ${recommend_level}    ${type}
+    ${data}    Create Dictionary    group_code=${group_code}    recommend_level=${recommend_level}    type=${type}
+    ${addr}    Post Request    api    /mc/upRuleConfig    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
 
 快速确认评估表
     [Arguments]    ${assessDictName}    ${assessId}    ${assessName}    ${assessResult}    ${assessValue}    ${assessValueUnit}

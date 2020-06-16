@@ -11,13 +11,9 @@ Library           DateTime
 *** Variables ***
 
 *** Test Cases ***
-病历质控规则查询显示列表
+用户列表
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    病历质控规则查询显示列表    content=    filter_type=    category_id=    black_type=
-    ...    order={"name": "black_render","sort": "asc"}    recommend_level=
-    ...    current_index=${1}    page_size=${20}
+    ${getRes}    用户列表    user_name=    dep_name=    patient_area=
     Should Contain    ${getRes['msg']}    success
-
-
 
