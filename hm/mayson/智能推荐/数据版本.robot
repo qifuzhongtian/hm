@@ -319,7 +319,7 @@ Library           DateTime
 
 
 
-数据版本200615短肠综合征,推荐治疗方案:手术治疗
+数据版本200615短肠综合征,推荐治疗方案:保留结肠短肠综合征者限制脂肪摄入
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
