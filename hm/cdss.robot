@@ -1,42 +1,51 @@
 *** Variables ***
 #=======医院内网需要修改的==============#
 #mayson生产环境       修改成http://负载ip/cdss
-${mayson_url}     http://profile.huimeionline.com/cdss
+# ${mayson_url}     http://profile.huimeionline.com/cdss
 # ${mayson_url}    http://test-mayson.huimeionline.com/cdss
 #演示环境
-# ${mayson_url}    http://172.16.4.178/cdss
+${mayson_url}    http://172.16.4.178/cdss
 #apollo生产环境       修改成http://负载ip/cdss
-${base_url}       http://mayson.huimeionline.com/cdss
+# ${base_url}       http://mayson.huimeionline.com/cdss
+${base_url}       http://172.16.4.178/cdss
 # ${base_url}     http://172.16.4.3:8080
 # ${base_url}     http://test-mayson.huimeionline.com/cdss
 #{url}内部平台 ,各种山 泰山,改这个
-${inside_url}     http://172.16.3.40
+# ${inside_url}     http://172.16.3.40
 #内部平台-demo环境
-# ${inside_url}    http://172.16.4.178
+${inside_url}    http://172.16.4.178
 #文献生产环境           修改成http://负载ip/cdss
-${doc_url}        http://profile-doc.huimeionline.com/doc
+# ${doc_url}        http://profile-doc.huimeionline.com/doc
 # ${doc_url}      http://test-profile-doc.huimeionline.com/doc
 #演示环境
-# ${doc_url}      http://172.16.4.178/cdss
+${doc_url}      http://172.16.4.178/cdss
 #内涵质控
-${connotation_url}    http://172.16.3.68
+# ${connotation_url}    http://172.16.3.68
+${connotation_url}    http://172.16.4.178
 #测试环境
 # ${mayson_url}    http://10.27.213.55
 #文献前端环境           修改成http://负载ip/wenxian
-${doc_fe}         http://doc.huimeionline.com
+# ${doc_fe}         http://doc.huimeionline.com
+${doc_fe}         http://172.16.4.178/wenxian
 #文献线上             修改成http://负载ip
-${doc_online}     http://120.26.223.139
+# ${doc_online}     http://120.26.223.139
+${doc_online}     http://172.16.4.178
 #ame生产环境          修改成http://负载ip
-${ame_url}        http://ame.huimeionline.com
+# ${ame_url}        http://ame.huimeionline.com
+${ame_url}        http://172.16.4.178:8092
 # ${ame_url}      http://10.46.74.95:8092
 #fuxi验证接口         修改成 http://负载ip/node/active
 ${fuxi_data}      ${inside_url}:3014
+# ${fuxi_data}      http://172.16.4.178/node/active
 #adminse          修改成http://负载ip
-${adminse}        http://admin-se.huimeionline.com/
+# ${adminse}        http://admin-se.huimeionline.com/
+${adminse}        http://172.16.4.178
 # ${adminse}      http://test-admin-se.huimeionline.com/
 #amcPc版           修改成http://负载ip/cdss
-${base_url_amc}    http://amc.huimeionline.com
+# ${base_url_amc}    http://amc.huimeionline.com
 # ${base_gdms}    http://gdms.huimeionline.com
+${base_url_amc}    http://172.16.4.178/cdss
+${base_gdms}      http://172.16.4.178/cdss
 #嵩山 3021
 ${songshan_url}    ${inside_url}:3021
 #泰山 3019
@@ -51,7 +60,8 @@ ${lvdao_url}      ${inside_url}:3022
 #庄周
 ${zhuangzhou_url}    ${inside_url}:3023
 ##文献图片/文件差异接口,修改为http://athena_ip:8095形式
-${athenaDoc_url}    http://mayson.huimeionline.com:8095
+# ${athenaDoc_url}    http://mayson.huimeionline.com:8095
+${athenaDoc_url}    http://172.16.4.178:8095
 #=======以下内容不需要修改==============#
 ######################apollo######################
 ${base_url_sf}    http://10.27.213.55:9092
@@ -65,8 +75,8 @@ ${base_url_95}    http://10.46.74.95:9200
 #妇产科诊断性别_线上环境
 ${base_url_219}    http://10.165.102.219:9200
 #测试号
-${Huimei_id}      7195F12825788F09375C2DB1E922F108
-# ${Huimei_id}    D7928B9182ABF6E0A6A6EBB71B353585
+# ${Huimei_id}      7195F12825788F09375C2DB1E922F108
+${Huimei_id}    D7928B9182ABF6E0A6A6EBB71B353585
 
 *** Keywords ***
 获取时间戳
