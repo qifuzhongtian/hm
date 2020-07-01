@@ -1491,8 +1491,8 @@ VTE2快速确认
     ...    current_index=${current_index}
     ${addr}    Post Request    api    /mc/mcRecordInfoList    data=${data}
     ${responsedata}    To Json    ${addr.content}
-    ${record_id}    Get From Dictionary    ${responsedata['data']['list'][0]}    record_id
-    Set Global Variable    ${record_id}
+    # ${record_id}    Get From Dictionary    ${responsedata['data']['list'][0]}    record_id
+    # Set Global Variable    ${record_id}
     [Return]    ${responsedata}
 
 问题分析列表
