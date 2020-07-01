@@ -5,15 +5,15 @@ Library           Collections
 Library           RequestsLibrary
 Library           String
 *** Test Cases ***
-疑似诊断,推荐:荨麻疹
+疑似诊断,主诉:眩晕,推荐诊断:良性阵发性眩晕
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${drugCommonNames}    Create List    阿立哌唑片    盐酸氟西汀分散片
-    ${getRes}    智能推荐门诊    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    doctorGuid=    hospitalGuid=    symptom=急性胸痛,长期卧床.肌钙蛋白T：0.5 ug/L,消化道穿孔
+    ${drugCommonNames}    Create List
+    ${getRes}    智能推荐门诊    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    doctorGuid=    hospitalGuid=    symptom=眩晕
     ...    drugCommonNames=${drugCommonNames}    examinationList=    newTestList=    labTestList=    previousHistory=    personalHistory=
     ...    allergyHistory=    familyHistory=    weight=    gender=0    bodyTempr=    lowBldPress=
     ...    highBldPress=    examInfo=    heartRate=    age=    ageType=岁    confirmDiagnosis=
-    ...    confirmDiagnosisMap={"icdCode": "L50.900","key": "34146","value": "荨麻疹"}    presentHistory=    hasDetail=    symptomClickDiseaseId=
+    ...    confirmDiagnosisMap={"icdCode": "","key": "","value": ""}    presentHistory=    hasDetail=    symptomClickDiseaseId=
     #疑似诊断
     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['suspectedDiseases']]
     #检查解读
@@ -24,7 +24,7 @@ Library           String
     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['maysonInfo']['illnessAssessList']]
     #检查解读
     # ${aj}    Evaluate    [aj['diagnosticPoint'] for aj in $getRes['body']['maysonInfo']['examinationInterpretList']]
-    Should Contain    ${aj}    荨麻疹
+    Should Contain    ${aj}    良性阵发性眩晕
 
 推荐检查,推荐:尿常规
     [Setup]    Run Keywords    获取时间戳

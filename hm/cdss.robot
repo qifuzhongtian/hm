@@ -31,9 +31,8 @@ ${doc_fe}         http://doc.huimeionline.com
 ${doc_online}     http://120.26.223.139
 # ${doc_online}     http://172.16.4.178
 #ame生产环境          修改成http://负载ip
-# ${ame_url}        http://ame.huimeionline.com
+${ame_url}        http://ame.huimeionline.com
 # ${ame_url}        http://172.16.4.178:8092
-${ame_url}      http://10.46.74.95:8092
 #fuxi验证接口         修改成 http://负载ip/node/active
 ${fuxi_data}      ${inside_url}:3014
 # ${fuxi_data}      http://172.16.4.178/node/active
@@ -1844,8 +1843,6 @@ VTE2快速确认
     Create Session    api    ${connotation_url}:9998    ${dict}
     ${masterProfile}    Evaluate    dict(${masterProfile})
     ${recordDatas}    Evaluate    dict(${recordDatas})
-    # ${recordId}    Evaluate    [${recordId}]
-    # ${ruleCodes}    Evaluate    [${ruleCodes}]
     ${data}    Create Dictionary    masterProfile=${masterProfile}    recordDatas=${recordDatas}    recordId=${recordId}    ruleCodes=${ruleCodes}
     ${addr}    Post Request    api    v_1_0/quality_control    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -1855,13 +1852,14 @@ VTE2快速确认
     [Arguments]    ${masterProfile}    ${recordDatas}    ${recordId}    ${ruleCodes}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${mayson_url}    ${dict}
-    Create Session    api    ${connotation_url}:9120    ${dict}
+    # Create Session    api    ${connotation_url}:9120    ${dict}
+    Create Session    api    ${connotation_url}:8091    ${dict}
     ${masterProfile}    Evaluate    dict(${masterProfile})
     ${recordDatas}    Evaluate    dict(${recordDatas})
     # ${recordId}    Evaluate    [${recordId}]
     # ${ruleCodes}    Evaluate    [${ruleCodes}]
     ${data}    Create Dictionary    masterProfile=${masterProfile}    recordDatas=${recordDatas}    recordId=${recordId}    ruleCodes=${ruleCodes}
-    ${addr}    Post Request    api    v_1_0/medical_record_profile    data=${data}
+    ${addr}    Post Request    api    pangoo/ruleengine/homePage    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
@@ -2017,4 +2015,20 @@ VTE2快速确认
     ${addr}    Post Request    api    /sentry/mc/project_operate    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+
+
+
+检验报告
+    [Arguments]    ${serialNumber}    ${userGuid}    ${doctorGuid}    ${requestSource}    ${doctorName}    ${patientName}    ${department}    ${inpatientArea}    ${patientInfo}    ${labTestList}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${mayson_url}    ${dict}
+    ${patientInfo}    Evaluate    dict(${patientInfo})
+    ${labTestList}    Evaluate    [${labTestList}]
+    ${data}    Create Dictionary    serialNumber=${serialNumber}    userGuid=${userGuid}    doctorGuid=${doctorGuid}    requestSource=${requestSource}    doctorName=${doctorName}    patientName=${patientName}
+    ...    department=${department}    inpatientArea=${inpatientArea}    patientInfo=${patientInfo}    labTestList=${labTestList}
+    ${addr}    Post Request    api    mayson/v_2_0/intelligent_recommendation    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
 
