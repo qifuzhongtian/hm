@@ -11,14 +11,14 @@ ${base_url}       http://mayson.huimeionline.com/cdss
 # ${base_url}     http://172.16.4.3:8080
 # ${base_url}     http://test-mayson.huimeionline.com/cdss
 #{url}内部平台 ,各种山 泰山,改这个
-# ${inside_url}     http://172.16.3.40
+${inside_url}     http://172.16.3.40
 #内部平台-demo环境
-${inside_url}    http://172.16.4.178
+# ${inside_url}    http://172.16.4.178
 #文献生产环境           修改成http://负载ip/cdss
-# ${doc_url}        http://profile-doc.huimeionline.com/doc
+${doc_url}        http://profile-doc.huimeionline.com/doc
 # ${doc_url}      http://test-profile-doc.huimeionline.com/doc
 #演示环境
-${doc_url}      http://172.16.4.178/cdss
+# ${doc_url}      http://172.16.4.178/cdss
 #内涵质控
 ${connotation_url}    http://172.16.3.68
 # ${connotation_url}    http://172.16.4.178
