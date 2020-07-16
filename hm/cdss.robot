@@ -1873,13 +1873,13 @@ VTE2快速确认
     [Return]    ${responsedata}
 
 房颤申请会诊
-    [Arguments]    ${userGuid}    ${serialNumber}    ${recordId}    ${ruleNumber}    ${ruleRemark}    ${warnLevel}
-    ...    ${type}    ${receiver}    ${projectId}    ${projectName}    ${qcDiseaseDiagnosisList}
+    [Arguments]    ${qcConsultationRequset}    ${assessResultRequest}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${mayson_url}    ${dict}
-    ${qcDiseaseDiagnosisList}    Evaluate    [${qcDiseaseDiagnosisList}]
-    ${data}    Create Dictionary    recordId=${recordId}    userGuid=${userGuid}    serialNumber=${serialNumber}    ruleNumber=${ruleNumber}    ruleRemark=${ruleRemark}
-    ...    warnLevel=${warnLevel}    type=${type}    receiver=${receiver}    projectId=${projectId}    projectName=${projectName}    qcDiseaseDiagnosisList=${qcDiseaseDiagnosisList}
+    ${qcConsultationRequset}    Evaluate    dict(${qcConsultationRequset})
+    ${assessResultRequest}    Evaluate    dict(${assessResultRequest})
+    # ${physicalSign}    Evaluate    dict(${physicalSign})
+    ${data}    Create Dictionary    recordId=${recordId}    qcConsultationRequset=${qcConsultationRequset}    qcConsultationRequset=${qcConsultationRequset}
     ${addr}    Post Request    api    sentry/v_2_0/qc/applyForConsultation    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}

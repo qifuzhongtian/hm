@@ -257,7 +257,7 @@ Library           DateTime
 
 
 
-恶性肿瘤化疗化疗,医嘱"特异性化疗药物",推出:化疗前常规检查——血常规
+恶性肿瘤化疗,医嘱"特异性化疗药物",推出:化疗前常规检查——血常规
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -299,4 +299,7 @@ Library           DateTime
     #####质控推荐检查
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['qualityControlResponse']['examinationRecommendList']]
     Should Contain    ${aj}    化疗前常规检查——血常规
+
+
+
 
