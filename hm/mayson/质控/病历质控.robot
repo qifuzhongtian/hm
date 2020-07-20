@@ -11,7 +11,7 @@ Library           DateTime
 *** Variables ***
 
 *** Test Cases ***
-病历质控_完整性:入院记录-既往史未填写
+病历质控_完整性:入院记录-既往史未填写,推出质控类型ruleCategory为形式'xs'
     [Documentation]    断言:质控类型ruleCategory为形式'xs'
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数

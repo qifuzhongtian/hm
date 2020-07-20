@@ -265,8 +265,10 @@ Library           DateTime
     ${Subjective}    Set Variable
     #获取当前时间
     ${admissionTime}    Get time    timestamp
+
+    ${createTime}    add time to date    ${admissionTime}    -24hours
     #距离当前1天后的时间
-    ${operationTime}    add time to date    ${admissionTime}    23hours
+    ${operationTime}    add time to date    ${admissionTime}    -24hours
     #手术执行时间，将上面的时间去掉显示毫秒
     ${operationTimeFinal}    Get SubString    ${operationTime}    0  19
     #手术记录中的手术开始日期
@@ -284,7 +286,7 @@ Library           DateTime
     ...    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGid":"","recordTime":""}    labTestList=    examinationList=    newTestList=    operationRecord=
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}        currentDiseaseName=
     # ...    medicalOrders={"orderType": 3,"orderId": "1562668327867","uuid": "1294-20778","frequency": "-","orderContent": "(小袋)0.9%氯化钠注射液 100ml/袋","recordId": 20778,"incisionType": "","id": 438947,"timelinessFlag": 1,"level": "","operationType":"4","preoperativeDiagnose": "","orderCreateTime": 1549531074000,"executeTime":"1549531074000","stopTime":"1549531074000","unit": "ml","dosageform": "","position": "","status": 1,"dosage": "50","description": "","orderClass": 1,"anesthesia": "","customerId": 1294,"doctorGuid": "0000012061","specification": "","sample": "","orderFlag": 1,"pathway": "静脉泵入","orderCode": "2136"},{"orderType":3,"orderId":"1562669119074","uuid":"1294-20778","frequency":"-","orderContent":"(小袋)0.9%氯化钠注射液100ml/袋","recordId":20778,"incisionType":"","id":557765,"timelinessFlag":1,"level":"","operationType":"4","preoperativeDiagnose":"","orderCreateTime":1562860800000,"executeTime":"1549531074000","stopTime":"1549531074000","unit":"ml","dosageform":"","position":"","status":1,"dosage":"50","description":"低分子肝素钙注射液","orderClass":1,"anesthesia":"","customerId":1294,"doctorGuid":"0000012061","specification":"","sample":"","orderFlag":1,"pathway":"口服","orderCode":"561"}
-    ...    medicalOrders={"orderId":"1593585106507","doctorGuid":"DBA","timelinessFlag":"1","orderClass":"1","orderType":"3","orderCode":"8288","orderContent":"全髋关节置换术","position":"胸部","level":"二级手术","operationType":"4","incisionType":"","anesthesia":"局麻","preoperativeDiagnose":"术前诊断名称","createTime":"${admissionTime}","executeTime":"${operationTimeFinal}","stopTime":"${operationTimeFinal}","orderFlag":"1"}
+    ...    medicalOrders={"orderId":"1593585106507","doctorGuid":"DBA","timelinessFlag":"1","orderClass":"1","orderType":"3","orderCode":"8288","orderContent":"全髋关节置换术","position":"胸部","level":"二级手术","operationType":"4","incisionType":"","anesthesia":"局麻","preoperativeDiagnose":"术前诊断名称","createTime":"${createTime}","executeTime":"${operationTimeFinal}","stopTime":"${operationTimeFinal}","orderFlag":"1"}
     #####推荐检查评估表
     #####推荐检查
     # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
