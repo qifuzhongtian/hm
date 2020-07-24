@@ -7,7 +7,7 @@ ${mayson_url}     http://profile.huimeionline.com/cdss
 # ${mayson_url}    http://172.16.4.178/cdss
 #apollo生产环境       修改成http://负载ip/cdss
 ${base_url}       http://mayson.huimeionline.com/cdss
-# ${base_url}       http://172.16.4.178/cdss
+# ${base_url}     http://172.16.4.178/cdss
 # ${base_url}     http://172.16.4.3:8080
 # ${base_url}     http://test-mayson.huimeionline.com/cdss
 #{url}内部平台 ,各种山 泰山,改这个
@@ -26,25 +26,25 @@ ${connotation_url}    http://172.16.3.68
 # ${mayson_url}    http://10.27.213.55
 #文献前端环境           修改成http://负载ip/wenxian
 ${doc_fe}         http://doc.huimeionline.com
-# ${doc_fe}         http://172.16.4.178/wenxian
+# ${doc_fe}       http://172.16.4.178/wenxian
 #文献线上             修改成http://负载ip
 ${doc_online}     http://120.26.223.139
-# ${doc_online}     http://172.16.4.178
+# ${doc_online}    http://172.16.4.178
 #ame生产环境          修改成http://负载ip
 ${ame_url}        http://ame.huimeionline.com
-# ${ame_url}        http://172.16.4.178:8092
+# ${ame_url}      http://172.16.4.178:8092
 #fuxi验证接口         修改成 http://负载ip/node/active
 ${fuxi_data}      ${inside_url}:3014
-# ${fuxi_data}      http://172.16.4.178/node/active
+# ${fuxi_data}    http://172.16.4.178/node/active
 #adminse          修改成http://负载ip
-# ${adminse}        http://admin-se.huimeionline.com/
-# ${adminse}        http://172.16.4.178
-${adminse}      http://test-admin-se.huimeionline.com/
+# ${adminse}      http://admin-se.huimeionline.com/
+# ${adminse}      http://172.16.4.178
+${adminse}        http://test-admin-se.huimeionline.com/
 #amcPc版           修改成http://负载ip/cdss
 ${base_url_amc}    http://amc.huimeionline.com
-${base_gdms}    http://gdms.huimeionline.com
+${base_gdms}      http://gdms.huimeionline.com
 # ${base_url_amc}    http://172.16.4.178/cdss
-# ${base_gdms}      http://172.16.4.178/cdss
+# ${base_gdms}    http://172.16.4.178/cdss
 #嵩山 3021
 ${songshan_url}    ${inside_url}:3021
 #泰山 3019
@@ -849,14 +849,16 @@ mayson默认推荐搜索
     [Return]    ${responsedata}
 
 保存评估历史记录
-    [Arguments]    ${recordId}    ${assessId}    ${assessName}    ${patientGuid}    ${serialNumber}    ${assessResult}    ${assessRemark}
-    ...    ${assessConclusion}    ${historyItemList}    ${source}    ${resultContent}    ${assessItemWordIds}    ${pageSource}
+    [Arguments]    ${recordId}    ${assessId}    ${assessName}    ${patientGuid}    ${serialNumber}    ${assessResult}
+    ...    ${assessRemark}    ${assessConclusion}    ${historyItemList}    ${source}    ${resultContent}    ${assessItemWordIds}
+    ...    ${pageSource}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${mayson_url}    ${dict}
     ${historyItemList}    Evaluate    [${historyItemList}]
     ${assessItemWordIds}    Evaluate    [${assessItemWordIds}]
-    ${data}    Create Dictionary    recordId=${recordId}    assessId=${assessId}    assessName=${assessName}    patientGuid=${patientGuid}    serialNumber=${serialNumber}    assessRemark=${assessRemark}
-    ...    assessResult=${assessResult}    assessConclusion=${assessConclusion}    historyItemList=${historyItemList}    source=${source}    resultContent=${resultContent}    assessItemWordIds=${assessItemWordIds}    pageSource=${pageSource}
+    ${data}    Create Dictionary    recordId=${recordId}    assessId=${assessId}    assessName=${assessName}    patientGuid=${patientGuid}    serialNumber=${serialNumber}
+    ...    assessRemark=${assessRemark}    assessResult=${assessResult}    assessConclusion=${assessConclusion}    historyItemList=${historyItemList}    source=${source}    resultContent=${resultContent}
+    ...    assessItemWordIds=${assessItemWordIds}    pageSource=${pageSource}
     ${addr}    Post Request    api    /mayson/v_1_0/assesshistory/save    data=${data}
     ${responsedata}    To Json    ${addr.content}
     ${assessHistoryId}    Get From Dictionary    ${responsedata['body']}    assessHistoryId
@@ -1024,15 +1026,17 @@ mayson默认推荐
     [Return]    ${responsedata}
 
 检查结果
-    [Arguments]    ${serialNumber}    ${inpatientDepartment}    ${userGuid}    ${doctorGuid}    ${doctorName}    ${admissionTime}    ${inpatientArea}    ${requestSource}
-    ...    ${patientName}    ${openInterdict}    ${patientInfo}    ${physicalSign}    ${examinationList}
+    [Arguments]    ${serialNumber}    ${inpatientDepartment}    ${userGuid}    ${doctorGuid}    ${doctorName}    ${admissionTime}
+    ...    ${inpatientArea}    ${requestSource}    ${patientName}    ${openInterdict}    ${patientInfo}    ${physicalSign}
+    ...    ${examinationList}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${mayson_url}    ${dict}
     ${patientInfo}    Evaluate    dict(${patientInfo})
     ${physicalSign}    Evaluate    dict(${physicalSign})
     ${examinationList}    Evaluate    [${examinationList}]
-    ${data}    Create Dictionary    serialNumber=${serialNumber}    inpatientDepartment=${inpatientDepartment}    userGuid=${userGuid}    doctorGuid=${doctorGuid}    doctorName=${doctorName}    admissionTime=${admissionTime}    inpatientArea=${inpatientArea}    requestSource=${requestSource}
-    ...    patientName=${patientName}    openInterdict=${openInterdict}    patientInfo=${patientInfo}    physicalSign=${physicalSign}    examinationList=${examinationList}
+    ${data}    Create Dictionary    serialNumber=${serialNumber}    inpatientDepartment=${inpatientDepartment}    userGuid=${userGuid}    doctorGuid=${doctorGuid}    doctorName=${doctorName}
+    ...    admissionTime=${admissionTime}    inpatientArea=${inpatientArea}    requestSource=${requestSource}    patientName=${patientName}    openInterdict=${openInterdict}    patientInfo=${patientInfo}
+    ...    physicalSign=${physicalSign}    examinationList=${examinationList}
     ${addr}    Post Request    api    mayson/v_2_0/intelligent_recommendation    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
@@ -1483,11 +1487,15 @@ VTE2快速确认
     [Return]    ${responsedata}
 
 病历查询患者列表
-    [Arguments]    ${order}    ${time_start}    ${time_end}    ${time_type}    ${inpatient_department}    ${patient_area}    ${display_id}    ${case_no}    ${serial_number}    ${patient_name}
-    ...    ${doctor_name}    ${problem_start}    ${problem_end}    ${status}    ${name_id_list}    ${display_type}    ${line_item_veto}    ${index_start}    ${index_end}    ${total_start}    ${total_end}    ${category_id}    ${page_size}    ${current_index}
+    [Arguments]    ${order}    ${time_start}    ${time_end}    ${time_type}    ${inpatient_department}    ${patient_area}
+    ...    ${display_id}    ${case_no}    ${serial_number}    ${patient_name}    ${doctor_name}    ${problem_start}
+    ...    ${problem_end}    ${status}    ${name_id_list}    ${display_type}    ${line_item_veto}    ${index_start}
+    ...    ${index_end}    ${total_start}    ${total_end}    ${category_id}    ${page_size}    ${current_index}
     ${order}    Evaluate    dict(${order})
-    ${data}    Create Dictionary    order=${order}    time_start=${time_start}    time_end=${time_end}    time_type=${time_type}    inpatient_department=${inpatient_department}    patient_area=${patient_area}    display_id=${display_id}    case_no=${case_no}    serial_number=${serial_number}
-    ...    patient_name=${patient_name}    doctor_name=${doctor_name}    problem_start=${problem_start}    problem_end=${problem_end}    status=${status}    name_id_list=${name_id_list}    display_type=${display_type}    line_item_veto=${line_item_veto}    index_start=${index_start}    index_end=${index_end}    total_start=${total_start}    total_end=${total_end}    category_id=${category_id}    page_size=${page_size}
+    ${data}    Create Dictionary    order=${order}    time_start=${time_start}    time_end=${time_end}    time_type=${time_type}    inpatient_department=${inpatient_department}
+    ...    patient_area=${patient_area}    display_id=${display_id}    case_no=${case_no}    serial_number=${serial_number}    patient_name=${patient_name}    doctor_name=${doctor_name}
+    ...    problem_start=${problem_start}    problem_end=${problem_end}    status=${status}    name_id_list=${name_id_list}    display_type=${display_type}    line_item_veto=${line_item_veto}
+    ...    index_start=${index_start}    index_end=${index_end}    total_start=${total_start}    total_end=${total_end}    category_id=${category_id}    page_size=${page_size}
     ...    current_index=${current_index}
     ${addr}    Post Request    api    /mc/mcRecordInfoList    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -1741,18 +1749,15 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-
 病历质控规则查询显示列表
-    [Arguments]    ${content}    ${filter_type}    ${category_id}    ${black_type}    ${order}    ${recommend_level}    ${current_index}
-    ...    ${page_size}
+    [Arguments]    ${content}    ${filter_type}    ${category_id}    ${black_type}    ${order}    ${recommend_level}
+    ...    ${current_index}    ${page_size}
     ${order}    Evaluate    dict(${order})
-    ${data}    Create Dictionary    content=${content}    filter_type=${filter_type}    category_id=${category_id}    black_type=${black_type}    order=${order}    recommend_level=${recommend_level}
-    ...    current_index=${current_index}    page_size=${page_size}
+    ${data}    Create Dictionary    content=${content}    filter_type=${filter_type}    category_id=${category_id}    black_type=${black_type}    order=${order}
+    ...    recommend_level=${recommend_level}    current_index=${current_index}    page_size=${page_size}
     ${addr}    Post Request    api    /mc/mcRuleList    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
-
-
 
 病历质控规则下载
     ${Cookie_value}    Set_variable    SONGSHANSESSIONID=442534a4d0506c9c3737a474a419d2ba0ad2c2901303911a    userInfo=%7B%22id%22%3A13%2C%22name%22%3A%22privateTesting%22%2C%22create_time%22%3A%222020-02-19T07%3A17%3A27.000Z%22%2C%22modify_time%22%3A%222020-02-19T07%3A17%3A27.000Z%22%2C%22BURRIED_URL%22%3A%22http%3A//mayson.huimeionline.com%22%7D
@@ -1763,7 +1768,6 @@ VTE2快速确认
     # ${responsedata}    To Json    ${addr.content}
     [Return]    ${addr}
 
-
 用户列表
     [Arguments]    ${user_name}    ${dep_name}    ${patient_area}
     ${data}    Create Dictionary    user_name=${user_name}    dep_name=${dep_name}    patient_area=${patient_area}
@@ -1771,14 +1775,11 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-
-
 病历查询问题描述列表
     ${data}    Create Dictionary
     ${addr}    Post Request    api    /mc/mcProjectList    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
-
 
 规则提醒级别配置
     [Arguments]    ${group_code}    ${recommend_level}    ${type}
@@ -1990,8 +1991,6 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-
-
 通用识别
     [Arguments]    ${contents}
     ${contents}    Evaluate    [${contents}]
@@ -2004,8 +2003,6 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-
-
 人工操作病历质控结果
     [Arguments]    ${recordId}    ${touch}    ${operateItems}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -2016,19 +2013,28 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-
-
 检验报告
-    [Arguments]    ${serialNumber}    ${userGuid}    ${doctorGuid}    ${requestSource}    ${doctorName}    ${patientName}    ${department}    ${inpatientArea}    ${patientInfo}    ${labTestList}
+    [Arguments]    ${serialNumber}    ${userGuid}    ${doctorGuid}    ${requestSource}    ${doctorName}    ${patientName}
+    ...    ${department}    ${inpatientArea}    ${patientInfo}    ${labTestList}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${mayson_url}    ${dict}
     ${patientInfo}    Evaluate    dict(${patientInfo})
     ${labTestList}    Evaluate    [${labTestList}]
-    ${data}    Create Dictionary    serialNumber=${serialNumber}    userGuid=${userGuid}    doctorGuid=${doctorGuid}    requestSource=${requestSource}    doctorName=${doctorName}    patientName=${patientName}
-    ...    department=${department}    inpatientArea=${inpatientArea}    patientInfo=${patientInfo}    labTestList=${labTestList}
+    ${data}    Create Dictionary    serialNumber=${serialNumber}    userGuid=${userGuid}    doctorGuid=${doctorGuid}    requestSource=${requestSource}    doctorName=${doctorName}
+    ...    patientName=${patientName}    department=${department}    inpatientArea=${inpatientArea}    patientInfo=${patientInfo}    labTestList=${labTestList}
     ${addr}    Post Request    api    mayson/v_2_0/intelligent_recommendation    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-
-
+专病数据集识别
+    [Arguments]    ${diseaseFlag}    ${masterProfile}
+    ${masterProfile}    Evaluate    ${masterProfile}
+    # ${contents}    Evaluate    dict(${contents})
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${connotation_url}:9089    ${dict}
+    ${data}    Create Dictionary    diseaseFlag=${diseaseFlag}    masterProfile=${masterProfile}
+    # ${addr}    Post Request    api    :9088/inference    data=${data}
+    log    ${data}
+    ${addr}    Post Request    api    /get_standard_dataset    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
