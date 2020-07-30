@@ -88,6 +88,31 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
     ${random}    Generate Random String    3    1234567890
     Set Global Variable    ${random}
 
+
+时间
+    ${time}    Get Current Date    result_format=timestamp
+    #通用药品医嘱时间，此刻
+    ${medicalOrders_create}    Get SubString    ${time}    0  19
+    #肿瘤规则检验医嘱时间
+    ${orders_lis_create_time}    add time to date    ${medicalOrders_create}    2seconds
+    #手术时间
+    ${operation_time}    add time to date    ${time}    3hours
+    ${operation_start_time}    Get SubString    ${operation_time}    0  19
+    #医嘱时间
+    ${medicalOrders}    add time to date    ${operation_start_time}    -10hours
+    ${medicalOrders_time}    Get SubString    ${medicalOrders}    0  19
+    #医嘱停止时间
+    ${medicalOrders_stop}    add time to date    ${operation_start_time}    -2hours
+    ${medicalOrders_stop_time}    Get SubString    ${medicalOrders_stop}    0  19
+    Set Global Variable    ${time}
+    Set Global Variable    ${operation_start_time}
+    Set Global Variable    ${medicalOrders_time}
+    Set Global Variable    ${medicalOrders_stop_time}
+    Set Global Variable    ${medicalOrders_create}
+    Set Global Variable    ${orders_lis_create_time}
+
+
+
 安全用药
     [Arguments]    ${drugCommonNames}    ${gender}    ${age}    ${ageType}    ${drugIds}    ${symptom}
     ...    ${confirmDiagnosis}
