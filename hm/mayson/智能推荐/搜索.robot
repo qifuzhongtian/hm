@@ -67,11 +67,11 @@ Library           RequestsLibrary
 
 
 
-搜索数据填报
-    [Documentation]    搜索
-    ${getRes}    mayson搜索    hasAssessType=${true}    name=脑卒中
-    ${aj}    Evaluate    [aj['Name'] for aj in $getRes['body']['green_channel']['channels']]
-    Should Contain    ${aj}    血脂检查
+# 搜索数据填报
+#     [Documentation]    搜索
+#     ${getRes}    mayson搜索    hasAssessType=${true}    name=脑卒中
+#     ${aj}    Evaluate    [aj['Name'] for aj in $getRes['body']['green_channel']['channels']]
+#     Should Contain    ${aj}    血脂检查
 
 
 
