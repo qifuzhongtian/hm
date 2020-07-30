@@ -36,8 +36,7 @@ Library           String
     Should Contain    ${aj[:5]}    心律失常
 
 
-
-主诉:发作性喘息、气促1小时,推荐疑似诊断:支气管哮喘
+推荐疑似诊断:支气管哮喘
     [Documentation]    断言:支气管哮喘
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
