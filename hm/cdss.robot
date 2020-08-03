@@ -1,66 +1,66 @@
 *** Variables ***
 #=======医院内网需要修改的==============#
 #mayson生产环境       修改成http://负载ip/cdss
-# ${mayson_url}     http://profile.huimeionline.com/cdss
+${mayson_url}     http://profile.huimeionline.com/cdss
 # ${mayson_url}    http://test-mayson.huimeionline.com/cdss
 #演示环境
-${mayson_url}    http://172.16.4.178/cdss
+# ${mayson_url}    http://172.16.4.178/cdss
 #apollo生产环境       修改成http://负载ip/cdss
-# ${base_url}       http://mayson.huimeionline.com/cdss
-${base_url}     http://172.16.4.178/cdss
+${base_url}       http://mayson.huimeionline.com/cdss
+# ${base_url}     http://172.16.4.178/cdss
 # ${base_url}     http://172.16.4.3:8080
 # ${base_url}     http://test-mayson.huimeionline.com/cdss
-#{url}内部平台 ,各种山 泰山,改这个
-# ${inside_url}     http://172.16.3.40
+#{url}内部平台 ,各种太平 惠每用户中心,改这个
+${inside_url}     http://172.16.3.40
 #内部平台-demo环境
-${inside_url}    http://172.16.4.178
+# ${inside_url}    http://172.16.4.178
 #文献生产环境           修改成http://负载ip/cdss
-# ${doc_url}        http://profile-doc.huimeionline.com/doc
+${doc_url}        http://profile-doc.huimeionline.com/doc
 # ${doc_url}      http://test-profile-doc.huimeionline.com/doc
 #演示环境
-${doc_url}      http://172.16.4.178/cdss
+# ${doc_url}      http://172.16.4.178/cdss
 #内涵质控
-# ${connotation_url}    http://172.16.3.68
-${connotation_url}    http://172.16.4.178
+${connotation_url}    http://172.16.3.68
+# ${connotation_url}    http://172.16.4.178
 #测试环境
 # ${mayson_url}    http://10.27.213.55
 #文献前端环境           修改成http://负载ip/wenxian
-# ${doc_fe}         http://doc.huimeionline.com
-${doc_fe}       http://172.16.4.178/wenxian
+${doc_fe}         http://doc.huimeionline.com
+# ${doc_fe}       http://172.16.4.178/wenxian
 #文献线上             修改成http://负载ip
-# ${doc_online}     http://120.26.223.139
-${doc_online}    http://172.16.4.178
+${doc_online}     http://120.26.223.139
+# ${doc_online}    http://172.16.4.178
 #ame生产环境          修改成http://负载ip
-# ${ame_url}        http://ame.huimeionline.com
-${ame_url}      http://172.16.4.178:8092
+${ame_url}        http://ame.huimeionline.com
+# ${ame_url}      http://172.16.4.178:8092
 #fuxi验证接口         修改成 http://负载ip/node/active
-# ${fuxi_data}      ${inside_url}:3014
-${fuxi_data}    http://172.16.4.178/node/active
+${fuxi_data}      ${inside_url}:3014
+# ${fuxi_data}    http://172.16.4.178/node/active
 #adminse          修改成http://负载ip
 # ${adminse}      http://admin-se.huimeionline.com/
 # ${adminse}      http://172.16.4.178
 ${adminse}        http://test-admin-se.huimeionline.com/
 #amcPc版           修改成http://负载ip/cdss
-# ${base_url_amc}    http://amc.huimeionline.com
-# ${base_gdms}      http://gdms.huimeionline.com
-${base_url_amc}    http://172.16.4.178/cdss
-${base_gdms}    http://172.16.4.178/cdss
-#嵩山 3021
+${base_url_amc}    http://amc.huimeionline.com
+${base_gdms}      http://gdms.huimeionline.com
+# ${base_url_amc}    http://172.16.4.178/cdss
+# ${base_gdms}    http://172.16.4.178/cdss
+#病历质控平台 3021
 ${songshan_url}    ${inside_url}:3021
-#泰山 3019
+#惠每用户中心 3019
 ${taishan_url}    ${inside_url}:3019
 ${inside_url}     http://10.117.68.109
 #华山 3020
 ${huashan_url}    ${inside_url}:3020
-#特斯拉:3016
+#临床质量管理平台:3016
 ${tesla_url}      ${inside_url}:3016
 #绿道               修改成对应的ip端口
 ${lvdao_url}      ${inside_url}:3022
 #庄周
 ${zhuangzhou_url}    ${inside_url}:3023
 ##文献图片/文件差异接口,修改为http://athena_ip:8095形式
-# ${athenaDoc_url}    http://mayson.huimeionline.com:8095
-${athenaDoc_url}    http://172.16.4.178:8095
+${athenaDoc_url}    http://mayson.huimeionline.com:8095
+# ${athenaDoc_url}    http://172.16.4.178:8095
 #=======以下内容不需要修改==============#
 ######################apollo######################
 ${base_url_sf}    http://10.27.213.55:9092
@@ -1501,7 +1501,7 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-嵩山登录
+病历质控平台登录
     [Arguments]    ${name}    ${password}
     # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -1538,7 +1538,7 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-泰山登录
+惠每用户中心登录
     [Arguments]    ${name}    ${password}
     # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -1548,7 +1548,7 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-泰山首页列表
+惠每用户中心首页列表
     # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${inside_url}    ${dict}
@@ -1557,7 +1557,7 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-特斯拉登录
+临床质量管理平台登录
     [Arguments]    ${name}    ${password}    ${time}    ${type}
     # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -1567,7 +1567,7 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-特斯拉统计管理
+临床质量管理平台统计管理
     [Arguments]    ${start_time}    ${end_time}    ${disease}    ${doctor}    ${patient}    ${project}
     ...    ${specialDisease}    ${time_type}    ${query_type}
     # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
@@ -1579,7 +1579,7 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-特斯拉临床风险预警
+临床质量管理平台临床风险预警
     [Arguments]    ${start_time}    ${end_time}    ${dept_type}    ${dept_name}    ${disease_code}    ${disease_class}
     ...    ${doctor_code}    ${doctor_name}    ${patient_name}    ${time_type}    ${order}    ${current_index}
     ...    ${page_size}
@@ -1620,7 +1620,7 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-华山登录
+医院知识库登录
     [Arguments]    ${name}    ${password}    ${type}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${huashan_url}    ${dict}
@@ -1629,7 +1629,7 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-华山知识维护
+医院知识库知识维护
     # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${huashan_url}    ${dict}
@@ -1874,7 +1874,7 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-内涵首页质控
+首页质控
     [Arguments]    ${masterProfile}    ${recordDatas}    ${recordId}    ${ruleCodes}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${mayson_url}    ${dict}
@@ -1923,7 +1923,7 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-特斯拉_出院人次
+临床质量管理平台_出院人次
     [Arguments]    ${dept_code}    ${dept_name}    ${dept_type}    ${disease_class}    ${disease_code}    ${end_time}
     ...    ${query_type}    ${start_time}    ${time_type}
     # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
@@ -1935,7 +1935,7 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-特斯拉_住院天数
+临床质量管理平台_住院天数
     [Arguments]    ${dept_name}    ${dept_type}    ${disease_class}    ${disease_code}    ${end_time}    ${start_time}
     ...    ${time_type}
     # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
@@ -1947,7 +1947,7 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-特斯拉_年龄分布
+临床质量管理平台_年龄分布
     [Arguments]    ${dept_code}    ${dept_name}    ${dept_type}    ${disease_class}    ${disease_code}    ${end_time}
     ...    ${start_time}    ${time_type}
     # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
@@ -1959,7 +1959,7 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-特斯拉_主管医生
+临床质量管理平台_主管医生
     [Arguments]    ${dept_code}    ${dept_name}    ${dept_type}    ${disease_class}    ${disease_code}    ${end_time}
     ...    ${start_time}    ${time_type}
     # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
@@ -1971,7 +1971,7 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-特斯拉_单病种概况
+临床质量管理平台_单病种概况
     [Arguments]    ${dept_name}    ${dept_type}    ${disease_class}    ${disease_code}    ${end_time}    ${start_time}
     ...    ${time_type}    ${doctor_code}    ${doctor_name}    ${current_index}
     # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
@@ -1983,7 +1983,7 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-特斯拉_医生质控监测
+临床质量管理平台_医生质控监测
     [Arguments]    ${dept_name}    ${dept_type}    ${disease_class}    ${disease_code}    ${end_time}    ${start_time}
     ...    ${time_type}    ${project_code}
     # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
@@ -1995,7 +1995,7 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-特斯拉_科室质控监测
+临床质量管理平台_科室质控监测
     [Arguments]    ${dept_name}    ${dept_type}    ${disease_class}    ${disease_code}    ${end_time}    ${start_time}
     ...    ${time_type}    ${project_code}
     # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
