@@ -722,7 +722,7 @@ VTE-PTE:评估（PTE）Wells 急性肺栓塞（PTE）Wells评分消失
 
 
 
-VTE-PTE:推PTE筛查
+VTE-PTE,推荐:PTE筛查
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -757,7 +757,7 @@ VTE-PTE:推PTE筛查
 
 
 
-VTE-PTE:推D-二聚体检测
+VTE-PTE,推荐:D-二聚体检测
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -791,7 +791,7 @@ VTE-PTE:推D-二聚体检测
     Should Contain    ${aj}    D-二聚体检测
 
 
-VTE-PTE:推抗凝治疗
+VTE-PTE,推荐:抗凝治疗
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -824,7 +824,7 @@ VTE-PTE:推抗凝治疗
     Should Contain    ${aj}    抗凝治疗
 
 
-VTE-复旦肿瘤:推肿瘤妇科VTE风险因素评估（m-Caprini）
+VTE-复旦肿瘤,推荐:肿瘤妇科VTE风险因素评估（m-Caprini）
      [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -852,7 +852,7 @@ VTE-复旦肿瘤:推肿瘤妇科VTE风险因素评估（m-Caprini）
     Should Contain    ${aj}    肿瘤妇科VTE风险因素评估（m-Caprini）
 
 
-VTE-复旦肿瘤:推外科住院患者出血风险评估
+VTE-复旦肿瘤,推荐:外科住院患者出血风险评估
      [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -886,7 +886,7 @@ VTE-复旦肿瘤:推外科住院患者出血风险评估
 
 
 
-VTE-复旦肿瘤:出血低危推术前VTE预防措施
+VTE-复旦肿瘤,推荐:出血低危推术前VTE预防措施
      [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -921,7 +921,7 @@ VTE-复旦肿瘤:出血低危推术前VTE预防措施
     Should Contain    ${aj}    术前VTE预防措施
 
 
-VTE-复旦肿瘤:出血高危推术前VTE预防措施
+VTE-复旦肿瘤,推荐:出血高危推术前VTE预防措施
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -955,7 +955,7 @@ VTE-复旦肿瘤:出血高危推术前VTE预防措施
     Should Contain    ${aj}    术前VTE预防措施
 
 
-VTE-复旦肿瘤:D-二聚体推PTE筛查
+VTE-复旦肿瘤,推荐:D-二聚体推PTE筛查
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -992,7 +992,7 @@ VTE-复旦肿瘤:D-二聚体推PTE筛查
 
 
 
-VTE-复旦肿瘤:D-二聚体推静脉超声检查
+VTE-复旦肿瘤,推荐:D-二聚体推静脉超声检查
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -1032,13 +1032,11 @@ VTE-复旦肿瘤:D-二聚体推静脉超声检查
 
 
 
-VTE-复旦肿瘤:推术前停用低分子肝素
+VTE-复旦肿瘤,推荐:推术前停用低分子肝素
     [Setup]    Run Keywords    获取随机数
     ...    AND    获取时间戳
     #获取此刻时间
     ...    AND    时间
-
-
     ...    AND    智能推荐v2    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=5    requestSource=
     ...    doctorGuid=0210497    doctorName=测试医生    admissionTime=2018-12-12    inpatientDepartment=妇科    patientInfo={"gender":"1","age":"19","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
     ...    openInterdict=${1}    definiteDiagnosis=    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":""},{"key": "诊断依据及鉴别诊断","value": ""},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":""},{"key":"辅助检查","value":""}],"progressType":"1","progressGuid":"22222","recordTime":""}    deleteProgressNoteList={"progressGuid":"","progressType":"2","doctorGid":"","recordTime":""}    labTestList=    examinationList=    newTestList=

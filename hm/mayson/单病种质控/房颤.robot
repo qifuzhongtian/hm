@@ -12,7 +12,7 @@ Library           DateTime
 *** Test Cases ***
 
 
-房颤,推荐:补充房颤诊断
+房颤,推出:补充房颤诊断
     [Documentation]    现病史心房颤动推荐补充房颤诊断
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
@@ -40,7 +40,7 @@ Library           DateTime
     Should Contain    ${aj}    补充房颤诊断
 
 
-房颤,推荐:差异对比
+房颤,推出:差异对比
     [Documentation]    现病史心房颤动推荐补充房颤诊断
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数

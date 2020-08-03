@@ -10,7 +10,7 @@ Library           DateTime
 *** Variables ***
 
 *** Test Cases ***
-CABG围手术期:急性心肌梗死,推出质控推荐检查,出院记录,推出治疗:术前抗凝桥接
+CABG围手术期,推出治疗:术前抗凝桥接
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -127,7 +127,7 @@ CABG围手术期:急性心肌梗死,推出质控推荐检查,出院记录,推出
 
 
 
-髋、膝关节置换剖宫产:开髋关节手术，满足通过条件，Harris评估表消失
+髋、膝关节置换剖宫产:髋关节手术，满足通过条件，Harris评估表消失
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch

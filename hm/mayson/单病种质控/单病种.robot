@@ -10,7 +10,7 @@ Library           DateTime
 *** Variables ***
 
 *** Test Cases ***
-单病种质控:急性心肌梗死,出院记录,推出治疗方案:出院抗血小板治疗
+单病种质控:急性心肌梗死,出院记录:推出治疗方案:出院抗血小板治疗
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -37,7 +37,7 @@ Library           DateTime
     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['qualityControlResponse']['therapeuticPlanList']]
     Should Contain    ${aj}    出院抗血小板治疗
 
-单病种质控:急性心肌梗死,出院记录,推出治疗方案:Killip分级
+单病种质控:急性心肌梗死,推出治疗方案:Killip分级
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -64,7 +64,7 @@ Library           DateTime
     ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['qualityControlResponse']['illnessAssessList']]
     Should Contain    ${aj}    急性心肌梗死Killip分级
 
-单病种质控:社区获得性肺炎-成人,出院记录,推出检查:痰培养
+单病种质控:社区获得性肺炎-成人,推出检查:痰培养
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch

@@ -11,7 +11,7 @@ Library           DateTime
 
 *** Test Cases ***
 
-肿瘤规则:特异性化疗药物推血常规
+肿瘤规则:特异性化疗药物,推出:血常规
     [Setup]    Run Keywords    获取随机数
     ...    AND    获取时间戳
     ...    AND    时间
@@ -33,7 +33,6 @@ Library           DateTime
     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     #####质控推荐检查
     # log    ${size}
-
     #得到返回值的list
     ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['qualityControlResponse']['examinationRecommendList']]
     Should Contain    ${aj}    化疗前常规检查——血常规
@@ -73,7 +72,7 @@ Library           DateTime
 
 
 
-肿瘤规则:特异性化疗药物推肝功能检查
+肿瘤规则:特异性化疗药物,推出:肝功能检查
     [Setup]    Run Keywords    获取随机数
     ...    AND    获取时间戳
     ...    AND    时间
@@ -135,7 +134,7 @@ Library           DateTime
 #     Should Not Contain    ${aj}    化疗前常规检查——肝功能
 
 
-肿瘤规则:特异性化疗药物推肾功能检查
+肿瘤规则:特异性化疗药物,推出:肾功能检查
     [Setup]    Run Keywords    获取随机数
     ...    AND    获取时间戳
     ...    AND    时间
@@ -166,7 +165,7 @@ Library           DateTime
 
 
 
-肿瘤规则:特异性化疗药物推电解质检查
+肿瘤规则:特异性化疗药物,推出:电解质检查
     [Setup]    Run Keywords    获取随机数
     ...    AND    获取时间戳
     ...    AND    时间
@@ -197,7 +196,7 @@ Library           DateTime
 
 
 
-肿瘤规则:特异性化疗药物推凝血功能检查
+肿瘤规则:特异性化疗药物,推出:凝血功能检查
     [Setup]    Run Keywords    获取随机数
     ...    AND    获取时间戳
     ...    AND    时间
@@ -228,7 +227,7 @@ Library           DateTime
 
 
 
-肿瘤规则:特异性化疗药物推BNP检查
+肿瘤规则:特异性化疗药物,推出:BNP检查
     [Setup]    Run Keywords    获取随机数
     ...    AND    获取时间戳
     ...    AND    时间
@@ -259,7 +258,7 @@ Library           DateTime
 
 
 
-肿瘤规则:特异性化疗药物推心肌酶检查
+肿瘤规则:特异性化疗药物,推出:心肌酶检查
     [Setup]    Run Keywords    获取随机数
     ...    AND    获取时间戳
     ...    AND    时间
@@ -290,7 +289,7 @@ Library           DateTime
 
 
 
-肿瘤规则:特异性化疗药物推心电图检查
+肿瘤规则:特异性化疗药物,推出:心电图检查
     [Setup]    Run Keywords    获取随机数
     ...    AND    获取时间戳
     ...    AND    时间
