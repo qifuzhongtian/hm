@@ -874,15 +874,15 @@ mayson默认推荐搜索
     [Return]    ${responsedata}
 
 保存评估历史记录
-    [Arguments]    ${recordId}    ${assessId}    ${assessName}    ${patientGuid}    ${serialNumber}    ${assessResult}
-    ...    ${assessRemark}    ${assessConclusion}    ${historyItemList}    ${source}    ${resultContent}    ${assessItemWordIds}
+    [Arguments]    ${recordId}    ${assessId}    ${assessName}    ${patientGuid}    ${serialNumber}    ${assessValue}
+    ...    ${assessRemark}    ${assessResult}    ${historyItemList}    ${source}    ${resultContent}    ${assessItemWordIds}
     ...    ${pageSource}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${mayson_url}    ${dict}
     ${historyItemList}    Evaluate    [${historyItemList}]
     ${assessItemWordIds}    Evaluate    [${assessItemWordIds}]
     ${data}    Create Dictionary    recordId=${recordId}    assessId=${assessId}    assessName=${assessName}    patientGuid=${patientGuid}    serialNumber=${serialNumber}
-    ...    assessRemark=${assessRemark}    assessResult=${assessResult}    assessConclusion=${assessConclusion}    historyItemList=${historyItemList}    source=${source}    resultContent=${resultContent}
+    ...    assessRemark=${assessRemark}    assessValue=${assessValue}    assessResult=${assessResult}    historyItemList=${historyItemList}    source=${source}    resultContent=${resultContent}
     ...    assessItemWordIds=${assessItemWordIds}    pageSource=${pageSource}
     ${addr}    Post Request    api    /mayson/v_1_0/assesshistory/save    data=${data}
     ${responsedata}    To Json    ${addr.content}
