@@ -15,10 +15,10 @@ ${inside_url}     http://172.16.3.40
 #内部平台-demo环境
 # ${inside_url}    http://172.16.4.178
 #文献生产环境           修改成http://负载ip/cdss
-# ${doc_url}        http://profile-doc.huimeionline.com/doc
+${doc_url}        http://profile-doc.huimeionline.com/doc
 # ${doc_url}      http://test-profile-doc.huimeionline.com/doc
 #演示环境
-${doc_url}      http://172.16.4.178/cdss
+# ${doc_url}      http://172.16.4.178/cdss
 #内涵质控
 ${connotation_url}    http://172.16.3.68
 # ${connotation_url}    http://172.16.4.178
@@ -42,9 +42,9 @@ ${fuxi_data}      ${inside_url}:3014
 ${adminse}        http://test-admin-se.huimeionline.com/
 #amcPc版           修改成http://负载ip/cdss
 ${base_url_amc}    http://amc.huimeionline.com
-# ${base_gdms}      http://gdms.huimeionline.com
+${base_gdms}      http://gdms.huimeionline.com
 # ${base_url_amc}    http://172.16.4.178/cdss
-${base_gdms}    http://172.16.4.178/cdss
+# ${base_gdms}    http://172.16.4.178/cdss
 #病历质控平台 3021
 ${songshan_url}    ${inside_url}:3021
 #惠每用户中心 3019
@@ -59,8 +59,8 @@ ${lvdao_url}      ${inside_url}:3022
 #庄周
 ${zhuangzhou_url}    ${inside_url}:3023
 ##文献图片/文件差异接口,修改为http://athena_ip:8095形式
-# ${athenaDoc_url}    http://mayson.huimeionline.com:8095
-${athenaDoc_url}    http://172.16.4.178:8095
+${athenaDoc_url}    http://mayson.huimeionline.com:8095
+# ${athenaDoc_url}    http://172.16.4.178:8095
 #=======以下内容不需要修改==============#
 ######################apollo######################
 ${base_url_sf}    http://10.27.213.55:9092
