@@ -92,7 +92,9 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
 时间
     ${time}    Get Current Date    result_format=timestamp
     #通用药品医嘱时间，此刻
-    ${medicalOrders_create}    Get SubString    ${time}    0  19
+
+    ${medical_create}    add time to date    ${time}    -1hours
+    ${medicalOrders_create}    Get SubString    ${medical_create}    0  19
     #肿瘤规则检验医嘱时间
     ${orders_lis_create_time}    add time to date    ${medicalOrders_create}    2seconds
     #手术时间
