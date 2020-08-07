@@ -11,7 +11,7 @@ Library           DateTime
 
 *** Test Cases ***
 
-肿瘤规则:特异性化疗药物,推出:血常规
+肿瘤规则:特异性化疗药物,推出:血常规 规则ID：chemo-1
     [Setup]    Run Keywords    获取随机数
     ...    AND    获取时间戳
     ...    AND    时间
@@ -72,7 +72,7 @@ Library           DateTime
 
 
 
-肿瘤规则:特异性化疗药物,推出:肝功能检查
+肿瘤规则:特异性化疗药物,推出:肝功能检查 规则ID：chemo-2
     [Setup]    Run Keywords    获取随机数
     ...    AND    获取时间戳
     ...    AND    时间
@@ -134,7 +134,7 @@ Library           DateTime
 #     Should Not Contain    ${aj}    化疗前常规检查——肝功能
 
 
-肿瘤规则:特异性化疗药物,推出:肾功能检查
+肿瘤规则:特异性化疗药物,推出:肾功能检查 规则ID：chemo-3
     [Setup]    Run Keywords    获取随机数
     ...    AND    获取时间戳
     ...    AND    时间
@@ -165,7 +165,7 @@ Library           DateTime
 
 
 
-肿瘤规则:特异性化疗药物,推出:电解质检查
+肿瘤规则:特异性化疗药物,推出:电解质检查 规则ID：chemo-4
     [Setup]    Run Keywords    获取随机数
     ...    AND    获取时间戳
     ...    AND    时间
@@ -196,7 +196,7 @@ Library           DateTime
 
 
 
-肿瘤规则:特异性化疗药物,推出:凝血功能检查
+肿瘤规则:特异性化疗药物,推出:凝血功能检查 规则ID：chemo-5
     [Setup]    Run Keywords    获取随机数
     ...    AND    获取时间戳
     ...    AND    时间
@@ -227,7 +227,7 @@ Library           DateTime
 
 
 
-肿瘤规则:特异性化疗药物,推出:BNP检查
+肿瘤规则:特异性化疗药物,推出:BNP检查 规则ID：chemo-6
     [Setup]    Run Keywords    获取随机数
     ...    AND    获取时间戳
     ...    AND    时间
@@ -258,7 +258,7 @@ Library           DateTime
 
 
 
-肿瘤规则:特异性化疗药物,推出:心肌酶检查
+肿瘤规则:特异性化疗药物,推出:心肌酶检查  规则ID：chemo-7
     [Setup]    Run Keywords    获取随机数
     ...    AND    获取时间戳
     ...    AND    时间
@@ -289,7 +289,7 @@ Library           DateTime
 
 
 
-肿瘤规则:特异性化疗药物,推出:心电图检查
+肿瘤规则:特异性化疗药物,推出:心电图检查 规则ID：chemo-8
     [Setup]    Run Keywords    获取随机数
     ...    AND    获取时间戳
     ...    AND    时间
