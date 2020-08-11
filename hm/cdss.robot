@@ -1,17 +1,18 @@
 *** Variables ***
 #=======医院内网需要修改的==============#
 #mayson生产环境       修改成http://负载ip/cdss
-# ${mayson_url}     http://profile.huimeionline.com/cdss
-${mayson_url}    http://test-mayson.huimeionline.com/cdss
+${mayson_url}     http://profile.huimeionline.com/cdss
+# ${mayson_url}    http://test-mayson.huimeionline.com/cdss
 #演示环境
 # ${mayson_url}    http://172.16.4.178/cdss
 #apollo生产环境       修改成http://负载ip/cdss
-# ${base_url}       http://mayson.huimeionline.com/cdss
+${base_url}       http://mayson.huimeionline.com/cdss
 # ${base_url}     http://172.16.4.178/cdss
 # ${base_url}     http://172.16.4.3:8080
-${base_url}     http://test-mayson.huimeionline.com/cdss
-#{url}内部平台 ,各种平台 惠每用户中心,改这个
-${inside_url}     http://172.16.3.40
+# ${base_url}     http://test-mayson.huimeionline.com/cdss
+#{url}内部平台 ,惠每用户中心地址
+# ${inside_url}     http://172.16.3.40
+${inside_url}     http://172.16.3.64
 #内部平台-demo环境
 # ${inside_url}    http://172.16.4.178
 #文献生产环境           修改成http://负载ip/cdss
@@ -1794,6 +1795,34 @@ VTE2快速确认
     ${addr}    Get Request    api    /mc/mcRuleDownload    params=${params}
     # ${responsedata}    To Json    ${addr.content}
     [Return]    ${addr}
+
+
+
+
+
+
+
+统计_工作台_特征统计
+    [Arguments]    ${time_start}    ${time_end}
+    ${data}    Create Dictionary    time_start=${time_start}    time_end=${time_end}
+    ${addr}    Post Request    api    /work/workFeatureTJ    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+
+
+统计_工作台_目标分布
+    [Arguments]    ${time_start}    ${time_end}
+    ${data}    Create Dictionary    time_start=${time_start}    time_end=${time_end}
+    ${addr}    Post Request    api    /work/workTargetDistribution    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+
 
 用户列表
     [Arguments]    ${user_name}    ${dep_name}    ${patient_area}
