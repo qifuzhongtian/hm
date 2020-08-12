@@ -10,7 +10,7 @@ Library           DateTime
 *** Variables ***
 
 *** Test Cases ***
-髋关节置换:开髋关节手术，推出:Harris评分
+髋关节置换:开髋关节手术，推出:Harris评分 THR-1
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -54,7 +54,7 @@ Library           DateTime
     Should Contain    ${aj}    Harris评分
 
 
-膝关节置换:开膝关节手术，推出:膝关节HSS评分
+膝关节置换:开膝关节手术，推出:膝关节HSS评分 TKR-1
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -100,7 +100,7 @@ Library           DateTime
 
 
 
-髋关节置换:开髋关节手术，满足通过条件，Harris评估表消失
+髋关节置换:开髋关节手术，满足通过条件，Harris评估表消失 TKR-1
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -148,7 +148,7 @@ Library           DateTime
 
 
 
-剖宫产:开剖宫产医嘱，推出:剖宫产指征
+剖宫产:开剖宫产医嘱，推出:剖宫产指征 CS-3
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -198,7 +198,7 @@ Library           DateTime
 
 
 
-剖宫产:开剖宫产医嘱，满足主要条件，推出:孕妇乙肝病毒含量风险评估
+剖宫产:开剖宫产医嘱，满足主要条件，推出:孕妇乙肝病毒含量风险评估 CS-7
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
