@@ -37,7 +37,7 @@ Library           DateTime
     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['qualityControlResponse']['therapeuticPlanList']]
     Should Contain    ${aj}    出院抗血小板治疗
 
-单病种质控:急性心肌梗死,推出治疗方案:Killip分级
+单病种质控:急性心肌梗死,推出评估表:Killip分级
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch

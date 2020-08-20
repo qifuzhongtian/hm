@@ -6,22 +6,14 @@ Resource          ../../cdss.robot
 Library           Collections
 Library           RequestsLibrary
 Library           String
-Library           Collections
 Library           DateTime
 
 *** Variables ***
 
 *** Test Cases ***
-# Boolean
-    # Set Status    ${true}
-
-用户列表
+统计_工作台_质控问题描述
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    用户列表    content=
-    ...    order={"name": "name","sort": "desc"}
-    ...    jump=true
-    ...    current_index=${1}    page_size=${20}
+    ${getRes}    统计_工作台_质控问题描述    time_start=2020-07-04    time_end=2020-08-30
     Should Contain    ${getRes['msg']}    success
-
 

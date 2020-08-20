@@ -1,13 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20200731 16:37:27.961" generator="Robot 3.0 (Python 2.7.16 on darwin)">
-<suite source="/Users/yinbo/OneDrive/apiTesting/hm/mayson/病历质控/首页质控.robot" id="s1" name="首页质控">
-<test id="s1-t1" name="首页质控:既往史在病案首页的遗漏syqt1">
+<robot generated="20200820 16:52:33.735" generator="Robot 3.0 (Python 2.7.16 on darwin)">
+<suite source="/Users/yinbo/OneDrive/apiTesting/hm/mayson/病历质控/添加反馈.robot" id="s1" name="添加反馈">
+<test id="s1-t1" name="添加反馈">
 <kw type="setup" name="Run Keywords" library="BuiltIn">
 <doc>Executes all the given keywords in a sequence.</doc>
 <arguments>
 <arg>获取时间戳</arg>
 <arg>AND</arg>
 <arg>获取随机数</arg>
+<arg>AND</arg>
+<arg>智能推荐v2</arg>
+<arg>userGuid=${timestamp}${random}</arg>
+<arg>serialNumber=${timestamp}${random}</arg>
+<arg>patientName=tester</arg>
+<arg>pageSource=2</arg>
+<arg>requestSource=</arg>
+<arg>doctorGuid=0210497</arg>
+<arg>doctorName=测试医生</arg>
+<arg>admissionTime=2018-12-12</arg>
+<arg>inpatientDepartment=呼吸科</arg>
+<arg>patientInfo={"gender":"1","age":"19","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}</arg>
+<arg>physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}</arg>
+<arg>openInterdict=${1}</arg>
+<arg>definiteDiagnosis=</arg>
+<arg>progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":""},{"key": "诊断依据及鉴别诊断","value": ""},{"key":"现病史","value":"心房颤动"},{"key":"既往史","value":""},{"key":"初步诊断","value":"脑内出血,高血压"},{"key":"辅助检查","value":""}],"progressType":"1","progressGuid":"22222","recordTime":""}</arg>
+<arg>deleteProgressNoteList={"progressGuid":"","progressType":"2","doctorGid":"","recordTime":""}</arg>
+<arg>labTestList=</arg>
+<arg>examinationList=</arg>
+<arg>newTestList=</arg>
+<arg>operationRecord=</arg>
+<arg>prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}</arg>
+<arg>currentDiseaseName=</arg>
+<arg>medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}</arg>
 </arguments>
 <kw name="获取时间戳" library="cdss">
 <kw name="Get Time" library="BuiltIn">
@@ -18,8 +42,8 @@
 <assign>
 <var>${timestamp}</var>
 </assign>
-<msg timestamp="20200731 16:37:28.235" level="INFO">${timestamp} = 1596184648</msg>
-<status status="PASS" endtime="20200731 16:37:28.235" starttime="20200731 16:37:28.234"></status>
+<msg timestamp="20200820 16:52:33.975" level="INFO">${timestamp} = 1597913553</msg>
+<status status="PASS" endtime="20200820 16:52:33.975" starttime="20200820 16:52:33.974"></status>
 </kw>
 <kw name="Get Time" library="BuiltIn">
 <doc>Returns the given time in the requested format.</doc>
@@ -29,26 +53,26 @@
 <assign>
 <var>${time_now}</var>
 </assign>
-<msg timestamp="20200731 16:37:28.236" level="INFO">${time_now} = 2020-07-31 16:37:28</msg>
-<status status="PASS" endtime="20200731 16:37:28.236" starttime="20200731 16:37:28.235"></status>
+<msg timestamp="20200820 16:52:33.976" level="INFO">${time_now} = 2020-08-20 16:52:33</msg>
+<status status="PASS" endtime="20200820 16:52:33.976" starttime="20200820 16:52:33.975"></status>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <doc>Makes a variable available globally in all tests and suites.</doc>
 <arguments>
 <arg>${timestamp}</arg>
 </arguments>
-<msg timestamp="20200731 16:37:28.238" level="INFO">${timestamp} = 1596184648</msg>
-<status status="PASS" endtime="20200731 16:37:28.239" starttime="20200731 16:37:28.236"></status>
+<msg timestamp="20200820 16:52:33.977" level="INFO">${timestamp} = 1597913553</msg>
+<status status="PASS" endtime="20200820 16:52:33.978" starttime="20200820 16:52:33.977"></status>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <doc>Makes a variable available globally in all tests and suites.</doc>
 <arguments>
 <arg>${time_now}</arg>
 </arguments>
-<msg timestamp="20200731 16:37:28.239" level="INFO">${time_now} = 2020-07-31 16:37:28</msg>
-<status status="PASS" endtime="20200731 16:37:28.240" starttime="20200731 16:37:28.239"></status>
+<msg timestamp="20200820 16:52:33.978" level="INFO">${time_now} = 2020-08-20 16:52:33</msg>
+<status status="PASS" endtime="20200820 16:52:33.978" starttime="20200820 16:52:33.978"></status>
 </kw>
-<status status="PASS" endtime="20200731 16:37:28.240" starttime="20200731 16:37:28.233"></status>
+<status status="PASS" endtime="20200820 16:52:33.979" starttime="20200820 16:52:33.973"></status>
 </kw>
 <kw name="获取随机数" library="cdss">
 <kw name="Generate Random String" library="String">
@@ -60,46 +84,2045 @@
 <assign>
 <var>${random}</var>
 </assign>
-<msg timestamp="20200731 16:37:28.241" level="INFO">${random} = 697</msg>
-<status status="PASS" endtime="20200731 16:37:28.241" starttime="20200731 16:37:28.241"></status>
+<msg timestamp="20200820 16:52:33.981" level="INFO">${random} = 741</msg>
+<status status="PASS" endtime="20200820 16:52:33.981" starttime="20200820 16:52:33.979"></status>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <doc>Makes a variable available globally in all tests and suites.</doc>
 <arguments>
 <arg>${random}</arg>
 </arguments>
-<msg timestamp="20200731 16:37:28.242" level="INFO">${random} = 697</msg>
-<status status="PASS" endtime="20200731 16:37:28.242" starttime="20200731 16:37:28.241"></status>
+<msg timestamp="20200820 16:52:33.982" level="INFO">${random} = 741</msg>
+<status status="PASS" endtime="20200820 16:52:33.982" starttime="20200820 16:52:33.982"></status>
 </kw>
-<status status="PASS" endtime="20200731 16:37:28.242" starttime="20200731 16:37:28.240"></status>
+<status status="PASS" endtime="20200820 16:52:33.982" starttime="20200820 16:52:33.979"></status>
 </kw>
-<status status="PASS" endtime="20200731 16:37:28.242" starttime="20200731 16:37:28.232"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
+<kw name="智能推荐v2" library="cdss">
 <arguments>
-<arg>syqt7</arg>
-<arg>syqt2</arg>
-<arg>syqt1</arg>
-<arg>syqt4</arg>
-<arg>syqt6-xw</arg>
-<arg>syqt3</arg>
-<arg>syzzd3</arg>
-<arg>syzzd2</arg>
-<arg>syzzd1</arg>
+<arg>userGuid=${timestamp}${random}</arg>
+<arg>serialNumber=${timestamp}${random}</arg>
+<arg>patientName=tester</arg>
+<arg>pageSource=2</arg>
+<arg>requestSource=</arg>
+<arg>doctorGuid=0210497</arg>
+<arg>doctorName=测试医生</arg>
+<arg>admissionTime=2018-12-12</arg>
+<arg>inpatientDepartment=呼吸科</arg>
+<arg>patientInfo={"gender":"1","age":"19","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}</arg>
+<arg>physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}</arg>
+<arg>openInterdict=${1}</arg>
+<arg>definiteDiagnosis=</arg>
+<arg>progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":""},{"key": "诊断依据及鉴别诊断","value": ""},{"key":"现病史","value":"心房颤动"},{"key":"既往史","value":""},{"key":"初步诊断","value":"脑内出血,高血压"},{"key":"辅助检查","value":""}],"progressType":"1","progressGuid":"22222","recordTime":""}</arg>
+<arg>deleteProgressNoteList={"progressGuid":"","progressType":"2","doctorGid":"","recordTime":""}</arg>
+<arg>labTestList=</arg>
+<arg>examinationList=</arg>
+<arg>newTestList=</arg>
+<arg>operationRecord=</arg>
+<arg>prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}</arg>
+<arg>currentDiseaseName=</arg>
+<arg>medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}</arg>
+</arguments>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on given items.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+<arg>Huimei_id=${Huimei_id}</arg>
 </arguments>
 <assign>
-<var>${ruleCodes}</var>
+<var>${dict}</var>
 </assign>
-<msg timestamp="20200731 16:37:28.242" level="INFO">${ruleCodes} = ["syqt7", "syqt2", "syqt1", "syqt4", "syqt6-xw", "syqt3", "syzzd3", "syzzd2", "syzzd1"]</msg>
-<status status="PASS" endtime="20200731 16:37:28.242" starttime="20200731 16:37:28.242"></status>
+<msg timestamp="20200820 16:52:33.987" level="INFO">${dict} = {"Content-Type": "application/json", "Huimei_id": "7195F12825788F09375C2DB1E922F108"}</msg>
+<status status="PASS" endtime="20200820 16:52:33.987" starttime="20200820 16:52:33.985"></status>
 </kw>
-<kw name="首页质控" library="cdss">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
 <arguments>
-<arg>masterProfile={"adviceKnowledges":[],"allergies":[],"assessItems":[],"assesss":[],"consultationAdvices":[],"customerId":1001,"diseases":[{"customerId":1001,"definiteDate":1587548565554,"dictionaryAttributeId":47,"diseaseDate":1587548565554,"diseaseExtendCode":[],"diseaseId":161,"diseaseName":"脑梗死","existState":1,"id":195232186889277442,"nodeId":3465,"nodeType":5,"orderDate":1587548565554,"profilePartType":8,"progressId":16583459,"rankId":0,"recordDate":1587548565554,"recordId":2951533,"recordTypeId":6,"suspected":0},{"customerId":1001,"definiteDate":"2020-04-217:25:49","dictionaryAttributeId":23,"diseaseDate":"2020-04-217:25:49","diseaseExtendCode":[],"diseaseGuid":"Z34.901","diseaseId":40070,"diseaseName":"妊娠","existState":1,"id":195232481534939140,"mainDisease":1,"nodeId":61479418,"nodeType":5,"orderDate":"2020-04-217:25:49","orgDiseaseName":"妊娠40+周G3P1LOT剖宫产","profilePartType":32,"progressId":345496,"rankId":0,"recordDate":"2020-04-217:25:49","recordId":2951533,"recordTypeId":12004,"suspected":0},{"continuedTime":819936000,"continuedTimeDesc":"26年","customerId":1001,"definiteDate":767614067110,"dictionaryAttributeId":13,"diseaseDate":767614067110,"diseaseExtendCode":[],"diseaseId":5005,"diseaseName":"2型糖尿病","existState":1,"id":195238434711932930,"nodeId":21243,"nodeType":5,"orderDate":767614067110,"profilePartType":3,"progressId":16583452,"rankId":1,"recordDate":1587550067110,"recordId":2951533,"recordTypeId":1,"suspected":0},{"customerId":1001,"dictionaryAttributeId":23,"diseaseGuid":"Z34.901","diseaseId":0,"diseaseName":"妊娠40+周G3P1LOT剖宫产","id":195232481534939139,"mainDisease":1,"nodeType":5,"orgDiseaseName":"妊娠40+周G3P1LOT剖宫产","profilePartType":36,"progressId":345496,"recordDate":"2020-04-217:25:49","recordId":2951533,"recordTypeId":12004}],"drugAdvices":[],"drugs":[],"examinationAdvices":[],"examinationItems":[],"examinations":[],"medicalorders":[],"nurseAdvices":[],"nurseItems":[],"operationAdvices":[{"anesthesia":"","customerId":1001,"dictionaryAttributeId":214,"id":195223546132303872,"incisionType":"","nodeId":13731,"nodeType":11,"operationDate":"2020-04-217:08:32","operationName":"手术","orderCreateDate":"2020-04-217:08:32","orderDate":"2020-04-217:08:32","orderExecuteDate":"2020-04-217:08:32","progressId":1199,"rankId":0,"recordDate":"2020-04-217:08:32","recordId":2951533,"recordTypeId":11002},{"anesthesia":"","customerId":1001,"dictionaryAttributeId":214,"id":195223546132303873,"incisionType":"","nodeId":116461,"nodeType":11,"operationDate":"2020-04-217:08:32","operationName":"剖宫产","orderCreateDate":"2020-04-217:08:32","orderDate":"2020-04-217:08:32","orderExecuteDate":"2020-04-217:08:32","progressId":1199,"rankId":1,"recordDate":"2020-04-217:08:32","recordId":2951533,"recordTypeId":11002}],"operations":[{"anesthesia":"","customerId":1001,"dictionaryAttributeId":213,"existState":1,"id":195233678115344387,"incisionType":"Ⅰ","nodeId":24563468,"nodeType":11,"operationDate":"2020-04-216:53:55","operationId":5006,"operationName":"子宫下段横切口剖宫产术","orderDate":"2020-04-216:53:55","profilePartType":33,"progressId":331864,"rankId":0,"recordId":2951533,"recordTypeId":12005},{"anesthesia":"","customerId":1001,"dictionaryAttributeId":213,"existState":1,"id":195233678115344388,"incisionType":"Ⅰ","nodeId":13731,"nodeType":11,"operationDate":"2020-04-216:53:55","operationId":13640,"operationName":"手术","orderDate":"2020-04-216:53:55","profilePartType":33,"progressId":331864,"rankId":1,"recordId":2951533,"recordTypeId":12005},{"customerId":1001,"dictionaryAttributeId":213,"id":195233678115344386,"incisionType":"Ⅰ","nodeType":11,"operationDate":"2020-04-216:53:55","operationGuid":"74.02","operationId":0,"operationName":"子宫下段剖宫产术，横切(无)","orderDate":"2020-04-216:53:55","profilePartType":37,"progressId":331864,"recordDate":"2020-04-216:53:55","recordId":2951533,"recordTypeId":12005}],"patientVisitInfo":{"admissionDate":"2020-04-216:53:31","customerId":1001,"department":"产科","patientAge":20,"patientAgeType":"岁","patientGender":0,"patientGuid":"1587545546344","patientName":"stable_200430_1587545546834","recordId":2951533,"serialNumber":"1587545619245"},"physicals":[],"previous":[{"customerId":1001,"dictionaryAttributeId":2,"existState":1,"id":195238434711932931,"nodeId":61479418,"nodeType":19,"orderDate":1587550067110,"previousId":1,"previousName":"妊娠","progressId":16583452,"rankId":0,"recordDate":1587550067110,"recordId":2951533,"recordTypeId":1}],"progresses":[{"customerId":1001,"dictionaryAttributeId":47,"id":195232186830557186,"progressContent":"术后诊断:脑梗。","progressDate":1587548565554,"progressId":16583459,"recordDate":1587548565554,"recordId":2951533,"recordTypeId":6},{"customerId":1001,"dictionaryAttributeId":2,"id":195238434460274690,"progressContent":"主诉:妊。","progressDate":1587550067110,"progressId":16583452,"recordDate":1587550067110,"recordId":2951533,"recordTypeId":1},{"customerId":1001,"dictionaryAttributeId":13,"id":195238434460274691,"progressContent":"既往史:2型糖尿病病史26年,。","progressDate":1587550067110,"progressId":16583452,"recordDate":1587550067110,"recordId":2951533,"recordTypeId":1}],"recordId":2951533,"symptoms":[],"testAdvices":[],"testItems":[],"tests":[],"timepoints":[],"vitalsigns":[]}</arg>
-<arg>recordDatas={"患者基本信息":{"出生地（市）":"","职业":"","入院科室名称":"","患者姓名":"stable_200430_1587545546834","社保卡号":"","出生地（省\直辖市）":"","现在工作邮编":"","入院床号":"","本人电话":"","入院途径":"0","现住址邮编":"","出院科室名称":"","新生儿入院体重":"","出院床号":"","婚姻状况":"0","新生儿出生体重":"","民族":"","现在工作单位联系方式（电话）":"","籍贯（市）":"","id":"34757","年龄":"20","身份证号":"","联系人电话":"","户口所在地（省\直辖市）":"","病人来源":"0","联系人地址":"","户口地址邮编":"","现工作单位名称":"","出生地（县/地区）":"","联系人姓名":"","转科科室名称":"","病案号":"","现工作地址":"","年龄单位":"岁","户口所在地（市）":"","联系人关系":"","籍贯（省\直辖市）":"","国籍":"","患者性别":"0","实际住院天数":"","现住址":"","医疗付费方式":"0"},"患者诊断信息":[{"诊断名称":"妊娠40+周G3P1LOT剖宫产","诊断编码":"Z34.901","诊断时间":"2020-04-217:25:49.0","诊断ICD编码":"Z34.901","诊断类型":"9","id":"345496","是否主诊断":"1","入院病情":"4"}]}</arg>
-<arg>recordId=${2951533}</arg>
-<arg>ruleCodes=${ruleCodes}</arg>
+<arg>api</arg>
+<arg>${mayson_url}</arg>
+<arg>${dict}</arg>
+</arguments>
+<msg timestamp="20200820 16:52:33.991" level="INFO">Creating Session using : alias=api, url=http://test-mayson.huimeionline.com/cdss, headers={u'Content-Type': u'application/json', u'Huimei_id': u'7195F12825788F09375C2DB1E922F108'},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20200820 16:52:33.995" starttime="20200820 16:52:33.988"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>dict(${patientInfo})</arg>
+</arguments>
+<assign>
+<var>${patientInfo}</var>
+</assign>
+<msg timestamp="20200820 16:52:33.999" level="INFO">${patientInfo} = {"pregnancyStatus": "0", "gender": "1", "age": "19", "maritalStatus": "1", "ageType": "\xe5\xb2\x81"}</msg>
+<status status="PASS" endtime="20200820 16:52:33.999" starttime="20200820 16:52:33.996"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>dict(${physicalSign})</arg>
+</arguments>
+<assign>
+<var>${physicalSign}</var>
+</assign>
+<msg timestamp="20200820 16:52:34.002" level="INFO">${physicalSign} = {"bodyTempr": "", "heartRate": "", "lowBldPress": "", "highBldPress": ""}</msg>
+<status status="PASS" endtime="20200820 16:52:34.002" starttime="20200820 16:52:34.000"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>[${definiteDiagnosis}]</arg>
+</arguments>
+<assign>
+<var>${definiteDiagnosis}</var>
+</assign>
+<msg timestamp="20200820 16:52:34.004" level="INFO">${definiteDiagnosis} = []</msg>
+<status status="PASS" endtime="20200820 16:52:34.004" starttime="20200820 16:52:34.002"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>[${progressNoteList}]</arg>
+</arguments>
+<assign>
+<var>${progressNoteList}</var>
+</assign>
+<msg timestamp="20200820 16:52:34.006" level="INFO">${progressNoteList} = [{"recordTime": "", "doctorGuid": "2222", "messageList": [{"value": "", "key": "\xe4\xb8\xbb\xe8\xaf\x89"}, {"value": "", "key": "\xe8\xaf\x8a\xe6\x96\xad\xe4\xbe\x9d\xe6\x8d\xae\xe5\x8f\x8a\xe9\x89\x...</msg>
+<status status="PASS" endtime="20200820 16:52:34.006" starttime="20200820 16:52:34.004"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>[${deleteProgressNoteList}]</arg>
+</arguments>
+<assign>
+<var>${deleteProgressNoteList}</var>
+</assign>
+<msg timestamp="20200820 16:52:34.007" level="INFO">${deleteProgressNoteList} = [{"doctorGid": "", "progressType": "2", "progressGuid": "", "recordTime": ""}]</msg>
+<status status="PASS" endtime="20200820 16:52:34.007" starttime="20200820 16:52:34.006"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>[${labTestList}]</arg>
+</arguments>
+<assign>
+<var>${labTestList}</var>
+</assign>
+<msg timestamp="20200820 16:52:34.009" level="INFO">${labTestList} = []</msg>
+<status status="PASS" endtime="20200820 16:52:34.009" starttime="20200820 16:52:34.007"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>[${examinationList}]</arg>
+</arguments>
+<assign>
+<var>${examinationList}</var>
+</assign>
+<msg timestamp="20200820 16:52:34.011" level="INFO">${examinationList} = []</msg>
+<status status="PASS" endtime="20200820 16:52:34.012" starttime="20200820 16:52:34.009"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>[${newTestList}]</arg>
+</arguments>
+<assign>
+<var>${newTestList}</var>
+</assign>
+<msg timestamp="20200820 16:52:34.014" level="INFO">${newTestList} = []</msg>
+<status status="PASS" endtime="20200820 16:52:34.014" starttime="20200820 16:52:34.012"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>dict(${operationRecord})</arg>
+</arguments>
+<assign>
+<var>${operationRecord}</var>
+</assign>
+<msg timestamp="20200820 16:52:34.018" level="INFO">${operationRecord} = {}</msg>
+<status status="PASS" endtime="20200820 16:52:34.018" starttime="20200820 16:52:34.015"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>${prescriptions}</arg>
+</arguments>
+<assign>
+<var>${prescriptions}</var>
+</assign>
+<msg timestamp="20200820 16:52:34.020" level="INFO">${prescriptions} = {"prescriptionNumber": "", "drugList": [{"drugId": "", "specification": "", "dosage": "", "frequency": "", "drugName": "", "pathway": "", "unit": ""}], "recordTime": ""}</msg>
+<status status="PASS" endtime="20200820 16:52:34.020" starttime="20200820 16:52:34.018"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>[${medicalOrders}]</arg>
+</arguments>
+<assign>
+<var>${medicalOrders}</var>
+</assign>
+<msg timestamp="20200820 16:52:34.022" level="INFO">${medicalOrders} = [{"orderId": "1597913553741", "orderContent": "\xe9\x98\xbf\xe6\x89\x98\xe4\xbc\x90\xe4\xbb\x96\xe6\xb1\x80\xe9\x92\x99\xe7\x89\x87", "frequency": "ONCE", "orderFlag": 1, "unit": "mg", "orderCode": "3...</msg>
+<status status="PASS" endtime="20200820 16:52:34.022" starttime="20200820 16:52:34.020"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on given items.</doc>
+<arguments>
+<arg>userGuid=${userGuid}</arg>
+<arg>serialNumber=${serialNumber}</arg>
+<arg>patientName=${patientName}</arg>
+<arg>doctorGuid=${doctorGuid}</arg>
+<arg>doctorName=${doctorName}</arg>
+<arg>admissionTime=${admissionTime}</arg>
+<arg>inpatientDepartment=${inpatientDepartment}</arg>
+<arg>pageSource=${pageSource}</arg>
+<arg>requestSource=${requestSource}</arg>
+<arg>patientInfo=${patientInfo}</arg>
+<arg>physicalSign=${physicalSign}</arg>
+<arg>definiteDiagnosis=${definiteDiagnosis}</arg>
+<arg>progressNoteList=${progressNoteList}</arg>
+<arg>deleteProgressNoteList=${deleteProgressNoteList}</arg>
+<arg>labTestList=${labTestList}</arg>
+<arg>examinationList=${examinationList}</arg>
+<arg>newTestList=${newTestList}</arg>
+<arg>operationRecord=${operationRecord}</arg>
+<arg>prescriptions=${prescriptions}</arg>
+<arg>currentDiseaseName=${currentDiseaseName}</arg>
+<arg>medicalOrders=${medicalOrders}</arg>
+<arg>openInterdict=${openInterdict}</arg>
+</arguments>
+<assign>
+<var>${data}</var>
+</assign>
+<msg timestamp="20200820 16:52:34.027" level="INFO">${data} = {u'userGuid': u'1597913553741', u'serialNumber': u'1597913553741', u'patientName': u'tester', u'doctorGuid': u'0210497', u'doctorName': u'\u6d4b\u8bd5\u533b\u751f', u'admissionTime': u'2018-12-12', u'...</msg>
+<status status="PASS" endtime="20200820 16:52:34.027" starttime="20200820 16:52:34.022"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${data}</arg>
+</arguments>
+<msg timestamp="20200820 16:52:34.028" level="INFO">{u'userGuid': u'1597913553741', u'serialNumber': u'1597913553741', u'patientName': u'tester', u'doctorGuid': u'0210497', u'doctorName': u'\u6d4b\u8bd5\u533b\u751f', u'admissionTime': u'2018-12-12', u'inpatientDepartment': u'\u547c\u5438\u79d1', u'pageSource': u'2', u'requestSource': u'', u'patientInfo': {'pregnancyStatus': '0', 'gender': '1', 'age': '19', 'maritalStatus': '1', 'ageType': '\xe5\xb2\x81'}, u'physicalSign': {'bodyTempr': '', 'heartRate': '', 'lowBldPress': '', 'highBldPress': ''}, u'definiteDiagnosis': [], u'progressNoteList': [{'recordTime': '', 'doctorGuid': '2222', 'messageList': [{'value': '', 'key': '\xe4\xb8\xbb\xe8\xaf\x89'}, {'value': '', 'key': '\xe8\xaf\x8a\xe6\x96\xad\xe4\xbe\x9d\xe6\x8d\xae\xe5\x8f\x8a\xe9\x89\xb4\xe5\x88\xab\xe8\xaf\x8a\xe6\x96\xad'}, {'value': '\xe5\xbf\x83\xe6\x88\xbf\xe9\xa2\xa4\xe5\x8a\xa8', 'key': '\xe7\x8e\xb0\xe7\x97\x85\xe5\x8f\xb2'}, {'value': '', 'key': '\xe6\x97\xa2\xe5\xbe\x80\xe5\x8f\xb2'}, {'value': '\xe8\x84\x91\xe5\x86\x85\xe5\x87\xba\xe8\xa1\x80,\xe9\xab\x98\xe8\xa1\x80\xe5\x8e\x8b', 'key': '\xe5\x88\x9d\xe6\xad\xa5\xe8\xaf\x8a\xe6\x96\xad'}, {'value': '', 'key': '\xe8\xbe\x85\xe5\x8a\xa9\xe6\xa3\x80\xe6\x9f\xa5'}], 'msgType': '2', 'progressType': '1', 'progressGuid': '22222'}], u'deleteProgressNoteList': [{'doctorGid': '', 'progressType': '2', 'progressGuid': '', 'recordTime': ''}], u'labTestList': [], u'examinationList': [], u'newTestList': [], u'operationRecord': {}, u'prescriptions': {'prescriptionNumber': '', 'drugList': [{'drugId': '', 'specification': '', 'dosage': '', 'frequency': '', 'drugName': '', 'pathway': '', 'unit': ''}], 'recordTime': ''}, u'currentDiseaseName': u'', u'medicalOrders': [{'orderId': '1597913553741', 'orderContent': '\xe9\x98\xbf\xe6\x89\x98\xe4\xbc\x90\xe4\xbb\x96\xe6\xb1\x80\xe9\x92\x99\xe7\x89\x87', 'frequency': 'ONCE', 'orderFlag': 1, 'unit': 'mg', 'orderCode': '316275', 'orderType': 3, 'specification': '', 'timelinessFlag': 2, 'pathway': '\xe5\x8f\xa3\xe6\x9c\x8d', 'dosage': '41'}], u'openInterdict': 1}</msg>
+<status status="PASS" endtime="20200820 16:52:34.029" starttime="20200820 16:52:34.028"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the</doc>
+<arguments>
+<arg>api</arg>
+<arg>mayson/v_2_0/intelligent_recommendation</arg>
+<arg>data=${data}</arg>
+</arguments>
+<assign>
+<var>${addr}</var>
+</assign>
+<msg timestamp="20200820 16:52:34.040" level="INFO">Starting new HTTP connection (1): 127.0.0.1</msg>
+<msg timestamp="20200820 16:52:34.792" level="INFO">Post Request using : alias=api, uri=mayson/v_2_0/intelligent_recommendation, data=&lt;empty&gt;, headers=None, files=None, allow_redirects=True </msg>
+<msg timestamp="20200820 16:52:34.792" level="INFO">${addr} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20200820 16:52:34.792" starttime="20200820 16:52:34.029"></status>
+</kw>
+<kw name="To Json" library="RequestsLibrary">
+<doc>Convert a string to a JSON object</doc>
+<arguments>
+<arg>${addr.content}</arg>
+</arguments>
+<assign>
+<var>${responsedata}</var>
+</assign>
+<msg timestamp="20200820 16:52:34.841" level="INFO">To JSON using : content={
+	"body":{
+		"customerId":1219,
+		"doctorGuid":"0210497",
+		"doctorName":"\xe6\xb5\x8b\xe8\xaf\x95\xe5\x8c\xbb\xe7\x94\x9f",
+		"documentExpress":{
+			"docExpress":[
+				{
+					"cnTitle":"\xe5\xb0\x8f\xe8\x84\x91\xe7\x9a\x84\xe8\x84\x91\xe5\x86\x85\xe5\x87\xba\xe8\xa1\x80\xe5\xbe\xaa\xe8\xaf\x81\xe6\xb2\xbb\xe7\x96\x97\xe6\x97\xb6\xe9\x97\xb4",
+					"documentFlag":"false",
+					"documentId":"9516C574FD",
+					"documentSource":"\xe6\x83\xa0\xe6\xaf\x8f\xe7\x9f\xa5\xe8\xaf\x86\xe5\xba\x93",
+					"publishDate":"2019-10"
+				},
+				{
+					"cnTitle":"\xe5\xb0\x8f\xe8\x84\x91\xe7\x9a\x84\xe8\x84\x91\xe5\x86\x85\xe5\x87\xba\xe8\xa1\x80\xe6\x82\xa3\xe8\x80\x85\xe6\x89\x8b\xe6\x9c\xaf\xe8\xa1\x80\xe8\x82\xbf\xe6\xb8\x85\xe9\x99\xa4\xe5\x92\x8c\xe4\xbf\x9d\xe5\xae\x88\xe6\xb2\xbb\xe7\x96\x97\xe4\xb8\x8e\xe5\x8a\x9f\xe8\x83\xbd\xe9\xa2\x84\xe5\x90\x8e\xe7\x9a\x84\xe5\x85\xb3\xe7\xb3\xbb",
+					"documentFlag":"false",
+					"documentId":"9516C574FB",
+					"documentSource":"\xe6\x83\xa0\xe6\xaf\x8f\xe7\x9f\xa5\xe8\xaf\x86\xe5\xba\x93",
+					"publishDate":"2019-10"
+				},
+				{
+					"cnTitle":"\xe5\x8e\x9f\xe5\x8f\x91\xe6\x80\xa7\xe8\x84\x91\xe5\xb9\xb2\xe5\x87\xba\xe8\xa1\x80\xe6\x82\xa3\xe8\x80\x85\xe6\xad\xbb\xe4\xba\xa1\xe7\x9a\x84\xe7\x8b\xac\xe7\xab\x8b\xe5\x8d\xb1\xe9\x99\xa9\xe5\x9b\xa0\xe7\xb4\xa0\xe5\x88\x86\xe6\x9e\x90",
+					"documentFlag":"false",
+					"documentId":"9516C47AF7",
+					"documentSource":"\xe6\x83\xa0\xe6\xaf\x8f\xe7\x9f\xa5\xe8\xaf\x86\xe5\xba\x93",
+					"publishDate":"2019-06"
+				},
+				{
+					"cnTitle":"\xe8\xa1\x80\xe8\x82\xbf\xe8\x85\x94\xe5\x92\x8c\xe8\x84\x91\xe5\xae\xa4\xe6\x97\xa9\xe6\x9c\x9f\xe5\x8f\x98\xe5\x8c\x96\xe5\xaf\xb9\xe5\x8e\x9f\xe5\x8f\x91\xe6\x80\xa7\xe8\x84\x91\xe5\xb9\xb2\xe5\x87\xba\xe8\xa1\x80\xe6\x82\xa3\xe8\x80\x85\xe4\xbd\x8f\xe9\x99\xa2\xe4\xb8\x8d\xe8\x89\xaf\xe7\xbb\x93\xe5\xb1\x80\xe7\x9a\x84\xe9\xa2\x84\xe6\xb5\x8b\xe4\xbb\xb7\xe5\x80\xbc\xe5\x88\x86\xe6\x9e\x90",
+					"documentFlag":"false",
+					"documentId":"9516CF76FE",
+					"documentSource":"\xe6\x83\xa0\xe6\xaf\x8f\xe7\x9f\xa5\xe8\xaf\x86\xe5\xba\x93",
+					"publishDate":"2019-02"
+				},
+				{
+					"cnTitle":"2015 AHA/ASA\xe6\x8c\x87\xe5\x8d\x97\xef\xbc\x9a\xe8\x87\xaa\xe5\x8f\x91\xe6\x80\xa7\xe8\x84\x91\xe5\x87\xba\xe8\xa1\x80\xe7\x9a\x84\xe7\xae\xa1\xe7\x90\x86",
+					"documentFlag":"false",
+					"documentId":"9412C772FF",
+					"documentSource":"\xe6\x83\xa0\xe6\xaf\x8f\xe7\x9f\xa5\xe8\xaf\x86\xe5\xba\x93",
+					"publishDate":"2015-07"
+				}
+			],
+			"keyword":"\xe8\x84\x91\xe5\x86\x85\xe5\x87\xba\xe8\xa1\x80"
+		},
+		"examinationRecommendList":[
+			{
+				"customerExams":[
+					{
+						"customerId":1219,
+						"descr":"",
+						"examId":51,
+						"id":87999,
+						"orgCompoundName":"\xe5\xa4\xb4\xe9\xa2\x85CT\xe5\xb9\xb3\xe6\x89\xab",
+						"orgExamId":"51",
+						"orgExamName":"\xe5\xa4\xb4\xe9\xa2\x85CT\xe5\xb9\xb3\xe6\x89\xab",
+						"orgParentExamId":"",
+						"orgPyallName":"",
+						"orgPysimpleName":"",
+						"orgSampleId":"",
+						"orgSampleName":"",
+						"remark":"",
+						"show":1,
+						"sourceType":1,
+						"type":2
+					},
+					{
+						"customerId":1219,
+						"descr":"",
+						"examId":51,
+						"id":89714,
+						"orgCompoundName":"CT\xe6\xa3\x80\xe6\x9f\xa5",
+						"orgExamId":"110366",
+						"orgExamName":"CT\xe6\xa3\x80\xe6\x9f\xa5",
+						"orgParentExamId":"",
+						"orgPyallName":"",
+						"orgPysimpleName":"",
+						"orgSampleId":"",
+						"orgSampleName":"",
+						"remark":"",
+						"show":1,
+						"sourceType":1,
+						"type":2
+					}
+				],
+				"examTime":"",
+				"examination":"\xe5\xa4\xb4\xe9\xa2\x85CT\xe5\xb9\xb3\xe6\x89\xab",
+				"examinationId":51,
+				"examinationLevel":2,
+				"examinationPostil":"\xe8\xaf\x8a\xe6\x96\xad\xe8\x84\x91\xe5\x8d\x92\xe4\xb8\xad\xe9\xa6\x96\xe9\x80\x89\xe7\x9a\x84\xe5\xbd\xb1\xe5\x83\x8f\xe5\xad\xa6\xe6\xa3\x80\xe6\x9f\xa5\xe6\x96\xb9\xe6\xb3\x95\xef\xbc\x8c\xe5\x8f\x91\xe7\x97\x853\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe8\xa1\x8c\xe9\xa6\x96\xe6\xac\xa1\xe5\xa4\xb4\xe9\x83\xa8CT\xe6\x82\xa3\xe8\x80\x85\xef\xbc\x8c\xe5\xba\x94\xe4\xba\x8e\xe5\x8f\x91\xe7\x97\x85\xe5\x90\x8e8\xe5\xb0\x8f\xe6\x97\xb6\xef\xbc\x8c\xe6\x9c\x80\xe8\xbf\x9f24\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\x86\x8d\xe6\xac\xa1",
+				"expressId":207422,
+				"ignoreTips":"",
+				"levelDesc":"\xe7\xa1\xae\xe8\xaf\x8a\xe6\xa3\x80\xe6\x9f\xa5",
+				"projectName":"",
+				"recommendResult":"",
+				"remark":"",
+				"ruleNumber":"",
+				"ruleRemark":"",
+				"simpleName":"",
+				"subType":""
+			},
+			{
+				"customerExams":[
+					{
+						"customerId":1219,
+						"descr":"",
+						"examId":52,
+						"id":88000,
+						"orgCompoundName":"\xe8\x84\x91\xe8\xa1\x80\xe7\xae\xa1\xe6\x88\x90\xe5\x83\x8f\xe6\x8a\x80\xe6\x9c\xaf(CTA)",
+						"orgExamId":"52",
+						"orgExamName":"\xe8\x84\x91\xe8\xa1\x80\xe7\xae\xa1\xe6\x88\x90\xe5\x83\x8f\xe6\x8a\x80\xe6\x9c\xaf(CTA)",
+						"orgParentExamId":"",
+						"orgPyallName":"",
+						"orgPysimpleName":"",
+						"orgSampleId":"",
+						"orgSampleName":"",
+						"remark":"",
+						"show":1,
+						"sourceType":1,
+						"type":2
+					}
+				],
+				"examTime":"",
+				"examination":"\xe8\x84\x91\xe8\xa1\x80\xe7\xae\xa1\xe6\x88\x90\xe5\x83\x8f\xe6\x8a\x80\xe6\x9c\xaf(CTA)",
+				"examinationId":52,
+				"examinationLevel":3,
+				"examinationPostil":"\xe5\x8f\xaf\xe7\x94\xa8\xe4\xba\x8e\xe7\xad\x9b\xe6\x9f\xa5\xe5\x8f\xaf\xe5\xad\x98\xe5\x9c\xa8\xe7\x9a\x84\xe8\x84\x91\xe8\xa1\x80\xe7\xae\xa1\xe7\x95\xb8\xe5\xbd\xa2\xef\xbc\x8c\xe5\x8a\xa8\xe8\x84\x89\xe7\x98\xa4\xef\xbc\x8c\xe5\x8a\xa8\xe9\x9d\x99\xe8\x84\x89\xe7\xaa\xa6",
+				"expressId":207424,
+				"ignoreTips":"",
+				"levelDesc":"\xe9\x89\xb4\xe5\x88\xab\xe6\xa3\x80\xe6\x9f\xa5",
+				"projectName":"",
+				"recommendResult":"",
+				"remark":"",
+				"ruleNumber":"",
+				"ruleRemark":"",
+				"simpleName":"",
+				"subType":""
+			},
+			{
+				"customerExams":[
+					{
+						"customerId":1219,
+						"descr":"",
+						"examId":53,
+						"id":88001,
+						"orgCompoundName":"\xe8\x84\x91\xe7\xa3\x81\xe5\x85\xb1\xe6\x8c\xaf\xe8\xa1\x80\xe7\xae\xa1\xe6\x88\x90\xe5\x83\x8f (MRA)",
+						"orgExamId":"53",
+						"orgExamName":"\xe8\x84\x91\xe7\xa3\x81\xe5\x85\xb1\xe6\x8c\xaf\xe8\xa1\x80\xe7\xae\xa1\xe6\x88\x90\xe5\x83\x8f (MRA)",
+						"orgParentExamId":"",
+						"orgPyallName":"",
+						"orgPysimpleName":"",
+						"orgSampleId":"",
+						"orgSampleName":"",
+						"remark":"",
+						"show":1,
+						"sourceType":1,
+						"type":1
+					}
+				],
+				"examTime":"",
+				"examination":"\xe8\x84\x91\xe7\xa3\x81\xe5\x85\xb1\xe6\x8c\xaf\xe8\xa1\x80\xe7\xae\xa1\xe6\x88\x90\xe5\x83\x8f (MRA)",
+				"examinationId":53,
+				"examinationLevel":3,
+				"examinationPostil":"",
+				"expressId":207425,
+				"ignoreTips":"",
+				"levelDesc":"\xe9\x89\xb4\xe5\x88\xab\xe6\xa3\x80\xe6\x9f\xa5",
+				"projectName":"",
+				"recommendResult":"",
+				"remark":"",
+				"ruleNumber":"",
+				"ruleRemark":"",
+				"simpleName":"",
+				"subType":""
+			},
+			{
+				"customerExams":[
+					{
+						"customerId":1219,
+						"descr":"",
+						"examId":55,
+						"id":88003,
+						"orgCompoundName":"\xe5\x85\xa8\xe8\x84\x91\xe8\xa1\x80\xe7\xae\xa1\xe9\x80\xa0\xe5\xbd\xb1(DSA)",
+						"orgExamId":"55",
+						"orgExamName":"\xe5\x85\xa8\xe8\x84\x91\xe8\xa1\x80\xe7\xae\xa1\xe9\x80\xa0\xe5\xbd\xb1(DSA)",
+						"orgParentExamId":"",
+						"orgPyallName":"",
+						"orgPysimpleName":"",
+						"orgSampleId":"",
+						"orgSampleName":"",
+						"remark":"",
+						"show":1,
+						"sourceType":1,
+						"type":1
+					}
+				],
+				"examTime":"",
+				"examination":"\xe5\x85\xa8\xe8\x84\x91\xe8\xa1\x80\xe7\xae\xa1\xe9\x80\xa0\xe5\xbd\xb1(DSA)",
+				"examinationId":55,
+				"examinationLevel":3,
+				"examinationPostil":"\xe8\xa1\x80\xe7\xae\xa1\xe7\x97\x85\xe5\x8f\x98\xe6\xa3\x80\xe6\x9f\xa5\xe7\x9a\x84\xe9\x87\x8d\xe8\xa6\x81\xe6\x96\xb9\xe6\xb3\x95\xe5\x92\x8c\xe9\x87\x91\xe6\xa0\x87\xe5\x87\x86",
+				"expressId":207428,
+				"ignoreTips":"",
+				"levelDesc":"\xe9\x89\xb4\xe5\x88\xab\xe6\xa3\x80\xe6\x9f\xa5",
+				"projectName":"",
+				"recommendResult":"",
+				"remark":"",
+				"ruleNumber":"",
+				"ruleRemark":"",
+				"simpleName":"",
+				"subType":""
+			},
+			{
+				"customerExams":[
+					{
+						"customerId":1219,
+						"descr":"",
+						"examId":59,
+						"id":88007,
+						"orgCompoundName":"CT\xe8\x84\x91\xe7\x81\x8c\xe6\xb3\xa8\xe6\x88\x90\xe5\x83\x8f(CTP)",
+						"orgExamId":"59",
+						"orgExamName":"CT\xe8\x84\x91\xe7\x81\x8c\xe6\xb3\xa8\xe6\x88\x90\xe5\x83\x8f(CTP)",
+						"orgParentExamId":"",
+						"orgPyallName":"",
+						"orgPysimpleName":"",
+						"orgSampleId":"",
+						"orgSampleName":"",
+						"remark":"",
+						"show":1,
+						"sourceType":1,
+						"type":2
+					}
+				],
+				"examTime":"",
+				"examination":"CT\xe8\x84\x91\xe7\x81\x8c\xe6\xb3\xa8\xe6\x88\x90\xe5\x83\x8f(CTP)",
+				"examinationId":59,
+				"examinationLevel":3,
+				"examinationPostil":"CTP\xe8\x83\xbd\xe5\xa4\x9f\xe5\x8f\x8d\xe6\x98\xa0ICH\xe5\x90\x8e\xe8\x84\x91\xe7\xbb\x84\xe7\xbb\x87\xe7\x9a\x84\xe8\xa1\x80\xe4\xbe\x9b\xe5\x8f\x98\xe5\x8c\x96\xef\xbc\x8c\xe4\xba\x86\xe8\xa7\xa3\xe8\xa1\x80\xe8\x82\xbf\xe5\x91\xa8\xe8\xbe\xb9\xe8\xa1\x80\xe6\xb5\x81\xe7\x81\x8c\xe6\xb3\xa8\xe6\x83\x85\xe5\x86\xb5",
+				"expressId":207423,
+				"ignoreTips":"",
+				"levelDesc":"\xe9\x89\xb4\xe5\x88\xab\xe6\xa3\x80\xe6\x9f\xa5",
+				"projectName":"",
+				"recommendResult":"",
+				"remark":"",
+				"ruleNumber":"",
+				"ruleRemark":"",
+				"simpleName":"",
+				"subType":""
+			},
+			{
+				"customerExams":[
+					{
+						"customerId":1219,
+						"descr":"",
+						"examId":60,
+						"id":88008,
+						"orgCompoundName":"CTV",
+						"orgExamId":"60",
+						"orgExamName":"CTV",
+						"orgParentExamId":"",
+						"orgPyallName":"",
+						"orgPysimpleName":"",
+						"orgSampleId":"",
+						"orgSampleName":"",
+						"remark":"",
+						"show":1,
+						"sourceType":1,
+						"type":2
+					}
+				],
+				"examTime":"",
+				"examination":"CTV",
+				"examinationId":60,
+				"examinationLevel":3,
+				"examinationPostil":"",
+				"expressId":207426,
+				"ignoreTips":"",
+				"levelDesc":"\xe9\x89\xb4\xe5\x88\xab\xe6\xa3\x80\xe6\x9f\xa5",
+				"projectName":"",
+				"recommendResult":"",
+				"remark":"",
+				"ruleNumber":"",
+				"ruleRemark":"",
+				"simpleName":"",
+				"subType":""
+			},
+			{
+				"customerExams":[
+					{
+						"customerId":1219,
+						"descr":"",
+						"examId":61,
+						"id":88009,
+						"orgCompoundName":"MRV",
+						"orgExamId":"61",
+						"orgExamName":"MRV",
+						"orgParentExamId":"",
+						"orgPyallName":"",
+						"orgPysimpleName":"",
+						"orgSampleId":"",
+						"orgSampleName":"",
+						"remark":"",
+						"show":1,
+						"sourceType":1,
+						"type":1
+					}
+				],
+				"examTime":"",
+				"examination":"MRV",
+				"examinationId":61,
+				"examinationLevel":3,
+				"examinationPostil":"",
+				"expressId":207427,
+				"ignoreTips":"",
+				"levelDesc":"\xe9\x89\xb4\xe5\x88\xab\xe6\xa3\x80\xe6\x9f\xa5",
+				"projectName":"",
+				"recommendResult":"",
+				"remark":"",
+				"ruleNumber":"",
+				"ruleRemark":"",
+				"simpleName":"",
+				"subType":""
+			},
+			{
+				"customerExams":[
+					{
+						"customerId":1219,
+						"descr":"",
+						"examId":110163,
+						"id":89543,
+						"orgCompoundName":"\xe5\x87\x9d\xe8\xa1\x80\xe5\x8a\x9f\xe8\x83\xbd\xe7\x9b\x91\xe6\xb5\x8b",
+						"orgExamId":"110163",
+						"orgExamName":"\xe5\x87\x9d\xe8\xa1\x80\xe5\x8a\x9f\xe8\x83\xbd\xe7\x9b\x91\xe6\xb5\x8b",
+						"orgParentExamId":"",
+						"orgPyallName":"",
+						"orgPysimpleName":"",
+						"orgSampleId":"",
+						"orgSampleName":"",
+						"remark":"",
+						"show":1,
+						"sourceType":1,
+						"type":1
+					}
+				],
+				"examTime":"",
+				"examination":"\xe5\x87\x9d\xe8\xa1\x80\xe5\x8a\x9f\xe8\x83\xbd\xe7\x9b\x91\xe6\xb5\x8b",
+				"examinationId":110163,
+				"examinationLevel":4,
+				"examinationPostil":"",
+				"expressId":207431,
+				"ignoreTips":"",
+				"levelDesc":"\xe4\xb8\x80\xe8\x88\xac\xe6\xa3\x80\xe6\x9f\xa5",
+				"projectName":"",
+				"recommendResult":"",
+				"remark":"",
+				"ruleNumber":"",
+				"ruleRemark":"",
+				"simpleName":"",
+				"subType":""
+			},
+			{
+				"customerExams":[
+					{
+						"customerId":1219,
+						"descr":"",
+						"examId":110615,
+						"id":89957,
+						"orgCompoundName":"\xe8\x83\xb8\xe9\x83\xa8X\xe7\xba\xbf\xe7\x89\x87",
+						"orgExamId":"110615",
+						"orgExamName":"\xe8\x83\xb8\xe9\x83\xa8X\xe7\xba\xbf\xe7\x89\x87",
+						"orgParentExamId":"",
+						"orgPyallName":"",
+						"orgPysimpleName":"",
+						"orgSampleId":"",
+						"orgSampleName":"",
+						"remark":"",
+						"show":1,
+						"sourceType":1,
+						"type":2
+					}
+				],
+				"examTime":"",
+				"examination":"\xe8\x83\xb8\xe9\x83\xa8X\xe7\xba\xbf\xe7\x89\x87",
+				"examinationId":110615,
+				"examinationLevel":4,
+				"examinationPostil":"",
+				"expressId":207434,
+				"ignoreTips":"",
+				"levelDesc":"\xe4\xb8\x80\xe8\x88\xac\xe6\xa3\x80\xe6\x9f\xa5",
+				"projectName":"",
+				"recommendResult":"",
+				"remark":"",
+				"ruleNumber":"",
+				"ruleRemark":"",
+				"simpleName":"",
+				"subType":""
+			},
+			{
+				"customerExams":[
+					{
+						"customerId":1219,
+						"descr":"",
+						"examId":28,
+						"id":87984,
+						"orgCompoundName":"\xe5\xbf\x83\xe7\x94\xb5\xe5\x9b\xbe",
+						"orgExamId":"28",
+						"orgExamName":"\xe5\xbf\x83\xe7\x94\xb5\xe5\x9b\xbe",
+						"orgParentExamId":"",
+						"orgPyallName":"",
+						"orgPysimpleName":"",
+						"orgSampleId":"",
+						"orgSampleName":"",
+						"remark":"",
+						"show":1,
+						"sourceType":1,
+						"type":2
+					}
+				],
+				"examTime":"",
+				"examination":"\xe5\xbf\x83\xe7\x94\xb5\xe5\x9b\xbe",
+				"examinationId":28,
+				"examinationLevel":4,
+				"examinationPostil":"",
+				"expressId":207433,
+				"ignoreTips":"",
+				"levelDesc":"\xe4\xb8\x80\xe8\x88\xac\xe6\xa3\x80\xe6\x9f\xa5",
+				"projectName":"",
+				"recommendResult":"",
+				"remark":"",
+				"ruleNumber":"",
+				"ruleRemark":"",
+				"simpleName":"",
+				"subType":""
+			},
+			{
+				"customerExams":[
+					{
+						"customerId":1219,
+						"descr":"",
+						"examId":13,
+						"id":87971,
+						"orgCompoundName":"\xe8\xa1\x80\xe5\xb8\xb8\xe8\xa7\x84",
+						"orgExamId":"13",
+						"orgExamName":"\xe8\xa1\x80\xe5\xb8\xb8\xe8\xa7\x84",
+						"orgParentExamId":"",
+						"orgPyallName":"",
+						"orgPysimpleName":"",
+						"orgSampleId":"",
+						"orgSampleName":"",
+						"remark":"",
+						"show":1,
+						"sourceType":1,
+						"type":1
+					}
+				],
+				"examTime":"",
+				"examination":"\xe8\xa1\x80\xe5\xb8\xb8\xe8\xa7\x84",
+				"examinationId":13,
+				"examinationLevel":4,
+				"examinationPostil":"",
+				"expressId":207429,
+				"ignoreTips":"",
+				"levelDesc":"\xe4\xb8\x80\xe8\x88\xac\xe6\xa3\x80\xe6\x9f\xa5",
+				"projectName":"",
+				"recommendResult":"",
+				"remark":"",
+				"ruleNumber":"",
+				"ruleRemark":"",
+				"simpleName":"\xe8\xa1\x80\xe6\xb6\xb2",
+				"subType":""
+			},
+			{
+				"customerExams":[
+					{
+						"customerId":1219,
+						"descr":"",
+						"examId":62,
+						"id":88010,
+						"orgCompoundName":"\xe8\xa1\x80\xe7\x94\x9f\xe5\x8c\x96",
+						"orgExamId":"62",
+						"orgExamName":"\xe8\xa1\x80\xe7\x94\x9f\xe5\x8c\x96",
+						"orgParentExamId":"",
+						"orgPyallName":"",
+						"orgPysimpleName":"",
+						"orgSampleId":"",
+						"orgSampleName":"",
+						"remark":"",
+						"show":1,
+						"sourceType":1,
+						"type":1
+					}
+				],
+				"examTime":"",
+				"examination":"\xe8\xa1\x80\xe7\x94\x9f\xe5\x8c\x96",
+				"examinationId":62,
+				"examinationLevel":4,
+				"examinationPostil":"",
+				"expressId":207430,
+				"ignoreTips":"",
+				"levelDesc":"\xe4\xb8\x80\xe8\x88\xac\xe6\xa3\x80\xe6\x9f\xa5",
+				"projectName":"",
+				"recommendResult":"",
+				"remark":"",
+				"ruleNumber":"",
+				"ruleRemark":"",
+				"simpleName":"",
+				"subType":""
+			},
+			{
+				"customerExams":[
+					{
+						"customerId":1219,
+						"descr":"",
+						"examId":63,
+						"id":88011,
+						"orgCompoundName":"\xe8\xbe\x93\xe8\xa1\x80\xe5\x89\x8d\xe6\xa3\x80\xe6\x9f\xa5",
+						"orgExamId":"63",
+						"orgExamName":"\xe8\xbe\x93\xe8\xa1\x80\xe5\x89\x8d\xe6\xa3\x80\xe6\x9f\xa5",
+						"orgParentExamId":"",
+						"orgPyallName":"",
+						"orgPysimpleName":"",
+						"orgSampleId":"",
+						"orgSampleName":"",
+						"remark":"",
+						"show":1,
+						"sourceType":1,
+						"type":1
+					}
+				],
+				"examTime":"",
+				"examination":"\xe8\xbe\x93\xe8\xa1\x80\xe5\x89\x8d\xe6\xa3\x80\xe6\x9f\xa5",
+				"examinationId":63,
+				"examinationLevel":4,
+				"examinationPostil":"",
+				"expressId":207432,
+				"ignoreTips":"",
+				"levelDesc":"\xe4\xb8\x80\xe8\x88\xac\xe6\xa3\x80\xe6\x9f\xa5",
+				"projectName":"",
+				"recommendResult":"",
+				"remark":"",
+				"ruleNumber":"",
+				"ruleRemark":"",
+				"simpleName":"",
+				"subType":""
+			}
+		],
+		"green_channel":{
+			"channels":[
+				{
+					"code":"",
+					"customerId":1219,
+					"group_condition":"\xe8\x84\x91\xe6\xa2\x97\xe6\xad\xbb\xe6\x82\xa3\xe8\x80\x85\xe6\xbb\xa1\xe8\xb6\xb3\xe8\x84\x91\xe5\x8d\x92\xe4\xb8\xad\xe6\x95\xb0\xe6\x8d\xae\xe5\xa1\xab\xe6\x8a\xa5\xe5\x85\xa5\xe7\xbb\x84\xe8\xa6\x81\xe6\xb1\x82",
+					"id":1,
+					"name":"\xe8\x84\x91\xe5\x8d\x92\xe4\xb8\xad\xe6\x95\xb0\xe6\x8d\xae\xe5\xa1\xab\xe6\x8a\xa5",
+					"report_info":{
+						"code":"",
+						"customerId":1219,
+						"ext_report":[],
+						"group_added":0,
+						"group_name":"",
+						"progressId":"",
+						"progressName":"",
+						"report_name":"",
+						"reported":0,
+						"serialNumber":"",
+						"state":1,
+						"tags":"",
+						"type":"",
+						"userGuid":""
+					},
+					"reports":[
+						{
+							"id":1,
+							"name":"\xe5\x8d\x92\xe4\xb8\xad\xe9\x9d\x99\xe8\x84\x89\xe6\xba\xb6\xe6\xa0\x93\xe6\xb2\xbb\xe7\x96\x97"
+						},
+						{
+							"id":2,
+							"name":"\xe5\x8d\x92\xe4\xb8\xad\xe8\xa1\x80\xe7\xae\xa1\xe5\x86\x85\xe6\xb2\xbb\xe7\x96\x97"
+						},
+						{
+							"id":3,
+							"name":"\xe5\x8d\x92\xe4\xb8\xad\xe6\xa1\xa5\xe6\x8e\xa5\xe6\xb2\xbb\xe7\x96\x97"
+						},
+						{
+							"id":4,
+							"name":"\xe5\x8d\x92\xe4\xb8\xad\xe7\xbb\xbf\xe9\x81\x93\xe4\xbb\x85\xe8\xaf\x84\xe4\xbc\xb0"
+						}
+					],
+					"serialNumber":"",
+					"state":1,
+					"tags":"",
+					"type":"",
+					"userGuid":""
+				}
+			],
+			"code":"",
+			"customerId":1219,
+			"customer_id":1219,
+			"record_id":5409244,
+			"serialNumber":"",
+			"state":1,
+			"tags":"",
+			"type":"",
+			"userGuid":""
+		},
+		"hasRecommend":4,
+		"illnessAssessList":[
+			{
+				"assessId":"686",
+				"assessItem":"\xe4\xb8\x89\xe7\xa7\x8d\xe5\xb8\xb8\xe7\x94\xa8\xe8\x84\x91\xe5\x8d\x92\xe4\xb8\xad\xe4\xba\x9a\xe5\x9e\x8b\xe5\x88\x86\xe5\x9e\x8b\xe6\xa0\x87\xe5\x87\x86",
+				"assessPostil":"\xe8\x84\x91\xe5\x8d\x92\xe4\xb8\xad\xe5\x88\x86\xe7\xb1\xbb\xe4\xb8\xba\xe7\xbc\xba\xe8\xa1\x80\xe6\x80\xa7\xe5\x8d\x92\xe4\xb8\xad\xe3\x80\x81\xe5\x87\xba\xe8\xa1\x80\xe6\x80\xa7\xe5\x8d\x92\xe4\xb8\xad\xef\xbc\x8c\xe5\x8f\xaf\xe8\xbf\x9b\xe4\xb8\x80\xe6\xad\xa5\xe5\x88\x86\xe4\xb8\xba\xe4\xb8\x8d\xe5\x90\x8c\xe4\xba\x9a\xe5\x9e\x8b\xef\xbc\x8c\xe6\xa0\xb9\xe6\x8d\xae\xe7\x97\x85\xe5\x9b\xa0\xe3\x80\x81\xe5\x8f\x91\xe7\x97\x85\xe6\x9c\xba\xe5\x88\xb6\xe3\x80\x81\xe4\xb8\xb4\xe5\xba\x8a\xe8\xa1\xa8\xe7\x8e\xb0\xe5\x92\x8c\xe7\x97\x85\xe5\x8f\x98\xe9\x83\xa8\xe4\xbd\x8d\xe8\xbf\x9b\xe8\xa1\x8c\xef\xbc\x8c\xe6\x8c\x87\xe5\xaf\xbc\xe9\x80\x89\xe6\x8b\xa9\xe5\x90\x88\xe9\x80\x82\xe6\xb2\xbb\xe7\x96\x97\xe3\x80\x82\xe4\xb8\x89\xe7\xb1\xbb\xe4\xbd\x93\xe7\xb3\xbb\xe5\x8c\x85\xe6\x8b\xac\xef\xbc\x9a\xe8\x84\x91\xe6\xa2\x97\xe6\xad\xbbTOAST\xe5\x88\x86\xe5\x9e\x8b\xe3\x80\x81\xe8\x84\x91\xe6\xa2\x97\xe6\xad\xbbOCSP\xe5\x88\x86\xe5\x9e\x8b\xe3\x80\x81\xe8\x84\x91\xe5\x87\xba\xe8\xa1\x80AMASH-U\xe5\x88\x86\xe5\x9e\x8b",
+				"compare":0,
+				"expressId":107534,
+				"fileName":"",
+				"ignoreTips":"",
+				"projectName":"",
+				"recommendResult":"",
+				"ruleNumber":"",
+				"ruleRemark":""
+			},
+			{
+				"assessId":"22",
+				"assessItem":"\xe6\xb4\xbc\xe7\x94\xb0\xe9\xa5\xae\xe6\xb0\xb4\xe8\xaf\x95\xe9\xaa\x8c",
+				"assessPostil":"\xe6\xb4\xbc\xe7\x94\xb0\xe9\xa5\xae\xe6\xb0\xb4\xe8\xaf\x95\xe9\xaa\x8c\xe8\xaf\x84\xe4\xbc\xb0\xe6\x82\xa3\xe8\x80\x85\xe5\x90\x9e\xe5\x92\xbd\xe5\x8a\x9f\xe8\x83\xbd",
+				"compare":0,
+				"expressId":207435,
+				"fileName":"drinkExam.html",
+				"ignoreTips":"",
+				"projectName":"",
+				"recommendResult":"",
+				"ruleNumber":"",
+				"ruleRemark":""
+			},
+			{
+				"assessId":"1001",
+				"assessItem":"CT\xe8\x84\x91\xe5\x87\xba\xe8\xa1\x80\xe5\x87\xba\xe8\xa1\x80\xe9\x87\x8f\xe8\xae\xa1\xe7\xae\x97\xe5\x85\xac\xe5\xbc\x8f",
+				"assessPostil":"CT\xe8\x84\x91\xe5\x87\xba\xe8\xa1\x80\xe5\x87\xba\xe8\xa1\x80\xe9\x87\x8f\xe8\xae\xa1\xe7\xae\x97\xe5\x85\xac\xe5\xbc\x8f\xe8\xaf\x84\xe4\xbc\xb0\xe6\x82\xa3\xe8\x80\x85\xe7\x97\x85\xe6\x83\x85",
+				"compare":0,
+				"expressId":207439,
+				"fileName":"CTcereHemg.html",
+				"ignoreTips":"",
+				"projectName":"",
+				"recommendResult":"",
+				"ruleNumber":"",
+				"ruleRemark":""
+			},
+			{
+				"assessId":"23",
+				"assessItem":"Glasgow\xe6\x98\x8f\xe8\xbf\xb7\xe8\xaf\x84\xe5\x88\x86\xe9\x87\x8f\xe8\xa1\xa8",
+				"assessPostil":"Glasgow\xe6\x98\x8f\xe8\xbf\xb7\xe8\xaf\x84\xe5\x88\x86\xe9\x87\x8f\xe8\xa1\xa8\xe8\xaf\x84\xe4\xbc\xb0\xe6\x82\xa3\xe8\x80\x85\xe6\x84\x8f\xe8\xaf\x86\xe9\x9a\x9c\xe7\xa2\x8d\xe7\xa8\x8b\xe5\xba\xa6",
+				"compare":0,
+				"expressId":207438,
+				"fileName":"coma.html",
+				"ignoreTips":"",
+				"projectName":"",
+				"recommendResult":"",
+				"ruleNumber":"",
+				"ruleRemark":""
+			},
+			{
+				"assessId":"11",
+				"assessItem":"NIHSS\xe5\x8d\x92\xe4\xb8\xad\xe9\x87\x8f\xe8\xa1\xa8",
+				"assessPostil":"NIHSS\xe5\x8d\x92\xe4\xb8\xad\xe9\x87\x8f\xe8\xa1\xa8\xe8\xaf\x84\xe4\xbc\xb0\xe6\x82\xa3\xe8\x80\x85\xe7\x97\x85\xe6\x83\x85\xe4\xb8\xa5\xe9\x87\x8d\xe7\xa8\x8b\xe5\xba\xa6\xef\xbc\x8c\xe8\xbf\x9e\xe7\xbb\xad\xe8\xa7\x82\xe5\xaf\x9f\xe7\x97\x85\xe6\x83\x85\xe8\xbf\x9b\xe5\xb1\x95\xe5\x8f\x98\xe5\x8c\x96",
+				"compare":0,
+				"expressId":207437,
+				"fileName":"nih.html",
+				"ignoreTips":"",
+				"projectName":"",
+				"recommendResult":"",
+				"ruleNumber":"",
+				"ruleRemark":""
+			},
+			{
+				"assessId":"1002",
+				"assessItem":"ICH\xe8\xaf\x84\xe5\x88\x86\xe9\x87\x8f\xe8\xa1\xa8",
+				"assessPostil":"ICH\xe8\xaf\x84\xe5\x88\x86\xe9\x87\x8f\xe8\xa1\xa8\xe8\xaf\x84\xe4\xbc\xb0\xe6\x82\xa3\xe8\x80\x85\xe7\x97\x85\xe6\x83\x85",
+				"compare":0,
+				"expressId":207436,
+				"fileName":"ICH.html",
+				"ignoreTips":"",
+				"projectName":"",
+				"recommendResult":"",
+				"ruleNumber":"",
+				"ruleRemark":""
+			},
+			{
+				"assessId":"838",
+				"assessItem":"Brunnstrom\xe5\x8a\x9f\xe8\x83\xbd\xe5\x88\x86\xe6\x9c\x9f",
+				"assessPostil":"Brunnstrom\xe8\x82\xa2\xe4\xbd\x93\xe8\xbf\x90\xe5\x8a\xa8\xe5\x8a\x9f\xe8\x83\xbd\xe5\x88\x86\xe6\x9c\x9f\xef\xbc\x8c\xe8\xbf\x90\xe5\x8a\xa8\xe5\x8a\x9f\xe8\x83\xbd\xe9\x9a\x9c\xe7\xa2\x8d\xe7\xad\x89\xe7\xba\xa7\xe8\xaf\x84\xe5\xae\x9a\xef\xbc\x8c\xe8\xae\xb0\xe5\xbd\x95\xe4\xb8\x8a\xe8\x82\xa2\xe3\x80\x81\xe4\xb8\x8b\xe8\x82\xa2\xe3\x80\x81\xe6\x89\x8b\xe6\x8c\x87\xe5\x8a\x9f\xe8\x83\xbd\xe7\xad\x89\xe8\xaf\x84\xe4\xbc\xb0\xe7\xbb\x93\xe6\x9e\x9c",
+				"compare":0,
+				"expressId":207443,
+				"fileName":"",
+				"ignoreTips":"",
+				"projectName":"",
+				"recommendResult":"",
+				"ruleNumber":"",
+				"ruleRemark":""
+			},
+			{
+				"assessId":"494",
+				"assessItem":"\xe6\x94\xb9\xe8\x89\xafAshworth\xe5\x88\x86\xe7\xba\xa7\xe6\xb3\x95\xe8\xaf\x84\xe5\xae\x9a\xe6\xa0\x87\xe5\x87\x86",
+				"assessPostil":"Ashworth\xe5\x88\x86\xe7\xba\xa7\xe8\xaf\x84\xe5\xae\x9a\xe8\x82\xa2\xe4\xbd\x93\xe8\x82\x8c\xe5\xbc\xa0\xe5\x8a\x9b\xe9\x9a\x9c\xe7\xa2\x8d\xe6\x83\x85\xe5\x86\xb5\xe3\x80\x82\xe8\x82\x8c\xe5\xbc\xa0\xe5\x8a\x9b\xe9\x9a\x9c\xe7\xa2\x8d\xe6\x98\xaf\xe4\xb8\x80\xe7\xa7\x8d\xe6\x8c\x81\xe7\xbb\xad\xe6\x80\xa7\xe6\x88\x96\xe9\x97\xb4\xe6\x96\xad\xe6\x80\xa7\xe8\x82\x8c\xe8\x82\x89\xe6\x94\xb6\xe7\xbc\xa9\xe5\xbc\x95\xe8\xb5\xb7\xe7\x9a\x84\xe5\xbc\x82\xe5\xb8\xb8\xe8\xbf\x90\xe5\x8a\xa8\xe5\x92\x8c/\xe6\x88\x96\xe5\xa7\xbf\xe5\x8a\xbf\xe7\x9a\x84\xe8\xbf\x90\xe5\x8a\xa8\xe9\x9a\x9c\xe7\xa2\x8d\xef\xbc\x8c\xe5\x8f\xaf\xe8\xa2\xab\xe9\x9a\x8f\xe6\x84\x8f\xe5\x8a\xa8\xe4\xbd\x9c\xe8\xaf\xb1\xe5\x8f\x91\xe6\x88\x96\xe5\x8a\xa0\xe9\x87\x8d\xef\xbc\x8c\xe5\xbc\x82\xe5\xb8\xb8\xe8\xbf\x90\xe5\x8a\xa8\xe4\xb8\xbb\xe8\xa6\x81\xe8\xa1\xa8\xe7\x8e\xb0\xe4\xb8\xba\xe6\xa8\xa1\xe5\xbc\x8f\xe6\x80\xa7\xe3\x80\x81\xe6\x89\xad\xe8\xbd\xac\xe6\x80\xa7\xe5\x92\x8c\xe9\xa2\xa4\xe6\x8a\x96\xe6\x80\xa7\xe5\x8a\xa8\xe4\xbd\x9c",
+				"compare":0,
+				"expressId":207442,
+				"fileName":"Ashworth.html",
+				"ignoreTips":"",
+				"projectName":"",
+				"recommendResult":"",
+				"ruleNumber":"",
+				"ruleRemark":""
+			},
+			{
+				"assessId":"527",
+				"assessItem":"\xe8\x82\x8c\xe5\x8a\x9b\xe5\x88\x86\xe7\xba\xa7(MRC)",
+				"assessPostil":"\xe8\xaf\x84\xe4\xbc\xb0\xe5\x90\x84\xe8\x82\xa2\xe4\xbd\x93\xe8\x82\x8c\xe5\x8a\x9b\xe7\xad\x89\xe7\xba\xa7",
+				"compare":0,
+				"expressId":207441,
+				"fileName":"MRC.html",
+				"ignoreTips":"",
+				"projectName":"",
+				"recommendResult":"",
+				"ruleNumber":"",
+				"ruleRemark":""
+			},
+			{
+				"assessId":"24",
+				"assessItem":"\xe6\x94\xb9\xe8\x89\xafRankin\xe9\x87\x8f\xe8\xa1\xa8\xef\xbc\x88mRS\xef\xbc\x89",
+				"assessPostil":"\xe6\x94\xb9\xe8\x89\xafRankin\xe9\x87\x8f\xe8\xa1\xa8\xef\xbc\x88mRS\xef\xbc\x89\xe8\xaf\x84\xe4\xbc\xb0\xe6\x82\xa3\xe8\x80\x85",
+				"compare":0,
+				"expressId":207440,
+				"fileName":"rankin.html",
+				"ignoreTips":"",
+				"projectName":"",
+				"recommendResult":"",
+				"ruleNumber":"",
+				"ruleRemark":""
+			},
+			{
+				"assessId":"827",
+				"assessItem":"\xe6\xa0\x87\xe5\x87\x86\xe5\x90\x9e\xe5\x92\xbd\xe5\x8a\x9f\xe8\x83\xbd\xe9\x9a\x9c\xe7\xa2\x8d\xe7\xad\x9b\xe6\x9f\xa5\xe9\x87\x8f\xe8\xa1\xa8\xef\xbc\x88Standardised Swallowing Screen\xef\xbc\x89",
+				"assessPostil":"SSA\xe9\x87\x8f\xe8\xa1\xa8\xe8\xaf\x84\xe4\xbc\xb0\xe5\x90\x9e\xe5\x92\xbd\xe5\x8a\x9f\xe8\x83\xbd\xef\xbc\x8c\xe7\xad\x9b\xe6\x9f\xa5\xe5\x87\xba\xe5\x90\x9e\xe5\x92\xbd\xe9\x9a\x9c\xe7\xa2\x8d\xe6\x82\xa3\xe8\x80\x85\xe3\x80\x82\xe9\x87\x87\xe5\x8f\x96\xe5\x90\x88\xe7\x90\x86\xe6\x8e\xaa\xe6\x96\xbd\xe9\xa2\x84\xe9\x98\xb2\xe5\x92\x8c\xe6\xb2\xbb\xe7\x96\x97\xe5\x8d\x92\xe4\xb8\xad\xe6\x82\xa3\xe8\x80\x85\xef\xbc\x8c\xe9\x99\x8d\xe4\xbd\x8e\xe5\x8f\x91\xe7\x94\x9f\xe5\x91\x9b\xe5\x92\xb3\xe3\x80\x81\xe5\x99\x8e\xe9\xa3\x9f\xe3\x80\x81\xe7\xaa\x92\xe6\x81\xaf\xe3\x80\x81\xe5\x90\xb8\xe5\x85\xa5\xe6\x80\xa7\xe8\x82\xba\xe7\x82\x8e\xe7\xad\x89\xe9\xa3\x8e\xe9\x99\xa9",
+				"compare":0,
+				"expressId":207446,
+				"fileName":"StandardisedSwallowingScreen.html",
+				"ignoreTips":"",
+				"projectName":"",
+				"recommendResult":"",
+				"ruleNumber":"",
+				"ruleRemark":""
+			},
+			{
+				"assessId":"104",
+				"assessItem":"\xe7\xae\x80\xe6\x98\x93\xe7\xb2\xbe\xe7\xa5\x9e\xe7\x8a\xb6\xe6\x80\x81\xe9\x87\x8f\xe8\xa1\xa8(MMSE)",
+				"assessPostil":"\xe7\xae\x80\xe6\x98\x93\xe7\xb2\xbe\xe7\xa5\x9e\xe7\x8a\xb6\xe6\x80\x81\xe9\x87\x8f\xe8\xa1\xa8\xe6\x88\x96\xe7\xa7\xb0\xe7\xae\x80\xe6\x98\x93\xe7\xb2\xbe\xe7\xa5\x9e\xe7\x8a\xb6\xe6\x80\x81\xe6\xa3\x80\xe6\x9f\xa5\xe8\xa1\xa8\xe6\x98\xaf\xe6\x9c\x80\xe5\x85\xb7\xe5\xbd\xb1\xe5\x93\x8d\xe7\x9a\x84\xe6\xa0\x87\xe5\x87\x86\xe5\x8c\x96\xe6\x99\xba\xe5\x8a\x9b\xe7\x8a\xb6\xe6\x80\x81\xe6\xa3\x80\xe6\x9f\xa5\xe5\xb7\xa5\xe5\x85\xb7\xe4\xb9\x8b\xe4\xb8\x80\xe3\x80\x82\xe7\xad\x9b\xe6\x9f\xa5\xe8\xa1\x80\xe7\xae\xa1\xe6\x80\xa7\xe7\x97\xb4\xe5\x91\x86\xe6\x82\xa3\xe8\x80\x85",
+				"compare":0,
+				"expressId":207445,
+				"fileName":"psychosis.html",
+				"ignoreTips":"",
+				"projectName":"",
+				"recommendResult":"",
+				"ruleNumber":"",
+				"ruleRemark":""
+			},
+			{
+				"assessId":"513",
+				"assessItem":"\xe8\xae\xa4\xe7\x9f\xa5\xe9\x9a\x9c\xe7\xa2\x8d\xe8\x87\xaa\xe8\xaf\x84\xe8\xa1\xa8(AD8)",
+				"assessPostil":"\xe8\xaf\xa2\xe9\x97\xae\xe7\x9f\xa5\xe6\x83\x85\xe8\x80\x85\xef\xbc\x8c\xe5\xaf\xb9\xe6\xaf\x94\xe6\x82\xa3\xe8\x80\x85\xe8\x87\xaa\xe8\xba\xab\xe8\xae\xa4\xe7\x9f\xa5\xe5\x8a\x9f\xe8\x83\xbd\xe5\x8f\x98\xe5\x8c\x96\xe7\x8a\xb6\xe5\x86\xb5\xef\xbc\x8c\xe4\xb8\x8d\xe9\x9c\x80\xe8\xa6\x81\xe5\x9f\xba\xe7\xba\xbf\xe9\x98\xb6\xe6\xae\xb5\xe8\xaf\x84\xe4\xbc\xb0\xef\xbc\x8c\xe4\xb8\x8d\xe5\x8f\x97\xe6\x95\x99\xe8\x82\xb2\xe7\xa8\x8b\xe5\xba\xa6\xe3\x80\x81\xe7\xa7\x8d\xe6\x97\x8f\xe3\x80\x81\xe6\x80\xa7\xe5\x88\xab\xe7\xad\x89\xe5\x9b\xa0\xe7\xb4\xa0\xe5\xbd\xb1\xe5\x93\x8d\xe3\x80\x828\xe4\xb8\xaa\xe9\x97\xae\xe9\xa2\x98&gt;=2\xe9\xa1\xb9\xe5\x9b\x9e\xe7\xad\x94\"\xe6\x98\xaf\"\xe5\x88\x99\xe9\xab\x98\xe5\xba\xa6\xe6\x8f\x90\xe7\xa4\xba\xe7\x97\xb4\xe5\x91\x86",
+				"compare":0,
+				"expressId":207444,
+				"fileName":"AD8.html",
+				"ignoreTips":"",
+				"projectName":"",
+				"recommendResult":"",
+				"ruleNumber":"",
+				"ruleRemark":""
+			}
+		],
+		"logicalDiseaseInfo":{
+			"tabooStatus":3
+		},
+		"medicalRecordResult":{
+			"admissionRecordResults":[
+				{
+					"displayType":1,
+					"isSpecificRemark":false,
+					"lineItemVeto":0,
+					"projectName":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95\xe6\x97\xa2\xe5\xbe\x80\xe5\x8f\xb2\xe5\xae\x8c\xe6\x95\xb4\xe6\x80\xa7\xe8\xb4\xa8\xe6\xa3\x80",
+					"projectNameId":52,
+					"reason":"",
+					"recommendLevel":3,
+					"remark":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe6\x97\xa2\xe5\xbe\x80\xe5\x8f\xb2\xe6\x9c\xaa\xe5\xa1\xab\xe5\x86\x99",
+					"result":2,
+					"ruleCategory":"xs"
+				},
+				{
+					"displayType":1,
+					"isSpecificRemark":false,
+					"lineItemVeto":0,
+					"projectName":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95\xe8\xbf\x87\xe6\x95\x8f\xe5\x8f\xb2\xe5\xae\x8c\xe6\x95\xb4\xe6\x80\xa7\xe8\xb4\xa8\xe6\xa3\x80",
+					"projectNameId":54,
+					"reason":"",
+					"recommendLevel":3,
+					"remark":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe8\xbf\x87\xe6\x95\x8f\xe5\x8f\xb2\xe6\x9c\xaa\xe5\xa1\xab\xe5\x86\x99",
+					"result":2,
+					"ruleCategory":"xs"
+				},
+				{
+					"displayType":1,
+					"isSpecificRemark":false,
+					"lineItemVeto":0,
+					"projectName":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95\xe5\xae\xb6\xe6\x97\x8f\xe5\x8f\xb2\xe5\x85\x84\xe5\xbc\x9f\xe5\xa7\x90\xe5\xa6\xb9\xe6\x83\x85\xe5\x86\xb5\xe5\xae\x8c\xe6\x95\xb4\xe6\x80\xa7\xe8\xb4\xa8\xe6\xa3\x80",
+					"projectNameId":207,
+					"reason":"",
+					"recommendLevel":3,
+					"remark":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe5\xae\xb6\xe6\x97\x8f\xe5\x8f\xb2\xe5\x85\x84\xe5\xbc\x9f\xe5\xa7\x90\xe5\xa6\xb9\xe6\x83\x85\xe5\x86\xb5\xe6\x9c\xaa\xe5\xa1\xab\xe5\x86\x99",
+					"result":2,
+					"ruleCategory":"xs"
+				},
+				{
+					"displayType":1,
+					"isSpecificRemark":false,
+					"lineItemVeto":0,
+					"projectName":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95\xe5\xae\xb6\xe6\x97\x8f\xe5\x8f\xb2\xe7\x88\xb6\xe6\xaf\x8d\xe6\x83\x85\xe5\x86\xb5\xe5\xae\x8c\xe6\x95\xb4\xe6\x80\xa7\xe8\xb4\xa8\xe6\xa3\x80",
+					"projectNameId":209,
+					"reason":"",
+					"recommendLevel":3,
+					"remark":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe5\xae\xb6\xe6\x97\x8f\xe5\x8f\xb2\xe7\x88\xb6\xe6\xaf\x8d\xe6\x83\x85\xe5\x86\xb5\xe6\x9c\xaa\xe5\xa1\xab\xe5\x86\x99",
+					"result":2,
+					"ruleCategory":"xs"
+				},
+				{
+					"displayType":1,
+					"isSpecificRemark":false,
+					"lineItemVeto":0,
+					"projectName":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95\xe6\x97\xa0\xe4\xb8\x93\xe7\xa7\x91\xe6\xa3\x80\xe6\x9f\xa5",
+					"projectNameId":63,
+					"reason":"",
+					"recommendLevel":2,
+					"remark":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe4\xb8\x93\xe7\xa7\x91\xe6\xa3\x80\xe6\x9f\xa5\xe6\x9c\xaa\xe5\xa1\xab\xe5\x86\x99",
+					"result":2,
+					"ruleCategory":"xs"
+				},
+				{
+					"displayType":1,
+					"isSpecificRemark":false,
+					"lineItemVeto":0,
+					"projectName":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95\xe6\x97\xa0\xe4\xbd\x93\xe6\xa0\xbc\xe6\xa3\x80\xe6\x9f\xa5",
+					"projectNameId":66,
+					"reason":"",
+					"recommendLevel":1,
+					"remark":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe4\xbd\x93\xe6\xa0\xbc\xe6\xa3\x80\xe6\x9f\xa5\xe6\x9c\xaa\xe5\xa1\xab\xe5\x86\x99",
+					"result":2,
+					"ruleCategory":"xs"
+				},
+				{
+					"displayType":1,
+					"isSpecificRemark":false,
+					"lineItemVeto":0,
+					"projectName":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95\xe6\x97\xa0\xe4\xb8\xbb\xe8\xaf\x89",
+					"projectNameId":165,
+					"reason":"",
+					"recommendLevel":1,
+					"remark":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe4\xb8\xbb\xe8\xaf\x89\xe6\x9c\xaa\xe5\xa1\xab\xe5\x86\x99",
+					"result":2,
+					"ruleCategory":"xs"
+				},
+				{
+					"displayType":1,
+					"isSpecificRemark":false,
+					"lineItemVeto":0,
+					"projectName":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95\xe6\x97\xa0\xe8\xbe\x85\xe5\x8a\xa9\xe6\xa3\x80\xe6\x9f\xa5\xe8\xae\xb0\xe5\xbd\x95\xef\xbc\x88\xe6\xb3\xa8\xe6\x98\x8e\xe5\xa4\x96\xe9\x99\xa2\xe6\x9c\xba\xe6\x9e\x84\xe5\x90\x8d\xe7\xa7\xb0\xe5\x8f\x8a\xe6\x97\xa5\xe6\x9c\x9f\xef\xbc\x89",
+					"projectNameId":257,
+					"reason":"",
+					"recommendLevel":1,
+					"remark":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95\xe6\x97\xa0\xe8\xbe\x85\xe5\x8a\xa9\xe6\xa3\x80\xe6\x9f\xa5\xe8\xae\xb0\xe5\xbd\x95",
+					"result":2,
+					"ruleCategory":"xs"
+				},
+				{
+					"displayType":1,
+					"isSpecificRemark":false,
+					"lineItemVeto":0,
+					"projectName":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95\xe7\xa1\xae\xe5\xae\x9a\xe8\xaf\x8a\xe6\x96\xad\xe5\xae\x8c\xe6\x95\xb4\xe6\x80\xa7\xe8\xb4\xa8\xe6\xa3\x80",
+					"projectNameId":476,
+					"reason":"",
+					"recommendLevel":1,
+					"remark":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe7\xa1\xae\xe5\xae\x9a\xe8\xaf\x8a\xe6\x96\xad\xe6\x9c\xaa\xe5\xa1\xab\xe5\x86\x99",
+					"result":2,
+					"ruleCategory":"xs"
+				},
+				{
+					"displayType":3,
+					"isSpecificRemark":false,
+					"lineItemVeto":0,
+					"projectName":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xaf\x8a\xe6\x96\xad\xe5\x9c\xa8\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95\xe4\xb8\xad\xe6\x97\xa0\xe7\x9b\xb8\xe5\xba\x94\xe7\x9a\x84\xe8\xaf\x8a\xe6\x96\xad\xe4\xbe\x9d\xe6\x8d\xae",
+					"projectNameId":436,
+					"reason":"",
+					"recommendLevel":1,
+					"remark":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xaf\x8a\xe6\x96\xad\xe2\x80\x9c\xe9\xab\x98\xe8\xa1\x80\xe5\x8e\x8b\xe2\x80\x9d\xef\xbc\x8c\xe5\x9c\xa8\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95\xe4\xb8\xad\xe6\x9c\xaa\xe4\xbd\x93\xe7\x8e\xb0\xe7\x9b\xb8\xe5\xba\x94\xe7\x9a\x84\xe7\x97\x85\xe5\x8f\xb2\xe3\x80\x81\xe4\xb8\xb4\xe5\xba\x8a\xe8\xa1\xa8\xe7\x8e\xb0\xe3\x80\x81\xe6\xa3\x80\xe6\x9f\xa5\xe7\xbb\x93\xe6\x9e\x9c\xe7\xad\x89\xe8\xaf\x8a\xe6\x96\xad\xe4\xbe\x9d\xe6\x8d\xae\xef\xbc\x8c\xe8\xaf\xb7\xe8\xa1\xa5\xe5\x85\x85\xe7\xa1\xae\xe8\xae\xa4",
+					"result":2,
+					"ruleCategory":"nh"
+				}
+			],
+			"dischargeRecordResults":[],
+			"examinationResults":[],
+			"feedbackStatus":-1,
+			"firstProgressResults":[],
+			"ifCacheTimeout":2,
+			"mcRecordApproval":{
+				"recordRoleResultList":[],
+				"remark":""
+			},
+			"medicalRecordFirstResults":[],
+			"operationResults":[],
+			"progressResults":[
+				{
+					"displayType":4,
+					"isSpecificRemark":false,
+					"lineItemVeto":0,
+					"projectName":"24\xe5\xb0\x8f\xe6\x97\xb6\xe8\xb0\x88\xe8\xaf\x9d\xe8\xae\xb0\xe5\xbd\x95(\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\xae\x8c\xe6\x88\x90\xef\xbc\x8c\xe6\xaf\x8f\xe4\xb8\xaa\xe6\x82\xa3\xe8\x80\x85\xe9\x83\xbd\xe8\xa6\x81\xe6\x9c\x89)",
+					"projectNameId":56,
+					"reason":"",
+					"recommendLevel":1,
+					"remark":"24\xe5\xb0\x8f\xe6\x97\xb6\xe8\xb0\x88\xe8\xaf\x9d\xe8\xae\xb0\xe5\xbd\x95\xe5\xba\x94\xe5\x9c\xa8\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\xae\x8c\xe6\x88\x90",
+					"result":2,
+					"ruleCategory":"xs"
+				},
+				{
+					"displayType":4,
+					"isSpecificRemark":false,
+					"lineItemVeto":0,
+					"projectName":"\xe5\x85\xa5\xe9\x99\xa2\xe5\x90\x8e\xe9\xa6\x96\xe6\xac\xa1\xe6\x9f\xa5\xe6\x88\xbf\xe8\xae\xb0\xe5\xbd\x95\xe5\xa1\xab\xe5\x86\x99\xe5\x8f\x8a\xe6\x97\xb6\xe6\x80\xa7\xe8\xb4\xa8\xe6\xa3\x80",
+					"projectNameId":458,
+					"reason":"",
+					"recommendLevel":1,
+					"remark":"\xe9\xa6\x96\xe6\xac\xa1\xe6\x9f\xa5\xe6\x88\xbf\xe8\xae\xb0\xe5\xbd\x95\xe6\x9c\xaa\xe5\x9c\xa8\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa248\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\xae\x8c\xe6\x88\x90",
+					"result":2,
+					"ruleCategory":"xs"
+				},
+				{
+					"displayType":4,
+					"isSpecificRemark":false,
+					"lineItemVeto":0,
+					"projectName":"\xe5\x85\xa5\xe9\x99\xa2\xe5\x90\x8e\xe4\xb8\x8a\xe7\xba\xa7\xe5\x8c\xbb\xe5\xb8\x88\xe6\x9f\xa5\xe6\x88\xbf\xe8\xae\xb0\xe5\xbd\x95\xe5\xa1\xab\xe5\x86\x99\xe5\x8f\x8a\xe6\x97\xb6\xe6\x80\xa7\xe8\xb4\xa8\xe6\xa3\x80",
+					"projectNameId":460,
+					"reason":"",
+					"recommendLevel":1,
+					"remark":"\xe4\xb8\x8a\xe7\xba\xa7\xe5\x8c\xbb\xe5\xb8\x88\xe6\x9f\xa5\xe6\x88\xbf\xe8\xae\xb0\xe5\xbd\x95\xe6\x9c\xaa\xe5\x9c\xa8\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa272\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\xae\x8c\xe6\x88\x90",
+					"result":2,
+					"ruleCategory":"xs"
+				}
+			],
+			"roleRemark":"",
+			"showRemainingTime":2,
+			"talkRecordResults":[],
+			"testResults":[],
+			"vetoList":[
+				{
+					"displayType":4,
+					"isSpecificRemark":false,
+					"lineItemVeto":1,
+					"projectName":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95\xe4\xb9\xa6\xe5\x86\x99\xe5\x8f\x8a\xe6\x97\xb6\xe6\x80\xa7\xe8\xb4\xa8\xe6\xa3\x80",
+					"projectNameId":105,
+					"reason":"",
+					"recommendLevel":2,
+					"remark":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95\xe5\xba\x94\xe5\x9c\xa8\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\xae\x8c\xe6\x88\x90",
+					"result":2,
+					"ruleCategory":"xs"
+				}
+			]
+		},
+		"medlcalRecordFlag":1,
+		"openInterdict":0,
+		"patientInfo":{
+			"admissionBedCode":"",
+			"age":19.0,
+			"ageType":"\xe5\xb2\x81",
+			"bedNumber":"",
+			"currentBedCode":"",
+			"definiteDiagnosis":[
+				"\xe8\x84\x91\xe5\x86\x85\xe5\x87\xba\xe8\xa1\x80",
+				"\xe9\xab\x98\xe8\xa1\x80\xe5\x8e\x8b"
+			],
+			"displayNum":"1597913553741",
+			"gender":1,
+			"inpatientDepartment":"\xe5\x91\xbc\xe5\x90\xb8\xe7\xa7\x91",
+			"name":"tester",
+			"orgName":"\xe6\x88\x91\xe6\x98\xaf\xe5\xb0\xb9\xe5\xae\x8f\xe5\x88\xa9",
+			"serialNumber":"1597913553741",
+			"transferDepartmentName":"",
+			"userGuid":"1597913553741"
+		},
+		"qualityControlResponse":{
+			"illnessAssessList":[
+				{
+					"aiResult":{
+						"assessDictName":"Padua\xe8\xaf\x84\xe5\x88\x86",
+						"assessId":439,
+						"assessName":"\xe5\x86\x85\xe7\xa7\x91VTE\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0(Padua\xe8\xaf\x84\xe5\x88\x86\xe8\xa1\xa8)",
+						"assessResult":"\xe4\xbd\x8e\xe5\x8d\xb1",
+						"assessResultItemList":[],
+						"assessValue":"0",
+						"assessValueUnit":"\xe5\x88\x86",
+						"displayResult":"\xe4\xbd\x8e\xe5\x8d\xb1"
+					},
+					"assessId":"439",
+					"assessItem":"\xe5\x86\x85\xe7\xa7\x91VTE\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0(Padua\xe8\xaf\x84\xe5\x88\x86\xe8\xa1\xa8)",
+					"assessPostil":"\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\xba\x94\xe8\xbf\x9b\xe8\xa1\x8cVTE\xe5\x88\x9d\xe5\xa7\x8b\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0",
+					"assessResultItemList":[],
+					"compare":2,
+					"expressId":23081,
+					"fileName":"Padua.html",
+					"ignore":0,
+					"ignoreTips":"",
+					"isBlockPosition":1,
+					"isConfirmNurse":0,
+					"productId":1024,
+					"projectId":1001,
+					"projectName":"VTE\xe5\x88\x9d\xe5\xa7\x8b\xe8\xaf\x84\xe4\xbc\xb0",
+					"qcDiseaseDiagnosisList":[
+						{
+							"diseaseId":1001,
+							"versionInfo":""
+						}
+					],
+					"recommendResult":"\xe5\x86\x85\xe7\xa7\x91VTE\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0(Padua\xe8\xaf\x84\xe5\x88\x86\xe8\xa1\xa8)",
+					"ruleGroupId":1,
+					"ruleNumber":"HMvte2",
+					"ruleRemark":"\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\xba\x94\xe8\xbf\x9b\xe8\xa1\x8cVTE\xe5\x88\x9d\xe5\xa7\x8b\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0",
+					"ruleSources":[
+						{
+							"number":"HMvte2",
+							"projectName":"VTE\xe5\x88\x9d\xe5\xa7\x8b\xe8\xaf\x84\xe4\xbc\xb0",
+							"remark":"\xe4\xbd\x8f\xe9\x99\xa2\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe8\xbf\x9b\xe8\xa1\x8c\xe9\xa6\x96\xe6\xac\xa1\xe8\xaf\x84\xe4\xbc\xb0\xe3\x80\x82",
+							"sort":1,
+							"sourceDetail":"\xe6\xb7\xb1\xe9\x9d\x99\xe8\x84\x89\xe8\xa1\x80\xe6\xa0\x93\xe5\xbd\xa2\xe6\x88\x90\xe7\x9a\x84\xe8\xaf\x8a\xe6\x96\xad\xe5\x92\x8c\xe6\xb2\xbb\xe7\x96\x97\xe6\x8c\x87\xe5\x8d\x97(\xe7\xac\xac\xe4\xb8\x89\xe7\x89\x88)\xef\xbc\x882017\xef\xbc\x89",
+							"versionInfo":""
+						},
+						{
+							"number":"HMvte2",
+							"projectName":"VTE\xe5\x88\x9d\xe5\xa7\x8b\xe8\xaf\x84\xe4\xbc\xb0",
+							"remark":"\xe5\xbb\xba\xe8\xae\xae\xe5\x9c\xa8\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe8\xbf\x9b\xe8\xa1\x8cVTE\xe5\x88\x9d\xe5\xa7\x8b\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0\xef\xbc\x8c\xe7\x89\xb9\xe5\x88\xab\xe6\x98\xafVTE\xe9\xab\x98\xe9\xa3\x8e\xe9\x99\xa9\xe7\xa7\x91\xe5\xae\xa4\xe7\x9a\x84\xe4\xbd\x8f\xe9\x99\xa2\xe6\x82\xa3\xe8\x80\x85\xe3\x80\x82",
+							"sort":2,
+							"sourceDetail":"\xe5\x8c\xbb\xe9\x99\xa2\xe5\x86\x85\xe9\x9d\x99\xe8\x84\x89\xe8\xa1\x80\xe6\xa0\x93\xe6\xa0\x93\xe5\xa1\x9e\xe7\x97\x87\xe9\x98\xb2\xe6\xb2\xbb\xe4\xb8\x8e\xe7\xae\xa1\xe7\x90\x86\xe5\xbb\xba\xe8\xae\xae\xef\xbc\x882018\xef\xbc\x89",
+							"versionInfo":""
+						}
+					],
+					"warnLevel":1
+				},
+				{
+					"aiResult":{
+						"assessDictName":"Caprini\xe8\xaf\x84\xe5\x88\x86",
+						"assessId":440,
+						"assessName":"\xe5\xa4\x96\xe7\xa7\x91VTE\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0(Caprini\xe8\xaf\x84\xe5\x88\x86\xe8\xa1\xa8)",
+						"assessResult":"\xe9\xab\x98\xe5\x8d\xb1",
+						"assessResultItemList":[
+							{
+								"itemId":118,
+								"itemName":"\xe8\x84\x91\xe5\x8d\x92\xe4\xb8\xad\xef\xbc\x88 &lt;1 \xe4\xb8\xaa\xe6\x9c\x88\xef\xbc\x89 ",
+								"itemValue":"",
+								"score":5.0,
+								"summary":[
+									{
+										"dictionaryAttributeId":86,
+										"originRecord":"&lt;span class=\"hm-qa-eva-del-res-path-light\"&gt;\xe8\x84\x91\xe5\x86\x85\xe5\x87\xba\xe8\xa1\x80&lt;/span&gt;,\xe9\xab\x98\xe8\xa1\x80\xe5\x8e\x8b\xe3\x80\x82",
+										"position":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe5\x88\x9d\xe6\xad\xa5\xe8\xaf\x8a\xe6\x96\xad",
+										"progressId":19113821,
+										"recordTypeId":1,
+										"word":""
+									}
+								],
+								"wordId":311614
+							}
+						],
+						"assessValue":"5",
+						"assessValueUnit":"\xe5\x88\x86",
+						"displayResult":"\xe9\xab\x98\xe5\x8d\xb1"
+					},
+					"assessId":"440",
+					"assessItem":"\xe5\xa4\x96\xe7\xa7\x91VTE\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0(Caprini\xe8\xaf\x84\xe5\x88\x86\xe8\xa1\xa8)",
+					"assessPostil":"\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\xba\x94\xe8\xbf\x9b\xe8\xa1\x8cVTE\xe5\x88\x9d\xe5\xa7\x8b\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0",
+					"assessResultItemList":[
+						{
+							"aiChecked":1,
+							"aiItemValue":"",
+							"doctorItemValue":"",
+							"itemId":118,
+							"itemName":"\xe8\x84\x91\xe5\x8d\x92\xe4\xb8\xad\xef\xbc\x88 &lt;1 \xe4\xb8\xaa\xe6\x9c\x88\xef\xbc\x89 ",
+							"itemUnit":"",
+							"itemValue":"",
+							"score":"5",
+							"summary":[
+								{
+									"dictionaryAttributeId":86,
+									"originRecord":"&lt;span class=\"hm-qa-eva-del-res-path-light\"&gt;\xe8\x84\x91\xe5\x86\x85\xe5\x87\xba\xe8\xa1\x80&lt;/span&gt;,\xe9\xab\x98\xe8\xa1\x80\xe5\x8e\x8b\xe3\x80\x82",
+									"position":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe5\x88\x9d\xe6\xad\xa5\xe8\xaf\x8a\xe6\x96\xad",
+									"progressId":19113821,
+									"recordTypeId":1,
+									"word":""
+								}
+							],
+							"wordId":311614
+						}
+					],
+					"compare":2,
+					"expressId":23080,
+					"fileName":"caprini.html",
+					"ignore":0,
+					"ignoreTips":"",
+					"isBlockPosition":1,
+					"isConfirmNurse":0,
+					"productId":1024,
+					"projectId":1001,
+					"projectName":"VTE\xe5\x88\x9d\xe5\xa7\x8b\xe8\xaf\x84\xe4\xbc\xb0",
+					"qcDiseaseDiagnosisList":[
+						{
+							"diseaseId":1001,
+							"versionInfo":""
+						}
+					],
+					"recommendResult":"\xe5\xa4\x96\xe7\xa7\x91VTE\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0(Caprini\xe8\xaf\x84\xe5\x88\x86\xe8\xa1\xa8)",
+					"ruleGroupId":1,
+					"ruleNumber":"HMvte1",
+					"ruleRemark":"\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\xba\x94\xe8\xbf\x9b\xe8\xa1\x8cVTE\xe5\x88\x9d\xe5\xa7\x8b\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0",
+					"ruleSources":[
+						{
+							"number":"HMvte1",
+							"projectName":"VTE\xe5\x88\x9d\xe5\xa7\x8b\xe8\xaf\x84\xe4\xbc\xb0",
+							"remark":"\xe4\xbd\x8f\xe9\x99\xa2\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe8\xbf\x9b\xe8\xa1\x8c\xe9\xa6\x96\xe6\xac\xa1\xe8\xaf\x84\xe4\xbc\xb0\xe3\x80\x82",
+							"sort":1,
+							"sourceDetail":"\xe6\xb7\xb1\xe9\x9d\x99\xe8\x84\x89\xe8\xa1\x80\xe6\xa0\x93\xe5\xbd\xa2\xe6\x88\x90\xe7\x9a\x84\xe8\xaf\x8a\xe6\x96\xad\xe5\x92\x8c\xe6\xb2\xbb\xe7\x96\x97\xe6\x8c\x87\xe5\x8d\x97(\xe7\xac\xac\xe4\xb8\x89\xe7\x89\x88)\xef\xbc\x882017\xef\xbc\x89",
+							"versionInfo":""
+						},
+						{
+							"number":"HMvte1",
+							"projectName":"VTE\xe5\x88\x9d\xe5\xa7\x8b\xe8\xaf\x84\xe4\xbc\xb0",
+							"remark":"\xe5\xbb\xba\xe8\xae\xae\xe5\x9c\xa8\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe8\xbf\x9b\xe8\xa1\x8cVTE\xe5\x88\x9d\xe5\xa7\x8b\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0\xef\xbc\x8c\xe7\x89\xb9\xe5\x88\xab\xe6\x98\xafVTE\xe9\xab\x98\xe9\xa3\x8e\xe9\x99\xa9\xe7\xa7\x91\xe5\xae\xa4\xe7\x9a\x84\xe4\xbd\x8f\xe9\x99\xa2\xe6\x82\xa3\xe8\x80\x85\xe3\x80\x82",
+							"sort":2,
+							"sourceDetail":"\xe5\x8c\xbb\xe9\x99\xa2\xe5\x86\x85\xe9\x9d\x99\xe8\x84\x89\xe8\xa1\x80\xe6\xa0\x93\xe6\xa0\x93\xe5\xa1\x9e\xe7\x97\x87\xe9\x98\xb2\xe6\xb2\xbb\xe4\xb8\x8e\xe7\xae\xa1\xe7\x90\x86\xe5\xbb\xba\xe8\xae\xae\xef\xbc\x882018\xef\xbc\x89",
+							"versionInfo":""
+						}
+					],
+					"warnLevel":1
+				},
+				{
+					"aiResult":{
+						"assessDictName":"\xe5\x86\x85\xe7\xa7\x91VTE\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0",
+						"assessId":1006,
+						"assessName":"\xe5\x86\x85\xe7\xa7\x91VTE\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0",
+						"assessResult":"\xe4\xbd\x8e\xe5\x8d\xb1",
+						"assessResultItemList":[],
+						"assessValue":"0",
+						"assessValueUnit":"\xe5\x88\x86",
+						"displayResult":"\xe4\xbd\x8e\xe5\x8d\xb1"
+					},
+					"assessId":"1006",
+					"assessItem":"\xe5\x86\x85\xe7\xa7\x91VTE\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0",
+					"assessPostil":"\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\xba\x94\xe8\xbf\x9b\xe8\xa1\x8cVTE\xe5\x88\x9d\xe5\xa7\x8b\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0",
+					"assessResultItemList":[],
+					"compare":2,
+					"expressId":23055,
+					"fileName":"IVTERA.html",
+					"ignore":0,
+					"ignoreTips":"",
+					"isBlockPosition":1,
+					"isConfirmNurse":0,
+					"productId":1024,
+					"projectId":1001,
+					"projectName":"VTE\xe5\x88\x9d\xe5\xa7\x8b\xe8\xaf\x84\xe4\xbc\xb0",
+					"qcDiseaseDiagnosisList":[
+						{
+							"diseaseId":1001,
+							"versionInfo":""
+						}
+					],
+					"recommendResult":"\xe5\x86\x85\xe7\xa7\x91VTE\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0",
+					"ruleGroupId":1,
+					"ruleNumber":"vte2ZR",
+					"ruleRemark":"\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\xba\x94\xe8\xbf\x9b\xe8\xa1\x8cVTE\xe5\x88\x9d\xe5\xa7\x8b\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0",
+					"ruleSources":[
+						{
+							"number":"vte2ZR",
+							"projectName":"VTE\xe5\x88\x9d\xe5\xa7\x8b\xe8\xaf\x84\xe4\xbc\xb0",
+							"remark":"\xe4\xbd\x8f\xe9\x99\xa2\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe8\xbf\x9b\xe8\xa1\x8c\xe9\xa6\x96\xe6\xac\xa1\xe8\xaf\x84\xe4\xbc\xb0\xe3\x80\x82",
+							"sort":1,
+							"sourceDetail":"\xe6\xb7\xb1\xe9\x9d\x99\xe8\x84\x89\xe8\xa1\x80\xe6\xa0\x93\xe5\xbd\xa2\xe6\x88\x90\xe7\x9a\x84\xe8\xaf\x8a\xe6\x96\xad\xe5\x92\x8c\xe6\xb2\xbb\xe7\x96\x97\xe6\x8c\x87\xe5\x8d\x97(\xe7\xac\xac\xe4\xb8\x89\xe7\x89\x88)\xef\xbc\x882017\xef\xbc\x89",
+							"versionInfo":""
+						},
+						{
+							"number":"vte2ZR",
+							"projectName":"VTE\xe5\x88\x9d\xe5\xa7\x8b\xe8\xaf\x84\xe4\xbc\xb0",
+							"remark":"\xe5\xbb\xba\xe8\xae\xae\xe5\x9c\xa8\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe8\xbf\x9b\xe8\xa1\x8cVTE\xe5\x88\x9d\xe5\xa7\x8b\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0\xef\xbc\x8c\xe7\x89\xb9\xe5\x88\xab\xe6\x98\xafVTE\xe9\xab\x98\xe9\xa3\x8e\xe9\x99\xa9\xe7\xa7\x91\xe5\xae\xa4\xe7\x9a\x84\xe4\xbd\x8f\xe9\x99\xa2\xe6\x82\xa3\xe8\x80\x85\xe3\x80\x82",
+							"sort":2,
+							"sourceDetail":"\xe5\x8c\xbb\xe9\x99\xa2\xe5\x86\x85\xe9\x9d\x99\xe8\x84\x89\xe8\xa1\x80\xe6\xa0\x93\xe6\xa0\x93\xe5\xa1\x9e\xe7\x97\x87\xe9\x98\xb2\xe6\xb2\xbb\xe4\xb8\x8e\xe7\xae\xa1\xe7\x90\x86\xe5\xbb\xba\xe8\xae\xae\xef\xbc\x882018\xef\xbc\x89",
+							"versionInfo":""
+						}
+					],
+					"warnLevel":3
+				},
+				{
+					"aiResult":{
+						"assessDictName":"\xe5\xa4\x96\xe7\xa7\x91VTE\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0",
+						"assessId":1005,
+						"assessName":"\xe5\xa4\x96\xe7\xa7\x91VTE\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0",
+						"assessResult":"\xe9\xab\x98\xe5\x8d\xb1",
+						"assessResultItemList":[
+							{
+								"itemId":262,
+								"itemName":"\xe8\x84\x91\xe5\x8d\x92\xe4\xb8\xad\xef\xbc\x881\xe6\x9c\x88\xe5\x86\x85\xef\xbc\x89",
+								"itemValue":"",
+								"score":5.0,
+								"summary":[
+									{
+										"dictionaryAttributeId":86,
+										"originRecord":"&lt;span class=\"hm-qa-eva-del-res-path-light\"&gt;\xe8\x84\x91\xe5\x86\x85\xe5\x87\xba\xe8\xa1\x80&lt;/span&gt;,\xe9\xab\x98\xe8\xa1\x80\xe5\x8e\x8b\xe3\x80\x82",
+										"position":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe5\x88\x9d\xe6\xad\xa5\xe8\xaf\x8a\xe6\x96\xad",
+										"progressId":19113821,
+										"recordTypeId":1,
+										"word":""
+									}
+								],
+								"wordId":311614
+							}
+						],
+						"assessValue":"5",
+						"assessValueUnit":"\xe5\x88\x86",
+						"displayResult":"\xe9\xab\x98\xe5\x8d\xb1"
+					},
+					"assessId":"1005",
+					"assessItem":"\xe5\xa4\x96\xe7\xa7\x91VTE\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0",
+					"assessPostil":"\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\xba\x94\xe8\xbf\x9b\xe8\xa1\x8cVTE\xe5\x88\x9d\xe5\xa7\x8b\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0",
+					"assessResultItemList":[
+						{
+							"aiChecked":1,
+							"aiItemValue":"",
+							"doctorItemValue":"",
+							"itemId":262,
+							"itemName":"\xe8\x84\x91\xe5\x8d\x92\xe4\xb8\xad\xef\xbc\x881\xe6\x9c\x88\xe5\x86\x85\xef\xbc\x89",
+							"itemUnit":"",
+							"itemValue":"",
+							"score":"5",
+							"summary":[
+								{
+									"dictionaryAttributeId":86,
+									"originRecord":"&lt;span class=\"hm-qa-eva-del-res-path-light\"&gt;\xe8\x84\x91\xe5\x86\x85\xe5\x87\xba\xe8\xa1\x80&lt;/span&gt;,\xe9\xab\x98\xe8\xa1\x80\xe5\x8e\x8b\xe3\x80\x82",
+									"position":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe5\x88\x9d\xe6\xad\xa5\xe8\xaf\x8a\xe6\x96\xad",
+									"progressId":19113821,
+									"recordTypeId":1,
+									"word":""
+								}
+							],
+							"wordId":311614
+						}
+					],
+					"compare":2,
+					"expressId":23053,
+					"fileName":"SVTERA.html",
+					"ignore":0,
+					"ignoreTips":"",
+					"isBlockPosition":1,
+					"isConfirmNurse":0,
+					"productId":1024,
+					"projectId":1001,
+					"projectName":"VTE\xe5\x88\x9d\xe5\xa7\x8b\xe8\xaf\x84\xe4\xbc\xb0",
+					"qcDiseaseDiagnosisList":[
+						{
+							"diseaseId":1001,
+							"versionInfo":""
+						}
+					],
+					"recommendResult":"\xe5\xa4\x96\xe7\xa7\x91VTE\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0",
+					"ruleGroupId":1,
+					"ruleNumber":"vte1ZR",
+					"ruleRemark":"\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\xba\x94\xe8\xbf\x9b\xe8\xa1\x8cVTE\xe5\x88\x9d\xe5\xa7\x8b\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0",
+					"ruleSources":[
+						{
+							"number":"vte1ZR",
+							"projectName":"VTE\xe5\x88\x9d\xe5\xa7\x8b\xe8\xaf\x84\xe4\xbc\xb0",
+							"remark":"\xe4\xbd\x8f\xe9\x99\xa2\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe8\xbf\x9b\xe8\xa1\x8c\xe9\xa6\x96\xe6\xac\xa1\xe8\xaf\x84\xe4\xbc\xb0\xe3\x80\x82",
+							"sort":1,
+							"sourceDetail":"\xe6\xb7\xb1\xe9\x9d\x99\xe8\x84\x89\xe8\xa1\x80\xe6\xa0\x93\xe5\xbd\xa2\xe6\x88\x90\xe7\x9a\x84\xe8\xaf\x8a\xe6\x96\xad\xe5\x92\x8c\xe6\xb2\xbb\xe7\x96\x97\xe6\x8c\x87\xe5\x8d\x97(\xe7\xac\xac\xe4\xb8\x89\xe7\x89\x88)\xef\xbc\x882017\xef\xbc\x89",
+							"versionInfo":""
+						},
+						{
+							"number":"vte1ZR",
+							"projectName":"VTE\xe5\x88\x9d\xe5\xa7\x8b\xe8\xaf\x84\xe4\xbc\xb0",
+							"remark":"\xe5\xbb\xba\xe8\xae\xae\xe5\x9c\xa8\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe8\xbf\x9b\xe8\xa1\x8cVTE\xe5\x88\x9d\xe5\xa7\x8b\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0\xef\xbc\x8c\xe7\x89\xb9\xe5\x88\xab\xe6\x98\xafVTE\xe9\xab\x98\xe9\xa3\x8e\xe9\x99\xa9\xe7\xa7\x91\xe5\xae\xa4\xe7\x9a\x84\xe4\xbd\x8f\xe9\x99\xa2\xe6\x82\xa3\xe8\x80\x85\xe3\x80\x82",
+							"sort":2,
+							"sourceDetail":"\xe5\x8c\xbb\xe9\x99\xa2\xe5\x86\x85\xe9\x9d\x99\xe8\x84\x89\xe8\xa1\x80\xe6\xa0\x93\xe6\xa0\x93\xe5\xa1\x9e\xe7\x97\x87\xe9\x98\xb2\xe6\xb2\xbb\xe4\xb8\x8e\xe7\xae\xa1\xe7\x90\x86\xe5\xbb\xba\xe8\xae\xae\xef\xbc\x882018\xef\xbc\x89",
+							"versionInfo":""
+						}
+					],
+					"warnLevel":3
+				},
+				{
+					"assessId":"23",
+					"assessItem":"Glasgow\xe6\x98\x8f\xe8\xbf\xb7\xe8\xaf\x84\xe5\x88\x86\xe9\x87\x8f\xe8\xa1\xa8",
+					"assessPostil":"\xe5\xae\x8c\xe5\x96\x84GCS\xe8\xaf\x84\xe5\x88\x86",
+					"compare":0,
+					"expressId":20090,
+					"fileName":"coma.html",
+					"ignore":2,
+					"ignoreTips":"",
+					"isBlockPosition":1,
+					"productId":2048,
+					"projectId":1122,
+					"projectName":"GCS\xe8\xaf\x84\xe5\x88\x86",
+					"qcDiseaseDiagnosisList":[
+						{
+							"diagnosisId":3460,
+							"diseaseId":2012,
+							"versionInfo":""
+						}
+					],
+					"recommendResult":"Glasgow\xe6\x98\x8f\xe8\xbf\xb7\xe8\xaf\x84\xe5\x88\x86\xe9\x87\x8f\xe8\xa1\xa8",
+					"ruleNumber":"ICH-3",
+					"ruleRemark":"\xe5\xae\x8c\xe5\x96\x84GCS\xe8\xaf\x84\xe5\x88\x86",
+					"warnLevel":3
+				},
+				{
+					"assessId":"11",
+					"assessItem":"NIHSS\xe5\x8d\x92\xe4\xb8\xad\xe9\x87\x8f\xe8\xa1\xa8",
+					"assessPostil":"\xe5\xae\x8c\xe5\x96\x84NIHSS\xe9\x87\x8f\xe8\xa1\xa8\xe8\xaf\x84\xe4\xbc\xb0\xe7\x97\x85\xe6\x83\x85\xe4\xb8\xa5\xe9\x87\x8d\xe7\xa8\x8b\xe5\xba\xa6\xe3\x80\x81\xe5\x88\xa4\xe6\x96\xad\xe6\x82\xa3\xe8\x80\x85\xe9\xa2\x84\xe5\x90\x8e\xe5\x8f\x8a\xe6\x8c\x87\xe5\xaf\xbc\xe9\x80\x89\xe6\x8b\xa9\xe6\xb2\xbb\xe7\x96\x97\xe6\x8e\xaa\xe6\x96\xbd",
+					"compare":0,
+					"expressId":20089,
+					"fileName":"nih.html",
+					"ignore":2,
+					"ignoreTips":"",
+					"isBlockPosition":1,
+					"productId":2048,
+					"projectId":457,
+					"projectName":"NIHSS\xe8\xaf\x84\xe5\x88\x86",
+					"qcDiseaseDiagnosisList":[
+						{
+							"diagnosisId":3460,
+							"diseaseId":2012,
+							"versionInfo":""
+						}
+					],
+					"recommendResult":"NIHSS\xe5\x8d\x92\xe4\xb8\xad\xe9\x87\x8f\xe8\xa1\xa8",
+					"ruleNumber":"ICH-2",
+					"ruleRemark":"\xe5\xae\x8c\xe5\x96\x84NIHSS\xe9\x87\x8f\xe8\xa1\xa8\xe8\xaf\x84\xe4\xbc\xb0\xe7\x97\x85\xe6\x83\x85\xe4\xb8\xa5\xe9\x87\x8d\xe7\xa8\x8b\xe5\xba\xa6\xe3\x80\x81\xe5\x88\xa4\xe6\x96\xad\xe6\x82\xa3\xe8\x80\x85\xe9\xa2\x84\xe5\x90\x8e\xe5\x8f\x8a\xe6\x8c\x87\xe5\xaf\xbc\xe9\x80\x89\xe6\x8b\xa9\xe6\xb2\xbb\xe7\x96\x97\xe6\x8e\xaa\xe6\x96\xbd",
+					"warnLevel":3
+				}
+			],
+			"redColorForBar":false,
+			"therapeuticPlanList":[
+				{
+					"applyConsultation":1,
+					"assessResultList":[
+						{
+							"aiResult":{
+								"assessDictName":"CHA2DS2-VASc",
+								"assessId":9,
+								"assessName":"CHA2DS2-VASc\xe8\xaf\x84\xe5\x88\x86",
+								"assessResult":"\xe6\x82\xa3\xe8\x80\x85\xe5\xb9\xb4\xe5\x8d\x92\xe4\xb8\xad\xe5\x8f\x91\xe7\x94\x9f\xe7\x8e\x873.2%",
+								"assessResultItemList":[
+									{
+										"itemId":185,
+										"itemName":"\xe9\xab\x98\xe8\xa1\x80\xe5\x8e\x8b",
+										"itemValue":"",
+										"score":1.0,
+										"summary":[
+											{
+												"dictionaryAttributeId":86,
+												"originRecord":"\xe8\x84\x91\xe5\x86\x85\xe5\x87\xba\xe8\xa1\x80,&lt;span class=\"hm-qa-eva-del-res-path-light\"&gt;\xe9\xab\x98\xe8\xa1\x80\xe5\x8e\x8b&lt;/span&gt;\xe3\x80\x82",
+												"position":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe5\x88\x9d\xe6\xad\xa5\xe8\xaf\x8a\xe6\x96\xad",
+												"progressId":19113821,
+												"recordTypeId":1,
+												"word":""
+											}
+										],
+										"wordId":4319
+									},
+									{
+										"itemId":188,
+										"itemName":"\xe8\x84\x91\xe5\x8d\x92\xe4\xb8\xad/\xe7\x9f\xad\xe6\x9a\x82\xe6\x80\xa7\xe8\x84\x91\xe7\xbc\xba\xe8\xa1\x80\xe5\x8f\x91\xe4\xbd\x9c/\xe8\xa1\x80\xe6\xa0\x93\xe6\xa0\x93\xe5\xa1\x9e\xe7\x97\x85\xe5\x8f\xb2",
+										"itemValue":"",
+										"score":2.0,
+										"summary":[
+											{
+												"dictionaryAttributeId":86,
+												"originRecord":"&lt;span class=\"hm-qa-eva-del-res-path-light\"&gt;\xe8\x84\x91\xe5\x86\x85\xe5\x87\xba\xe8\xa1\x80&lt;/span&gt;,\xe9\xab\x98\xe8\xa1\x80\xe5\x8e\x8b\xe3\x80\x82",
+												"position":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe5\x88\x9d\xe6\xad\xa5\xe8\xaf\x8a\xe6\x96\xad",
+												"progressId":19113821,
+												"recordTypeId":1,
+												"word":""
+											}
+										],
+										"wordId":323790
+									}
+								],
+								"assessValue":"3",
+								"assessValueUnit":"\xe5\x88\x86",
+								"displayResult":"3\xe5\x88\x86"
+							},
+							"assessId":9,
+							"assessItem":"CHA2DS2-VASc\xe8\xaf\x84\xe5\x88\x86",
+							"assessResultItemList":[
+								{
+									"aiChecked":1,
+									"aiItemValue":"",
+									"doctorItemValue":"",
+									"itemId":185,
+									"itemName":"\xe9\xab\x98\xe8\xa1\x80\xe5\x8e\x8b",
+									"itemUnit":"",
+									"itemValue":"",
+									"score":"1",
+									"summary":[
+										{
+											"dictionaryAttributeId":86,
+											"originRecord":"\xe8\x84\x91\xe5\x86\x85\xe5\x87\xba\xe8\xa1\x80,&lt;span class=\"hm-qa-eva-del-res-path-light\"&gt;\xe9\xab\x98\xe8\xa1\x80\xe5\x8e\x8b&lt;/span&gt;\xe3\x80\x82",
+											"position":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe5\x88\x9d\xe6\xad\xa5\xe8\xaf\x8a\xe6\x96\xad",
+											"progressId":19113821,
+											"recordTypeId":1,
+											"word":""
+										}
+									],
+									"wordId":4319
+								},
+								{
+									"aiChecked":1,
+									"aiItemValue":"",
+									"doctorItemValue":"",
+									"itemId":188,
+									"itemName":"\xe8\x84\x91\xe5\x8d\x92\xe4\xb8\xad/\xe7\x9f\xad\xe6\x9a\x82\xe6\x80\xa7\xe8\x84\x91\xe7\xbc\xba\xe8\xa1\x80\xe5\x8f\x91\xe4\xbd\x9c/\xe8\xa1\x80\xe6\xa0\x93\xe6\xa0\x93\xe5\xa1\x9e\xe7\x97\x85\xe5\x8f\xb2",
+									"itemUnit":"",
+									"itemValue":"",
+									"score":"2",
+									"summary":[
+										{
+											"dictionaryAttributeId":86,
+											"originRecord":"&lt;span class=\"hm-qa-eva-del-res-path-light\"&gt;\xe8\x84\x91\xe5\x86\x85\xe5\x87\xba\xe8\xa1\x80&lt;/span&gt;,\xe9\xab\x98\xe8\xa1\x80\xe5\x8e\x8b\xe3\x80\x82",
+											"position":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe5\x88\x9d\xe6\xad\xa5\xe8\xaf\x8a\xe6\x96\xad",
+											"progressId":19113821,
+											"recordTypeId":1,
+											"word":""
+										}
+									],
+									"wordId":323790
+								}
+							],
+							"compare":2,
+							"expressId":22288,
+							"fileName":"vasc.html",
+							"isConfirmNurse":0,
+							"productId":1024,
+							"projectId":1149,
+							"ruleNumber":"AF-1",
+							"ruleRemark":"\xe5\xaf\xb9\xe6\x89\x80\xe6\x9c\x89\xe6\x88\xbf\xe9\xa2\xa4\xe6\x82\xa3\xe8\x80\x85\xe5\xba\x94\xe7\x94\xa8CHA2DS2-VASc\xe8\xaf\x84\xe5\x88\x86\xe8\xbf\x9b\xe8\xa1\x8c\xe8\xa1\x80\xe6\xa0\x93\xe6\xa0\x93\xe5\xa1\x9e\xe5\x8d\xb1\xe9\x99\xa9\xe5\x9b\xa0\xe7\xb4\xa0\xe8\xaf\x84\xe4\xbc\xb0"
+						}
+					],
+					"atrialFibrillationIndication":0,
+					"expressId":22293,
+					"id":14420,
+					"ignore":1,
+					"ignoreReason":[
+						"\xe6\x88\xbf\xe9\xa2\xa4\xe8\xaf\x8a\xe6\x96\xad\xe5\xb0\x9a\xe4\xb8\x8d\xe6\x98\x8e\xe7\xa1\xae"
+					],
+					"ignoreTips":"\xe6\x98\xaf",
+					"isBlockPosition":1,
+					"planName":"\xe8\xa1\x80\xe6\xa0\x93\xe9\xab\x98\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\xb7\xe5\xbf\x83\xe8\x84\x8f\xe7\xa7\x91\xe4\xbc\x9a\xe8\xaf\x8a",
+					"planPostil":"CHA2DS2-VASc\xe8\xaf\x84\xe5\x88\x86&gt;=2\xe7\x9a\x84\xe7\x94\xb7\xe6\x80\xa7\xe6\x88\xbf\xe9\xa2\xa4\xe6\x82\xa3\xe8\x80\x85\xe5\xba\x94\xe9\x95\xbf\xe6\x9c\x9f\xe6\x8e\xa5\xe5\x8f\x97\xe6\x8a\x97\xe5\x87\x9d\xe6\xb2\xbb\xe7\x96\x97\xef\xbc\x8c\xe5\xbb\xba\xe8\xae\xae\xe8\xaf\xb7\xe5\xbf\x83\xe8\x84\x8f\xe4\xb8\x93\xe7\xa7\x91\xe5\x8c\xbb\xe5\xb8\x88\xe5\x8d\x8f\xe5\x8a\xa9\xe8\xaf\x8a\xe7\x96\x97",
+					"productId":1024,
+					"projectId":1152,
+					"projectName":"\xe8\xa1\x80\xe6\xa0\x93\xe9\xab\x98\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\xb7\xe5\xbf\x83\xe8\x84\x8f\xe7\xa7\x91\xe4\xbc\x9a\xe8\xaf\x8a",
+					"qcDiseaseDiagnosisList":[
+						{
+							"diseaseId":1003,
+							"versionInfo":""
+						}
+					],
+					"receiver":"1234",
+					"recommendResult":"\xe8\xa1\x80\xe6\xa0\x93\xe9\xab\x98\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\xb7\xe5\xbf\x83\xe8\x84\x8f\xe7\xa7\x91\xe4\xbc\x9a\xe8\xaf\x8a",
+					"recommendSource":1,
+					"reminderNote":"CHA2DS2-VASc\xe8\xaf\x84\xe5\x88\x86&gt;=3\xe7\x9a\x84\xe5\xa5\xb3\xe6\x80\xa7\xe6\x88\xbf\xe9\xa2\xa4\xe6\x82\xa3\xe8\x80\x85\xe5\xba\x94\xe9\x95\xbf\xe6\x9c\x9f\xe6\x8e\xa5\xe5\x8f\x97\xe6\x8a\x97\xe5\x87\x9d\xe6\xb2\xbb\xe7\x96\x97\xef\xbc\x8c\xe5\xbb\xba\xe8\xae\xae\xe8\xaf\xb7\xe5\xbf\x83\xe8\x84\x8f\xe4\xb8\x93\xe7\xa7\x91\xe5\x8c\xbb\xe5\xb8\x88\xe5\x8d\x8f\xe5\x8a\xa9\xe8\xaf\x8a\xe7\x96\x97",
+					"ruleNumber":"AF-7",
+					"ruleRemark":"\xe3\x80\x90\xe5\x91\xbc\xe5\x90\xb8\xe7\xa7\x91\xe7\xa7\x91\xe5\xae\xa4\xe3\x80\x91tester\xef\xbc\x88\xe6\x82\xa3\xe8\x80\x85id\xef\xbc\x9a1597913553741\xef\xbc\x89\xe8\xaf\x8a\xe6\x96\xad\xe6\x88\xbf\xe9\xa2\xa4\xef\xbc\x8cCHA2DS2-VASc\xe8\xaf\x84\xe5\x88\x86=3\xe5\x88\x86\xef\xbc\x8c\xe4\xba\x8e08\xe6\x9c\x8820\xe6\x97\xa516\xe6\x97\xb6\xe7\x94\xb3\xe8\xaf\xb7\xe4\xbc\x9a\xe8\xaf\x8a",
+					"samePageForCP":true,
+					"type":1,
+					"warnLevel":3
+				},
+				{
+					"applyConsultation":0,
+					"atrialFibrillationIndication":1,
+					"expressId":22296,
+					"id":14422,
+					"ignore":1,
+					"ignoreTips":"",
+					"isBlockPosition":1,
+					"planName":"\xe8\xa1\xa5\xe5\x85\x85\xe6\x88\xbf\xe9\xa2\xa4\xe8\xaf\x8a\xe6\x96\xad",
+					"planPostil":"\xe6\x82\xa3\xe8\x80\x85\xe5\xad\x98\xe5\x9c\xa8\xe5\xbf\x83\xe6\x88\xbf\xe9\xa2\xa4\xe5\x8a\xa8\xef\xbc\x8c\xe5\xbb\xba\xe8\xae\xae\xe8\xa1\xa5\xe5\x85\x85\xe7\x9b\xb8\xe5\xba\x94\xe8\xaf\x8a\xe6\x96\xad",
+					"productId":1024,
+					"projectId":1154,
+					"projectName":"\xe8\xa1\xa5\xe5\x85\x85\xe6\x88\xbf\xe9\xa2\xa4\xe8\xaf\x8a\xe6\x96\xad",
+					"qcDiseaseDiagnosisList":[
+						{
+							"diseaseId":1003,
+							"versionInfo":""
+						}
+					],
+					"receiver":"",
+					"recommendResult":"\xe8\xa1\xa5\xe5\x85\x85\xe6\x88\xbf\xe9\xa2\xa4\xe8\xaf\x8a\xe6\x96\xad",
+					"recommendSource":1,
+					"reminderNote":"",
+					"ruleNumber":"AF-10",
+					"ruleRemark":"\xe6\x82\xa3\xe8\x80\x85\xe5\xad\x98\xe5\x9c\xa8\xe5\xbf\x83\xe6\x88\xbf\xe9\xa2\xa4\xe5\x8a\xa8\xef\xbc\x8c\xe5\xbb\xba\xe8\xae\xae\xe8\xa1\xa5\xe5\x85\x85\xe7\x9b\xb8\xe5\xba\x94\xe8\xaf\x8a\xe6\x96\xad",
+					"samePageForCP":true,
+					"summary":[
+						{
+							"dictionaryAttributeId":10,
+							"originRecord":"&lt;span class=\"hm-qa-eva-del-res-path-light\"&gt;\xe5\xbf\x83\xe6\x88\xbf\xe9\xa2\xa4\xe5\x8a\xa8&lt;/span&gt;\xe3\x80\x82",
+							"position":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe7\x8e\xb0\xe7\x97\x85\xe5\x8f\xb2",
+							"progressId":19113821,
+							"recordTypeId":1,
+							"word":""
+						}
+					],
+					"warnLevel":3
+				}
+			]
+		},
+		"recordId":5409244,
+		"repeatabilityInfo":{
+			"tabooStatus":3
+		},
+		"roleRemark":"",
+		"showGdms":false,
+		"therapeuticPlanList":[
+			{
+				"applyConsultation":0,
+				"atrialFibrillationIndication":0,
+				"expressId":207467,
+				"hasDrug":1,
+				"id":13167,
+				"ignoreTips":"",
+				"planName":"\xe8\x84\x91\xe5\x87\xba\xe8\xa1\x80\xe8\xa1\x80\xe5\x8e\x8b\xe7\xae\xa1\xe7\x90\x86",
+				"planPostil":"\xe6\x80\xa5\xe6\x80\xa7\xe6\x9c\x9f\xe9\x98\xb2\xe6\xad\xa2\xe8\xbf\x87\xe5\xba\xa6\xe9\x99\x8d\xe5\x8e\x8b\xe5\xaf\xbc\xe8\x87\xb4\xe8\x84\x91\xe7\x81\x8c\xe6\xb3\xa8\xe5\x8e\x8b\xe4\xb8\x8d\xe8\xb6\xb3\xef\xbc\x8c\xe6\xa0\xb9\xe6\x8d\xae\xe6\x82\xa3\xe8\x80\x85\xe9\xab\x98\xe8\xa1\x80\xe5\x8e\x8b\xe7\x97\x85\xe5\x8f\xb2\xe9\x95\xbf\xe7\x9f\xad\xe3\x80\x81\xe5\x9f\xba\xe7\xa1\x80\xe8\xa1\x80\xe5\x8e\x8b\xe5\x80\xbc\xe3\x80\x81\xe9\xa2\x85\xe5\x86\x85\xe5\x8e\x8b\xe6\x83\x85\xe5\x86\xb5\xe5\x8f\x8a\xe5\x85\xa5\xe9\x99\xa2\xe6\x97\xb6\xe8\xa1\x80\xe5\x8e\x8b\xe6\x83\x85\xe5\x86\xb5\xe4\xb8\xaa\xe4\xbd\x93\xe5\x8c\x96\xe8\xae\xbe\xe7\xab\x8b\xe8\xa1\x80\xe5\x8e\x8b\xe7\x9b\xae\xe6\xa0\x87\xe3\x80\x82\xe6\x94\xb6\xe7\xbc\xa9\xe5\x8e\x8b&gt;220mmHg\xe9\x9d\x99\xe8\x84\x89\xe7\x94\xa8\xe8\x8d\xaf\xe9\x99\x8d\xe5\x8e\x8b\xef\xbc\x8c\xe6\x94\xb6\xe7\xbc\xa9\xe5\x8e\x8b150-220mmHg\xe6\x97\xa0\xe6\x80\xa5\xe6\x80\xa7\xe9\x99\x8d\xe5\x8e\x8b\xe7\xa6\x81\xe5\xbf\x8c\xe8\x80\x85\xe6\x94\xb6\xe7\xbc\xa9\xe5\x8e\x8b140mmHg\xe6\x98\xaf\xe5\xae\x89\xe5\x85\xa8\xe7\x9a\x84\xef\xbc\x8c\xe8\x9b\x9b\xe7\xbd\x91\xe8\x86\x9c\xe4\xb8\x8b\xe8\x85\x94\xe5\x87\xba\xe8\xa1\x80\xe6\xaf\x94\xe5\x9f\xba\xe7\xa1\x80\xe8\xa1\x80\xe5\x8e\x8b\xe9\xab\x9820%\xe3\x80\x82\xe5\x87\xba\xe9\x99\xa2\xe5\x90\x8e\xe7\xbb\xa7\xe7\xbb\xad\xe8\xa1\x80\xe5\x8e\x8b\xe7\xae\xa1\xe7\x90\x86",
+				"projectName":"",
+				"receiver":"",
+				"recommendResult":"",
+				"reminderNote":"",
+				"ruleNumber":"",
+				"ruleRemark":"",
+				"samePageForCP":true
+			},
+			{
+				"applyConsultation":0,
+				"atrialFibrillationIndication":0,
+				"expressId":207465,
+				"hasDrug":1,
+				"id":13168,
+				"ignoreTips":"",
+				"planName":"\xe8\x84\x91\xe5\x87\xba\xe8\xa1\x80\xe8\xa1\x80\xe7\xb3\x96\xe7\xae\xa1\xe7\x90\x86",
+				"planPostil":"\xe9\xab\x98\xe8\xa1\x80\xe7\xb3\x96\xe5\x92\x8c\xe4\xbd\x8e\xe8\xa1\x80\xe7\xb3\x96\xe5\x9d\x87\xe6\x98\xaf\xe5\xbd\xb1\xe5\x93\x8d\xe8\x84\x91\xe5\x87\xba\xe8\xa1\x80\xe9\xa2\x84\xe5\x90\x8e\xe7\x9a\x84\xe9\x87\x8d\xe8\xa6\x81\xe5\x9b\xa0\xe7\xb4\xa0\xe3\x80\x82\xe8\x84\x91\xe5\x87\xba\xe8\xa1\x80\xe5\xbd\x93\xe8\xa1\x80\xe7\xb3\x96&gt;10mmol/L\xe5\xbc\x80\xe5\xa7\x8b\xe9\x99\x8d\xe7\xb3\x96\xe6\xb2\xbb\xe7\x96\x97\xef\xbc\x8c\xe9\x9d\x99\xe8\x84\x89\xe7\x94\xa8\xe8\x83\xb0\xe5\xb2\x9b\xe7\xb4\xa0\xe6\xb2\xbb\xe7\x96\x97\xef\xbc\x8c\xe6\x8e\xa7\xe5\x88\xb6\xe9\x9a\x8f\xe6\x9c\xba\xe8\xa1\x80\xe7\xb3\x96&lt;11.1mmol/L\xef\xbc\x8c\xe9\x81\xbf\xe5\x85\x8d\xe5\x8f\x91\xe7\x94\x9f\xe4\xbd\x8e\xe8\xa1\x80\xe7\xb3\x96",
+				"projectName":"",
+				"receiver":"",
+				"recommendResult":"",
+				"reminderNote":"",
+				"ruleNumber":"",
+				"ruleRemark":"",
+				"samePageForCP":true
+			},
+			{
+				"applyConsultation":0,
+				"atrialFibrillationIndication":0,
+				"expressId":207459,
+				"hasDrug":1,
+				"id":13169,
+				"ignoreTips":"",
+				"planName":"\xe6\xad\xa2\xe8\xa1\x80\xe6\xb2\xbb\xe7\x96\x97",
+				"planPostil":"\xe5\x87\xba\xe8\xa1\x808\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\x8f\xaf\xe4\xbb\xa5\xe9\x80\x82\xe5\xbd\x93\xe5\xba\x94\xe7\x94\xa8\xe6\xad\xa2\xe8\xa1\x80\xe8\x8d\xaf\xe9\xa2\x84\xe9\x98\xb2\xe8\xa1\x80\xe8\x82\xbf\xe6\x89\xa9\xe5\xa4\xa7\xef\xbc\x8c\xe4\xbd\xbf\xe7\x94\xa8\xe4\xb8\x80\xe8\x88\xac\xe4\xb8\x8d\xe8\xb6\x85\xe8\xbf\x8748\xe5\xb0\x8f\xe6\x97\xb6\xe3\x80\x82\xe5\xaf\xb9\xe4\xba\x8e\xe5\x87\x9d\xe8\xa1\x80\xe5\x8a\x9f\xe8\x83\xbd\xe6\xad\xa3\xe5\xb8\xb8\xe7\x9a\x84\xe6\x82\xa3\xe8\x80\x85\xef\xbc\x8c\xe4\xb8\x80\xe8\x88\xac\xe4\xb8\x8d\xe5\xbb\xba\xe8\xae\xae\xe5\xb8\xb8\xe8\xa7\x84\xe4\xbd\xbf\xe7\x94\xa8\xe6\xad\xa2\xe8\xa1\x80\xe8\x8d\xaf",
+				"projectName":"",
+				"receiver":"",
+				"recommendResult":"",
+				"reminderNote":"",
+				"ruleNumber":"",
+				"ruleRemark":"",
+				"samePageForCP":true
+			},
+			{
+				"applyConsultation":0,
+				"atrialFibrillationIndication":0,
+				"expressId":207450,
+				"hasDrug":1,
+				"id":13170,
+				"ignoreTips":"",
+				"planName":"\xe9\x99\x8d\xe9\xa2\x85\xe5\x8e\x8b\xe6\xb2\xbb\xe7\x96\x97",
+				"planPostil":"\xe5\xaf\x86\xe5\x88\x87\xe8\xa7\x82\xe5\xaf\x9f\xe6\x82\xa3\xe8\x80\x85\xe8\x84\x91\xe6\xb0\xb4\xe8\x82\xbf\xe5\x92\x8c\xe9\xa2\x85\xe5\x86\x85\xe5\x8e\x8b\xe5\xa2\x9e\xe9\xab\x98\xe6\x83\x85\xe5\x86\xb5\xef\xbc\x8c\xe5\xbf\x85\xe8\xa6\x81\xe6\x97\xb6\xe7\x9b\x91\xe6\xb5\x8b\xe9\xa2\x85\xe5\x86\x85\xe5\x8e\x8b\xef\xbc\x8c\xe9\xa2\x85\xe5\x86\x85\xe5\x8e\x8bICP&gt;20mmHg\xef\xbc\x8c\xe5\x8f\xaf\xe5\xba\x94\xe7\x94\xa8\xe8\x84\xb1\xe6\xb0\xb4\xe5\x89\x82\xef\xbc\x9b\xe9\xa2\x85\xe5\x86\x85\xe5\x8e\x8bICP&gt;25mmHg\xef\xbc\x8c\xe5\x8f\xaf\xe5\xbe\xae\xe5\x88\x9b\xe6\x88\x96\xe5\xa4\x96\xe7\xa7\x91\xe5\xb9\xb2\xe9\xa2\x84\xef\xbc\x8c\xe5\xa6\x82\xe8\x84\x91\xe5\xae\xa4\xe5\xbc\x95\xe6\xb5\x81\xe5\x87\x8f\xe5\x8e\x8b\xe3\x80\x81\xe5\x8e\xbb\xe9\xaa\xa8\xe7\x93\xa3\xe5\x87\x8f\xe5\x8e\x8b",
+				"projectName":"",
+				"receiver":"",
+				"recommendResult":"",
+				"reminderNote":"",
+				"ruleNumber":"",
+				"ruleRemark":"",
+				"samePageForCP":true
+			},
+			{
+				"applyConsultation":0,
+				"atrialFibrillationIndication":0,
+				"expressId":207476,
+				"hasDrug":0,
+				"id":13171,
+				"ignoreTips":"",
+				"planName":"\xe5\xa4\x96\xe7\xa7\x91\xe6\xb2\xbb\xe7\x96\x97",
+				"planPostil":"\xe8\x84\x91\xe5\x87\xba\xe8\xa1\x80\xe5\x90\x8e\xef\xbc\x8c\xe8\x8b\xa5\xe6\x82\xa3\xe8\x80\x85\xe6\x83\x85\xe5\x86\xb5\xe6\x81\xb6\xe5\x8c\x96\xe5\x92\x8c\xe9\xab\x98\xe5\x8d\xb1\xe6\x82\xa3\xe8\x80\x85\xef\xbc\x88\xe5\xa6\x82\xef\xbc\x9a\xe5\xa4\xa7\xe5\x8d\x8a\xe7\x90\x83\xe8\xa1\x80\xe8\x82\xbf\xe4\xb8\xad\xe7\xba\xbf\xe7\xa7\xbb\xe4\xbd\x8d\xe6\x88\x96\xe5\xb0\x8f\xe8\x84\x91\xe5\x87\xba\xe8\xa1\x80\xef\xbc\x89\xe5\x8f\xaf\xe4\xbb\xa5\xe8\x80\x83\xe8\x99\x91\xe6\x89\x8b\xe6\x9c\xaf\xe6\xb2\xbb\xe7\x96\x97\xef\xbc\x8c\xe8\xa1\x80\xe8\x82\xbf\xe6\xb8\x85\xe9\x99\xa4\xef\xbc\x8c\xe9\xa2\x85\xe5\x86\x85\xe5\x87\x8f\xe5\x8e\x8b",
+				"projectName":"",
+				"receiver":"",
+				"recommendResult":"",
+				"reminderNote":"",
+				"ruleNumber":"",
+				"ruleRemark":"",
+				"samePageForCP":true
+			},
+			{
+				"applyConsultation":0,
+				"atrialFibrillationIndication":0,
+				"expressId":207470,
+				"hasDrug":1,
+				"id":13183,
+				"ignoreTips":"",
+				"planName":"\xe8\x84\x91\xe5\x87\xba\xe8\xa1\x80\xe5\xb9\xb6\xe5\x8f\x91\xe7\x97\x87\xe6\xb2\xbb\xe7\x96\x97",
+				"planPostil":"\xe5\xb9\xb6\xe5\x8f\x91\xe7\x97\x87\xe6\xb2\xbb\xe7\x96\x97",
+				"projectName":"",
+				"receiver":"",
+				"recommendResult":"",
+				"reminderNote":"",
+				"ruleNumber":"",
+				"ruleRemark":"",
+				"samePageForCP":true
+			},
+			{
+				"applyConsultation":0,
+				"atrialFibrillationIndication":0,
+				"expressId":207469,
+				"hasDrug":0,
+				"id":13184,
+				"ignoreTips":"",
+				"planName":"\xe6\x97\xa9\xe6\x9c\x9f\xe5\x90\xaf\xe5\x8a\xa8\xe5\xba\xb7\xe5\xa4\x8d\xe8\xae\xad\xe7\xbb\x83",
+				"planPostil":"\xe6\x80\xa5\xe6\x80\xa7\xe8\x84\x91\xe5\x87\xba\xe8\xa1\x80\xe5\x90\x8e\xe5\x8f\x8a\xe6\x97\xa9\xe8\xbf\x9b\xe8\xa1\x8c\xe5\xba\xb7\xe5\xa4\x8d\xe6\xb2\xbb\xe7\x96\x97\xef\xbc\x8c\xe6\x82\xa3\xe8\x80\x85\xe7\x94\x9f\xe5\x91\xbd\xe4\xbd\x93\xe5\xbe\x81\xe5\xb9\xb3\xe7\xa8\xb3\xe5\x90\x8e\xe5\x8d\xb3\xe5\x8f\xaf\xe5\x90\xaf\xe5\x8a\xa8\xe5\xba\xb7\xe5\xa4\x8d\xe6\xb2\xbb\xe7\x96\x97\xef\xbc\x8c\xe5\x8f\x91\xe7\x97\x853\xe4\xb8\xaa\xe6\x9c\x88\xe5\x86\x85\xe6\x98\xaf\xe9\xbb\x84\xe9\x87\x91\xe5\xba\xb7\xe5\xa4\x8d\xe6\x9c\x9f\xef\xbc\x8c\xe5\x8f\x91\xe7\x97\x85\xe5\x90\x8e6\xe4\xb8\xaa\xe6\x9c\x88\xe6\x98\xaf\xe6\x9c\x89\xe6\x95\x88\xe5\xba\xb7\xe5\xa4\x8d\xe6\x9c\x9f\xe3\x80\x82\xe6\x8e\xaa\xe6\x96\xbd\xe6\x9c\x89\xe4\xbd\x93\xe4\xbd\x8d\xe5\xba\xb7\xe5\xa4\x8d\xe3\x80\x81\xe6\xa1\xa5\xe5\xbc\x8f\xe8\xbf\x90\xe5\x8a\xa8\xe3\x80\x81\xe5\x9d\x90\xe4\xbd\x8d\xe8\xae\xad\xe7\xbb\x83\xe3\x80\x81\xe7\xab\x99\xe7\xab\x8b\xe8\xae\xad\xe7\xbb\x83\xe3\x80\x81\xe6\xad\xa5\xe8\xa1\x8c\xe8\xae\xad\xe7\xbb\x83\xe3\x80\x81\xe6\x97\xa5\xe5\xb8\xb8\xe7\x94\x9f\xe6\xb4\xbb\xe5\x8a\x9f\xe8\x83\xbd\xe8\xae\xad\xe7\xbb\x83(ADL\xe8\xae\xad\xe7\xbb\x83)\xe3\x80\x81\xe8\xaf\xad\xe8\xa8\x80\xe5\x8a\x9f\xe8\x83\xbd\xe5\xba\xb7\xe5\xa4\x8d\xe8\xae\xad\xe7\xbb\x83\xe3\x80\x81\xe5\xbf\x83\xe7\x90\x86\xe5\xba\xb7\xe5\xa4\x8d\xe8\xae\xad\xe7\xbb\x83\xe7\xad\x89",
+				"projectName":"",
+				"receiver":"",
+				"recommendResult":"",
+				"reminderNote":"",
+				"ruleNumber":"",
+				"ruleRemark":"",
+				"samePageForCP":true
+			},
+			{
+				"applyConsultation":0,
+				"atrialFibrillationIndication":0,
+				"expressId":207477,
+				"hasDrug":0,
+				"id":13185,
+				"ignoreTips":"",
+				"planName":"\xe4\xbd\x93\xe6\xb8\xa9\xe7\xae\xa1\xe7\x90\x86",
+				"planPostil":"\xe8\x84\x91\xe5\x87\xba\xe8\xa1\x80\xe5\x8f\xaf\xe5\x9b\xa0\xe9\xa2\x85\xe5\x86\x85\xe8\xa1\x80\xe8\x82\xbf\xe5\x88\xba\xe6\xbf\x80\xe3\x80\x81\xe6\x84\x9f\xe6\x9f\x93\xe6\x88\x96\xe4\xb8\xad\xe6\x9e\xa2\xe6\x80\xa7\xe5\x8e\x9f\xe5\x9b\xa0\xe5\x87\xba\xe7\x8e\xb0\xe9\xab\x98\xe7\x83\xad\xe3\x80\x82\xe9\x99\x8d\xe6\xb8\xa9\xe6\x8e\xaa\xe6\x96\xbd\xe5\x8c\x85\xe6\x8b\xac\xe6\xb2\xbb\xe7\x96\x97\xe6\x84\x9f\xe6\x9f\x93\xe3\x80\x81\xe7\x89\xa9\xe7\x90\x86\xe9\x99\x8d\xe6\xb8\xa9\xe5\x8f\x8a\xe4\xba\x9a\xe4\xbd\x8e\xe6\xb8\xa9\xe6\xb2\xbb\xe7\x96\x97\xe3\x80\x82\xe9\x99\x8d\xe6\xb8\xa9\xe7\x9b\xae\xe6\xa0\x87\xe4\xbd\x93\xe6\xb8\xa935\xe2\x84\x83\xe4\xbb\xa5\xe4\xb8\x8a\xe4\xb8\x9438\xe2\x84\x83\xe4\xbb\xa5\xe4\xb8\x8b",
+				"projectName":"",
+				"receiver":"",
+				"recommendResult":"",
+				"reminderNote":"",
+				"ruleNumber":"",
+				"ruleRemark":"",
+				"samePageForCP":true
+			},
+			{
+				"applyConsultation":0,
+				"atrialFibrillationIndication":0,
+				"expressId":207449,
+				"hasDrug":0,
+				"id":13186,
+				"ignoreTips":"",
+				"planName":"\xe5\x91\xbc\xe5\x90\xb8\xe9\x81\x93\xe7\xae\xa1\xe7\x90\x86",
+				"planPostil":"\xe5\x8f\xa3\xe8\x85\x94\xe6\x8a\xa4\xe7\x90\x86\xe3\x80\x81\xe6\x9c\x89\xe6\x95\x88\xe6\x8e\x92\xe7\x97\xb0\xe4\xbf\x9d\xe6\x8c\x81\xe5\x91\xbc\xe5\x90\xb8\xe9\x81\x93\xe9\x80\x9a\xe7\x95\x85\xef\xbc\x8c\xe5\x91\xbc\xe5\x90\xb8\xe5\x8a\x9f\xe8\x83\xbd\xe9\x9a\x9c\xe7\xa2\x8d\xe3\x80\x81\xe8\xa1\x80\xe6\xb0\xa7\xe9\xa5\xb1\xe5\x92\x8c\xe5\xba\xa6\xe4\xb8\x8b\xe9\x99\x8d\xe8\x80\x85\xe5\xb0\xbd\xe6\x97\xa9\xe5\x91\xbc\xe5\x90\xb8\xe6\x9c\xba\xe6\x94\xaf\xe6\x8c\x81\xe6\xb2\xbb\xe7\x96\x97\xef\xbc\x8c\xe6\x98\x8f\xe8\xbf\xb7\xe8\x80\x85\xe8\x80\x83\xe8\x99\x91\xe6\xb0\x94\xe7\xae\xa1\xe6\x8f\x92\xe7\xae\xa1\xe3\x80\x81\xe6\xb0\x94\xe7\xae\xa1\xe5\x88\x87\xe5\xbc\x80",
+				"projectName":"",
+				"receiver":"",
+				"recommendResult":"",
+				"reminderNote":"",
+				"ruleNumber":"",
+				"ruleRemark":"",
+				"samePageForCP":true
+			},
+			{
+				"applyConsultation":0,
+				"atrialFibrillationIndication":0,
+				"expressId":207463,
+				"hasDrug":0,
+				"id":17459,
+				"ignoreTips":"",
+				"planName":"\xe5\xba\xb7\xe5\xa4\x8d\xe7\xa7\x91\xe4\xbc\x9a\xe8\xaf\x8a\xe5\x8d\x8f\xe5\x8a\xa9\xe5\xba\xb7\xe5\xa4\x8d\xe6\xb2\xbb\xe7\x96\x97",
+				"planPostil":"\xe8\xaf\xb7\xe5\xba\xb7\xe5\xa4\x8d\xe7\xa7\x91\xe4\xbc\x9a\xe8\xaf\x8a\xef\xbc\x8c\xe5\x8d\x8f\xe5\x8a\xa9\xe5\xba\xb7\xe5\xa4\x8d\xe6\xb2\xbb\xe7\x96\x97\xe3\x80\x82\xe5\xbb\xba\xe8\xae\xae\xe7\x97\x85\xe6\x83\x85\xe7\xa8\xb3\xe5\xae\x9a\xef\xbc\x8c\xe7\xa5\x9e\xe7\xbb\x8f\xe7\xb3\xbb\xe7\xbb\x9f\xe7\x97\x87\xe7\x8a\xb6\xe6\x97\xa0\xe8\xbf\x9b\xe5\xb1\x9548\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\xbc\x80\xe5\x90\xaf\xe5\xba\xb7\xe5\xa4\x8d\xef\xbc\x8c\xe6\x89\x8b\xe6\x9c\xaf\xe6\x82\xa3\xe8\x80\x85\xe6\x9c\xaf\xe5\x90\x8e5\xe5\xa4\xa9\xe5\x86\x85\xe6\x88\x96\xe4\xb8\x80\xe6\x97\xa6\xe7\x97\x85\xe6\x83\x85\xe7\xa8\xb3\xe5\xae\x9a\xe5\x8d\xb3\xe5\x8f\xaf\xe5\xbc\x80\xe5\x90\xaf",
+				"projectName":"",
+				"receiver":"",
+				"recommendResult":"",
+				"reminderNote":"",
+				"ruleNumber":"",
+				"ruleRemark":"",
+				"samePageForCP":true
+			},
+			{
+				"applyConsultation":0,
+				"atrialFibrillationIndication":0,
+				"expressId":207323,
+				"hasDrug":0,
+				"id":21821,
+				"ignoreTips":"",
+				"planName":"\xe5\x90\x9e\xe5\x92\xbd\xe9\x9a\x9c\xe7\xa2\x8d\xe5\xba\xb7\xe5\xa4\x8d\xe8\xaf\x84\xe5\xae\x9a",
+				"planPostil":"\xe5\x90\x9e\xe5\x92\xbd\xe9\x9a\x9c\xe7\xa2\x8d\xe5\xba\xb7\xe5\xa4\x8d\xe8\xaf\x84\xe5\xae\x9a\xe3\x80\x82\xe5\x90\x9e\xe5\x92\xbd\xe9\x9a\x9c\xe7\xa2\x8d\xe4\xb8\xb4\xe5\xba\x8a\xe8\xa1\xa8\xe7\x8e\xb0\xe6\x9c\x89\xef\xbc\x9a\xe8\xbf\x9b\xe9\xa3\x9f\xe6\x88\x96\xe9\xa5\xae\xe6\xb0\xb4\xe5\x90\x8e\xe5\x92\xb3\xe5\x97\xbd\xe3\x80\x81\xe9\xa3\x9f\xe7\x89\xa9\xe6\xae\x8b\xe7\x95\x99\xe5\x8f\xa3\xe8\x85\x94\xe3\x80\x81\xe6\xb5\x81\xe6\xb6\x8e\xe3\x80\x81\xe5\x90\xb8\xe5\x85\xa5\xe6\x80\xa7\xe8\x82\xba\xe7\x82\x8e\xe3\x80\x81\xe9\xa3\x9f\xe7\x89\xa9\xe4\xbb\x8e\xe5\x8f\xa3\xe8\x85\x94\xe6\x88\x96\xe9\xbc\xbb\xe8\x85\x94\xe5\x96\xb7\xe5\x87\xba\xe3\x80\x82\xe5\xba\xb7\xe5\xa4\x8d\xe8\xaf\x84\xe5\xae\x9a\xe7\x9b\xae\xe7\x9a\x84\xef\xbc\x9a\xe7\xa1\xae\xe5\xae\x9a\xe5\x90\x9e\xe5\x92\xbd\xe5\x9b\xb0\xe9\x9a\xbe\xe6\x98\xaf\xe5\x90\xa6\xe5\xad\x98\xe5\x9c\xa8\xef\xbc\x9b\xe6\x8f\x90\xe4\xbe\x9b\xe5\x90\x9e\xe5\x92\xbd\xe5\x9b\xb0\xe9\x9a\xbe\xe8\xa7\xa3\xe5\x89\x96\xe5\x92\x8c\xe7\x94\x9f\xe7\x90\x86\xe5\xad\xa6\xe4\xbe\x9d\xe6\x8d\xae\xef\xbc\x9b\xe7\xa1\xae\xe5\xae\x9a\xe6\x82\xa3\xe8\x80\x85\xe6\x9c\x89\xe5\x85\xb3\xe8\xaf\xaf\xe5\x92\xbd\xe7\x9a\x84\xe5\x8d\xb1\xe9\x99\xa9\xe5\x9b\xa0\xe7\xb4\xa0\xef\xbc\x9b\xe7\xa1\xae\xe5\xae\x9a\xe6\x98\xaf\xe5\x90\xa6\xe9\x9c\x80\xe6\x94\xb9\xe5\x8f\x98\xe6\x8f\x90\xe4\xbe\x9b\xe8\x90\xa5\xe5\x85\xbb\xe6\x96\xb9\xe5\xbc\x8f\xe4\xbb\xa5\xe6\x94\xb9\xe5\x96\x84\xe8\x90\xa5\xe5\x85\xbb\xe7\x8a\xb6\xe6\x80\x81\xef\xbc\x8c\xe4\xb8\xba\xe5\x90\x9e\xe5\x92\xbd\xe5\x9b\xb0\xe9\x9a\xbe\xe7\x9a\x84\xe5\xba\xb7\xe5\xa4\x8d\xe6\xb2\xbb\xe7\x96\x97\xe6\x8f\x90\xe4\xbe\x9b\xe4\xbe\x9d\xe6\x8d\xae",
+				"projectName":"",
+				"receiver":"",
+				"recommendResult":"",
+				"reminderNote":"",
+				"ruleNumber":"",
+				"ruleRemark":"",
+				"samePageForCP":true
+			}
+		]
+	},
+	"head":{
+		"seeion_id":"mayson-87203e05723145d5b6b246ef1770e352",
+		"error":0
+	}
+} </msg>
+<msg timestamp="20200820 16:52:34.843" level="INFO">To JSON using : pretty_print=False </msg>
+<msg timestamp="20200820 16:52:34.852" level="INFO">${responsedata} = {"body": {"patientInfo": {"admissionBedCode": "", "name": "tester", "ageType": "岁", "orgName": "我是尹宏利", "gender": 1, "definiteDiagnosis": ["脑内出血", "高血压"], "serialNumber": "1597913553741", "transferDep...</msg>
+<status status="PASS" endtime="20200820 16:52:34.852" starttime="20200820 16:52:34.793"></status>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<arguments>
+<arg>${responsedata["body"]}</arg>
+<arg>recordId</arg>
+</arguments>
+<assign>
+<var>${recordId}</var>
+</assign>
+<msg timestamp="20200820 16:52:34.853" level="INFO">${recordId} = 5409244</msg>
+<status status="PASS" endtime="20200820 16:52:34.853" starttime="20200820 16:52:34.852"></status>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<arguments>
+<arg>${responsedata["body"]["patientInfo"]}</arg>
+<arg>serialNumber</arg>
+</arguments>
+<assign>
+<var>${serialNumber}</var>
+</assign>
+<msg timestamp="20200820 16:52:34.857" level="INFO">${serialNumber} = 1597913553741</msg>
+<status status="PASS" endtime="20200820 16:52:34.858" starttime="20200820 16:52:34.854"></status>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<arguments>
+<arg>${responsedata["body"]["patientInfo"]}</arg>
+<arg>userGuid</arg>
+</arguments>
+<assign>
+<var>${userGuid}</var>
+</assign>
+<msg timestamp="20200820 16:52:34.859" level="INFO">${userGuid} = 1597913553741</msg>
+<status status="PASS" endtime="20200820 16:52:34.859" starttime="20200820 16:52:34.858"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${recordId}</arg>
+</arguments>
+<msg timestamp="20200820 16:52:34.860" level="INFO">${recordId} = 5409244</msg>
+<status status="PASS" endtime="20200820 16:52:34.860" starttime="20200820 16:52:34.860"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${userGuid}</arg>
+</arguments>
+<msg timestamp="20200820 16:52:34.861" level="INFO">${userGuid} = 1597913553741</msg>
+<status status="PASS" endtime="20200820 16:52:34.861" starttime="20200820 16:52:34.860"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${serialNumber}</arg>
+</arguments>
+<msg timestamp="20200820 16:52:34.861" level="INFO">${serialNumber} = 1597913553741</msg>
+<status status="PASS" endtime="20200820 16:52:34.861" starttime="20200820 16:52:34.861"></status>
+</kw>
+<status status="PASS" endtime="20200820 16:52:34.862" starttime="20200820 16:52:33.982"></status>
+</kw>
+<status status="PASS" endtime="20200820 16:52:34.862" starttime="20200820 16:52:33.972"></status>
+</kw>
+<kw name="添加反馈" library="cdss">
+<arguments>
+<arg>recordId=${recordId}</arg>
+<arg>mcRecordFeedback={"doctorGuid":1,"type":1}</arg>
 </arguments>
 <assign>
 <var>${getRes}</var>
@@ -113,69 +2136,56 @@
 <assign>
 <var>${dict}</var>
 </assign>
-<msg timestamp="20200731 16:37:28.244" level="INFO">${dict} = {"Content-Type": "application/json", "Huimei_id": "7195F12825788F09375C2DB1E922F108"}</msg>
-<status status="PASS" endtime="20200731 16:37:28.244" starttime="20200731 16:37:28.244"></status>
+<msg timestamp="20200820 16:52:34.865" level="INFO">${dict} = {"Content-Type": "application/json", "Huimei_id": "7195F12825788F09375C2DB1E922F108"}</msg>
+<status status="PASS" endtime="20200820 16:52:34.865" starttime="20200820 16:52:34.864"></status>
 </kw>
 <kw name="Create Session" library="RequestsLibrary">
 <doc>Create Session: create a HTTP session to a server</doc>
 <arguments>
 <arg>api</arg>
-<arg>${connotation_url}:8091</arg>
+<arg>${mayson_url}</arg>
 <arg>${dict}</arg>
 </arguments>
-<msg timestamp="20200731 16:37:28.245" level="INFO">Creating Session using : alias=api, url=http://172.16.3.68:8091, headers={u'Content-Type': u'application/json', u'Huimei_id': u'7195F12825788F09375C2DB1E922F108'},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" endtime="20200731 16:37:28.245" starttime="20200731 16:37:28.244"></status>
+<msg timestamp="20200820 16:52:34.868" level="INFO">Creating Session using : alias=api, url=http://test-mayson.huimeionline.com/cdss, headers={u'Content-Type': u'application/json', u'Huimei_id': u'7195F12825788F09375C2DB1E922F108'},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20200820 16:52:34.870" starttime="20200820 16:52:34.866"></status>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <doc>Evaluates the given expression in Python and returns the results.</doc>
 <arguments>
-<arg>dict(${masterProfile})</arg>
+<arg>dict(${mcRecordFeedback})</arg>
 </arguments>
 <assign>
-<var>${masterProfile}</var>
+<var>${mcRecordFeedback}</var>
 </assign>
-<msg timestamp="20200731 16:37:28.256" level="INFO">${masterProfile} = {"operations": [{"progressId": 331864, "incisionType": "\xe2\x85\xa0", "nodeType": 11, "existState": 1, "orderDate": "2020-04-216:53:55", "recordId": 2951533, "operationDate": "2020-04-216:53:55", "op...</msg>
-<status status="PASS" endtime="20200731 16:37:28.256" starttime="20200731 16:37:28.245"></status>
-</kw>
-<kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the results.</doc>
-<arguments>
-<arg>dict(${recordDatas})</arg>
-</arguments>
-<assign>
-<var>${recordDatas}</var>
-</assign>
-<msg timestamp="20200731 16:37:28.260" level="INFO">${recordDatas} = {"\xe6\x82\xa3\xe8\x80\x85\xe5\x9f\xba\xe6\x9c\xac\xe4\xbf\xa1\xe6\x81\xaf": {"\xe5\x85\xa5\xe9\x99\xa2\xe9\x80\x94\xe5\xbe\x84": "0", "\xe7\x8e\xb0\xe5\x9c\xa8\xe5\xb7\xa5\xe4\xbd\x9c\xe5\x8d\x95\xe4...</msg>
-<status status="PASS" endtime="20200731 16:37:28.260" starttime="20200731 16:37:28.256"></status>
+<msg timestamp="20200820 16:52:34.879" level="INFO">${mcRecordFeedback} = {"doctorGuid": 1, "type": 1}</msg>
+<status status="PASS" endtime="20200820 16:52:34.879" starttime="20200820 16:52:34.871"></status>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <doc>Creates and returns a dictionary based on given items.</doc>
 <arguments>
-<arg>masterProfile=${masterProfile}</arg>
-<arg>recordDatas=${recordDatas}</arg>
 <arg>recordId=${recordId}</arg>
-<arg>ruleCodes=${ruleCodes}</arg>
+<arg>mcRecordFeedback=${mcRecordFeedback}</arg>
 </arguments>
 <assign>
 <var>${data}</var>
 </assign>
-<msg timestamp="20200731 16:37:28.263" level="INFO">${data} = {u'masterProfile': {'operations': [{'progressId': 331864, 'incisionType': '\xe2\x85\xa0', 'nodeType': 11, 'existState': 1, 'orderDate': '2020-04-216:53:55', 'recordId': 2951533, 'operationDate': '2020...</msg>
-<status status="PASS" endtime="20200731 16:37:28.263" starttime="20200731 16:37:28.260"></status>
+<msg timestamp="20200820 16:52:34.884" level="INFO">${data} = {"recordId": 5409244, "mcRecordFeedback": {"doctorGuid": 1, "type": 1}}</msg>
+<status status="PASS" endtime="20200820 16:52:34.884" starttime="20200820 16:52:34.881"></status>
 </kw>
 <kw name="Post Request" library="RequestsLibrary">
 <doc>Send a POST request on the session object found using the</doc>
 <arguments>
 <arg>api</arg>
-<arg>pangoo/ruleengine/homePage</arg>
+<arg>/sentry/mc/add_feedback</arg>
 <arg>data=${data}</arg>
 </arguments>
 <assign>
 <var>${addr}</var>
 </assign>
-<msg timestamp="20200731 16:37:28.274" level="INFO">Starting new HTTP connection (1): 172.16.3.68</msg>
-<msg timestamp="20200731 16:37:28.369" level="INFO">Post Request using : alias=api, uri=pangoo/ruleengine/homePage, data=&lt;empty&gt;, headers=None, files=None, allow_redirects=True </msg>
-<msg timestamp="20200731 16:37:28.369" level="INFO">${addr} = &lt;Response [200]&gt;</msg>
-<status status="PASS" endtime="20200731 16:37:28.369" starttime="20200731 16:37:28.264"></status>
+<msg timestamp="20200820 16:52:34.895" level="INFO">Starting new HTTP connection (1): 127.0.0.1</msg>
+<msg timestamp="20200820 16:52:35.037" level="INFO">Post Request using : alias=api, uri=/sentry/mc/add_feedback, data=&lt;empty&gt;, headers=None, files=None, allow_redirects=True </msg>
+<msg timestamp="20200820 16:52:35.037" level="INFO">${addr} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20200820 16:52:35.037" starttime="20200820 16:52:34.885"></status>
 </kw>
 <kw name="To Json" library="RequestsLibrary">
 <doc>Convert a string to a JSON object</doc>
@@ -185,263 +2195,49 @@
 <assign>
 <var>${responsedata}</var>
 </assign>
-<msg timestamp="20200731 16:37:28.370" level="INFO">To JSON using : content={"recordId":2951533,"result":[{"result":2,"ruleCode":"syqt2","remark":"\xe8\x84\x91\xe6\xa2\x97\xe6\xad\xbb\xe8\xaf\x8a\xe6\x96\xad\xe6\x9c\xaa\xe7\xbc\x96\xef\xbc\x8c\xe8\xaf\xb7\xe7\xa1\xae\xe8\xae\xa4"},{"result":2,"ruleCode":"syqt1","remark":"2\xe5\x9e\x8b\xe7\xb3\x96\xe5\xb0\xbf\xe7\x97\x85\xe8\xaf\x8a\xe6\x96\xad\xe6\x9c\xaa\xe7\xbc\x96\xef\xbc\x8c\xe8\xaf\xb7\xe7\xa1\xae\xe8\xae\xa4"},{"result":1,"ruleCode":"syqt7","remark":""},{"result":1,"ruleCode":"syqt4","remark":""},{"result":1,"ruleCode":"syqt6-xw","remark":""},{"result":1,"ruleCode":"syqt3","remark":""},{"result":1,"ruleCode":"syzzd3","remark":""},{"result":3,"ruleCode":"syzzd2","remark":""},{"result":2,"ruleCode":"syzzd1","remark":"\xe5\xa6\x8a\xe5\xa8\xa040+\xe5\x91\xa8G3P1LOT\xe5\x89\x96\xe5\xae\xab\xe4\xba\xa7 \xe9\x9d\x9e\xe5\x89\x96\xe5\xae\xab\xe4\xba\xa7\xe5\x8e\x9f\xe5\x9b\xa0\xef\xbc\x8c\xe8\xaf\xb7\xe7\xa1\xae\xe8\xae\xa4"}]} </msg>
-<msg timestamp="20200731 16:37:28.370" level="INFO">To JSON using : pretty_print=False </msg>
-<msg timestamp="20200731 16:37:28.370" level="INFO">${responsedata} = {"recordId": 2951533, "result": [{"ruleCode": "syqt2", "remark": "脑梗死诊断未编，请确认", "result": 2}, {"ruleCode": "syqt1", "remark": "2型糖尿病诊断未编，请确认", "result": 2}, {"ruleCode": "syqt7", "remark": "", "result...</msg>
-<status status="PASS" endtime="20200731 16:37:28.371" starttime="20200731 16:37:28.369"></status>
+<msg timestamp="20200820 16:52:35.042" level="INFO">To JSON using : content={
+	"body":"\xe4\xbf\x9d\xe5\xad\x98\xe5\xbe\x85\xe5\x8f\x8d\xe9\xa6\x88\xe6\xa8\xa1\xe5\x9d\x97\xe5\x86\x85\xe5\xae\xb9\xe6\x88\x90\xe5\x8a\x9f\xe6\x88\x90\xe5\x8a\x9f\xef\xbc\x81",
+	"head":{
+		"error":0
+	}
+} </msg>
+<msg timestamp="20200820 16:52:35.042" level="INFO">To JSON using : pretty_print=False </msg>
+<msg timestamp="20200820 16:52:35.043" level="INFO">${responsedata} = {"body": "保存待反馈模块内容成功成功！", "head": {"error": 0}}</msg>
+<status status="PASS" endtime="20200820 16:52:35.043" starttime="20200820 16:52:35.038"></status>
 </kw>
-<msg timestamp="20200731 16:37:28.371" level="INFO">${getRes} = {"recordId": 2951533, "result": [{"ruleCode": "syqt2", "remark": "脑梗死诊断未编，请确认", "result": 2}, {"ruleCode": "syqt1", "remark": "2型糖尿病诊断未编，请确认", "result": 2}, {"ruleCode": "syqt7", "remark": "", "result...</msg>
-<status status="PASS" endtime="20200731 16:37:28.371" starttime="20200731 16:37:28.242"></status>
+<msg timestamp="20200820 16:52:35.043" level="INFO">${getRes} = {"body": "保存待反馈模块内容成功成功！", "head": {"error": 0}}</msg>
+<status status="PASS" endtime="20200820 16:52:35.043" starttime="20200820 16:52:34.862"></status>
 </kw>
-<kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the results.</doc>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
-<arg>[aj['ruleCode'] for aj in $getRes['result']]</arg>
+<arg>${getRes['body']}</arg>
+<arg>保存待反馈模块内容成功成功！</arg>
 </arguments>
-<assign>
-<var>${aj}</var>
-</assign>
-<msg timestamp="20200731 16:37:28.372" level="INFO">${aj} = ["syqt2", "syqt1", "syqt7", "syqt4", "syqt6-xw", "syqt3", "syzzd3", "syzzd2", "syzzd1"]</msg>
-<status status="PASS" endtime="20200731 16:37:28.372" starttime="20200731 16:37:28.371"></status>
-</kw>
-<kw name="Should Contain" library="BuiltIn">
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<arguments>
-<arg>${aj}</arg>
-<arg>syqt1</arg>
-</arguments>
-<status status="PASS" endtime="20200731 16:37:28.373" starttime="20200731 16:37:28.372"></status>
+<status status="PASS" endtime="20200820 16:52:35.044" starttime="20200820 16:52:35.043"></status>
 </kw>
 <tags>
 <tag>skip</tag>
 </tags>
-<status status="PASS" endtime="20200731 16:37:28.373" critical="yes" starttime="20200731 16:37:28.229"></status>
-</test>
-<test id="s1-t2" name="首页质控:nh23-C10-现病史中确诊疾病在病案首页入院病情类型选择错误">
-<kw type="setup" name="Run Keywords" library="BuiltIn">
-<doc>Executes all the given keywords in a sequence.</doc>
-<arguments>
-<arg>获取时间戳</arg>
-<arg>AND</arg>
-<arg>获取随机数</arg>
-</arguments>
-<kw name="获取时间戳" library="cdss">
-<kw name="Get Time" library="BuiltIn">
-<doc>Returns the given time in the requested format.</doc>
-<arguments>
-<arg>epoch</arg>
-</arguments>
-<assign>
-<var>${timestamp}</var>
-</assign>
-<msg timestamp="20200731 16:37:28.379" level="INFO">${timestamp} = 1596184648</msg>
-<status status="PASS" endtime="20200731 16:37:28.379" starttime="20200731 16:37:28.379"></status>
-</kw>
-<kw name="Get Time" library="BuiltIn">
-<doc>Returns the given time in the requested format.</doc>
-<arguments>
-<arg>timestamp</arg>
-</arguments>
-<assign>
-<var>${time_now}</var>
-</assign>
-<msg timestamp="20200731 16:37:28.380" level="INFO">${time_now} = 2020-07-31 16:37:28</msg>
-<status status="PASS" endtime="20200731 16:37:28.380" starttime="20200731 16:37:28.379"></status>
-</kw>
-<kw name="Set Global Variable" library="BuiltIn">
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<arguments>
-<arg>${timestamp}</arg>
-</arguments>
-<msg timestamp="20200731 16:37:28.380" level="INFO">${timestamp} = 1596184648</msg>
-<status status="PASS" endtime="20200731 16:37:28.380" starttime="20200731 16:37:28.380"></status>
-</kw>
-<kw name="Set Global Variable" library="BuiltIn">
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<arguments>
-<arg>${time_now}</arg>
-</arguments>
-<msg timestamp="20200731 16:37:28.381" level="INFO">${time_now} = 2020-07-31 16:37:28</msg>
-<status status="PASS" endtime="20200731 16:37:28.381" starttime="20200731 16:37:28.380"></status>
-</kw>
-<status status="PASS" endtime="20200731 16:37:28.381" starttime="20200731 16:37:28.378"></status>
-</kw>
-<kw name="获取随机数" library="cdss">
-<kw name="Generate Random String" library="String">
-<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
-<arguments>
-<arg>3</arg>
-<arg>1234567890</arg>
-</arguments>
-<assign>
-<var>${random}</var>
-</assign>
-<msg timestamp="20200731 16:37:28.382" level="INFO">${random} = 435</msg>
-<status status="PASS" endtime="20200731 16:37:28.382" starttime="20200731 16:37:28.381"></status>
-</kw>
-<kw name="Set Global Variable" library="BuiltIn">
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<arguments>
-<arg>${random}</arg>
-</arguments>
-<msg timestamp="20200731 16:37:28.383" level="INFO">${random} = 435</msg>
-<status status="PASS" endtime="20200731 16:37:28.383" starttime="20200731 16:37:28.382"></status>
-</kw>
-<status status="PASS" endtime="20200731 16:37:28.383" starttime="20200731 16:37:28.381"></status>
-</kw>
-<status status="PASS" endtime="20200731 16:37:28.383" starttime="20200731 16:37:28.378"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>nh23</arg>
-</arguments>
-<assign>
-<var>${ruleCodes}</var>
-</assign>
-<msg timestamp="20200731 16:37:28.384" level="INFO">${ruleCodes} = ["nh23"]</msg>
-<status status="PASS" endtime="20200731 16:37:28.384" starttime="20200731 16:37:28.383"></status>
-</kw>
-<kw name="首页质控" library="cdss">
-<arguments>
-<arg>masterProfile={"adviceKnowledges":[],"allergies":[],"assessItems":[{"assessId":8,"assessItemId":191,"assessItemName":"女性","customerId":1001,"dictionaryAttributeId":212,"existState":1,"id":203596171074211842,"itemSource":1,"objectId":54607,"progressId":203596171074211841,"recordId":3035799,"recordTypeId":9006,"score":1,"sourceType":0,"wordId":54607},{"assessId":89,"assessItemId":304,"assessItemName":"年龄≤44岁","customerId":1001,"dictionaryAttributeId":212,"existState":1,"id":203596171074211846,"itemSource":1,"objectId":324985,"progressId":203596171074211845,"recordId":3035799,"recordTypeId":9006,"score":0,"sourceType":0,"wordId":324985}],"assesss":[{"assessId":4,"assessName":"Wells评分","assessResult":"低度可能急性肺栓塞","assessValue":"0","assessValueType":1,"assessValueUnit":"分","customerId":1001,"dictionaryAttributeId":212,"id":203596171074211840,"objectId":4,"profilePartType":43,"progressId":203596171074211840,"recordId":3035799,"recordTypeId":9006,"sourceType":0},{"assessId":8,"assessItems":[{"assessId":8,"assessItemId":191,"assessItemName":"女性","customerId":1001,"dictionaryAttributeId":212,"existState":1,"id":203596171074211842,"itemSource":1,"objectId":54607,"progressId":203596171074211841,"recordId":3035799,"recordTypeId":9006,"score":1,"sourceType":0,"wordId":54607}],"assessName":"CHA2DS2-VASc","assessResult":"患者年卒中发生率1.3%","assessValue":"1","assessValueType":1,"assessValueUnit":"分","customerId":1001,"dictionaryAttributeId":212,"id":203596171074211841,"objectId":8,"profilePartType":43,"progressId":203596171074211841,"recordId":3035799,"recordTypeId":9006,"sourceType":0},{"assessId":9,"assessName":"HAS-BLED","assessResult":"患者出血风险低","assessValue":"0","assessValueType":1,"assessValueUnit":"分","customerId":1001,"dictionaryAttributeId":212,"id":203596171074211843,"objectId":9,"profilePartType":43,"progressId":203596171074211843,"recordId":3035799,"recordTypeId":9006,"sourceType":0},{"assessId":509,"assessName":"DVT-Wells评分","assessResult":"患者发生DVT低度可能性","assessValue":"0","assessValueType":1,"assessValueUnit":"分","customerId":1001,"dictionaryAttributeId":212,"id":203596171074211844,"objectId":509,"profilePartType":43,"progressId":203596171074211844,"recordId":3035799,"recordTypeId":9006,"sourceType":0},{"assessId":89,"assessItems":[{"assessId":89,"assessItemId":304,"assessItemName":"年龄≤44岁","customerId":1001,"dictionaryAttributeId":212,"existState":1,"id":203596171074211846,"itemSource":1,"objectId":324985,"progressId":203596171074211845,"recordId":3035799,"recordTypeId":9006,"score":0,"sourceType":0,"wordId":324985}],"assessName":"APACHE II评分","assessValue":"0","assessValueType":1,"assessValueUnit":"分","customerId":1001,"dictionaryAttributeId":212,"id":203596171074211845,"objectId":89,"profilePartType":43,"progressId":203596171074211845,"recordId":3035799,"recordTypeId":9006,"sourceType":0},{"assessId":276,"assessName":"qSOFA评分","assessValue":"0","assessValueType":1,"assessValueUnit":"分","customerId":1001,"dictionaryAttributeId":212,"id":203596171074211847,"objectId":276,"profilePartType":43,"progressId":203596171074211847,"recordId":3035799,"recordTypeId":9006,"sourceType":0},{"assessId":278,"assessName":"妊娠及产褥期VTE危险因素评分","assessValue":"0","assessValueType":1,"assessValueUnit":"分","customerId":1001,"dictionaryAttributeId":212,"id":203596171074211848,"objectId":278,"profilePartType":43,"progressId":203596171074211848,"recordId":3035799,"recordTypeId":9006,"sourceType":0},{"assessId":281,"assessName":"Padua评分","assessResult":"低危","assessValue":"0","assessValueType":1,"assessValueUnit":"分","customerId":1001,"dictionaryAttributeId":212,"id":203596171074211849,"objectId":281,"profilePartType":43,"progressId":203596171074211849,"recordId":3035799,"recordTypeId":9006,"sourceType":0},{"assessId":282,"assessName":"Caprini评分","assessResult":"低危","assessValue":"0","assessValueType":1,"assessValueUnit":"分","customerId":1001,"dictionaryAttributeId":212,"id":203596171074211850,"objectId":282,"profilePartType":43,"progressId":203596171074211850,"recordId":3035799,"recordTypeId":9006,"sourceType":0},{"assessId":306,"assessName":"SOFA评分 ","assessValue":"0","assessValueType":1,"assessValueUnit":"分","customerId":1001,"dictionaryAttributeId":212,"id":203596171074211851,"objectId":306,"profilePartType":43,"progressId":203596171074211851,"recordId":3035799,"recordTypeId":9006,"sourceType":0},{"assessId":535,"assessName":"外科住院患者出血风险评估","assessResult":"低危","assessValue":"","assessValueType":1,"assessValueUnit":"","customerId":1001,"dictionaryAttributeId":212,"id":203596171074211852,"objectId":535,"profilePartType":43,"progressId":203596171074211852,"recordId":3035799,"recordTypeId":9006,"sourceType":0},{"assessId":522,"assessName":"内科住院患者出血风险评估","assessResult":"低危","assessValue":"","assessValueType":1,"assessValueUnit":"","customerId":1001,"dictionaryAttributeId":212,"id":203596171074211853,"objectId":522,"profilePartType":43,"progressId":203596171074211853,"recordId":3035799,"recordTypeId":9006,"sourceType":0},{"assessId":589,"assessName":"非手术患者出血风险评估","assessResult":"低危","assessValue":"","assessValueType":1,"assessValueUnit":"","customerId":1001,"dictionaryAttributeId":212,"id":203596171074211854,"objectId":589,"profilePartType":43,"progressId":203596171074211854,"recordId":3035799,"recordTypeId":9006,"sourceType":0},{"assessId":590,"assessName":"外科VTE风险评估","assessResult":"低危","assessValue":"0","assessValueType":1,"assessValueUnit":"分","customerId":1001,"dictionaryAttributeId":212,"id":203596171074211855,"objectId":590,"profilePartType":43,"progressId":203596171074211855,"recordId":3035799,"recordTypeId":9006,"sourceType":0},{"assessId":591,"assessName":"内科VTE风险评估","assessResult":"低危","assessValue":"0","assessValueType":1,"assessValueUnit":"分","customerId":1001,"dictionaryAttributeId":212,"id":203596171074211856,"objectId":591,"profilePartType":43,"progressId":203596171074211856,"recordId":3035799,"recordTypeId":9006,"sourceType":0}],"consultationAdvices":[],"customerId":1001,"diseases":[{"customerId":1001,"definiteDate":"2020-05-15 18:47:37","dictionaryAttributeId":10,"diseaseDate":"2020-05-15 18:47:37","diseaseExtendCode":[],"diseaseId":10333,"diseaseName":"脂肪肝","existState":1,"id":203596170986131462,"nodeId":3827,"nodeType":5,"objectId":10333,"orderDate":"2020-05-15 18:47:37","profilePartType":3,"progressId":16671540,"rankId":0,"recordDate":"2020-05-15 18:47:37","recordId":3035799,"recordTypeId":1,"sourceType":0,"suspected":0},{"customerId":1001,"definiteDate":"2020-05-15 18:47:37","dictionaryAttributeId":10,"diseaseDate":"2020-05-15 18:47:37","diseaseExtendCode":[],"diseaseId":268,"diseaseName":"病毒性肝炎,不伴有肝昏迷","existState":1,"id":203596170986131463,"nodeId":3991,"nodeType":5,"objectId":268,"orderDate":"2020-05-15 18:47:37","profilePartType":3,"progressId":16671540,"rankId":1,"recordDate":"2020-05-15 18:47:37","recordId":3035799,"recordTypeId":1,"sourceType":0,"suspected":0},{"admissionCondition":2,"customerId":1001,"dictionaryAttributeId":23,"diseaseExtendCode":[],"diseaseGuid":"","diseaseId":268,"diseaseName":"病毒性肝炎,不伴有肝昏迷","existState":1,"id":203596170986131464,"mainDisease":0,"nodeId":3991,"nodeType":5,"objectId":268,"orgDiseaseName":"病毒性肝炎","profilePartType":32,"progressId":350622,"rankId":0,"recordId":3035799,"recordTypeId":12004,"sourceType":0,"suspected":0},{"admissionCondition":2,"customerId":1001,"dictionaryAttributeId":23,"diseaseExtendCode":[],"diseaseGuid":"","diseaseId":10333,"diseaseName":"脂肪肝","existState":1,"id":203596170986131465,"mainDisease":0,"nodeId":3827,"nodeType":5,"objectId":10333,"orgDiseaseName":"脂肪肝","profilePartType":32,"progressId":350623,"rankId":0,"recordId":3035799,"recordTypeId":12004,"sourceType":0,"suspected":0},{"admissionCondition":2,"customerId":1001,"dictionaryAttributeId":23,"diseaseGuid":"","diseaseId":0,"diseaseName":"病毒性肝炎","id":203596170986131459,"mainDisease":0,"nodeType":5,"objectId":0,"orgDiseaseName":"病毒性肝炎","profilePartType":36,"progressId":350622,"recordId":3035799,"recordTypeId":12004,"sourceType":0},{"admissionCondition":2,"customerId":1001,"dictionaryAttributeId":23,"diseaseGuid":"","diseaseId":0,"diseaseName":"脂肪肝","id":203596170986131460,"mainDisease":0,"nodeType":5,"objectId":0,"orgDiseaseName":"脂肪肝","profilePartType":36,"progressId":350623,"recordId":3035799,"recordTypeId":12004,"sourceType":0}],"drugAdvices":[],"drugs":[],"examinationAdvices":[],"examinationItems":[],"examinations":[],"medicalorders":[],"nurseAdvices":[],"nurseItems":[],"operationAdvices":[],"operations":[],"patientVisitInfo":{"admissionDate":"2020-05-14 11:43:25","customerId":1001,"department":"呼吸科","dischargeDate":"2020-05-13 11:45:29","patientAge":20,"patientAgeType":"岁","patientGender":0,"patientGuid":"1589361520882","patientName":"stable_200515_1589361521859nh23-C10-现病史中确诊疾病在病案首页入院病情类型选择错误","recordId":3035799,"serialNumber":"1589427803693"},"physicals":[],"previous":[],"progresses":[{"customerId":1001,"dictionaryAttributeId":10,"id":203596170801582083,"progressContent":"现病史:脂肪肝, 病毒性肝炎。","progressDate":"2020-05-15 18:47:37","progressId":16671540,"recordDate":"2020-05-15 18:47:37","recordId":3035799,"recordTypeId":1,"sourceType":0}],"recordId":3035799,"symptoms":[],"testAdvices":[],"testItems":[],"tests":[],"timepoints":[{"customerId":1001,"dictionaryAttributeId":122,"id":203596170801582081,"profilePartType":38,"progressId":3035799,"recordId":3035799,"recordTypeId":16001,"sourceType":0,"timePointValue":"2020-05-14 11:43:25","timeTypeId":5453,"timeTypeName":"住院时间"},{"customerId":1001,"dictionaryAttributeId":30,"id":203596170801582082,"profilePartType":38,"progressId":3035799,"recordId":3035799,"recordTypeId":16001,"sourceType":0,"timePointValue":"2020-05-13 11:45:29","timeTypeId":5719,"timeTypeName":"出院时间"}],"vitalsigns":[]}</arg>
-<arg>recordDatas={"患者基本信息":{"出生地（市）":"","职业":"","入院科室名称":"","患者姓名":"stable_200515_1589361521859nh23-","社保卡号":"","出生地（省\直辖市）":"","现在工作邮编":"","入院床号":"","本人电话":"","入院途径":"0","现住址邮编":"","出院科室名称":"","新生儿入院体重":"","出院床号":"","婚姻状况":"0","新生儿出生体重":"","民族":"","现在工作单位联系方式（电话）":"","籍贯（市）":"","id":"35228","年龄":"20","身份证号":"","联系人电话":"","户口所在地（省\直辖市）":"","病人来源":"0","联系人地址":"","户口地址邮编":"","现工作单位名称":"","出生地（县/地区）":"","联系人姓名":"","转科科室名称":"","病案号":"","现工作地址":"","年龄单位":"岁","户口所在地（市）":"","联系人关系":"","籍贯（省\直辖市）":"","国籍":"","患者性别":"0","实际住院天数":"","现住址":"","医疗付费方式":"0"},"患者诊断信息":[{"诊断名称":"病毒性肝炎","诊断编码":"","诊断ICD编码":"","诊断类型":"9","id":"350622","入院病情":"2"},{"诊断名称":"脂肪肝","诊断编码":"","诊断ICD编码":"","诊断类型":"9","id":"350623","入院病情":"2"}]}</arg>
-<arg>recordId=${3035799}</arg>
-<arg>ruleCodes=${ruleCodes}</arg>
-</arguments>
-<assign>
-<var>${getRes}</var>
-</assign>
-<kw name="Create Dictionary" library="BuiltIn">
-<doc>Creates and returns a dictionary based on given items.</doc>
-<arguments>
-<arg>Content-Type=application/json</arg>
-<arg>Huimei_id=${Huimei_id}</arg>
-</arguments>
-<assign>
-<var>${dict}</var>
-</assign>
-<msg timestamp="20200731 16:37:28.388" level="INFO">${dict} = {"Content-Type": "application/json", "Huimei_id": "7195F12825788F09375C2DB1E922F108"}</msg>
-<status status="PASS" endtime="20200731 16:37:28.388" starttime="20200731 16:37:28.386"></status>
-</kw>
-<kw name="Create Session" library="RequestsLibrary">
-<doc>Create Session: create a HTTP session to a server</doc>
-<arguments>
-<arg>api</arg>
-<arg>${connotation_url}:8091</arg>
-<arg>${dict}</arg>
-</arguments>
-<msg timestamp="20200731 16:37:28.389" level="INFO">Creating Session using : alias=api, url=http://172.16.3.68:8091, headers={u'Content-Type': u'application/json', u'Huimei_id': u'7195F12825788F09375C2DB1E922F108'},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" endtime="20200731 16:37:28.389" starttime="20200731 16:37:28.388"></status>
-</kw>
-<kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the results.</doc>
-<arguments>
-<arg>dict(${masterProfile})</arg>
-</arguments>
-<assign>
-<var>${masterProfile}</var>
-</assign>
-<msg timestamp="20200731 16:37:28.408" level="INFO">${masterProfile} = {"operations": [], "testItems": [], "examinations": [], "diseases": [{"progressId": 16671540, "nodeType": 5, "recordId": 3035799, "diseaseExtendCode": [], "diseaseDate": "2020-05-15 18:47:37", "existS...</msg>
-<status status="PASS" endtime="20200731 16:37:28.408" starttime="20200731 16:37:28.390"></status>
-</kw>
-<kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the results.</doc>
-<arguments>
-<arg>dict(${recordDatas})</arg>
-</arguments>
-<assign>
-<var>${recordDatas}</var>
-</assign>
-<msg timestamp="20200731 16:37:28.412" level="INFO">${recordDatas} = {"\xe6\x82\xa3\xe8\x80\x85\xe5\x9f\xba\xe6\x9c\xac\xe4\xbf\xa1\xe6\x81\xaf": {"\xe5\x85\xa5\xe9\x99\xa2\xe9\x80\x94\xe5\xbe\x84": "0", "\xe7\x8e\xb0\xe5\x9c\xa8\xe5\xb7\xa5\xe4\xbd\x9c\xe5\x8d\x95\xe4...</msg>
-<status status="PASS" endtime="20200731 16:37:28.412" starttime="20200731 16:37:28.408"></status>
-</kw>
-<kw name="Create Dictionary" library="BuiltIn">
-<doc>Creates and returns a dictionary based on given items.</doc>
-<arguments>
-<arg>masterProfile=${masterProfile}</arg>
-<arg>recordDatas=${recordDatas}</arg>
-<arg>recordId=${recordId}</arg>
-<arg>ruleCodes=${ruleCodes}</arg>
-</arguments>
-<assign>
-<var>${data}</var>
-</assign>
-<msg timestamp="20200731 16:37:28.415" level="INFO">${data} = {u'masterProfile': {'operations': [], 'testItems': [], 'examinations': [], 'diseases': [{'progressId': 16671540, 'nodeType': 5, 'recordId': 3035799, 'diseaseExtendCode': [], 'diseaseDate': '2020-05-15...</msg>
-<status status="PASS" endtime="20200731 16:37:28.415" starttime="20200731 16:37:28.412"></status>
-</kw>
-<kw name="Post Request" library="RequestsLibrary">
-<doc>Send a POST request on the session object found using the</doc>
-<arguments>
-<arg>api</arg>
-<arg>pangoo/ruleengine/homePage</arg>
-<arg>data=${data}</arg>
-</arguments>
-<assign>
-<var>${addr}</var>
-</assign>
-<msg timestamp="20200731 16:37:28.418" level="INFO">Starting new HTTP connection (1): 172.16.3.68</msg>
-<msg timestamp="20200731 16:37:28.565" level="INFO">Post Request using : alias=api, uri=pangoo/ruleengine/homePage, data=&lt;empty&gt;, headers=None, files=None, allow_redirects=True </msg>
-<msg timestamp="20200731 16:37:28.565" level="INFO">${addr} = &lt;Response [200]&gt;</msg>
-<status status="PASS" endtime="20200731 16:37:28.566" starttime="20200731 16:37:28.415"></status>
-</kw>
-<kw name="To Json" library="RequestsLibrary">
-<doc>Convert a string to a JSON object</doc>
-<arguments>
-<arg>${addr.content}</arg>
-</arguments>
-<assign>
-<var>${responsedata}</var>
-</assign>
-<msg timestamp="20200731 16:37:28.566" level="INFO">To JSON using : content={"recordId":3035799,"result":[{"result":1,"ruleCode":"nh23","remark":""}]} </msg>
-<msg timestamp="20200731 16:37:28.566" level="INFO">To JSON using : pretty_print=False </msg>
-<msg timestamp="20200731 16:37:28.566" level="INFO">${responsedata} = {"recordId": 3035799, "result": [{"ruleCode": "nh23", "remark": "", "result": 1}]}</msg>
-<status status="PASS" endtime="20200731 16:37:28.566" starttime="20200731 16:37:28.566"></status>
-</kw>
-<msg timestamp="20200731 16:37:28.567" level="INFO">${getRes} = {"recordId": 3035799, "result": [{"ruleCode": "nh23", "remark": "", "result": 1}]}</msg>
-<status status="PASS" endtime="20200731 16:37:28.567" starttime="20200731 16:37:28.384"></status>
-</kw>
-<kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the results.</doc>
-<arguments>
-<arg>[aj['ruleCode'] for aj in $getRes['result']]</arg>
-</arguments>
-<assign>
-<var>${aj}</var>
-</assign>
-<msg timestamp="20200731 16:37:28.570" level="INFO">${aj} = ["nh23"]</msg>
-<status status="PASS" endtime="20200731 16:37:28.570" starttime="20200731 16:37:28.567"></status>
-</kw>
-<kw name="Should Contain" library="BuiltIn">
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<arguments>
-<arg>${aj}</arg>
-<arg>nh23</arg>
-</arguments>
-<status status="PASS" endtime="20200731 16:37:28.572" starttime="20200731 16:37:28.571"></status>
-</kw>
-<tags>
-<tag>skip</tag>
-</tags>
-<status status="PASS" endtime="20200731 16:37:28.572" critical="yes" starttime="20200731 16:37:28.373"></status>
+<status status="PASS" endtime="20200820 16:52:35.044" critical="yes" starttime="20200820 16:52:33.971"></status>
 </test>
 <kw type="teardown" name="Delete All Sessions" library="RequestsLibrary">
 <doc>Removes all the session objects</doc>
-<msg timestamp="20200731 16:37:28.573" level="INFO">Delete All Sessions</msg>
-<status status="PASS" endtime="20200731 16:37:28.573" starttime="20200731 16:37:28.573"></status>
+<msg timestamp="20200820 16:52:35.048" level="INFO">Delete All Sessions</msg>
+<status status="PASS" endtime="20200820 16:52:35.051" starttime="20200820 16:52:35.047"></status>
 </kw>
-<status status="PASS" endtime="20200731 16:37:28.573" starttime="20200731 16:37:27.962"></status>
+<status status="PASS" endtime="20200820 16:52:35.051" starttime="20200820 16:52:33.737"></status>
 </suite>
 <statistics>
 <total>
-<stat fail="0" pass="2">Critical Tests</stat>
-<stat fail="0" pass="2">All Tests</stat>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
 </total>
 <tag>
-<stat fail="0" pass="2">skip</stat>
+<stat fail="0" pass="1">skip</stat>
 </tag>
 <suite>
-<stat fail="0" id="s1" name="首页质控" pass="2">首页质控</stat>
+<stat fail="0" id="s1" name="添加反馈" pass="1">添加反馈</stat>
 </suite>
 </statistics>
 <errors>

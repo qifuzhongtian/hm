@@ -1,52 +1,52 @@
 *** Variables ***
 #=======医院内网需要修改的==============#
 #mayson生产环境       修改成http://负载ip/cdss
-# ${mayson_url}     http://profile.huimeionline.com/cdss
+${mayson_url}     http://profile.huimeionline.com/cdss
 # ${mayson_url}    http://test-mayson.huimeionline.com/cdss
 #演示环境
-${mayson_url}    http://172.16.4.178/cdss
+# ${mayson_url}    http://172.16.4.178/cdss
 #apollo生产环境       修改成http://负载ip/cdss
-# ${base_url}       http://mayson.huimeionline.com/cdss
-${base_url}     http://172.16.4.178/cdss
+${base_url}       http://mayson.huimeionline.com/cdss
+# ${base_url}     http://172.16.4.178/cdss
 # ${base_url}     http://172.16.4.3:8080
 # ${base_url}     http://test-mayson.huimeionline.com/cdss
 #{url}内部平台 ,惠每用户中心地址
 # ${inside_url}     http://172.16.3.40
 #测试
-# ${inside_url}     http://172.16.3.64
+${inside_url}     http://172.16.3.64
 #内部平台-demo环境
-${inside_url}    http://172.16.4.178
+# ${inside_url}    http://172.16.4.178
 #文献生产环境           修改成http://负载ip/cdss
-# ${doc_url}        http://profile-doc.huimeionline.com/doc
+${ doc_url}        http://profile-doc.huimeionline.com/doc
 # ${doc_url}      http://test-profile-doc.huimeionline.com/doc
 #演示环境
-${doc_url}      http://172.16.4.178/cdss
+# ${doc_url}      http://172.16.4.178/cdss
 #内涵质控
-# ${connotation_url}    http://172.16.3.68
-${connotation_url}    http://172.16.4.178
+${connotation_url}    http://172.16.3.68
+# ${connotation_url}    http://172.16.4.178
 #测试环境
 # ${mayson_url}    http://10.27.213.55
 #文献前端环境           修改成http://负载ip/wenxian
-# ${doc_fe}         http://doc.huimeionline.com
-${doc_fe}       http://172.16.4.178/wenxian
+${doc_fe}         http://doc.huimeionline.com
+# ${doc_fe}       http://172.16.4.178/wenxian
 #文献线上             修改成http://负载ip
-# ${doc_online}     http://120.26.223.139
-${doc_online}    http://172.16.4.178
+${doc_online}     http://120.26.223.139
+# ${doc_online}    http://172.16.4.178
 #ame生产环境          修改成http://负载ip
-# ${ame_url}        http://ame.huimeionline.com
-${ame_url}      http://172.16.4.178:8092
+${ame_url}        http://ame.huimeionline.com
+# ${ame_url}      http://172.16.4.178:8092
 #fuxi验证接口         修改成 http://负载ip/node/active
-# ${fuxi_data}      ${inside_url}:3014
-${fuxi_data}    http://172.16.4.178/node/active
+${fuxi_data}      ${inside_url}:3014
+# ${fuxi_data}    http://172.16.4.178/node/active
 #adminse          修改成http://负载ip
-# ${adminse}      http://admin-se.huimeionline.com/
-${adminse}      http://172.16.4.178
+${adminse}      http://admin-se.huimeionline.com/
+# ${adminse}      http://172.16.4.178
 # ${adminse}        http://test-admin-se.huimeionline.com/
 #amcPc版           修改成http://负载ip/cdss
-# ${base_url_amc}    http://amc.huimeionline.com
-# ${base_gdms}      http://gdms.huimeionline.com
-${base_url_amc}    http://172.16.4.178/cdss
-${base_gdms}    http://172.16.4.178/cdss
+${base_url_amc}    http://amc.huimeionline.com
+${base_gdms}      http://gdms.huimeionline.com
+# ${base_url_amc}    http://172.16.4.178/cdss
+# ${base_gdms}    http://172.16.4.178/cdss
 #病历质控平台 3021
 ${songshan_url}    ${inside_url}:3021
 #惠每用户中心 3019
@@ -61,8 +61,8 @@ ${lvdao_url}      ${inside_url}:3022
 #庄周
 ${zhuangzhou_url}    ${inside_url}:3023
 ##文献图片/文件差异接口,修改为http://athena_ip:8095形式
-# ${athenaDoc_url}    http://mayson.huimeionline.com:8095
-${athenaDoc_url}    http://172.16.4.178:8095
+${athenaDoc_url}    http://mayson.huimeionline.com:8095
+# ${athenaDoc_url}    http://172.16.4.178:8095
 #=======以下内容不需要修改==============#
 ######################apollo######################
 ${base_url_sf}    http://10.27.213.55:9092
@@ -1823,14 +1823,102 @@ VTE2快速确认
 
 
 
+统计_工作台_workAppraisTaskTJ
+    [Arguments]
+    ${data}    Create Dictionary
+    ${addr}    Post Request    api    /work/workAppraisTaskTJ    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+
+统计_工作台_质量统计
+    [Arguments]    ${type}    ${content}    ${page_size}    ${current_index}    ${time_start}    ${time_end}
+    ${data}    Create Dictionary    type=${type}    content=${content}    page_size=${page_size}    current_index=${current_index}    time_start=${time_start}    time_end=${time_end}
+    ${addr}    Post Request    api    /work/workQualityTJ    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+统计_工作台_质控问题描述
+    [Arguments]    ${time_start}    ${time_end}
+    ${data}    Create Dictionary    time_start=${time_start}    time_end=${time_end}
+    ${addr}    Post Request    api    /work/workProblemDistribution    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+统计_工作台todo
+    [Arguments]
+    ${data}    Create Dictionary
+    ${addr}    Post Request    api    /work/workTodo    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+
+统计_工作台_病历等级统计
+    [Arguments]    ${time_start}    ${time_end}
+    ${data}    Create Dictionary    time_start=${time_start}    time_end=${time_end}
+    ${addr}    Post Request    api    /work/workLevelTJ    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+
+统计_工作台_出院病历质量统计
+    [Arguments]    ${type}    ${time_start}    ${time_end}
+    ${data}    Create Dictionary    type=${type}    time_start=${time_start}    time_end=${time_end}
+    ${addr}    Post Request    api    /work/workApprovalStatusTJ    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+
+病历质控评价管理批次列表
+    [Arguments]    ${name}    ${status}    ${type}    ${order}
+    ...    ${current_index}    ${page_size}
+    ${order}    Evaluate    dict(${order})
+    ${data}    Create Dictionary    name=${name}    status=${status}    type=${type}    order=${order}
+    ...    current_index=${current_index}    page_size=${page_size}
+    ${addr}    Post Request    api    /appraise/appraiseList    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
 
 
 用户列表
-    [Arguments]    ${user_name}    ${dep_name}    ${patient_area}
-    ${data}    Create Dictionary    user_name=${user_name}    dep_name=${dep_name}    patient_area=${patient_area}
+    [Arguments]    ${content}    ${jump}    ${order}
+    ...    ${current_index}    ${page_size}
+    ${order}    Evaluate    dict(${order})
+    ${data}    Create Dictionary    content=${content}    jump=${jump}    order=${order}
+    ...    current_index=${current_index}    page_size=${page_size}
     ${addr}    Post Request    api    /manage/userList    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+
+
+
+
+账号管理医生组列表
+    [Arguments]    ${content}    ${order}
+    ...    ${current_index}    ${page_size}
+    ${order}    Evaluate    dict(${order})
+    ${data}    Create Dictionary    content=${content}    order=${order}
+    ...    current_index=${current_index}    page_size=${page_size}
+    ${addr}    Post Request    api    /manage/doctorGroupList    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
 
 病历查询问题描述列表
     ${data}    Create Dictionary
@@ -1937,7 +2025,7 @@ VTE2快速确认
     ${qcConsultationRequset}    Evaluate    dict(${qcConsultationRequset})
     ${assessResultRequest}    Evaluate    dict(${assessResultRequest})
     # ${physicalSign}    Evaluate    dict(${physicalSign})
-    ${data}    Create Dictionary    recordId=${recordId}    qcConsultationRequset=${qcConsultationRequset}    qcConsultationRequset=${qcConsultationRequset}
+    ${data}    Create Dictionary    recordId=${recordId}    qcConsultationRequset=${qcConsultationRequset}    assessResultRequest=${assessResultRequest}
     ${addr}    Post Request    api    sentry/v_2_0/qc/applyForConsultation    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
@@ -2094,4 +2182,51 @@ VTE2快速确认
     log    ${data}
     ${addr}    Post Request    api    /get_standard_dataset    data=${data}
     ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+
+
+病历质控提交反馈
+    [Arguments]    ${recordId}    ${mcRecordFeedback}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${mayson_url}    ${dict}
+    ${mcRecordFeedback}    Evaluate    dict(${mcRecordFeedback})
+    ${data}    Create Dictionary    recordId=${recordId}    mcRecordFeedback=${mcRecordFeedback}
+    ${addr}    Post Request    api    /sentry/mc/add_feedback    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+
+快速推荐
+    [Arguments]    ${userGuid}    ${serialNumber}    ${patientName}    ${doctorGuid}    ${doctorName}    ${admissionTime}
+    ...    ${inpatientDepartment}    ${pageSource}    ${requestSource}    ${patientInfo}    ${physicalSign}    ${definiteDiagnosis}
+    ...    ${progressNoteList}    ${deleteProgressNoteList}    ${labTestList}    ${examinationList}    ${newTestList}    ${operationRecord}
+    ...    ${prescriptions}    ${currentDiseaseName}    ${medicalOrders}    ${openInterdict}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${mayson_url}    ${dict}
+    ${patientInfo}    Evaluate    dict(${patientInfo})
+    ${physicalSign}    Evaluate    dict(${physicalSign})
+    ${definiteDiagnosis}    Evaluate    [${definiteDiagnosis}]
+    ${progressNoteList}    Evaluate    [${progressNoteList}]
+    ${deleteProgressNoteList}    Evaluate    [${deleteProgressNoteList}]
+    ${labTestList}    Evaluate    [${labTestList}]
+    ${examinationList}    Evaluate    [${examinationList}]
+    ${newTestList}    Evaluate    [${newTestList}]
+    ${operationRecord}    Evaluate    dict(${operationRecord})
+    ${prescriptions}    Evaluate    ${prescriptions}
+    ${medicalOrders}    Evaluate    [${medicalOrders}]
+    ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    patientName=${patientName}    doctorGuid=${doctorGuid}    doctorName=${doctorName}
+    ...    admissionTime=${admissionTime}    inpatientDepartment=${inpatientDepartment}    pageSource=${pageSource}    requestSource=${requestSource}    patientInfo=${patientInfo}    physicalSign=${physicalSign}
+    ...    definiteDiagnosis=${definiteDiagnosis}    progressNoteList=${progressNoteList}    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}    examinationList=${examinationList}    newTestList=${newTestList}
+    ...    operationRecord=${operationRecord}    prescriptions=${prescriptions}    currentDiseaseName=${currentDiseaseName}    medicalOrders=${medicalOrders}    openInterdict=${openInterdict}
+    log    ${data}
+    ${addr}    Post Request    api    mayson/v_2_0/intelligent_recommendation    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    ${recordId}    Get from Dictionary    ${responsedata["body"]}    recordId
+    ${serialNumber}    Get from Dictionary    ${responsedata["body"]["patientInfo"]}    serialNumber
+    ${userGuid}    Get from Dictionary    ${responsedata["body"]["patientInfo"]}    userGuid
+    Set Global variable    ${recordId}
+    Set Global variable    ${userGuid}
+    Set Global variable    ${serialNumber}
     [Return]    ${responsedata}

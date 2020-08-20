@@ -12,16 +12,10 @@ Library           DateTime
 *** Variables ***
 
 *** Test Cases ***
-# Boolean
-    # Set Status    ${true}
-
-用户列表
+账号管理医生组列表
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    用户列表    content=
-    ...    order={"name": "name","sort": "desc"}
-    ...    jump=true
+    ${getRes}    账号管理医生组列表    content=    order={"name": "name","sort": "desc"}
     ...    current_index=${1}    page_size=${20}
     Should Contain    ${getRes['msg']}    success
-
 
