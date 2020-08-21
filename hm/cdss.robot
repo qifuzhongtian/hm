@@ -2170,7 +2170,7 @@ VTE2快速确认
     ...    definiteDiagnosis=${definiteDiagnosis}    progressNoteList=${progressNoteList}    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}    examinationList=${examinationList}    newTestList=${newTestList}
     ...    operationRecord=${operationRecord}    prescriptions=${prescriptions}    currentDiseaseName=${currentDiseaseName}    medicalOrders=${medicalOrders}    openInterdict=${openInterdict}
     log    ${data}
-    ${addr}    Post Request    api    mayson/v_2_0/intelligent_recommendation    data=${data}
+    ${addr}    Post Request    api    mayson/v_2_0/smart_recommend    data=${data}
     ${responsedata}    To Json    ${addr.content}
     ${recordId}    Get from Dictionary    ${responsedata["body"]}    recordId
     ${serialNumber}    Get from Dictionary    ${responsedata["body"]["patientInfo"]}    serialNumber
