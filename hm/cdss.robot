@@ -13,11 +13,11 @@ ${base_url}       http://mayson.huimeionline.com/cdss
 #{url}内部平台 ,惠每用户中心地址
 ${inside_url}     http://172.16.3.40
 #测试
-# ${inside_url}     http://172.16.3.64
+# ${inside_url}    http://172.16.3.64
 #内部平台-demo环境
 # ${inside_url}    http://172.16.4.178
 #文献生产环境           修改成http://负载ip/cdss
-${ doc_url}        http://profile-doc.huimeionline.com/doc
+${ doc_url}       http://profile-doc.huimeionline.com/doc
 # ${doc_url}      http://test-profile-doc.huimeionline.com/doc
 #演示环境
 # ${doc_url}      http://172.16.4.178/cdss
@@ -39,9 +39,9 @@ ${ame_url}        http://ame.huimeionline.com
 ${fuxi_data}      ${inside_url}:3014
 # ${fuxi_data}    http://172.16.4.178/node/active
 #adminse          修改成http://负载ip
-${adminse}      http://admin-se.huimeionline.com/
+${adminse}        http://admin-se.huimeionline.com/
 # ${adminse}      http://172.16.4.178
-# ${adminse}        http://test-admin-se.huimeionline.com/
+# ${adminse}      http://test-admin-se.huimeionline.com/
 #amcPc版           修改成http://负载ip/cdss
 ${base_url_amc}    http://amc.huimeionline.com
 ${base_gdms}      http://gdms.huimeionline.com
@@ -90,32 +90,28 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
     ${random}    Generate Random String    3    1234567890
     Set Global Variable    ${random}
 
-
 时间
     ${time}    Get Current Date    result_format=timestamp
     #通用药品医嘱时间，此刻
-
     ${medical_create}    add time to date    ${time}    -1hours
-    ${medicalOrders_create}    Get SubString    ${medical_create}    0  19
+    ${medicalOrders_create}    Get SubString    ${medical_create}    0    19
     #肿瘤规则检验医嘱时间
     ${orders_lis_create_time}    add time to date    ${medicalOrders_create}    2seconds
     #手术时间
     ${operation_time}    add time to date    ${time}    3hours
-    ${operation_start_time}    Get SubString    ${operation_time}    0  19
+    ${operation_start_time}    Get SubString    ${operation_time}    0    19
     #医嘱时间
     ${medicalOrders}    add time to date    ${operation_start_time}    -10hours
-    ${medicalOrders_time}    Get SubString    ${medicalOrders}    0  19
+    ${medicalOrders_time}    Get SubString    ${medicalOrders}    0    19
     #医嘱停止时间
     ${medicalOrders_stop}    add time to date    ${operation_start_time}    -2hours
-    ${medicalOrders_stop_time}    Get SubString    ${medicalOrders_stop}    0  19
+    ${medicalOrders_stop_time}    Get SubString    ${medicalOrders_stop}    0    19
     Set Global Variable    ${time}
     Set Global Variable    ${operation_start_time}
     Set Global Variable    ${medicalOrders_time}
     Set Global Variable    ${medicalOrders_stop_time}
     Set Global Variable    ${medicalOrders_create}
     Set Global Variable    ${orders_lis_create_time}
-
-
 
 安全用药
     [Arguments]    ${drugCommonNames}    ${gender}    ${age}    ${ageType}    ${drugIds}    ${symptom}
@@ -1797,22 +1793,12 @@ VTE2快速确认
     # ${responsedata}    To Json    ${addr.content}
     [Return]    ${addr}
 
-
-
-
-
-
-
 统计_工作台_特征统计
     [Arguments]    ${time_start}    ${time_end}
     ${data}    Create Dictionary    time_start=${time_start}    time_end=${time_end}
     ${addr}    Post Request    api    /work/workFeatureTJ    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
-
-
-
-
 
 统计_工作台_目标分布
     [Arguments]    ${time_start}    ${time_end}
@@ -1821,26 +1807,19 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-
-
 统计_工作台_workAppraisTaskTJ
-    [Arguments]
     ${data}    Create Dictionary
     ${addr}    Post Request    api    /work/workAppraisTaskTJ    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-
-
-
 统计_工作台_质量统计
     [Arguments]    ${type}    ${content}    ${page_size}    ${current_index}    ${time_start}    ${time_end}
-    ${data}    Create Dictionary    type=${type}    content=${content}    page_size=${page_size}    current_index=${current_index}    time_start=${time_start}    time_end=${time_end}
+    ${data}    Create Dictionary    type=${type}    content=${content}    page_size=${page_size}    current_index=${current_index}    time_start=${time_start}
+    ...    time_end=${time_end}
     ${addr}    Post Request    api    /work/workQualityTJ    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
-
-
 
 统计_工作台_质控问题描述
     [Arguments]    ${time_start}    ${time_end}
@@ -1849,17 +1828,11 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-
-
 统计_工作台todo
-    [Arguments]
     ${data}    Create Dictionary
     ${addr}    Post Request    api    /work/workTodo    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
-
-
-
 
 统计_工作台_病历等级统计
     [Arguments]    ${time_start}    ${time_end}
@@ -1868,9 +1841,6 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-
-
-
 统计_工作台_出院病历质量统计
     [Arguments]    ${type}    ${time_start}    ${time_end}
     ${data}    Create Dictionary    type=${type}    time_start=${time_start}    time_end=${time_end}
@@ -1878,47 +1848,30 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-
-
-
 病历质控评价管理批次列表
-    [Arguments]    ${name}    ${status}    ${type}    ${order}
-    ...    ${current_index}    ${page_size}
+    [Arguments]    ${name}    ${status}    ${type}    ${order}    ${current_index}    ${page_size}
     ${order}    Evaluate    dict(${order})
-    ${data}    Create Dictionary    name=${name}    status=${status}    type=${type}    order=${order}
-    ...    current_index=${current_index}    page_size=${page_size}
+    ${data}    Create Dictionary    name=${name}    status=${status}    type=${type}    order=${order}    current_index=${current_index}
+    ...    page_size=${page_size}
     ${addr}    Post Request    api    /appraise/appraiseList    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-
-
-
 用户列表
-    [Arguments]    ${content}    ${jump}    ${order}
-    ...    ${current_index}    ${page_size}
+    [Arguments]    ${content}    ${jump}    ${order}    ${current_index}    ${page_size}
     ${order}    Evaluate    dict(${order})
-    ${data}    Create Dictionary    content=${content}    jump=${jump}    order=${order}
-    ...    current_index=${current_index}    page_size=${page_size}
+    ${data}    Create Dictionary    content=${content}    jump=${jump}    order=${order}    current_index=${current_index}    page_size=${page_size}
     ${addr}    Post Request    api    /manage/userList    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-
-
-
 账号管理医生组列表
-    [Arguments]    ${content}    ${order}
-    ...    ${current_index}    ${page_size}
+    [Arguments]    ${content}    ${order}    ${current_index}    ${page_size}
     ${order}    Evaluate    dict(${order})
-    ${data}    Create Dictionary    content=${content}    order=${order}
-    ...    current_index=${current_index}    page_size=${page_size}
+    ${data}    Create Dictionary    content=${content}    order=${order}    current_index=${current_index}    page_size=${page_size}
     ${addr}    Post Request    api    /manage/doctorGroupList    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
-
-
-
 
 病历查询问题描述列表
     ${data}    Create Dictionary
@@ -2184,9 +2137,6 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
 
-
-
-
 病历质控提交反馈
     [Arguments]    ${recordId}    ${mcRecordFeedback}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -2196,7 +2146,6 @@ VTE2快速确认
     ${addr}    Post Request    api    /sentry/mc/add_feedback    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
-
 
 快速推荐
     [Arguments]    ${userGuid}    ${serialNumber}    ${patientName}    ${doctorGuid}    ${doctorName}    ${admissionTime}
@@ -2229,4 +2178,37 @@ VTE2快速确认
     Set Global variable    ${recordId}
     Set Global variable    ${userGuid}
     Set Global variable    ${serialNumber}
+    [Return]    ${responsedata}
+
+庄周_单病种上报统计
+    [Arguments]    ${startDate}    ${endDate}    ${type}
+    #${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    #Create Session    api    ${zhuangzhou_url}    ${dict}
+    #Create Session    api    http://172.16.3.64:3023    ${dict}
+    ${data}    Create Dictionary    startDate=${startDate}    endDate=${endDate}    type=${type}
+    log    ${data}
+    ${addr}    Post Request    api    diseaseUp/list    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+庄周_单病种科室统计
+    [Arguments]    ${startDate}    ${endDate}    ${type}
+    #${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    #Create Session    api    ${zhuangzhou_url}    ${dict}
+    #Create Session    api    http://172.16.3.64:3023    ${dict}
+    ${data}    Create Dictionary    startDate=${startDate}    endDate=${endDate}    type=${type}
+    log    ${data}
+    ${addr}    Post Request    api    diseaseUp/diseaseDepartment    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    [Return]    ${responsedata}
+
+庄周_病种质控完成统计
+    [Arguments]    ${startDate}    ${endDate}    ${type}
+    #${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    #Create Session    api    ${zhuangzhou_url}    ${dict}
+    #Create Session    api    http://172.16.3.64:3023    ${dict}
+    ${data}    Create Dictionary    startDate=${startDate}    endDate=${endDate}    type=${type}
+    log    ${data}
+    ${addr}    Post Request    api    diseaseQuality/list    data=${data}
+    ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
