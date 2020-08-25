@@ -1,6 +1,5 @@
 *** Settings ***
-Suite Teardown    Delete All Sessions    # Suite Setup    Run Keywords    登录接口    # ...
-...               # AND    获取时间戳
+Suite Teardown    Delete All Sessions
 Resource          ../../cdss.robot
 Library           Collections
 Library           RequestsLibrary

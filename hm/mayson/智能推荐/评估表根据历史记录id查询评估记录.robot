@@ -5,13 +5,8 @@ Suite Teardown    Delete All Sessions
 Resource          ../../cdss.robot
 Library           Collections
 Library           RequestsLibrary
-Library           String    # 字段名 类型    是否必须    说明    # patientGuid String    是    患者编号
-...               # recordId    Integer 是    病历id    # assessId    String    是    住院就诊编号
-...               # customerId    String    是    customerId    # assessId    Integer 是    评估表id
-...               # assessName    String    是    评估表名称    # assessResult    String    是
-...               # 评估结果    # assessConclusion    String    是    解释    # source    String
-...               # 是    页面数据源    # historyItemList List    是    评估历史明细集合    # ----type    String
-...               # 否    评估类型    # ----value    Double    否    评估结果
+Library           String
+
 
 *** Variables ***
 # ${timestamp}${random}    Get Time    epoch
