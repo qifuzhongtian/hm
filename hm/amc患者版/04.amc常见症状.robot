@@ -1,7 +1,7 @@
 *** Settings ***
-Resource          ../cdss.robot    # Suite Setup    登录接口    # Suite Teardown    Delete All Sessions
+Resource          ../cdss.robot
 Library           Collections
-Library           RequestsLibrary    # 字段名 类型    说明
+Library           RequestsLibrary
 
 *** Variables ***
 

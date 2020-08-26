@@ -1,9 +1,7 @@
 *** Settings ***
-Resource          ../cdss.robot    # Suite Setup    登录接口    # Suite Teardown    Delete All Sessions
+Resource          ../cdss.robot
 Library           Collections
-Library           RequestsLibrary    # 字段名 类型    说明    # {    #    "AlgoID": 2959,    #
-...               # "age": "26",    #    "ageStyle": "岁",    #    "gender": 88,    #    "symptomId": 8,
-...               #    "patientName": "咳嗽患者",    #    "patientPhone": "13810578456"    # }
+Library           RequestsLibrary
 
 *** Variables ***
 

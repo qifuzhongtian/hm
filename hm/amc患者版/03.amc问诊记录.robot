@@ -5,9 +5,7 @@ Suite Setup       Run Keywords    amc进入    AlgoID=2960    age=44    ageStyle
 Suite Teardown    Delete All Sessions
 Resource          ../cdss.robot
 Library           Collections
-Library           RequestsLibrary    # 字段名 类型    说明    # {    #    incoming_ids": 2959,    #
-...               # "question": "26",    #    "answers": "岁",    #    "gender": 88,    #    "symptomId": 8,
-...               #    "patientName": "咳嗽患者",    # "patientPhone": "13810578456"    # }
+Library           RequestsLibrary
 
 *** Variables ***
 

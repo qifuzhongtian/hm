@@ -4,7 +4,7 @@ Suite Setup       amcPc版_问诊记录列表    currentPage=1    pageSize=20   
 Suite Teardown    Delete All Sessions
 Resource          ../cdss.robot
 Library           Collections
-Library           RequestsLibrary    # 字段名 类型 是否必须 说明
+Library           RequestsLibrary
 
 *** Test Cases ***
 16.1 问诊记录列表详情

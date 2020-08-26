@@ -5,9 +5,7 @@ Suite Setup       Run Keywords    amc进入    AlgoID=2960    age=44    ageStyle
 Suite Teardown    Delete All Sessions
 Resource          ../cdss.robot
 Library           Collections
-Library           RequestsLibrary    # 字段名 类型    说明    # 字段名    类型    是否必填    说明
-...               # id    Integer    是    问诊记录id    # recordRemark    String    是
-...               # 备注
+Library           RequestsLibrary
 
 *** Variables ***
 
