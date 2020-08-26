@@ -123,6 +123,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
     ${addr}    Post Request    api    hmsm/v_1_0/safe_medication    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 药品查询
     [Arguments]    ${drugName}
@@ -132,6 +133,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
     ${addr}    Post Request    api    hmsm/v_1_0/drug/search    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 查询药品与诊断
     [Arguments]    ${hasAssessType}    ${name}
@@ -142,6 +144,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
     ${addr}    Post Request    api    v_2_0/search/all    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 药品详情
     [Arguments]    ${drugId}
@@ -151,6 +154,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
     ${addr}    Post Request    api    hmsm/v_1_0/drug/detail    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 诊断依据
     [Arguments]    ${diseaseId}
@@ -160,6 +164,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
     ${addr}    Post Request    api    v_2_0/disease/basis    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 常见症状
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -168,6 +173,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
     ${addr}    Post Request    api    v_2_0/common_symptom    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 常见诊断
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -176,6 +182,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
     ${addr}    Post Request    api    v_2_0/common_diseases    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 常见个人史
     [Arguments]    ${gender}
@@ -185,6 +192,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
     ${addr}    Post Request    api    v_2_0/common_personal_history    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 常见过敏史
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -193,6 +201,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
     ${addr}    Post Request    api    v_2_0/common_allergy_history    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 常见家族史
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -201,6 +210,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
     ${addr}    Post Request    api    v_2_0/common_family_history    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 常见体格检查
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -209,6 +219,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
     ${addr}    Post Request    api    v_2_0/common_physical    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 常见症状和类型
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -217,6 +228,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
     ${addr}    Post Request    api    v_2_0/common_symptom_obj    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 鉴别诊断
     [Arguments]    ${diseaseId}
@@ -226,6 +238,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
     ${addr}    Post Request    api    v_2_0/suspected_diagnosis    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 疾病详情
     [Arguments]    ${diseaseId}
@@ -235,6 +248,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
     ${addr}    Post Request    api    v_2_0/disease/detail    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 梅奥疾病详情
     [Arguments]    ${diseaseId}
@@ -244,6 +258,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
     ${addr}    Post Request    api    v_2_0/disease/mayo    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 疾病处置详细
     [Arguments]    ${diseaseId}
@@ -253,6 +268,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
     ${addr}    Post Request    api    v_2_0/disease/treatment    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 相关疾病
     [Arguments]    ${diseaseId}
@@ -262,6 +278,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
     ${addr}    Post Request    api    v_2_0/disease/reference    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 疾病查询弹层提示
     [Arguments]    ${diseaseName}
@@ -271,6 +288,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
     ${addr}    Post Request    api    v_2_0/disease/popup    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 智能诊断2.0
     [Arguments]    ${slice}    ${msg}    ${symptom}    ${previousHistory}    ${personalHistory}    ${allergyHistory}
@@ -329,6 +347,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
     ${addr}    Post Request    api    v_2_3/diagnose_through_interrogation    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 病例识别
     [Arguments]    ${symptom}    ${gender}    ${age}    ${ageType}
@@ -338,6 +357,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
     ${addr}    Post Request    api    /recognize    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 疾病查询
     [Arguments]    ${diseaseName}
@@ -347,6 +367,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
     ${addr}    Post Request    api    v_2_0/disease/search    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 test
     [Arguments]    ${symptom}
@@ -371,6 +392,7 @@ test
     ${addr}    Post Request    api    /disease/disease/_search?_source=false    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 查询常用药品
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -379,6 +401,7 @@ test
     ${addr}    Post Request    api    ncds/v_1_0/open/routine/medicine    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 查询病种列表
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -387,6 +410,7 @@ test
     ${addr}    Post Request    api    ncds/v_1_0/open/disease    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 查询病种下药品信息
     [Arguments]    ${id}
@@ -396,6 +420,7 @@ test
     ${addr}    Post Request    api    ncds/v_1_0/open/disease/medicine    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 amcPc版_用户登录
     [Arguments]    ${name}    ${password}
@@ -405,6 +430,7 @@ amcPc版_用户登录
     ${addr}    Post Request    api    /user/login    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 amcPc版_症状sug
     [Arguments]    ${symptom}
@@ -414,6 +440,7 @@ amcPc版_症状sug
     ${addr}    Post Request    api    apollo/amc/symptom    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 amcPc版_科室sug
     [Arguments]    ${subject}
@@ -423,6 +450,7 @@ amcPc版_科室sug
     ${addr}    Post Request    api    /apollo/amc/query_subject    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 amcPc版_问诊症状统计
     [Arguments]    ${currentPage}    ${pageSize}    ${countmode}    ${userGuid}    ${doctorGuid}    ${doctorName}
@@ -434,6 +462,7 @@ amcPc版_问诊症状统计
     ${addr}    Post Request    api    /apollo/amc/static_symptom    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 amcPc版_问诊科室统计
     [Arguments]    ${currentPage}    ${pageSize}    ${countmode}    ${userGuid}    ${doctorGuid}    ${doctorName}
@@ -445,6 +474,7 @@ amcPc版_问诊科室统计
     ${addr}    Post Request    api    /apollo/amc/static_subject    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 amcPc版_问诊记录列表
     [Arguments]    ${currentPage}    ${pageSize}    ${countmode}    ${userGuid}    ${doctorGuid}    ${doctorName}
@@ -458,6 +488,7 @@ amcPc版_问诊记录列表
     ${number}    Get From Dictionary    ${responsedata['body']['recordList'][0]}    number
     Set Global Variable    ${number}
     [Return]    ${responsedata}
+    log    ${data}
 
 amcPc版_问诊记录列表详情
     [Arguments]    ${number}
@@ -467,6 +498,7 @@ amcPc版_问诊记录列表详情
     ${addr}    Post Request    api    /apollo/amc/record_info    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 amc进入
     [Arguments]    ${AlgoID}    ${age}    ${ageStyle}    ${gender}    ${symptomId}    ${symptomName}
@@ -480,6 +512,7 @@ amc进入
     ${hms}    Get From Dictionary    ${responsedata['head']}    _hms
     Set Global Variable    ${hms}
     [Return]    ${responsedata}
+    log    ${data}
 
 amc下一题
     [Arguments]    ${questionId}    ${type}    ${answer}
@@ -493,6 +526,7 @@ amc下一题
     ${number}    Get from Dictionary    ${responsedata["body"]}    number
     Set Global variable    ${number}
     [Return]    ${responsedata}
+    log    ${data}
 
 amc问诊记录
     [Arguments]    ${number}
@@ -501,6 +535,7 @@ amc问诊记录
     ${addr}    Post Request    api    amc/record_info    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 amc常见症状
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -509,6 +544,7 @@ amc常见症状
     ${addr}    Post Request    api    /amc/common_symptom    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 问诊记录添加备注
     [Arguments]    ${number}    ${recordRemark}
@@ -517,6 +553,7 @@ amc常见症状
     ${addr}    Post Request    api    amc/update_record    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 amcPc版症状统计图型
     [Arguments]    ${enterTime}    ${recordTime}    ${symptom}    ${gender}    ${subject}
@@ -526,6 +563,7 @@ amcPc版症状统计图型
     ${addr}    Post Request    api    /amc/static_symptom    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 amcPc版科室统计图型
     [Arguments]    ${enterTime}    ${recordTime}    ${symptom}    ${gender}    ${subject}
@@ -535,6 +573,7 @@ amcPc版科室统计图型
     ${addr}    Post Request    api    /amc/static_subject    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 amcPc版症状搜索
     [Arguments]    ${symptom}
@@ -544,6 +583,7 @@ amcPc版症状搜索
     ${addr}    Post Request    api    /amc/symptom    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 amcPc客户信息
     [Arguments]    ${authKey}
@@ -553,6 +593,7 @@ amcPc客户信息
     ${addr}    Post Request    api    /customer_info    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 问诊路径
     [Arguments]    ${symptomId}    ${age}    ${ageType}    ${sex}    ${patientName}    ${saveFlag}
@@ -563,6 +604,7 @@ amcPc客户信息
     ${addr}    Post Request    api    /amc/node_tree    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 答题记录
     [Arguments]    ${nodeId}    ${algoIdList}    ${seqIdList}    ${symptomIdList}    ${algoId}    ${seqId}
@@ -577,6 +619,7 @@ amcPc客户信息
     ${addr}    Post Request    api    /amc/answer_record    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 提交记录
     [Arguments]    ${nodeId}    ${algoId}    ${seqId}    ${age}    ${ageType}    ${sex}
@@ -587,6 +630,7 @@ amcPc客户信息
     ${addr}    Post Request    api    /amc/submit_record    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 历史搜索
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -595,6 +639,7 @@ amcPc客户信息
     ${addr}    Post Request    api    /amc/history_symptom    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 症状搜索
     [Arguments]    ${symptom}
@@ -604,6 +649,7 @@ amcPc客户信息
     ${addr}    Post Request    api    amc/v_4_0/symptom    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 ame登录
     [Arguments]    ${userName}    ${password}
@@ -613,6 +659,7 @@ ame登录
     ${addr}    Post Request    api    ame/login    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 ame查询
     [Arguments]    ${name}
@@ -622,6 +669,7 @@ ame查询
     ${addr}    Post Request    api    ame/search    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 ame管理_用户登录
     [Arguments]    ${doctorName}    ${password}
@@ -631,6 +679,7 @@ ame管理_用户登录
     ${addr}    Post Request    api    role/userLogin    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 ame管理_文档关联诊断sug
     [Arguments]    ${diseaseName}
@@ -640,6 +689,7 @@ ame管理_文档关联诊断sug
     ${addr}    Get Request    api    /etXml/queryXmlDiseaseSug?pId=22943,11    params=${params}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 ame管理_文档列表查询
     [Arguments]    ${zhName}    ${enName}    ${languageType}    ${type}    ${modifyStart}    ${modifyEnd}
@@ -650,6 +700,7 @@ ame管理_文档列表查询
     ...    modifyEnd=${modifyEnd}    index=${index}    pageSize=${pageSize}
     ${addr}    Post Request    api    /etXml/queryEtXmlList    data=${data}
     [Return]    ${responsedata}
+    log    ${data}
 
 识别接口
     [Arguments]    ${symptom}    ${assert}
@@ -680,6 +731,7 @@ ame管理_文档列表查询
     ${addr}    Post Request    api    mayson/v_1_0/intelligent_recommendation    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 用药推荐
     [Arguments]    ${userGuid}    ${serialNumber}    ${patientInfo}
@@ -690,6 +742,7 @@ ame管理_文档列表查询
     ${addr}    Post Request    api    mayson/v_2_0/medication_regimen    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 用药推荐_宣武
     [Arguments]    ${userGuid}    ${serialNumber}    ${patientInfo}
@@ -700,6 +753,7 @@ ame管理_文档列表查询
     ${addr}    Post Request    api    mayson/v_1_0/medication_regimen    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 mayson搜索
     [Arguments]    ${name}    ${hasAssessType}
@@ -709,6 +763,7 @@ mayson搜索
     ${addr}    Post Request    api    v_2_0/search/all    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 mayson默认推荐搜索
     [Arguments]    ${doctorGuid}    ${department}
@@ -718,6 +773,7 @@ mayson默认推荐搜索
     ${addr}    Post Request    api    /mayson/track/default_recommend    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 治疗方案
     [Arguments]    ${symptom}    ${uuid}    ${previousHistory}    ${personalHistory}    ${allergyHistory}    ${familyHistory}
@@ -732,6 +788,7 @@ mayson默认推荐搜索
     ${addr}    Post Request    api    athena/v_1_0/regimen    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 智能诊断4.0
     [Arguments]    ${userGuid}    ${doctorGuid}    ${serialNumber}    ${hospitalGuid}    ${symptom}    ${previousHistory}
@@ -748,6 +805,7 @@ mayson默认推荐搜索
     ${addr}    Post Request    api    v_4_0/diagnose_through_interrogation    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 智能推荐门诊
     [Arguments]    ${userGuid}    ${serialNumber}    ${doctorGuid}    ${hospitalGuid}    ${symptom}    ${drugCommonNames}
@@ -772,6 +830,7 @@ mayson默认推荐搜索
     ${addr}    Post Request    api    v_5_0/diagnose_through_interrogation    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 智能推荐
     [Arguments]    ${userGuid}    ${serialNumber}    ${patientName}    ${doctorGuid}    ${doctorName}    ${admissionTime}
@@ -798,6 +857,7 @@ mayson默认推荐搜索
     ${addr}    Post Request    api    mayson/v_1_0/intelligent_recommendation    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 智能推荐v2
     [Arguments]    ${userGuid}    ${serialNumber}    ${patientName}    ${doctorGuid}    ${doctorName}    ${admissionTime}
@@ -821,9 +881,13 @@ mayson默认推荐搜索
     ...    admissionTime=${admissionTime}    inpatientDepartment=${inpatientDepartment}    pageSource=${pageSource}    requestSource=${requestSource}    patientInfo=${patientInfo}    physicalSign=${physicalSign}
     ...    definiteDiagnosis=${definiteDiagnosis}    progressNoteList=${progressNoteList}    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}    examinationList=${examinationList}    newTestList=${newTestList}
     ...    operationRecord=${operationRecord}    prescriptions=${prescriptions}    currentDiseaseName=${currentDiseaseName}    medicalOrders=${medicalOrders}    openInterdict=${openInterdict}
-    log    ${data}
     ${addr}    Post Request    api    mayson/v_2_0/intelligent_recommendation    data=${data}
     ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+
+
+
+
     ${recordId}    Get from Dictionary    ${responsedata["body"]}    recordId
     ${serialNumber}    Get from Dictionary    ${responsedata["body"]["patientInfo"]}    serialNumber
     ${userGuid}    Get from Dictionary    ${responsedata["body"]["patientInfo"]}    userGuid
@@ -831,6 +895,7 @@ mayson默认推荐搜索
     Set Global variable    ${userGuid}
     Set Global variable    ${serialNumber}
     [Return]    ${responsedata}
+    log    ${data}
 
 智能推荐test
     [Arguments]    ${userGuid}    ${serialNumber}    ${patientName}    ${doctorGuid}    ${doctorName}    ${admissionTime}
@@ -855,23 +920,10 @@ mayson默认推荐搜索
     ...    progressNoteList=${progressNoteList}    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}    examinationList=${examinationList}    newTestList=${newTestList}    operationRecord=${operationRecord}
     ...    prescriptions=${prescriptions}    currentDiseaseName=${currentDiseaseName}    medicalOrders=${medicalOrders}
     ${addr}    Post Request    api    mayson/v_2_0/intelligent_recommendation    data=${data}
-    ${responsedata}    To Json    ${addr.content}    # 智能推荐test    #    [Arguments]    ${userGuid}
-    ...    # ${serialNumber}    ${patientInfo}    ${physicalSign}    ${definiteDiagnosis}    # ${progressNoteList}    #
-    ...    # ...    ${deleteProgressNoteList}    ${labTestList}    ${examinationList}    #    ${dict}
-    ...    # Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}    #    Create Session    api
-    ...    # ${mayson_url}    ${dict}    #    ${patientInfo}    Evaluate    dict(${patientInfo})
-    ...    #    ${physicalSign}    Evaluate    dict(${physicalSign})    #    ${definiteDiagnosis}
-    ...    # Evaluate    [${definiteDiagnosis}]    #    ${progressNoteList}    Evaluate    [${progressNoteList}]
-    ...    #    ${deleteProgressNoteList}    Evaluate    [${deleteProgressNoteList}]    #    ${labTestList}
-    ...    # Evaluate    [${labTestList}]    #    ${examinationList}    Evaluate    [${examinationList}]
-    ...    #    ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    patientInfo=${patientInfo}
-    ...    # physicalSign=${physicalSign}    # definiteDiagnosis=${definiteDiagnosis}
-    #    ...    progressNoteList=${progressNoteList}    deleteProgressNoteList=${deleteProgressNoteList}    labTestList=${labTestList}    examinationList=${examinationList}
-    #    ${addr}    Post Request    api    mayson/v_1_0/intelligent_recommendation    data=${data}
-    #    ${responsedata}    To Json    ${addr.content}
-    #    ########历史评估表################
-    #    [Return]    ${responsedata}
+    ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
+
 
 保存评估历史记录
     [Arguments]    ${recordId}    ${assessId}    ${assessName}    ${patientGuid}    ${serialNumber}    ${assessValue}
@@ -889,6 +941,7 @@ mayson默认推荐搜索
     ${assessHistoryId}    Get From Dictionary    ${responsedata['body']}    assessHistoryId
     Set Global Variable    ${assessHistoryId}
     [Return]    ${responsedata}
+    log    ${data}
 
 查询惠每评估表
     [Arguments]    ${doctorGuid}    ${assessId}    ${serialNumber}    ${userGuid}
@@ -900,6 +953,7 @@ mayson默认推荐搜索
     # ${assessHistoryId}    Get From Dictionary    ${responsedata['body']}    assessHistoryId
     # Set Global Variable    ${assessHistoryId}
     [Return]    ${responsedata}
+    log    ${data}
 
 根据评估历史记录id查询评估记录
     [Arguments]    ${Id}
@@ -915,7 +969,9 @@ mayson默认推荐搜索
     #    ${addr}    Post Request    api    /mayson/v_1_0/assesshistory/findhistorylist    data=${data}
     #    ${responsedata}    To Json    ${addr.content}
     #    [Return]    ${responsedata}
+    log    ${data}
     [Return]    ${responsedata}
+    log    ${data}
 
 查询评估表历史列表
     [Arguments]    ${patientGuid}    ${serialNumber}
@@ -927,6 +983,7 @@ mayson默认推荐搜索
     # ${assessHistoryId}    Get From Dictionary    ${responsedata['body']}    assessHistoryId
     # Set Global Variable    ${assessHistoryId}
     [Return]    ${responsedata}
+    log    ${data}
 
 搜索文献
     [Arguments]    ${name}    ${diseaseId}    ${pageSize}    ${currentPage}    ${startDate}    ${endDate}
@@ -938,6 +995,7 @@ mayson默认推荐搜索
     ${addr}    Post Request    api    /seer/document/search    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 最新文献
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -946,6 +1004,7 @@ mayson默认推荐搜索
     ${addr}    Post Request    api    /seer/document/newest    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 文献详情
     [Arguments]    ${documentId}
@@ -955,6 +1014,7 @@ mayson默认推荐搜索
     ${addr}    Post Request    api    /seer/v_1_0/document/detail    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 文献标签
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -963,6 +1023,7 @@ mayson默认推荐搜索
     ${addr}    Post Request    api    /seer/document/label    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 文献下载
     [Arguments]    ${fileName}    ${filePath}
@@ -981,6 +1042,7 @@ mayson默认推荐搜索
     ${addr}    Post Request    api    /seer/document/apply    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 文献诊断字典
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -989,6 +1051,7 @@ mayson默认推荐搜索
     ${addr}    Post Request    api    /seer/document/disease_dict    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 文献申请列表
     [Arguments]    ${pageSize}    ${currentPage}
@@ -1000,6 +1063,7 @@ mayson默认推荐搜索
     ${id}    Get From Dictionary    ${responsedata['body']['customerList'][0]}    id
     Set Global Variable    ${id}
     [Return]    ${responsedata}
+    log    ${data}
 
 修改文献热度
     [Arguments]    ${id}
@@ -1009,6 +1073,7 @@ mayson默认推荐搜索
     ${addr}    Post Request    api    /seer/document/update_hot    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 mayson默认推荐
     [Arguments]    ${doctorGuid}    ${department}
@@ -1018,6 +1083,7 @@ mayson默认推荐
     ${addr}    Post Request    api    /mayson/track/default_recommend    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 风火山林甲状腺
     [Arguments]    ${userGuid}    ${serialNumber}    ${gender}    ${age}    ${ageType}    ${examinationName}
@@ -1029,6 +1095,7 @@ mayson默认推荐
     ${addr}    Post Request    api    /mayson/v_1_1/smart_recommend    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 风火山林甲状腺接口
     [Arguments]    ${examinationDesc}    ${assert}
@@ -1049,6 +1116,7 @@ mayson默认推荐
     ${addr}    Post Request    api    /v_2_0/exam/detail    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 检查结果
     [Arguments]    ${serialNumber}    ${inpatientDepartment}    ${userGuid}    ${doctorGuid}    ${doctorName}    ${admissionTime}
@@ -1065,6 +1133,7 @@ mayson默认推荐
     ${addr}    Post Request    api    mayson/v_2_0/intelligent_recommendation    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 智能推荐_医生团队
     [Arguments]    ${userGuid}    ${serialNumber}    ${doctorGuid}    ${doctorName}    ${pageSource}    ${patientInfo}
@@ -1088,6 +1157,7 @@ mayson默认推荐
     ${addr}    Post Request    api    mayson/v_1_0/intelligent_recommendation    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 新算法识别接口
     [Arguments]    ${contents}
@@ -1098,6 +1168,7 @@ mayson默认推荐
     ${addr}    Post Request    api    inference    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 智能推荐_围手术期
     [Arguments]    ${userGuid}    ${serialNumber}    ${patientName}    ${doctorGuid}    ${doctorName}    ${admissionTime}
@@ -1129,6 +1200,7 @@ mayson默认推荐
     ${recordId}    Get from Dictionary    ${responsedata["body"]}    recordId
     Set Global variable    ${recordId}
     [Return]    ${responsedata}
+    log    ${data}
 
 围手术期checklist
     [Arguments]    ${operationId}    ${recordId}
@@ -1143,6 +1215,7 @@ mayson默认推荐
     ${id}    Get from Dictionary    ${responsedata["body"]['checkListResp'][0]['checkListItem'][0][0]}    id
     Set Global variable    ${id}
     [Return]    ${responsedata}
+    log    ${data}
 
 围手术期checklist更新
     [Arguments]    ${checkListItem}    ${recordId}
@@ -1154,6 +1227,7 @@ mayson默认推荐
     ${addr}    Post Request    api    sentry/v_2_0/cl/update    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 登录
     [Arguments]    ${name}    ${password}
@@ -1163,6 +1237,7 @@ mayson默认推荐
     ${addr}    Post Request    api    active/login    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 新版质控统计明细
     [Arguments]    ${id}
@@ -1172,6 +1247,7 @@ mayson默认推荐
     ${addr}    Post Request    api    /active/queryChartConfig    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 新版质控统计
     [Arguments]    ${id}
@@ -1181,6 +1257,7 @@ mayson默认推荐
     ${addr}    Post Request    api    active/queryChartConfig    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 adminse登录
     [Arguments]    ${name}    ${password}
@@ -1190,6 +1267,7 @@ adminse登录
     ${addr}    Post Request    api    node/user/login    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 下发规则
     [Arguments]    ${customerId}
@@ -1200,6 +1278,7 @@ adminse登录
     ${addr}    Post Request    api    /mayson/effectTemplate    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 规则模板配置
     [Arguments]    ${index}    ${pageSize}    ${customerId}    ${systemId}    ${progressType}    ${templateName}
@@ -1211,6 +1290,7 @@ adminse登录
     ${addr}    Post Request    api    node/msParser/getMsParserList    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 检查检验查看
     [Arguments]    ${customerId}    ${index}    ${pageSize}    ${orderBy}    ${sourceType}
@@ -1220,6 +1300,7 @@ adminse登录
     ${addr}    Post Request    api    node/dictionary/queryExamCustomerList    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 文献首页
     [Arguments]    ${fileName}    ${filePath}
@@ -1239,6 +1320,7 @@ adminse登录
     ${addr}    Post Request    api    /ncds/v_1_0/chronicdisease/asthma/recommend    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 药物治疗
     [Arguments]    ${userGuid}    ${serialNumber}    ${age}    ${ageType}    ${chronic_disease_id}    ${sex}
@@ -1250,6 +1332,7 @@ adminse登录
     ${addr}    Post Request    api    /ncds/v_1_0/chronicdisease/medicine    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 患者教育
     [Arguments]    ${userGuid}    ${serialNumber}    ${age}    ${ageType}    ${chronicDiseaseId}    ${sex}
@@ -1260,6 +1343,7 @@ adminse登录
     ${addr}    Post Request    api    /v_2_0/disease/patientInstructor    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 慢病打开
     [Arguments]    ${userGuid}    ${serialNumber}    ${age}    ${ageType}    ${chronicDiseaseId}    ${sex}
@@ -1271,6 +1355,7 @@ adminse登录
     ${addr}    Post Request    api    /ncds/v_1_0/chronicdisease/init    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 病情评估_糖尿病
     [Arguments]    ${userGuid}    ${serialNumber}    ${age}    ${ageType}    ${chronicDiseaseId}    ${sex}
@@ -1282,6 +1367,7 @@ adminse登录
     ${addr}    Post Request    api    /ncds/v_1_0/chronicdisease/recommend    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 慢病打开_三高
     [Arguments]    ${userGuid}    ${serialNumber}    ${age}    ${ageType}    ${chronicDiseaseId}    ${sex}
@@ -1293,6 +1379,7 @@ adminse登录
     ${addr}    Post Request    api    /ncds/v_1_0/chronicdisease/threehigh/baseinfo/init    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 慢病打开_高血压
     [Arguments]    ${userGuid}    ${serialNumber}    ${age}    ${ageType}    ${chronicDiseaseId}    ${sex}
@@ -1304,6 +1391,7 @@ adminse登录
     ${addr}    Post Request    api    /ncds/v_1_1/blood_pressure_exam_info_acquire    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 病情评估_高血压
     [Arguments]    ${userGuid}    ${serialNumber}    ${age}    ${ageType}    ${bloodPressure}    ${gender}
@@ -1321,6 +1409,7 @@ adminse登录
     ${addr}    Post Request    api    /ncds/v_1_1/hbp_treatment_recommend    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 药物治疗_高血压
     [Arguments]    ${userGuid}    ${serialNumber}    ${age}    ${ageType}    ${classification}    ${sex}
@@ -1331,6 +1420,7 @@ adminse登录
     ${addr}    Post Request    api    /ncds/v_1_1/antihypertensive_drug    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 药品详情_对接版
     [Arguments]    ${drugId}    ${customEnv}
@@ -1340,6 +1430,7 @@ adminse登录
     ${addr}    Get Request    api    /athena/v_1_0/article/drug?    params=${params}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 检查检验_对接版
     [Arguments]    ${examId}    ${customEnv}    ${examType}
@@ -1349,6 +1440,7 @@ adminse登录
     ${addr}    Get Request    api    /athena/v_1_0/article/exam?    params=${params}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 检查建议_对接版
     [Arguments]    ${diseaseId}    ${customEnv}
@@ -1358,6 +1450,7 @@ adminse登录
     ${addr}    Get Request    api    /athena/v_1_0/article/exam_advice?    params=${params}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 处置建议_对接版
     [Arguments]    ${diseaseId}    ${customEnv}
@@ -1367,6 +1460,7 @@ adminse登录
     ${addr}    Get Request    api    /athena/v_1_0/article/dispose_advice?    params=${params}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 用药建议_对接版
     [Arguments]    ${diseaseId}    ${customEnv}
@@ -1376,6 +1470,7 @@ adminse登录
     ${addr}    Get Request    api    /athena/v_1_0/article/drug_advice?    params=${params}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 患者指导_对接版
     [Arguments]    ${diseaseId}    ${customEnv}
@@ -1385,6 +1480,7 @@ adminse登录
     ${addr}    Get Request    api    /athena/v_1_0/article/patient_guide?    params=${params}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 疾病险情_对接版
     [Arguments]    ${diseaseId}    ${customEnv}
@@ -1394,6 +1490,7 @@ adminse登录
     ${addr}    Get Request    api    /athena/v_1_0/article/disease?    params=${params}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 质控已完成
     [Arguments]    ${userGuid}    ${serialNumber}    ${projectId}    ${doctorGuid}    ${operate}    ${guid}
@@ -1406,6 +1503,7 @@ adminse登录
     ${addr}    Post Request    api    /sentry/v_2_0/qc/result    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 文献图片差异
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -1414,6 +1512,7 @@ adminse登录
     ${addr}    Get Request    api    /athena/file/imgCompare    params=${params}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 文献文件差异
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -1422,6 +1521,7 @@ adminse登录
     ${addr}    Get Request    api    /athena/file/defrct_def    params=${params}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 检验检查操作说明
     [Arguments]    ${examId}    ${examType}    ${customEnv}
@@ -1431,6 +1531,7 @@ adminse登录
     ${addr}    Get Request    api    cdss/athena/v_1_0/article/page/exam?    params=${params}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 药品说明书
     [Arguments]    ${drugId}    ${customEnv}
@@ -1440,6 +1541,7 @@ adminse登录
     ${addr}    Get Request    api    cdss/athena/v_1_0/article/drug?    params=${params}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 手术合理性
     [Arguments]    ${patientGuid}    ${serialNumber}    ${department}    ${doctorGuid}    ${examId}    ${examType}
@@ -1451,6 +1553,7 @@ adminse登录
     ${addr}    Post Request    api    cdss/mayson/v_1_0/logical_exam    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 伏羲调度任务更新
     [Arguments]    ${id}    ${remark}    ${sourceLinkId}    ${taskDate}    ${taskHour}    ${taskMinute}
@@ -1463,6 +1566,7 @@ adminse登录
     ${addr}    Post Request    api    task/updateTaskInfo    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 VTE2快速确认
     [Arguments]    ${aiResult}    ${assessId}    ${assessItem}    ${assessPostil}    ${assessResultItemList}    ${compare}
@@ -1480,6 +1584,7 @@ VTE2快速确认
     ${addr}    Post Request    api    /sentry/assess/save    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 病案首页_病历质控
     [Arguments]    ${userGuid}    ${serialNumber}    ${doctorGuid}    ${pageSource}
@@ -1491,6 +1596,7 @@ VTE2快速确认
     ${recordId}    Get from Dictionary    ${responsedata["body"]}    recordId
     Set Global variable    ${recordId}
     [Return]    ${responsedata}
+    log    ${data}
 
 病历质控初始化数据
     [Arguments]    ${patientGuid}    ${serialNumber}    ${doctorGuid}    ${pageSource}
@@ -1500,6 +1606,7 @@ VTE2快速确认
     ${addr}    Post Request    api    mayson/v_1_0/init_mc_data    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 病历质控平台登录
     [Arguments]    ${name}    ${password}
@@ -1510,6 +1617,7 @@ VTE2快速确认
     ${addr}    Post Request    api    manage/userLogin    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 病历查询患者列表
     [Arguments]    ${order}    ${time_start}    ${time_end}    ${time_type}    ${inpatient_department}    ${patient_area}
@@ -1527,6 +1635,7 @@ VTE2快速确认
     # ${record_id}    Get From Dictionary    ${responsedata['data']['list'][0]}    record_id
     # Set Global Variable    ${record_id}
     [Return]    ${responsedata}
+    log    ${data}
 
 问题分析列表
     [Arguments]    ${order}    ${name_id}    ${category_id}    ${time_start}    ${time_end}    ${inpatient_department}
@@ -1537,6 +1646,7 @@ VTE2快速确认
     ${addr}    Post Request    api    /mc/ruleProblemList    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 惠每用户中心登录
     [Arguments]    ${name}    ${password}
@@ -1547,6 +1657,7 @@ VTE2快速确认
     ${addr}    Post Request    api    user/login    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 惠每用户中心首页列表
     # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
@@ -1556,6 +1667,7 @@ VTE2快速确认
     ${addr}    Post Request    api    product/homeList    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 临床质量管理平台登录
     [Arguments]    ${name}    ${password}    ${time}    ${type}
@@ -1566,6 +1678,7 @@ VTE2快速确认
     ${addr}    Post Request    api    manage/userLogin    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 临床质量管理平台统计管理
     [Arguments]    ${start_time}    ${end_time}    ${disease}    ${doctor}    ${patient}    ${project}
@@ -1578,6 +1691,7 @@ VTE2快速确认
     ${addr}    Post Request    api    statistic/relationDic    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 临床质量管理平台临床风险预警
     [Arguments]    ${start_time}    ${end_time}    ${dept_type}    ${dept_name}    ${disease_code}    ${disease_class}
@@ -1593,6 +1707,7 @@ VTE2快速确认
     ${addr}    Post Request    api    statistic/qcItemDetailList    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 智能推荐-绿道
     [Arguments]    ${userGuid}    ${serialNumber}    ${previousHistory}    ${personalHistory}    ${allergyHistory}    ${familyHistory}
@@ -1619,6 +1734,7 @@ VTE2快速确认
     ${addr}    Post Request    api    v_5_0/diagnose_through_interrogation    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 医院知识库登录
     [Arguments]    ${name}    ${password}    ${type}
@@ -1628,6 +1744,7 @@ VTE2快速确认
     ${addr}    Post Request    api    user/login    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 医院知识库知识维护
     # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
@@ -1637,6 +1754,7 @@ VTE2快速确认
     ${addr}    Post Request    api    article/typeCount    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 绿道登录
     [Arguments]    ${name}    ${password}    ${type}    ${time}
@@ -1646,6 +1764,7 @@ VTE2快速确认
     ${addr}    Post Request    api    manage/userLogin    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 绿道入组
     [Arguments]    ${end}    ${groupId}    ${index}    ${joinWay}    ${needRecommend}    ${pageSize}
@@ -1658,6 +1777,7 @@ VTE2快速确认
     ${addr}    Post Request    api    patient/getcasesList    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 绿道填报
     [Arguments]    ${end}    ${from}    ${index}    ${pageSize}    ${seachBody}    ${start}
@@ -1671,6 +1791,7 @@ VTE2快速确认
     ${addr}    Post Request    api    patient/getPatientList    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 评估表html转PDF
     [Arguments]    ${htmlStr}
@@ -1680,6 +1801,7 @@ VTE2快速确认
     ${addr}    Post Request    api    mayson/api/assess_to_pdf    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 评估表打印下载
     [Arguments]    ${pdfName}    ${pdfPath}
@@ -1695,6 +1817,7 @@ VTE2快速确认
     ${addr}    Post Request    api    /mc/mcBaseInfo    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 病历详情
     [Arguments]    ${record_id}
@@ -1704,6 +1827,7 @@ VTE2快速确认
     ${record_id}    Get From Dictionary    ${responsedata['data']['detail']}    record_id
     Set Global Variable    ${record_id}
     [Return]    ${responsedata}
+    log    ${data}
 
 驳回批注下载
     [Arguments]    ${param}    ${filePath}
@@ -1720,6 +1844,7 @@ VTE2快速确认
     ${addr}    Post Request    api    /mc/mcRecordInfoResultList    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 统计_获取科室类别
     [Arguments]    ${order}    ${type}    ${date}
@@ -1728,6 +1853,7 @@ VTE2快速确认
     ${addr}    Post Request    api    /tj/getTJDepartByCategory    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 统计_获取基本信息
     [Arguments]    ${type}    ${date}
@@ -1735,6 +1861,7 @@ VTE2快速确认
     ${addr}    Post Request    api    /tj/getTJBasInfo    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 统计_获取科室显示
     [Arguments]    ${order}    ${type}    ${date}
@@ -1743,6 +1870,7 @@ VTE2快速确认
     ${addr}    Post Request    api    /tj/getTJDepartByDispaly    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 统计_获取统计趋势
     [Arguments]    ${type}    ${date}
@@ -1750,6 +1878,7 @@ VTE2快速确认
     ${addr}    Post Request    api    /tj/getTJTrend    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 统计_获取级别基本信息
     [Arguments]    ${type}    ${date}
@@ -1757,6 +1886,7 @@ VTE2快速确认
     ${addr}    Post Request    api    /tj/getTJBasInfo    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 统计_获取科室级别
     [Arguments]    ${order}    ${type}    ${date}
@@ -1765,6 +1895,7 @@ VTE2快速确认
     ${addr}    Post Request    api    /tj/getTJDepartByGrade    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 统计_获取科室级别显示
     [Arguments]    ${order}    ${type}    ${date}
@@ -1773,6 +1904,7 @@ VTE2快速确认
     ${addr}    Post Request    api    /tj/getGradeDepartByDispaly    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 病历质控规则查询显示列表
     [Arguments]    ${content}    ${filter_type}    ${category_id}    ${black_type}    ${order}    ${recommend_level}
@@ -1783,6 +1915,7 @@ VTE2快速确认
     ${addr}    Post Request    api    /mc/mcRuleList    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 病历质控规则下载
     ${Cookie_value}    Set_variable    SONGSHANSESSIONID=442534a4d0506c9c3737a474a419d2ba0ad2c2901303911a    userInfo=%7B%22id%22%3A13%2C%22name%22%3A%22privateTesting%22%2C%22create_time%22%3A%222020-02-19T07%3A17%3A27.000Z%22%2C%22modify_time%22%3A%222020-02-19T07%3A17%3A27.000Z%22%2C%22BURRIED_URL%22%3A%22http%3A//mayson.huimeionline.com%22%7D
@@ -1799,6 +1932,7 @@ VTE2快速确认
     ${addr}    Post Request    api    /work/workFeatureTJ    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 统计_工作台_目标分布
     [Arguments]    ${time_start}    ${time_end}
@@ -1806,12 +1940,14 @@ VTE2快速确认
     ${addr}    Post Request    api    /work/workTargetDistribution    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 统计_工作台_workAppraisTaskTJ
     ${data}    Create Dictionary
     ${addr}    Post Request    api    /work/workAppraisTaskTJ    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 统计_工作台_质量统计
     [Arguments]    ${type}    ${content}    ${page_size}    ${current_index}    ${time_start}    ${time_end}
@@ -1820,6 +1956,7 @@ VTE2快速确认
     ${addr}    Post Request    api    /work/workQualityTJ    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 统计_工作台_质控问题描述
     [Arguments]    ${time_start}    ${time_end}
@@ -1827,12 +1964,14 @@ VTE2快速确认
     ${addr}    Post Request    api    /work/workProblemDistribution    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 统计_工作台todo
     ${data}    Create Dictionary
     ${addr}    Post Request    api    /work/workTodo    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 统计_工作台_病历等级统计
     [Arguments]    ${time_start}    ${time_end}
@@ -1840,6 +1979,7 @@ VTE2快速确认
     ${addr}    Post Request    api    /work/workLevelTJ    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 统计_工作台_出院病历质量统计
     [Arguments]    ${type}    ${time_start}    ${time_end}
@@ -1847,6 +1987,7 @@ VTE2快速确认
     ${addr}    Post Request    api    /work/workApprovalStatusTJ    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 病历质控评价管理批次列表
     [Arguments]    ${name}    ${status}    ${type}    ${order}    ${current_index}    ${page_size}
@@ -1856,6 +1997,7 @@ VTE2快速确认
     ${addr}    Post Request    api    /appraise/appraiseList    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 用户列表
     [Arguments]    ${content}    ${jump}    ${order}    ${current_index}    ${page_size}
@@ -1864,6 +2006,7 @@ VTE2快速确认
     ${addr}    Post Request    api    /manage/userList    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 账号管理医生组列表
     [Arguments]    ${content}    ${order}    ${current_index}    ${page_size}
@@ -1872,12 +2015,14 @@ VTE2快速确认
     ${addr}    Post Request    api    /manage/doctorGroupList    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 病历查询问题描述列表
     ${data}    Create Dictionary
     ${addr}    Post Request    api    /mc/mcProjectList    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 规则提醒级别配置
     [Arguments]    ${group_code}    ${recommend_level}    ${type}
@@ -1885,6 +2030,7 @@ VTE2快速确认
     ${addr}    Post Request    api    /mc/upRuleConfig    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 快速确认评估表
     [Arguments]    ${assessDictName}    ${assessId}    ${assessName}    ${assessResult}    ${assessValue}    ${assessValueUnit}
@@ -1901,6 +2047,7 @@ VTE2快速确认
     ${addr}    Post Request    api    /sentry/assess/save    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 庄周登录
     [Arguments]    ${name}    ${password}
@@ -1912,6 +2059,7 @@ VTE2快速确认
     ${addr}    Post Request    api    user/login    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 庄周_填报汇总
     [Arguments]    ${startDate}    ${endDate}    ${type}
@@ -1923,6 +2071,7 @@ VTE2快速确认
     ${addr}    Post Request    api    fillSummary/list    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 庄周_患者统计
     [Arguments]    ${startDate}    ${endDate}
@@ -1934,6 +2083,7 @@ VTE2快速确认
     ${addr}    Post Request    api    patientsStatistics/list    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 内涵质控
     [Arguments]    ${masterProfile}    ${recordDatas}    ${recordId}    ${ruleCodes}
@@ -1946,6 +2096,7 @@ VTE2快速确认
     ${addr}    Post Request    api    v_1_0/quality_control    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 首页质控
     [Arguments]    ${masterProfile}    ${recordDatas}    ${recordId}    ${ruleCodes}
@@ -1961,6 +2112,7 @@ VTE2快速确认
     ${addr}    Post Request    api    pangoo/ruleengine/homePage    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 房颤指征
     [Arguments]    ${recordId}
@@ -1970,6 +2122,7 @@ VTE2快速确认
     ${addr}    Post Request    api    mayson/v_1_0/mayson_response_cache    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 房颤申请会诊
     [Arguments]    ${qcConsultationRequset}    ${assessResultRequest}
@@ -1982,6 +2135,7 @@ VTE2快速确认
     ${addr}    Post Request    api    sentry/v_2_0/qc/applyForConsultation    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 庄周_患者信息
     [Arguments]    ${disease_duration_type}    ${endDate}    ${group_name}    ${index}    ${not_treat_reason}    ${source_way}
@@ -1995,6 +2149,7 @@ VTE2快速确认
     ${addr}    Post Request    api    patientsStatistics/patientInfo    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 临床质量管理平台_出院人次
     [Arguments]    ${dept_code}    ${dept_name}    ${dept_type}    ${disease_class}    ${disease_code}    ${end_time}
@@ -2007,6 +2162,7 @@ VTE2快速确认
     ${addr}    Post Request    api    statistic/patientVisitData    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 临床质量管理平台_住院天数
     [Arguments]    ${dept_name}    ${dept_type}    ${disease_class}    ${disease_code}    ${end_time}    ${start_time}
@@ -2019,6 +2175,7 @@ VTE2快速确认
     ${addr}    Post Request    api    statistic/patientInhouseNum    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 临床质量管理平台_年龄分布
     [Arguments]    ${dept_code}    ${dept_name}    ${dept_type}    ${disease_class}    ${disease_code}    ${end_time}
@@ -2031,6 +2188,7 @@ VTE2快速确认
     ${addr}    Post Request    api    statistic/patientAgeSpread    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 临床质量管理平台_主管医生
     [Arguments]    ${dept_code}    ${dept_name}    ${dept_type}    ${disease_class}    ${disease_code}    ${end_time}
@@ -2043,6 +2201,7 @@ VTE2快速确认
     ${addr}    Post Request    api    statistic/patientDoctor    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 临床质量管理平台_单病种概况
     [Arguments]    ${dept_name}    ${dept_type}    ${disease_class}    ${disease_code}    ${end_time}    ${start_time}
@@ -2055,6 +2214,7 @@ VTE2快速确认
     ${addr}    Post Request    api    statistic/qcItemDetailList    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 临床质量管理平台_医生质控监测
     [Arguments]    ${dept_name}    ${dept_type}    ${disease_class}    ${disease_code}    ${end_time}    ${start_time}
@@ -2067,6 +2227,7 @@ VTE2快速确认
     ${addr}    Post Request    api    statistic/qcDoctorChartData    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 临床质量管理平台_科室质控监测
     [Arguments]    ${dept_name}    ${dept_type}    ${disease_class}    ${disease_code}    ${end_time}    ${start_time}
@@ -2079,6 +2240,7 @@ VTE2快速确认
     ${addr}    Post Request    api    statistic/qcDepartmentChartData    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 绿道_全局
     # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
@@ -2088,6 +2250,7 @@ VTE2快速确认
     ${addr}    Post Request    api    patient/groupAll    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 通用识别
     [Arguments]    ${contents}
@@ -2100,6 +2263,7 @@ VTE2快速确认
     ${addr}    Post Request    api    /inference    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 人工操作病历质控结果
     [Arguments]    ${recordId}    ${touch}    ${operateItems}
@@ -2110,6 +2274,7 @@ VTE2快速确认
     ${addr}    Post Request    api    /sentry/mc/project_operate    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 检验报告
     [Arguments]    ${serialNumber}    ${userGuid}    ${doctorGuid}    ${requestSource}    ${doctorName}    ${patientName}
@@ -2123,6 +2288,7 @@ VTE2快速确认
     ${addr}    Post Request    api    mayson/v_2_0/intelligent_recommendation    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 专病数据集识别
     [Arguments]    ${diseaseFlag}    ${masterProfile}
@@ -2136,6 +2302,7 @@ VTE2快速确认
     ${addr}    Post Request    api    /get_standard_dataset    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 病历质控提交反馈
     [Arguments]    ${recordId}    ${mcRecordFeedback}
@@ -2146,6 +2313,7 @@ VTE2快速确认
     ${addr}    Post Request    api    /sentry/mc/add_feedback    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 快速推荐
     [Arguments]    ${userGuid}    ${serialNumber}    ${patientName}    ${doctorGuid}    ${doctorName}    ${admissionTime}
@@ -2179,6 +2347,7 @@ VTE2快速确认
     Set Global variable    ${userGuid}
     Set Global variable    ${serialNumber}
     [Return]    ${responsedata}
+    log    ${data}
 
 庄周_单病种上报统计
     [Arguments]    ${startDate}    ${endDate}    ${type}
@@ -2190,6 +2359,7 @@ VTE2快速确认
     ${addr}    Post Request    api    diseaseUp/list    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 庄周_单病种科室统计
     [Arguments]    ${startDate}    ${endDate}    ${type}
@@ -2201,6 +2371,7 @@ VTE2快速确认
     ${addr}    Post Request    api    diseaseUp/diseaseDepartment    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}
 
 庄周_病种质控完成统计
     [Arguments]    ${startDate}    ${endDate}    ${type}
@@ -2212,3 +2383,4 @@ VTE2快速确认
     ${addr}    Post Request    api    diseaseQuality/list    data=${data}
     ${responsedata}    To Json    ${addr.content}
     [Return]    ${responsedata}
+    log    ${data}

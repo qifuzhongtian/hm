@@ -6,6 +6,7 @@ Library           Collections
 Library           RequestsLibrary
 Library           String
 Library           DateTime
+Library           BuiltIn
 
 *** Variables ***
 
@@ -38,6 +39,7 @@ Library           DateTime
     #####质控推荐检查
     ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
     Should Contain    ${aj}    物理治疗
+
 
 
 
