@@ -43,3 +43,6 @@ hm/cdss/amc/report.html
 hm/cdss/safeMedication/log.html
 hm/cdss/safeMedication/output.xml
 hm/cdss/safeMedication/report.html
+hm/amc_patient/log.html
+hm/amc_patient/output.xml
+hm/amc_patient/report.html

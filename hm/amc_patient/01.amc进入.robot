@@ -2,7 +2,6 @@
 Resource          ../cdss.robot
 Library           Collections
 Library           RequestsLibrary
-
 *** Variables ***
 
 *** Test Cases ***
