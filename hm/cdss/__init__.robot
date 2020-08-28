@@ -1,2 +1,2 @@
 *** Settings ***
-Force Tags        cdss
+Force Tags

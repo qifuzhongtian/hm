@@ -1,5 +1,5 @@
 *** Settings ***
-Force Tags        profileskip
+Force Tags        skip
 Resource          ../../cdss.robot
 Library           Collections
 Library           RequestsLibrary

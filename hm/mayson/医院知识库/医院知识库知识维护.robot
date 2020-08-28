@@ -1,6 +1,5 @@
 *** Settings ***
 Suite Setup       医院知识库登录    name=privateTestingprivateTesting    password=38ebcce4a466e04bf443d54ca52cd44f    type=0
-Force Tags    skip
 Suite Teardown    Delete All Sessions
 Resource          ../../cdss.robot
 Library           Collections

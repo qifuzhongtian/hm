@@ -3,7 +3,7 @@ Suite Teardown    Delete All Sessions
 Resource          ../../cdss.robot
 Library           Collections
 Library           RequestsLibrary
-Library           String    # 字段名 类型    是否必须    说明
+Library           String
 
 *** Variables ***
 # ${timestamp}${random}    Get Time    epoch

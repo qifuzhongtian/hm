@@ -1,1 +1,1 @@
-pybot -e profileskip mayson
+pybot -e skip mayson

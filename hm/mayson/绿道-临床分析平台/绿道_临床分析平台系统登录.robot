@@ -1,6 +1,5 @@
 *** Settings ***
 Suite Teardown    Delete All Sessions
-Force Tags        skip
 Resource          ../../cdss.robot
 Library           Collections
 Library           RequestsLibrary

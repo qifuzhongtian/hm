@@ -1,2 +1,2 @@
 *** Settings ***
-Force Tags        mayson,cdss
+Force Tags
