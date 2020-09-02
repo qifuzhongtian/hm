@@ -1,17 +1,17 @@
 *** Variables ***
 #=======医院内网需要修改的==============#
 #mayson生产环境       修改成http://负载ip/cdss
-# ${mayson_url}     http://profile.huimeionline.com/cdss
-${mayson_url}    http://test-mayson.huimeionline.com/cdss
+${mayson_url}     http://profile.huimeionline.com/cdss
+# ${mayson_url}    http://test-mayson.huimeionline.com/cdss
 #演示环境
 # ${mayson_url}    http://172.16.4.178/cdss
 
 
 #{url}内部平台 ,惠每用户中心地址
 #预发
-# ${inside_url}     http://172.16.3.40
+${inside_url}     http://172.16.3.40
 #测试
-${inside_url}    http://172.16.3.64
+# ${inside_url}    http://172.16.3.64
 #内部平台-demo环境
 # ${inside_url}    http://172.16.4.178
 #文献生产环境           修改成http://负载ip/cdss
