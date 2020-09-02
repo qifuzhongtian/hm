@@ -6,11 +6,9 @@ ${mayson_url}     http://profile.huimeionline.com/cdss
 #演示环境
 # ${mayson_url}    http://172.16.4.178/cdss
 #apollo生产环境       修改成http://负载ip/cdss
-${base_url}       http://mayson.huimeionline.com/cdss
-# ${base_url}     http://profile.huimeionline.com/cdss
-# ${base_url}     http://172.16.4.178/cdss
-# ${base_url}     http://172.16.4.3:8080
-# ${base_url}     http://test-mayson.huimeionline.com/cdss
+# ${mayson_url}       http://mayson.huimeionline.com/cdss
+
+
 #{url}内部平台 ,惠每用户中心地址
 ${inside_url}     http://172.16.3.40
 #测试
@@ -44,9 +42,9 @@ ${adminse}        http://admin-se.huimeionline.com/
 # ${adminse}      http://172.16.4.178
 # ${adminse}      http://test-admin-se.huimeionline.com/
 #amcPc版           修改成http://负载ip/cdss
-${base_url_amc}    http://amc.huimeionline.com
+${amc_url}    http://amc.huimeionline.com
 ${base_gdms}      http://gdms.huimeionline.com
-# ${base_url_amc}    http://172.16.4.178/cdss
+# ${amc_url}    http://172.16.4.178/cdss
 # ${base_gdms}    http://172.16.4.178/cdss
 #病历质控平台 3021
 ${songshan_url}    ${inside_url}:3021
@@ -68,10 +66,10 @@ ${athenaDoc_url}    http://mayson.huimeionline.com:8095
 # ${athenaDoc_url}    http://172.16.4.178:8095
 #=======以下内容不需要修改==============#
 ######################apollo######################
-${base_url_sf}    http://10.27.213.55:9092
+${mayson_url_sf}    http://10.27.213.55:9092
 ######################ovf模板地址######################
 # ${mayson_url}    http://192.168.1.13/cdss
-# ${base_url}     http://192.168.1.13/cdss
+# ${mayson_url}     http://192.168.1.13/cdss
 ${null}           null
 #测试号
 ${Huimei_id}      7195F12825788F09375C2DB1E922F108
@@ -115,7 +113,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
     [Arguments]    ${drugCommonNames}    ${gender}    ${age}    ${ageType}    ${drugIds}    ${symptom}
     ...    ${confirmDiagnosis}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    drugCommonNames=${drugCommonNames}    gender=${gender}    age=${age}    ageType=${ageType}    drugIds=${drugIds}
     ...    symptom=${symptom}    confirmDiagnosis=${confirmDiagnosis}
     ${addr}    Post Request    api    hmsm/v_1_0/safe_medication    data=${data}
@@ -137,7 +135,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
     [Arguments]    ${hasAssessType}    ${name}
     ${true}    Set Variable    ${true}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    hasAssessType=${hasAssessType}    name=${name}
     ${addr}    Post Request    api    v_2_0/search/all    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -157,7 +155,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
 诊断依据
     [Arguments]    ${diseaseId}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    diseaseId=${diseaseId}
     ${addr}    Post Request    api    v_2_0/disease/basis    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -166,7 +164,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
 
 常见症状
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary
     ${addr}    Post Request    api    v_2_0/common_symptom    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -175,7 +173,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
 
 常见诊断
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary
     ${addr}    Post Request    api    v_2_0/common_diseases    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -185,7 +183,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
 常见个人史
     [Arguments]    ${gender}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    gender=${gender}
     ${addr}    Post Request    api    v_2_0/common_personal_history    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -194,7 +192,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
 
 常见过敏史
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary
     ${addr}    Post Request    api    v_2_0/common_allergy_history    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -203,7 +201,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
 
 常见家族史
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary
     ${addr}    Post Request    api    v_2_0/common_family_history    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -212,7 +210,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
 
 常见体格检查
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary
     ${addr}    Post Request    api    v_2_0/common_physical    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -221,7 +219,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
 
 常见症状和类型
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary
     ${addr}    Post Request    api    v_2_0/common_symptom_obj    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -231,7 +229,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
 鉴别诊断
     [Arguments]    ${diseaseId}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    diseaseId=${diseaseId}
     ${addr}    Post Request    api    v_2_0/suspected_diagnosis    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -281,7 +279,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
 疾病查询弹层提示
     [Arguments]    ${diseaseName}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    diseaseName=${diseaseName}
     ${addr}    Post Request    api    v_2_0/disease/popup    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -294,7 +292,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
     ...    ${examInfo}    ${heartRate}    ${age}    ${ageType}    ${confirmDiagnosis}    ${confirmDiagnosisMap}
     ...    ${presentHistory}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    symptom=${symptom}    previousHistory=${previousHistory}    personalHistory=${personalHistory}    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}
     ...    weight=${weight}    gender=${gender}    bodyTempr=${bodyTempr}    lowBldPress=${lowBldPress}    highBldPress=${highBldPress}    examInfo=${examInfo}
     ...    heartRate=${heartRate}    age=${age}    ageType=${ageType}    confirmDiagnosis=${confirmDiagnosis}    confirmDiagnosisMap[]=${confirmDiagnosisMap}    presentHistory=${presentHistory}
@@ -310,7 +308,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
     ...    ${examInfo}    ${heartRate}    ${age}    ${ageType}    ${confirmDiagnosis}    ${confirmDiagnosisMap}
     ...    ${presentHistory}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    symptom=${symptom}    previousHistory=${previousHistory}    personalHistory=${personalHistory}    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}
     ...    weight=${weight}    gender=${gender}    bodyTempr=${bodyTempr}    lowBldPress=${lowBldPress}    highBldPress=${highBldPress}    examInfo=${examInfo}
     ...    heartRate=${heartRate}    age=${age}    ageType=${ageType}    confirmDiagnosis=${confirmDiagnosis}    confirmDiagnosisMap[]=${confirmDiagnosisMap}    presentHistory=${presentHistory}
@@ -325,7 +323,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
     ...    ${gender}    ${bodyTempr}    ${lowBldPress}    ${highBldPress}    ${examInfo}    ${heartRate}
     ...    ${age}    ${ageType}    ${confirmDiagnosis}    ${confirmDiagnosisMap}    ${presentHistory}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    symptom=${symptom}    previousHistory=${previousHistory}    personalHistory=${personalHistory}    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}
     ...    weight=${weight}    gender=${gender}    bodyTempr=${bodyTempr}    lowBldPress=${lowBldPress}    highBldPress=${highBldPress}    examInfo=${examInfo}
     ...    heartRate=${heartRate}    age=${age}    ageType=${ageType}    confirmDiagnosis=${confirmDiagnosis}    confirmDiagnosisMap[]=${confirmDiagnosisMap}    presentHistory=${presentHistory}
@@ -338,7 +336,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
     ...    ${gender}    ${bodyTempr}    ${lowBldPress}    ${highBldPress}    ${examInfo}    ${heartRate}
     ...    ${age}    ${ageType}    ${confirmDiagnosis}    ${confirmDiagnosisMap}    ${presentHistory}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    symptom=${symptom}    previousHistory=${previousHistory}    personalHistory=${personalHistory}    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}
     ...    weight=${weight}    gender=${gender}    bodyTempr=${bodyTempr}    lowBldPress=${lowBldPress}    highBldPress=${highBldPress}    examInfo=${examInfo}
     ...    heartRate=${heartRate}    age=${age}    ageType=${ageType}    confirmDiagnosis=${confirmDiagnosis}    confirmDiagnosisMap[]=${confirmDiagnosisMap}    presentHistory=${presentHistory}
@@ -350,7 +348,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
 病例识别
     [Arguments]    ${symptom}    ${gender}    ${age}    ${ageType}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    symptom=${symptom}    gender=${gender}    age=${age}    ageType=${ageType}
     ${addr}    Post Request    api    /recognize    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -360,7 +358,7 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
 疾病查询
     [Arguments]    ${diseaseName}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    diseaseName=${diseaseName}
     ${addr}    Post Request    api    v_2_0/disease/search    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -383,7 +381,7 @@ test
 妇产科诊断性别
     [Arguments]    ${query}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url_219}    ${dict}
+    Create Session    api    ${mayson_url_219}    ${dict}
     ${object}    Set Variable    {"bool":{"must":[{"term":{"department":"妇产科"}}],"filter":{"bool":{"should":[{"term":{"gender":0}},{"term":{"gender":1}}]}}}}
     ${query}    Evaluate    dict(${object})
     ${data}    Create Dictionary    query=${query}
@@ -394,7 +392,7 @@ test
 
 查询常用药品
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary
     ${addr}    Post Request    api    ncds/v_1_0/open/routine/medicine    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -403,7 +401,7 @@ test
 
 查询病种列表
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary
     ${addr}    Post Request    api    ncds/v_1_0/open/disease    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -413,7 +411,7 @@ test
 查询病种下药品信息
     [Arguments]    ${id}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    id=${id}
     ${addr}    Post Request    api    ncds/v_1_0/open/disease/medicine    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -423,7 +421,7 @@ test
 amcPc版_用户登录
     [Arguments]    ${name}    ${password}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url_amca}    ${dict}
+    Create Session    api    ${amc_urla}    ${dict}
     ${data}    Create Dictionary    name=${name}    password=${password}
     ${addr}    Post Request    api    /user/login    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -433,7 +431,7 @@ amcPc版_用户登录
 amcPc版_症状sug
     [Arguments]    ${symptom}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url_amc}    ${dict}
+    Create Session    api    ${amc_url}    ${dict}
     ${data}    Create Dictionary    symptom=${symptom}
     ${addr}    Post Request    api    apollo/amc/symptom    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -443,7 +441,7 @@ amcPc版_症状sug
 amcPc版_科室sug
     [Arguments]    ${subject}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url_amc}    ${dict}
+    Create Session    api    ${amc_url}    ${dict}
     ${data}    Create Dictionary    subject=${subject}
     ${addr}    Post Request    api    /apollo/amc/query_subject    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -454,7 +452,7 @@ amcPc版_问诊症状统计
     [Arguments]    ${currentPage}    ${pageSize}    ${countmode}    ${userGuid}    ${doctorGuid}    ${doctorName}
     ...    ${hospitalGuid}    ${serialNumber}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url_amc}    ${dict}
+    Create Session    api    ${amc_url}    ${dict}
     ${data}    Create Dictionary    currentPage=${currentPage}    pageSize=${pageSize}    countmode=${countmode}    userGuid=${userGuid}    doctorGuid=${doctorGuid}
     ...    doctorName=${doctorName}    hospitalGuid=${hospitalGuid}    serialNumber=${serialNumber}
     ${addr}    Post Request    api    /apollo/amc/static_symptom    data=${data}
@@ -466,7 +464,7 @@ amcPc版_问诊科室统计
     [Arguments]    ${currentPage}    ${pageSize}    ${countmode}    ${userGuid}    ${doctorGuid}    ${doctorName}
     ...    ${hospitalGuid}    ${serialNumber}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url_amc}    ${dict}
+    Create Session    api    ${amc_url}    ${dict}
     ${data}    Create Dictionary    currentPage=${currentPage}    pageSize=${pageSize}    countmode=${countmode}    userGuid=${userGuid}    doctorGuid=${doctorGuid}
     ...    doctorName=${doctorName}    hospitalGuid=${hospitalGuid}    serialNumber=${serialNumber}
     ${addr}    Post Request    api    /apollo/amc/static_subject    data=${data}
@@ -478,7 +476,7 @@ amcPc版_问诊记录列表
     [Arguments]    ${currentPage}    ${pageSize}    ${countmode}    ${userGuid}    ${doctorGuid}    ${doctorName}
     ...    ${hospitalGuid}    ${serialNumber}    ${recordStart}    ${recordEnd}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url_amc}    ${dict}
+    Create Session    api    ${amc_url}    ${dict}
     ${data}    Create Dictionary    currentPage=${currentPage}    pageSize=${pageSize}    countmode=${countmode}    userGuid=${userGuid}    doctorGuid=${doctorGuid}
     ...    doctorName=${doctorName}    hospitalGuid=${hospitalGuid}    serialNumber=${serialNumber}    recordStart=${recordStart}    recordEnd=${recordEnd}
     ${addr}    Post Request    api    /apollo/amc/record    data=${data}
@@ -491,7 +489,7 @@ amcPc版_问诊记录列表
 amcPc版_问诊记录列表详情
     [Arguments]    ${number}
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    # Create Session    api    ${base_url_amc}    ${dict}
+    # Create Session    api    ${amc_url}    ${dict}
     ${data}    Create Dictionary    number=${number}
     ${addr}    Post Request    api    /apollo/amc/record_info    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -502,7 +500,7 @@ amc进入
     [Arguments]    ${AlgoID}    ${age}    ${ageStyle}    ${gender}    ${symptomId}    ${symptomName}
     ...    ${patientName}    ${patientPhone}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    AlgoID=${AlgoID}    age=${age}    ageStyle=${ageStyle}    gender=${gender}    symptomId=${symptomId}
     ...    symptomName=${symptomName}    patientName=${patientName}    patientPhone=${patientPhone}
     ${addr}    Post Request    api    amc/exam_enter    data=${data}
@@ -537,7 +535,7 @@ amc问诊记录
 
 amc常见症状
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary
     ${addr}    Post Request    api    /amc/common_symptom    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -556,7 +554,7 @@ amc常见症状
 amcPc版症状统计图型
     [Arguments]    ${enterTime}    ${recordTime}    ${symptom}    ${gender}    ${subject}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    enterTime=${enterTime}    recordTime=${recordTime}    symptom=${symptom}    gender=${gender}    subject=${subject}
     ${addr}    Post Request    api    /amc/static_symptom    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -566,7 +564,7 @@ amcPc版症状统计图型
 amcPc版科室统计图型
     [Arguments]    ${enterTime}    ${recordTime}    ${symptom}    ${gender}    ${subject}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    enterTime=${enterTime}    recordTime=${recordTime}    symptom=${symptom}    gender=${gender}    subject=${subject}
     ${addr}    Post Request    api    /amc/static_subject    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -576,7 +574,7 @@ amcPc版科室统计图型
 amcPc版症状搜索
     [Arguments]    ${symptom}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    symptom=${symptom}
     ${addr}    Post Request    api    /amc/symptom    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -586,7 +584,7 @@ amcPc版症状搜索
 amcPc客户信息
     [Arguments]    ${authKey}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    authKey=${authKey}
     ${addr}    Post Request    api    /customer_info    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -596,7 +594,7 @@ amcPc客户信息
 问诊路径
     [Arguments]    ${symptomId}    ${age}    ${ageType}    ${sex}    ${patientName}    ${saveFlag}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    symptomId=${symptomId}    age=${age}    ageType=${ageType}    sex=${sex}    patientName=${patientName}
     ...    saveFlag=${saveFlag}
     ${addr}    Post Request    api    /amc/node_tree    data=${data}
@@ -608,7 +606,7 @@ amcPc客户信息
     [Arguments]    ${nodeId}    ${algoIdList}    ${seqIdList}    ${symptomIdList}    ${algoId}    ${seqId}
     ...    ${age}    ${ageType}    ${sex}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${algoIdList}    Create List    ${algoIdList}
     ${seqIdList}    Create List    ${seqIdList}
     ${symptomIdList}    Create List    ${symptomIdList}
@@ -622,7 +620,7 @@ amcPc客户信息
 提交记录
     [Arguments]    ${nodeId}    ${algoId}    ${seqId}    ${age}    ${ageType}    ${sex}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    nodeId=${nodeId}    algoId=${algoId}    seqId=${seqId}    age=${age}    ageType=${ageType}
     ...    sex=${sex}
     ${addr}    Post Request    api    /amc/submit_record    data=${data}
@@ -642,7 +640,7 @@ amcPc客户信息
 症状搜索
     [Arguments]    ${symptom}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    symptom=${symptom}
     ${addr}    Post Request    api    amc/v_4_0/symptom    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -778,7 +776,7 @@ mayson默认推荐搜索
     ...    ${weight}    ${gender}    ${bodyTempr}    ${lowBldPress}    ${highBldPress}    ${examInfo}
     ...    ${heartRate}    ${age}    ${ageType}    ${confirmDiagnosis}    ${confirmDiagnosisMap}    ${presentHistory}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    symptom=${symptom}    uuid=${uuid}    previousHistory=${previousHistory}    personalHistory=${personalHistory}    allergyHistory=${allergyHistory}
     ...    familyHistory=${familyHistory}    weight=${weight}    gender=${gender}    bodyTempr=${bodyTempr}    lowBldPress=${lowBldPress}    highBldPress=${highBldPress}
     ...    examInfo=${examInfo}    heartRate=${heartRate}    age=${age}    ageType=${ageType}    confirmDiagnosis=${confirmDiagnosis}    confirmDiagnosisMap[]=${confirmDiagnosisMap}
@@ -795,7 +793,7 @@ mayson默认推荐搜索
     ...    ${confirmDiagnosis}    ${confirmDiagnosisMap}    ${presentHistory}    ${hasDetail}    ${symptomClickDiseaseId}
     ${confirmDiagnosisMap}    Evaluate    [${confirmDiagnosisMap}]
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    userGuid=${userGuid}    doctorGuid=${doctorGuid}    serialNumber=${serialNumber}    hospitalGuid=${hospitalGuid}    symptom=${symptom}
     ...    previousHistory=${previousHistory}    personalHistory=${personalHistory}    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}    weight=${weight}    gender=${gender}
     ...    bodyTempr=${bodyTempr}    lowBldPress=${lowBldPress}    highBldPress=${highBldPress}    examInfo=${examInfo}    heartRate=${heartRate}    age=${age}
@@ -1155,7 +1153,7 @@ mayson默认推荐
 新算法识别接口
     [Arguments]    ${contents}
     ${dict}    Create Dictionary    Content-Type=application/json
-    Create Session    api    ${base_url_sf}    ${dict}
+    Create Session    api    ${mayson_url_sf}    ${dict}
     ${contents}    Evaluate    [${contents}]
     ${data}    Create Dictionary    contents=${contents}
     ${addr}    Post Request    api    inference    data=${data}
@@ -1307,7 +1305,7 @@ adminse登录
     [Arguments]    ${userGuid}    ${serialNumber}    ${age}    ${ageType}    ${chronicDiseaseId}    ${sex}
     ...    ${riskFactorId}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    age=${age}    ageType=${ageType}    chronicDiseaseId=${chronicDiseaseId}
     ...    sex=${sex}    riskFactorId=${riskFactorId}
     ${addr}    Post Request    api    /ncds/v_1_0/chronicdisease/asthma/recommend    data=${data}
@@ -1319,7 +1317,7 @@ adminse登录
     [Arguments]    ${userGuid}    ${serialNumber}    ${age}    ${ageType}    ${chronic_disease_id}    ${sex}
     ...    ${categoryId}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    age=${age}    ageType=${ageType}    chronic_disease_id=${chronic_disease_id}
     ...    sex=${sex}    categoryId=${categoryId}
     ${addr}    Post Request    api    /ncds/v_1_0/chronicdisease/medicine    data=${data}
@@ -1330,7 +1328,7 @@ adminse登录
 患者教育
     [Arguments]    ${userGuid}    ${serialNumber}    ${age}    ${ageType}    ${chronicDiseaseId}    ${sex}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    age=${age}    ageType=${ageType}    diseaseId=${chronicDiseaseId}
     ...    sex=${sex}
     ${addr}    Post Request    api    /v_2_0/disease/patientInstructor    data=${data}
@@ -1342,7 +1340,7 @@ adminse登录
     [Arguments]    ${userGuid}    ${serialNumber}    ${age}    ${ageType}    ${chronicDiseaseId}    ${sex}
     ...    ${assistExamineDiabetesPojo}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    age=${age}    ageType=${ageType}    chronicDiseaseId=${chronicDiseaseId}
     ...    sex=${sex}    assistExamineDiabetesPojo=${assistExamineDiabetesPojo}
     ${addr}    Post Request    api    /ncds/v_1_0/chronicdisease/init    data=${data}
@@ -1354,7 +1352,7 @@ adminse登录
     [Arguments]    ${userGuid}    ${serialNumber}    ${age}    ${ageType}    ${chronicDiseaseId}    ${sex}
     ...    ${riskFactorId}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    age=${age}    ageType=${ageType}    chronicDiseaseId=${chronicDiseaseId}
     ...    sex=${sex}    riskFactorId=${riskFactorId}
     ${addr}    Post Request    api    /ncds/v_1_0/chronicdisease/recommend    data=${data}
@@ -1366,7 +1364,7 @@ adminse登录
     [Arguments]    ${userGuid}    ${serialNumber}    ${age}    ${ageType}    ${chronicDiseaseId}    ${sex}
     ...    ${assistExamineDiabetesPojo}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    age=${age}    ageType=${ageType}    chronicDiseaseId=${chronicDiseaseId}
     ...    sex=${sex}    assistExamineDiabetesPojo=${assistExamineDiabetesPojo}
     ${addr}    Post Request    api    /ncds/v_1_0/chronicdisease/threehigh/baseinfo/init    data=${data}
@@ -1378,7 +1376,7 @@ adminse登录
     [Arguments]    ${userGuid}    ${serialNumber}    ${age}    ${ageType}    ${chronicDiseaseId}    ${sex}
     ...    ${assistExamineDiabetesPojo}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    age=${age}    ageType=${ageType}    chronicDiseaseId=${chronicDiseaseId}
     ...    sex=${sex}    assistExamineDiabetesPojo=${assistExamineDiabetesPojo}
     ${addr}    Post Request    api    /ncds/v_1_1/blood_pressure_exam_info_acquire    data=${data}
@@ -1390,7 +1388,7 @@ adminse登录
     [Arguments]    ${userGuid}    ${serialNumber}    ${age}    ${ageType}    ${bloodPressure}    ${gender}
     ...    ${dangerFactors}    ${deeperConfirms}    ${pastMedicalHistory}    ${targetOrganDamages}    ${personalHistory}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${bloodPressure}    Evaluate    dict(${bloodPressure})
     ${dangerFactors}    Evaluate    [${dangerFactors}]
     ${deeperConfirms}    Evaluate    [${deeperConfirms}]
@@ -1407,7 +1405,7 @@ adminse登录
 药物治疗_高血压
     [Arguments]    ${userGuid}    ${serialNumber}    ${age}    ${ageType}    ${classification}    ${sex}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${base_url}    ${dict}
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}    Create Dictionary    userGuid=${userGuid}    serialNumber=${serialNumber}    age=${age}    ageType=${ageType}    classification=${classification}
     ...    sex=${sex}
     ${addr}    Post Request    api    /ncds/v_1_1/antihypertensive_drug    data=${data}

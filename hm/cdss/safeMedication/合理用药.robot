@@ -8,14 +8,25 @@ Library           RequestsLibrary
 *** Variables ***
 
 *** Test Cases ***
-相互作用等级为'禁用'的两种药,grade=1
-    [Documentation]    断言:"grade=1"    # 1.1 相互作用等级为'谨慎'的两种药,grade=2
+# 相互作用等级为'禁用'的两种药,grade=1
+#     [Documentation]    断言:"grade=1"    # 1.1 相互作用等级为'谨慎'的两种药,grade=2
 
-    ${drugIds}    Create List    4498    8603
-    ${drugCommonNames}    Create List
-    ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}
-    ...    symptom=    confirmDiagnosis=
-    Should Be Equal As Strings    ${getRes['body']['interactionList'][0]['grade']}    1
+#     ${drugIds}    Create List    4498    8603
+#     ${drugCommonNames}    Create List
+#     ${getRes}    安全用药    drugCommonNames=${drugCommonNames}    gender=    age=    ageType=    drugIds=${drugIds}
+#     ...    symptom=    confirmDiagnosis=
+#     Should Be Equal As Strings    ${getRes['body']['interactionList'][0]['grade']}    1
+
+
+
+
+
+
+
+
+
+
+
 
 # 相互作用等级为'可以合用'的两种药,interactionList为空
 #     [Documentation]    断言:"interactionList[]=空"
