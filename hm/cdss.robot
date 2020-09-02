@@ -1,12 +1,10 @@
 *** Variables ***
 #=======医院内网需要修改的==============#
 #mayson生产环境       修改成http://负载ip/cdss
-${mayson_url}     http://profile.huimeionline.com/cdss
-# ${mayson_url}    http://test-mayson.huimeionline.com/cdss
+# ${mayson_url}     http://profile.huimeionline.com/cdss
+${mayson_url}    http://test-mayson.huimeionline.com/cdss
 #演示环境
 # ${mayson_url}    http://172.16.4.178/cdss
-#apollo生产环境       修改成http://负载ip/cdss
-# ${mayson_url}       http://mayson.huimeionline.com/cdss
 
 
 #{url}内部平台 ,惠每用户中心地址
@@ -43,7 +41,7 @@ ${adminse}        http://admin-se.huimeionline.com/
 # ${adminse}      http://test-admin-se.huimeionline.com/
 #amcPc版           修改成http://负载ip/cdss
 ${amc_url}    http://amc.huimeionline.com
-${base_gdms}      http://gdms.huimeionline.com
+# ${base_gdms}      http://gdms.huimeionline.com
 # ${amc_url}    http://172.16.4.178/cdss
 # ${base_gdms}    http://172.16.4.178/cdss
 #病历质控平台 3021
