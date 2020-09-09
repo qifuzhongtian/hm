@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20200820 19:44:07.350" generator="Robot 3.0 (Python 2.7.16 on darwin)">
+<robot rpa="false" generated="20200904 10:26:08.266" generator="Robot 3.2.1 (Python 2.7.16 on darwin)">
 <suite source="/Users/yinbo/OneDrive/apiTesting/hm/mayson/病历质控/添加反馈.robot" id="s1" name="添加反馈">
 <test id="s1-t1" name="病历质控提交反馈">
 <kw type="setup" name="Run Keywords" library="BuiltIn">
@@ -42,8 +42,8 @@
 <assign>
 <var>${timestamp}</var>
 </assign>
-<msg timestamp="20200820 19:44:07.668" level="INFO">${timestamp} = 1597923847</msg>
-<status status="PASS" endtime="20200820 19:44:07.668" starttime="20200820 19:44:07.667"></status>
+<msg timestamp="20200904 10:26:08.702" level="INFO">${timestamp} = 1599186368</msg>
+<status status="PASS" endtime="20200904 10:26:08.702" starttime="20200904 10:26:08.702"></status>
 </kw>
 <kw name="Get Time" library="BuiltIn">
 <doc>Returns the given time in the requested format.</doc>
@@ -53,26 +53,26 @@
 <assign>
 <var>${time_now}</var>
 </assign>
-<msg timestamp="20200820 19:44:07.672" level="INFO">${time_now} = 2020-08-20 19:44:07</msg>
-<status status="PASS" endtime="20200820 19:44:07.672" starttime="20200820 19:44:07.669"></status>
+<msg timestamp="20200904 10:26:08.705" level="INFO">${time_now} = 2020-09-04 10:26:08</msg>
+<status status="PASS" endtime="20200904 10:26:08.705" starttime="20200904 10:26:08.703"></status>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <doc>Makes a variable available globally in all tests and suites.</doc>
 <arguments>
 <arg>${timestamp}</arg>
 </arguments>
-<msg timestamp="20200820 19:44:07.673" level="INFO">${timestamp} = 1597923847</msg>
-<status status="PASS" endtime="20200820 19:44:07.673" starttime="20200820 19:44:07.672"></status>
+<msg timestamp="20200904 10:26:08.706" level="INFO">${timestamp} = 1599186368</msg>
+<status status="PASS" endtime="20200904 10:26:08.706" starttime="20200904 10:26:08.705"></status>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <doc>Makes a variable available globally in all tests and suites.</doc>
 <arguments>
 <arg>${time_now}</arg>
 </arguments>
-<msg timestamp="20200820 19:44:07.674" level="INFO">${time_now} = 2020-08-20 19:44:07</msg>
-<status status="PASS" endtime="20200820 19:44:07.674" starttime="20200820 19:44:07.673"></status>
+<msg timestamp="20200904 10:26:08.708" level="INFO">${time_now} = 2020-09-04 10:26:08</msg>
+<status status="PASS" endtime="20200904 10:26:08.708" starttime="20200904 10:26:08.706"></status>
 </kw>
-<status status="PASS" endtime="20200820 19:44:07.674" starttime="20200820 19:44:07.665"></status>
+<status status="PASS" endtime="20200904 10:26:08.708" starttime="20200904 10:26:08.701"></status>
 </kw>
 <kw name="获取随机数" library="cdss">
 <kw name="Generate Random String" library="String">
@@ -84,18 +84,18 @@
 <assign>
 <var>${random}</var>
 </assign>
-<msg timestamp="20200820 19:44:07.675" level="INFO">${random} = 210</msg>
-<status status="PASS" endtime="20200820 19:44:07.675" starttime="20200820 19:44:07.674"></status>
+<msg timestamp="20200904 10:26:08.710" level="INFO">${random} = 486</msg>
+<status status="PASS" endtime="20200904 10:26:08.711" starttime="20200904 10:26:08.710"></status>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <doc>Makes a variable available globally in all tests and suites.</doc>
 <arguments>
 <arg>${random}</arg>
 </arguments>
-<msg timestamp="20200820 19:44:07.675" level="INFO">${random} = 210</msg>
-<status status="PASS" endtime="20200820 19:44:07.675" starttime="20200820 19:44:07.675"></status>
+<msg timestamp="20200904 10:26:08.713" level="INFO">${random} = 486</msg>
+<status status="PASS" endtime="20200904 10:26:08.713" starttime="20200904 10:26:08.711"></status>
 </kw>
-<status status="PASS" endtime="20200820 19:44:07.676" starttime="20200820 19:44:07.674"></status>
+<status status="PASS" endtime="20200904 10:26:08.713" starttime="20200904 10:26:08.709"></status>
 </kw>
 <kw name="智能推荐v2" library="cdss">
 <arguments>
@@ -123,7 +123,7 @@
 <arg>medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}</arg>
 </arguments>
 <kw name="Create Dictionary" library="BuiltIn">
-<doc>Creates and returns a dictionary based on given items.</doc>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
 <arguments>
 <arg>Content-Type=application/json</arg>
 <arg>Huimei_id=${Huimei_id}</arg>
@@ -131,8 +131,8 @@
 <assign>
 <var>${dict}</var>
 </assign>
-<msg timestamp="20200820 19:44:07.680" level="INFO">${dict} = {"Content-Type": "application/json", "Huimei_id": "7195F12825788F09375C2DB1E922F108"}</msg>
-<status status="PASS" endtime="20200820 19:44:07.680" starttime="20200820 19:44:07.678"></status>
+<msg timestamp="20200904 10:26:08.721" level="INFO">${dict} = {"Content-Type": "application/json", "Huimei_id": "7195F12825788F09375C2DB1E922F108"}</msg>
+<status status="PASS" endtime="20200904 10:26:08.721" starttime="20200904 10:26:08.719"></status>
 </kw>
 <kw name="Create Session" library="RequestsLibrary">
 <doc>Create Session: create a HTTP session to a server</doc>
@@ -141,132 +141,132 @@
 <arg>${mayson_url}</arg>
 <arg>${dict}</arg>
 </arguments>
-<msg timestamp="20200820 19:44:07.682" level="INFO">Creating Session using : alias=api, url=http://profile.huimeionline.com/cdss, headers={u'Content-Type': u'application/json', u'Huimei_id': u'7195F12825788F09375C2DB1E922F108'},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" endtime="20200820 19:44:07.683" starttime="20200820 19:44:07.681"></status>
+<msg timestamp="20200904 10:26:08.722" level="INFO">Creating Session using : alias=api, url=http://profile.huimeionline.com/cdss, headers={u'Content-Type': u'application/json', u'Huimei_id': u'7195F12825788F09375C2DB1E922F108'},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20200904 10:26:08.723" starttime="20200904 10:26:08.721"></status>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the results.</doc>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
 <arguments>
 <arg>dict(${patientInfo})</arg>
 </arguments>
 <assign>
 <var>${patientInfo}</var>
 </assign>
-<msg timestamp="20200820 19:44:07.685" level="INFO">${patientInfo} = {"pregnancyStatus": "0", "gender": "1", "age": "19", "maritalStatus": "1", "ageType": "\xe5\xb2\x81"}</msg>
-<status status="PASS" endtime="20200820 19:44:07.685" starttime="20200820 19:44:07.683"></status>
+<msg timestamp="20200904 10:26:08.725" level="INFO">${patientInfo} = {"pregnancyStatus": "0", "gender": "1", "age": "19", "maritalStatus": "1", "ageType": "岁"}</msg>
+<status status="PASS" endtime="20200904 10:26:08.725" starttime="20200904 10:26:08.723"></status>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the results.</doc>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
 <arguments>
 <arg>dict(${physicalSign})</arg>
 </arguments>
 <assign>
 <var>${physicalSign}</var>
 </assign>
-<msg timestamp="20200820 19:44:07.687" level="INFO">${physicalSign} = {"bodyTempr": "", "heartRate": "", "lowBldPress": "", "highBldPress": ""}</msg>
-<status status="PASS" endtime="20200820 19:44:07.687" starttime="20200820 19:44:07.685"></status>
+<msg timestamp="20200904 10:26:08.726" level="INFO">${physicalSign} = {"bodyTempr": "", "heartRate": "", "lowBldPress": "", "highBldPress": ""}</msg>
+<status status="PASS" endtime="20200904 10:26:08.726" starttime="20200904 10:26:08.726"></status>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the results.</doc>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
 <arguments>
 <arg>[${definiteDiagnosis}]</arg>
 </arguments>
 <assign>
 <var>${definiteDiagnosis}</var>
 </assign>
-<msg timestamp="20200820 19:44:07.689" level="INFO">${definiteDiagnosis} = []</msg>
-<status status="PASS" endtime="20200820 19:44:07.689" starttime="20200820 19:44:07.687"></status>
+<msg timestamp="20200904 10:26:08.727" level="INFO">${definiteDiagnosis} = []</msg>
+<status status="PASS" endtime="20200904 10:26:08.727" starttime="20200904 10:26:08.726"></status>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the results.</doc>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
 <arguments>
 <arg>[${progressNoteList}]</arg>
 </arguments>
 <assign>
 <var>${progressNoteList}</var>
 </assign>
-<msg timestamp="20200820 19:44:07.691" level="INFO">${progressNoteList} = [{"recordTime": "", "doctorGuid": "2222", "messageList": [{"value": "", "key": "\xe4\xb8\xbb\xe8\xaf\x89"}, {"value": "", "key": "\xe8\xaf\x8a\xe6\x96\xad\xe4\xbe\x9d\xe6\x8d\xae\xe5\x8f\x8a\xe9\x89\x...</msg>
-<status status="PASS" endtime="20200820 19:44:07.691" starttime="20200820 19:44:07.689"></status>
+<msg timestamp="20200904 10:26:08.729" level="INFO">${progressNoteList} = [{"recordTime": "", "doctorGuid": "2222", "messageList": [{"value": "", "key": "主诉"}, {"value": "", "key": "诊断依据及鉴别诊断"}, {"value": "心房颤动", "key": "现病史"}, {"value": "", "key": "既往史"}, {"value": "脑内出血,高...</msg>
+<status status="PASS" endtime="20200904 10:26:08.729" starttime="20200904 10:26:08.728"></status>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the results.</doc>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
 <arguments>
 <arg>[${deleteProgressNoteList}]</arg>
 </arguments>
 <assign>
 <var>${deleteProgressNoteList}</var>
 </assign>
-<msg timestamp="20200820 19:44:07.692" level="INFO">${deleteProgressNoteList} = [{"doctorGid": "", "progressType": "2", "progressGuid": "", "recordTime": ""}]</msg>
-<status status="PASS" endtime="20200820 19:44:07.692" starttime="20200820 19:44:07.691"></status>
+<msg timestamp="20200904 10:26:08.730" level="INFO">${deleteProgressNoteList} = [{"doctorGid": "", "progressType": "2", "progressGuid": "", "recordTime": ""}]</msg>
+<status status="PASS" endtime="20200904 10:26:08.730" starttime="20200904 10:26:08.730"></status>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the results.</doc>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
 <arguments>
 <arg>[${labTestList}]</arg>
 </arguments>
 <assign>
 <var>${labTestList}</var>
 </assign>
-<msg timestamp="20200820 19:44:07.697" level="INFO">${labTestList} = []</msg>
-<status status="PASS" endtime="20200820 19:44:07.697" starttime="20200820 19:44:07.693"></status>
+<msg timestamp="20200904 10:26:08.731" level="INFO">${labTestList} = []</msg>
+<status status="PASS" endtime="20200904 10:26:08.731" starttime="20200904 10:26:08.730"></status>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the results.</doc>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
 <arguments>
 <arg>[${examinationList}]</arg>
 </arguments>
 <assign>
 <var>${examinationList}</var>
 </assign>
-<msg timestamp="20200820 19:44:07.699" level="INFO">${examinationList} = []</msg>
-<status status="PASS" endtime="20200820 19:44:07.699" starttime="20200820 19:44:07.697"></status>
+<msg timestamp="20200904 10:26:08.732" level="INFO">${examinationList} = []</msg>
+<status status="PASS" endtime="20200904 10:26:08.732" starttime="20200904 10:26:08.731"></status>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the results.</doc>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
 <arguments>
 <arg>[${newTestList}]</arg>
 </arguments>
 <assign>
 <var>${newTestList}</var>
 </assign>
-<msg timestamp="20200820 19:44:07.701" level="INFO">${newTestList} = []</msg>
-<status status="PASS" endtime="20200820 19:44:07.701" starttime="20200820 19:44:07.699"></status>
+<msg timestamp="20200904 10:26:08.732" level="INFO">${newTestList} = []</msg>
+<status status="PASS" endtime="20200904 10:26:08.732" starttime="20200904 10:26:08.732"></status>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the results.</doc>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
 <arguments>
 <arg>dict(${operationRecord})</arg>
 </arguments>
 <assign>
 <var>${operationRecord}</var>
 </assign>
-<msg timestamp="20200820 19:44:07.702" level="INFO">${operationRecord} = {}</msg>
-<status status="PASS" endtime="20200820 19:44:07.702" starttime="20200820 19:44:07.701"></status>
+<msg timestamp="20200904 10:26:08.733" level="INFO">${operationRecord} = {}</msg>
+<status status="PASS" endtime="20200904 10:26:08.733" starttime="20200904 10:26:08.732"></status>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the results.</doc>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
 <arguments>
 <arg>${prescriptions}</arg>
 </arguments>
 <assign>
 <var>${prescriptions}</var>
 </assign>
-<msg timestamp="20200820 19:44:07.704" level="INFO">${prescriptions} = {"prescriptionNumber": "", "drugList": [{"drugId": "", "specification": "", "dosage": "", "frequency": "", "drugName": "", "pathway": "", "unit": ""}], "recordTime": ""}</msg>
-<status status="PASS" endtime="20200820 19:44:07.704" starttime="20200820 19:44:07.702"></status>
+<msg timestamp="20200904 10:26:08.734" level="INFO">${prescriptions} = {"prescriptionNumber": "", "drugList": [{"drugId": "", "specification": "", "dosage": "", "frequency": "", "drugName": "", "pathway": "", "unit": ""}], "recordTime": ""}</msg>
+<status status="PASS" endtime="20200904 10:26:08.734" starttime="20200904 10:26:08.734"></status>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the results.</doc>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
 <arguments>
 <arg>[${medicalOrders}]</arg>
 </arguments>
 <assign>
 <var>${medicalOrders}</var>
 </assign>
-<msg timestamp="20200820 19:44:07.705" level="INFO">${medicalOrders} = [{"orderId": "1597923847210", "orderContent": "\xe9\x98\xbf\xe6\x89\x98\xe4\xbc\x90\xe4\xbb\x96\xe6\xb1\x80\xe9\x92\x99\xe7\x89\x87", "frequency": "ONCE", "orderFlag": 1, "unit": "mg", "orderCode": "3...</msg>
-<status status="PASS" endtime="20200820 19:44:07.706" starttime="20200820 19:44:07.704"></status>
+<msg timestamp="20200904 10:26:08.735" level="INFO">${medicalOrders} = [{"orderId": "1599186368486", "orderContent": "阿托伐他汀钙片", "frequency": "ONCE", "orderFlag": 1, "unit": "mg", "orderCode": "316275", "orderType": 3, "specification": "", "timelinessFlag": 2, "pathway": ...</msg>
+<status status="PASS" endtime="20200904 10:26:08.735" starttime="20200904 10:26:08.734"></status>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
-<doc>Creates and returns a dictionary based on given items.</doc>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
 <arguments>
 <arg>userGuid=${userGuid}</arg>
 <arg>serialNumber=${serialNumber}</arg>
@@ -294,19 +294,12 @@
 <assign>
 <var>${data}</var>
 </assign>
-<msg timestamp="20200820 19:44:07.710" level="INFO">${data} = {u'userGuid': u'1597923847210', u'serialNumber': u'1597923847210', u'patientName': u'tester', u'doctorGuid': u'0210497', u'doctorName': u'\u6d4b\u8bd5\u533b\u751f', u'admissionTime': u'2018-12-12', u'...</msg>
-<status status="PASS" endtime="20200820 19:44:07.710" starttime="20200820 19:44:07.706"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${data}</arg>
-</arguments>
-<msg timestamp="20200820 19:44:07.711" level="INFO">{u'userGuid': u'1597923847210', u'serialNumber': u'1597923847210', u'patientName': u'tester', u'doctorGuid': u'0210497', u'doctorName': u'\u6d4b\u8bd5\u533b\u751f', u'admissionTime': u'2018-12-12', u'inpatientDepartment': u'\u547c\u5438\u79d1', u'pageSource': u'2', u'requestSource': u'', u'patientInfo': {'pregnancyStatus': '0', 'gender': '1', 'age': '19', 'maritalStatus': '1', 'ageType': '\xe5\xb2\x81'}, u'physicalSign': {'bodyTempr': '', 'heartRate': '', 'lowBldPress': '', 'highBldPress': ''}, u'definiteDiagnosis': [], u'progressNoteList': [{'recordTime': '', 'doctorGuid': '2222', 'messageList': [{'value': '', 'key': '\xe4\xb8\xbb\xe8\xaf\x89'}, {'value': '', 'key': '\xe8\xaf\x8a\xe6\x96\xad\xe4\xbe\x9d\xe6\x8d\xae\xe5\x8f\x8a\xe9\x89\xb4\xe5\x88\xab\xe8\xaf\x8a\xe6\x96\xad'}, {'value': '\xe5\xbf\x83\xe6\x88\xbf\xe9\xa2\xa4\xe5\x8a\xa8', 'key': '\xe7\x8e\xb0\xe7\x97\x85\xe5\x8f\xb2'}, {'value': '', 'key': '\xe6\x97\xa2\xe5\xbe\x80\xe5\x8f\xb2'}, {'value': '\xe8\x84\x91\xe5\x86\x85\xe5\x87\xba\xe8\xa1\x80,\xe9\xab\x98\xe8\xa1\x80\xe5\x8e\x8b', 'key': '\xe5\x88\x9d\xe6\xad\xa5\xe8\xaf\x8a\xe6\x96\xad'}, {'value': '', 'key': '\xe8\xbe\x85\xe5\x8a\xa9\xe6\xa3\x80\xe6\x9f\xa5'}], 'msgType': '2', 'progressType': '1', 'progressGuid': '22222'}], u'deleteProgressNoteList': [{'doctorGid': '', 'progressType': '2', 'progressGuid': '', 'recordTime': ''}], u'labTestList': [], u'examinationList': [], u'newTestList': [], u'operationRecord': {}, u'prescriptions': {'prescriptionNumber': '', 'drugList': [{'drugId': '', 'specification': '', 'dosage': '', 'frequency': '', 'drugName': '', 'pathway': '', 'unit': ''}], 'recordTime': ''}, u'currentDiseaseName': u'', u'medicalOrders': [{'orderId': '1597923847210', 'orderContent': '\xe9\x98\xbf\xe6\x89\x98\xe4\xbc\x90\xe4\xbb\x96\xe6\xb1\x80\xe9\x92\x99\xe7\x89\x87', 'frequency': 'ONCE', 'orderFlag': 1, 'unit': 'mg', 'orderCode': '316275', 'orderType': 3, 'specification': '', 'timelinessFlag': 2, 'pathway': '\xe5\x8f\xa3\xe6\x9c\x8d', 'dosage': '41'}], u'openInterdict': 1}</msg>
-<status status="PASS" endtime="20200820 19:44:07.711" starttime="20200820 19:44:07.710"></status>
+<msg timestamp="20200904 10:26:08.746" level="INFO">${data} = {"userGuid": "1599186368486", "serialNumber": "1599186368486", "patientName": "tester", "doctorGuid": "0210497", "doctorName": "测试医生", "admissionTime": "2018-12-12", "inpatientDepartment": "呼吸科", "pag...</msg>
+<status status="PASS" endtime="20200904 10:26:08.746" starttime="20200904 10:26:08.735"></status>
 </kw>
 <kw name="Post Request" library="RequestsLibrary">
-<doc>Send a POST request on the session object found using the</doc>
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
 <arguments>
 <arg>api</arg>
 <arg>mayson/v_2_0/intelligent_recommendation</arg>
@@ -315,10 +308,10 @@
 <assign>
 <var>${addr}</var>
 </assign>
-<msg timestamp="20200820 19:44:07.720" level="INFO">Starting new HTTP connection (1): profile.huimeionline.com</msg>
-<msg timestamp="20200820 19:44:08.918" level="INFO">Post Request using : alias=api, uri=mayson/v_2_0/intelligent_recommendation, data=&lt;empty&gt;, headers=None, files=None, allow_redirects=True </msg>
-<msg timestamp="20200820 19:44:08.918" level="INFO">${addr} = &lt;Response [200]&gt;</msg>
-<status status="PASS" endtime="20200820 19:44:08.918" starttime="20200820 19:44:07.711"></status>
+<msg timestamp="20200904 10:26:08.761" level="INFO">Starting new HTTP connection (1): profile.huimeionline.com</msg>
+<msg timestamp="20200904 10:26:09.863" level="INFO">Post Request using : alias=api, uri=mayson/v_2_0/intelligent_recommendation, data=&lt;empty&gt;, headers=None, files=None, allow_redirects=True </msg>
+<msg timestamp="20200904 10:26:09.863" level="INFO">${addr} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20200904 10:26:09.863" starttime="20200904 10:26:08.746"></status>
 </kw>
 <kw name="To Json" library="RequestsLibrary">
 <doc>Convert a string to a JSON object</doc>
@@ -328,7 +321,7 @@
 <assign>
 <var>${responsedata}</var>
 </assign>
-<msg timestamp="20200820 19:44:08.937" level="INFO">To JSON using : content={
+<msg timestamp="20200904 10:26:09.986" level="INFO">To JSON using : content={
 	"body":{
 		"customerId":1219,
 		"doctorGuid":"0210497",
@@ -364,11 +357,11 @@
 					"publishDate":"2019-02"
 				},
 				{
-					"cnTitle":"\xe4\xb8\xbb\xe5\x8a\xa8\xe8\x84\x89\xe6\xa0\xb9\xe9\x83\xa8\xe8\xa1\x80\xe6\xa0\x93\xe5\x90\x88\xe5\xb9\xb6\xe6\x80\xa5\xe6\x80\xa7\xe5\xbf\x83\xe8\x82\x8c\xe6\xa2\x97\xe6\xad\xbb\xe6\x82\xa3\xe8\x80\x85\xe6\xba\xb6\xe6\xa0\x93\xe5\x90\x8e\xe5\x8f\x91\xe7\x94\x9f\xe8\x84\x91\xe5\x87\xba\xe8\xa1\x80\xe4\xb8\x80\xe4\xbe\x8b",
+					"cnTitle":"2015 AHA/ASA\xe6\x8c\x87\xe5\x8d\x97\xef\xbc\x9a\xe8\x87\xaa\xe5\x8f\x91\xe6\x80\xa7\xe8\x84\x91\xe5\x87\xba\xe8\xa1\x80\xe7\x9a\x84\xe7\xae\xa1\xe7\x90\x86",
 					"documentFlag":"false",
-					"documentId":"9413C572F6",
+					"documentId":"9412C772FF",
 					"documentSource":"\xe6\x83\xa0\xe6\xaf\x8f\xe7\x9f\xa5\xe8\xaf\x86\xe5\xba\x93",
-					"publishDate":"2018-04"
+					"publishDate":"2015-07"
 				}
 			],
 			"keyword":"\xe8\x84\x91\xe5\x86\x85\xe5\x87\xba\xe8\xa1\x80"
@@ -926,7 +919,7 @@
 			"code":"",
 			"customerId":1219,
 			"customer_id":1219,
-			"record_id":283964,
+			"record_id":312859,
 			"serialNumber":"",
 			"state":1,
 			"tags":"",
@@ -1120,7 +1113,8 @@
 					"recommendLevel":3,
 					"remark":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe5\xae\xb6\xe6\x97\x8f\xe5\x8f\xb2\xe7\x88\xb6\xe6\xaf\x8d\xe6\x83\x85\xe5\x86\xb5\xe6\x9c\xaa\xe5\xa1\xab\xe5\x86\x99",
 					"result":2,
-					"ruleCategory":"xs"
+					"ruleCategory":"xs",
+					"ruleCode":"wz87"
 				},
 				{
 					"displayType":1,
@@ -1132,7 +1126,8 @@
 					"recommendLevel":2,
 					"remark":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe5\xae\xb6\xe6\x97\x8f\xe5\x8f\xb2\xe5\x85\x84\xe5\xbc\x9f\xe5\xa7\x90\xe5\xa6\xb9\xe6\x83\x85\xe5\x86\xb5\xe6\x9c\xaa\xe5\xa1\xab\xe5\x86\x99",
 					"result":2,
-					"ruleCategory":"xs"
+					"ruleCategory":"xs",
+					"ruleCode":"wz88"
 				},
 				{
 					"displayType":1,
@@ -1144,7 +1139,8 @@
 					"recommendLevel":1,
 					"remark":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe6\x97\xa2\xe5\xbe\x80\xe5\x8f\xb2\xe6\x9c\xaa\xe5\xa1\xab\xe5\x86\x99",
 					"result":2,
-					"ruleCategory":"xs"
+					"ruleCategory":"xs",
+					"ruleCode":"wz145"
 				},
 				{
 					"displayType":1,
@@ -1156,7 +1152,8 @@
 					"recommendLevel":1,
 					"remark":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe8\xbf\x87\xe6\x95\x8f\xe5\x8f\xb2\xe6\x9c\xaa\xe5\xa1\xab\xe5\x86\x99",
 					"result":2,
-					"ruleCategory":"xs"
+					"ruleCategory":"xs",
+					"ruleCode":"qt59"
 				},
 				{
 					"displayType":1,
@@ -1168,7 +1165,8 @@
 					"recommendLevel":1,
 					"remark":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe4\xb8\x93\xe7\xa7\x91\xe6\xa3\x80\xe6\x9f\xa5\xe6\x9c\xaa\xe5\xa1\xab\xe5\x86\x99",
 					"result":2,
-					"ruleCategory":"xs"
+					"ruleCategory":"xs",
+					"ruleCode":"wz147"
 				},
 				{
 					"displayType":1,
@@ -1180,7 +1178,8 @@
 					"recommendLevel":1,
 					"remark":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe4\xbd\x93\xe6\xa0\xbc\xe6\xa3\x80\xe6\x9f\xa5\xe6\x9c\xaa\xe5\xa1\xab\xe5\x86\x99",
 					"result":2,
-					"ruleCategory":"xs"
+					"ruleCategory":"xs",
+					"ruleCode":"wz146"
 				},
 				{
 					"displayType":1,
@@ -1192,7 +1191,8 @@
 					"recommendLevel":1,
 					"remark":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe4\xb8\xbb\xe8\xaf\x89\xe6\x9c\xaa\xe5\xa1\xab\xe5\x86\x99",
 					"result":2,
-					"ruleCategory":"xs"
+					"ruleCategory":"xs",
+					"ruleCode":"wz139"
 				},
 				{
 					"displayType":1,
@@ -1204,7 +1204,8 @@
 					"recommendLevel":1,
 					"remark":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95\xe6\x97\xa0\xe8\xbe\x85\xe5\x8a\xa9\xe6\xa3\x80\xe6\x9f\xa5\xe8\xae\xb0\xe5\xbd\x95",
 					"result":2,
-					"ruleCategory":"xs"
+					"ruleCategory":"xs",
+					"ruleCode":"wz187"
 				},
 				{
 					"displayType":1,
@@ -1216,7 +1217,8 @@
 					"recommendLevel":1,
 					"remark":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe7\xa1\xae\xe5\xae\x9a\xe8\xaf\x8a\xe6\x96\xad\xe6\x9c\xaa\xe5\xa1\xab\xe5\x86\x99",
 					"result":2,
-					"ruleCategory":"xs"
+					"ruleCategory":"xs",
+					"ruleCode":"wz325"
 				},
 				{
 					"displayType":3,
@@ -1228,7 +1230,8 @@
 					"recommendLevel":1,
 					"remark":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xaf\x8a\xe6\x96\xad\xe2\x80\x9c\xe9\xab\x98\xe8\xa1\x80\xe5\x8e\x8b\xe2\x80\x9d\xef\xbc\x8c\xe5\x9c\xa8\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95\xe4\xb8\xad\xe6\x9c\xaa\xe4\xbd\x93\xe7\x8e\xb0\xe7\x9b\xb8\xe5\xba\x94\xe7\x9a\x84\xe7\x97\x85\xe5\x8f\xb2\xe3\x80\x81\xe4\xb8\xb4\xe5\xba\x8a\xe8\xa1\xa8\xe7\x8e\xb0\xe3\x80\x81\xe6\xa3\x80\xe6\x9f\xa5\xe7\xbb\x93\xe6\x9e\x9c\xe7\xad\x89\xe8\xaf\x8a\xe6\x96\xad\xe4\xbe\x9d\xe6\x8d\xae\xef\xbc\x8c\xe8\xaf\xb7\xe8\xa1\xa5\xe5\x85\x85\xe7\xa1\xae\xe8\xae\xa4",
 					"result":2,
-					"ruleCategory":"nh"
+					"ruleCategory":"nh",
+					"ruleCode":"nh6"
 				}
 			],
 			"dischargeRecordResults":[],
@@ -1253,7 +1256,8 @@
 					"recommendLevel":1,
 					"remark":"24\xe5\xb0\x8f\xe6\x97\xb6\xe8\xb0\x88\xe8\xaf\x9d\xe8\xae\xb0\xe5\xbd\x95\xe5\xba\x94\xe5\x9c\xa8\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\xae\x8c\xe6\x88\x90",
 					"result":2,
-					"ruleCategory":"xs"
+					"ruleCategory":"xs",
+					"ruleCode":"wz141"
 				},
 				{
 					"displayType":4,
@@ -1265,7 +1269,8 @@
 					"recommendLevel":1,
 					"remark":"\xe9\xa6\x96\xe6\xac\xa1\xe6\x9f\xa5\xe6\x88\xbf\xe8\xae\xb0\xe5\xbd\x95\xe6\x9c\xaa\xe5\x9c\xa8\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa248\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\xae\x8c\xe6\x88\x90",
 					"result":2,
-					"ruleCategory":"xs"
+					"ruleCategory":"xs",
+					"ruleCode":"wz192"
 				},
 				{
 					"displayType":4,
@@ -1277,7 +1282,8 @@
 					"recommendLevel":1,
 					"remark":"\xe4\xb8\x8a\xe7\xba\xa7\xe5\x8c\xbb\xe5\xb8\x88\xe6\x9f\xa5\xe6\x88\xbf\xe8\xae\xb0\xe5\xbd\x95\xe6\x9c\xaa\xe5\x9c\xa8\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa272\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\xae\x8c\xe6\x88\x90",
 					"result":2,
-					"ruleCategory":"xs"
+					"ruleCategory":"xs",
+					"ruleCode":"wz193"
 				}
 			],
 			"roleRemark":"",
@@ -1295,7 +1301,8 @@
 					"recommendLevel":1,
 					"remark":"\xe9\xa6\x96\xe6\xac\xa1\xe7\x97\x85\xe7\xa8\x8b\xe8\xae\xb0\xe5\xbd\x95\xe5\xba\x94\xe5\x9c\xa8\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa28\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\xae\x8c\xe6\x88\x90",
 					"result":2,
-					"ruleCategory":"xs"
+					"ruleCategory":"xs",
+					"ruleCode":"wz77"
 				},
 				{
 					"displayType":4,
@@ -1307,7 +1314,8 @@
 					"recommendLevel":1,
 					"remark":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95\xe5\xba\x94\xe5\x9c\xa8\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\xae\x8c\xe6\x88\x90",
 					"result":2,
-					"ruleCategory":"xs"
+					"ruleCategory":"xs",
+					"ruleCode":"wz74"
 				}
 			]
 		},
@@ -1323,14 +1331,14 @@
 				"\xe8\x84\x91\xe5\x86\x85\xe5\x87\xba\xe8\xa1\x80",
 				"\xe9\xab\x98\xe8\xa1\x80\xe5\x8e\x8b"
 			],
-			"displayNum":"1597923847210",
+			"displayNum":"1599186368486",
 			"gender":1,
 			"inpatientDepartment":"\xe5\x91\xbc\xe5\x90\xb8\xe7\xa7\x91",
 			"name":"tester",
 			"orgName":"\xe6\x88\x91\xe6\x98\xaf\xe5\xb0\xb9\xe5\xae\x8f\xe5\x88\xa9",
-			"serialNumber":"1597923847210",
+			"serialNumber":"1599186368486",
 			"transferDepartmentName":"",
-			"userGuid":"1597923847210"
+			"userGuid":"1599186368486"
 		},
 		"qualityControlResponse":{
 			"illnessAssessList":[
@@ -1350,7 +1358,7 @@
 					"assessPostil":"\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\xba\x94\xe8\xbf\x9b\xe8\xa1\x8cVTE\xe5\x88\x9d\xe5\xa7\x8b\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0",
 					"assessResultItemList":[],
 					"compare":2,
-					"expressId":29887,
+					"expressId":29913,
 					"fileName":"Padua.html",
 					"ignore":0,
 					"ignoreTips":"",
@@ -1367,26 +1375,8 @@
 					],
 					"recommendResult":"\xe5\x86\x85\xe7\xa7\x91VTE\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0(Padua\xe8\xaf\x84\xe5\x88\x86\xe8\xa1\xa8)",
 					"ruleGroupId":1,
-					"ruleNumber":"HMvte2",
+					"ruleNumber":"HMvte2-RS",
 					"ruleRemark":"\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\xba\x94\xe8\xbf\x9b\xe8\xa1\x8cVTE\xe5\x88\x9d\xe5\xa7\x8b\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0",
-					"ruleSources":[
-						{
-							"number":"HMvte2",
-							"projectName":"VTE\xe5\x88\x9d\xe5\xa7\x8b\xe8\xaf\x84\xe4\xbc\xb0",
-							"remark":"\xe4\xbd\x8f\xe9\x99\xa2\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe8\xbf\x9b\xe8\xa1\x8c\xe9\xa6\x96\xe6\xac\xa1\xe8\xaf\x84\xe4\xbc\xb0\xe3\x80\x82",
-							"sort":1,
-							"sourceDetail":"\xe6\xb7\xb1\xe9\x9d\x99\xe8\x84\x89\xe8\xa1\x80\xe6\xa0\x93\xe5\xbd\xa2\xe6\x88\x90\xe7\x9a\x84\xe8\xaf\x8a\xe6\x96\xad\xe5\x92\x8c\xe6\xb2\xbb\xe7\x96\x97\xe6\x8c\x87\xe5\x8d\x97(\xe7\xac\xac\xe4\xb8\x89\xe7\x89\x88)\xef\xbc\x882017\xef\xbc\x89",
-							"versionInfo":""
-						},
-						{
-							"number":"HMvte2",
-							"projectName":"VTE\xe5\x88\x9d\xe5\xa7\x8b\xe8\xaf\x84\xe4\xbc\xb0",
-							"remark":"\xe5\xbb\xba\xe8\xae\xae\xe5\x9c\xa8\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe8\xbf\x9b\xe8\xa1\x8cVTE\xe5\x88\x9d\xe5\xa7\x8b\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0\xef\xbc\x8c\xe7\x89\xb9\xe5\x88\xab\xe6\x98\xafVTE\xe9\xab\x98\xe9\xa3\x8e\xe9\x99\xa9\xe7\xa7\x91\xe5\xae\xa4\xe7\x9a\x84\xe4\xbd\x8f\xe9\x99\xa2\xe6\x82\xa3\xe8\x80\x85\xe3\x80\x82",
-							"sort":2,
-							"sourceDetail":"\xe5\x8c\xbb\xe9\x99\xa2\xe5\x86\x85\xe9\x9d\x99\xe8\x84\x89\xe8\xa1\x80\xe6\xa0\x93\xe6\xa0\x93\xe5\xa1\x9e\xe7\x97\x87\xe9\x98\xb2\xe6\xb2\xbb\xe4\xb8\x8e\xe7\xae\xa1\xe7\x90\x86\xe5\xbb\xba\xe8\xae\xae\xef\xbc\x882018\xef\xbc\x89",
-							"versionInfo":""
-						}
-					],
 					"warnLevel":1
 				},
 				{
@@ -1406,7 +1396,7 @@
 										"dictionaryAttributeId":86,
 										"originRecord":"&lt;span class=\"hm-qa-eva-del-res-path-light\"&gt;\xe8\x84\x91\xe5\x86\x85\xe5\x87\xba\xe8\xa1\x80&lt;/span&gt;,\xe9\xab\x98\xe8\xa1\x80\xe5\x8e\x8b\xe3\x80\x82",
 										"position":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe5\x88\x9d\xe6\xad\xa5\xe8\xaf\x8a\xe6\x96\xad",
-										"progressId":1590120,
+										"progressId":1619295,
 										"recordTypeId":1,
 										"word":""
 									}
@@ -1436,7 +1426,7 @@
 									"dictionaryAttributeId":86,
 									"originRecord":"&lt;span class=\"hm-qa-eva-del-res-path-light\"&gt;\xe8\x84\x91\xe5\x86\x85\xe5\x87\xba\xe8\xa1\x80&lt;/span&gt;,\xe9\xab\x98\xe8\xa1\x80\xe5\x8e\x8b\xe3\x80\x82",
 									"position":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe5\x88\x9d\xe6\xad\xa5\xe8\xaf\x8a\xe6\x96\xad",
-									"progressId":1590120,
+									"progressId":1619295,
 									"recordTypeId":1,
 									"word":""
 								}
@@ -1445,7 +1435,7 @@
 						}
 					],
 					"compare":2,
-					"expressId":29886,
+					"expressId":29912,
 					"fileName":"caprini.html",
 					"ignore":0,
 					"ignoreTips":"",
@@ -1462,26 +1452,8 @@
 					],
 					"recommendResult":"\xe5\xa4\x96\xe7\xa7\x91VTE\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0(Caprini\xe8\xaf\x84\xe5\x88\x86\xe8\xa1\xa8)",
 					"ruleGroupId":1,
-					"ruleNumber":"HMvte1",
+					"ruleNumber":"HMvte1-RS",
 					"ruleRemark":"\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\xba\x94\xe8\xbf\x9b\xe8\xa1\x8cVTE\xe5\x88\x9d\xe5\xa7\x8b\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0",
-					"ruleSources":[
-						{
-							"number":"HMvte1",
-							"projectName":"VTE\xe5\x88\x9d\xe5\xa7\x8b\xe8\xaf\x84\xe4\xbc\xb0",
-							"remark":"\xe4\xbd\x8f\xe9\x99\xa2\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe8\xbf\x9b\xe8\xa1\x8c\xe9\xa6\x96\xe6\xac\xa1\xe8\xaf\x84\xe4\xbc\xb0\xe3\x80\x82",
-							"sort":1,
-							"sourceDetail":"\xe6\xb7\xb1\xe9\x9d\x99\xe8\x84\x89\xe8\xa1\x80\xe6\xa0\x93\xe5\xbd\xa2\xe6\x88\x90\xe7\x9a\x84\xe8\xaf\x8a\xe6\x96\xad\xe5\x92\x8c\xe6\xb2\xbb\xe7\x96\x97\xe6\x8c\x87\xe5\x8d\x97(\xe7\xac\xac\xe4\xb8\x89\xe7\x89\x88)\xef\xbc\x882017\xef\xbc\x89",
-							"versionInfo":""
-						},
-						{
-							"number":"HMvte1",
-							"projectName":"VTE\xe5\x88\x9d\xe5\xa7\x8b\xe8\xaf\x84\xe4\xbc\xb0",
-							"remark":"\xe5\xbb\xba\xe8\xae\xae\xe5\x9c\xa8\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe8\xbf\x9b\xe8\xa1\x8cVTE\xe5\x88\x9d\xe5\xa7\x8b\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0\xef\xbc\x8c\xe7\x89\xb9\xe5\x88\xab\xe6\x98\xafVTE\xe9\xab\x98\xe9\xa3\x8e\xe9\x99\xa9\xe7\xa7\x91\xe5\xae\xa4\xe7\x9a\x84\xe4\xbd\x8f\xe9\x99\xa2\xe6\x82\xa3\xe8\x80\x85\xe3\x80\x82",
-							"sort":2,
-							"sourceDetail":"\xe5\x8c\xbb\xe9\x99\xa2\xe5\x86\x85\xe9\x9d\x99\xe8\x84\x89\xe8\xa1\x80\xe6\xa0\x93\xe6\xa0\x93\xe5\xa1\x9e\xe7\x97\x87\xe9\x98\xb2\xe6\xb2\xbb\xe4\xb8\x8e\xe7\xae\xa1\xe7\x90\x86\xe5\xbb\xba\xe8\xae\xae\xef\xbc\x882018\xef\xbc\x89",
-							"versionInfo":""
-						}
-					],
 					"warnLevel":1
 				},
 				{
@@ -1556,7 +1528,7 @@
 										"dictionaryAttributeId":86,
 										"originRecord":"&lt;span class=\"hm-qa-eva-del-res-path-light\"&gt;\xe8\x84\x91\xe5\x86\x85\xe5\x87\xba\xe8\xa1\x80&lt;/span&gt;,\xe9\xab\x98\xe8\xa1\x80\xe5\x8e\x8b\xe3\x80\x82",
 										"position":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe5\x88\x9d\xe6\xad\xa5\xe8\xaf\x8a\xe6\x96\xad",
-										"progressId":1590120,
+										"progressId":1619295,
 										"recordTypeId":1,
 										"word":""
 									}
@@ -1586,7 +1558,7 @@
 									"dictionaryAttributeId":86,
 									"originRecord":"&lt;span class=\"hm-qa-eva-del-res-path-light\"&gt;\xe8\x84\x91\xe5\x86\x85\xe5\x87\xba\xe8\xa1\x80&lt;/span&gt;,\xe9\xab\x98\xe8\xa1\x80\xe5\x8e\x8b\xe3\x80\x82",
 									"position":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe5\x88\x9d\xe6\xad\xa5\xe8\xaf\x8a\xe6\x96\xad",
-									"progressId":1590120,
+									"progressId":1619295,
 									"recordTypeId":1,
 									"word":""
 								}
@@ -1707,7 +1679,7 @@
 												"dictionaryAttributeId":86,
 												"originRecord":"\xe8\x84\x91\xe5\x86\x85\xe5\x87\xba\xe8\xa1\x80,&lt;span class=\"hm-qa-eva-del-res-path-light\"&gt;\xe9\xab\x98\xe8\xa1\x80\xe5\x8e\x8b&lt;/span&gt;\xe3\x80\x82",
 												"position":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe5\x88\x9d\xe6\xad\xa5\xe8\xaf\x8a\xe6\x96\xad",
-												"progressId":1590120,
+												"progressId":1619295,
 												"recordTypeId":1,
 												"word":""
 											}
@@ -1724,7 +1696,7 @@
 												"dictionaryAttributeId":86,
 												"originRecord":"&lt;span class=\"hm-qa-eva-del-res-path-light\"&gt;\xe8\x84\x91\xe5\x86\x85\xe5\x87\xba\xe8\xa1\x80&lt;/span&gt;,\xe9\xab\x98\xe8\xa1\x80\xe5\x8e\x8b\xe3\x80\x82",
 												"position":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe5\x88\x9d\xe6\xad\xa5\xe8\xaf\x8a\xe6\x96\xad",
-												"progressId":1590120,
+												"progressId":1619295,
 												"recordTypeId":1,
 												"word":""
 											}
@@ -1753,7 +1725,7 @@
 											"dictionaryAttributeId":86,
 											"originRecord":"\xe8\x84\x91\xe5\x86\x85\xe5\x87\xba\xe8\xa1\x80,&lt;span class=\"hm-qa-eva-del-res-path-light\"&gt;\xe9\xab\x98\xe8\xa1\x80\xe5\x8e\x8b&lt;/span&gt;\xe3\x80\x82",
 											"position":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe5\x88\x9d\xe6\xad\xa5\xe8\xaf\x8a\xe6\x96\xad",
-											"progressId":1590120,
+											"progressId":1619295,
 											"recordTypeId":1,
 											"word":""
 										}
@@ -1774,7 +1746,7 @@
 											"dictionaryAttributeId":86,
 											"originRecord":"&lt;span class=\"hm-qa-eva-del-res-path-light\"&gt;\xe8\x84\x91\xe5\x86\x85\xe5\x87\xba\xe8\xa1\x80&lt;/span&gt;,\xe9\xab\x98\xe8\xa1\x80\xe5\x8e\x8b\xe3\x80\x82",
 											"position":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe5\x88\x9d\xe6\xad\xa5\xe8\xaf\x8a\xe6\x96\xad",
-											"progressId":1590120,
+											"progressId":1619295,
 											"recordTypeId":1,
 											"word":""
 										}
@@ -1819,7 +1791,7 @@
 					"recommendSource":1,
 					"reminderNote":"CHA2DS2-VASc\xe8\xaf\x84\xe5\x88\x86&gt;=3\xe7\x9a\x84\xe5\xa5\xb3\xe6\x80\xa7\xe6\x88\xbf\xe9\xa2\xa4\xe6\x82\xa3\xe8\x80\x85\xe5\xba\x94\xe9\x95\xbf\xe6\x9c\x9f\xe6\x8e\xa5\xe5\x8f\x97\xe6\x8a\x97\xe5\x87\x9d\xe6\xb2\xbb\xe7\x96\x97\xef\xbc\x8c\xe5\xbb\xba\xe8\xae\xae\xe8\xaf\xb7\xe5\xbf\x83\xe8\x84\x8f\xe4\xb8\x93\xe7\xa7\x91\xe5\x8c\xbb\xe5\xb8\x88\xe5\x8d\x8f\xe5\x8a\xa9\xe8\xaf\x8a\xe7\x96\x97",
 					"ruleNumber":"AF-7",
-					"ruleRemark":"\xe3\x80\x90\xe5\x91\xbc\xe5\x90\xb8\xe7\xa7\x91\xe7\xa7\x91\xe5\xae\xa4\xe3\x80\x91tester\xef\xbc\x88\xe6\x82\xa3\xe8\x80\x85id\xef\xbc\x9a1597923847210\xef\xbc\x89\xe8\xaf\x8a\xe6\x96\xad\xe6\x88\xbf\xe9\xa2\xa4\xef\xbc\x8cCHA2DS2-VASc\xe8\xaf\x84\xe5\x88\x86=3\xe5\x88\x86\xef\xbc\x8c\xe4\xba\x8e08\xe6\x9c\x8820\xe6\x97\xa519\xe6\x97\xb6\xe7\x94\xb3\xe8\xaf\xb7\xe4\xbc\x9a\xe8\xaf\x8a",
+					"ruleRemark":"\xe3\x80\x90\xe5\x91\xbc\xe5\x90\xb8\xe7\xa7\x91\xe7\xa7\x91\xe5\xae\xa4\xe3\x80\x91tester\xef\xbc\x88\xe6\x82\xa3\xe8\x80\x85id\xef\xbc\x9a1599186368486\xef\xbc\x89\xe8\xaf\x8a\xe6\x96\xad\xe6\x88\xbf\xe9\xa2\xa4\xef\xbc\x8cCHA2DS2-VASc\xe8\xaf\x84\xe5\x88\x86=3\xe5\x88\x86\xef\xbc\x8c\xe4\xba\x8e09\xe6\x9c\x8804\xe6\x97\xa510\xe6\x97\xb6\xe7\x94\xb3\xe8\xaf\xb7\xe4\xbc\x9a\xe8\xaf\x8a",
 					"samePageForCP":true,
 					"type":1,
 					"warnLevel":3
@@ -1859,7 +1831,7 @@
 							"dictionaryAttributeId":10,
 							"originRecord":"&lt;span class=\"hm-qa-eva-del-res-path-light\"&gt;\xe5\xbf\x83\xe6\x88\xbf\xe9\xa2\xa4\xe5\x8a\xa8&lt;/span&gt;\xe3\x80\x82",
 							"position":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe7\x8e\xb0\xe7\x97\x85\xe5\x8f\xb2",
-							"progressId":1590120,
+							"progressId":1619295,
 							"recordTypeId":1,
 							"word":""
 						}
@@ -1868,7 +1840,7 @@
 				}
 			]
 		},
-		"recordId":283964,
+		"recordId":312859,
 		"repeatabilityInfo":{
 			"tabooStatus":3
 		},
@@ -2062,16 +2034,27 @@
 				"ruleRemark":"",
 				"samePageForCP":true
 			}
-		]
+		],
+		"tumorChemotherapyResponse":{
+			"therapeuticPlanList":[]
+		}
 	},
 	"head":{
-		"seeion_id":"mayson-1cd4018c948b4dc487837b870b5e114c",
+		"seeion_id":"mayson-405d0302345e4ff2924814d09865100c",
 		"error":0
 	}
 } </msg>
-<msg timestamp="20200820 19:44:08.938" level="INFO">To JSON using : pretty_print=False </msg>
-<msg timestamp="20200820 19:44:08.941" level="INFO">${responsedata} = {"body": {"patientInfo": {"admissionBedCode": "", "name": "tester", "ageType": "岁", "orgName": "我是尹宏利", "gender": 1, "definiteDiagnosis": ["脑内出血", "高血压"], "serialNumber": "1597923847210", "transferDep...</msg>
-<status status="PASS" endtime="20200820 19:44:08.941" starttime="20200820 19:44:08.918"></status>
+<msg timestamp="20200904 10:26:09.988" level="INFO">To JSON using : pretty_print=False </msg>
+<msg timestamp="20200904 10:26:10.023" level="INFO">${responsedata} = {"body": {"patientInfo": {"admissionBedCode": "", "name": "tester", "ageType": "岁", "orgName": "我是尹宏利", "gender": 1, "definiteDiagnosis": ["脑内出血", "高血压"], "serialNumber": "1599186368486", "transferDep...</msg>
+<status status="PASS" endtime="20200904 10:26:10.023" starttime="20200904 10:26:09.864"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${data}</arg>
+</arguments>
+<msg timestamp="20200904 10:26:10.027" level="INFO">{"userGuid": "1599186368486", "serialNumber": "1599186368486", "patientName": "tester", "doctorGuid": "0210497", "doctorName": "测试医生", "admissionTime": "2018-12-12", "inpatientDepartment": "呼吸科", "pageSource": "2", "requestSource": "", "patientInfo": {"pregnancyStatus": "0", "gender": "1", "age": "19", "maritalStatus": "1", "ageType": "岁"}, "physicalSign": {"bodyTempr": "", "heartRate": "", "lowBldPress": "", "highBldPress": ""}, "definiteDiagnosis": [], "progressNoteList": [{"recordTime": "", "doctorGuid": "2222", "messageList": [{"value": "", "key": "主诉"}, {"value": "", "key": "诊断依据及鉴别诊断"}, {"value": "心房颤动", "key": "现病史"}, {"value": "", "key": "既往史"}, {"value": "脑内出血,高血压", "key": "初步诊断"}, {"value": "", "key": "辅助检查"}], "msgType": "2", "progressType": "1", "progressGuid": "22222"}], "deleteProgressNoteList": [{"doctorGid": "", "progressType": "2", "progressGuid": "", "recordTime": ""}], "labTestList": [], "examinationList": [], "newTestList": [], "operationRecord": {}, "prescriptions": {"prescriptionNumber": "", "drugList": [{"drugId": "", "specification": "", "dosage": "", "frequency": "", "drugName": "", "pathway": "", "unit": ""}], "recordTime": ""}, "currentDiseaseName": "", "medicalOrders": [{"orderId": "1599186368486", "orderContent": "阿托伐他汀钙片", "frequency": "ONCE", "orderFlag": 1, "unit": "mg", "orderCode": "316275", "orderType": 3, "specification": "", "timelinessFlag": 2, "pathway": "口服", "dosage": "41"}], "openInterdict": 1}</msg>
+<status status="PASS" endtime="20200904 10:26:10.028" starttime="20200904 10:26:10.024"></status>
 </kw>
 <kw name="Get From Dictionary" library="Collections">
 <doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
@@ -2082,8 +2065,8 @@
 <assign>
 <var>${recordId}</var>
 </assign>
-<msg timestamp="20200820 19:44:08.942" level="INFO">${recordId} = 283964</msg>
-<status status="PASS" endtime="20200820 19:44:08.942" starttime="20200820 19:44:08.941"></status>
+<msg timestamp="20200904 10:26:10.030" level="INFO">${recordId} = 312859</msg>
+<status status="PASS" endtime="20200904 10:26:10.030" starttime="20200904 10:26:10.028"></status>
 </kw>
 <kw name="Get From Dictionary" library="Collections">
 <doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
@@ -2094,8 +2077,8 @@
 <assign>
 <var>${serialNumber}</var>
 </assign>
-<msg timestamp="20200820 19:44:08.942" level="INFO">${serialNumber} = 1597923847210</msg>
-<status status="PASS" endtime="20200820 19:44:08.942" starttime="20200820 19:44:08.942"></status>
+<msg timestamp="20200904 10:26:10.032" level="INFO">${serialNumber} = 1599186368486</msg>
+<status status="PASS" endtime="20200904 10:26:10.032" starttime="20200904 10:26:10.030"></status>
 </kw>
 <kw name="Get From Dictionary" library="Collections">
 <doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
@@ -2106,36 +2089,44 @@
 <assign>
 <var>${userGuid}</var>
 </assign>
-<msg timestamp="20200820 19:44:08.943" level="INFO">${userGuid} = 1597923847210</msg>
-<status status="PASS" endtime="20200820 19:44:08.943" starttime="20200820 19:44:08.942"></status>
+<msg timestamp="20200904 10:26:10.033" level="INFO">${userGuid} = 1599186368486</msg>
+<status status="PASS" endtime="20200904 10:26:10.033" starttime="20200904 10:26:10.032"></status>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <doc>Makes a variable available globally in all tests and suites.</doc>
 <arguments>
 <arg>${recordId}</arg>
 </arguments>
-<msg timestamp="20200820 19:44:08.947" level="INFO">${recordId} = 283964</msg>
-<status status="PASS" endtime="20200820 19:44:08.947" starttime="20200820 19:44:08.944"></status>
+<msg timestamp="20200904 10:26:10.034" level="INFO">${recordId} = 312859</msg>
+<status status="PASS" endtime="20200904 10:26:10.035" starttime="20200904 10:26:10.034"></status>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <doc>Makes a variable available globally in all tests and suites.</doc>
 <arguments>
 <arg>${userGuid}</arg>
 </arguments>
-<msg timestamp="20200820 19:44:08.948" level="INFO">${userGuid} = 1597923847210</msg>
-<status status="PASS" endtime="20200820 19:44:08.948" starttime="20200820 19:44:08.947"></status>
+<msg timestamp="20200904 10:26:10.036" level="INFO">${userGuid} = 1599186368486</msg>
+<status status="PASS" endtime="20200904 10:26:10.036" starttime="20200904 10:26:10.035"></status>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <doc>Makes a variable available globally in all tests and suites.</doc>
 <arguments>
 <arg>${serialNumber}</arg>
 </arguments>
-<msg timestamp="20200820 19:44:08.948" level="INFO">${serialNumber} = 1597923847210</msg>
-<status status="PASS" endtime="20200820 19:44:08.949" starttime="20200820 19:44:08.948"></status>
+<msg timestamp="20200904 10:26:10.039" level="INFO">${serialNumber} = 1599186368486</msg>
+<status status="PASS" endtime="20200904 10:26:10.042" starttime="20200904 10:26:10.037"></status>
 </kw>
-<status status="PASS" endtime="20200820 19:44:08.949" starttime="20200820 19:44:07.676"></status>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${data}</arg>
+</arguments>
+<msg timestamp="20200904 10:26:10.046" level="INFO">{"userGuid": "1599186368486", "serialNumber": "1599186368486", "patientName": "tester", "doctorGuid": "0210497", "doctorName": "测试医生", "admissionTime": "2018-12-12", "inpatientDepartment": "呼吸科", "pageSource": "2", "requestSource": "", "patientInfo": {"pregnancyStatus": "0", "gender": "1", "age": "19", "maritalStatus": "1", "ageType": "岁"}, "physicalSign": {"bodyTempr": "", "heartRate": "", "lowBldPress": "", "highBldPress": ""}, "definiteDiagnosis": [], "progressNoteList": [{"recordTime": "", "doctorGuid": "2222", "messageList": [{"value": "", "key": "主诉"}, {"value": "", "key": "诊断依据及鉴别诊断"}, {"value": "心房颤动", "key": "现病史"}, {"value": "", "key": "既往史"}, {"value": "脑内出血,高血压", "key": "初步诊断"}, {"value": "", "key": "辅助检查"}], "msgType": "2", "progressType": "1", "progressGuid": "22222"}], "deleteProgressNoteList": [{"doctorGid": "", "progressType": "2", "progressGuid": "", "recordTime": ""}], "labTestList": [], "examinationList": [], "newTestList": [], "operationRecord": {}, "prescriptions": {"prescriptionNumber": "", "drugList": [{"drugId": "", "specification": "", "dosage": "", "frequency": "", "drugName": "", "pathway": "", "unit": ""}], "recordTime": ""}, "currentDiseaseName": "", "medicalOrders": [{"orderId": "1599186368486", "orderContent": "阿托伐他汀钙片", "frequency": "ONCE", "orderFlag": 1, "unit": "mg", "orderCode": "316275", "orderType": 3, "specification": "", "timelinessFlag": 2, "pathway": "口服", "dosage": "41"}], "openInterdict": 1}</msg>
+<status status="PASS" endtime="20200904 10:26:10.046" starttime="20200904 10:26:10.042"></status>
 </kw>
-<status status="PASS" endtime="20200820 19:44:08.949" starttime="20200820 19:44:07.663"></status>
+<status status="PASS" endtime="20200904 10:26:10.047" starttime="20200904 10:26:08.713"></status>
+</kw>
+<status status="PASS" endtime="20200904 10:26:10.047" starttime="20200904 10:26:08.700"></status>
 </kw>
 <kw name="病历质控提交反馈" library="cdss">
 <arguments>
@@ -2146,7 +2137,7 @@
 <var>${getRes}</var>
 </assign>
 <kw name="Create Dictionary" library="BuiltIn">
-<doc>Creates and returns a dictionary based on given items.</doc>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
 <arguments>
 <arg>Content-Type=application/json</arg>
 <arg>Huimei_id=${Huimei_id}</arg>
@@ -2154,8 +2145,8 @@
 <assign>
 <var>${dict}</var>
 </assign>
-<msg timestamp="20200820 19:44:08.951" level="INFO">${dict} = {"Content-Type": "application/json", "Huimei_id": "7195F12825788F09375C2DB1E922F108"}</msg>
-<status status="PASS" endtime="20200820 19:44:08.951" starttime="20200820 19:44:08.949"></status>
+<msg timestamp="20200904 10:26:10.052" level="INFO">${dict} = {"Content-Type": "application/json", "Huimei_id": "7195F12825788F09375C2DB1E922F108"}</msg>
+<status status="PASS" endtime="20200904 10:26:10.052" starttime="20200904 10:26:10.050"></status>
 </kw>
 <kw name="Create Session" library="RequestsLibrary">
 <doc>Create Session: create a HTTP session to a server</doc>
@@ -2164,22 +2155,22 @@
 <arg>${mayson_url}</arg>
 <arg>${dict}</arg>
 </arguments>
-<msg timestamp="20200820 19:44:08.952" level="INFO">Creating Session using : alias=api, url=http://profile.huimeionline.com/cdss, headers={u'Content-Type': u'application/json', u'Huimei_id': u'7195F12825788F09375C2DB1E922F108'},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" endtime="20200820 19:44:08.952" starttime="20200820 19:44:08.951"></status>
+<msg timestamp="20200904 10:26:10.053" level="INFO">Creating Session using : alias=api, url=http://profile.huimeionline.com/cdss, headers={u'Content-Type': u'application/json', u'Huimei_id': u'7195F12825788F09375C2DB1E922F108'},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20200904 10:26:10.053" starttime="20200904 10:26:10.052"></status>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the results.</doc>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
 <arguments>
 <arg>dict(${mcRecordFeedback})</arg>
 </arguments>
 <assign>
 <var>${mcRecordFeedback}</var>
 </assign>
-<msg timestamp="20200820 19:44:08.953" level="INFO">${mcRecordFeedback} = {"doctorGuid": 1, "type": 1}</msg>
-<status status="PASS" endtime="20200820 19:44:08.953" starttime="20200820 19:44:08.952"></status>
+<msg timestamp="20200904 10:26:10.054" level="INFO">${mcRecordFeedback} = {"doctorGuid": 1, "type": 1}</msg>
+<status status="PASS" endtime="20200904 10:26:10.054" starttime="20200904 10:26:10.053"></status>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
-<doc>Creates and returns a dictionary based on given items.</doc>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
 <arguments>
 <arg>recordId=${recordId}</arg>
 <arg>mcRecordFeedback=${mcRecordFeedback}</arg>
@@ -2187,11 +2178,12 @@
 <assign>
 <var>${data}</var>
 </assign>
-<msg timestamp="20200820 19:44:08.954" level="INFO">${data} = {"recordId": 283964, "mcRecordFeedback": {"doctorGuid": 1, "type": 1}}</msg>
-<status status="PASS" endtime="20200820 19:44:08.954" starttime="20200820 19:44:08.953"></status>
+<msg timestamp="20200904 10:26:10.058" level="INFO">${data} = {"recordId": 312859, "mcRecordFeedback": {"doctorGuid": 1, "type": 1}}</msg>
+<status status="PASS" endtime="20200904 10:26:10.058" starttime="20200904 10:26:10.054"></status>
 </kw>
 <kw name="Post Request" library="RequestsLibrary">
-<doc>Send a POST request on the session object found using the</doc>
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
 <arguments>
 <arg>api</arg>
 <arg>/sentry/mc/add_feedback</arg>
@@ -2200,10 +2192,10 @@
 <assign>
 <var>${addr}</var>
 </assign>
-<msg timestamp="20200820 19:44:08.955" level="INFO">Starting new HTTP connection (1): profile.huimeionline.com</msg>
-<msg timestamp="20200820 19:44:09.082" level="INFO">Post Request using : alias=api, uri=/sentry/mc/add_feedback, data=&lt;empty&gt;, headers=None, files=None, allow_redirects=True </msg>
-<msg timestamp="20200820 19:44:09.082" level="INFO">${addr} = &lt;Response [200]&gt;</msg>
-<status status="PASS" endtime="20200820 19:44:09.082" starttime="20200820 19:44:08.954"></status>
+<msg timestamp="20200904 10:26:10.064" level="INFO">Starting new HTTP connection (1): profile.huimeionline.com</msg>
+<msg timestamp="20200904 10:26:10.171" level="INFO">Post Request using : alias=api, uri=/sentry/mc/add_feedback, data=&lt;empty&gt;, headers=None, files=None, allow_redirects=True </msg>
+<msg timestamp="20200904 10:26:10.172" level="INFO">${addr} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20200904 10:26:10.173" starttime="20200904 10:26:10.061"></status>
 </kw>
 <kw name="To Json" library="RequestsLibrary">
 <doc>Convert a string to a JSON object</doc>
@@ -2213,18 +2205,26 @@
 <assign>
 <var>${responsedata}</var>
 </assign>
-<msg timestamp="20200820 19:44:09.084" level="INFO">To JSON using : content={
+<msg timestamp="20200904 10:26:10.176" level="INFO">To JSON using : content={
 	"body":"\xe4\xbf\x9d\xe5\xad\x98\xe5\xbe\x85\xe5\x8f\x8d\xe9\xa6\x88\xe6\xa8\xa1\xe5\x9d\x97\xe5\x86\x85\xe5\xae\xb9\xe6\x88\x90\xe5\x8a\x9f\xe6\x88\x90\xe5\x8a\x9f\xef\xbc\x81",
 	"head":{
 		"error":0
 	}
 } </msg>
-<msg timestamp="20200820 19:44:09.084" level="INFO">To JSON using : pretty_print=False </msg>
-<msg timestamp="20200820 19:44:09.084" level="INFO">${responsedata} = {"body": "保存待反馈模块内容成功成功！", "head": {"error": 0}}</msg>
-<status status="PASS" endtime="20200820 19:44:09.085" starttime="20200820 19:44:09.083"></status>
+<msg timestamp="20200904 10:26:10.176" level="INFO">To JSON using : pretty_print=False </msg>
+<msg timestamp="20200904 10:26:10.178" level="INFO">${responsedata} = {"body": "保存待反馈模块内容成功成功！", "head": {"error": 0}}</msg>
+<status status="PASS" endtime="20200904 10:26:10.178" starttime="20200904 10:26:10.174"></status>
 </kw>
-<msg timestamp="20200820 19:44:09.085" level="INFO">${getRes} = {"body": "保存待反馈模块内容成功成功！", "head": {"error": 0}}</msg>
-<status status="PASS" endtime="20200820 19:44:09.085" starttime="20200820 19:44:08.949"></status>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${data}</arg>
+</arguments>
+<msg timestamp="20200904 10:26:10.179" level="INFO">{"recordId": 312859, "mcRecordFeedback": {"doctorGuid": 1, "type": 1}}</msg>
+<status status="PASS" endtime="20200904 10:26:10.179" starttime="20200904 10:26:10.178"></status>
+</kw>
+<msg timestamp="20200904 10:26:10.179" level="INFO">${getRes} = {"body": "保存待反馈模块内容成功成功！", "head": {"error": 0}}</msg>
+<status status="PASS" endtime="20200904 10:26:10.179" starttime="20200904 10:26:10.047"></status>
 </kw>
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <doc>Fails if objects are unequal after converting them to strings.</doc>
@@ -2232,19 +2232,16 @@
 <arg>${getRes['body']}</arg>
 <arg>保存待反馈模块内容成功成功！</arg>
 </arguments>
-<status status="PASS" endtime="20200820 19:44:09.087" starttime="20200820 19:44:09.086"></status>
+<status status="PASS" endtime="20200904 10:26:10.180" starttime="20200904 10:26:10.179"></status>
 </kw>
-<tags>
-<tag>skip</tag>
-</tags>
-<status status="PASS" endtime="20200820 19:44:09.087" critical="yes" starttime="20200820 19:44:07.659"></status>
+<status status="PASS" endtime="20200904 10:26:10.180" critical="yes" starttime="20200904 10:26:08.697"></status>
 </test>
 <kw type="teardown" name="Delete All Sessions" library="RequestsLibrary">
 <doc>Removes all the session objects</doc>
-<msg timestamp="20200820 19:44:09.089" level="INFO">Delete All Sessions</msg>
-<status status="PASS" endtime="20200820 19:44:09.090" starttime="20200820 19:44:09.089"></status>
+<msg timestamp="20200904 10:26:10.182" level="INFO">Delete All Sessions</msg>
+<status status="PASS" endtime="20200904 10:26:10.183" starttime="20200904 10:26:10.182"></status>
 </kw>
-<status status="PASS" endtime="20200820 19:44:09.090" starttime="20200820 19:44:07.353"></status>
+<status status="PASS" endtime="20200904 10:26:10.183" starttime="20200904 10:26:08.269"></status>
 </suite>
 <statistics>
 <total>
@@ -2252,7 +2249,6 @@
 <stat fail="0" pass="1">All Tests</stat>
 </total>
 <tag>
-<stat fail="0" pass="1">skip</stat>
 </tag>
 <suite>
 <stat fail="0" id="s1" name="添加反馈" pass="1">添加反馈</stat>
