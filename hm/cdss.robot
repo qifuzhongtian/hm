@@ -6,14 +6,16 @@ ${mayson_url}     http://profile.huimeionline.com/cdss
 #演示环境
 # ${mayson_url}    http://172.16.4.178/cdss
 
-
-#{url}内部平台 ,惠每用户中心地址
+#{url}内部平台,惠每用户中心地址
 #预发
 ${inside_url}     http://172.16.3.40
 #测试
 # ${inside_url}    http://172.16.3.64
 #内部平台-demo环境
 # ${inside_url}    http://172.16.4.178
+
+
+
 #文献生产环境           修改成http://负载ip/cdss
 ${ doc_url}       http://profile-doc.huimeionline.com/doc
 # ${doc_url}      http://test-profile-doc.huimeionline.com/doc
@@ -49,6 +51,7 @@ ${amc_url}    http://amc.huimeionline.com
 ${songshan_url}    ${inside_url}:3021
 #惠每用户中心 3019
 ${taishan_url}    ${inside_url}:3019
+
 ${inside_url}     http://10.117.68.109
 #华山 3020
 ${huashan_url}    ${inside_url}:3020
@@ -60,6 +63,10 @@ ${lvdao_url}      ${inside_url}:3022
 ${zhuangzhou_url}    ${inside_url}:3023
 #肿瘤
 ${zhongliu_url}    ${inside_url}:3026
+#drgs
+${drgs_url}    ${inside_url}:3027
+
+
 ##文献图片/文件差异接口,修改为http://athena_ip:8095形式
 ${athenaDoc_url}    http://mayson.huimeionline.com:8095
 # ${athenaDoc_url}    http://172.16.4.178:8095
@@ -2428,8 +2435,91 @@ VTE2快速确认
     [Return]    ${responsedata}
 
 
+######drgs######
+drgs登录
+    [Arguments]    ${name}    ${password}
+    # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${drgs_url}    ${dict}
+    ${data}    Create Dictionary    name=${name}    password=${password}
+    ${addr}    Post Request    api    manage/userLogin    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
 
 
 
+
+drgs分组统计
+    [Arguments]    ${time_start}    ${time_end}    ${drgs_sample_id}
+    ${data}    Create Dictionary    time_start=${time_start}    time_end=${time_end}    drgs_sample_id=${drgs_sample_id}
+    ${addr}    Post Request    api    /tj/drgsGroupCount    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+
+
+drgs组数
+    [Arguments]    ${time_start}    ${time_end}    ${drgs_sample_id}    ${time_type}
+    ${data}    Create Dictionary    time_start=${time_start}    time_end=${time_end}    drgs_sample_id=${drgs_sample_id}    time_type=${time_type}
+    ${addr}    Post Request    api    /tj/drgsGroupCount    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+
+drgs入组率趋势
+    [Arguments]    ${time_start}    ${time_end}    ${time_type}
+    ${data}    Create Dictionary    time_start=${time_start}    time_end=${time_end}    time_type=${time_type}
+    ${addr}    Post Request    api    /tj/joinGroupRateTrend    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+
+drgs指标
+    [Arguments]    ${time_start}    ${time_end}    ${drgs_sample_id}
+    ${data}    Create Dictionary    time_start=${time_start}    time_end=${time_end}    drgs_sample_id=${drgs_sample_id}
+    ${addr}    Post Request    api    /tj/drgPerformance    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+drgs病案分组查询列表
+    [Arguments]    ${time_type}    ${page_size}    ${current_index}    ${time_start}    ${time_end}    ${department}    ${doctor_name}    ${query_num}    ${dead_risk}    ${drgs_no}    ${mdc_no}    ${situation}    ${order}
+    ${order}    Evaluate    dict(${order})
+    ${data}    Create Dictionary    page_size=${page_size}    time_type=${time_type}    current_index=${current_index}    time_start=${time_start}    dead_risk=${dead_risk}    drgs_no=${drgs_no}    mdc_no=${mdc_no}    situation=${situation}    order=${order}
+    ...    time_end=${time_end}    doctor_name=${doctor_name}    department=${department}    query_num=${query_num}
+    ${addr}    Post Request    api    /drgs/drgsRecordList    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+drgs字典查询列表
+    [Arguments]    ${time_start}    ${page_size}    ${current_index}    ${time_end}    ${content}    ${order}
+    ${order}    Evaluate    dict(${order})
+    ${data}    Create Dictionary    ${time_start}=${time_start}    page_size=${page_size}    current_index=${current_index}    content=${content}    order=${order}
+    ...    time_end=${time_end}
+    ${addr}    Post Request    api    /drgs/drgsList    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+drgs样本数据查看
+    [Arguments]    ${sample_id}    ${page_size}    ${mdc_no}    ${current_index}    ${content}    ${order}
+    ${order}    Evaluate    dict(${order})
+    ${data}    Create Dictionary    sample_id=${sample_id}    page_size=${page_size}    mdc_no=${mdc_no}    content=${content}    order=${order}
+    ...    current_index=${current_index}
+    ${addr}    Post Request    api    /sample/sampleItemList    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
 
 
