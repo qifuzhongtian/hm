@@ -2523,3 +2523,13 @@ drgs样本数据查看
     [Return]    ${responsedata}
 
 
+drgs用户管理列表
+    [Arguments]    ${order}    ${current_index}    ${page_size}
+    ${order}    Evaluate    dict(${order})
+    ${data}    Create Dictionary    order=${order}    current_index=${current_index}    page_size=${page_size}
+    ${addr}    Post Request    api    /manage/userList    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
