@@ -14,7 +14,7 @@ Library           DateTime
 drgs字典查询列表
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    drgs字典查询列表    time_start=2020-09-17    current_index=${1}    page_size=${20}    time_end=2020-09-17    content=     order={"name":"display_id","sort":"asc"}
+    ${getRes}    drgs字典查询列表    time_start=2020-09    current_index=${1}    page_size=${20}    time_end=2020-09    content=     order={"name":"display_id","sort":"asc"}
     Should Contain    ${getRes['msg']}    success
 
 

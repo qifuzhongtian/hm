@@ -2504,7 +2504,7 @@ drgs病案分组查询列表
 drgs字典查询列表
     [Arguments]    ${time_start}    ${page_size}    ${current_index}    ${time_end}    ${content}    ${order}
     ${order}    Evaluate    dict(${order})
-    ${data}    Create Dictionary    ${time_start}=${time_start}    page_size=${page_size}    current_index=${current_index}    content=${content}    order=${order}
+    ${data}    Create Dictionary    time_start=${time_start}    page_size=${page_size}    current_index=${current_index}    content=${content}    order=${order}
     ...    time_end=${time_end}
     ${addr}    Post Request    api    /drgs/drgsList    data=${data}
     ${responsedata}    To Json    ${addr.content}
