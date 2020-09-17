@@ -16,4 +16,3 @@ drgs用户管理列表
     ${getRes}    drgs用户管理列表    order={"name": "name","sort": "desc"}    current_index=${1}    page_size=${20}
     Should Contain    ${getRes['msg']}    success
 
-
