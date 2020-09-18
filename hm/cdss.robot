@@ -14,8 +14,6 @@ ${inside_url}     http://172.16.3.40
 #内部平台-demo环境
 # ${inside_url}    http://172.16.4.178
 
-
-
 #文献生产环境           修改成http://负载ip/cdss
 ${ doc_url}       http://profile-doc.huimeionline.com/doc
 # ${doc_url}      http://test-profile-doc.huimeionline.com/doc
@@ -65,6 +63,8 @@ ${zhuangzhou_url}    ${inside_url}:3023
 ${zhongliu_url}    ${inside_url}:3026
 #drgs
 ${drgs_url}    ${inside_url}:3027
+#cdr惠每患者临床数据中心
+${cdr_url}    ${inside_url}:3025
 
 
 ##文献图片/文件差异接口,修改为http://athena_ip:8095形式
@@ -2532,4 +2532,91 @@ drgs用户管理列表
     log    ${data}
     [Return]    ${responsedata}
 
+
+
+######cdr######
+cdr登录
+    [Arguments]    ${name}    ${password}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${cdr_url}    ${dict}
+    ${data}    Create Dictionary    name=${name}    password=${password}
+    ${addr}    Post Request    api    user/login    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+cdr病历管理_患者统计列表
+    [Arguments]    ${type}    ${year}    ${month}
+    ${data}    Create Dictionary    type=${type}    month=${month}    year=${year}
+    ${addr}    Post Request    api    /patientsStatistics/list    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+cdr病历查询_javaDepartment
+    [Arguments]
+    ${data}    Create Dictionary
+    ${addr}    Post Request    api    advancedSearch/javaDepartment    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+cdr病历查询_搜索
+    [Arguments]    ${admissionDateStart}    ${admissionDateEnd}    ${pageSize}    ${currentPage}
+    ${data}    Create Dictionary    admissionDateStart=${admissionDateStart}    pageSize=${pageSize}    admissionDateEnd=${admissionDateEnd}    currentPage=${currentPage}
+    ${addr}    Post Request    api    /advancedSearch/javaSearch    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+cdr病历查询_operationSug
+    [Arguments]    ${word}
+    ${data}    Create Dictionary    word=${word}
+    ${addr}    Post Request    api    /advancedSearch/operationSug    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+cdr病历查询_diseaseSug
+    [Arguments]    ${word}
+    ${data}    Create Dictionary    word=${word}
+    ${addr}    Post Request    api    /advancedSearch/diseaseSug    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+cdr病历查询_visitRecord
+    [Arguments]    ${customerId}    ${recordId}    ${visitType}
+    ${data}    Create Dictionary    customerId=${customerId}    visitType=${visitType}    recordId=${recordId}
+    ${addr}    Post Request    api    /advancedSearch/visitRecord    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+
+
+cdr病历查询_患者详情
+    [Arguments]    ${visitType}    ${customerId}    ${recordId}    ${type}
+    ${data}    Create Dictionary    visitType=${visitType}    recordId=${recordId}    customerId=${customerId}    type=${type}
+    ${addr}    Post Request    api    /medicalRecords/details    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+
+cdr病历管理_高级搜索
+    [Arguments]
+    ${data}    Create Dictionary
+    ${addr}    Post Request    api    /advancedSearch/partDic    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
 
