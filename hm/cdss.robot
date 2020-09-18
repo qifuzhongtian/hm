@@ -1,7 +1,8 @@
 *** Variables ***
 #=======医院内网需要修改的==============#
 #mayson生产环境       修改成http://负载ip/cdss
-${mayson_url}     http://profile.huimeionline.com/cdss
+# ${mayson_url}     http://profile.huimeionline.com/cdss
+${mayson_url}     http://172.16.3.61:8080
 # ${mayson_url}    http://test-mayson.huimeionline.com/cdss
 #演示环境
 # ${mayson_url}    http://172.16.4.178/cdss
@@ -13,15 +14,14 @@ ${inside_url}     http://172.16.3.40
 # ${inside_url}    http://172.16.3.64
 #内部平台-demo环境
 # ${inside_url}    http://172.16.4.178
-
 #文献生产环境           修改成http://负载ip/cdss
 ${ doc_url}       http://profile-doc.huimeionline.com/doc
 # ${doc_url}      http://test-profile-doc.huimeionline.com/doc
 #演示环境
 # ${doc_url}      http://172.16.4.178/cdss
 #内涵质控
-# ${connotation_url}    http://172.16.3.68
-${connotation_url}    http://172.16.4.178
+${connotation_url}    http://172.16.3.68
+# ${connotation_url}    http://172.16.4.178
 #测试环境
 # ${mayson_url}    http://10.27.213.55
 #文献前端环境           修改成http://负载ip/wenxian
@@ -2600,8 +2600,6 @@ cdr病历查询_visitRecord
     [Return]    ${responsedata}
 
 
-
-
 cdr病历查询_患者详情
     [Arguments]    ${visitType}    ${customerId}    ${recordId}    ${type}
     ${data}    Create Dictionary    visitType=${visitType}    recordId=${recordId}    customerId=${customerId}    type=${type}
@@ -2619,4 +2617,44 @@ cdr病历管理_高级搜索
     ${responsedata}    To Json    ${addr.content}
     log    ${data}
     [Return]    ${responsedata}
+
+
+
+
+cdr病历管理_高级搜索list
+    [Arguments]    ${collection}
+    ${data}    Create Dictionary    collection=${collection}
+    ${addr}    Post Request    api    /advancedSearch/list    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+
+cdr病历管理_高级搜索propertyDict
+    [Arguments]    ${id}
+    ${data}    Create Dictionary    id=${id}
+    ${addr}    Post Request    api    /advancedSearch/propertyDict    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+
+
+
+
+cdr病历管理_高级搜索_搜索
+    [Arguments]    ${pageSize}    ${currentPage}    ${html}    ${htmlValue}    ${queryConditionItemList}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${connotation_url}:9998    ${dict}
+    ${htmlValue}    Evaluate    [${htmlValue}]
+    ${queryConditionItemList}    Evaluate    [${queryConditionItemList}]
+    ${data}    Create Dictionary    pageSize=${pageSize}    currentPage=${currentPage}    html=${html}    htmlValue=${htmlValue}    queryConditionItemList=${queryConditionItemList}
+    ${addr}    Post Request    api    advancedSearch/search    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
 
