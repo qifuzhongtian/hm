@@ -2667,3 +2667,24 @@ cdr病历查询_高级搜索列表
     [Return]    ${responsedata}
 
 
+
+
+
+卡控合并
+    [Arguments]    ${alertLevel}    ${assessDictName}    ${assessId}    ${assessName}    ${assessResult}    ${assessResultItemList}
+    ...    ${assessResultStyle}    ${assessResultType}    ${assessValue}    ${assessValueUnit}    ${customerId}    ${displayResult}
+    ...    ${doctorGuid}    ${doctorName}    ${expressId}    ${groupCode}    ${isConfirmNurse}    ${nurseGuidId}
+    ...    ${nurseName}    ${pageSource}    ${patientName}    ${productId}    ${projectId}    ${recordId}    ${ruleNumber}    ${serialNumber}
+    ...    ${userGuid}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${mayson_url}    ${dict}
+    ${assessResultItemList}    Evaluate    [${assessResultItemList}]
+    ${data}    Create Dictionary    alertLevel={alertLevel}    assessDictName=${assessDictName}    assessId=${assessId}    assessName=${assessName}    assessResult=${assessResult}    assessResultItemList=${assessResultItemList}
+    ...    assessResultStyle=${assessResultStyle}    assessResultType=${assessResultType}    assessValue=${assessValue}    assessValueUnit=${assessValueUnit}    customerId=${customerId}    displayResult=${displayResult}
+    ...    doctorGuid=${doctorGuid}    doctorName=${doctorName}    expressId=${expressId}    groupCode=${groupCode}    isConfirmNurse=${isConfirmNurse}    nurseGuidId=${nurseGuidId}
+    ...    nurseName=${nurseName}    pageSource=${pageSource}    patientName=${patientName}    productId=${productId}    projectId=${projectId}    recordId=${recordId}    ruleNumber=${ruleNumber}    serialNumber=${serialNumber}
+    ...    userGuid=${userGuid}
+    ${addr}    Post Request    api    sentry/assess/saveAndTurn    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
