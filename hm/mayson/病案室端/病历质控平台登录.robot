@@ -10,6 +10,7 @@ Library           DateTime
 
 *** Test Cases ***
 病历质控平台登录
+    [Documentation]    :3021manage/userLogin
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    病历质控平台登录    name=privateTesting    password=38ebcce4a466e04bf443d54ca52cd44f

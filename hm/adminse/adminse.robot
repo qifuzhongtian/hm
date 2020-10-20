@@ -11,6 +11,21 @@ Library           String
 *** Test Cases ***
 
 
+下发规则
+    [Documentation]    cdss/mayson/effectTemplate
+    ${customerId}    Set Variable    1219
+
+    ${getRes}    下发规则    customerId=${customerId}
+
+    Should Be Equal As Strings    ${getRes['head']['error']}    0
+
+
+
+
+
+
+
+
 # 规则模板配置
 #     ${index}    Set Variable    1
 #     ${getRes}    规则模板配置    index=${index}
@@ -34,19 +49,5 @@ Library           String
 #     ...    sourceType=1,2,3
 
 #     Should Be Equal As Strings    ${getRes['code']}    200
-
-
-
-下发规则
-    ${customerId}    Set Variable    1219
-
-    ${getRes}    下发规则    customerId=${customerId}
-
-    Should Be Equal As Strings    ${getRes['head']['error']}    0
-
-
-
-
-
 
 

@@ -10,6 +10,7 @@ Library           DateTime
 
 *** Test Cases ***
 CABG围手术期checklist
+    [Documentation]    /cdss/sentry/v_2_0/cl/get_check_list
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ...    AND    智能推荐_围手术期    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=5    requestSource=

@@ -6,7 +6,7 @@ Library           RequestsLibrary
 
 *** Test Cases ***
 药品查询,输入存在的药品名称,查询成功
-    [Documentation]    断言error:"drugCommonName=乌拉地尔氯化钠注射液"
+    [Documentation]    cdss/hmsm/v_1_0/drug/search ,断言error:"drugCommonName=乌拉地尔氯化钠注射液"
     ${getRes}    药品查询    drugName=乌拉地尔氯化钠注射液
     Should Be Equal As Strings    ${getRes['body']['drugList'][0]['drugCommonName']}    乌拉地尔氯化钠注射液
 

@@ -12,6 +12,7 @@ Library           DateTime
 *** Test Cases ***
 
 drgs样本数据查看
+    [Documentation]    :3027/sample/sampleItemList
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    drgs样本数据查看    sample_id=${21}    mdc_no=    page_size=${20}    current_index=${1}    content=

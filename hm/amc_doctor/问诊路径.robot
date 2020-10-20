@@ -7,10 +7,9 @@ Library           String
 
 *** Variables ***
 # ${timestamp}${random}    Get Time    epoch
-
 *** Test Cases ***
 mayson问诊系统_问诊路径
-    [Documentation]    断言:""
+    [Documentation]    cdss/amc/node_tree
     ${getRes}    问诊路径    symptomId=4    age=8    ageType=岁    sex=88    patientName=jackdaw
     ...    saveFlag=true
     ${aj}    Evaluate    [aj['nodeDesc'] for aj in $getRes['body']['result']]

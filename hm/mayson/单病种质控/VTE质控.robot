@@ -10,6 +10,7 @@ Library           DateTime
 
 *** Test Cases ***
 VTE1:入院外科VTE风险评估(Caprini评分表) 规则ID：HMvte1-RS
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -41,6 +42,8 @@ VTE1:入院外科VTE风险评估(Caprini评分表) 规则ID：HMvte1-RS
 
 
 VTE:判断是否有AI功能
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
+
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -72,6 +75,8 @@ VTE:判断是否有AI功能
 
 
 VTE1:外科VTE风险评估(Caprini评分表)--否定条件
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
+
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -99,6 +104,8 @@ VTE1:外科VTE风险评估(Caprini评分表)--否定条件
 
 
 VTE1:入院内科VTE风险评估(Padua评分表) 规则ID：HMvte2-RS
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
+
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -127,6 +134,7 @@ VTE1:入院内科VTE风险评估(Padua评分表) 规则ID：HMvte2-RS
 
 
 VTE1:快速确认Caprini低危，推出外科出血风险 规则ID：HMvte5-2-RS
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -161,6 +169,7 @@ VTE1:快速确认Caprini低危，推出外科出血风险 规则ID：HMvte5-2-RS
 
 
 VTE1:外科出血风险差异对比
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -322,6 +331,7 @@ VTE1:外科出血风险差异对比
 
 
 VTE1:Caprini中危，推出VTE预防措施 规则ID：HMvte7-RS
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -357,6 +367,7 @@ VTE1:Caprini中危，推出VTE预防措施 规则ID：HMvte7-RS
 
 
 VTE妊娠:妊娠期及产褥期VTE危险因素评分 规则ID：vte1-RS
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -387,6 +398,7 @@ VTE妊娠:妊娠期及产褥期VTE危险因素评分 规则ID：vte1-RS
 
 
 VTE1:妊娠期及产褥期VTE危险因素评分差异对比
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -426,6 +438,7 @@ VTE1:妊娠期及产褥期VTE危险因素评分差异对比
 
 
 VTE4.0:Caprini差异对比
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -466,6 +479,7 @@ VTE4.0:Caprini差异对比
 
 
 VTE4.0:深静脉血栓(DVT)Wells评分 规则ID：vteDVT-1
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -497,6 +511,7 @@ VTE4.0:深静脉血栓(DVT)Wells评分 规则ID：vteDVT-1
 
 
 VTE4.0:深静脉血栓(DVT)Wells差异对比
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -538,6 +553,7 @@ VTE4.0:深静脉血栓(DVT)Wells差异对比
 
 
 VTE4.0:修改文案 患者风险可能发生改变
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -578,6 +594,7 @@ VTE4.0:修改文案 患者风险可能发生改变
 
 
 VTE4.0:医护与系统评估不一致
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -618,6 +635,7 @@ VTE4.0:医护与系统评估不一致
 
 
 VTE4.2:护士确认的评估表
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -655,6 +673,7 @@ VTE4.2:护士确认的评估表
 
 
 VTE-PTE:做Caprini推急性肺栓塞（PTE）Wells评分 规则ID：HMvtePTE-1
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -690,6 +709,7 @@ VTE-PTE:做Caprini推急性肺栓塞（PTE）Wells评分 规则ID：HMvtePTE-1
 
 
 VTE-PTE:评估（PTE）Wells 急性肺栓塞（PTE）Wells评分消失 规则ID：HMvtePTE-1
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -726,6 +746,7 @@ VTE-PTE:评估（PTE）Wells 急性肺栓塞（PTE）Wells评分消失 规则ID�
 
 
 VTE-PTE,推荐:PTE筛查 规则ID：vtePTE-2
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -761,6 +782,7 @@ VTE-PTE,推荐:PTE筛查 规则ID：vtePTE-2
 
 
 VTE-PTE,推荐:D-二聚体检测 规则ID：vtePTE-4
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -795,6 +817,7 @@ VTE-PTE,推荐:D-二聚体检测 规则ID：vtePTE-4
 
 
 VTE-PTE,推荐:抗凝治疗 规则ID：vtePTE-6
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -828,6 +851,7 @@ VTE-PTE,推荐:抗凝治疗 规则ID：vtePTE-6
 
 
 VTE-复旦肿瘤,推荐:肿瘤妇科VTE风险因素评估（m-Caprini） 规则ID：FDcancer-vte-1
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
      [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -856,6 +880,7 @@ VTE-复旦肿瘤,推荐:肿瘤妇科VTE风险因素评估（m-Caprini） 规则I
 
 
 VTE-复旦肿瘤,推荐:外科住院患者出血风险评估 规则ID：FDcancer-vte-2
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
      [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -890,6 +915,7 @@ VTE-复旦肿瘤,推荐:外科住院患者出血风险评估 规则ID：FDcancer
 
 
 VTE-复旦肿瘤,推荐:出血低危推术前VTE预防措施 规则ID：FDcancer-vte-5
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
      [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -925,6 +951,7 @@ VTE-复旦肿瘤,推荐:出血低危推术前VTE预防措施 规则ID：FDcancer
 
 
 VTE-复旦肿瘤,推荐:出血高危推术前VTE预防措施 规则ID：FDcancer-vte-6
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -959,6 +986,7 @@ VTE-复旦肿瘤,推荐:出血高危推术前VTE预防措施 规则ID：FDcancer
 
 
 VTE-复旦肿瘤,推荐:D-二聚体推PTE筛查 规则ID：FDcancer-vte-3
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -996,6 +1024,7 @@ VTE-复旦肿瘤,推荐:D-二聚体推PTE筛查 规则ID：FDcancer-vte-3
 
 
 VTE-复旦肿瘤,推荐:D-二聚体推静脉超声检查 规则ID：FDcancer-vte-4
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -1036,6 +1065,7 @@ VTE-复旦肿瘤,推荐:D-二聚体推静脉超声检查 规则ID：FDcancer-vte
 
 
 VTE-复旦肿瘤,推荐:推术前停用低分子肝素 规则ID：FDcancer-vte-19
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
     [Setup]    Run Keywords    获取随机数
     ...    AND    获取时间戳
     #获取此刻时间

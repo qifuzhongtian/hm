@@ -10,6 +10,7 @@ Library           String
 
 *** Test Cases ***
 搜索文献
+    [Documentation]    doc/seer/document/update_hot
     ############评估历史#############
     ${getRes}    搜索文献    name=幽门螺杆菌    diseaseId=    pageSize=10    currentPage=1    startDate=0
     ...    endDate=0    departmentId=0    countryId=0    orgName=
@@ -18,6 +19,7 @@ Library           String
     # Should Be Equal As Strings    ${getRes['head']['error']}    0
 
 按筛选文献搜索
+    [Documentation]    doc/seer/document/update_hot
     ${getRes}    搜索文献    name=血    diseaseId=    pageSize=10    currentPage=1    startDate=2017
     ...    endDate=2018    departmentId=1    countryId=0    orgName=中国
     ${aj}    Evaluate    [aj['cnTitle'] for aj in $getRes['body']['documentList']]

@@ -9,8 +9,8 @@ Library           DateTime
 *** Variables ***
 
 *** Test Cases ***
-
 围手术期checklist更新
+    [Documentation]    cdss/sentry/v_2_0/cl/update
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ...    AND    智能推荐_围手术期    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=5    requestSource=

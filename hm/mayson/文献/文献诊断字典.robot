@@ -10,7 +10,7 @@ Library           String
 
 *** Test Cases ***
 文献诊断字典
+    [Documentation]    doc/seer/document/disease_dict
     ${getRes}    文献诊断字典
     ${aj}    Evaluate    [aj['section'] for aj in $getRes['body']]
     Should Contain    ${aj}    心脏科
-    # Should Be Equal As Strings    ${getRes['head']['error']}    0

@@ -10,7 +10,7 @@ Library           String
 *** Test Cases ***
 
 推荐疑似诊断:心律失常
-    [Documentation]    断言:心律失常
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation,断言:心律失常
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch

@@ -11,6 +11,7 @@ Library           DateTime
 
 *** Test Cases ***
 病历查询问题描述列表
+    [Documentation]    :3021/mc/mcProjectList
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    病历查询问题描述列表

@@ -11,6 +11,7 @@ Library           DateTime
 
 *** Test Cases ***
 医院知识库知识维护
+    [Documentation]    :3020/article/typeCount
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    医院知识库知识维护

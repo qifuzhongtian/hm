@@ -9,6 +9,7 @@ Library           String
 # ${timestamp}${random}    Get Time    epoch
 
 *** Test Cases ***
+    [Documentation]
 # 申请文献
 #     ${getRes}    申请文献    documentName=测试申请文献    applyOrg=测试文献内容    applySection=测试文献来源    applyMessage=测试文献科室
 #     # ${aj}    Evaluate    [aj['cnTitle'] for aj in $getRes['body']['documentList']]

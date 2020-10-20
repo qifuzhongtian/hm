@@ -10,6 +10,7 @@ Library           DateTime
 
 *** Test Cases ***
 单病种质控:急性心肌梗死,出院记录:推出治疗方案:出院抗血小板治疗
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch

@@ -7,7 +7,7 @@ Library           Collections
 Library           RequestsLibrary
 
 *** Test Cases ***
-16.1 问诊记录列表详情
-    [Documentation]    断言:" error=0"
+问诊记录列表详情
+    [Documentation]    apollo/amc/record_info
     ${getRes}    amcPc版_问诊记录列表详情    number=${number}
     Should Be Equal As Strings    ${getRes['body']['symptom']}    体重问题（指南）

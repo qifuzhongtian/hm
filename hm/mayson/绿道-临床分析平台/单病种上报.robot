@@ -11,13 +11,17 @@ Library           DateTime
 
 *** Test Cases ***
 单病种上报统计
+    [Documentation]    :3023/diseaseUp/list
     ${getRes}    庄周_单病种上报统计    startDate=2020-03-24    endDate=2020-03-30    type=2
     Should Contain    ${getRes['msg']}    success
 
 单病种上报科室统计
+    [Documentation]    :3023/diseaseUp/diseaseDepartment
     ${getRes}    庄周_单病种科室统计    startDate=2020-03-24    endDate=2020-03-30    type=1
     Should Contain    ${getRes['msg']}    success
 
 单病种质控完成统计
+    [Documentation]    :3023/diseaseUp/diseaseDepartment
+
     ${getRes}    庄周_病种质控完成统计    startDate=2020-03-24    endDate=2020-03-30    type=2
     Should Contain    ${getRes['msg']}    success

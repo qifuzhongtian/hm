@@ -11,6 +11,7 @@ Library           DateTime
 
 *** Test Cases ***
 cdr病历查询_患者详情
+    [Documentation]    :3025/medicalRecords/details
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    cdr病历查询_患者详情    visitType=1    customerId=1001    recordId=33325    type=1

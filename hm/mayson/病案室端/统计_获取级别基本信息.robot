@@ -10,7 +10,8 @@ Library           DateTime
 *** Variables ***
 
 *** Test Cases ***
-统计_获取级别基本信息_day
+统计_获取级别基本信息
+    [Documentation]    :3021/tj/getTJBasInfo
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    统计_获取级别基本信息    type=day    date=2019-10-16

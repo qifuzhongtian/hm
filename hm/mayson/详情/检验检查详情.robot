@@ -10,7 +10,7 @@ Library           String
 
 *** Test Cases ***
 检验检查详情
-    [Documentation]    断言:""
+    [Documentation]    v_2_0/exam/detai
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ############检验检查详情接口自动化评测#############

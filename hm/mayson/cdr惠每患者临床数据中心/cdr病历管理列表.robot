@@ -11,6 +11,7 @@ Library           DateTime
 
 *** Test Cases ***
 cdr病历管理_患者统计列表
+    [Documentation]    :3025/patientsStatistics/list
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    cdr病历管理_患者统计列表    type=2020-09    year=${1}    month=${20}

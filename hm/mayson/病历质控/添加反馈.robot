@@ -11,7 +11,7 @@ Library           DateTime
 *** Test Cases ***
 
 病历质控提交反馈
-    [Documentation]
+    [Documentation]    cdss/sentry/mc/add_feedback
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epochdiseaseId

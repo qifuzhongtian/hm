@@ -10,6 +10,7 @@ Library           String
 
 *** Test Cases ***
 文献详情
+    [Documentation]    doc/seer/v_1_0/document/detail
     ############评估历史#############
     ${getRes}    文献详情    documentId=9410C674FE
     # ${aj}    Evaluate    [aj['cnTitle'] for aj in $getRes['body']['documentList']]

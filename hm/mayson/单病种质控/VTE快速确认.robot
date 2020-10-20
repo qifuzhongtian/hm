@@ -11,6 +11,7 @@ Library           DateTime
 
 *** Test Cases ***
 快速确认
+    [Documentation]    cdss/sentry/assess/save
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    VTE2快速确认    aiResult={"assessId":439,"assessName":"内科住院患者静脉血栓栓塞症风险评估表(Padua评分表)","assessResult":"低危","assessResultItemList":[{"itemId":1,"itemName":"年龄≥70岁","score":"1","source":[],"wordId":132001}],"assessValue":"1","assessValueUnit":"分"}
@@ -22,6 +23,7 @@ Library           DateTime
     Should Contain    ${getRes['body']}    保存评估历史成功!
 
 暂不采用
+    [Documentation]    cdss/sentry/assess/save
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    VTE2快速确认    aiResult={"assessId":439,"assessName":"内科住院患者静脉血栓栓塞症风险评估表(Padua评分表)","assessResult":"低危","assessResultItemList":[{"itemId":1,"itemName":"年龄≥70岁","score":"1","source":[],"wordId":132001}],"assessValue":"1","assessValueUnit":"分"}

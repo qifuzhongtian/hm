@@ -10,6 +10,8 @@ Library           String
 
 *** Test Cases ***
 文献标签
+    [Documentation]    doc/seer/document/label
+
     ############评估历史#############
     ${getRes}    文献标签
     ${aj}    Evaluate    [aj['name'] for aj in $getRes['body']['1']]

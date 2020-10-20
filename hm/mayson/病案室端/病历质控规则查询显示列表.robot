@@ -11,6 +11,7 @@ Library           DateTime
 
 *** Test Cases ***
 病历质控规则查询显示列表
+    [Documentation]    :3021/mc/mcRuleList
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    病历质控规则查询显示列表    content=    filter_type=    category_id=    black_type=

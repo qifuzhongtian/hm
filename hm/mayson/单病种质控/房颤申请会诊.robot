@@ -11,7 +11,7 @@ Library           DateTime
 *** Test Cases ***
 
 推出房颤申请会诊,点击申请会诊,质控项消失
-    [Documentation]
+    [Documentation]    cdss/sentry/v_2_0/qc/applyForConsultation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ...    AND   智能推荐v2    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2    requestSource=

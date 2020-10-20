@@ -9,7 +9,8 @@ Library           DateTime
 *** Variables ***
 
 *** Test Cases ***
-卡控合并：saveAndTurn接口
+卡控合并
+    [Documentation]    cdss/sentry/assess/saveAndTurn
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -33,7 +34,6 @@ Library           DateTime
     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     #####质控推荐检查
     # log    ${size}
-
     #得到返回值的list
     # ${aj}    Evaluate    $getRes['head']['error']
     # Should Be Equal As Integers    ${aj}    0

@@ -11,6 +11,7 @@ Library           DateTime
 
 *** Test Cases ***
 cdr病历查询_搜索
+    [Documentation]    :3025/advancedSearch/javaSearch
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    cdr病历查询_搜索    admissionDateStart=2020-09-01 00:00:00    admissionDateEnd=2020-09-18 23:59:59    pageSize=${20}    currentPage=${1}

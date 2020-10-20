@@ -11,6 +11,7 @@ Library           DateTime
 
 *** Test Cases ***
 统计_工作台_病历等级统计
+    [Documentation]    :3021/work/workLevelTJ
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    统计_工作台_病历等级统计    time_start=2020-08-04    time_end=2020-09-04

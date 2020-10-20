@@ -11,10 +11,8 @@ Library           DateTime
 *** Variables ***
 
 *** Test Cases ***
-# Boolean
-    # Set Status    ${true}
-
 用户列表
+    [Documentation]    :3021/manage/userList
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    用户列表    content=

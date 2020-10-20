@@ -11,6 +11,7 @@ Library           DateTime
 
 *** Test Cases ***
 cdr病历管理_高级搜索propertyDict
+    [Documentation]    :3025/advancedSearch/propertyDict
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    cdr病历管理_高级搜索propertyDict    id=1

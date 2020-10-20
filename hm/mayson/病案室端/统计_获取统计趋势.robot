@@ -11,6 +11,7 @@ Library           DateTime
 
 *** Test Cases ***
 统计_获取统计趋势
+    [Documentation]    :3021/tj/getTJTrend
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    统计_获取统计趋势    type=2    date=2019-10-16

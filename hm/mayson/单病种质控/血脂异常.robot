@@ -10,6 +10,7 @@ Library           DateTime
 
 *** Test Cases ***
 血脂异常,推出:完整项质控项 血脂异常诊断
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch

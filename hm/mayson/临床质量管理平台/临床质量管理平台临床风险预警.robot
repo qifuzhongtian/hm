@@ -11,6 +11,7 @@ Library           DateTime
 
 *** Test Cases ***
 临床质量管理平台临床风险预警
+    [Documentation]    :3016/statistic/qcItemDetailList
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    临床质量管理平台临床风险预警    start_time=2020-04-26    end_time=2020-05-25    dept_type=    dept_name=

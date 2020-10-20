@@ -11,6 +11,7 @@ Library           DateTime
 
 *** Test Cases ***
 查询评估表历史列表
+    [Documentation]    cdss/mayson/v_1_0/assesshistory/findhistorylist
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ...    AND    智能推荐v2    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2    requestSource=    doctorGuid=0210497

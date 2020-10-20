@@ -10,7 +10,7 @@ Library           RequestsLibrary
 *** Variables ***
 
 *** Test Cases ***
-5.1 问诊记录添加备注
+问诊记录添加备注
     # [Documentation]    断言:"error=0 成功"
     ${getRes}    问诊记录添加备注    number=${number}    recordRemark=接口加备注
     Should Be Equal As Strings    ${getRes['head']['error']}    0

@@ -10,7 +10,8 @@ Library           DateTime
 *** Variables ***
 
 *** Test Cases ***
-统计_获取科室级别_day
+统计_获取科室级别
+    [Documentation]    :3021/tj/getTJDepartByGrade
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    统计_获取科室级别    order={"name": "inpatient_department","sort": "desc"}

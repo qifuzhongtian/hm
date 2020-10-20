@@ -6,6 +6,7 @@ Library           RequestsLibrary
 Library           String
 *** Test Cases ***
 疑似诊断,主诉:眩晕,推荐诊断:良性阵发性眩晕
+    [Documentation]    cdss/v_5_0/diagnose_through_interrogation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${drugCommonNames}    Create List
@@ -27,6 +28,7 @@ Library           String
     Should Contain    ${aj}    良性阵发性眩晕
 
 推荐检查,推荐:尿常规
+    [Documentation]    cdss/v_5_0/diagnose_through_interrogation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${drugCommonNames}    Create List    阿立哌唑片    盐酸氟西汀分散片
@@ -48,6 +50,7 @@ Library           String
     Should Contain    ${aj}    尿常规
 
 检查解读,推荐:主要为变应性哮喘
+    [Documentation]    cdss/v_5_0/diagnose_through_interrogation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${drugCommonNames}    Create List    阿立哌唑片    盐酸氟西汀分散片
@@ -69,6 +72,7 @@ Library           String
     Should Contain    ${aj}    主要为变应性哮喘
 
 推荐评估表,推荐:荨麻疹病因分类与发病机制
+    [Documentation]    cdss/v_5_0/diagnose_through_interrogation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${drugCommonNames}    Create List    阿立哌唑片    盐酸氟西汀分散片
@@ -90,6 +94,7 @@ Library           String
     Should Contain    ${aj}    荨麻疹病因分类与发病机制
 
 推荐治疗方案,推荐:局部治疗
+    [Documentation]    cdss/v_5_0/diagnose_through_interrogation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${drugCommonNames}    Create List    阿立哌唑片    盐酸氟西汀分散片
@@ -112,6 +117,7 @@ Library           String
     # Should Contain    ${aj}    荨麻疹病因分类与发病机制
 
 有确诊诊断,但没有推出疑似诊断,常见诊断中确诊诊断放到首位
+    [Documentation]    cdss/v_5_0/diagnose_through_interrogation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${drugCommonNames}    Create List    阿立哌唑片    盐酸氟西汀分散片

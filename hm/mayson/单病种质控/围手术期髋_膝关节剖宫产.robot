@@ -10,6 +10,7 @@ Library           DateTime
 
 *** Test Cases ***
 髋关节置换:开髋关节手术，推出:Harris评分 THR-1
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch

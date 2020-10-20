@@ -10,6 +10,7 @@ Library           DateTime
 
 *** Test Cases ***
 脓毒血症：主诉 昏睡 推荐GCS评分 规则ID：Sepsis-1
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -37,6 +38,7 @@ Library           DateTime
 
 
 脓毒血症：主诉 昏睡 接口评估GCS评估表 GCS推荐消失 规则ID：Sepsis-1
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -69,6 +71,7 @@ Library           DateTime
 
 
 脓毒血症：主诉 昏睡 文书评估GCS评估表 GCS推荐消失 规则ID：Sepsis-1
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -94,6 +97,7 @@ Library           DateTime
     Should Not Contain    ${aj}    Glasgow昏迷评分量表
 
 脓毒血症：入院ICU 无脓毒症诊断 SOFA2分 有感染 推荐补充脓毒症诊断 规则ID：Sepsis-2
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ...    AND    时间
@@ -126,6 +130,7 @@ Library           DateTime
     Should Contain    ${aj}    补充脓毒症诊断
 
 脓毒血症：入院非ICU 转入ICU 无脓毒症诊断 SOFA2分 有感染 推荐补充脓毒症诊断 规则ID：Sepsis-2
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ...    AND    时间
@@ -164,6 +169,7 @@ Library           DateTime
 
 
 脓毒血症：入院ICU 转入非ICU 无脓毒症诊断 SOFA2分 有感染 推荐ICU会诊 规则ID：Sepsis-3
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ...    AND    时间
@@ -202,6 +208,7 @@ Library           DateTime
 
 
 脓毒血症：入院非ICU 无脓毒症诊断 SOFA2分 有感染 推荐ICU会诊 规则ID：Sepsis-3
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ...    AND    时间
@@ -235,6 +242,7 @@ Library           DateTime
 
 
 脓毒血症：入院诊断脓毒症 推荐SOFA初始评估 规则ID：Sepsis-4
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
@@ -262,6 +270,7 @@ Library           DateTime
 
 
 脓毒血症：入院诊断脓毒症 快速确认SOFA 推荐消失 规则ID：Sepsis-4
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ...    AND    时间
@@ -296,6 +305,7 @@ Library           DateTime
 
 
 脓毒血症：入院诊断脓毒症 文书SOFA评分 推荐消失 规则ID：Sepsis-4
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ...    AND    时间
@@ -324,6 +334,7 @@ Library           DateTime
 
 
 脓毒血症：入院无脓毒症诊断 SOFA升高2分 推荐SOFA评分 规则ID：Sepsis-5
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ...    AND    时间
@@ -358,6 +369,7 @@ Library           DateTime
 
 
 脓毒血症：24小时前入院ICU 推荐APACHE评分表 规则ID：Sepsis-9
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ...    AND    时间

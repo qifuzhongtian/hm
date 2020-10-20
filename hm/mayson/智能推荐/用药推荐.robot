@@ -10,7 +10,7 @@ Library           String
 
 *** Test Cases ***
 mayson用药推荐
-    [Documentation]    断言:"抗血小板治疗药品名称"
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation,断言:"抗血小板治疗药品名称"
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ...    AND    智能推荐v2    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    doctorGuid=0210497

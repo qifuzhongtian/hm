@@ -10,7 +10,9 @@ Library           DateTime
 
 *** Test Cases ***
 肿瘤平台登录
+    [Documentation]    `:3026/user/login
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    肿瘤平台登录    name=privateTesting    password=38ebcce4a466e04bf443d54ca52cd44f
     Should Contain    ${getRes['msg']}    success
+

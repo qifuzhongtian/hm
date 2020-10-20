@@ -10,6 +10,7 @@ Library           String
 
 *** Test Cases ***
 最新文献
+    [Documentation]    doc/seer/document/newest
     ############评估历史#############
     ${getRes}    最新文献
     ${aj}    Evaluate    [aj for aj in $getRes['body']['searchDiagnose']]

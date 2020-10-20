@@ -11,7 +11,7 @@ Library           DateTime
 *** Test Cases ***
 
 房颤指征
-    [Documentation]
+    [Documentation]    cdss/mayson/v_1_0/mayson_response_cache
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch

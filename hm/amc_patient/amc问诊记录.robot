@@ -10,7 +10,7 @@ Library           RequestsLibrary
 *** Variables ***
 
 *** Test Cases ***
-3.1 amc问诊记录
-    # [Documentation]    断言:"error=0 成功"
+amc问诊记录
+    # [Documentation]    amc/record_info
     ${getRes}    amc问诊记录    number=${number}
     Should Be Equal As Strings    ${getRes['head']['error']}    0

@@ -10,6 +10,7 @@ Library           DateTime
 
 *** Test Cases ***
 首页质控:既往史在病案首页的遗漏syqt1
+    [Documentation]    pangoo/ruleengine/homePage
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${ruleCodes}    Create List    syqt7    syqt2    syqt1    syqt4    syqt6-xw    syqt3    syzzd3    syzzd2    syzzd1
@@ -22,6 +23,7 @@ Library           DateTime
 
 
 首页质控:nh23-C10-现病史中确诊疾病在病案首页入院病情类型选择错误
+    [Documentation]    pangoo/ruleengine/homePage
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${ruleCodes}    Create List    nh23

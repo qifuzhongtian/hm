@@ -11,6 +11,7 @@ Library           DateTime
 
 *** Test Cases ***
 规则提醒级别配置
+    [Documentation]    :3021/mc/upRuleConfig
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    规则提醒级别配置    group_code=syzzd33333333    recommend_level=1    type=2

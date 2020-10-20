@@ -1,37 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot rpa="false" generated="20200904 10:26:08.266" generator="Robot 3.2.1 (Python 2.7.16 on darwin)">
-<suite source="/Users/yinbo/OneDrive/apiTesting/hm/mayson/病历质控/添加反馈.robot" id="s1" name="添加反馈">
-<test id="s1-t1" name="病历质控提交反馈">
+<robot rpa="false" generated="20201020 14:10:18.158" generator="Robot 3.2.1 (Python 2.7.16 on darwin)">
+<suite source="/Users/yinbo/OneDrive/apiTesting/hm/mayson/病历质控/内涵质控.robot" id="s1" name="内涵质控">
+<test id="s1-t1" name="内涵质控:nh1入院记录主诉时间不完整">
 <kw type="setup" name="Run Keywords" library="BuiltIn">
 <doc>Executes all the given keywords in a sequence.</doc>
 <arguments>
 <arg>获取时间戳</arg>
-<arg>AND</arg>
-<arg>获取随机数</arg>
-<arg>AND</arg>
-<arg>智能推荐v2</arg>
-<arg>userGuid=${timestamp}${random}</arg>
-<arg>serialNumber=${timestamp}${random}</arg>
-<arg>patientName=tester</arg>
-<arg>pageSource=2</arg>
-<arg>requestSource=</arg>
-<arg>doctorGuid=0210497</arg>
-<arg>doctorName=测试医生</arg>
-<arg>admissionTime=2018-12-12</arg>
-<arg>inpatientDepartment=呼吸科</arg>
-<arg>patientInfo={"gender":"1","age":"19","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}</arg>
-<arg>physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}</arg>
-<arg>openInterdict=${1}</arg>
-<arg>definiteDiagnosis=</arg>
-<arg>progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":""},{"key": "诊断依据及鉴别诊断","value": ""},{"key":"现病史","value":"心房颤动"},{"key":"既往史","value":""},{"key":"初步诊断","value":"脑内出血,高血压"},{"key":"辅助检查","value":""}],"progressType":"1","progressGuid":"22222","recordTime":""}</arg>
-<arg>deleteProgressNoteList={"progressGuid":"","progressType":"2","doctorGid":"","recordTime":""}</arg>
-<arg>labTestList=</arg>
-<arg>examinationList=</arg>
-<arg>newTestList=</arg>
-<arg>operationRecord=</arg>
-<arg>prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}</arg>
-<arg>currentDiseaseName=</arg>
-<arg>medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}</arg>
 </arguments>
 <kw name="获取时间戳" library="cdss">
 <kw name="Get Time" library="BuiltIn">
@@ -42,8 +16,8 @@
 <assign>
 <var>${timestamp}</var>
 </assign>
-<msg timestamp="20200904 10:26:08.702" level="INFO">${timestamp} = 1599186368</msg>
-<status status="PASS" endtime="20200904 10:26:08.702" starttime="20200904 10:26:08.702"></status>
+<msg timestamp="20201020 14:10:19.160" level="INFO">${timestamp} = 1603174219</msg>
+<status status="PASS" endtime="20201020 14:10:19.160" starttime="20201020 14:10:19.159"></status>
 </kw>
 <kw name="Get Time" library="BuiltIn">
 <doc>Returns the given time in the requested format.</doc>
@@ -53,26 +27,76 @@
 <assign>
 <var>${time_now}</var>
 </assign>
-<msg timestamp="20200904 10:26:08.705" level="INFO">${time_now} = 2020-09-04 10:26:08</msg>
-<status status="PASS" endtime="20200904 10:26:08.705" starttime="20200904 10:26:08.703"></status>
+<msg timestamp="20201020 14:10:19.163" level="INFO">${time_now} = 2020-10-20 14:10:19</msg>
+<status status="PASS" endtime="20201020 14:10:19.163" starttime="20201020 14:10:19.162"></status>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <doc>Makes a variable available globally in all tests and suites.</doc>
 <arguments>
 <arg>${timestamp}</arg>
 </arguments>
-<msg timestamp="20200904 10:26:08.706" level="INFO">${timestamp} = 1599186368</msg>
-<status status="PASS" endtime="20200904 10:26:08.706" starttime="20200904 10:26:08.705"></status>
+<msg timestamp="20201020 14:10:19.164" level="INFO">${timestamp} = 1603174219</msg>
+<status status="PASS" endtime="20201020 14:10:19.164" starttime="20201020 14:10:19.163"></status>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <doc>Makes a variable available globally in all tests and suites.</doc>
 <arguments>
 <arg>${time_now}</arg>
 </arguments>
-<msg timestamp="20200904 10:26:08.708" level="INFO">${time_now} = 2020-09-04 10:26:08</msg>
-<status status="PASS" endtime="20200904 10:26:08.708" starttime="20200904 10:26:08.706"></status>
+<msg timestamp="20201020 14:10:19.165" level="INFO">${time_now} = 2020-10-20 14:10:19</msg>
+<status status="PASS" endtime="20201020 14:10:19.165" starttime="20201020 14:10:19.164"></status>
 </kw>
-<status status="PASS" endtime="20200904 10:26:08.708" starttime="20200904 10:26:08.701"></status>
+<status status="PASS" endtime="20201020 14:10:19.165" starttime="20201020 14:10:19.158"></status>
+</kw>
+<status status="PASS" endtime="20201020 14:10:19.165" starttime="20201020 14:10:19.158"></status>
+</kw>
+<kw name="Run Keywords" library="BuiltIn">
+<doc>Executes all the given keywords in a sequence.</doc>
+<arguments>
+<arg>获取时间戳</arg>
+<arg>AND</arg>
+<arg>获取随机数</arg>
+</arguments>
+<kw name="获取时间戳" library="cdss">
+<kw name="Get Time" library="BuiltIn">
+<doc>Returns the given time in the requested format.</doc>
+<arguments>
+<arg>epoch</arg>
+</arguments>
+<assign>
+<var>${timestamp}</var>
+</assign>
+<msg timestamp="20201020 14:10:19.167" level="INFO">${timestamp} = 1603174219</msg>
+<status status="PASS" endtime="20201020 14:10:19.167" starttime="20201020 14:10:19.167"></status>
+</kw>
+<kw name="Get Time" library="BuiltIn">
+<doc>Returns the given time in the requested format.</doc>
+<arguments>
+<arg>timestamp</arg>
+</arguments>
+<assign>
+<var>${time_now}</var>
+</assign>
+<msg timestamp="20201020 14:10:19.168" level="INFO">${time_now} = 2020-10-20 14:10:19</msg>
+<status status="PASS" endtime="20201020 14:10:19.168" starttime="20201020 14:10:19.167"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${timestamp}</arg>
+</arguments>
+<msg timestamp="20201020 14:10:19.169" level="INFO">${timestamp} = 1603174219</msg>
+<status status="PASS" endtime="20201020 14:10:19.170" starttime="20201020 14:10:19.168"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${time_now}</arg>
+</arguments>
+<msg timestamp="20201020 14:10:19.171" level="INFO">${time_now} = 2020-10-20 14:10:19</msg>
+<status status="PASS" endtime="20201020 14:10:19.171" starttime="20201020 14:10:19.170"></status>
+</kw>
+<status status="PASS" endtime="20201020 14:10:19.172" starttime="20201020 14:10:19.166"></status>
 </kw>
 <kw name="获取随机数" library="cdss">
 <kw name="Generate Random String" library="String">
@@ -84,2054 +108,43 @@
 <assign>
 <var>${random}</var>
 </assign>
-<msg timestamp="20200904 10:26:08.710" level="INFO">${random} = 486</msg>
-<status status="PASS" endtime="20200904 10:26:08.711" starttime="20200904 10:26:08.710"></status>
+<msg timestamp="20201020 14:10:19.175" level="INFO">${random} = 579</msg>
+<status status="PASS" endtime="20201020 14:10:19.175" starttime="20201020 14:10:19.172"></status>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <doc>Makes a variable available globally in all tests and suites.</doc>
 <arguments>
 <arg>${random}</arg>
 </arguments>
-<msg timestamp="20200904 10:26:08.713" level="INFO">${random} = 486</msg>
-<status status="PASS" endtime="20200904 10:26:08.713" starttime="20200904 10:26:08.711"></status>
+<msg timestamp="20201020 14:10:19.177" level="INFO">${random} = 579</msg>
+<status status="PASS" endtime="20201020 14:10:19.177" starttime="20201020 14:10:19.176"></status>
 </kw>
-<status status="PASS" endtime="20200904 10:26:08.713" starttime="20200904 10:26:08.709"></status>
+<status status="PASS" endtime="20201020 14:10:19.177" starttime="20201020 14:10:19.172"></status>
 </kw>
-<kw name="智能推荐v2" library="cdss">
+<status status="PASS" endtime="20201020 14:10:19.177" starttime="20201020 14:10:19.166"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
 <arguments>
-<arg>userGuid=${timestamp}${random}</arg>
-<arg>serialNumber=${timestamp}${random}</arg>
-<arg>patientName=tester</arg>
-<arg>pageSource=2</arg>
-<arg>requestSource=</arg>
-<arg>doctorGuid=0210497</arg>
-<arg>doctorName=测试医生</arg>
-<arg>admissionTime=2018-12-12</arg>
-<arg>inpatientDepartment=呼吸科</arg>
-<arg>patientInfo={"gender":"1","age":"19","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}</arg>
-<arg>physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}</arg>
-<arg>openInterdict=${1}</arg>
-<arg>definiteDiagnosis=</arg>
-<arg>progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":""},{"key": "诊断依据及鉴别诊断","value": ""},{"key":"现病史","value":"心房颤动"},{"key":"既往史","value":""},{"key":"初步诊断","value":"脑内出血,高血压"},{"key":"辅助检查","value":""}],"progressType":"1","progressGuid":"22222","recordTime":""}</arg>
-<arg>deleteProgressNoteList={"progressGuid":"","progressType":"2","doctorGid":"","recordTime":""}</arg>
-<arg>labTestList=</arg>
-<arg>examinationList=</arg>
-<arg>newTestList=</arg>
-<arg>operationRecord=</arg>
-<arg>prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}</arg>
-<arg>currentDiseaseName=</arg>
-<arg>medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}</arg>
-</arguments>
-<kw name="Create Dictionary" library="BuiltIn">
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<arguments>
-<arg>Content-Type=application/json</arg>
-<arg>Huimei_id=${Huimei_id}</arg>
+<arg>syqt5</arg>
+<arg>nh1</arg>
+<arg>nh7</arg>
+<arg>nh6</arg>
+<arg>nh9</arg>
+<arg>nh8</arg>
 </arguments>
 <assign>
-<var>${dict}</var>
+<var>${ruleCodes}</var>
 </assign>
-<msg timestamp="20200904 10:26:08.721" level="INFO">${dict} = {"Content-Type": "application/json", "Huimei_id": "7195F12825788F09375C2DB1E922F108"}</msg>
-<status status="PASS" endtime="20200904 10:26:08.721" starttime="20200904 10:26:08.719"></status>
+<msg timestamp="20201020 14:10:19.178" level="INFO">${ruleCodes} = ["syqt5", "nh1", "nh7", "nh6", "nh9", "nh8"]</msg>
+<status status="PASS" endtime="20201020 14:10:19.178" starttime="20201020 14:10:19.177"></status>
 </kw>
-<kw name="Create Session" library="RequestsLibrary">
-<doc>Create Session: create a HTTP session to a server</doc>
+<kw name="内涵质控" library="cdss">
 <arguments>
-<arg>api</arg>
-<arg>${mayson_url}</arg>
-<arg>${dict}</arg>
-</arguments>
-<msg timestamp="20200904 10:26:08.722" level="INFO">Creating Session using : alias=api, url=http://profile.huimeionline.com/cdss, headers={u'Content-Type': u'application/json', u'Huimei_id': u'7195F12825788F09375C2DB1E922F108'},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" endtime="20200904 10:26:08.723" starttime="20200904 10:26:08.721"></status>
-</kw>
-<kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<arguments>
-<arg>dict(${patientInfo})</arg>
-</arguments>
-<assign>
-<var>${patientInfo}</var>
-</assign>
-<msg timestamp="20200904 10:26:08.725" level="INFO">${patientInfo} = {"pregnancyStatus": "0", "gender": "1", "age": "19", "maritalStatus": "1", "ageType": "岁"}</msg>
-<status status="PASS" endtime="20200904 10:26:08.725" starttime="20200904 10:26:08.723"></status>
-</kw>
-<kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<arguments>
-<arg>dict(${physicalSign})</arg>
-</arguments>
-<assign>
-<var>${physicalSign}</var>
-</assign>
-<msg timestamp="20200904 10:26:08.726" level="INFO">${physicalSign} = {"bodyTempr": "", "heartRate": "", "lowBldPress": "", "highBldPress": ""}</msg>
-<status status="PASS" endtime="20200904 10:26:08.726" starttime="20200904 10:26:08.726"></status>
-</kw>
-<kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<arguments>
-<arg>[${definiteDiagnosis}]</arg>
-</arguments>
-<assign>
-<var>${definiteDiagnosis}</var>
-</assign>
-<msg timestamp="20200904 10:26:08.727" level="INFO">${definiteDiagnosis} = []</msg>
-<status status="PASS" endtime="20200904 10:26:08.727" starttime="20200904 10:26:08.726"></status>
-</kw>
-<kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<arguments>
-<arg>[${progressNoteList}]</arg>
-</arguments>
-<assign>
-<var>${progressNoteList}</var>
-</assign>
-<msg timestamp="20200904 10:26:08.729" level="INFO">${progressNoteList} = [{"recordTime": "", "doctorGuid": "2222", "messageList": [{"value": "", "key": "主诉"}, {"value": "", "key": "诊断依据及鉴别诊断"}, {"value": "心房颤动", "key": "现病史"}, {"value": "", "key": "既往史"}, {"value": "脑内出血,高...</msg>
-<status status="PASS" endtime="20200904 10:26:08.729" starttime="20200904 10:26:08.728"></status>
-</kw>
-<kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<arguments>
-<arg>[${deleteProgressNoteList}]</arg>
-</arguments>
-<assign>
-<var>${deleteProgressNoteList}</var>
-</assign>
-<msg timestamp="20200904 10:26:08.730" level="INFO">${deleteProgressNoteList} = [{"doctorGid": "", "progressType": "2", "progressGuid": "", "recordTime": ""}]</msg>
-<status status="PASS" endtime="20200904 10:26:08.730" starttime="20200904 10:26:08.730"></status>
-</kw>
-<kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<arguments>
-<arg>[${labTestList}]</arg>
-</arguments>
-<assign>
-<var>${labTestList}</var>
-</assign>
-<msg timestamp="20200904 10:26:08.731" level="INFO">${labTestList} = []</msg>
-<status status="PASS" endtime="20200904 10:26:08.731" starttime="20200904 10:26:08.730"></status>
-</kw>
-<kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<arguments>
-<arg>[${examinationList}]</arg>
-</arguments>
-<assign>
-<var>${examinationList}</var>
-</assign>
-<msg timestamp="20200904 10:26:08.732" level="INFO">${examinationList} = []</msg>
-<status status="PASS" endtime="20200904 10:26:08.732" starttime="20200904 10:26:08.731"></status>
-</kw>
-<kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<arguments>
-<arg>[${newTestList}]</arg>
-</arguments>
-<assign>
-<var>${newTestList}</var>
-</assign>
-<msg timestamp="20200904 10:26:08.732" level="INFO">${newTestList} = []</msg>
-<status status="PASS" endtime="20200904 10:26:08.732" starttime="20200904 10:26:08.732"></status>
-</kw>
-<kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<arguments>
-<arg>dict(${operationRecord})</arg>
-</arguments>
-<assign>
-<var>${operationRecord}</var>
-</assign>
-<msg timestamp="20200904 10:26:08.733" level="INFO">${operationRecord} = {}</msg>
-<status status="PASS" endtime="20200904 10:26:08.733" starttime="20200904 10:26:08.732"></status>
-</kw>
-<kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<arguments>
-<arg>${prescriptions}</arg>
-</arguments>
-<assign>
-<var>${prescriptions}</var>
-</assign>
-<msg timestamp="20200904 10:26:08.734" level="INFO">${prescriptions} = {"prescriptionNumber": "", "drugList": [{"drugId": "", "specification": "", "dosage": "", "frequency": "", "drugName": "", "pathway": "", "unit": ""}], "recordTime": ""}</msg>
-<status status="PASS" endtime="20200904 10:26:08.734" starttime="20200904 10:26:08.734"></status>
-</kw>
-<kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<arguments>
-<arg>[${medicalOrders}]</arg>
-</arguments>
-<assign>
-<var>${medicalOrders}</var>
-</assign>
-<msg timestamp="20200904 10:26:08.735" level="INFO">${medicalOrders} = [{"orderId": "1599186368486", "orderContent": "阿托伐他汀钙片", "frequency": "ONCE", "orderFlag": 1, "unit": "mg", "orderCode": "316275", "orderType": 3, "specification": "", "timelinessFlag": 2, "pathway": ...</msg>
-<status status="PASS" endtime="20200904 10:26:08.735" starttime="20200904 10:26:08.734"></status>
-</kw>
-<kw name="Create Dictionary" library="BuiltIn">
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<arguments>
-<arg>userGuid=${userGuid}</arg>
-<arg>serialNumber=${serialNumber}</arg>
-<arg>patientName=${patientName}</arg>
-<arg>doctorGuid=${doctorGuid}</arg>
-<arg>doctorName=${doctorName}</arg>
-<arg>admissionTime=${admissionTime}</arg>
-<arg>inpatientDepartment=${inpatientDepartment}</arg>
-<arg>pageSource=${pageSource}</arg>
-<arg>requestSource=${requestSource}</arg>
-<arg>patientInfo=${patientInfo}</arg>
-<arg>physicalSign=${physicalSign}</arg>
-<arg>definiteDiagnosis=${definiteDiagnosis}</arg>
-<arg>progressNoteList=${progressNoteList}</arg>
-<arg>deleteProgressNoteList=${deleteProgressNoteList}</arg>
-<arg>labTestList=${labTestList}</arg>
-<arg>examinationList=${examinationList}</arg>
-<arg>newTestList=${newTestList}</arg>
-<arg>operationRecord=${operationRecord}</arg>
-<arg>prescriptions=${prescriptions}</arg>
-<arg>currentDiseaseName=${currentDiseaseName}</arg>
-<arg>medicalOrders=${medicalOrders}</arg>
-<arg>openInterdict=${openInterdict}</arg>
-</arguments>
-<assign>
-<var>${data}</var>
-</assign>
-<msg timestamp="20200904 10:26:08.746" level="INFO">${data} = {"userGuid": "1599186368486", "serialNumber": "1599186368486", "patientName": "tester", "doctorGuid": "0210497", "doctorName": "测试医生", "admissionTime": "2018-12-12", "inpatientDepartment": "呼吸科", "pag...</msg>
-<status status="PASS" endtime="20200904 10:26:08.746" starttime="20200904 10:26:08.735"></status>
-</kw>
-<kw name="Post Request" library="RequestsLibrary">
-<doc>Send a POST request on the session object found using the
-given `alias`</doc>
-<arguments>
-<arg>api</arg>
-<arg>mayson/v_2_0/intelligent_recommendation</arg>
-<arg>data=${data}</arg>
-</arguments>
-<assign>
-<var>${addr}</var>
-</assign>
-<msg timestamp="20200904 10:26:08.761" level="INFO">Starting new HTTP connection (1): profile.huimeionline.com</msg>
-<msg timestamp="20200904 10:26:09.863" level="INFO">Post Request using : alias=api, uri=mayson/v_2_0/intelligent_recommendation, data=&lt;empty&gt;, headers=None, files=None, allow_redirects=True </msg>
-<msg timestamp="20200904 10:26:09.863" level="INFO">${addr} = &lt;Response [200]&gt;</msg>
-<status status="PASS" endtime="20200904 10:26:09.863" starttime="20200904 10:26:08.746"></status>
-</kw>
-<kw name="To Json" library="RequestsLibrary">
-<doc>Convert a string to a JSON object</doc>
-<arguments>
-<arg>${addr.content}</arg>
-</arguments>
-<assign>
-<var>${responsedata}</var>
-</assign>
-<msg timestamp="20200904 10:26:09.986" level="INFO">To JSON using : content={
-	"body":{
-		"customerId":1219,
-		"doctorGuid":"0210497",
-		"doctorName":"\xe6\xb5\x8b\xe8\xaf\x95\xe5\x8c\xbb\xe7\x94\x9f",
-		"documentExpress":{
-			"docExpress":[
-				{
-					"cnTitle":"\xe5\xb0\x8f\xe8\x84\x91\xe7\x9a\x84\xe8\x84\x91\xe5\x86\x85\xe5\x87\xba\xe8\xa1\x80\xe5\xbe\xaa\xe8\xaf\x81\xe6\xb2\xbb\xe7\x96\x97\xe6\x97\xb6\xe9\x97\xb4",
-					"documentFlag":"false",
-					"documentId":"9516C574FD",
-					"documentSource":"\xe6\x83\xa0\xe6\xaf\x8f\xe7\x9f\xa5\xe8\xaf\x86\xe5\xba\x93",
-					"publishDate":"2019-10"
-				},
-				{
-					"cnTitle":"\xe5\xb0\x8f\xe8\x84\x91\xe7\x9a\x84\xe8\x84\x91\xe5\x86\x85\xe5\x87\xba\xe8\xa1\x80\xe6\x82\xa3\xe8\x80\x85\xe6\x89\x8b\xe6\x9c\xaf\xe8\xa1\x80\xe8\x82\xbf\xe6\xb8\x85\xe9\x99\xa4\xe5\x92\x8c\xe4\xbf\x9d\xe5\xae\x88\xe6\xb2\xbb\xe7\x96\x97\xe4\xb8\x8e\xe5\x8a\x9f\xe8\x83\xbd\xe9\xa2\x84\xe5\x90\x8e\xe7\x9a\x84\xe5\x85\xb3\xe7\xb3\xbb",
-					"documentFlag":"false",
-					"documentId":"9516C574FB",
-					"documentSource":"\xe6\x83\xa0\xe6\xaf\x8f\xe7\x9f\xa5\xe8\xaf\x86\xe5\xba\x93",
-					"publishDate":"2019-10"
-				},
-				{
-					"cnTitle":"\xe5\x8e\x9f\xe5\x8f\x91\xe6\x80\xa7\xe8\x84\x91\xe5\xb9\xb2\xe5\x87\xba\xe8\xa1\x80\xe6\x82\xa3\xe8\x80\x85\xe6\xad\xbb\xe4\xba\xa1\xe7\x9a\x84\xe7\x8b\xac\xe7\xab\x8b\xe5\x8d\xb1\xe9\x99\xa9\xe5\x9b\xa0\xe7\xb4\xa0\xe5\x88\x86\xe6\x9e\x90",
-					"documentFlag":"false",
-					"documentId":"9516C47AF7",
-					"documentSource":"\xe6\x83\xa0\xe6\xaf\x8f\xe7\x9f\xa5\xe8\xaf\x86\xe5\xba\x93",
-					"publishDate":"2019-06"
-				},
-				{
-					"cnTitle":"\xe8\xa1\x80\xe8\x82\xbf\xe8\x85\x94\xe5\x92\x8c\xe8\x84\x91\xe5\xae\xa4\xe6\x97\xa9\xe6\x9c\x9f\xe5\x8f\x98\xe5\x8c\x96\xe5\xaf\xb9\xe5\x8e\x9f\xe5\x8f\x91\xe6\x80\xa7\xe8\x84\x91\xe5\xb9\xb2\xe5\x87\xba\xe8\xa1\x80\xe6\x82\xa3\xe8\x80\x85\xe4\xbd\x8f\xe9\x99\xa2\xe4\xb8\x8d\xe8\x89\xaf\xe7\xbb\x93\xe5\xb1\x80\xe7\x9a\x84\xe9\xa2\x84\xe6\xb5\x8b\xe4\xbb\xb7\xe5\x80\xbc\xe5\x88\x86\xe6\x9e\x90",
-					"documentFlag":"false",
-					"documentId":"9516CF76FE",
-					"documentSource":"\xe6\x83\xa0\xe6\xaf\x8f\xe7\x9f\xa5\xe8\xaf\x86\xe5\xba\x93",
-					"publishDate":"2019-02"
-				},
-				{
-					"cnTitle":"2015 AHA/ASA\xe6\x8c\x87\xe5\x8d\x97\xef\xbc\x9a\xe8\x87\xaa\xe5\x8f\x91\xe6\x80\xa7\xe8\x84\x91\xe5\x87\xba\xe8\xa1\x80\xe7\x9a\x84\xe7\xae\xa1\xe7\x90\x86",
-					"documentFlag":"false",
-					"documentId":"9412C772FF",
-					"documentSource":"\xe6\x83\xa0\xe6\xaf\x8f\xe7\x9f\xa5\xe8\xaf\x86\xe5\xba\x93",
-					"publishDate":"2015-07"
-				}
-			],
-			"keyword":"\xe8\x84\x91\xe5\x86\x85\xe5\x87\xba\xe8\xa1\x80"
-		},
-		"examinationRecommendList":[
-			{
-				"customerExams":[
-					{
-						"customerId":1219,
-						"descr":"",
-						"examId":51,
-						"id":87999,
-						"orgCompoundName":"\xe5\xa4\xb4\xe9\xa2\x85CT\xe5\xb9\xb3\xe6\x89\xab",
-						"orgExamId":"51",
-						"orgExamName":"\xe5\xa4\xb4\xe9\xa2\x85CT\xe5\xb9\xb3\xe6\x89\xab",
-						"orgParentExamId":"",
-						"orgPyallName":"",
-						"orgPysimpleName":"",
-						"orgSampleId":"",
-						"orgSampleName":"",
-						"remark":"",
-						"show":1,
-						"sourceType":1,
-						"type":2
-					},
-					{
-						"customerId":1219,
-						"descr":"",
-						"examId":51,
-						"id":89714,
-						"orgCompoundName":"CT\xe6\xa3\x80\xe6\x9f\xa5",
-						"orgExamId":"110366",
-						"orgExamName":"CT\xe6\xa3\x80\xe6\x9f\xa5",
-						"orgParentExamId":"",
-						"orgPyallName":"",
-						"orgPysimpleName":"",
-						"orgSampleId":"",
-						"orgSampleName":"",
-						"remark":"",
-						"show":1,
-						"sourceType":1,
-						"type":2
-					}
-				],
-				"examTime":"",
-				"examination":"\xe5\xa4\xb4\xe9\xa2\x85CT\xe5\xb9\xb3\xe6\x89\xab",
-				"examinationId":51,
-				"examinationLevel":2,
-				"examinationPostil":"\xe8\xaf\x8a\xe6\x96\xad\xe8\x84\x91\xe5\x8d\x92\xe4\xb8\xad\xe9\xa6\x96\xe9\x80\x89\xe7\x9a\x84\xe5\xbd\xb1\xe5\x83\x8f\xe5\xad\xa6\xe6\xa3\x80\xe6\x9f\xa5\xe6\x96\xb9\xe6\xb3\x95\xef\xbc\x8c\xe5\x8f\x91\xe7\x97\x853\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe8\xa1\x8c\xe9\xa6\x96\xe6\xac\xa1\xe5\xa4\xb4\xe9\x83\xa8CT\xe6\x82\xa3\xe8\x80\x85\xef\xbc\x8c\xe5\xba\x94\xe4\xba\x8e\xe5\x8f\x91\xe7\x97\x85\xe5\x90\x8e8\xe5\xb0\x8f\xe6\x97\xb6\xef\xbc\x8c\xe6\x9c\x80\xe8\xbf\x9f24\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\x86\x8d\xe6\xac\xa1",
-				"expressId":207422,
-				"ignoreTips":"",
-				"levelDesc":"\xe7\xa1\xae\xe8\xaf\x8a\xe6\xa3\x80\xe6\x9f\xa5",
-				"projectName":"",
-				"recommendResult":"",
-				"remark":"",
-				"ruleNumber":"",
-				"ruleRemark":"",
-				"simpleName":"",
-				"subType":""
-			},
-			{
-				"customerExams":[
-					{
-						"customerId":1219,
-						"descr":"",
-						"examId":52,
-						"id":88000,
-						"orgCompoundName":"\xe8\x84\x91\xe8\xa1\x80\xe7\xae\xa1\xe6\x88\x90\xe5\x83\x8f\xe6\x8a\x80\xe6\x9c\xaf(CTA)",
-						"orgExamId":"52",
-						"orgExamName":"\xe8\x84\x91\xe8\xa1\x80\xe7\xae\xa1\xe6\x88\x90\xe5\x83\x8f\xe6\x8a\x80\xe6\x9c\xaf(CTA)",
-						"orgParentExamId":"",
-						"orgPyallName":"",
-						"orgPysimpleName":"",
-						"orgSampleId":"",
-						"orgSampleName":"",
-						"remark":"",
-						"show":1,
-						"sourceType":1,
-						"type":2
-					}
-				],
-				"examTime":"",
-				"examination":"\xe8\x84\x91\xe8\xa1\x80\xe7\xae\xa1\xe6\x88\x90\xe5\x83\x8f\xe6\x8a\x80\xe6\x9c\xaf(CTA)",
-				"examinationId":52,
-				"examinationLevel":3,
-				"examinationPostil":"\xe5\x8f\xaf\xe7\x94\xa8\xe4\xba\x8e\xe7\xad\x9b\xe6\x9f\xa5\xe5\x8f\xaf\xe5\xad\x98\xe5\x9c\xa8\xe7\x9a\x84\xe8\x84\x91\xe8\xa1\x80\xe7\xae\xa1\xe7\x95\xb8\xe5\xbd\xa2\xef\xbc\x8c\xe5\x8a\xa8\xe8\x84\x89\xe7\x98\xa4\xef\xbc\x8c\xe5\x8a\xa8\xe9\x9d\x99\xe8\x84\x89\xe7\xaa\xa6",
-				"expressId":207424,
-				"ignoreTips":"",
-				"levelDesc":"\xe9\x89\xb4\xe5\x88\xab\xe6\xa3\x80\xe6\x9f\xa5",
-				"projectName":"",
-				"recommendResult":"",
-				"remark":"",
-				"ruleNumber":"",
-				"ruleRemark":"",
-				"simpleName":"",
-				"subType":""
-			},
-			{
-				"customerExams":[
-					{
-						"customerId":1219,
-						"descr":"",
-						"examId":53,
-						"id":88001,
-						"orgCompoundName":"\xe8\x84\x91\xe7\xa3\x81\xe5\x85\xb1\xe6\x8c\xaf\xe8\xa1\x80\xe7\xae\xa1\xe6\x88\x90\xe5\x83\x8f (MRA)",
-						"orgExamId":"53",
-						"orgExamName":"\xe8\x84\x91\xe7\xa3\x81\xe5\x85\xb1\xe6\x8c\xaf\xe8\xa1\x80\xe7\xae\xa1\xe6\x88\x90\xe5\x83\x8f (MRA)",
-						"orgParentExamId":"",
-						"orgPyallName":"",
-						"orgPysimpleName":"",
-						"orgSampleId":"",
-						"orgSampleName":"",
-						"remark":"",
-						"show":1,
-						"sourceType":1,
-						"type":1
-					}
-				],
-				"examTime":"",
-				"examination":"\xe8\x84\x91\xe7\xa3\x81\xe5\x85\xb1\xe6\x8c\xaf\xe8\xa1\x80\xe7\xae\xa1\xe6\x88\x90\xe5\x83\x8f (MRA)",
-				"examinationId":53,
-				"examinationLevel":3,
-				"examinationPostil":"",
-				"expressId":207425,
-				"ignoreTips":"",
-				"levelDesc":"\xe9\x89\xb4\xe5\x88\xab\xe6\xa3\x80\xe6\x9f\xa5",
-				"projectName":"",
-				"recommendResult":"",
-				"remark":"",
-				"ruleNumber":"",
-				"ruleRemark":"",
-				"simpleName":"",
-				"subType":""
-			},
-			{
-				"customerExams":[
-					{
-						"customerId":1219,
-						"descr":"",
-						"examId":55,
-						"id":88003,
-						"orgCompoundName":"\xe5\x85\xa8\xe8\x84\x91\xe8\xa1\x80\xe7\xae\xa1\xe9\x80\xa0\xe5\xbd\xb1(DSA)",
-						"orgExamId":"55",
-						"orgExamName":"\xe5\x85\xa8\xe8\x84\x91\xe8\xa1\x80\xe7\xae\xa1\xe9\x80\xa0\xe5\xbd\xb1(DSA)",
-						"orgParentExamId":"",
-						"orgPyallName":"",
-						"orgPysimpleName":"",
-						"orgSampleId":"",
-						"orgSampleName":"",
-						"remark":"",
-						"show":1,
-						"sourceType":1,
-						"type":1
-					}
-				],
-				"examTime":"",
-				"examination":"\xe5\x85\xa8\xe8\x84\x91\xe8\xa1\x80\xe7\xae\xa1\xe9\x80\xa0\xe5\xbd\xb1(DSA)",
-				"examinationId":55,
-				"examinationLevel":3,
-				"examinationPostil":"\xe8\xa1\x80\xe7\xae\xa1\xe7\x97\x85\xe5\x8f\x98\xe6\xa3\x80\xe6\x9f\xa5\xe7\x9a\x84\xe9\x87\x8d\xe8\xa6\x81\xe6\x96\xb9\xe6\xb3\x95\xe5\x92\x8c\xe9\x87\x91\xe6\xa0\x87\xe5\x87\x86",
-				"expressId":207428,
-				"ignoreTips":"",
-				"levelDesc":"\xe9\x89\xb4\xe5\x88\xab\xe6\xa3\x80\xe6\x9f\xa5",
-				"projectName":"",
-				"recommendResult":"",
-				"remark":"",
-				"ruleNumber":"",
-				"ruleRemark":"",
-				"simpleName":"",
-				"subType":""
-			},
-			{
-				"customerExams":[
-					{
-						"customerId":1219,
-						"descr":"",
-						"examId":59,
-						"id":88007,
-						"orgCompoundName":"CT\xe8\x84\x91\xe7\x81\x8c\xe6\xb3\xa8\xe6\x88\x90\xe5\x83\x8f(CTP)",
-						"orgExamId":"59",
-						"orgExamName":"CT\xe8\x84\x91\xe7\x81\x8c\xe6\xb3\xa8\xe6\x88\x90\xe5\x83\x8f(CTP)",
-						"orgParentExamId":"",
-						"orgPyallName":"",
-						"orgPysimpleName":"",
-						"orgSampleId":"",
-						"orgSampleName":"",
-						"remark":"",
-						"show":1,
-						"sourceType":1,
-						"type":2
-					}
-				],
-				"examTime":"",
-				"examination":"CT\xe8\x84\x91\xe7\x81\x8c\xe6\xb3\xa8\xe6\x88\x90\xe5\x83\x8f(CTP)",
-				"examinationId":59,
-				"examinationLevel":3,
-				"examinationPostil":"CTP\xe8\x83\xbd\xe5\xa4\x9f\xe5\x8f\x8d\xe6\x98\xa0ICH\xe5\x90\x8e\xe8\x84\x91\xe7\xbb\x84\xe7\xbb\x87\xe7\x9a\x84\xe8\xa1\x80\xe4\xbe\x9b\xe5\x8f\x98\xe5\x8c\x96\xef\xbc\x8c\xe4\xba\x86\xe8\xa7\xa3\xe8\xa1\x80\xe8\x82\xbf\xe5\x91\xa8\xe8\xbe\xb9\xe8\xa1\x80\xe6\xb5\x81\xe7\x81\x8c\xe6\xb3\xa8\xe6\x83\x85\xe5\x86\xb5",
-				"expressId":207423,
-				"ignoreTips":"",
-				"levelDesc":"\xe9\x89\xb4\xe5\x88\xab\xe6\xa3\x80\xe6\x9f\xa5",
-				"projectName":"",
-				"recommendResult":"",
-				"remark":"",
-				"ruleNumber":"",
-				"ruleRemark":"",
-				"simpleName":"",
-				"subType":""
-			},
-			{
-				"customerExams":[
-					{
-						"customerId":1219,
-						"descr":"",
-						"examId":60,
-						"id":88008,
-						"orgCompoundName":"CTV",
-						"orgExamId":"60",
-						"orgExamName":"CTV",
-						"orgParentExamId":"",
-						"orgPyallName":"",
-						"orgPysimpleName":"",
-						"orgSampleId":"",
-						"orgSampleName":"",
-						"remark":"",
-						"show":1,
-						"sourceType":1,
-						"type":2
-					}
-				],
-				"examTime":"",
-				"examination":"CTV",
-				"examinationId":60,
-				"examinationLevel":3,
-				"examinationPostil":"",
-				"expressId":207426,
-				"ignoreTips":"",
-				"levelDesc":"\xe9\x89\xb4\xe5\x88\xab\xe6\xa3\x80\xe6\x9f\xa5",
-				"projectName":"",
-				"recommendResult":"",
-				"remark":"",
-				"ruleNumber":"",
-				"ruleRemark":"",
-				"simpleName":"",
-				"subType":""
-			},
-			{
-				"customerExams":[
-					{
-						"customerId":1219,
-						"descr":"",
-						"examId":61,
-						"id":88009,
-						"orgCompoundName":"MRV",
-						"orgExamId":"61",
-						"orgExamName":"MRV",
-						"orgParentExamId":"",
-						"orgPyallName":"",
-						"orgPysimpleName":"",
-						"orgSampleId":"",
-						"orgSampleName":"",
-						"remark":"",
-						"show":1,
-						"sourceType":1,
-						"type":1
-					}
-				],
-				"examTime":"",
-				"examination":"MRV",
-				"examinationId":61,
-				"examinationLevel":3,
-				"examinationPostil":"",
-				"expressId":207427,
-				"ignoreTips":"",
-				"levelDesc":"\xe9\x89\xb4\xe5\x88\xab\xe6\xa3\x80\xe6\x9f\xa5",
-				"projectName":"",
-				"recommendResult":"",
-				"remark":"",
-				"ruleNumber":"",
-				"ruleRemark":"",
-				"simpleName":"",
-				"subType":""
-			},
-			{
-				"customerExams":[
-					{
-						"customerId":1219,
-						"descr":"",
-						"examId":110163,
-						"id":89543,
-						"orgCompoundName":"\xe5\x87\x9d\xe8\xa1\x80\xe5\x8a\x9f\xe8\x83\xbd\xe7\x9b\x91\xe6\xb5\x8b",
-						"orgExamId":"110163",
-						"orgExamName":"\xe5\x87\x9d\xe8\xa1\x80\xe5\x8a\x9f\xe8\x83\xbd\xe7\x9b\x91\xe6\xb5\x8b",
-						"orgParentExamId":"",
-						"orgPyallName":"",
-						"orgPysimpleName":"",
-						"orgSampleId":"",
-						"orgSampleName":"",
-						"remark":"",
-						"show":1,
-						"sourceType":1,
-						"type":1
-					}
-				],
-				"examTime":"",
-				"examination":"\xe5\x87\x9d\xe8\xa1\x80\xe5\x8a\x9f\xe8\x83\xbd\xe7\x9b\x91\xe6\xb5\x8b",
-				"examinationId":110163,
-				"examinationLevel":4,
-				"examinationPostil":"",
-				"expressId":207431,
-				"ignoreTips":"",
-				"levelDesc":"\xe4\xb8\x80\xe8\x88\xac\xe6\xa3\x80\xe6\x9f\xa5",
-				"projectName":"",
-				"recommendResult":"",
-				"remark":"",
-				"ruleNumber":"",
-				"ruleRemark":"",
-				"simpleName":"",
-				"subType":""
-			},
-			{
-				"customerExams":[
-					{
-						"customerId":1219,
-						"descr":"",
-						"examId":110615,
-						"id":89957,
-						"orgCompoundName":"\xe8\x83\xb8\xe9\x83\xa8X\xe7\xba\xbf\xe7\x89\x87",
-						"orgExamId":"110615",
-						"orgExamName":"\xe8\x83\xb8\xe9\x83\xa8X\xe7\xba\xbf\xe7\x89\x87",
-						"orgParentExamId":"",
-						"orgPyallName":"",
-						"orgPysimpleName":"",
-						"orgSampleId":"",
-						"orgSampleName":"",
-						"remark":"",
-						"show":1,
-						"sourceType":1,
-						"type":2
-					}
-				],
-				"examTime":"",
-				"examination":"\xe8\x83\xb8\xe9\x83\xa8X\xe7\xba\xbf\xe7\x89\x87",
-				"examinationId":110615,
-				"examinationLevel":4,
-				"examinationPostil":"",
-				"expressId":207434,
-				"ignoreTips":"",
-				"levelDesc":"\xe4\xb8\x80\xe8\x88\xac\xe6\xa3\x80\xe6\x9f\xa5",
-				"projectName":"",
-				"recommendResult":"",
-				"remark":"",
-				"ruleNumber":"",
-				"ruleRemark":"",
-				"simpleName":"",
-				"subType":""
-			},
-			{
-				"customerExams":[
-					{
-						"customerId":1219,
-						"descr":"",
-						"examId":28,
-						"id":87984,
-						"orgCompoundName":"\xe5\xbf\x83\xe7\x94\xb5\xe5\x9b\xbe",
-						"orgExamId":"28",
-						"orgExamName":"\xe5\xbf\x83\xe7\x94\xb5\xe5\x9b\xbe",
-						"orgParentExamId":"",
-						"orgPyallName":"",
-						"orgPysimpleName":"",
-						"orgSampleId":"",
-						"orgSampleName":"",
-						"remark":"",
-						"show":1,
-						"sourceType":1,
-						"type":2
-					}
-				],
-				"examTime":"",
-				"examination":"\xe5\xbf\x83\xe7\x94\xb5\xe5\x9b\xbe",
-				"examinationId":28,
-				"examinationLevel":4,
-				"examinationPostil":"",
-				"expressId":207433,
-				"ignoreTips":"",
-				"levelDesc":"\xe4\xb8\x80\xe8\x88\xac\xe6\xa3\x80\xe6\x9f\xa5",
-				"projectName":"",
-				"recommendResult":"",
-				"remark":"",
-				"ruleNumber":"",
-				"ruleRemark":"",
-				"simpleName":"",
-				"subType":""
-			},
-			{
-				"customerExams":[
-					{
-						"customerId":1219,
-						"descr":"",
-						"examId":13,
-						"id":87971,
-						"orgCompoundName":"\xe8\xa1\x80\xe5\xb8\xb8\xe8\xa7\x84",
-						"orgExamId":"13",
-						"orgExamName":"\xe8\xa1\x80\xe5\xb8\xb8\xe8\xa7\x84",
-						"orgParentExamId":"",
-						"orgPyallName":"",
-						"orgPysimpleName":"",
-						"orgSampleId":"",
-						"orgSampleName":"",
-						"remark":"",
-						"show":1,
-						"sourceType":1,
-						"type":1
-					}
-				],
-				"examTime":"",
-				"examination":"\xe8\xa1\x80\xe5\xb8\xb8\xe8\xa7\x84",
-				"examinationId":13,
-				"examinationLevel":4,
-				"examinationPostil":"",
-				"expressId":207429,
-				"ignoreTips":"",
-				"levelDesc":"\xe4\xb8\x80\xe8\x88\xac\xe6\xa3\x80\xe6\x9f\xa5",
-				"projectName":"",
-				"recommendResult":"",
-				"remark":"",
-				"ruleNumber":"",
-				"ruleRemark":"",
-				"simpleName":"\xe8\xa1\x80\xe6\xb6\xb2",
-				"subType":""
-			},
-			{
-				"customerExams":[
-					{
-						"customerId":1219,
-						"descr":"",
-						"examId":62,
-						"id":88010,
-						"orgCompoundName":"\xe8\xa1\x80\xe7\x94\x9f\xe5\x8c\x96",
-						"orgExamId":"62",
-						"orgExamName":"\xe8\xa1\x80\xe7\x94\x9f\xe5\x8c\x96",
-						"orgParentExamId":"",
-						"orgPyallName":"",
-						"orgPysimpleName":"",
-						"orgSampleId":"",
-						"orgSampleName":"",
-						"remark":"",
-						"show":1,
-						"sourceType":1,
-						"type":1
-					}
-				],
-				"examTime":"",
-				"examination":"\xe8\xa1\x80\xe7\x94\x9f\xe5\x8c\x96",
-				"examinationId":62,
-				"examinationLevel":4,
-				"examinationPostil":"",
-				"expressId":207430,
-				"ignoreTips":"",
-				"levelDesc":"\xe4\xb8\x80\xe8\x88\xac\xe6\xa3\x80\xe6\x9f\xa5",
-				"projectName":"",
-				"recommendResult":"",
-				"remark":"",
-				"ruleNumber":"",
-				"ruleRemark":"",
-				"simpleName":"",
-				"subType":""
-			},
-			{
-				"customerExams":[
-					{
-						"customerId":1219,
-						"descr":"",
-						"examId":63,
-						"id":88011,
-						"orgCompoundName":"\xe8\xbe\x93\xe8\xa1\x80\xe5\x89\x8d\xe6\xa3\x80\xe6\x9f\xa5",
-						"orgExamId":"63",
-						"orgExamName":"\xe8\xbe\x93\xe8\xa1\x80\xe5\x89\x8d\xe6\xa3\x80\xe6\x9f\xa5",
-						"orgParentExamId":"",
-						"orgPyallName":"",
-						"orgPysimpleName":"",
-						"orgSampleId":"",
-						"orgSampleName":"",
-						"remark":"",
-						"show":1,
-						"sourceType":1,
-						"type":1
-					}
-				],
-				"examTime":"",
-				"examination":"\xe8\xbe\x93\xe8\xa1\x80\xe5\x89\x8d\xe6\xa3\x80\xe6\x9f\xa5",
-				"examinationId":63,
-				"examinationLevel":4,
-				"examinationPostil":"",
-				"expressId":207432,
-				"ignoreTips":"",
-				"levelDesc":"\xe4\xb8\x80\xe8\x88\xac\xe6\xa3\x80\xe6\x9f\xa5",
-				"projectName":"",
-				"recommendResult":"",
-				"remark":"",
-				"ruleNumber":"",
-				"ruleRemark":"",
-				"simpleName":"",
-				"subType":""
-			}
-		],
-		"green_channel":{
-			"channels":[
-				{
-					"code":"",
-					"customerId":1219,
-					"group_condition":"\xe8\x84\x91\xe6\xa2\x97\xe6\xad\xbb\xe6\x82\xa3\xe8\x80\x85\xe6\xbb\xa1\xe8\xb6\xb3\xe8\x84\x91\xe5\x8d\x92\xe4\xb8\xad\xe6\x95\xb0\xe6\x8d\xae\xe5\xa1\xab\xe6\x8a\xa5\xe5\x85\xa5\xe7\xbb\x84\xe8\xa6\x81\xe6\xb1\x82",
-					"id":1,
-					"name":"\xe8\x84\x91\xe5\x8d\x92\xe4\xb8\xad\xe6\x95\xb0\xe6\x8d\xae\xe5\xa1\xab\xe6\x8a\xa5",
-					"report_info":{
-						"code":"",
-						"customerId":1219,
-						"ext_report":[],
-						"group_added":0,
-						"group_name":"",
-						"progressId":"",
-						"progressName":"",
-						"report_name":"",
-						"reported":0,
-						"serialNumber":"",
-						"state":1,
-						"tags":"",
-						"type":"",
-						"userGuid":""
-					},
-					"reports":[
-						{
-							"id":1,
-							"name":"\xe5\x8d\x92\xe4\xb8\xad\xe9\x9d\x99\xe8\x84\x89\xe6\xba\xb6\xe6\xa0\x93\xe6\xb2\xbb\xe7\x96\x97"
-						},
-						{
-							"id":2,
-							"name":"\xe5\x8d\x92\xe4\xb8\xad\xe8\xa1\x80\xe7\xae\xa1\xe5\x86\x85\xe6\xb2\xbb\xe7\x96\x97"
-						},
-						{
-							"id":3,
-							"name":"\xe5\x8d\x92\xe4\xb8\xad\xe6\xa1\xa5\xe6\x8e\xa5\xe6\xb2\xbb\xe7\x96\x97"
-						},
-						{
-							"id":4,
-							"name":"\xe5\x8d\x92\xe4\xb8\xad\xe7\xbb\xbf\xe9\x81\x93\xe4\xbb\x85\xe8\xaf\x84\xe4\xbc\xb0"
-						}
-					],
-					"serialNumber":"",
-					"state":1,
-					"tags":"",
-					"type":"",
-					"userGuid":""
-				}
-			],
-			"code":"",
-			"customerId":1219,
-			"customer_id":1219,
-			"record_id":312859,
-			"serialNumber":"",
-			"state":1,
-			"tags":"",
-			"type":"",
-			"userGuid":""
-		},
-		"hasRecommend":4,
-		"illnessAssessList":[
-			{
-				"assessId":"686",
-				"assessItem":"\xe4\xb8\x89\xe7\xa7\x8d\xe5\xb8\xb8\xe7\x94\xa8\xe8\x84\x91\xe5\x8d\x92\xe4\xb8\xad\xe4\xba\x9a\xe5\x9e\x8b\xe5\x88\x86\xe5\x9e\x8b\xe6\xa0\x87\xe5\x87\x86",
-				"assessPostil":"\xe8\x84\x91\xe5\x8d\x92\xe4\xb8\xad\xe5\x88\x86\xe7\xb1\xbb\xe4\xb8\xba\xe7\xbc\xba\xe8\xa1\x80\xe6\x80\xa7\xe5\x8d\x92\xe4\xb8\xad\xe3\x80\x81\xe5\x87\xba\xe8\xa1\x80\xe6\x80\xa7\xe5\x8d\x92\xe4\xb8\xad\xef\xbc\x8c\xe5\x8f\xaf\xe8\xbf\x9b\xe4\xb8\x80\xe6\xad\xa5\xe5\x88\x86\xe4\xb8\xba\xe4\xb8\x8d\xe5\x90\x8c\xe4\xba\x9a\xe5\x9e\x8b\xef\xbc\x8c\xe6\xa0\xb9\xe6\x8d\xae\xe7\x97\x85\xe5\x9b\xa0\xe3\x80\x81\xe5\x8f\x91\xe7\x97\x85\xe6\x9c\xba\xe5\x88\xb6\xe3\x80\x81\xe4\xb8\xb4\xe5\xba\x8a\xe8\xa1\xa8\xe7\x8e\xb0\xe5\x92\x8c\xe7\x97\x85\xe5\x8f\x98\xe9\x83\xa8\xe4\xbd\x8d\xe8\xbf\x9b\xe8\xa1\x8c\xef\xbc\x8c\xe6\x8c\x87\xe5\xaf\xbc\xe9\x80\x89\xe6\x8b\xa9\xe5\x90\x88\xe9\x80\x82\xe6\xb2\xbb\xe7\x96\x97\xe3\x80\x82\xe4\xb8\x89\xe7\xb1\xbb\xe4\xbd\x93\xe7\xb3\xbb\xe5\x8c\x85\xe6\x8b\xac\xef\xbc\x9a\xe8\x84\x91\xe6\xa2\x97\xe6\xad\xbbTOAST\xe5\x88\x86\xe5\x9e\x8b\xe3\x80\x81\xe8\x84\x91\xe6\xa2\x97\xe6\xad\xbbOCSP\xe5\x88\x86\xe5\x9e\x8b\xe3\x80\x81\xe8\x84\x91\xe5\x87\xba\xe8\xa1\x80AMASH-U\xe5\x88\x86\xe5\x9e\x8b",
-				"compare":0,
-				"expressId":107534,
-				"fileName":"",
-				"ignoreTips":"",
-				"projectName":"",
-				"recommendResult":"",
-				"ruleNumber":"",
-				"ruleRemark":""
-			},
-			{
-				"assessId":"22",
-				"assessItem":"\xe6\xb4\xbc\xe7\x94\xb0\xe9\xa5\xae\xe6\xb0\xb4\xe8\xaf\x95\xe9\xaa\x8c",
-				"assessPostil":"\xe6\xb4\xbc\xe7\x94\xb0\xe9\xa5\xae\xe6\xb0\xb4\xe8\xaf\x95\xe9\xaa\x8c\xe8\xaf\x84\xe4\xbc\xb0\xe6\x82\xa3\xe8\x80\x85\xe5\x90\x9e\xe5\x92\xbd\xe5\x8a\x9f\xe8\x83\xbd",
-				"compare":0,
-				"expressId":207435,
-				"fileName":"drinkExam.html",
-				"ignoreTips":"",
-				"projectName":"",
-				"recommendResult":"",
-				"ruleNumber":"",
-				"ruleRemark":""
-			},
-			{
-				"assessId":"1001",
-				"assessItem":"CT\xe8\x84\x91\xe5\x87\xba\xe8\xa1\x80\xe5\x87\xba\xe8\xa1\x80\xe9\x87\x8f\xe8\xae\xa1\xe7\xae\x97\xe5\x85\xac\xe5\xbc\x8f",
-				"assessPostil":"CT\xe8\x84\x91\xe5\x87\xba\xe8\xa1\x80\xe5\x87\xba\xe8\xa1\x80\xe9\x87\x8f\xe8\xae\xa1\xe7\xae\x97\xe5\x85\xac\xe5\xbc\x8f\xe8\xaf\x84\xe4\xbc\xb0\xe6\x82\xa3\xe8\x80\x85\xe7\x97\x85\xe6\x83\x85",
-				"compare":0,
-				"expressId":207439,
-				"fileName":"CTcereHemg.html",
-				"ignoreTips":"",
-				"projectName":"",
-				"recommendResult":"",
-				"ruleNumber":"",
-				"ruleRemark":""
-			},
-			{
-				"assessId":"23",
-				"assessItem":"Glasgow\xe6\x98\x8f\xe8\xbf\xb7\xe8\xaf\x84\xe5\x88\x86\xe9\x87\x8f\xe8\xa1\xa8",
-				"assessPostil":"Glasgow\xe6\x98\x8f\xe8\xbf\xb7\xe8\xaf\x84\xe5\x88\x86\xe9\x87\x8f\xe8\xa1\xa8\xe8\xaf\x84\xe4\xbc\xb0\xe6\x82\xa3\xe8\x80\x85\xe6\x84\x8f\xe8\xaf\x86\xe9\x9a\x9c\xe7\xa2\x8d\xe7\xa8\x8b\xe5\xba\xa6",
-				"compare":0,
-				"expressId":207438,
-				"fileName":"coma.html",
-				"ignoreTips":"",
-				"projectName":"",
-				"recommendResult":"",
-				"ruleNumber":"",
-				"ruleRemark":""
-			},
-			{
-				"assessId":"11",
-				"assessItem":"NIHSS\xe5\x8d\x92\xe4\xb8\xad\xe9\x87\x8f\xe8\xa1\xa8",
-				"assessPostil":"NIHSS\xe5\x8d\x92\xe4\xb8\xad\xe9\x87\x8f\xe8\xa1\xa8\xe8\xaf\x84\xe4\xbc\xb0\xe6\x82\xa3\xe8\x80\x85\xe7\x97\x85\xe6\x83\x85\xe4\xb8\xa5\xe9\x87\x8d\xe7\xa8\x8b\xe5\xba\xa6\xef\xbc\x8c\xe8\xbf\x9e\xe7\xbb\xad\xe8\xa7\x82\xe5\xaf\x9f\xe7\x97\x85\xe6\x83\x85\xe8\xbf\x9b\xe5\xb1\x95\xe5\x8f\x98\xe5\x8c\x96",
-				"compare":0,
-				"expressId":207437,
-				"fileName":"nih.html",
-				"ignoreTips":"",
-				"projectName":"",
-				"recommendResult":"",
-				"ruleNumber":"",
-				"ruleRemark":""
-			},
-			{
-				"assessId":"1002",
-				"assessItem":"ICH\xe8\xaf\x84\xe5\x88\x86\xe9\x87\x8f\xe8\xa1\xa8",
-				"assessPostil":"ICH\xe8\xaf\x84\xe5\x88\x86\xe9\x87\x8f\xe8\xa1\xa8\xe8\xaf\x84\xe4\xbc\xb0\xe6\x82\xa3\xe8\x80\x85\xe7\x97\x85\xe6\x83\x85",
-				"compare":0,
-				"expressId":207436,
-				"fileName":"ICH.html",
-				"ignoreTips":"",
-				"projectName":"",
-				"recommendResult":"",
-				"ruleNumber":"",
-				"ruleRemark":""
-			},
-			{
-				"assessId":"838",
-				"assessItem":"Brunnstrom\xe5\x8a\x9f\xe8\x83\xbd\xe5\x88\x86\xe6\x9c\x9f",
-				"assessPostil":"Brunnstrom\xe8\x82\xa2\xe4\xbd\x93\xe8\xbf\x90\xe5\x8a\xa8\xe5\x8a\x9f\xe8\x83\xbd\xe5\x88\x86\xe6\x9c\x9f\xef\xbc\x8c\xe8\xbf\x90\xe5\x8a\xa8\xe5\x8a\x9f\xe8\x83\xbd\xe9\x9a\x9c\xe7\xa2\x8d\xe7\xad\x89\xe7\xba\xa7\xe8\xaf\x84\xe5\xae\x9a\xef\xbc\x8c\xe8\xae\xb0\xe5\xbd\x95\xe4\xb8\x8a\xe8\x82\xa2\xe3\x80\x81\xe4\xb8\x8b\xe8\x82\xa2\xe3\x80\x81\xe6\x89\x8b\xe6\x8c\x87\xe5\x8a\x9f\xe8\x83\xbd\xe7\xad\x89\xe8\xaf\x84\xe4\xbc\xb0\xe7\xbb\x93\xe6\x9e\x9c",
-				"compare":0,
-				"expressId":207443,
-				"fileName":"",
-				"ignoreTips":"",
-				"projectName":"",
-				"recommendResult":"",
-				"ruleNumber":"",
-				"ruleRemark":""
-			},
-			{
-				"assessId":"494",
-				"assessItem":"\xe6\x94\xb9\xe8\x89\xafAshworth\xe5\x88\x86\xe7\xba\xa7\xe6\xb3\x95\xe8\xaf\x84\xe5\xae\x9a\xe6\xa0\x87\xe5\x87\x86",
-				"assessPostil":"Ashworth\xe5\x88\x86\xe7\xba\xa7\xe8\xaf\x84\xe5\xae\x9a\xe8\x82\xa2\xe4\xbd\x93\xe8\x82\x8c\xe5\xbc\xa0\xe5\x8a\x9b\xe9\x9a\x9c\xe7\xa2\x8d\xe6\x83\x85\xe5\x86\xb5\xe3\x80\x82\xe8\x82\x8c\xe5\xbc\xa0\xe5\x8a\x9b\xe9\x9a\x9c\xe7\xa2\x8d\xe6\x98\xaf\xe4\xb8\x80\xe7\xa7\x8d\xe6\x8c\x81\xe7\xbb\xad\xe6\x80\xa7\xe6\x88\x96\xe9\x97\xb4\xe6\x96\xad\xe6\x80\xa7\xe8\x82\x8c\xe8\x82\x89\xe6\x94\xb6\xe7\xbc\xa9\xe5\xbc\x95\xe8\xb5\xb7\xe7\x9a\x84\xe5\xbc\x82\xe5\xb8\xb8\xe8\xbf\x90\xe5\x8a\xa8\xe5\x92\x8c/\xe6\x88\x96\xe5\xa7\xbf\xe5\x8a\xbf\xe7\x9a\x84\xe8\xbf\x90\xe5\x8a\xa8\xe9\x9a\x9c\xe7\xa2\x8d\xef\xbc\x8c\xe5\x8f\xaf\xe8\xa2\xab\xe9\x9a\x8f\xe6\x84\x8f\xe5\x8a\xa8\xe4\xbd\x9c\xe8\xaf\xb1\xe5\x8f\x91\xe6\x88\x96\xe5\x8a\xa0\xe9\x87\x8d\xef\xbc\x8c\xe5\xbc\x82\xe5\xb8\xb8\xe8\xbf\x90\xe5\x8a\xa8\xe4\xb8\xbb\xe8\xa6\x81\xe8\xa1\xa8\xe7\x8e\xb0\xe4\xb8\xba\xe6\xa8\xa1\xe5\xbc\x8f\xe6\x80\xa7\xe3\x80\x81\xe6\x89\xad\xe8\xbd\xac\xe6\x80\xa7\xe5\x92\x8c\xe9\xa2\xa4\xe6\x8a\x96\xe6\x80\xa7\xe5\x8a\xa8\xe4\xbd\x9c",
-				"compare":0,
-				"expressId":207442,
-				"fileName":"",
-				"ignoreTips":"",
-				"projectName":"",
-				"recommendResult":"",
-				"ruleNumber":"",
-				"ruleRemark":""
-			},
-			{
-				"assessId":"527",
-				"assessItem":"\xe8\x82\x8c\xe5\x8a\x9b\xe5\x88\x86\xe7\xba\xa7(MRC)",
-				"assessPostil":"\xe8\xaf\x84\xe4\xbc\xb0\xe5\x90\x84\xe8\x82\xa2\xe4\xbd\x93\xe8\x82\x8c\xe5\x8a\x9b\xe7\xad\x89\xe7\xba\xa7",
-				"compare":0,
-				"expressId":207441,
-				"fileName":"MRC.html",
-				"ignoreTips":"",
-				"projectName":"",
-				"recommendResult":"",
-				"ruleNumber":"",
-				"ruleRemark":""
-			},
-			{
-				"assessId":"24",
-				"assessItem":"\xe6\x94\xb9\xe8\x89\xafRankin\xe9\x87\x8f\xe8\xa1\xa8\xef\xbc\x88mRS\xef\xbc\x89",
-				"assessPostil":"\xe6\x94\xb9\xe8\x89\xafRankin\xe9\x87\x8f\xe8\xa1\xa8\xef\xbc\x88mRS\xef\xbc\x89\xe8\xaf\x84\xe4\xbc\xb0\xe6\x82\xa3\xe8\x80\x85",
-				"compare":0,
-				"expressId":207440,
-				"fileName":"rankin.html",
-				"ignoreTips":"",
-				"projectName":"",
-				"recommendResult":"",
-				"ruleNumber":"",
-				"ruleRemark":""
-			},
-			{
-				"assessId":"827",
-				"assessItem":"\xe6\xa0\x87\xe5\x87\x86\xe5\x90\x9e\xe5\x92\xbd\xe5\x8a\x9f\xe8\x83\xbd\xe9\x9a\x9c\xe7\xa2\x8d\xe7\xad\x9b\xe6\x9f\xa5\xe9\x87\x8f\xe8\xa1\xa8\xef\xbc\x88Standardised Swallowing Screen\xef\xbc\x89",
-				"assessPostil":"SSA\xe9\x87\x8f\xe8\xa1\xa8\xe8\xaf\x84\xe4\xbc\xb0\xe5\x90\x9e\xe5\x92\xbd\xe5\x8a\x9f\xe8\x83\xbd\xef\xbc\x8c\xe7\xad\x9b\xe6\x9f\xa5\xe5\x87\xba\xe5\x90\x9e\xe5\x92\xbd\xe9\x9a\x9c\xe7\xa2\x8d\xe6\x82\xa3\xe8\x80\x85\xe3\x80\x82\xe9\x87\x87\xe5\x8f\x96\xe5\x90\x88\xe7\x90\x86\xe6\x8e\xaa\xe6\x96\xbd\xe9\xa2\x84\xe9\x98\xb2\xe5\x92\x8c\xe6\xb2\xbb\xe7\x96\x97\xe5\x8d\x92\xe4\xb8\xad\xe6\x82\xa3\xe8\x80\x85\xef\xbc\x8c\xe9\x99\x8d\xe4\xbd\x8e\xe5\x8f\x91\xe7\x94\x9f\xe5\x91\x9b\xe5\x92\xb3\xe3\x80\x81\xe5\x99\x8e\xe9\xa3\x9f\xe3\x80\x81\xe7\xaa\x92\xe6\x81\xaf\xe3\x80\x81\xe5\x90\xb8\xe5\x85\xa5\xe6\x80\xa7\xe8\x82\xba\xe7\x82\x8e\xe7\xad\x89\xe9\xa3\x8e\xe9\x99\xa9",
-				"compare":0,
-				"expressId":207446,
-				"fileName":"",
-				"ignoreTips":"",
-				"projectName":"",
-				"recommendResult":"",
-				"ruleNumber":"",
-				"ruleRemark":""
-			},
-			{
-				"assessId":"104",
-				"assessItem":"\xe7\xae\x80\xe6\x98\x93\xe7\xb2\xbe\xe7\xa5\x9e\xe7\x8a\xb6\xe6\x80\x81\xe9\x87\x8f\xe8\xa1\xa8(MMSE)",
-				"assessPostil":"\xe7\xae\x80\xe6\x98\x93\xe7\xb2\xbe\xe7\xa5\x9e\xe7\x8a\xb6\xe6\x80\x81\xe9\x87\x8f\xe8\xa1\xa8\xe6\x88\x96\xe7\xa7\xb0\xe7\xae\x80\xe6\x98\x93\xe7\xb2\xbe\xe7\xa5\x9e\xe7\x8a\xb6\xe6\x80\x81\xe6\xa3\x80\xe6\x9f\xa5\xe8\xa1\xa8\xe6\x98\xaf\xe6\x9c\x80\xe5\x85\xb7\xe5\xbd\xb1\xe5\x93\x8d\xe7\x9a\x84\xe6\xa0\x87\xe5\x87\x86\xe5\x8c\x96\xe6\x99\xba\xe5\x8a\x9b\xe7\x8a\xb6\xe6\x80\x81\xe6\xa3\x80\xe6\x9f\xa5\xe5\xb7\xa5\xe5\x85\xb7\xe4\xb9\x8b\xe4\xb8\x80\xe3\x80\x82\xe7\xad\x9b\xe6\x9f\xa5\xe8\xa1\x80\xe7\xae\xa1\xe6\x80\xa7\xe7\x97\xb4\xe5\x91\x86\xe6\x82\xa3\xe8\x80\x85",
-				"compare":0,
-				"expressId":207445,
-				"fileName":"psychosis.html",
-				"ignoreTips":"",
-				"projectName":"",
-				"recommendResult":"",
-				"ruleNumber":"",
-				"ruleRemark":""
-			},
-			{
-				"assessId":"513",
-				"assessItem":"\xe8\xae\xa4\xe7\x9f\xa5\xe9\x9a\x9c\xe7\xa2\x8d\xe8\x87\xaa\xe8\xaf\x84\xe8\xa1\xa8(AD8)",
-				"assessPostil":"\xe8\xaf\xa2\xe9\x97\xae\xe7\x9f\xa5\xe6\x83\x85\xe8\x80\x85\xef\xbc\x8c\xe5\xaf\xb9\xe6\xaf\x94\xe6\x82\xa3\xe8\x80\x85\xe8\x87\xaa\xe8\xba\xab\xe8\xae\xa4\xe7\x9f\xa5\xe5\x8a\x9f\xe8\x83\xbd\xe5\x8f\x98\xe5\x8c\x96\xe7\x8a\xb6\xe5\x86\xb5\xef\xbc\x8c\xe4\xb8\x8d\xe9\x9c\x80\xe8\xa6\x81\xe5\x9f\xba\xe7\xba\xbf\xe9\x98\xb6\xe6\xae\xb5\xe8\xaf\x84\xe4\xbc\xb0\xef\xbc\x8c\xe4\xb8\x8d\xe5\x8f\x97\xe6\x95\x99\xe8\x82\xb2\xe7\xa8\x8b\xe5\xba\xa6\xe3\x80\x81\xe7\xa7\x8d\xe6\x97\x8f\xe3\x80\x81\xe6\x80\xa7\xe5\x88\xab\xe7\xad\x89\xe5\x9b\xa0\xe7\xb4\xa0\xe5\xbd\xb1\xe5\x93\x8d\xe3\x80\x828\xe4\xb8\xaa\xe9\x97\xae\xe9\xa2\x98&gt;=2\xe9\xa1\xb9\xe5\x9b\x9e\xe7\xad\x94\"\xe6\x98\xaf\"\xe5\x88\x99\xe9\xab\x98\xe5\xba\xa6\xe6\x8f\x90\xe7\xa4\xba\xe7\x97\xb4\xe5\x91\x86",
-				"compare":0,
-				"expressId":207444,
-				"fileName":"AD8.html",
-				"ignoreTips":"",
-				"projectName":"",
-				"recommendResult":"",
-				"ruleNumber":"",
-				"ruleRemark":""
-			}
-		],
-		"logicalDiseaseInfo":{
-			"tabooStatus":3
-		},
-		"medicalRecordResult":{
-			"admissionRecordResults":[
-				{
-					"displayType":1,
-					"isSpecificRemark":false,
-					"lineItemVeto":0,
-					"projectName":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95\xe5\xae\xb6\xe6\x97\x8f\xe5\x8f\xb2\xe7\x88\xb6\xe6\xaf\x8d\xe6\x83\x85\xe5\x86\xb5\xe5\xae\x8c\xe6\x95\xb4\xe6\x80\xa7\xe8\xb4\xa8\xe6\xa3\x80",
-					"projectNameId":209,
-					"reason":"",
-					"recommendLevel":3,
-					"remark":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe5\xae\xb6\xe6\x97\x8f\xe5\x8f\xb2\xe7\x88\xb6\xe6\xaf\x8d\xe6\x83\x85\xe5\x86\xb5\xe6\x9c\xaa\xe5\xa1\xab\xe5\x86\x99",
-					"result":2,
-					"ruleCategory":"xs",
-					"ruleCode":"wz87"
-				},
-				{
-					"displayType":1,
-					"isSpecificRemark":false,
-					"lineItemVeto":0,
-					"projectName":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95\xe5\xae\xb6\xe6\x97\x8f\xe5\x8f\xb2\xe5\x85\x84\xe5\xbc\x9f\xe5\xa7\x90\xe5\xa6\xb9\xe6\x83\x85\xe5\x86\xb5\xe5\xae\x8c\xe6\x95\xb4\xe6\x80\xa7\xe8\xb4\xa8\xe6\xa3\x80",
-					"projectNameId":207,
-					"reason":"",
-					"recommendLevel":2,
-					"remark":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe5\xae\xb6\xe6\x97\x8f\xe5\x8f\xb2\xe5\x85\x84\xe5\xbc\x9f\xe5\xa7\x90\xe5\xa6\xb9\xe6\x83\x85\xe5\x86\xb5\xe6\x9c\xaa\xe5\xa1\xab\xe5\x86\x99",
-					"result":2,
-					"ruleCategory":"xs",
-					"ruleCode":"wz88"
-				},
-				{
-					"displayType":1,
-					"isSpecificRemark":false,
-					"lineItemVeto":0,
-					"projectName":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95\xe6\x97\xa2\xe5\xbe\x80\xe5\x8f\xb2\xe5\xae\x8c\xe6\x95\xb4\xe6\x80\xa7\xe8\xb4\xa8\xe6\xa3\x80",
-					"projectNameId":52,
-					"reason":"",
-					"recommendLevel":1,
-					"remark":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe6\x97\xa2\xe5\xbe\x80\xe5\x8f\xb2\xe6\x9c\xaa\xe5\xa1\xab\xe5\x86\x99",
-					"result":2,
-					"ruleCategory":"xs",
-					"ruleCode":"wz145"
-				},
-				{
-					"displayType":1,
-					"isSpecificRemark":false,
-					"lineItemVeto":0,
-					"projectName":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95\xe8\xbf\x87\xe6\x95\x8f\xe5\x8f\xb2\xe5\xae\x8c\xe6\x95\xb4\xe6\x80\xa7\xe8\xb4\xa8\xe6\xa3\x80",
-					"projectNameId":54,
-					"reason":"",
-					"recommendLevel":1,
-					"remark":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe8\xbf\x87\xe6\x95\x8f\xe5\x8f\xb2\xe6\x9c\xaa\xe5\xa1\xab\xe5\x86\x99",
-					"result":2,
-					"ruleCategory":"xs",
-					"ruleCode":"qt59"
-				},
-				{
-					"displayType":1,
-					"isSpecificRemark":false,
-					"lineItemVeto":0,
-					"projectName":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95\xe6\x97\xa0\xe4\xb8\x93\xe7\xa7\x91\xe6\xa3\x80\xe6\x9f\xa5",
-					"projectNameId":63,
-					"reason":"",
-					"recommendLevel":1,
-					"remark":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe4\xb8\x93\xe7\xa7\x91\xe6\xa3\x80\xe6\x9f\xa5\xe6\x9c\xaa\xe5\xa1\xab\xe5\x86\x99",
-					"result":2,
-					"ruleCategory":"xs",
-					"ruleCode":"wz147"
-				},
-				{
-					"displayType":1,
-					"isSpecificRemark":false,
-					"lineItemVeto":0,
-					"projectName":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95\xe6\x97\xa0\xe4\xbd\x93\xe6\xa0\xbc\xe6\xa3\x80\xe6\x9f\xa5",
-					"projectNameId":66,
-					"reason":"",
-					"recommendLevel":1,
-					"remark":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe4\xbd\x93\xe6\xa0\xbc\xe6\xa3\x80\xe6\x9f\xa5\xe6\x9c\xaa\xe5\xa1\xab\xe5\x86\x99",
-					"result":2,
-					"ruleCategory":"xs",
-					"ruleCode":"wz146"
-				},
-				{
-					"displayType":1,
-					"isSpecificRemark":false,
-					"lineItemVeto":0,
-					"projectName":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95\xe6\x97\xa0\xe4\xb8\xbb\xe8\xaf\x89",
-					"projectNameId":165,
-					"reason":"",
-					"recommendLevel":1,
-					"remark":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe4\xb8\xbb\xe8\xaf\x89\xe6\x9c\xaa\xe5\xa1\xab\xe5\x86\x99",
-					"result":2,
-					"ruleCategory":"xs",
-					"ruleCode":"wz139"
-				},
-				{
-					"displayType":1,
-					"isSpecificRemark":false,
-					"lineItemVeto":0,
-					"projectName":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95\xe6\x97\xa0\xe8\xbe\x85\xe5\x8a\xa9\xe6\xa3\x80\xe6\x9f\xa5\xe8\xae\xb0\xe5\xbd\x95\xef\xbc\x88\xe6\xb3\xa8\xe6\x98\x8e\xe5\xa4\x96\xe9\x99\xa2\xe6\x9c\xba\xe6\x9e\x84\xe5\x90\x8d\xe7\xa7\xb0\xe5\x8f\x8a\xe6\x97\xa5\xe6\x9c\x9f\xef\xbc\x89",
-					"projectNameId":257,
-					"reason":"",
-					"recommendLevel":1,
-					"remark":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95\xe6\x97\xa0\xe8\xbe\x85\xe5\x8a\xa9\xe6\xa3\x80\xe6\x9f\xa5\xe8\xae\xb0\xe5\xbd\x95",
-					"result":2,
-					"ruleCategory":"xs",
-					"ruleCode":"wz187"
-				},
-				{
-					"displayType":1,
-					"isSpecificRemark":false,
-					"lineItemVeto":0,
-					"projectName":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95\xe7\xa1\xae\xe5\xae\x9a\xe8\xaf\x8a\xe6\x96\xad\xe5\xae\x8c\xe6\x95\xb4\xe6\x80\xa7\xe8\xb4\xa8\xe6\xa3\x80",
-					"projectNameId":476,
-					"reason":"",
-					"recommendLevel":1,
-					"remark":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe7\xa1\xae\xe5\xae\x9a\xe8\xaf\x8a\xe6\x96\xad\xe6\x9c\xaa\xe5\xa1\xab\xe5\x86\x99",
-					"result":2,
-					"ruleCategory":"xs",
-					"ruleCode":"wz325"
-				},
-				{
-					"displayType":3,
-					"isSpecificRemark":false,
-					"lineItemVeto":0,
-					"projectName":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xaf\x8a\xe6\x96\xad\xe5\x9c\xa8\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95\xe4\xb8\xad\xe6\x97\xa0\xe7\x9b\xb8\xe5\xba\x94\xe7\x9a\x84\xe8\xaf\x8a\xe6\x96\xad\xe4\xbe\x9d\xe6\x8d\xae",
-					"projectNameId":436,
-					"reason":"",
-					"recommendLevel":1,
-					"remark":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xaf\x8a\xe6\x96\xad\xe2\x80\x9c\xe9\xab\x98\xe8\xa1\x80\xe5\x8e\x8b\xe2\x80\x9d\xef\xbc\x8c\xe5\x9c\xa8\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95\xe4\xb8\xad\xe6\x9c\xaa\xe4\xbd\x93\xe7\x8e\xb0\xe7\x9b\xb8\xe5\xba\x94\xe7\x9a\x84\xe7\x97\x85\xe5\x8f\xb2\xe3\x80\x81\xe4\xb8\xb4\xe5\xba\x8a\xe8\xa1\xa8\xe7\x8e\xb0\xe3\x80\x81\xe6\xa3\x80\xe6\x9f\xa5\xe7\xbb\x93\xe6\x9e\x9c\xe7\xad\x89\xe8\xaf\x8a\xe6\x96\xad\xe4\xbe\x9d\xe6\x8d\xae\xef\xbc\x8c\xe8\xaf\xb7\xe8\xa1\xa5\xe5\x85\x85\xe7\xa1\xae\xe8\xae\xa4",
-					"result":2,
-					"ruleCategory":"nh",
-					"ruleCode":"nh6"
-				}
-			],
-			"dischargeRecordResults":[],
-			"examinationResults":[],
-			"feedbackStatus":-1,
-			"firstProgressResults":[],
-			"ifCacheTimeout":2,
-			"mcRecordApproval":{
-				"recordRoleResultList":[],
-				"remark":""
-			},
-			"medicalRecordFirstResults":[],
-			"operationResults":[],
-			"progressResults":[
-				{
-					"displayType":4,
-					"isSpecificRemark":false,
-					"lineItemVeto":0,
-					"projectName":"24\xe5\xb0\x8f\xe6\x97\xb6\xe8\xb0\x88\xe8\xaf\x9d\xe8\xae\xb0\xe5\xbd\x95(\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\xae\x8c\xe6\x88\x90\xef\xbc\x8c\xe6\xaf\x8f\xe4\xb8\xaa\xe6\x82\xa3\xe8\x80\x85\xe9\x83\xbd\xe8\xa6\x81\xe6\x9c\x89)",
-					"projectNameId":56,
-					"reason":"",
-					"recommendLevel":1,
-					"remark":"24\xe5\xb0\x8f\xe6\x97\xb6\xe8\xb0\x88\xe8\xaf\x9d\xe8\xae\xb0\xe5\xbd\x95\xe5\xba\x94\xe5\x9c\xa8\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\xae\x8c\xe6\x88\x90",
-					"result":2,
-					"ruleCategory":"xs",
-					"ruleCode":"wz141"
-				},
-				{
-					"displayType":4,
-					"isSpecificRemark":false,
-					"lineItemVeto":0,
-					"projectName":"\xe5\x85\xa5\xe9\x99\xa2\xe5\x90\x8e\xe9\xa6\x96\xe6\xac\xa1\xe6\x9f\xa5\xe6\x88\xbf\xe8\xae\xb0\xe5\xbd\x95\xe5\xa1\xab\xe5\x86\x99\xe5\x8f\x8a\xe6\x97\xb6\xe6\x80\xa7\xe8\xb4\xa8\xe6\xa3\x80",
-					"projectNameId":458,
-					"reason":"",
-					"recommendLevel":1,
-					"remark":"\xe9\xa6\x96\xe6\xac\xa1\xe6\x9f\xa5\xe6\x88\xbf\xe8\xae\xb0\xe5\xbd\x95\xe6\x9c\xaa\xe5\x9c\xa8\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa248\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\xae\x8c\xe6\x88\x90",
-					"result":2,
-					"ruleCategory":"xs",
-					"ruleCode":"wz192"
-				},
-				{
-					"displayType":4,
-					"isSpecificRemark":false,
-					"lineItemVeto":0,
-					"projectName":"\xe5\x85\xa5\xe9\x99\xa2\xe5\x90\x8e\xe4\xb8\x8a\xe7\xba\xa7\xe5\x8c\xbb\xe5\xb8\x88\xe6\x9f\xa5\xe6\x88\xbf\xe8\xae\xb0\xe5\xbd\x95\xe5\xa1\xab\xe5\x86\x99\xe5\x8f\x8a\xe6\x97\xb6\xe6\x80\xa7\xe8\xb4\xa8\xe6\xa3\x80",
-					"projectNameId":460,
-					"reason":"",
-					"recommendLevel":1,
-					"remark":"\xe4\xb8\x8a\xe7\xba\xa7\xe5\x8c\xbb\xe5\xb8\x88\xe6\x9f\xa5\xe6\x88\xbf\xe8\xae\xb0\xe5\xbd\x95\xe6\x9c\xaa\xe5\x9c\xa8\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa272\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\xae\x8c\xe6\x88\x90",
-					"result":2,
-					"ruleCategory":"xs",
-					"ruleCode":"wz193"
-				}
-			],
-			"roleRemark":"",
-			"showRemainingTime":2,
-			"talkRecordResults":[],
-			"testResults":[],
-			"vetoList":[
-				{
-					"displayType":4,
-					"isSpecificRemark":false,
-					"lineItemVeto":1,
-					"projectName":"\xe9\xa6\x96\xe6\xac\xa1\xe7\x97\x85\xe7\xa8\x8b\xe8\xae\xb0\xe5\xbd\x95\xe5\x8f\x8a\xe6\x97\xb6\xe6\x80\xa7\xe8\xb4\xa8\xe6\xa3\x80",
-					"projectNameId":11,
-					"reason":"",
-					"recommendLevel":1,
-					"remark":"\xe9\xa6\x96\xe6\xac\xa1\xe7\x97\x85\xe7\xa8\x8b\xe8\xae\xb0\xe5\xbd\x95\xe5\xba\x94\xe5\x9c\xa8\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa28\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\xae\x8c\xe6\x88\x90",
-					"result":2,
-					"ruleCategory":"xs",
-					"ruleCode":"wz77"
-				},
-				{
-					"displayType":4,
-					"isSpecificRemark":false,
-					"lineItemVeto":1,
-					"projectName":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95\xe4\xb9\xa6\xe5\x86\x99\xe5\x8f\x8a\xe6\x97\xb6\xe6\x80\xa7\xe8\xb4\xa8\xe6\xa3\x80",
-					"projectNameId":105,
-					"reason":"",
-					"recommendLevel":1,
-					"remark":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95\xe5\xba\x94\xe5\x9c\xa8\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\xae\x8c\xe6\x88\x90",
-					"result":2,
-					"ruleCategory":"xs",
-					"ruleCode":"wz74"
-				}
-			]
-		},
-		"medlcalRecordFlag":1,
-		"openInterdict":0,
-		"patientInfo":{
-			"admissionBedCode":"",
-			"age":19.0,
-			"ageType":"\xe5\xb2\x81",
-			"bedNumber":"",
-			"currentBedCode":"",
-			"definiteDiagnosis":[
-				"\xe8\x84\x91\xe5\x86\x85\xe5\x87\xba\xe8\xa1\x80",
-				"\xe9\xab\x98\xe8\xa1\x80\xe5\x8e\x8b"
-			],
-			"displayNum":"1599186368486",
-			"gender":1,
-			"inpatientDepartment":"\xe5\x91\xbc\xe5\x90\xb8\xe7\xa7\x91",
-			"name":"tester",
-			"orgName":"\xe6\x88\x91\xe6\x98\xaf\xe5\xb0\xb9\xe5\xae\x8f\xe5\x88\xa9",
-			"serialNumber":"1599186368486",
-			"transferDepartmentName":"",
-			"userGuid":"1599186368486"
-		},
-		"qualityControlResponse":{
-			"illnessAssessList":[
-				{
-					"aiResult":{
-						"assessDictName":"Padua\xe8\xaf\x84\xe5\x88\x86",
-						"assessId":439,
-						"assessName":"\xe5\x86\x85\xe7\xa7\x91VTE\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0(Padua\xe8\xaf\x84\xe5\x88\x86\xe8\xa1\xa8)",
-						"assessResult":"\xe4\xbd\x8e\xe5\x8d\xb1",
-						"assessResultItemList":[],
-						"assessValue":"0",
-						"assessValueUnit":"\xe5\x88\x86",
-						"displayResult":"\xe4\xbd\x8e\xe5\x8d\xb1"
-					},
-					"assessId":"439",
-					"assessItem":"\xe5\x86\x85\xe7\xa7\x91VTE\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0(Padua\xe8\xaf\x84\xe5\x88\x86\xe8\xa1\xa8)",
-					"assessPostil":"\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\xba\x94\xe8\xbf\x9b\xe8\xa1\x8cVTE\xe5\x88\x9d\xe5\xa7\x8b\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0",
-					"assessResultItemList":[],
-					"compare":2,
-					"expressId":29913,
-					"fileName":"Padua.html",
-					"ignore":0,
-					"ignoreTips":"",
-					"isBlockPosition":1,
-					"isConfirmNurse":0,
-					"productId":1024,
-					"projectId":1001,
-					"projectName":"VTE\xe5\x88\x9d\xe5\xa7\x8b\xe8\xaf\x84\xe4\xbc\xb0",
-					"qcDiseaseDiagnosisList":[
-						{
-							"diseaseId":1001,
-							"versionInfo":""
-						}
-					],
-					"recommendResult":"\xe5\x86\x85\xe7\xa7\x91VTE\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0(Padua\xe8\xaf\x84\xe5\x88\x86\xe8\xa1\xa8)",
-					"ruleGroupId":1,
-					"ruleNumber":"HMvte2-RS",
-					"ruleRemark":"\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\xba\x94\xe8\xbf\x9b\xe8\xa1\x8cVTE\xe5\x88\x9d\xe5\xa7\x8b\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0",
-					"warnLevel":1
-				},
-				{
-					"aiResult":{
-						"assessDictName":"Caprini\xe8\xaf\x84\xe5\x88\x86",
-						"assessId":440,
-						"assessName":"\xe5\xa4\x96\xe7\xa7\x91VTE\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0(Caprini\xe8\xaf\x84\xe5\x88\x86\xe8\xa1\xa8)",
-						"assessResult":"\xe9\xab\x98\xe5\x8d\xb1",
-						"assessResultItemList":[
-							{
-								"itemId":118,
-								"itemName":"\xe8\x84\x91\xe5\x8d\x92\xe4\xb8\xad\xef\xbc\x88 &lt;1 \xe4\xb8\xaa\xe6\x9c\x88\xef\xbc\x89 ",
-								"itemValue":"",
-								"score":5.0,
-								"summary":[
-									{
-										"dictionaryAttributeId":86,
-										"originRecord":"&lt;span class=\"hm-qa-eva-del-res-path-light\"&gt;\xe8\x84\x91\xe5\x86\x85\xe5\x87\xba\xe8\xa1\x80&lt;/span&gt;,\xe9\xab\x98\xe8\xa1\x80\xe5\x8e\x8b\xe3\x80\x82",
-										"position":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe5\x88\x9d\xe6\xad\xa5\xe8\xaf\x8a\xe6\x96\xad",
-										"progressId":1619295,
-										"recordTypeId":1,
-										"word":""
-									}
-								],
-								"wordId":311614
-							}
-						],
-						"assessValue":"5",
-						"assessValueUnit":"\xe5\x88\x86",
-						"displayResult":"\xe9\xab\x98\xe5\x8d\xb1"
-					},
-					"assessId":"440",
-					"assessItem":"\xe5\xa4\x96\xe7\xa7\x91VTE\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0(Caprini\xe8\xaf\x84\xe5\x88\x86\xe8\xa1\xa8)",
-					"assessPostil":"\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\xba\x94\xe8\xbf\x9b\xe8\xa1\x8cVTE\xe5\x88\x9d\xe5\xa7\x8b\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0",
-					"assessResultItemList":[
-						{
-							"aiChecked":1,
-							"aiItemValue":"",
-							"doctorItemValue":"",
-							"itemId":118,
-							"itemName":"\xe8\x84\x91\xe5\x8d\x92\xe4\xb8\xad\xef\xbc\x88 &lt;1 \xe4\xb8\xaa\xe6\x9c\x88\xef\xbc\x89 ",
-							"itemUnit":"",
-							"itemValue":"",
-							"score":"5",
-							"summary":[
-								{
-									"dictionaryAttributeId":86,
-									"originRecord":"&lt;span class=\"hm-qa-eva-del-res-path-light\"&gt;\xe8\x84\x91\xe5\x86\x85\xe5\x87\xba\xe8\xa1\x80&lt;/span&gt;,\xe9\xab\x98\xe8\xa1\x80\xe5\x8e\x8b\xe3\x80\x82",
-									"position":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe5\x88\x9d\xe6\xad\xa5\xe8\xaf\x8a\xe6\x96\xad",
-									"progressId":1619295,
-									"recordTypeId":1,
-									"word":""
-								}
-							],
-							"wordId":311614
-						}
-					],
-					"compare":2,
-					"expressId":29912,
-					"fileName":"caprini.html",
-					"ignore":0,
-					"ignoreTips":"",
-					"isBlockPosition":1,
-					"isConfirmNurse":0,
-					"productId":1024,
-					"projectId":1001,
-					"projectName":"VTE\xe5\x88\x9d\xe5\xa7\x8b\xe8\xaf\x84\xe4\xbc\xb0",
-					"qcDiseaseDiagnosisList":[
-						{
-							"diseaseId":1001,
-							"versionInfo":""
-						}
-					],
-					"recommendResult":"\xe5\xa4\x96\xe7\xa7\x91VTE\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0(Caprini\xe8\xaf\x84\xe5\x88\x86\xe8\xa1\xa8)",
-					"ruleGroupId":1,
-					"ruleNumber":"HMvte1-RS",
-					"ruleRemark":"\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\xba\x94\xe8\xbf\x9b\xe8\xa1\x8cVTE\xe5\x88\x9d\xe5\xa7\x8b\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0",
-					"warnLevel":1
-				},
-				{
-					"aiResult":{
-						"assessDictName":"\xe5\x86\x85\xe7\xa7\x91VTE\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0",
-						"assessId":1006,
-						"assessName":"\xe5\x86\x85\xe7\xa7\x91VTE\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0",
-						"assessResult":"\xe4\xbd\x8e\xe5\x8d\xb1",
-						"assessResultItemList":[],
-						"assessValue":"0",
-						"assessValueUnit":"\xe5\x88\x86",
-						"displayResult":"\xe4\xbd\x8e\xe5\x8d\xb1"
-					},
-					"assessId":"1006",
-					"assessItem":"\xe5\x86\x85\xe7\xa7\x91VTE\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0",
-					"assessPostil":"\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\xba\x94\xe8\xbf\x9b\xe8\xa1\x8cVTE\xe5\x88\x9d\xe5\xa7\x8b\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0",
-					"assessResultItemList":[],
-					"compare":2,
-					"expressId":29874,
-					"fileName":"IVTERA.html",
-					"ignore":0,
-					"ignoreTips":"",
-					"isBlockPosition":1,
-					"isConfirmNurse":0,
-					"productId":1024,
-					"projectId":1001,
-					"projectName":"VTE\xe5\x88\x9d\xe5\xa7\x8b\xe8\xaf\x84\xe4\xbc\xb0",
-					"qcDiseaseDiagnosisList":[
-						{
-							"diseaseId":1001,
-							"versionInfo":""
-						}
-					],
-					"recommendResult":"\xe5\x86\x85\xe7\xa7\x91VTE\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0",
-					"ruleGroupId":1,
-					"ruleNumber":"vte2ZR",
-					"ruleRemark":"\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\xba\x94\xe8\xbf\x9b\xe8\xa1\x8cVTE\xe5\x88\x9d\xe5\xa7\x8b\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0",
-					"ruleSources":[
-						{
-							"number":"vte2ZR",
-							"projectName":"VTE\xe5\x88\x9d\xe5\xa7\x8b\xe8\xaf\x84\xe4\xbc\xb0",
-							"remark":"\xe4\xbd\x8f\xe9\x99\xa2\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe8\xbf\x9b\xe8\xa1\x8c\xe9\xa6\x96\xe6\xac\xa1\xe8\xaf\x84\xe4\xbc\xb0\xe3\x80\x82",
-							"sort":1,
-							"sourceDetail":"\xe6\xb7\xb1\xe9\x9d\x99\xe8\x84\x89\xe8\xa1\x80\xe6\xa0\x93\xe5\xbd\xa2\xe6\x88\x90\xe7\x9a\x84\xe8\xaf\x8a\xe6\x96\xad\xe5\x92\x8c\xe6\xb2\xbb\xe7\x96\x97\xe6\x8c\x87\xe5\x8d\x97(\xe7\xac\xac\xe4\xb8\x89\xe7\x89\x88)\xef\xbc\x882017\xef\xbc\x89",
-							"versionInfo":""
-						},
-						{
-							"number":"vte2ZR",
-							"projectName":"VTE\xe5\x88\x9d\xe5\xa7\x8b\xe8\xaf\x84\xe4\xbc\xb0",
-							"remark":"\xe5\xbb\xba\xe8\xae\xae\xe5\x9c\xa8\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe8\xbf\x9b\xe8\xa1\x8cVTE\xe5\x88\x9d\xe5\xa7\x8b\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0\xef\xbc\x8c\xe7\x89\xb9\xe5\x88\xab\xe6\x98\xafVTE\xe9\xab\x98\xe9\xa3\x8e\xe9\x99\xa9\xe7\xa7\x91\xe5\xae\xa4\xe7\x9a\x84\xe4\xbd\x8f\xe9\x99\xa2\xe6\x82\xa3\xe8\x80\x85\xe3\x80\x82",
-							"sort":2,
-							"sourceDetail":"\xe5\x8c\xbb\xe9\x99\xa2\xe5\x86\x85\xe9\x9d\x99\xe8\x84\x89\xe8\xa1\x80\xe6\xa0\x93\xe6\xa0\x93\xe5\xa1\x9e\xe7\x97\x87\xe9\x98\xb2\xe6\xb2\xbb\xe4\xb8\x8e\xe7\xae\xa1\xe7\x90\x86\xe5\xbb\xba\xe8\xae\xae\xef\xbc\x882018\xef\xbc\x89",
-							"versionInfo":""
-						}
-					],
-					"warnLevel":3
-				},
-				{
-					"aiResult":{
-						"assessDictName":"\xe5\xa4\x96\xe7\xa7\x91VTE\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0",
-						"assessId":1005,
-						"assessName":"\xe5\xa4\x96\xe7\xa7\x91VTE\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0",
-						"assessResult":"\xe9\xab\x98\xe5\x8d\xb1",
-						"assessResultItemList":[
-							{
-								"itemId":262,
-								"itemName":"\xe8\x84\x91\xe5\x8d\x92\xe4\xb8\xad\xef\xbc\x881\xe6\x9c\x88\xe5\x86\x85\xef\xbc\x89",
-								"itemValue":"",
-								"score":5.0,
-								"summary":[
-									{
-										"dictionaryAttributeId":86,
-										"originRecord":"&lt;span class=\"hm-qa-eva-del-res-path-light\"&gt;\xe8\x84\x91\xe5\x86\x85\xe5\x87\xba\xe8\xa1\x80&lt;/span&gt;,\xe9\xab\x98\xe8\xa1\x80\xe5\x8e\x8b\xe3\x80\x82",
-										"position":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe5\x88\x9d\xe6\xad\xa5\xe8\xaf\x8a\xe6\x96\xad",
-										"progressId":1619295,
-										"recordTypeId":1,
-										"word":""
-									}
-								],
-								"wordId":311614
-							}
-						],
-						"assessValue":"5",
-						"assessValueUnit":"\xe5\x88\x86",
-						"displayResult":"\xe9\xab\x98\xe5\x8d\xb1"
-					},
-					"assessId":"1005",
-					"assessItem":"\xe5\xa4\x96\xe7\xa7\x91VTE\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0",
-					"assessPostil":"\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\xba\x94\xe8\xbf\x9b\xe8\xa1\x8cVTE\xe5\x88\x9d\xe5\xa7\x8b\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0",
-					"assessResultItemList":[
-						{
-							"aiChecked":1,
-							"aiItemValue":"",
-							"doctorItemValue":"",
-							"itemId":262,
-							"itemName":"\xe8\x84\x91\xe5\x8d\x92\xe4\xb8\xad\xef\xbc\x881\xe6\x9c\x88\xe5\x86\x85\xef\xbc\x89",
-							"itemUnit":"",
-							"itemValue":"",
-							"score":"5",
-							"summary":[
-								{
-									"dictionaryAttributeId":86,
-									"originRecord":"&lt;span class=\"hm-qa-eva-del-res-path-light\"&gt;\xe8\x84\x91\xe5\x86\x85\xe5\x87\xba\xe8\xa1\x80&lt;/span&gt;,\xe9\xab\x98\xe8\xa1\x80\xe5\x8e\x8b\xe3\x80\x82",
-									"position":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe5\x88\x9d\xe6\xad\xa5\xe8\xaf\x8a\xe6\x96\xad",
-									"progressId":1619295,
-									"recordTypeId":1,
-									"word":""
-								}
-							],
-							"wordId":311614
-						}
-					],
-					"compare":2,
-					"expressId":29872,
-					"fileName":"SVTERA.html",
-					"ignore":0,
-					"ignoreTips":"",
-					"isBlockPosition":1,
-					"isConfirmNurse":0,
-					"productId":1024,
-					"projectId":1001,
-					"projectName":"VTE\xe5\x88\x9d\xe5\xa7\x8b\xe8\xaf\x84\xe4\xbc\xb0",
-					"qcDiseaseDiagnosisList":[
-						{
-							"diseaseId":1001,
-							"versionInfo":""
-						}
-					],
-					"recommendResult":"\xe5\xa4\x96\xe7\xa7\x91VTE\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0",
-					"ruleGroupId":1,
-					"ruleNumber":"vte1ZR",
-					"ruleRemark":"\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\xba\x94\xe8\xbf\x9b\xe8\xa1\x8cVTE\xe5\x88\x9d\xe5\xa7\x8b\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0",
-					"ruleSources":[
-						{
-							"number":"vte1ZR",
-							"projectName":"VTE\xe5\x88\x9d\xe5\xa7\x8b\xe8\xaf\x84\xe4\xbc\xb0",
-							"remark":"\xe4\xbd\x8f\xe9\x99\xa2\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe8\xbf\x9b\xe8\xa1\x8c\xe9\xa6\x96\xe6\xac\xa1\xe8\xaf\x84\xe4\xbc\xb0\xe3\x80\x82",
-							"sort":1,
-							"sourceDetail":"\xe6\xb7\xb1\xe9\x9d\x99\xe8\x84\x89\xe8\xa1\x80\xe6\xa0\x93\xe5\xbd\xa2\xe6\x88\x90\xe7\x9a\x84\xe8\xaf\x8a\xe6\x96\xad\xe5\x92\x8c\xe6\xb2\xbb\xe7\x96\x97\xe6\x8c\x87\xe5\x8d\x97(\xe7\xac\xac\xe4\xb8\x89\xe7\x89\x88)\xef\xbc\x882017\xef\xbc\x89",
-							"versionInfo":""
-						},
-						{
-							"number":"vte1ZR",
-							"projectName":"VTE\xe5\x88\x9d\xe5\xa7\x8b\xe8\xaf\x84\xe4\xbc\xb0",
-							"remark":"\xe5\xbb\xba\xe8\xae\xae\xe5\x9c\xa8\xe6\x82\xa3\xe8\x80\x85\xe5\x85\xa5\xe9\x99\xa224\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe8\xbf\x9b\xe8\xa1\x8cVTE\xe5\x88\x9d\xe5\xa7\x8b\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\x84\xe4\xbc\xb0\xef\xbc\x8c\xe7\x89\xb9\xe5\x88\xab\xe6\x98\xafVTE\xe9\xab\x98\xe9\xa3\x8e\xe9\x99\xa9\xe7\xa7\x91\xe5\xae\xa4\xe7\x9a\x84\xe4\xbd\x8f\xe9\x99\xa2\xe6\x82\xa3\xe8\x80\x85\xe3\x80\x82",
-							"sort":2,
-							"sourceDetail":"\xe5\x8c\xbb\xe9\x99\xa2\xe5\x86\x85\xe9\x9d\x99\xe8\x84\x89\xe8\xa1\x80\xe6\xa0\x93\xe6\xa0\x93\xe5\xa1\x9e\xe7\x97\x87\xe9\x98\xb2\xe6\xb2\xbb\xe4\xb8\x8e\xe7\xae\xa1\xe7\x90\x86\xe5\xbb\xba\xe8\xae\xae\xef\xbc\x882018\xef\xbc\x89",
-							"versionInfo":""
-						}
-					],
-					"warnLevel":3
-				},
-				{
-					"assessId":"23",
-					"assessItem":"Glasgow\xe6\x98\x8f\xe8\xbf\xb7\xe8\xaf\x84\xe5\x88\x86\xe9\x87\x8f\xe8\xa1\xa8",
-					"assessPostil":"\xe5\xae\x8c\xe5\x96\x84GCS\xe8\xaf\x84\xe5\x88\x86",
-					"compare":0,
-					"expressId":20090,
-					"fileName":"coma.html",
-					"ignore":2,
-					"ignoreTips":"",
-					"isBlockPosition":1,
-					"productId":2048,
-					"projectId":1122,
-					"projectName":"GCS\xe8\xaf\x84\xe5\x88\x86",
-					"qcDiseaseDiagnosisList":[
-						{
-							"diagnosisId":3460,
-							"diseaseId":2012,
-							"versionInfo":""
-						}
-					],
-					"recommendResult":"Glasgow\xe6\x98\x8f\xe8\xbf\xb7\xe8\xaf\x84\xe5\x88\x86\xe9\x87\x8f\xe8\xa1\xa8",
-					"ruleNumber":"ICH-3",
-					"ruleRemark":"\xe5\xae\x8c\xe5\x96\x84GCS\xe8\xaf\x84\xe5\x88\x86",
-					"warnLevel":3
-				},
-				{
-					"assessId":"11",
-					"assessItem":"NIHSS\xe5\x8d\x92\xe4\xb8\xad\xe9\x87\x8f\xe8\xa1\xa8",
-					"assessPostil":"\xe5\xae\x8c\xe5\x96\x84NIHSS\xe9\x87\x8f\xe8\xa1\xa8\xe8\xaf\x84\xe4\xbc\xb0\xe7\x97\x85\xe6\x83\x85\xe4\xb8\xa5\xe9\x87\x8d\xe7\xa8\x8b\xe5\xba\xa6\xe3\x80\x81\xe5\x88\xa4\xe6\x96\xad\xe6\x82\xa3\xe8\x80\x85\xe9\xa2\x84\xe5\x90\x8e\xe5\x8f\x8a\xe6\x8c\x87\xe5\xaf\xbc\xe9\x80\x89\xe6\x8b\xa9\xe6\xb2\xbb\xe7\x96\x97\xe6\x8e\xaa\xe6\x96\xbd",
-					"compare":0,
-					"expressId":20089,
-					"fileName":"nih.html",
-					"ignore":2,
-					"ignoreTips":"",
-					"isBlockPosition":1,
-					"productId":2048,
-					"projectId":457,
-					"projectName":"NIHSS\xe8\xaf\x84\xe5\x88\x86",
-					"qcDiseaseDiagnosisList":[
-						{
-							"diagnosisId":3460,
-							"diseaseId":2012,
-							"versionInfo":""
-						}
-					],
-					"recommendResult":"NIHSS\xe5\x8d\x92\xe4\xb8\xad\xe9\x87\x8f\xe8\xa1\xa8",
-					"ruleNumber":"ICH-2",
-					"ruleRemark":"\xe5\xae\x8c\xe5\x96\x84NIHSS\xe9\x87\x8f\xe8\xa1\xa8\xe8\xaf\x84\xe4\xbc\xb0\xe7\x97\x85\xe6\x83\x85\xe4\xb8\xa5\xe9\x87\x8d\xe7\xa8\x8b\xe5\xba\xa6\xe3\x80\x81\xe5\x88\xa4\xe6\x96\xad\xe6\x82\xa3\xe8\x80\x85\xe9\xa2\x84\xe5\x90\x8e\xe5\x8f\x8a\xe6\x8c\x87\xe5\xaf\xbc\xe9\x80\x89\xe6\x8b\xa9\xe6\xb2\xbb\xe7\x96\x97\xe6\x8e\xaa\xe6\x96\xbd",
-					"warnLevel":3
-				}
-			],
-			"redColorForBar":false,
-			"therapeuticPlanList":[
-				{
-					"applyConsultation":1,
-					"assessResultList":[
-						{
-							"aiResult":{
-								"assessDictName":"CHA2DS2-VASc",
-								"assessId":9,
-								"assessName":"CHA2DS2-VASc\xe8\xaf\x84\xe5\x88\x86",
-								"assessResult":"\xe6\x82\xa3\xe8\x80\x85\xe5\xb9\xb4\xe5\x8d\x92\xe4\xb8\xad\xe5\x8f\x91\xe7\x94\x9f\xe7\x8e\x873.2%",
-								"assessResultItemList":[
-									{
-										"itemId":185,
-										"itemName":"\xe9\xab\x98\xe8\xa1\x80\xe5\x8e\x8b",
-										"itemValue":"",
-										"score":1.0,
-										"summary":[
-											{
-												"dictionaryAttributeId":86,
-												"originRecord":"\xe8\x84\x91\xe5\x86\x85\xe5\x87\xba\xe8\xa1\x80,&lt;span class=\"hm-qa-eva-del-res-path-light\"&gt;\xe9\xab\x98\xe8\xa1\x80\xe5\x8e\x8b&lt;/span&gt;\xe3\x80\x82",
-												"position":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe5\x88\x9d\xe6\xad\xa5\xe8\xaf\x8a\xe6\x96\xad",
-												"progressId":1619295,
-												"recordTypeId":1,
-												"word":""
-											}
-										],
-										"wordId":4319
-									},
-									{
-										"itemId":188,
-										"itemName":"\xe8\x84\x91\xe5\x8d\x92\xe4\xb8\xad/\xe7\x9f\xad\xe6\x9a\x82\xe6\x80\xa7\xe8\x84\x91\xe7\xbc\xba\xe8\xa1\x80\xe5\x8f\x91\xe4\xbd\x9c/\xe8\xa1\x80\xe6\xa0\x93\xe6\xa0\x93\xe5\xa1\x9e\xe7\x97\x85\xe5\x8f\xb2",
-										"itemValue":"",
-										"score":2.0,
-										"summary":[
-											{
-												"dictionaryAttributeId":86,
-												"originRecord":"&lt;span class=\"hm-qa-eva-del-res-path-light\"&gt;\xe8\x84\x91\xe5\x86\x85\xe5\x87\xba\xe8\xa1\x80&lt;/span&gt;,\xe9\xab\x98\xe8\xa1\x80\xe5\x8e\x8b\xe3\x80\x82",
-												"position":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe5\x88\x9d\xe6\xad\xa5\xe8\xaf\x8a\xe6\x96\xad",
-												"progressId":1619295,
-												"recordTypeId":1,
-												"word":""
-											}
-										],
-										"wordId":323790
-									}
-								],
-								"assessValue":"3",
-								"assessValueUnit":"\xe5\x88\x86",
-								"displayResult":"3\xe5\x88\x86"
-							},
-							"assessId":9,
-							"assessItem":"CHA2DS2-VASc\xe8\xaf\x84\xe5\x88\x86",
-							"assessResultItemList":[
-								{
-									"aiChecked":1,
-									"aiItemValue":"",
-									"doctorItemValue":"",
-									"itemId":185,
-									"itemName":"\xe9\xab\x98\xe8\xa1\x80\xe5\x8e\x8b",
-									"itemUnit":"",
-									"itemValue":"",
-									"score":"1",
-									"summary":[
-										{
-											"dictionaryAttributeId":86,
-											"originRecord":"\xe8\x84\x91\xe5\x86\x85\xe5\x87\xba\xe8\xa1\x80,&lt;span class=\"hm-qa-eva-del-res-path-light\"&gt;\xe9\xab\x98\xe8\xa1\x80\xe5\x8e\x8b&lt;/span&gt;\xe3\x80\x82",
-											"position":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe5\x88\x9d\xe6\xad\xa5\xe8\xaf\x8a\xe6\x96\xad",
-											"progressId":1619295,
-											"recordTypeId":1,
-											"word":""
-										}
-									],
-									"wordId":4319
-								},
-								{
-									"aiChecked":1,
-									"aiItemValue":"",
-									"doctorItemValue":"",
-									"itemId":188,
-									"itemName":"\xe8\x84\x91\xe5\x8d\x92\xe4\xb8\xad/\xe7\x9f\xad\xe6\x9a\x82\xe6\x80\xa7\xe8\x84\x91\xe7\xbc\xba\xe8\xa1\x80\xe5\x8f\x91\xe4\xbd\x9c/\xe8\xa1\x80\xe6\xa0\x93\xe6\xa0\x93\xe5\xa1\x9e\xe7\x97\x85\xe5\x8f\xb2",
-									"itemUnit":"",
-									"itemValue":"",
-									"score":"2",
-									"summary":[
-										{
-											"dictionaryAttributeId":86,
-											"originRecord":"&lt;span class=\"hm-qa-eva-del-res-path-light\"&gt;\xe8\x84\x91\xe5\x86\x85\xe5\x87\xba\xe8\xa1\x80&lt;/span&gt;,\xe9\xab\x98\xe8\xa1\x80\xe5\x8e\x8b\xe3\x80\x82",
-											"position":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe5\x88\x9d\xe6\xad\xa5\xe8\xaf\x8a\xe6\x96\xad",
-											"progressId":1619295,
-											"recordTypeId":1,
-											"word":""
-										}
-									],
-									"wordId":323790
-								}
-							],
-							"compare":2,
-							"expressId":22976,
-							"fileName":"vasc.html",
-							"isConfirmNurse":0,
-							"productId":1024,
-							"projectId":1149,
-							"ruleNumber":"AF-1",
-							"ruleRemark":"\xe5\xaf\xb9\xe6\x89\x80\xe6\x9c\x89\xe6\x88\xbf\xe9\xa2\xa4\xe6\x82\xa3\xe8\x80\x85\xe5\xba\x94\xe7\x94\xa8CHA2DS2-VASc\xe8\xaf\x84\xe5\x88\x86\xe8\xbf\x9b\xe8\xa1\x8c\xe8\xa1\x80\xe6\xa0\x93\xe6\xa0\x93\xe5\xa1\x9e\xe5\x8d\xb1\xe9\x99\xa9\xe5\x9b\xa0\xe7\xb4\xa0\xe8\xaf\x84\xe4\xbc\xb0"
-						}
-					],
-					"atrialFibrillationIndication":0,
-					"expressId":22981,
-					"id":14420,
-					"ignore":1,
-					"ignoreReason":[
-						"\xe6\x82\xa3\xe8\x80\x85\xe6\x8b\x92\xe7\xbb\x9d",
-						"\xe5\x85\xa5\xe9\x99\xa2\xe5\x89\x8d\xe5\xb7\xb2\xe5\xb0\xb1\xe8\xaf\x8a",
-						"\xe7\x97\x85\xe6\x83\x85\xe4\xb8\x8d\xe9\x80\x82\xe5\x90\x88"
-					],
-					"ignoreTips":"\xe6\x98\xaf",
-					"isBlockPosition":1,
-					"planName":"\xe8\xa1\x80\xe6\xa0\x93\xe9\xab\x98\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\xb7\xe5\xbf\x83\xe8\x84\x8f\xe7\xa7\x91\xe4\xbc\x9a\xe8\xaf\x8a",
-					"planPostil":"CHA2DS2-VASc\xe8\xaf\x84\xe5\x88\x86&gt;=2\xe7\x9a\x84\xe7\x94\xb7\xe6\x80\xa7\xe6\x88\xbf\xe9\xa2\xa4\xe6\x82\xa3\xe8\x80\x85\xe5\xba\x94\xe9\x95\xbf\xe6\x9c\x9f\xe6\x8e\xa5\xe5\x8f\x97\xe6\x8a\x97\xe5\x87\x9d\xe6\xb2\xbb\xe7\x96\x97\xef\xbc\x8c\xe5\xbb\xba\xe8\xae\xae\xe8\xaf\xb7\xe5\xbf\x83\xe8\x84\x8f\xe4\xb8\x93\xe7\xa7\x91\xe5\x8c\xbb\xe5\xb8\x88\xe5\x8d\x8f\xe5\x8a\xa9\xe8\xaf\x8a\xe7\x96\x97",
-					"productId":1024,
-					"projectId":1152,
-					"projectName":"\xe8\xa1\x80\xe6\xa0\x93\xe9\xab\x98\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\xb7\xe5\xbf\x83\xe8\x84\x8f\xe7\xa7\x91\xe4\xbc\x9a\xe8\xaf\x8a",
-					"qcDiseaseDiagnosisList":[
-						{
-							"diseaseId":1003,
-							"versionInfo":""
-						}
-					],
-					"receiver":"222",
-					"recommendResult":"\xe8\xa1\x80\xe6\xa0\x93\xe9\xab\x98\xe9\xa3\x8e\xe9\x99\xa9\xe8\xaf\xb7\xe5\xbf\x83\xe8\x84\x8f\xe7\xa7\x91\xe4\xbc\x9a\xe8\xaf\x8a",
-					"recommendSource":1,
-					"reminderNote":"CHA2DS2-VASc\xe8\xaf\x84\xe5\x88\x86&gt;=3\xe7\x9a\x84\xe5\xa5\xb3\xe6\x80\xa7\xe6\x88\xbf\xe9\xa2\xa4\xe6\x82\xa3\xe8\x80\x85\xe5\xba\x94\xe9\x95\xbf\xe6\x9c\x9f\xe6\x8e\xa5\xe5\x8f\x97\xe6\x8a\x97\xe5\x87\x9d\xe6\xb2\xbb\xe7\x96\x97\xef\xbc\x8c\xe5\xbb\xba\xe8\xae\xae\xe8\xaf\xb7\xe5\xbf\x83\xe8\x84\x8f\xe4\xb8\x93\xe7\xa7\x91\xe5\x8c\xbb\xe5\xb8\x88\xe5\x8d\x8f\xe5\x8a\xa9\xe8\xaf\x8a\xe7\x96\x97",
-					"ruleNumber":"AF-7",
-					"ruleRemark":"\xe3\x80\x90\xe5\x91\xbc\xe5\x90\xb8\xe7\xa7\x91\xe7\xa7\x91\xe5\xae\xa4\xe3\x80\x91tester\xef\xbc\x88\xe6\x82\xa3\xe8\x80\x85id\xef\xbc\x9a1599186368486\xef\xbc\x89\xe8\xaf\x8a\xe6\x96\xad\xe6\x88\xbf\xe9\xa2\xa4\xef\xbc\x8cCHA2DS2-VASc\xe8\xaf\x84\xe5\x88\x86=3\xe5\x88\x86\xef\xbc\x8c\xe4\xba\x8e09\xe6\x9c\x8804\xe6\x97\xa510\xe6\x97\xb6\xe7\x94\xb3\xe8\xaf\xb7\xe4\xbc\x9a\xe8\xaf\x8a",
-					"samePageForCP":true,
-					"type":1,
-					"warnLevel":3
-				},
-				{
-					"applyConsultation":0,
-					"atrialFibrillationIndication":1,
-					"expressId":22984,
-					"id":14422,
-					"ignore":1,
-					"ignoreReason":[
-						"\xe6\x88\xbf\xe9\xa2\xa4\xe8\xaf\x8a\xe6\x96\xad\xe5\xb0\x9a\xe4\xb8\x8d\xe6\x98\x8e\xe7\xa1\xae",
-						"\xe4\xb8\x8d\xe6\x98\xaf\xe5\x85\xa5\xe9\x99\xa2\xe8\xaf\x8a\xe6\x96\xad"
-					],
-					"ignoreTips":"\xe6\x98\xaf",
-					"isBlockPosition":1,
-					"planName":"\xe8\xa1\xa5\xe5\x85\x85\xe6\x88\xbf\xe9\xa2\xa4\xe8\xaf\x8a\xe6\x96\xad",
-					"planPostil":"\xe6\x82\xa3\xe8\x80\x85\xe5\xad\x98\xe5\x9c\xa8\xe5\xbf\x83\xe6\x88\xbf\xe9\xa2\xa4\xe5\x8a\xa8\xef\xbc\x8c\xe5\xbb\xba\xe8\xae\xae\xe8\xa1\xa5\xe5\x85\x85\xe7\x9b\xb8\xe5\xba\x94\xe8\xaf\x8a\xe6\x96\xad",
-					"productId":1024,
-					"projectId":1154,
-					"projectName":"\xe8\xa1\xa5\xe5\x85\x85\xe6\x88\xbf\xe9\xa2\xa4\xe8\xaf\x8a\xe6\x96\xad",
-					"qcDiseaseDiagnosisList":[
-						{
-							"diseaseId":1003,
-							"versionInfo":""
-						}
-					],
-					"receiver":"",
-					"recommendResult":"\xe8\xa1\xa5\xe5\x85\x85\xe6\x88\xbf\xe9\xa2\xa4\xe8\xaf\x8a\xe6\x96\xad",
-					"recommendSource":1,
-					"reminderNote":"",
-					"ruleNumber":"AF-10",
-					"ruleRemark":"\xe6\x82\xa3\xe8\x80\x85\xe5\xad\x98\xe5\x9c\xa8\xe5\xbf\x83\xe6\x88\xbf\xe9\xa2\xa4\xe5\x8a\xa8\xef\xbc\x8c\xe5\xbb\xba\xe8\xae\xae\xe8\xa1\xa5\xe5\x85\x85\xe7\x9b\xb8\xe5\xba\x94\xe8\xaf\x8a\xe6\x96\xad",
-					"samePageForCP":true,
-					"summary":[
-						{
-							"dictionaryAttributeId":10,
-							"originRecord":"&lt;span class=\"hm-qa-eva-del-res-path-light\"&gt;\xe5\xbf\x83\xe6\x88\xbf\xe9\xa2\xa4\xe5\x8a\xa8&lt;/span&gt;\xe3\x80\x82",
-							"position":"\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95-\xe7\x8e\xb0\xe7\x97\x85\xe5\x8f\xb2",
-							"progressId":1619295,
-							"recordTypeId":1,
-							"word":""
-						}
-					],
-					"warnLevel":3
-				}
-			]
-		},
-		"recordId":312859,
-		"repeatabilityInfo":{
-			"tabooStatus":3
-		},
-		"roleRemark":"",
-		"showGdms":false,
-		"therapeuticPlanList":[
-			{
-				"applyConsultation":0,
-				"atrialFibrillationIndication":0,
-				"expressId":207467,
-				"hasDrug":1,
-				"id":13167,
-				"ignoreTips":"",
-				"planName":"\xe8\x84\x91\xe5\x87\xba\xe8\xa1\x80\xe8\xa1\x80\xe5\x8e\x8b\xe7\xae\xa1\xe7\x90\x86",
-				"planPostil":"\xe6\x80\xa5\xe6\x80\xa7\xe6\x9c\x9f\xe9\x98\xb2\xe6\xad\xa2\xe8\xbf\x87\xe5\xba\xa6\xe9\x99\x8d\xe5\x8e\x8b\xe5\xaf\xbc\xe8\x87\xb4\xe8\x84\x91\xe7\x81\x8c\xe6\xb3\xa8\xe5\x8e\x8b\xe4\xb8\x8d\xe8\xb6\xb3\xef\xbc\x8c\xe6\xa0\xb9\xe6\x8d\xae\xe6\x82\xa3\xe8\x80\x85\xe9\xab\x98\xe8\xa1\x80\xe5\x8e\x8b\xe7\x97\x85\xe5\x8f\xb2\xe9\x95\xbf\xe7\x9f\xad\xe3\x80\x81\xe5\x9f\xba\xe7\xa1\x80\xe8\xa1\x80\xe5\x8e\x8b\xe5\x80\xbc\xe3\x80\x81\xe9\xa2\x85\xe5\x86\x85\xe5\x8e\x8b\xe6\x83\x85\xe5\x86\xb5\xe5\x8f\x8a\xe5\x85\xa5\xe9\x99\xa2\xe6\x97\xb6\xe8\xa1\x80\xe5\x8e\x8b\xe6\x83\x85\xe5\x86\xb5\xe4\xb8\xaa\xe4\xbd\x93\xe5\x8c\x96\xe8\xae\xbe\xe7\xab\x8b\xe8\xa1\x80\xe5\x8e\x8b\xe7\x9b\xae\xe6\xa0\x87\xe3\x80\x82\xe6\x94\xb6\xe7\xbc\xa9\xe5\x8e\x8b&gt;220mmHg\xe9\x9d\x99\xe8\x84\x89\xe7\x94\xa8\xe8\x8d\xaf\xe9\x99\x8d\xe5\x8e\x8b\xef\xbc\x8c\xe6\x94\xb6\xe7\xbc\xa9\xe5\x8e\x8b150-220mmHg\xe6\x97\xa0\xe6\x80\xa5\xe6\x80\xa7\xe9\x99\x8d\xe5\x8e\x8b\xe7\xa6\x81\xe5\xbf\x8c\xe8\x80\x85\xe6\x94\xb6\xe7\xbc\xa9\xe5\x8e\x8b140mmHg\xe6\x98\xaf\xe5\xae\x89\xe5\x85\xa8\xe7\x9a\x84\xef\xbc\x8c\xe8\x9b\x9b\xe7\xbd\x91\xe8\x86\x9c\xe4\xb8\x8b\xe8\x85\x94\xe5\x87\xba\xe8\xa1\x80\xe6\xaf\x94\xe5\x9f\xba\xe7\xa1\x80\xe8\xa1\x80\xe5\x8e\x8b\xe9\xab\x9820%\xe3\x80\x82\xe5\x87\xba\xe9\x99\xa2\xe5\x90\x8e\xe7\xbb\xa7\xe7\xbb\xad\xe8\xa1\x80\xe5\x8e\x8b\xe7\xae\xa1\xe7\x90\x86",
-				"projectName":"",
-				"receiver":"",
-				"recommendResult":"",
-				"reminderNote":"",
-				"ruleNumber":"",
-				"ruleRemark":"",
-				"samePageForCP":true
-			},
-			{
-				"applyConsultation":0,
-				"atrialFibrillationIndication":0,
-				"expressId":207465,
-				"hasDrug":1,
-				"id":13168,
-				"ignoreTips":"",
-				"planName":"\xe8\x84\x91\xe5\x87\xba\xe8\xa1\x80\xe8\xa1\x80\xe7\xb3\x96\xe7\xae\xa1\xe7\x90\x86",
-				"planPostil":"\xe9\xab\x98\xe8\xa1\x80\xe7\xb3\x96\xe5\x92\x8c\xe4\xbd\x8e\xe8\xa1\x80\xe7\xb3\x96\xe5\x9d\x87\xe6\x98\xaf\xe5\xbd\xb1\xe5\x93\x8d\xe8\x84\x91\xe5\x87\xba\xe8\xa1\x80\xe9\xa2\x84\xe5\x90\x8e\xe7\x9a\x84\xe9\x87\x8d\xe8\xa6\x81\xe5\x9b\xa0\xe7\xb4\xa0\xe3\x80\x82\xe8\x84\x91\xe5\x87\xba\xe8\xa1\x80\xe5\xbd\x93\xe8\xa1\x80\xe7\xb3\x96&gt;10mmol/L\xe5\xbc\x80\xe5\xa7\x8b\xe9\x99\x8d\xe7\xb3\x96\xe6\xb2\xbb\xe7\x96\x97\xef\xbc\x8c\xe9\x9d\x99\xe8\x84\x89\xe7\x94\xa8\xe8\x83\xb0\xe5\xb2\x9b\xe7\xb4\xa0\xe6\xb2\xbb\xe7\x96\x97\xef\xbc\x8c\xe6\x8e\xa7\xe5\x88\xb6\xe9\x9a\x8f\xe6\x9c\xba\xe8\xa1\x80\xe7\xb3\x96&lt;11.1mmol/L\xef\xbc\x8c\xe9\x81\xbf\xe5\x85\x8d\xe5\x8f\x91\xe7\x94\x9f\xe4\xbd\x8e\xe8\xa1\x80\xe7\xb3\x96",
-				"projectName":"",
-				"receiver":"",
-				"recommendResult":"",
-				"reminderNote":"",
-				"ruleNumber":"",
-				"ruleRemark":"",
-				"samePageForCP":true
-			},
-			{
-				"applyConsultation":0,
-				"atrialFibrillationIndication":0,
-				"expressId":207459,
-				"hasDrug":1,
-				"id":13169,
-				"ignoreTips":"",
-				"planName":"\xe6\xad\xa2\xe8\xa1\x80\xe6\xb2\xbb\xe7\x96\x97",
-				"planPostil":"\xe5\x87\xba\xe8\xa1\x808\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\x8f\xaf\xe4\xbb\xa5\xe9\x80\x82\xe5\xbd\x93\xe5\xba\x94\xe7\x94\xa8\xe6\xad\xa2\xe8\xa1\x80\xe8\x8d\xaf\xe9\xa2\x84\xe9\x98\xb2\xe8\xa1\x80\xe8\x82\xbf\xe6\x89\xa9\xe5\xa4\xa7\xef\xbc\x8c\xe4\xbd\xbf\xe7\x94\xa8\xe4\xb8\x80\xe8\x88\xac\xe4\xb8\x8d\xe8\xb6\x85\xe8\xbf\x8748\xe5\xb0\x8f\xe6\x97\xb6\xe3\x80\x82\xe5\xaf\xb9\xe4\xba\x8e\xe5\x87\x9d\xe8\xa1\x80\xe5\x8a\x9f\xe8\x83\xbd\xe6\xad\xa3\xe5\xb8\xb8\xe7\x9a\x84\xe6\x82\xa3\xe8\x80\x85\xef\xbc\x8c\xe4\xb8\x80\xe8\x88\xac\xe4\xb8\x8d\xe5\xbb\xba\xe8\xae\xae\xe5\xb8\xb8\xe8\xa7\x84\xe4\xbd\xbf\xe7\x94\xa8\xe6\xad\xa2\xe8\xa1\x80\xe8\x8d\xaf",
-				"projectName":"",
-				"receiver":"",
-				"recommendResult":"",
-				"reminderNote":"",
-				"ruleNumber":"",
-				"ruleRemark":"",
-				"samePageForCP":true
-			},
-			{
-				"applyConsultation":0,
-				"atrialFibrillationIndication":0,
-				"expressId":207450,
-				"hasDrug":1,
-				"id":13170,
-				"ignoreTips":"",
-				"planName":"\xe9\x99\x8d\xe9\xa2\x85\xe5\x8e\x8b\xe6\xb2\xbb\xe7\x96\x97",
-				"planPostil":"\xe5\xaf\x86\xe5\x88\x87\xe8\xa7\x82\xe5\xaf\x9f\xe6\x82\xa3\xe8\x80\x85\xe8\x84\x91\xe6\xb0\xb4\xe8\x82\xbf\xe5\x92\x8c\xe9\xa2\x85\xe5\x86\x85\xe5\x8e\x8b\xe5\xa2\x9e\xe9\xab\x98\xe6\x83\x85\xe5\x86\xb5\xef\xbc\x8c\xe5\xbf\x85\xe8\xa6\x81\xe6\x97\xb6\xe7\x9b\x91\xe6\xb5\x8b\xe9\xa2\x85\xe5\x86\x85\xe5\x8e\x8b\xef\xbc\x8c\xe9\xa2\x85\xe5\x86\x85\xe5\x8e\x8bICP&gt;20mmHg\xef\xbc\x8c\xe5\x8f\xaf\xe5\xba\x94\xe7\x94\xa8\xe8\x84\xb1\xe6\xb0\xb4\xe5\x89\x82\xef\xbc\x9b\xe9\xa2\x85\xe5\x86\x85\xe5\x8e\x8bICP&gt;25mmHg\xef\xbc\x8c\xe5\x8f\xaf\xe5\xbe\xae\xe5\x88\x9b\xe6\x88\x96\xe5\xa4\x96\xe7\xa7\x91\xe5\xb9\xb2\xe9\xa2\x84\xef\xbc\x8c\xe5\xa6\x82\xe8\x84\x91\xe5\xae\xa4\xe5\xbc\x95\xe6\xb5\x81\xe5\x87\x8f\xe5\x8e\x8b\xe3\x80\x81\xe5\x8e\xbb\xe9\xaa\xa8\xe7\x93\xa3\xe5\x87\x8f\xe5\x8e\x8b",
-				"projectName":"",
-				"receiver":"",
-				"recommendResult":"",
-				"reminderNote":"",
-				"ruleNumber":"",
-				"ruleRemark":"",
-				"samePageForCP":true
-			},
-			{
-				"applyConsultation":0,
-				"atrialFibrillationIndication":0,
-				"expressId":207476,
-				"hasDrug":0,
-				"id":13171,
-				"ignoreTips":"",
-				"planName":"\xe5\xa4\x96\xe7\xa7\x91\xe6\xb2\xbb\xe7\x96\x97",
-				"planPostil":"\xe8\x84\x91\xe5\x87\xba\xe8\xa1\x80\xe5\x90\x8e\xef\xbc\x8c\xe8\x8b\xa5\xe6\x82\xa3\xe8\x80\x85\xe6\x83\x85\xe5\x86\xb5\xe6\x81\xb6\xe5\x8c\x96\xe5\x92\x8c\xe9\xab\x98\xe5\x8d\xb1\xe6\x82\xa3\xe8\x80\x85\xef\xbc\x88\xe5\xa6\x82\xef\xbc\x9a\xe5\xa4\xa7\xe5\x8d\x8a\xe7\x90\x83\xe8\xa1\x80\xe8\x82\xbf\xe4\xb8\xad\xe7\xba\xbf\xe7\xa7\xbb\xe4\xbd\x8d\xe6\x88\x96\xe5\xb0\x8f\xe8\x84\x91\xe5\x87\xba\xe8\xa1\x80\xef\xbc\x89\xe5\x8f\xaf\xe4\xbb\xa5\xe8\x80\x83\xe8\x99\x91\xe6\x89\x8b\xe6\x9c\xaf\xe6\xb2\xbb\xe7\x96\x97\xef\xbc\x8c\xe8\xa1\x80\xe8\x82\xbf\xe6\xb8\x85\xe9\x99\xa4\xef\xbc\x8c\xe9\xa2\x85\xe5\x86\x85\xe5\x87\x8f\xe5\x8e\x8b",
-				"projectName":"",
-				"receiver":"",
-				"recommendResult":"",
-				"reminderNote":"",
-				"ruleNumber":"",
-				"ruleRemark":"",
-				"samePageForCP":true
-			},
-			{
-				"applyConsultation":0,
-				"atrialFibrillationIndication":0,
-				"expressId":207470,
-				"hasDrug":1,
-				"id":13183,
-				"ignoreTips":"",
-				"planName":"\xe8\x84\x91\xe5\x87\xba\xe8\xa1\x80\xe5\xb9\xb6\xe5\x8f\x91\xe7\x97\x87\xe6\xb2\xbb\xe7\x96\x97",
-				"planPostil":"\xe5\xb9\xb6\xe5\x8f\x91\xe7\x97\x87\xe6\xb2\xbb\xe7\x96\x97",
-				"projectName":"",
-				"receiver":"",
-				"recommendResult":"",
-				"reminderNote":"",
-				"ruleNumber":"",
-				"ruleRemark":"",
-				"samePageForCP":true
-			},
-			{
-				"applyConsultation":0,
-				"atrialFibrillationIndication":0,
-				"expressId":207469,
-				"hasDrug":0,
-				"id":13184,
-				"ignoreTips":"",
-				"planName":"\xe6\x97\xa9\xe6\x9c\x9f\xe5\x90\xaf\xe5\x8a\xa8\xe5\xba\xb7\xe5\xa4\x8d\xe8\xae\xad\xe7\xbb\x83",
-				"planPostil":"\xe6\x80\xa5\xe6\x80\xa7\xe8\x84\x91\xe5\x87\xba\xe8\xa1\x80\xe5\x90\x8e\xe5\x8f\x8a\xe6\x97\xa9\xe8\xbf\x9b\xe8\xa1\x8c\xe5\xba\xb7\xe5\xa4\x8d\xe6\xb2\xbb\xe7\x96\x97\xef\xbc\x8c\xe6\x82\xa3\xe8\x80\x85\xe7\x94\x9f\xe5\x91\xbd\xe4\xbd\x93\xe5\xbe\x81\xe5\xb9\xb3\xe7\xa8\xb3\xe5\x90\x8e\xe5\x8d\xb3\xe5\x8f\xaf\xe5\x90\xaf\xe5\x8a\xa8\xe5\xba\xb7\xe5\xa4\x8d\xe6\xb2\xbb\xe7\x96\x97\xef\xbc\x8c\xe5\x8f\x91\xe7\x97\x853\xe4\xb8\xaa\xe6\x9c\x88\xe5\x86\x85\xe6\x98\xaf\xe9\xbb\x84\xe9\x87\x91\xe5\xba\xb7\xe5\xa4\x8d\xe6\x9c\x9f\xef\xbc\x8c\xe5\x8f\x91\xe7\x97\x85\xe5\x90\x8e6\xe4\xb8\xaa\xe6\x9c\x88\xe6\x98\xaf\xe6\x9c\x89\xe6\x95\x88\xe5\xba\xb7\xe5\xa4\x8d\xe6\x9c\x9f\xe3\x80\x82\xe6\x8e\xaa\xe6\x96\xbd\xe6\x9c\x89\xe4\xbd\x93\xe4\xbd\x8d\xe5\xba\xb7\xe5\xa4\x8d\xe3\x80\x81\xe6\xa1\xa5\xe5\xbc\x8f\xe8\xbf\x90\xe5\x8a\xa8\xe3\x80\x81\xe5\x9d\x90\xe4\xbd\x8d\xe8\xae\xad\xe7\xbb\x83\xe3\x80\x81\xe7\xab\x99\xe7\xab\x8b\xe8\xae\xad\xe7\xbb\x83\xe3\x80\x81\xe6\xad\xa5\xe8\xa1\x8c\xe8\xae\xad\xe7\xbb\x83\xe3\x80\x81\xe6\x97\xa5\xe5\xb8\xb8\xe7\x94\x9f\xe6\xb4\xbb\xe5\x8a\x9f\xe8\x83\xbd\xe8\xae\xad\xe7\xbb\x83(ADL\xe8\xae\xad\xe7\xbb\x83)\xe3\x80\x81\xe8\xaf\xad\xe8\xa8\x80\xe5\x8a\x9f\xe8\x83\xbd\xe5\xba\xb7\xe5\xa4\x8d\xe8\xae\xad\xe7\xbb\x83\xe3\x80\x81\xe5\xbf\x83\xe7\x90\x86\xe5\xba\xb7\xe5\xa4\x8d\xe8\xae\xad\xe7\xbb\x83\xe7\xad\x89",
-				"projectName":"",
-				"receiver":"",
-				"recommendResult":"",
-				"reminderNote":"",
-				"ruleNumber":"",
-				"ruleRemark":"",
-				"samePageForCP":true
-			},
-			{
-				"applyConsultation":0,
-				"atrialFibrillationIndication":0,
-				"expressId":207477,
-				"hasDrug":0,
-				"id":13185,
-				"ignoreTips":"",
-				"planName":"\xe4\xbd\x93\xe6\xb8\xa9\xe7\xae\xa1\xe7\x90\x86",
-				"planPostil":"\xe8\x84\x91\xe5\x87\xba\xe8\xa1\x80\xe5\x8f\xaf\xe5\x9b\xa0\xe9\xa2\x85\xe5\x86\x85\xe8\xa1\x80\xe8\x82\xbf\xe5\x88\xba\xe6\xbf\x80\xe3\x80\x81\xe6\x84\x9f\xe6\x9f\x93\xe6\x88\x96\xe4\xb8\xad\xe6\x9e\xa2\xe6\x80\xa7\xe5\x8e\x9f\xe5\x9b\xa0\xe5\x87\xba\xe7\x8e\xb0\xe9\xab\x98\xe7\x83\xad\xe3\x80\x82\xe9\x99\x8d\xe6\xb8\xa9\xe6\x8e\xaa\xe6\x96\xbd\xe5\x8c\x85\xe6\x8b\xac\xe6\xb2\xbb\xe7\x96\x97\xe6\x84\x9f\xe6\x9f\x93\xe3\x80\x81\xe7\x89\xa9\xe7\x90\x86\xe9\x99\x8d\xe6\xb8\xa9\xe5\x8f\x8a\xe4\xba\x9a\xe4\xbd\x8e\xe6\xb8\xa9\xe6\xb2\xbb\xe7\x96\x97\xe3\x80\x82\xe9\x99\x8d\xe6\xb8\xa9\xe7\x9b\xae\xe6\xa0\x87\xe4\xbd\x93\xe6\xb8\xa935\xe2\x84\x83\xe4\xbb\xa5\xe4\xb8\x8a\xe4\xb8\x9438\xe2\x84\x83\xe4\xbb\xa5\xe4\xb8\x8b",
-				"projectName":"",
-				"receiver":"",
-				"recommendResult":"",
-				"reminderNote":"",
-				"ruleNumber":"",
-				"ruleRemark":"",
-				"samePageForCP":true
-			},
-			{
-				"applyConsultation":0,
-				"atrialFibrillationIndication":0,
-				"expressId":207449,
-				"hasDrug":0,
-				"id":13186,
-				"ignoreTips":"",
-				"planName":"\xe5\x91\xbc\xe5\x90\xb8\xe9\x81\x93\xe7\xae\xa1\xe7\x90\x86",
-				"planPostil":"\xe5\x8f\xa3\xe8\x85\x94\xe6\x8a\xa4\xe7\x90\x86\xe3\x80\x81\xe6\x9c\x89\xe6\x95\x88\xe6\x8e\x92\xe7\x97\xb0\xe4\xbf\x9d\xe6\x8c\x81\xe5\x91\xbc\xe5\x90\xb8\xe9\x81\x93\xe9\x80\x9a\xe7\x95\x85\xef\xbc\x8c\xe5\x91\xbc\xe5\x90\xb8\xe5\x8a\x9f\xe8\x83\xbd\xe9\x9a\x9c\xe7\xa2\x8d\xe3\x80\x81\xe8\xa1\x80\xe6\xb0\xa7\xe9\xa5\xb1\xe5\x92\x8c\xe5\xba\xa6\xe4\xb8\x8b\xe9\x99\x8d\xe8\x80\x85\xe5\xb0\xbd\xe6\x97\xa9\xe5\x91\xbc\xe5\x90\xb8\xe6\x9c\xba\xe6\x94\xaf\xe6\x8c\x81\xe6\xb2\xbb\xe7\x96\x97\xef\xbc\x8c\xe6\x98\x8f\xe8\xbf\xb7\xe8\x80\x85\xe8\x80\x83\xe8\x99\x91\xe6\xb0\x94\xe7\xae\xa1\xe6\x8f\x92\xe7\xae\xa1\xe3\x80\x81\xe6\xb0\x94\xe7\xae\xa1\xe5\x88\x87\xe5\xbc\x80",
-				"projectName":"",
-				"receiver":"",
-				"recommendResult":"",
-				"reminderNote":"",
-				"ruleNumber":"",
-				"ruleRemark":"",
-				"samePageForCP":true
-			},
-			{
-				"applyConsultation":0,
-				"atrialFibrillationIndication":0,
-				"expressId":207463,
-				"hasDrug":0,
-				"id":17459,
-				"ignoreTips":"",
-				"planName":"\xe5\xba\xb7\xe5\xa4\x8d\xe7\xa7\x91\xe4\xbc\x9a\xe8\xaf\x8a\xe5\x8d\x8f\xe5\x8a\xa9\xe5\xba\xb7\xe5\xa4\x8d\xe6\xb2\xbb\xe7\x96\x97",
-				"planPostil":"\xe8\xaf\xb7\xe5\xba\xb7\xe5\xa4\x8d\xe7\xa7\x91\xe4\xbc\x9a\xe8\xaf\x8a\xef\xbc\x8c\xe5\x8d\x8f\xe5\x8a\xa9\xe5\xba\xb7\xe5\xa4\x8d\xe6\xb2\xbb\xe7\x96\x97\xe3\x80\x82\xe5\xbb\xba\xe8\xae\xae\xe7\x97\x85\xe6\x83\x85\xe7\xa8\xb3\xe5\xae\x9a\xef\xbc\x8c\xe7\xa5\x9e\xe7\xbb\x8f\xe7\xb3\xbb\xe7\xbb\x9f\xe7\x97\x87\xe7\x8a\xb6\xe6\x97\xa0\xe8\xbf\x9b\xe5\xb1\x9548\xe5\xb0\x8f\xe6\x97\xb6\xe5\x86\x85\xe5\xbc\x80\xe5\x90\xaf\xe5\xba\xb7\xe5\xa4\x8d\xef\xbc\x8c\xe6\x89\x8b\xe6\x9c\xaf\xe6\x82\xa3\xe8\x80\x85\xe6\x9c\xaf\xe5\x90\x8e5\xe5\xa4\xa9\xe5\x86\x85\xe6\x88\x96\xe4\xb8\x80\xe6\x97\xa6\xe7\x97\x85\xe6\x83\x85\xe7\xa8\xb3\xe5\xae\x9a\xe5\x8d\xb3\xe5\x8f\xaf\xe5\xbc\x80\xe5\x90\xaf",
-				"projectName":"",
-				"receiver":"",
-				"recommendResult":"",
-				"reminderNote":"",
-				"ruleNumber":"",
-				"ruleRemark":"",
-				"samePageForCP":true
-			},
-			{
-				"applyConsultation":0,
-				"atrialFibrillationIndication":0,
-				"expressId":207323,
-				"hasDrug":0,
-				"id":21821,
-				"ignoreTips":"",
-				"planName":"\xe5\x90\x9e\xe5\x92\xbd\xe9\x9a\x9c\xe7\xa2\x8d\xe5\xba\xb7\xe5\xa4\x8d\xe8\xaf\x84\xe5\xae\x9a",
-				"planPostil":"\xe5\x90\x9e\xe5\x92\xbd\xe9\x9a\x9c\xe7\xa2\x8d\xe5\xba\xb7\xe5\xa4\x8d\xe8\xaf\x84\xe5\xae\x9a\xe3\x80\x82\xe5\x90\x9e\xe5\x92\xbd\xe9\x9a\x9c\xe7\xa2\x8d\xe4\xb8\xb4\xe5\xba\x8a\xe8\xa1\xa8\xe7\x8e\xb0\xe6\x9c\x89\xef\xbc\x9a\xe8\xbf\x9b\xe9\xa3\x9f\xe6\x88\x96\xe9\xa5\xae\xe6\xb0\xb4\xe5\x90\x8e\xe5\x92\xb3\xe5\x97\xbd\xe3\x80\x81\xe9\xa3\x9f\xe7\x89\xa9\xe6\xae\x8b\xe7\x95\x99\xe5\x8f\xa3\xe8\x85\x94\xe3\x80\x81\xe6\xb5\x81\xe6\xb6\x8e\xe3\x80\x81\xe5\x90\xb8\xe5\x85\xa5\xe6\x80\xa7\xe8\x82\xba\xe7\x82\x8e\xe3\x80\x81\xe9\xa3\x9f\xe7\x89\xa9\xe4\xbb\x8e\xe5\x8f\xa3\xe8\x85\x94\xe6\x88\x96\xe9\xbc\xbb\xe8\x85\x94\xe5\x96\xb7\xe5\x87\xba\xe3\x80\x82\xe5\xba\xb7\xe5\xa4\x8d\xe8\xaf\x84\xe5\xae\x9a\xe7\x9b\xae\xe7\x9a\x84\xef\xbc\x9a\xe7\xa1\xae\xe5\xae\x9a\xe5\x90\x9e\xe5\x92\xbd\xe5\x9b\xb0\xe9\x9a\xbe\xe6\x98\xaf\xe5\x90\xa6\xe5\xad\x98\xe5\x9c\xa8\xef\xbc\x9b\xe6\x8f\x90\xe4\xbe\x9b\xe5\x90\x9e\xe5\x92\xbd\xe5\x9b\xb0\xe9\x9a\xbe\xe8\xa7\xa3\xe5\x89\x96\xe5\x92\x8c\xe7\x94\x9f\xe7\x90\x86\xe5\xad\xa6\xe4\xbe\x9d\xe6\x8d\xae\xef\xbc\x9b\xe7\xa1\xae\xe5\xae\x9a\xe6\x82\xa3\xe8\x80\x85\xe6\x9c\x89\xe5\x85\xb3\xe8\xaf\xaf\xe5\x92\xbd\xe7\x9a\x84\xe5\x8d\xb1\xe9\x99\xa9\xe5\x9b\xa0\xe7\xb4\xa0\xef\xbc\x9b\xe7\xa1\xae\xe5\xae\x9a\xe6\x98\xaf\xe5\x90\xa6\xe9\x9c\x80\xe6\x94\xb9\xe5\x8f\x98\xe6\x8f\x90\xe4\xbe\x9b\xe8\x90\xa5\xe5\x85\xbb\xe6\x96\xb9\xe5\xbc\x8f\xe4\xbb\xa5\xe6\x94\xb9\xe5\x96\x84\xe8\x90\xa5\xe5\x85\xbb\xe7\x8a\xb6\xe6\x80\x81\xef\xbc\x8c\xe4\xb8\xba\xe5\x90\x9e\xe5\x92\xbd\xe5\x9b\xb0\xe9\x9a\xbe\xe7\x9a\x84\xe5\xba\xb7\xe5\xa4\x8d\xe6\xb2\xbb\xe7\x96\x97\xe6\x8f\x90\xe4\xbe\x9b\xe4\xbe\x9d\xe6\x8d\xae",
-				"projectName":"",
-				"receiver":"",
-				"recommendResult":"",
-				"reminderNote":"",
-				"ruleNumber":"",
-				"ruleRemark":"",
-				"samePageForCP":true
-			}
-		],
-		"tumorChemotherapyResponse":{
-			"therapeuticPlanList":[]
-		}
-	},
-	"head":{
-		"seeion_id":"mayson-405d0302345e4ff2924814d09865100c",
-		"error":0
-	}
-} </msg>
-<msg timestamp="20200904 10:26:09.988" level="INFO">To JSON using : pretty_print=False </msg>
-<msg timestamp="20200904 10:26:10.023" level="INFO">${responsedata} = {"body": {"patientInfo": {"admissionBedCode": "", "name": "tester", "ageType": "岁", "orgName": "我是尹宏利", "gender": 1, "definiteDiagnosis": ["脑内出血", "高血压"], "serialNumber": "1599186368486", "transferDep...</msg>
-<status status="PASS" endtime="20200904 10:26:10.023" starttime="20200904 10:26:09.864"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${data}</arg>
-</arguments>
-<msg timestamp="20200904 10:26:10.027" level="INFO">{"userGuid": "1599186368486", "serialNumber": "1599186368486", "patientName": "tester", "doctorGuid": "0210497", "doctorName": "测试医生", "admissionTime": "2018-12-12", "inpatientDepartment": "呼吸科", "pageSource": "2", "requestSource": "", "patientInfo": {"pregnancyStatus": "0", "gender": "1", "age": "19", "maritalStatus": "1", "ageType": "岁"}, "physicalSign": {"bodyTempr": "", "heartRate": "", "lowBldPress": "", "highBldPress": ""}, "definiteDiagnosis": [], "progressNoteList": [{"recordTime": "", "doctorGuid": "2222", "messageList": [{"value": "", "key": "主诉"}, {"value": "", "key": "诊断依据及鉴别诊断"}, {"value": "心房颤动", "key": "现病史"}, {"value": "", "key": "既往史"}, {"value": "脑内出血,高血压", "key": "初步诊断"}, {"value": "", "key": "辅助检查"}], "msgType": "2", "progressType": "1", "progressGuid": "22222"}], "deleteProgressNoteList": [{"doctorGid": "", "progressType": "2", "progressGuid": "", "recordTime": ""}], "labTestList": [], "examinationList": [], "newTestList": [], "operationRecord": {}, "prescriptions": {"prescriptionNumber": "", "drugList": [{"drugId": "", "specification": "", "dosage": "", "frequency": "", "drugName": "", "pathway": "", "unit": ""}], "recordTime": ""}, "currentDiseaseName": "", "medicalOrders": [{"orderId": "1599186368486", "orderContent": "阿托伐他汀钙片", "frequency": "ONCE", "orderFlag": 1, "unit": "mg", "orderCode": "316275", "orderType": 3, "specification": "", "timelinessFlag": 2, "pathway": "口服", "dosage": "41"}], "openInterdict": 1}</msg>
-<status status="PASS" endtime="20200904 10:26:10.028" starttime="20200904 10:26:10.024"></status>
-</kw>
-<kw name="Get From Dictionary" library="Collections">
-<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<arguments>
-<arg>${responsedata["body"]}</arg>
-<arg>recordId</arg>
-</arguments>
-<assign>
-<var>${recordId}</var>
-</assign>
-<msg timestamp="20200904 10:26:10.030" level="INFO">${recordId} = 312859</msg>
-<status status="PASS" endtime="20200904 10:26:10.030" starttime="20200904 10:26:10.028"></status>
-</kw>
-<kw name="Get From Dictionary" library="Collections">
-<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<arguments>
-<arg>${responsedata["body"]["patientInfo"]}</arg>
-<arg>serialNumber</arg>
-</arguments>
-<assign>
-<var>${serialNumber}</var>
-</assign>
-<msg timestamp="20200904 10:26:10.032" level="INFO">${serialNumber} = 1599186368486</msg>
-<status status="PASS" endtime="20200904 10:26:10.032" starttime="20200904 10:26:10.030"></status>
-</kw>
-<kw name="Get From Dictionary" library="Collections">
-<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<arguments>
-<arg>${responsedata["body"]["patientInfo"]}</arg>
-<arg>userGuid</arg>
-</arguments>
-<assign>
-<var>${userGuid}</var>
-</assign>
-<msg timestamp="20200904 10:26:10.033" level="INFO">${userGuid} = 1599186368486</msg>
-<status status="PASS" endtime="20200904 10:26:10.033" starttime="20200904 10:26:10.032"></status>
-</kw>
-<kw name="Set Global Variable" library="BuiltIn">
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<arguments>
-<arg>${recordId}</arg>
-</arguments>
-<msg timestamp="20200904 10:26:10.034" level="INFO">${recordId} = 312859</msg>
-<status status="PASS" endtime="20200904 10:26:10.035" starttime="20200904 10:26:10.034"></status>
-</kw>
-<kw name="Set Global Variable" library="BuiltIn">
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<arguments>
-<arg>${userGuid}</arg>
-</arguments>
-<msg timestamp="20200904 10:26:10.036" level="INFO">${userGuid} = 1599186368486</msg>
-<status status="PASS" endtime="20200904 10:26:10.036" starttime="20200904 10:26:10.035"></status>
-</kw>
-<kw name="Set Global Variable" library="BuiltIn">
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<arguments>
-<arg>${serialNumber}</arg>
-</arguments>
-<msg timestamp="20200904 10:26:10.039" level="INFO">${serialNumber} = 1599186368486</msg>
-<status status="PASS" endtime="20200904 10:26:10.042" starttime="20200904 10:26:10.037"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${data}</arg>
-</arguments>
-<msg timestamp="20200904 10:26:10.046" level="INFO">{"userGuid": "1599186368486", "serialNumber": "1599186368486", "patientName": "tester", "doctorGuid": "0210497", "doctorName": "测试医生", "admissionTime": "2018-12-12", "inpatientDepartment": "呼吸科", "pageSource": "2", "requestSource": "", "patientInfo": {"pregnancyStatus": "0", "gender": "1", "age": "19", "maritalStatus": "1", "ageType": "岁"}, "physicalSign": {"bodyTempr": "", "heartRate": "", "lowBldPress": "", "highBldPress": ""}, "definiteDiagnosis": [], "progressNoteList": [{"recordTime": "", "doctorGuid": "2222", "messageList": [{"value": "", "key": "主诉"}, {"value": "", "key": "诊断依据及鉴别诊断"}, {"value": "心房颤动", "key": "现病史"}, {"value": "", "key": "既往史"}, {"value": "脑内出血,高血压", "key": "初步诊断"}, {"value": "", "key": "辅助检查"}], "msgType": "2", "progressType": "1", "progressGuid": "22222"}], "deleteProgressNoteList": [{"doctorGid": "", "progressType": "2", "progressGuid": "", "recordTime": ""}], "labTestList": [], "examinationList": [], "newTestList": [], "operationRecord": {}, "prescriptions": {"prescriptionNumber": "", "drugList": [{"drugId": "", "specification": "", "dosage": "", "frequency": "", "drugName": "", "pathway": "", "unit": ""}], "recordTime": ""}, "currentDiseaseName": "", "medicalOrders": [{"orderId": "1599186368486", "orderContent": "阿托伐他汀钙片", "frequency": "ONCE", "orderFlag": 1, "unit": "mg", "orderCode": "316275", "orderType": 3, "specification": "", "timelinessFlag": 2, "pathway": "口服", "dosage": "41"}], "openInterdict": 1}</msg>
-<status status="PASS" endtime="20200904 10:26:10.046" starttime="20200904 10:26:10.042"></status>
-</kw>
-<status status="PASS" endtime="20200904 10:26:10.047" starttime="20200904 10:26:08.713"></status>
-</kw>
-<status status="PASS" endtime="20200904 10:26:10.047" starttime="20200904 10:26:08.700"></status>
-</kw>
-<kw name="病历质控提交反馈" library="cdss">
-<arguments>
-<arg>recordId=${recordId}</arg>
-<arg>mcRecordFeedback={"doctorGuid":1,"type":1}</arg>
+<arg>masterProfile={"adviceKnowledges":[],"allergies":[],"assessItems":[],"assesss":[],"consultationAdvices":[],"customerId":1001,"diseases":[{"customerId":1001,"definiteDate":1587548565554,"dictionaryAttributeId":47,"diseaseDate":1587548565554,"diseaseExtendCode":[],"diseaseId":161,"diseaseName":"脑梗死","existState":1,"id":195232186889277442,"nodeId":3465,"nodeType":5,"orderDate":1587548565554,"profilePartType":8,"progressId":16583459,"rankId":0,"recordDate":1587548565554,"recordId":2951533,"recordTypeId":6,"suspected":0},{"customerId":1001,"definiteDate":"2020-04-217:25:49","dictionaryAttributeId":23,"diseaseDate":"2020-04-217:25:49","diseaseExtendCode":[],"diseaseGuid":"Z34.901","diseaseId":40070,"diseaseName":"妊娠","existState":1,"id":195232481534939140,"mainDisease":1,"nodeId":61479418,"nodeType":5,"orderDate":"2020-04-217:25:49","orgDiseaseName":"妊娠40+周G3P1LOT剖宫产","profilePartType":32,"progressId":345496,"rankId":0,"recordDate":"2020-04-217:25:49","recordId":2951533,"recordTypeId":12004,"suspected":0},{"continuedTime":819936000,"continuedTimeDesc":"26年","customerId":1001,"definiteDate":767614067110,"dictionaryAttributeId":13,"diseaseDate":767614067110,"diseaseExtendCode":[],"diseaseId":5005,"diseaseName":"2型糖尿病","existState":1,"id":195238434711932930,"nodeId":21243,"nodeType":5,"orderDate":767614067110,"profilePartType":3,"progressId":16583452,"rankId":1,"recordDate":1587550067110,"recordId":2951533,"recordTypeId":1,"suspected":0},{"customerId":1001,"dictionaryAttributeId":23,"diseaseGuid":"Z34.901","diseaseId":0,"diseaseName":"妊娠40+周G3P1LOT剖宫产","id":195232481534939139,"mainDisease":1,"nodeType":5,"orgDiseaseName":"妊娠40+周G3P1LOT剖宫产","profilePartType":36,"progressId":345496,"recordDate":"2020-04-217:25:49","recordId":2951533,"recordTypeId":12004}],"drugAdvices":[],"drugs":[],"examinationAdvices":[],"examinationItems":[],"examinations":[],"medicalorders":[],"nurseAdvices":[],"nurseItems":[],"operationAdvices":[{"anesthesia":"","customerId":1001,"dictionaryAttributeId":214,"id":195223546132303872,"incisionType":"","nodeId":13731,"nodeType":11,"operationDate":"2020-04-217:08:32","operationName":"手术","orderCreateDate":"2020-04-217:08:32","orderDate":"2020-04-217:08:32","orderExecuteDate":"2020-04-217:08:32","progressId":1199,"rankId":0,"recordDate":"2020-04-217:08:32","recordId":2951533,"recordTypeId":11002},{"anesthesia":"","customerId":1001,"dictionaryAttributeId":214,"id":195223546132303873,"incisionType":"","nodeId":116461,"nodeType":11,"operationDate":"2020-04-217:08:32","operationName":"剖宫产","orderCreateDate":"2020-04-217:08:32","orderDate":"2020-04-217:08:32","orderExecuteDate":"2020-04-217:08:32","progressId":1199,"rankId":1,"recordDate":"2020-04-217:08:32","recordId":2951533,"recordTypeId":11002}],"operations":[{"anesthesia":"","customerId":1001,"dictionaryAttributeId":213,"existState":1,"id":195233678115344387,"incisionType":"Ⅰ","nodeId":24563468,"nodeType":11,"operationDate":"2020-04-216:53:55","operationId":5006,"operationName":"子宫下段横切口剖宫产术","orderDate":"2020-04-216:53:55","profilePartType":33,"progressId":331864,"rankId":0,"recordId":2951533,"recordTypeId":12005},{"anesthesia":"","customerId":1001,"dictionaryAttributeId":213,"existState":1,"id":195233678115344388,"incisionType":"Ⅰ","nodeId":13731,"nodeType":11,"operationDate":"2020-04-216:53:55","operationId":13640,"operationName":"手术","orderDate":"2020-04-216:53:55","profilePartType":33,"progressId":331864,"rankId":1,"recordId":2951533,"recordTypeId":12005},{"customerId":1001,"dictionaryAttributeId":213,"id":195233678115344386,"incisionType":"Ⅰ","nodeType":11,"operationDate":"2020-04-216:53:55","operationGuid":"74.02","operationId":0,"operationName":"子宫下段剖宫产术，横切(无)","orderDate":"2020-04-216:53:55","profilePartType":37,"progressId":331864,"recordDate":"2020-04-216:53:55","recordId":2951533,"recordTypeId":12005}],"patientVisitInfo":{"admissionDate":"2020-04-216:53:31","customerId":1001,"department":"产科","patientAge":20,"patientAgeType":"岁","patientGender":0,"patientGuid":"1587545546344","patientName":"stable_200430_1587545546834","recordId":2951533,"serialNumber":"1587545619245"},"physicals":[],"previous":[{"customerId":1001,"dictionaryAttributeId":2,"existState":1,"id":195238434711932931,"nodeId":61479418,"nodeType":19,"orderDate":1587550067110,"previousId":1,"previousName":"妊娠","progressId":16583452,"rankId":0,"recordDate":1587550067110,"recordId":2951533,"recordTypeId":1}],"progresses":[{"customerId":1001,"dictionaryAttributeId":47,"id":195232186830557186,"progressContent":"术后诊断:脑梗。","progressDate":1587548565554,"progressId":16583459,"recordDate":1587548565554,"recordId":2951533,"recordTypeId":6},{"customerId":1001,"dictionaryAttributeId":2,"id":195238434460274690,"progressContent":"主诉:妊。","progressDate":1587550067110,"progressId":16583452,"recordDate":1587550067110,"recordId":2951533,"recordTypeId":1},{"customerId":1001,"dictionaryAttributeId":13,"id":195238434460274691,"progressContent":"既往史:2型糖尿病病史26年,。","progressDate":1587550067110,"progressId":16583452,"recordDate":1587550067110,"recordId":2951533,"recordTypeId":1}],"recordId":2951533,"symptoms":[],"testAdvices":[],"testItems":[],"tests":[],"timepoints":[],"vitalsigns":[]}</arg>
+<arg>recordDatas={"患者基本信息":{"出生地（市）":"","职业":"","入院科室名称":"","患者姓名":"stable_200430_1587545546834","社保卡号":"","出生地（省\直辖市）":"","现在工作邮编":"","入院床号":"","本人电话":"","入院途径":"0","现住址邮编":"","出院科室名称":"","新生儿入院体重":"","出院床号":"","婚姻状况":"0","新生儿出生体重":"","民族":"","现在工作单位联系方式（电话）":"","籍贯（市）":"","id":"34757","年龄":"20","身份证号":"","联系人电话":"","户口所在地（省\直辖市）":"","病人来源":"0","联系人地址":"","户口地址邮编":"","现工作单位名称":"","出生地（县/地区）":"","联系人姓名":"","转科科室名称":"","病案号":"","现工作地址":"","年龄单位":"岁","户口所在地（市）":"","联系人关系":"","籍贯（省\直辖市）":"","国籍":"","患者性别":"0","实际住院天数":"","现住址":"","医疗付费方式":"0"},"患者诊断信息":[{"诊断名称":"妊娠40+周G3P1LOT剖宫产","诊断编码":"Z34.901","诊断时间":"2020-04-217:25:49.0","诊断ICD编码":"Z34.901","诊断类型":"9","id":"345496","是否主诊断":"1","入院病情":"4"}]}</arg>
+<arg>recordId=${2951533}</arg>
+<arg>ruleCodes=${ruleCodes}</arg>
 </arguments>
 <assign>
 <var>${getRes}</var>
@@ -2145,57 +158,70 @@ given `alias`</doc>
 <assign>
 <var>${dict}</var>
 </assign>
-<msg timestamp="20200904 10:26:10.052" level="INFO">${dict} = {"Content-Type": "application/json", "Huimei_id": "7195F12825788F09375C2DB1E922F108"}</msg>
-<status status="PASS" endtime="20200904 10:26:10.052" starttime="20200904 10:26:10.050"></status>
+<msg timestamp="20201020 14:10:19.182" level="INFO">${dict} = {"Content-Type": "application/json", "Huimei_id": "7195F12825788F09375C2DB1E922F108"}</msg>
+<status status="PASS" endtime="20201020 14:10:19.182" starttime="20201020 14:10:19.180"></status>
 </kw>
 <kw name="Create Session" library="RequestsLibrary">
 <doc>Create Session: create a HTTP session to a server</doc>
 <arguments>
 <arg>api</arg>
-<arg>${mayson_url}</arg>
+<arg>${connotation_url}:9998</arg>
 <arg>${dict}</arg>
 </arguments>
-<msg timestamp="20200904 10:26:10.053" level="INFO">Creating Session using : alias=api, url=http://profile.huimeionline.com/cdss, headers={u'Content-Type': u'application/json', u'Huimei_id': u'7195F12825788F09375C2DB1E922F108'},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" endtime="20200904 10:26:10.053" starttime="20200904 10:26:10.052"></status>
+<msg timestamp="20201020 14:10:19.182" level="INFO">Creating Session using : alias=api, url=http://172.16.3.68:9998, headers={u'Content-Type': u'application/json', u'Huimei_id': u'7195F12825788F09375C2DB1E922F108'},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20201020 14:10:19.183" starttime="20201020 14:10:19.182"></status>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <doc>Evaluates the given expression in Python and returns the result.</doc>
 <arguments>
-<arg>dict(${mcRecordFeedback})</arg>
+<arg>dict(${masterProfile})</arg>
 </arguments>
 <assign>
-<var>${mcRecordFeedback}</var>
+<var>${masterProfile}</var>
 </assign>
-<msg timestamp="20200904 10:26:10.054" level="INFO">${mcRecordFeedback} = {"doctorGuid": 1, "type": 1}</msg>
-<status status="PASS" endtime="20200904 10:26:10.054" starttime="20200904 10:26:10.053"></status>
+<msg timestamp="20201020 14:10:19.186" level="INFO">${masterProfile} = {"operations": [{"progressId": 331864, "incisionType": "Ⅰ", "nodeType": 11, "existState": 1, "orderDate": "2020-04-216:53:55", "recordId": 2951533, "operationDate": "2020-04-216:53:55", "operationName...</msg>
+<status status="PASS" endtime="20201020 14:10:19.186" starttime="20201020 14:10:19.183"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<arguments>
+<arg>dict(${recordDatas})</arg>
+</arguments>
+<assign>
+<var>${recordDatas}</var>
+</assign>
+<msg timestamp="20201020 14:10:19.188" level="INFO">${recordDatas} = {"患者基本信息": {"入院途径": "0", "现在工作单位联系方式（电话）": "", "新生儿出生体重": "", "患者性别": "0", "户口地址邮编": "", "入院床号": "", "入院科室名称": "", "转科科室名称": "", "出院床号": "", "户口所在地（省直辖市）": "", "联系人关系": "", "现在工作邮编": "", "本人电话": "", "...</msg>
+<status status="PASS" endtime="20201020 14:10:19.188" starttime="20201020 14:10:19.187"></status>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
 <arguments>
+<arg>masterProfile=${masterProfile}</arg>
+<arg>recordDatas=${recordDatas}</arg>
 <arg>recordId=${recordId}</arg>
-<arg>mcRecordFeedback=${mcRecordFeedback}</arg>
+<arg>ruleCodes=${ruleCodes}</arg>
 </arguments>
 <assign>
 <var>${data}</var>
 </assign>
-<msg timestamp="20200904 10:26:10.058" level="INFO">${data} = {"recordId": 312859, "mcRecordFeedback": {"doctorGuid": 1, "type": 1}}</msg>
-<status status="PASS" endtime="20200904 10:26:10.058" starttime="20200904 10:26:10.054"></status>
+<msg timestamp="20201020 14:10:19.196" level="INFO">${data} = {"masterProfile": {"operations": [{"progressId": 331864, "incisionType": "Ⅰ", "nodeType": 11, "existState": 1, "orderDate": "2020-04-216:53:55", "recordId": 2951533, "operationDate": "2020-04-216:53:5...</msg>
+<status status="PASS" endtime="20201020 14:10:19.196" starttime="20201020 14:10:19.188"></status>
 </kw>
 <kw name="Post Request" library="RequestsLibrary">
 <doc>Send a POST request on the session object found using the
 given `alias`</doc>
 <arguments>
 <arg>api</arg>
-<arg>/sentry/mc/add_feedback</arg>
+<arg>v_1_0/quality_control</arg>
 <arg>data=${data}</arg>
 </arguments>
 <assign>
 <var>${addr}</var>
 </assign>
-<msg timestamp="20200904 10:26:10.064" level="INFO">Starting new HTTP connection (1): profile.huimeionline.com</msg>
-<msg timestamp="20200904 10:26:10.171" level="INFO">Post Request using : alias=api, uri=/sentry/mc/add_feedback, data=&lt;empty&gt;, headers=None, files=None, allow_redirects=True </msg>
-<msg timestamp="20200904 10:26:10.172" level="INFO">${addr} = &lt;Response [200]&gt;</msg>
-<status status="PASS" endtime="20200904 10:26:10.173" starttime="20200904 10:26:10.061"></status>
+<msg timestamp="20201020 14:10:19.208" level="INFO">Starting new HTTP connection (1): 172.16.3.68</msg>
+<msg timestamp="20201020 14:10:19.422" level="INFO">Post Request using : alias=api, uri=v_1_0/quality_control, data=&lt;empty&gt;, headers=None, files=None, allow_redirects=True </msg>
+<msg timestamp="20201020 14:10:19.423" level="INFO">${addr} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20201020 14:10:19.423" starttime="20201020 14:10:19.197"></status>
 </kw>
 <kw name="To Json" library="RequestsLibrary">
 <doc>Convert a string to a JSON object</doc>
@@ -2205,53 +231,610 @@ given `alias`</doc>
 <assign>
 <var>${responsedata}</var>
 </assign>
-<msg timestamp="20200904 10:26:10.176" level="INFO">To JSON using : content={
-	"body":"\xe4\xbf\x9d\xe5\xad\x98\xe5\xbe\x85\xe5\x8f\x8d\xe9\xa6\x88\xe6\xa8\xa1\xe5\x9d\x97\xe5\x86\x85\xe5\xae\xb9\xe6\x88\x90\xe5\x8a\x9f\xe6\x88\x90\xe5\x8a\x9f\xef\xbc\x81",
-	"head":{
-		"error":0
-	}
-} </msg>
-<msg timestamp="20200904 10:26:10.176" level="INFO">To JSON using : pretty_print=False </msg>
-<msg timestamp="20200904 10:26:10.178" level="INFO">${responsedata} = {"body": "保存待反馈模块内容成功成功！", "head": {"error": 0}}</msg>
-<status status="PASS" endtime="20200904 10:26:10.178" starttime="20200904 10:26:10.174"></status>
+<msg timestamp="20201020 14:10:19.430" level="INFO">To JSON using : content={
+  "recordId": 2951533, 
+  "result": [
+    {
+      "remark": "", 
+      "result": 3, 
+      "ruleCode": "nh1"
+    }, 
+    {
+      "remark": "", 
+      "result": 1, 
+      "ruleCode": "syqt5"
+    }, 
+    {
+      "remark": "", 
+      "result": 1, 
+      "ruleCode": "nh6"
+    }, 
+    {
+      "remark": "", 
+      "result": 1, 
+      "ruleCode": "nh7"
+    }, 
+    {
+      "remark": "", 
+      "result": 1, 
+      "ruleCode": "nh8"
+    }, 
+    {
+      "remark": "", 
+      "result": 1, 
+      "ruleCode": "nh9"
+    }
+  ]
+}
+ </msg>
+<msg timestamp="20201020 14:10:19.430" level="INFO">To JSON using : pretty_print=False </msg>
+<msg timestamp="20201020 14:10:19.432" level="INFO">${responsedata} = {"recordId": 2951533, "result": [{"ruleCode": "nh1", "remark": "", "result": 3}, {"ruleCode": "syqt5", "remark": "", "result": 1}, {"ruleCode": "nh6", "remark": "", "result": 1}, {"ruleCode": "nh7", "...</msg>
+<status status="PASS" endtime="20201020 14:10:19.432" starttime="20201020 14:10:19.429"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>${data}</arg>
 </arguments>
-<msg timestamp="20200904 10:26:10.179" level="INFO">{"recordId": 312859, "mcRecordFeedback": {"doctorGuid": 1, "type": 1}}</msg>
-<status status="PASS" endtime="20200904 10:26:10.179" starttime="20200904 10:26:10.178"></status>
+<msg timestamp="20201020 14:10:19.438" level="INFO">{"masterProfile": {"operations": [{"progressId": 331864, "incisionType": "Ⅰ", "nodeType": 11, "existState": 1, "orderDate": "2020-04-216:53:55", "recordId": 2951533, "operationDate": "2020-04-216:53:55", "operationName": "子宫下段横切口剖宫产术", "nodeId": 24563468, "customerId": 1001, "rankId": 0, "dictionaryAttributeId": 213, "id": 195233678115344387, "recordTypeId": 12005, "profilePartType": 33, "anesthesia": "", "operationId": 5006}, {"progressId": 331864, "incisionType": "Ⅰ", "nodeType": 11, "existState": 1, "orderDate": "2020-04-216:53:55", "recordId": 2951533, "operationDate": "2020-04-216:53:55", "operationName": "手术", "nodeId": 13731, "customerId": 1001, "rankId": 1, "dictionaryAttributeId": 213, "id": 195233678115344388, "recordTypeId": 12005, "profilePartType": 33, "anesthesia": "", "operationId": 13640}, {"nodeType": 11, "operationDate": "2020-04-216:53:55", "operationName": "子宫下段剖宫产术，横切(无)", "dictionaryAttributeId": 213, "recordTypeId": 12005, "id": 195233678115344386, "progressId": 331864, "incisionType": "Ⅰ", "operationGuid": "74.02", "recordId": 2951533, "customerId": 1001, "recordDate": "2020-04-216:53:55", "profilePartType": 37, "orderDate": "2020-04-216:53:55", "operationId": 0}], "testItems": [], "examinations": [], "diseases": [{"progressId": 16583459, "nodeType": 5, "diseaseExtendCode": [], "diseaseDate": 1587548565554, "existState": 1, "orderDate": 1587548565554, "diseaseId": 161, "recordTypeId": 6, "rankId": 0, "nodeId": 3465, "id": 195232186889277442, "recordId": 2951533, "definiteDate": 1587548565554, "dictionaryAttributeId": 47, "recordDate": 1587548565554, "diseaseName": "脑梗死", "profilePartType": 8, "customerId": 1001, "suspected": 0}, {"recordTypeId": 12004, "dictionaryAttributeId": 23, "diseaseExtendCode": [], "id": 195232481534939140, "progressId": 345496, "rankId": 0, "recordId": 2951533, "nodeId": 61479418, "mainDisease": 1, "recordDate": "2020-04-217:25:49", "nodeType": 5, "existState": 1, "diseaseId": 40070, "definiteDate": "2020-04-217:25:49", "suspected": 0, "diseaseDate": "2020-04-217:25:49", "orgDiseaseName": "妊娠40+周G3P1LOT剖宫产", "customerId": 1001, "diseaseGuid": "Z34.901", "diseaseName": "妊娠", "profilePartType": 32, "orderDate": "2020-04-217:25:49"}, {"progressId": 16583452, "diseaseName": "2型糖尿病", "diseaseExtendCode": [], "diseaseDate": 767614067110, "existState": 1, "orderDate": 767614067110, "diseaseId": 5005, "recordTypeId": 1, "rankId": 1, "nodeId": 21243, "id": 195238434711932930, "recordId": 2951533, "continuedTimeDesc": "26年", "recordDate": 1587550067110, "dictionaryAttributeId": 13, "continuedTime": 819936000, "definiteDate": 767614067110, "profilePartType": 3, "nodeType": 5, "customerId": 1001, "suspected": 0}, {"nodeType": 5, "diseaseId": 0, "diseaseName": "妊娠40+周G3P1LOT剖宫产", "dictionaryAttributeId": 23, "recordTypeId": 12004, "id": 195232481534939139, "progressId": 345496, "orgDiseaseName": "妊娠40+周G3P1LOT剖宫产", "recordId": 2951533, "mainDisease": 1, "diseaseGuid": "Z34.901", "recordDate": "2020-04-217:25:49", "profilePartType": 36, "customerId": 1001}], "nurseAdvices": [], "medicalorders": [], "drugs": [], "tests": [], "examinationItems": [], "assessItems": [], "drugAdvices": [], "testAdvices": [], "nurseItems": [], "examinationAdvices": [], "consultationAdvices": [], "progresses": [{"progressId": 16583459, "progressDate": 1587548565554, "progressContent": "术后诊断:脑梗。", "recordTypeId": 6, "dictionaryAttributeId": 47, "recordId": 2951533, "recordDate": 1587548565554, "customerId": 1001, "id": 195232186830557186}, {"progressId": 16583452, "progressDate": 1587550067110, "progressContent": "主诉:妊。", "recordTypeId": 1, "dictionaryAttributeId": 2, "recordId": 2951533, "recordDate": 1587550067110, "customerId": 1001, "id": 195238434460274690}, {"progressId": 16583452, "progressDate": 1587550067110, "progressContent": "既往史:2型糖尿病病史26年,。", "recordTypeId": 1, "dictionaryAttributeId": 13, "recordId": 2951533, "recordDate": 1587550067110, "customerId": 1001, "id": 195238434460274691}], "patientVisitInfo": {"recordId": 2951533, "patientAge": 20, "patientGuid": "1587545546344", "department": "产科", "patientGender": 0, "admissionDate": "2020-04-216:53:31", "serialNumber": "1587545619245", "customerId": 1001, "patientAgeType": "岁", "patientName": "stable_200430_1587545546834"}, "previous": [{"nodeType": 19, "existState": 1, "previousId": 1, "dictionaryAttributeId": 2, "recordTypeId": 1, "id": 195238434711932931, "progressId": 16583452, "rankId": 0, "recordId": 2951533, "nodeId": 61479418, "previousName": "妊娠", "customerId": 1001, "recordDate": 1587550067110, "orderDate": 1587550067110}], "vitalsigns": [], "recordId": 2951533, "allergies": [], "timepoints": [], "symptoms": [], "adviceKnowledges": [], "assesss": [], "customerId": 1001, "operationAdvices": [{"progressId": 1199, "orderExecuteDate": "2020-04-217:08:32", "incisionType": "", "nodeType": 11, "orderDate": "2020-04-217:08:32", "recordId": 2951533, "operationDate": "2020-04-217:08:32", "operationName": "手术", "nodeId": 13731, "customerId": 1001, "rankId": 0, "recordTypeId": 11002, "dictionaryAttributeId": 214, "orderCreateDate": "2020-04-217:08:32", "id": 195223546132303872, "recordDate": "2020-04-217:08:32", "anesthesia": ""}, {"progressId": 1199, "orderExecuteDate": "2020-04-217:08:32", "incisionType": "", "nodeType": 11, "orderDate": "2020-04-217:08:32", "recordId": 2951533, "operationDate": "2020-04-217:08:32", "operationName": "剖宫产", "nodeId": 116461, "customerId": 1001, "rankId": 1, "recordTypeId": 11002, "dictionaryAttributeId": 214, "orderCreateDate": "2020-04-217:08:32", "id": 195223546132303873, "recordDate": "2020-04-217:08:32", "anesthesia": ""}], "physicals": []}, "recordDatas": {"患者基本信息": {"入院途径": "0", "现在工作单位联系方式（电话）": "", "新生儿出生体重": "", "患者性别": "0", "户口地址邮编": "", "入院床号": "", "入院科室名称": "", "转科科室名称": "", "出院床号": "", "户口所在地（省直辖市）": "", "联系人关系": "", "现在工作邮编": "", "本人电话": "", "现工作单位名称": "", "联系人地址": "", "出生地（市）": "", "籍贯（市）": "", "id": "34757", "年龄": "20", "出生地（县/地区）": "", "籍贯（省直辖市）": "", "病人来源": "0", "联系人电话": "", "婚姻状况": "0", "出院科室名称": "", "实际住院天数": "", "联系人姓名": "", "出生地（省直辖市）": "", "社保卡号": "", "身份证号": "", "户口所在地（市）": "", "年龄单位": "岁", "民族": "", "现住址邮编": "", "现工作地址": "", "患者姓名": "stable_200430_1587545546834", "病案号": "", "医疗付费方式": "0", "国籍": "", "职业": "", "现住址": "", "新生儿入院体重": ""}, "患者诊断信息": [{"是否主诊断": "1", "诊断名称": "妊娠40+周G3P1LOT剖宫产", "诊断时间": "2020-04-217:25:49.0", "诊断编码": "Z34.901", "诊断ICD编码": "Z34.901", "id": "345496", "入院病情": "4", "诊断类型": "9"}]}, "recordId": 2951533, "ruleCodes": ["syqt5", "nh1", "nh7", "nh6", "nh9", "nh8"]}</msg>
+<status status="PASS" endtime="20201020 14:10:19.443" starttime="20201020 14:10:19.432"></status>
 </kw>
-<msg timestamp="20200904 10:26:10.179" level="INFO">${getRes} = {"body": "保存待反馈模块内容成功成功！", "head": {"error": 0}}</msg>
-<status status="PASS" endtime="20200904 10:26:10.179" starttime="20200904 10:26:10.047"></status>
+<msg timestamp="20201020 14:10:19.444" level="INFO">${getRes} = {"recordId": 2951533, "result": [{"ruleCode": "nh1", "remark": "", "result": 3}, {"ruleCode": "syqt5", "remark": "", "result": 1}, {"ruleCode": "nh6", "remark": "", "result": 1}, {"ruleCode": "nh7", "...</msg>
+<status status="PASS" endtime="20201020 14:10:19.444" starttime="20201020 14:10:19.178"></status>
 </kw>
-<kw name="Should Be Equal As Strings" library="BuiltIn">
-<doc>Fails if objects are unequal after converting them to strings.</doc>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the result.</doc>
 <arguments>
-<arg>${getRes['body']}</arg>
-<arg>保存待反馈模块内容成功成功！</arg>
+<arg>[aj['ruleCode'] for aj in $getRes['result']]</arg>
 </arguments>
-<status status="PASS" endtime="20200904 10:26:10.180" starttime="20200904 10:26:10.179"></status>
+<assign>
+<var>${aj}</var>
+</assign>
+<msg timestamp="20201020 14:10:19.446" level="INFO">${aj} = ["nh1", "syqt5", "nh6", "nh7", "nh8", "nh9"]</msg>
+<status status="PASS" endtime="20201020 14:10:19.446" starttime="20201020 14:10:19.444"></status>
 </kw>
-<status status="PASS" endtime="20200904 10:26:10.180" critical="yes" starttime="20200904 10:26:08.697"></status>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${aj}</arg>
+<arg>nh1</arg>
+</arguments>
+<status status="PASS" endtime="20201020 14:10:19.448" starttime="20201020 14:10:19.446"></status>
+</kw>
+<doc>:9998/v_1_0/quality_control</doc>
+<status status="PASS" endtime="20201020 14:10:19.448" critical="yes" starttime="20201020 14:10:19.154"></status>
+</test>
+<test id="s1-t2" name="内涵质控:nh25-C15-入院记录中既往史与外伤史矛盾">
+<kw type="setup" name="Run Keywords" library="BuiltIn">
+<doc>Executes all the given keywords in a sequence.</doc>
+<arguments>
+<arg>获取时间戳</arg>
+<arg>AND</arg>
+<arg>获取随机数</arg>
+</arguments>
+<kw name="获取时间戳" library="cdss">
+<kw name="Get Time" library="BuiltIn">
+<doc>Returns the given time in the requested format.</doc>
+<arguments>
+<arg>epoch</arg>
+</arguments>
+<assign>
+<var>${timestamp}</var>
+</assign>
+<msg timestamp="20201020 14:10:19.458" level="INFO">${timestamp} = 1603174219</msg>
+<status status="PASS" endtime="20201020 14:10:19.459" starttime="20201020 14:10:19.456"></status>
+</kw>
+<kw name="Get Time" library="BuiltIn">
+<doc>Returns the given time in the requested format.</doc>
+<arguments>
+<arg>timestamp</arg>
+</arguments>
+<assign>
+<var>${time_now}</var>
+</assign>
+<msg timestamp="20201020 14:10:19.461" level="INFO">${time_now} = 2020-10-20 14:10:19</msg>
+<status status="PASS" endtime="20201020 14:10:19.461" starttime="20201020 14:10:19.459"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${timestamp}</arg>
+</arguments>
+<msg timestamp="20201020 14:10:19.464" level="INFO">${timestamp} = 1603174219</msg>
+<status status="PASS" endtime="20201020 14:10:19.464" starttime="20201020 14:10:19.462"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${time_now}</arg>
+</arguments>
+<msg timestamp="20201020 14:10:19.465" level="INFO">${time_now} = 2020-10-20 14:10:19</msg>
+<status status="PASS" endtime="20201020 14:10:19.465" starttime="20201020 14:10:19.465"></status>
+</kw>
+<status status="PASS" endtime="20201020 14:10:19.466" starttime="20201020 14:10:19.456"></status>
+</kw>
+<kw name="获取随机数" library="cdss">
+<kw name="Generate Random String" library="String">
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<arguments>
+<arg>3</arg>
+<arg>1234567890</arg>
+</arguments>
+<assign>
+<var>${random}</var>
+</assign>
+<msg timestamp="20201020 14:10:19.468" level="INFO">${random} = 563</msg>
+<status status="PASS" endtime="20201020 14:10:19.468" starttime="20201020 14:10:19.466"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${random}</arg>
+</arguments>
+<msg timestamp="20201020 14:10:19.470" level="INFO">${random} = 563</msg>
+<status status="PASS" endtime="20201020 14:10:19.471" starttime="20201020 14:10:19.468"></status>
+</kw>
+<status status="PASS" endtime="20201020 14:10:19.471" starttime="20201020 14:10:19.466"></status>
+</kw>
+<status status="PASS" endtime="20201020 14:10:19.471" starttime="20201020 14:10:19.455"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>nh25</arg>
+<arg>nh1</arg>
+<arg>nh7</arg>
+<arg>nh6</arg>
+<arg>nh9</arg>
+<arg>nh8</arg>
+</arguments>
+<assign>
+<var>${ruleCodes}</var>
+</assign>
+<msg timestamp="20201020 14:10:19.472" level="INFO">${ruleCodes} = ["nh25", "nh1", "nh7", "nh6", "nh9", "nh8"]</msg>
+<status status="PASS" endtime="20201020 14:10:19.472" starttime="20201020 14:10:19.471"></status>
+</kw>
+<kw name="内涵质控" library="cdss">
+<arguments>
+<arg>masterProfile={"adviceKnowledges":[],"allergies":[],"assessItems":[{"assessId":8,"assessItemId":191,"assessItemName":"女性","customerId":1001,"dictionaryAttributeId":212,"existState":1,"id":203580362981511170,"itemSource":1,"objectId":54607,"progressId":203580362981511169,"recordId":2976758,"recordTypeId":9006,"score":1,"sourceType":0,"wordId":54607},{"assessId":89,"assessItemId":304,"assessItemName":"年龄≤44岁","customerId":1001,"dictionaryAttributeId":212,"existState":1,"id":203580362981511174,"itemSource":1,"objectId":324985,"progressId":203580362981511173,"recordId":2976758,"recordTypeId":9006,"score":0,"sourceType":0,"wordId":324985}],"assesss":[{"assessId":4,"assessName":"Wells评分","assessResult":"低度可能急性肺栓塞","assessValue":"0","assessValueType":1,"assessValueUnit":"分","customerId":1001,"dictionaryAttributeId":212,"id":203580362981511168,"objectId":4,"profilePartType":43,"progressId":203580362981511168,"recordId":2976758,"recordTypeId":9006,"sourceType":0},{"assessId":8,"assessItems":[{"assessId":8,"assessItemId":191,"assessItemName":"女性","customerId":1001,"dictionaryAttributeId":212,"existState":1,"id":203580362981511170,"itemSource":1,"objectId":54607,"progressId":203580362981511169,"recordId":2976758,"recordTypeId":9006,"score":1,"sourceType":0,"wordId":54607}],"assessName":"CHA2DS2-VASc","assessResult":"患者年卒中发生率1.3%","assessValue":"1","assessValueType":1,"assessValueUnit":"分","customerId":1001,"dictionaryAttributeId":212,"id":203580362981511169,"objectId":8,"profilePartType":43,"progressId":203580362981511169,"recordId":2976758,"recordTypeId":9006,"sourceType":0},{"assessId":9,"assessName":"HAS-BLED","assessResult":"患者出血风险低","assessValue":"0","assessValueType":1,"assessValueUnit":"分","customerId":1001,"dictionaryAttributeId":212,"id":203580362981511171,"objectId":9,"profilePartType":43,"progressId":203580362981511171,"recordId":2976758,"recordTypeId":9006,"sourceType":0},{"assessId":509,"assessName":"DVT-Wells评分","assessResult":"患者发生DVT低度可能性","assessValue":"0","assessValueType":1,"assessValueUnit":"分","customerId":1001,"dictionaryAttributeId":212,"id":203580362981511172,"objectId":509,"profilePartType":43,"progressId":203580362981511172,"recordId":2976758,"recordTypeId":9006,"sourceType":0},{"assessId":89,"assessItems":[{"assessId":89,"assessItemId":304,"assessItemName":"年龄≤44岁","customerId":1001,"dictionaryAttributeId":212,"existState":1,"id":203580362981511174,"itemSource":1,"objectId":324985,"progressId":203580362981511173,"recordId":2976758,"recordTypeId":9006,"score":0,"sourceType":0,"wordId":324985}],"assessName":"APACHE II评分","assessValue":"0","assessValueType":1,"assessValueUnit":"分","customerId":1001,"dictionaryAttributeId":212,"id":203580362981511173,"objectId":89,"profilePartType":43,"progressId":203580362981511173,"recordId":2976758,"recordTypeId":9006,"sourceType":0},{"assessId":276,"assessName":"qSOFA评分","assessValue":"0","assessValueType":1,"assessValueUnit":"分","customerId":1001,"dictionaryAttributeId":212,"id":203580362981511175,"objectId":276,"profilePartType":43,"progressId":203580362981511175,"recordId":2976758,"recordTypeId":9006,"sourceType":0},{"assessId":278,"assessName":"妊娠及产褥期VTE危险因素评分","assessValue":"0","assessValueType":1,"assessValueUnit":"分","customerId":1001,"dictionaryAttributeId":212,"id":203580362981511176,"objectId":278,"profilePartType":43,"progressId":203580362981511176,"recordId":2976758,"recordTypeId":9006,"sourceType":0},{"assessId":281,"assessName":"Padua评分","assessResult":"低危","assessValue":"0","assessValueType":1,"assessValueUnit":"分","customerId":1001,"dictionaryAttributeId":212,"id":203580362981511177,"objectId":281,"profilePartType":43,"progressId":203580362981511177,"recordId":2976758,"recordTypeId":9006,"sourceType":0},{"assessId":282,"assessName":"Caprini评分","assessResult":"低危","assessValue":"0","assessValueType":1,"assessValueUnit":"分","customerId":1001,"dictionaryAttributeId":212,"id":203580362981511178,"objectId":282,"profilePartType":43,"progressId":203580362981511178,"recordId":2976758,"recordTypeId":9006,"sourceType":0},{"assessId":306,"assessName":"SOFA评分 ","assessValue":"0","assessValueType":1,"assessValueUnit":"分","customerId":1001,"dictionaryAttributeId":212,"id":203580362981511179,"objectId":306,"profilePartType":43,"progressId":203580362981511179,"recordId":2976758,"recordTypeId":9006,"sourceType":0},{"assessId":535,"assessName":"外科住院患者出血风险评估","assessResult":"低危","assessValue":"","assessValueType":1,"assessValueUnit":"","customerId":1001,"dictionaryAttributeId":212,"id":203580362981511180,"objectId":535,"profilePartType":43,"progressId":203580362981511180,"recordId":2976758,"recordTypeId":9006,"sourceType":0},{"assessId":522,"assessName":"内科住院患者出血风险评估","assessResult":"低危","assessValue":"","assessValueType":1,"assessValueUnit":"","customerId":1001,"dictionaryAttributeId":212,"id":203580362981511181,"objectId":522,"profilePartType":43,"progressId":203580362981511181,"recordId":2976758,"recordTypeId":9006,"sourceType":0},{"assessId":589,"assessName":"非手术患者出血风险评估","assessResult":"低危","assessValue":"","assessValueType":1,"assessValueUnit":"","customerId":1001,"dictionaryAttributeId":212,"id":203580362981511182,"objectId":589,"profilePartType":43,"progressId":203580362981511182,"recordId":2976758,"recordTypeId":9006,"sourceType":0},{"assessId":590,"assessName":"外科VTE风险评估","assessResult":"低危","assessValue":"0","assessValueType":1,"assessValueUnit":"分","customerId":1001,"dictionaryAttributeId":212,"id":203580362981511183,"objectId":590,"profilePartType":43,"progressId":203580362981511183,"recordId":2976758,"recordTypeId":9006,"sourceType":0},{"assessId":591,"assessName":"内科VTE风险评估","assessResult":"低危","assessValue":"0","assessValueType":1,"assessValueUnit":"分","customerId":1001,"dictionaryAttributeId":212,"id":203580362981511184,"objectId":591,"profilePartType":43,"progressId":203580362981511184,"recordId":2976758,"recordTypeId":9006,"sourceType":0}],"consultationAdvices":[],"customerId":1001,"diseases":[{"continuedTimeDesc":"既往","customerId":1001,"definiteDate":"2020-05-15 18:29:17","dictionaryAttributeId":13,"diseaseDate":"2020-05-15 18:29:17","diseaseExtendCode":[],"diseaseId":35013,"diseaseName":"颌面部外伤","existState":1,"id":203580362851487748,"nodeId":109902,"nodeType":5,"objectId":35013,"orderDate":"2020-05-15 18:29:17","profilePartType":3,"progressId":16609614,"rankId":1,"recordDate":"2020-05-15 18:29:17","recordId":2976758,"recordTypeId":1,"sourceType":0,"suspected":0},{"continuedTimeDesc":"既往","customerId":1001,"definiteDate":"2020-05-15 18:29:17","dictionaryAttributeId":13,"diseaseDate":"2020-05-15 18:29:17","diseaseExtendCode":[],"diseaseId":17727,"diseaseName":"胸椎骨折","existState":1,"id":203580362851487749,"nodeId":10521,"nodeType":5,"objectId":17727,"orderDate":"2020-05-15 18:29:17","profilePartType":3,"progressId":16609614,"rankId":5,"recordDate":"2020-05-15 18:29:17","recordId":2976758,"recordTypeId":1,"sourceType":0,"suspected":0},{"continuedTimeDesc":"既往","customerId":1001,"definiteDate":"2020-05-15 18:29:17","dictionaryAttributeId":13,"diseaseDate":"2020-05-15 18:29:17","diseaseExtendCode":[],"diseaseId":17880,"diseaseName":"腰椎骨折","existState":1,"id":203580362851487750,"nodeId":10521,"nodeType":5,"objectId":17880,"orderDate":"2020-05-15 18:29:17","profilePartType":3,"progressId":16609614,"rankId":5,"recordDate":"2020-05-15 18:29:17","recordId":2976758,"recordTypeId":1,"sourceType":0,"suspected":0}],"drugAdvices":[],"drugs":[],"examinationAdvices":[],"examinationItems":[],"examinations":[],"medicalorders":[],"nurseAdvices":[],"nurseItems":[],"operationAdvices":[],"operations":[],"patientVisitInfo":{"admissionDate":"2020-05-06 14:56:58","customerId":1001,"department":"呼吸科","dischargeDate":"2020-05-05 18:01:57","patientAge":20,"patientAgeType":"岁","patientGender":0,"patientGuid":"1587545513695","patientName":"stable_200430_入院记录中既往史与外伤史矛盾","recordId":2976758,"serialNumber":"1588748215385"},"physicals":[],"previous":[],"progresses":[{"customerId":1001,"dictionaryAttributeId":13,"id":203580362700492803,"progressContent":"既往史:头面部外伤,胸腰椎骨折,否认外伤史。","progressDate":"2020-05-15 18:29:17","progressId":16609614,"recordDate":"2020-05-15 18:29:17","recordId":2976758,"recordTypeId":1,"sourceType":0}],"recordId":2976758,"symptoms":[],"testAdvices":[],"testItems":[],"tests":[],"timepoints":[{"customerId":1001,"dictionaryAttributeId":122,"id":203580362700492801,"profilePartType":38,"progressId":2976758,"recordId":2976758,"recordTypeId":16001,"sourceType":0,"timePointValue":"2020-05-06 14:56:58","timeTypeId":5453,"timeTypeName":"住院时间"},{"customerId":1001,"dictionaryAttributeId":30,"id":203580362700492802,"profilePartType":38,"progressId":2976758,"recordId":2976758,"recordTypeId":16001,"sourceType":0,"timePointValue":"2020-05-05 18:01:57","timeTypeId":5719,"timeTypeName":"出院时间"}],"vitalsigns":[]}</arg>
+<arg>recordDatas={"患者基本信息":{"出生地（市）":"","职业":"","入院科室名称":"","患者姓名":"stable_200430_1587545546834","社保卡号":"","出生地（省\直辖市）":"","现在工作邮编":"","入院床号":"","本人电话":"","入院途径":"0","现住址邮编":"","出院科室名称":"","新生儿入院体重":"","出院床号":"","婚姻状况":"0","新生儿出生体重":"","民族":"","现在工作单位联系方式（电话）":"","籍贯（市）":"","id":"34757","年龄":"20","身份证号":"","联系人电话":"","户口所在地（省\直辖市）":"","病人来源":"0","联系人地址":"","户口地址邮编":"","现工作单位名称":"","出生地（县/地区）":"","联系人姓名":"","转科科室名称":"","病案号":"","现工作地址":"","年龄单位":"岁","户口所在地（市）":"","联系人关系":"","籍贯（省\直辖市）":"","国籍":"","患者性别":"0","实际住院天数":"","现住址":"","医疗付费方式":"0"},"患者诊断信息":[{"诊断名称":"妊娠40+周G3P1LOT剖宫产","诊断编码":"Z34.901","诊断时间":"2020-04-217:25:49.0","诊断ICD编码":"Z34.901","诊断类型":"9","id":"345496","是否主诊断":"1","入院病情":"4"}]}</arg>
+<arg>recordId=${3053157}</arg>
+<arg>ruleCodes=${ruleCodes}</arg>
+</arguments>
+<assign>
+<var>${getRes}</var>
+</assign>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+<arg>Huimei_id=${Huimei_id}</arg>
+</arguments>
+<assign>
+<var>${dict}</var>
+</assign>
+<msg timestamp="20201020 14:10:19.478" level="INFO">${dict} = {"Content-Type": "application/json", "Huimei_id": "7195F12825788F09375C2DB1E922F108"}</msg>
+<status status="PASS" endtime="20201020 14:10:19.478" starttime="20201020 14:10:19.476"></status>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>api</arg>
+<arg>${connotation_url}:9998</arg>
+<arg>${dict}</arg>
+</arguments>
+<msg timestamp="20201020 14:10:19.480" level="INFO">Creating Session using : alias=api, url=http://172.16.3.68:9998, headers={u'Content-Type': u'application/json', u'Huimei_id': u'7195F12825788F09375C2DB1E922F108'},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20201020 14:10:19.480" starttime="20201020 14:10:19.478"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<arguments>
+<arg>dict(${masterProfile})</arg>
+</arguments>
+<assign>
+<var>${masterProfile}</var>
+</assign>
+<msg timestamp="20201020 14:10:19.487" level="INFO">${masterProfile} = {"operations": [], "testItems": [], "examinations": [], "diseases": [{"recordTypeId": 1, "dictionaryAttributeId": 13, "nodeType": 5, "id": 203580362851487748, "progressId": 16609614, "objectId": 35013...</msg>
+<status status="PASS" endtime="20201020 14:10:19.488" starttime="20201020 14:10:19.481"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<arguments>
+<arg>dict(${recordDatas})</arg>
+</arguments>
+<assign>
+<var>${recordDatas}</var>
+</assign>
+<msg timestamp="20201020 14:10:19.489" level="INFO">${recordDatas} = {"患者基本信息": {"入院途径": "0", "现在工作单位联系方式（电话）": "", "新生儿出生体重": "", "患者性别": "0", "户口地址邮编": "", "入院床号": "", "入院科室名称": "", "转科科室名称": "", "出院床号": "", "户口所在地（省直辖市）": "", "联系人关系": "", "现在工作邮编": "", "本人电话": "", "...</msg>
+<status status="PASS" endtime="20201020 14:10:19.489" starttime="20201020 14:10:19.488"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>masterProfile=${masterProfile}</arg>
+<arg>recordDatas=${recordDatas}</arg>
+<arg>recordId=${recordId}</arg>
+<arg>ruleCodes=${ruleCodes}</arg>
+</arguments>
+<assign>
+<var>${data}</var>
+</assign>
+<msg timestamp="20201020 14:10:19.503" level="INFO">${data} = {"masterProfile": {"operations": [], "testItems": [], "examinations": [], "diseases": [{"recordTypeId": 1, "dictionaryAttributeId": 13, "nodeType": 5, "id": 203580362851487748, "progressId": 16609614,...</msg>
+<status status="PASS" endtime="20201020 14:10:19.503" starttime="20201020 14:10:19.490"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>api</arg>
+<arg>v_1_0/quality_control</arg>
+<arg>data=${data}</arg>
+</arguments>
+<assign>
+<var>${addr}</var>
+</assign>
+<msg timestamp="20201020 14:10:19.508" level="INFO">Starting new HTTP connection (1): 172.16.3.68</msg>
+<msg timestamp="20201020 14:10:19.768" level="INFO">Post Request using : alias=api, uri=v_1_0/quality_control, data=&lt;empty&gt;, headers=None, files=None, allow_redirects=True </msg>
+<msg timestamp="20201020 14:10:19.768" level="INFO">${addr} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20201020 14:10:19.769" starttime="20201020 14:10:19.503"></status>
+</kw>
+<kw name="To Json" library="RequestsLibrary">
+<doc>Convert a string to a JSON object</doc>
+<arguments>
+<arg>${addr.content}</arg>
+</arguments>
+<assign>
+<var>${responsedata}</var>
+</assign>
+<msg timestamp="20201020 14:10:19.773" level="INFO">To JSON using : content={
+  "recordId": 3053157, 
+  "result": [
+    {
+      "remark": "", 
+      "result": 3, 
+      "ruleCode": "nh1"
+    }, 
+    {
+      "remark": "", 
+      "result": 1, 
+      "ruleCode": "nh6"
+    }, 
+    {
+      "remark": "", 
+      "result": 1, 
+      "ruleCode": "nh7"
+    }, 
+    {
+      "remark": "", 
+      "result": 1, 
+      "ruleCode": "nh8"
+    }, 
+    {
+      "remark": "", 
+      "result": 1, 
+      "ruleCode": "nh9"
+    }, 
+    {
+      "remark": "\xe5\xa4\x96\xe4\xbc\xa4\xe5\x8f\xb2\xe4\xb8\xad\"\xe5\x90\xa6\xe8\xae\xa4\xe5\xa4\x96\xe4\xbc\xa4\xe5\x8f\xb2\"\xe4\xb8\x8e\xe5\x85\xa5\xe9\x99\xa2\xe8\xae\xb0\xe5\xbd\x95\xe6\x97\xa2\xe5\xbe\x80\xe5\x8f\xb2\xe4\xb8\xad\"\xe9\xa2\x8c\xe9\x9d\xa2\xe9\x83\xa8\xe5\xa4\x96\xe4\xbc\xa4\"\xe4\xb8\x8d\xe4\xb8\x80\xe8\x87\xb4\xef\xbc\x8c\xe8\xaf\xb7\xe7\xa1\xae\xe8\xae\xa4", 
+      "result": 2, 
+      "ruleCode": "nh25"
+    }
+  ]
+}
+ </msg>
+<msg timestamp="20201020 14:10:19.773" level="INFO">To JSON using : pretty_print=False </msg>
+<msg timestamp="20201020 14:10:19.774" level="INFO">${responsedata} = {"recordId": 3053157, "result": [{"ruleCode": "nh1", "remark": "", "result": 3}, {"ruleCode": "nh6", "remark": "", "result": 1}, {"ruleCode": "nh7", "remark": "", "result": 1}, {"ruleCode": "nh8", "re...</msg>
+<status status="PASS" endtime="20201020 14:10:19.774" starttime="20201020 14:10:19.769"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${data}</arg>
+</arguments>
+<msg timestamp="20201020 14:10:19.781" level="INFO">{"masterProfile": {"operations": [], "testItems": [], "examinations": [], "diseases": [{"recordTypeId": 1, "dictionaryAttributeId": 13, "nodeType": 5, "id": 203580362851487748, "progressId": 16609614, "objectId": 35013, "rankId": 1, "recordId": 2976758, "nodeId": 109902, "recordDate": "2020-05-15 18:29:17", "diseaseExtendCode": [], "sourceType": 0, "existState": 1, "diseaseId": 35013, "diseaseName": "颌面部外伤", "suspected": 0, "diseaseDate": "2020-05-15 18:29:17", "customerId": 1001, "continuedTimeDesc": "既往", "definiteDate": "2020-05-15 18:29:17", "profilePartType": 3, "orderDate": "2020-05-15 18:29:17"}, {"recordTypeId": 1, "dictionaryAttributeId": 13, "nodeType": 5, "id": 203580362851487749, "progressId": 16609614, "objectId": 17727, "rankId": 5, "recordId": 2976758, "nodeId": 10521, "recordDate": "2020-05-15 18:29:17", "diseaseExtendCode": [], "sourceType": 0, "existState": 1, "diseaseId": 17727, "diseaseName": "胸椎骨折", "suspected": 0, "diseaseDate": "2020-05-15 18:29:17", "customerId": 1001, "continuedTimeDesc": "既往", "definiteDate": "2020-05-15 18:29:17", "profilePartType": 3, "orderDate": "2020-05-15 18:29:17"}, {"recordTypeId": 1, "dictionaryAttributeId": 13, "nodeType": 5, "id": 203580362851487750, "progressId": 16609614, "objectId": 17880, "rankId": 5, "recordId": 2976758, "nodeId": 10521, "recordDate": "2020-05-15 18:29:17", "diseaseExtendCode": [], "sourceType": 0, "existState": 1, "diseaseId": 17880, "diseaseName": "腰椎骨折", "suspected": 0, "diseaseDate": "2020-05-15 18:29:17", "customerId": 1001, "continuedTimeDesc": "既往", "definiteDate": "2020-05-15 18:29:17", "profilePartType": 3, "orderDate": "2020-05-15 18:29:17"}], "nurseAdvices": [], "medicalorders": [], "drugs": [], "tests": [], "examinationItems": [], "assessItems": [{"recordTypeId": 9006, "sourceType": 0, "existState": 1, "assessItemId": 191, "assessId": 8, "dictionaryAttributeId": 212, "assessItemName": "女性", "wordId": 54607, "id": 203580362981511170, "progressId": 203580362981511169, "objectId": 54607, "recordId": 2976758, "score": 1, "itemSource": 1, "customerId": 1001}, {"recordTypeId": 9006, "sourceType": 0, "existState": 1, "assessItemId": 304, "assessId": 89, "dictionaryAttributeId": 212, "assessItemName": "年龄≤44岁", "wordId": 324985, "id": 203580362981511174, "progressId": 203580362981511173, "objectId": 324985, "recordId": 2976758, "score": 0, "itemSource": 1, "customerId": 1001}], "drugAdvices": [], "testAdvices": [], "nurseItems": [], "examinationAdvices": [], "consultationAdvices": [], "progresses": [{"progressId": 16609614, "progressDate": "2020-05-15 18:29:17", "progressContent": "既往史:头面部外伤,胸腰椎骨折,否认外伤史。", "recordTypeId": 1, "sourceType": 0, "dictionaryAttributeId": 13, "recordId": 2976758, "recordDate": "2020-05-15 18:29:17", "customerId": 1001, "id": 203580362700492803}], "patientVisitInfo": {"patientAgeType": "岁", "patientAge": 20, "patientGender": 0, "dischargeDate": "2020-05-05 18:01:57", "recordId": 2976758, "serialNumber": "1588748215385", "patientName": "stable_200430_入院记录中既往史与外伤史矛盾", "patientGuid": "1587545513695", "department": "呼吸科", "admissionDate": "2020-05-06 14:56:58", "customerId": 1001}, "previous": [], "vitalsigns": [], "recordId": 2976758, "allergies": [], "timepoints": [{"recordTypeId": 16001, "sourceType": 0, "timePointValue": "2020-05-06 14:56:58", "dictionaryAttributeId": 122, "id": 203580362700492801, "progressId": 2976758, "timeTypeName": "住院时间", "timeTypeId": 5453, "recordId": 2976758, "profilePartType": 38, "customerId": 1001}, {"recordTypeId": 16001, "sourceType": 0, "timePointValue": "2020-05-05 18:01:57", "dictionaryAttributeId": 30, "id": 203580362700492802, "progressId": 2976758, "timeTypeName": "出院时间", "timeTypeId": 5719, "recordId": 2976758, "profilePartType": 38, "customerId": 1001}], "symptoms": [], "adviceKnowledges": [], "assesss": [{"recordTypeId": 9006, "sourceType": 0, "assessName": "Wells评分", "assessId": 4, "dictionaryAttributeId": 212, "id": 203580362981511168, "progressId": 203580362981511168, "assessValue": "0", "assessResult": "低度可能急性肺栓塞", "objectId": 4, "recordId": 2976758, "assessValueType": 1, "assessValueUnit": "分", "profilePartType": 43, "customerId": 1001}, {"progressId": 203580362981511169, "assessValue": "1", "recordTypeId": 9006, "assessResult": "患者年卒中发生率1.3%", "objectId": 8, "recordId": 2976758, "assessName": "CHA2DS2-VASc", "assessId": 8, "assessValueType": 1, "id": 203580362981511169, "assessItems": [{"recordTypeId": 9006, "sourceType": 0, "existState": 1, "assessItemId": 191, "assessId": 8, "dictionaryAttributeId": 212, "assessItemName": "女性", "wordId": 54607, "id": 203580362981511170, "progressId": 203580362981511169, "objectId": 54607, "recordId": 2976758, "score": 1, "itemSource": 1, "customerId": 1001}], "assessValueUnit": "分", "dictionaryAttributeId": 212, "profilePartType": 43, "customerId": 1001, "sourceType": 0}, {"recordTypeId": 9006, "sourceType": 0, "assessName": "HAS-BLED", "assessId": 9, "dictionaryAttributeId": 212, "id": 203580362981511171, "progressId": 203580362981511171, "assessValue": "0", "assessResult": "患者出血风险低", "objectId": 9, "recordId": 2976758, "assessValueType": 1, "assessValueUnit": "分", "profilePartType": 43, "customerId": 1001}, {"recordTypeId": 9006, "sourceType": 0, "assessName": "DVT-Wells评分", "assessId": 509, "dictionaryAttributeId": 212, "id": 203580362981511172, "progressId": 203580362981511172, "assessValue": "0", "assessResult": "患者发生DVT低度可能性", "objectId": 509, "recordId": 2976758, "assessValueType": 1, "assessValueUnit": "分", "profilePartType": 43, "customerId": 1001}, {"recordTypeId": 9006, "sourceType": 0, "assessName": "APACHE II评分", "assessId": 89, "assessItems": [{"recordTypeId": 9006, "sourceType": 0, "existState": 1, "assessItemId": 304, "assessId": 89, "dictionaryAttributeId": 212, "assessItemName": "年龄≤44岁", "wordId": 324985, "id": 203580362981511174, "progressId": 203580362981511173, "objectId": 324985, "recordId": 2976758, "score": 0, "itemSource": 1, "customerId": 1001}], "dictionaryAttributeId": 212, "id": 203580362981511173, "progressId": 203580362981511173, "assessValue": "0", "objectId": 89, "recordId": 2976758, "assessValueType": 1, "assessValueUnit": "分", "profilePartType": 43, "customerId": 1001}, {"recordTypeId": 9006, "sourceType": 0, "assessName": "qSOFA评分", "assessId": 276, "dictionaryAttributeId": 212, "id": 203580362981511175, "progressId": 203580362981511175, "assessValue": "0", "objectId": 276, "recordId": 2976758, "assessValueType": 1, "assessValueUnit": "分", "profilePartType": 43, "customerId": 1001}, {"recordTypeId": 9006, "sourceType": 0, "assessName": "妊娠及产褥期VTE危险因素评分", "assessId": 278, "dictionaryAttributeId": 212, "id": 203580362981511176, "progressId": 203580362981511176, "assessValue": "0", "objectId": 278, "recordId": 2976758, "assessValueType": 1, "assessValueUnit": "分", "profilePartType": 43, "customerId": 1001}, {"recordTypeId": 9006, "sourceType": 0, "assessName": "Padua评分", "assessId": 281, "dictionaryAttributeId": 212, "id": 203580362981511177, "progressId": 203580362981511177, "assessValue": "0", "assessResult": "低危", "objectId": 281, "recordId": 2976758, "assessValueType": 1, "assessValueUnit": "分", "profilePartType": 43, "customerId": 1001}, {"recordTypeId": 9006, "sourceType": 0, "assessName": "Caprini评分", "assessId": 282, "dictionaryAttributeId": 212, "id": 203580362981511178, "progressId": 203580362981511178, "assessValue": "0", "assessResult": "低危", "objectId": 282, "recordId": 2976758, "assessValueType": 1, "assessValueUnit": "分", "profilePartType": 43, "customerId": 1001}, {"recordTypeId": 9006, "sourceType": 0, "assessName": "SOFA评分 ", "assessId": 306, "dictionaryAttributeId": 212, "id": 203580362981511179, "progressId": 203580362981511179, "assessValue": "0", "objectId": 306, "recordId": 2976758, "assessValueType": 1, "assessValueUnit": "分", "profilePartType": 43, "customerId": 1001}, {"recordTypeId": 9006, "sourceType": 0, "assessName": "外科住院患者出血风险评估", "assessId": 535, "dictionaryAttributeId": 212, "id": 203580362981511180, "progressId": 203580362981511180, "assessValue": "", "assessResult": "低危", "objectId": 535, "recordId": 2976758, "assessValueType": 1, "assessValueUnit": "", "profilePartType": 43, "customerId": 1001}, {"recordTypeId": 9006, "sourceType": 0, "assessName": "内科住院患者出血风险评估", "assessId": 522, "dictionaryAttributeId": 212, "id": 203580362981511181, "progressId": 203580362981511181, "assessValue": "", "assessResult": "低危", "objectId": 522, "recordId": 2976758, "assessValueType": 1, "assessValueUnit": "", "profilePartType": 43, "customerId": 1001}, {"recordTypeId": 9006, "sourceType": 0, "assessName": "非手术患者出血风险评估", "assessId": 589, "dictionaryAttributeId": 212, "id": 203580362981511182, "progressId": 203580362981511182, "assessValue": "", "assessResult": "低危", "objectId": 589, "recordId": 2976758, "assessValueType": 1, "assessValueUnit": "", "profilePartType": 43, "customerId": 1001}, {"recordTypeId": 9006, "sourceType": 0, "assessName": "外科VTE风险评估", "assessId": 590, "dictionaryAttributeId": 212, "id": 203580362981511183, "progressId": 203580362981511183, "assessValue": "0", "assessResult": "低危", "objectId": 590, "recordId": 2976758, "assessValueType": 1, "assessValueUnit": "分", "profilePartType": 43, "customerId": 1001}, {"recordTypeId": 9006, "sourceType": 0, "assessName": "内科VTE风险评估", "assessId": 591, "dictionaryAttributeId": 212, "id": 203580362981511184, "progressId": 203580362981511184, "assessValue": "0", "assessResult": "低危", "objectId": 591, "recordId": 2976758, "assessValueType": 1, "assessValueUnit": "分", "profilePartType": 43, "customerId": 1001}], "customerId": 1001, "operationAdvices": [], "physicals": []}, "recordDatas": {"患者基本信息": {"入院途径": "0", "现在工作单位联系方式（电话）": "", "新生儿出生体重": "", "患者性别": "0", "户口地址邮编": "", "入院床号": "", "入院科室名称": "", "转科科室名称": "", "出院床号": "", "户口所在地（省直辖市）": "", "联系人关系": "", "现在工作邮编": "", "本人电话": "", "现工作单位名称": "", "联系人地址": "", "出生地（市）": "", "籍贯（市）": "", "id": "34757", "年龄": "20", "出生地（县/地区）": "", "籍贯（省直辖市）": "", "病人来源": "0", "联系人电话": "", "婚姻状况": "0", "出院科室名称": "", "实际住院天数": "", "联系人姓名": "", "出生地（省直辖市）": "", "社保卡号": "", "身份证号": "", "户口所在地（市）": "", "年龄单位": "岁", "民族": "", "现住址邮编": "", "现工作地址": "", "患者姓名": "stable_200430_1587545546834", "病案号": "", "医疗付费方式": "0", "国籍": "", "职业": "", "现住址": "", "新生儿入院体重": ""}, "患者诊断信息": [{"是否主诊断": "1", "诊断名称": "妊娠40+周G3P1LOT剖宫产", "诊断时间": "2020-04-217:25:49.0", "诊断编码": "Z34.901", "诊断ICD编码": "Z34.901", "id": "345496", "入院病情": "4", "诊断类型": "9"}]}, "recordId": 3053157, "ruleCodes": ["nh25", "nh1", "nh7", "nh6", "nh9", "nh8"]}</msg>
+<status status="PASS" endtime="20201020 14:10:19.782" starttime="20201020 14:10:19.774"></status>
+</kw>
+<msg timestamp="20201020 14:10:19.783" level="INFO">${getRes} = {"recordId": 3053157, "result": [{"ruleCode": "nh1", "remark": "", "result": 3}, {"ruleCode": "nh6", "remark": "", "result": 1}, {"ruleCode": "nh7", "remark": "", "result": 1}, {"ruleCode": "nh8", "re...</msg>
+<status status="PASS" endtime="20201020 14:10:19.784" starttime="20201020 14:10:19.472"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<arguments>
+<arg>[aj['ruleCode'] for aj in $getRes['result']]</arg>
+</arguments>
+<assign>
+<var>${aj}</var>
+</assign>
+<msg timestamp="20201020 14:10:19.785" level="INFO">${aj} = ["nh1", "nh6", "nh7", "nh8", "nh9", "nh25"]</msg>
+<status status="PASS" endtime="20201020 14:10:19.785" starttime="20201020 14:10:19.784"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${aj}</arg>
+<arg>nh25</arg>
+</arguments>
+<status status="PASS" endtime="20201020 14:10:19.786" starttime="20201020 14:10:19.785"></status>
+</kw>
+<doc>:9998/v_1_0/quality_control</doc>
+<status status="PASS" endtime="20201020 14:10:19.786" critical="yes" starttime="20201020 14:10:19.449"></status>
+</test>
+<test id="s1-t3" name="内涵质控:nh37-C1-入院记录中既往史与外伤史矛盾">
+<kw type="setup" name="Run Keywords" library="BuiltIn">
+<doc>Executes all the given keywords in a sequence.</doc>
+<arguments>
+<arg>获取时间戳</arg>
+<arg>AND</arg>
+<arg>获取随机数</arg>
+</arguments>
+<kw name="获取时间戳" library="cdss">
+<kw name="Get Time" library="BuiltIn">
+<doc>Returns the given time in the requested format.</doc>
+<arguments>
+<arg>epoch</arg>
+</arguments>
+<assign>
+<var>${timestamp}</var>
+</assign>
+<msg timestamp="20201020 14:10:19.792" level="INFO">${timestamp} = 1603174219</msg>
+<status status="PASS" endtime="20201020 14:10:19.792" starttime="20201020 14:10:19.790"></status>
+</kw>
+<kw name="Get Time" library="BuiltIn">
+<doc>Returns the given time in the requested format.</doc>
+<arguments>
+<arg>timestamp</arg>
+</arguments>
+<assign>
+<var>${time_now}</var>
+</assign>
+<msg timestamp="20201020 14:10:19.796" level="INFO">${time_now} = 2020-10-20 14:10:19</msg>
+<status status="PASS" endtime="20201020 14:10:19.796" starttime="20201020 14:10:19.794"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${timestamp}</arg>
+</arguments>
+<msg timestamp="20201020 14:10:19.797" level="INFO">${timestamp} = 1603174219</msg>
+<status status="PASS" endtime="20201020 14:10:19.798" starttime="20201020 14:10:19.796"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${time_now}</arg>
+</arguments>
+<msg timestamp="20201020 14:10:19.799" level="INFO">${time_now} = 2020-10-20 14:10:19</msg>
+<status status="PASS" endtime="20201020 14:10:19.799" starttime="20201020 14:10:19.798"></status>
+</kw>
+<status status="PASS" endtime="20201020 14:10:19.799" starttime="20201020 14:10:19.790"></status>
+</kw>
+<kw name="获取随机数" library="cdss">
+<kw name="Generate Random String" library="String">
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<arguments>
+<arg>3</arg>
+<arg>1234567890</arg>
+</arguments>
+<assign>
+<var>${random}</var>
+</assign>
+<msg timestamp="20201020 14:10:19.801" level="INFO">${random} = 347</msg>
+<status status="PASS" endtime="20201020 14:10:19.801" starttime="20201020 14:10:19.800"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${random}</arg>
+</arguments>
+<msg timestamp="20201020 14:10:19.802" level="INFO">${random} = 347</msg>
+<status status="PASS" endtime="20201020 14:10:19.802" starttime="20201020 14:10:19.801"></status>
+</kw>
+<status status="PASS" endtime="20201020 14:10:19.803" starttime="20201020 14:10:19.800"></status>
+</kw>
+<status status="PASS" endtime="20201020 14:10:19.803" starttime="20201020 14:10:19.789"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>nh41</arg>
+<arg>nh25</arg>
+<arg>nh1</arg>
+<arg>nh7</arg>
+<arg>nh6</arg>
+<arg>nh9</arg>
+<arg>nh8</arg>
+</arguments>
+<assign>
+<var>${ruleCodes}</var>
+</assign>
+<msg timestamp="20201020 14:10:19.805" level="INFO">${ruleCodes} = ["nh41", "nh25", "nh1", "nh7", "nh6", "nh9", "nh8"]</msg>
+<status status="PASS" endtime="20201020 14:10:19.805" starttime="20201020 14:10:19.804"></status>
+</kw>
+<kw name="内涵质控" library="cdss">
+<arguments>
+<arg>masterProfile={"allergies":[],"assessItems":[{"assessId":8,"assessItemId":191,"assessItemName":"女性","customerId":1001,"dictionaryAttributeId":212,"existState":1,"id":220243383061450750,"itemSource":1,"objectId":54607,"progressId":220243383061450750,"recordId":4490842,"recordTypeId":9006,"score":1,"sourceType":0,"wordId":54607},{"assessId":89,"assessItemId":304,"assessItemName":"年龄≤44岁","customerId":1001,"dictionaryAttributeId":212,"existState":1,"id":220243383061450750,"itemSource":1,"objectId":324985,"progressId":220243383061450750,"recordId":4490842,"recordTypeId":9006,"score":0,"sourceType":0,"wordId":324985},{"assessId":276,"assessItemId":500,"assessItemName":"意识形态改变","customerId":1001,"dictionaryAttributeId":212,"existState":1,"id":220243383061450750,"itemSource":1,"objectId":119587,"progressId":220243383061450750,"recordId":4490842,"recordTypeId":9006,"score":1,"sourceType":0,"summary":[{"dictionaryAttributeId":3,"originRecord":"体格检查:患者神志模糊,&lt;span class=hm-qa-eva-del-res-path-light&gt;昏迷&lt;/span&gt;,丧失。","position":"入院记录-体格检查","progressId":18146534,"recordTypeId":1}],"wordId":119587}],"assesss":[{"assessId":4,"assessName":"Wells评分","assessResult":"低度可能急性肺栓塞","assessValue":"0","assessValueType":1,"assessValueUnit":"分","customerId":1001,"dictionaryAttributeId":212,"id":220243383061450750,"objectId":4,"profilePartType":43,"progressId":220243383061450750,"recordId":4490842,"recordTypeId":9006,"sourceType":0},{"assessId":8,"assessItems":[{"assessId":8,"assessItemId":191,"assessItemName":"女性","customerId":1001,"dictionaryAttributeId":212,"existState":1,"id":220243383061450750,"itemSource":1,"objectId":54607,"progressId":220243383061450750,"recordId":4490842,"recordTypeId":9006,"score":1,"sourceType":0,"wordId":54607}],"assessName":"CHA2DS2-VASc","assessResult":"患者年卒中发生率1.3%","assessValue":"1","assessValueType":1,"assessValueUnit":"分","customerId":1001,"dictionaryAttributeId":212,"id":220243383061450750,"objectId":8,"profilePartType":43,"progressId":220243383061450750,"recordId":4490842,"recordTypeId":9006,"sourceType":0},{"assessId":9,"assessName":"HAS-BLED","assessResult":"患者出血风险低","assessValue":"0","assessValueType":1,"assessValueUnit":"分","customerId":1001,"dictionaryAttributeId":212,"id":220243383061450750,"objectId":9,"profilePartType":43,"progressId":220243383061450750,"recordId":4490842,"recordTypeId":9006,"sourceType":0},{"assessId":509,"assessName":"DVT-Wells评分","assessResult":"患者发生DVT低度可能性","assessValue":"0","assessValueType":1,"assessValueUnit":"分","customerId":1001,"dictionaryAttributeId":212,"id":220243383061450750,"objectId":509,"profilePartType":43,"progressId":220243383061450750,"recordId":4490842,"recordTypeId":9006,"sourceType":0},{"assessId":89,"assessItems":[{"assessId":89,"assessItemId":304,"assessItemName":"年龄≤44岁","customerId":1001,"dictionaryAttributeId":212,"existState":1,"id":220243383061450750,"itemSource":1,"objectId":324985,"progressId":220243383061450750,"recordId":4490842,"recordTypeId":9006,"score":0,"sourceType":0,"wordId":324985}],"assessName":"APACHE II评分","assessValue":"0","assessValueType":1,"assessValueUnit":"分","customerId":1001,"dictionaryAttributeId":212,"id":220243383061450750,"objectId":89,"profilePartType":43,"progressId":220243383061450750,"recordId":4490842,"recordTypeId":9006,"sourceType":0},{"assessId":276,"assessItems":[{"assessId":276,"assessItemId":500,"assessItemName":"意识形态改变","customerId":1001,"dictionaryAttributeId":212,"existState":1,"id":220243383061450750,"itemSource":1,"objectId":119587,"progressId":220243383061450750,"recordId":4490842,"recordTypeId":9006,"score":1,"sourceType":0,"summary":[{"dictionaryAttributeId":3,"originRecord":"体格检查:患者神志模糊,&lt;span class=hm-qa-eva-del-res-path-light&gt;昏迷&lt;/span&gt;,丧失。","position":"入院记录-体格检查","progressId":18146534,"recordTypeId":1}],"wordId":119587}],"assessName":"qSOFA评分","assessValue":"1","assessValueType":1,"assessValueUnit":"分","customerId":1001,"dictionaryAttributeId":212,"id":220243383061450750,"objectId":276,"profilePartType":43,"progressId":220243383061450750,"recordId":4490842,"recordTypeId":9006,"sourceType":0},{"assessId":278,"assessName":"妊娠及产褥期VTE危险因素评分","assessValue":"0","assessValueType":1,"assessValueUnit":"分","customerId":1001,"dictionaryAttributeId":212,"id":220243383061450750,"objectId":278,"profilePartType":43,"progressId":220243383061450750,"recordId":4490842,"recordTypeId":9006,"sourceType":0},{"assessId":281,"assessName":"Padua评分","assessResult":"低危","assessValue":"0","assessValueType":1,"assessValueUnit":"分","customerId":1001,"dictionaryAttributeId":212,"id":220243383061450750,"objectId":281,"profilePartType":43,"progressId":220243383061450750,"recordId":4490842,"recordTypeId":9006,"sourceType":0},{"assessId":282,"assessName":"Caprini评分","assessResult":"低危","assessValue":"0","assessValueType":1,"assessValueUnit":"分","customerId":1001,"dictionaryAttributeId":212,"id":220243383061450750,"objectId":282,"profilePartType":43,"progressId":220243383061450750,"recordId":4490842,"recordTypeId":9006,"sourceType":0},{"assessId":306,"assessName":"SOFA评分 ","assessValue":"0","assessValueType":1,"assessValueUnit":"分","customerId":1001,"dictionaryAttributeId":212,"id":220243383061450750,"objectId":306,"profilePartType":43,"progressId":220243383061450750,"recordId":4490842,"recordTypeId":9006,"sourceType":0},{"assessId":535,"assessName":"外科住院患者出血风险评估","assessResult":"低危","assessValue":"","assessValueType":1,"assessValueUnit":"","customerId":1001,"dictionaryAttributeId":212,"id":220243383061450750,"objectId":535,"profilePartType":43,"progressId":220243383061450750,"recordId":4490842,"recordTypeId":9006,"sourceType":0},{"assessId":522,"assessName":"内科住院患者出血风险评估","assessResult":"低危","assessValue":"","assessValueType":1,"assessValueUnit":"","customerId":1001,"dictionaryAttributeId":212,"id":220243383061450750,"objectId":522,"profilePartType":43,"progressId":220243383061450750,"recordId":4490842,"recordTypeId":9006,"sourceType":0},{"assessId":589,"assessName":"非手术患者出血风险评估","assessResult":"低危","assessValue":"","assessValueType":1,"assessValueUnit":"","customerId":1001,"dictionaryAttributeId":212,"id":220243383061450750,"objectId":589,"profilePartType":43,"progressId":220243383061450750,"recordId":4490842,"recordTypeId":9006,"sourceType":0},{"assessId":590,"assessName":"外科VTE风险评估","assessResult":"低危","assessValue":"0","assessValueType":1,"assessValueUnit":"分","customerId":1001,"dictionaryAttributeId":212,"id":220243383061450750,"objectId":590,"profilePartType":43,"progressId":220243383061450750,"recordId":4490842,"recordTypeId":9006,"sourceType":0},{"assessId":591,"assessName":"内科VTE风险评估","assessResult":"低危","assessValue":"0","assessValueType":1,"assessValueUnit":"分","customerId":1001,"dictionaryAttributeId":212,"id":220243383061450780,"objectId":591,"profilePartType":43,"progressId":220243383061450780,"recordId":4490842,"recordTypeId":9006,"sourceType":0}],"consultationAdvices":[],"customerId":1001,"diseases":[],"drugAdvices":[],"drugs":[],"examinationAdvices":[],"examinationItems":[],"examinations":[],"medicalorders":[],"nurseAdvices":[],"nurseItems":[],"operationAdvices":[],"operations":[],"others":[],"patientVisitInfo":{"admissionDate":"2020-06-30 17:59:21","customerId":1001,"department":"呼吸科","patientAge":20,"patientAgeType":"岁","patientGender":0,"patientGuid":"1592288384618","patientName":"stable_200630_1592288383810","recordId":4490842,"serialNumber":"1593511159018"},"physicals":[{"attributive":[],"cause":"","customerId":1001,"dictionaryAttributeId":3,"discoveryDate":"2020-06-30 17:59:20","existState":0,"frequency":"","id":220243382960787460,"nodeId":28216,"nodeType":2,"objectId":2618,"orderDate":"2020-06-30 17:59:20","physicalId":2618,"physicalName":"神志清楚","profilePartType":10,"progressId":18146534,"rankId":1,"recordDate":"2020-06-30 17:59:20","recordId":4490842,"recordTypeId":1,"relieveFactor":"","sourceType":0},{"attributive":[],"cause":"","customerId":1001,"dictionaryAttributeId":3,"discoveryDate":"2020-06-30 17:59:20","existState":1,"frequency":"","id":220243382960787460,"nodeId":28216,"nodeType":2,"objectId":4947,"orderDate":"2020-06-30 17:59:20","physicalId":4947,"physicalName":"意识模糊","profilePartType":10,"progressId":18146534,"rankId":1,"recordDate":"2020-06-30 17:59:20","recordId":4490842,"recordTypeId":1,"relieveFactor":"","sourceType":0}],"previous":[],"progresses":[{"customerId":1001,"dictionaryAttributeId":3,"id":220243382717517820,"progressContent":"体格检查:患者神志模糊,昏迷,丧失。","progressDate":"2020-06-30 17:59:20","progressId":18146534,"recordDate":"2020-06-30 17:59:20","recordId":4490842,"recordTypeId":1,"sourceType":0},{"customerId":1001,"dictionaryAttributeId":268,"id":220243382717517820,"progressContent":"患者基本信息:病史陈述者:本人。","progressDate":"2020-06-30 17:59:20","progressId":18146534,"recordDate":"2020-06-30 17:59:20","recordId":4490842,"recordTypeId":1,"sourceType":0}],"recordId":4490842,"symptoms":[{"attributive":[],"cause":"","customerId":1001,"dictionaryAttributeId":3,"discoveryDate":"2020-06-30 17:59:20","existState":1,"frequency":"","id":220243382960787460,"nodeId":6801,"nodeType":1,"objectId":1819,"orderDate":"2020-06-30 17:59:20","profilePartType":9,"progressId":18146534,"rankId":2,"recordDate":"2020-06-30 17:59:20","recordId":4490842,"recordTypeId":1,"relieveFactor":"","sourceType":0,"symptom":"昏迷","symptomId":1819}],"testAdvices":[],"testItems":[],"tests":[],"timepoints":[{"customerId":1001,"dictionaryAttributeId":122,"id":220243382717517820,"profilePartType":38,"progressId":4490842,"recordId":4490842,"recordTypeId":16001,"sourceType":0,"timePointValue":"2020-06-30 17:59:21","timeTypeId":5453,"timeTypeName":"住院时间"},{"customerId":1001,"dictionaryAttributeId":270,"id":220243382964981760,"profilePartType":38,"progressId":18146534,"recordId":4490842,"recordTypeId":1,"sourceType":0,"timePointValue":"2020-06-30 17:59:20","timeTypeId":6471,"timeTypeName":"病程时间"}],"treatmentAdvices":[],"vitalsigns":[]}</arg>
+<arg>recordDatas={"患者基本信息":{"出生地（市）":"","职业":"","入院科室名称":"","患者姓名":"stable_200430_1587545546834","社保卡号":"","出生地（省\直辖市）":"","现在工作邮编":"","入院床号":"","本人电话":"","入院途径":"0","现住址邮编":"","出院科室名称":"","新生儿入院体重":"","出院床号":"","婚姻状况":"0","新生儿出生体重":"","民族":"","现在工作单位联系方式（电话）":"","籍贯（市）":"","id":"34757","年龄":"20","身份证号":"","联系人电话":"","户口所在地（省\直辖市）":"","病人来源":"0","联系人地址":"","户口地址邮编":"","现工作单位名称":"","出生地（县/地区）":"","联系人姓名":"","转科科室名称":"","病案号":"","现工作地址":"","年龄单位":"岁","户口所在地（市）":"","联系人关系":"","籍贯（省\直辖市）":"","国籍":"","患者性别":"0","实际住院天数":"","现住址":"","医疗付费方式":"0"},"患者诊断信息":[{"诊断名称":"妊娠40+周G3P1LOT剖宫产","诊断编码":"Z34.901","诊断时间":"2020-04-217:25:49.0","诊断ICD编码":"Z34.901","诊断类型":"9","id":"345496","是否主诊断":"1","入院病情":"4"}]}</arg>
+<arg>recordId=${4490842}</arg>
+<arg>ruleCodes=${ruleCodes}</arg>
+</arguments>
+<assign>
+<var>${getRes}</var>
+</assign>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+<arg>Huimei_id=${Huimei_id}</arg>
+</arguments>
+<assign>
+<var>${dict}</var>
+</assign>
+<msg timestamp="20201020 14:10:19.811" level="INFO">${dict} = {"Content-Type": "application/json", "Huimei_id": "7195F12825788F09375C2DB1E922F108"}</msg>
+<status status="PASS" endtime="20201020 14:10:19.811" starttime="20201020 14:10:19.808"></status>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>api</arg>
+<arg>${connotation_url}:9998</arg>
+<arg>${dict}</arg>
+</arguments>
+<msg timestamp="20201020 14:10:19.812" level="INFO">Creating Session using : alias=api, url=http://172.16.3.68:9998, headers={u'Content-Type': u'application/json', u'Huimei_id': u'7195F12825788F09375C2DB1E922F108'},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20201020 14:10:19.814" starttime="20201020 14:10:19.811"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<arguments>
+<arg>dict(${masterProfile})</arg>
+</arguments>
+<assign>
+<var>${masterProfile}</var>
+</assign>
+<msg timestamp="20201020 14:10:19.828" level="INFO">${masterProfile} = {"operations": [], "testItems": [], "examinations": [], "treatmentAdvices": [], "diseases": [], "nurseAdvices": [], "medicalorders": [], "drugs": [], "others": [], "tests": [], "examinationItems": [],...</msg>
+<status status="PASS" endtime="20201020 14:10:19.828" starttime="20201020 14:10:19.814"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<arguments>
+<arg>dict(${recordDatas})</arg>
+</arguments>
+<assign>
+<var>${recordDatas}</var>
+</assign>
+<msg timestamp="20201020 14:10:19.830" level="INFO">${recordDatas} = {"患者基本信息": {"入院途径": "0", "现在工作单位联系方式（电话）": "", "新生儿出生体重": "", "患者性别": "0", "户口地址邮编": "", "入院床号": "", "入院科室名称": "", "转科科室名称": "", "出院床号": "", "户口所在地（省直辖市）": "", "联系人关系": "", "现在工作邮编": "", "本人电话": "", "...</msg>
+<status status="PASS" endtime="20201020 14:10:19.830" starttime="20201020 14:10:19.829"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>masterProfile=${masterProfile}</arg>
+<arg>recordDatas=${recordDatas}</arg>
+<arg>recordId=${recordId}</arg>
+<arg>ruleCodes=${ruleCodes}</arg>
+</arguments>
+<assign>
+<var>${data}</var>
+</assign>
+<msg timestamp="20201020 14:10:19.898" level="INFO">${data} = {"masterProfile": {"operations": [], "testItems": [], "examinations": [], "treatmentAdvices": [], "diseases": [], "nurseAdvices": [], "medicalorders": [], "drugs": [], "others": [], "tests": [], "exam...</msg>
+<status status="PASS" endtime="20201020 14:10:19.898" starttime="20201020 14:10:19.830"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>api</arg>
+<arg>v_1_0/quality_control</arg>
+<arg>data=${data}</arg>
+</arguments>
+<assign>
+<var>${addr}</var>
+</assign>
+<msg timestamp="20201020 14:10:19.904" level="INFO">Starting new HTTP connection (1): 172.16.3.68</msg>
+<msg timestamp="20201020 14:10:20.051" level="INFO">Post Request using : alias=api, uri=v_1_0/quality_control, data=&lt;empty&gt;, headers=None, files=None, allow_redirects=True </msg>
+<msg timestamp="20201020 14:10:20.052" level="INFO">${addr} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20201020 14:10:20.052" starttime="20201020 14:10:19.898"></status>
+</kw>
+<kw name="To Json" library="RequestsLibrary">
+<doc>Convert a string to a JSON object</doc>
+<arguments>
+<arg>${addr.content}</arg>
+</arguments>
+<assign>
+<var>${responsedata}</var>
+</assign>
+<msg timestamp="20201020 14:10:20.056" level="INFO">To JSON using : content={
+  "recordId": 4490842, 
+  "result": [
+    {
+      "remark": "", 
+      "result": 3, 
+      "ruleCode": "nh1"
+    }, 
+    {
+      "remark": "", 
+      "result": 1, 
+      "ruleCode": "nh6"
+    }, 
+    {
+      "remark": "", 
+      "result": 1, 
+      "ruleCode": "nh7"
+    }, 
+    {
+      "remark": "", 
+      "result": 1, 
+      "ruleCode": "nh8"
+    }, 
+    {
+      "remark": "", 
+      "result": 1, 
+      "ruleCode": "nh9"
+    }, 
+    {
+      "remark": "", 
+      "result": 1, 
+      "ruleCode": "nh25"
+    }, 
+    {
+      "remark": "\xe4\xbd\x93\xe6\xa0\xbc\xe6\xa3\x80\xe6\x9f\xa5\xe4\xb8\xad\xe8\xae\xb0\xe5\xbd\x95\xe5\xad\x98\xe5\x9c\xa8\xe6\x84\x8f\xe8\xaf\x86\xe9\x9a\x9c\xe7\xa2\x8d\xef\xbc\x8c\xe4\xb8\x8e\xe7\x97\x85\xe5\x8f\xb2\xe9\x99\x88\xe8\xbf\xb0\xe8\x80\x85\xe4\xb8\xba\xe6\x82\xa3\xe8\x80\x85\xe6\x9c\xac\xe4\xba\xba\xe5\xad\x98\xe5\x9c\xa8\xe7\x9f\x9b\xe7\x9b\xbe\xef\xbc\x8c\xe8\xaf\xb7\xe7\xa1\xae\xe8\xae\xa4", 
+      "result": 2, 
+      "ruleCode": "nh41"
+    }
+  ]
+}
+ </msg>
+<msg timestamp="20201020 14:10:20.056" level="INFO">To JSON using : pretty_print=False </msg>
+<msg timestamp="20201020 14:10:20.058" level="INFO">${responsedata} = {"recordId": 4490842, "result": [{"ruleCode": "nh1", "remark": "", "result": 3}, {"ruleCode": "nh6", "remark": "", "result": 1}, {"ruleCode": "nh7", "remark": "", "result": 1}, {"ruleCode": "nh8", "re...</msg>
+<status status="PASS" endtime="20201020 14:10:20.058" starttime="20201020 14:10:20.053"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${data}</arg>
+</arguments>
+<msg timestamp="20201020 14:10:20.063" level="INFO">{"masterProfile": {"operations": [], "testItems": [], "examinations": [], "treatmentAdvices": [], "diseases": [], "nurseAdvices": [], "medicalorders": [], "drugs": [], "others": [], "tests": [], "examinationItems": [], "assessItems": [{"recordTypeId": 9006, "sourceType": 0, "existState": 1, "assessItemId": 191, "assessId": 8, "dictionaryAttributeId": 212, "assessItemName": "女性", "wordId": 54607, "id": 220243383061450750, "progressId": 220243383061450750, "objectId": 54607, "recordId": 4490842, "score": 1, "itemSource": 1, "customerId": 1001}, {"recordTypeId": 9006, "sourceType": 0, "existState": 1, "assessItemId": 304, "assessId": 89, "dictionaryAttributeId": 212, "assessItemName": "年龄≤44岁", "wordId": 324985, "id": 220243383061450750, "progressId": 220243383061450750, "objectId": 324985, "recordId": 4490842, "score": 0, "itemSource": 1, "customerId": 1001}, {"progressId": 220243383061450750, "recordTypeId": 9006, "objectId": 119587, "existState": 1, "assessItemId": 500, "assessId": 276, "id": 220243383061450750, "recordId": 4490842, "score": 1, "itemSource": 1, "dictionaryAttributeId": 212, "assessItemName": "意识形态改变", "wordId": 119587, "summary": [{"progressId": 18146534, "originRecord": "体格检查:患者神志模糊,&lt;span class=hm-qa-eva-del-res-path-light&gt;昏迷&lt;/span&gt;,丧失。", "recordTypeId": 1, "dictionaryAttributeId": 3, "position": "入院记录-体格检查"}], "customerId": 1001, "sourceType": 0}], "drugAdvices": [], "testAdvices": [], "nurseItems": [], "examinationAdvices": [], "consultationAdvices": [], "progresses": [{"progressId": 18146534, "progressDate": "2020-06-30 17:59:20", "progressContent": "体格检查:患者神志模糊,昏迷,丧失。", "recordTypeId": 1, "sourceType": 0, "dictionaryAttributeId": 3, "recordId": 4490842, "recordDate": "2020-06-30 17:59:20", "customerId": 1001, "id": 220243382717517820}, {"progressId": 18146534, "progressDate": "2020-06-30 17:59:20", "progressContent": "患者基本信息:病史陈述者:本人。", "recordTypeId": 1, "sourceType": 0, "dictionaryAttributeId": 268, "recordId": 4490842, "recordDate": "2020-06-30 17:59:20", "customerId": 1001, "id": 220243382717517820}], "patientVisitInfo": {"recordId": 4490842, "patientAge": 20, "patientGuid": "1592288384618", "department": "呼吸科", "patientGender": 0, "admissionDate": "2020-06-30 17:59:21", "serialNumber": "1593511159018", "customerId": 1001, "patientAgeType": "岁", "patientName": "stable_200630_1592288383810"}, "previous": [], "vitalsigns": [], "recordId": 4490842, "allergies": [], "timepoints": [{"recordTypeId": 16001, "sourceType": 0, "timePointValue": "2020-06-30 17:59:21", "dictionaryAttributeId": 122, "id": 220243382717517820, "progressId": 4490842, "timeTypeName": "住院时间", "timeTypeId": 5453, "recordId": 4490842, "profilePartType": 38, "customerId": 1001}, {"recordTypeId": 1, "sourceType": 0, "timePointValue": "2020-06-30 17:59:20", "dictionaryAttributeId": 270, "id": 220243382964981760, "progressId": 18146534, "timeTypeName": "病程时间", "timeTypeId": 6471, "recordId": 4490842, "profilePartType": 38, "customerId": 1001}], "symptoms": [{"recordTypeId": 1, "frequency": "", "dictionaryAttributeId": 3, "attributive": [], "id": 220243382960787460, "progressId": 18146534, "objectId": 1819, "rankId": 2, "recordId": 4490842, "nodeId": 6801, "relieveFactor": "", "recordDate": "2020-06-30 17:59:20", "cause": "", "nodeType": 1, "sourceType": 0, "existState": 1, "discoveryDate": "2020-06-30 17:59:20", "symptom": "昏迷", "symptomId": 1819, "customerId": 1001, "profilePartType": 9, "orderDate": "2020-06-30 17:59:20"}], "assesss": [{"recordTypeId": 9006, "sourceType": 0, "assessName": "Wells评分", "assessId": 4, "dictionaryAttributeId": 212, "id": 220243383061450750, "progressId": 220243383061450750, "assessValue": "0", "assessResult": "低度可能急性肺栓塞", "objectId": 4, "recordId": 4490842, "assessValueType": 1, "assessValueUnit": "分", "profilePartType": 43, "customerId": 1001}, {"progressId": 220243383061450750, "assessValue": "1", "recordTypeId": 9006, "assessResult": "患者年卒中发生率1.3%", "objectId": 8, "recordId": 4490842, "assessName": "CHA2DS2-VASc", "assessId": 8, "assessValueType": 1, "id": 220243383061450750, "assessItems": [{"recordTypeId": 9006, "sourceType": 0, "existState": 1, "assessItemId": 191, "assessId": 8, "dictionaryAttributeId": 212, "assessItemName": "女性", "wordId": 54607, "id": 220243383061450750, "progressId": 220243383061450750, "objectId": 54607, "recordId": 4490842, "score": 1, "itemSource": 1, "customerId": 1001}], "assessValueUnit": "分", "dictionaryAttributeId": 212, "profilePartType": 43, "customerId": 1001, "sourceType": 0}, {"recordTypeId": 9006, "sourceType": 0, "assessName": "HAS-BLED", "assessId": 9, "dictionaryAttributeId": 212, "id": 220243383061450750, "progressId": 220243383061450750, "assessValue": "0", "assessResult": "患者出血风险低", "objectId": 9, "recordId": 4490842, "assessValueType": 1, "assessValueUnit": "分", "profilePartType": 43, "customerId": 1001}, {"recordTypeId": 9006, "sourceType": 0, "assessName": "DVT-Wells评分", "assessId": 509, "dictionaryAttributeId": 212, "id": 220243383061450750, "progressId": 220243383061450750, "assessValue": "0", "assessResult": "患者发生DVT低度可能性", "objectId": 509, "recordId": 4490842, "assessValueType": 1, "assessValueUnit": "分", "profilePartType": 43, "customerId": 1001}, {"recordTypeId": 9006, "sourceType": 0, "assessName": "APACHE II评分", "assessId": 89, "assessItems": [{"recordTypeId": 9006, "sourceType": 0, "existState": 1, "assessItemId": 304, "assessId": 89, "dictionaryAttributeId": 212, "assessItemName": "年龄≤44岁", "wordId": 324985, "id": 220243383061450750, "progressId": 220243383061450750, "objectId": 324985, "recordId": 4490842, "score": 0, "itemSource": 1, "customerId": 1001}], "dictionaryAttributeId": 212, "id": 220243383061450750, "progressId": 220243383061450750, "assessValue": "0", "objectId": 89, "recordId": 4490842, "assessValueType": 1, "assessValueUnit": "分", "profilePartType": 43, "customerId": 1001}, {"recordTypeId": 9006, "sourceType": 0, "assessName": "qSOFA评分", "assessId": 276, "assessItems": [{"progressId": 220243383061450750, "recordTypeId": 9006, "objectId": 119587, "existState": 1, "assessItemId": 500, "assessId": 276, "id": 220243383061450750, "recordId": 4490842, "score": 1, "itemSource": 1, "dictionaryAttributeId": 212, "assessItemName": "意识形态改变", "wordId": 119587, "summary": [{"progressId": 18146534, "originRecord": "体格检查:患者神志模糊,&lt;span class=hm-qa-eva-del-res-path-light&gt;昏迷&lt;/span&gt;,丧失。", "recordTypeId": 1, "dictionaryAttributeId": 3, "position": "入院记录-体格检查"}], "customerId": 1001, "sourceType": 0}], "dictionaryAttributeId": 212, "id": 220243383061450750, "progressId": 220243383061450750, "assessValue": "1", "objectId": 276, "recordId": 4490842, "assessValueType": 1, "assessValueUnit": "分", "profilePartType": 43, "customerId": 1001}, {"recordTypeId": 9006, "sourceType": 0, "assessName": "妊娠及产褥期VTE危险因素评分", "assessId": 278, "dictionaryAttributeId": 212, "id": 220243383061450750, "progressId": 220243383061450750, "assessValue": "0", "objectId": 278, "recordId": 4490842, "assessValueType": 1, "assessValueUnit": "分", "profilePartType": 43, "customerId": 1001}, {"recordTypeId": 9006, "sourceType": 0, "assessName": "Padua评分", "assessId": 281, "dictionaryAttributeId": 212, "id": 220243383061450750, "progressId": 220243383061450750, "assessValue": "0", "assessResult": "低危", "objectId": 281, "recordId": 4490842, "assessValueType": 1, "assessValueUnit": "分", "profilePartType": 43, "customerId": 1001}, {"recordTypeId": 9006, "sourceType": 0, "assessName": "Caprini评分", "assessId": 282, "dictionaryAttributeId": 212, "id": 220243383061450750, "progressId": 220243383061450750, "assessValue": "0", "assessResult": "低危", "objectId": 282, "recordId": 4490842, "assessValueType": 1, "assessValueUnit": "分", "profilePartType": 43, "customerId": 1001}, {"recordTypeId": 9006, "sourceType": 0, "assessName": "SOFA评分 ", "assessId": 306, "dictionaryAttributeId": 212, "id": 220243383061450750, "progressId": 220243383061450750, "assessValue": "0", "objectId": 306, "recordId": 4490842, "assessValueType": 1, "assessValueUnit": "分", "profilePartType": 43, "customerId": 1001}, {"recordTypeId": 9006, "sourceType": 0, "assessName": "外科住院患者出血风险评估", "assessId": 535, "dictionaryAttributeId": 212, "id": 220243383061450750, "progressId": 220243383061450750, "assessValue": "", "assessResult": "低危", "objectId": 535, "recordId": 4490842, "assessValueType": 1, "assessValueUnit": "", "profilePartType": 43, "customerId": 1001}, {"recordTypeId": 9006, "sourceType": 0, "assessName": "内科住院患者出血风险评估", "assessId": 522, "dictionaryAttributeId": 212, "id": 220243383061450750, "progressId": 220243383061450750, "assessValue": "", "assessResult": "低危", "objectId": 522, "recordId": 4490842, "assessValueType": 1, "assessValueUnit": "", "profilePartType": 43, "customerId": 1001}, {"recordTypeId": 9006, "sourceType": 0, "assessName": "非手术患者出血风险评估", "assessId": 589, "dictionaryAttributeId": 212, "id": 220243383061450750, "progressId": 220243383061450750, "assessValue": "", "assessResult": "低危", "objectId": 589, "recordId": 4490842, "assessValueType": 1, "assessValueUnit": "", "profilePartType": 43, "customerId": 1001}, {"recordTypeId": 9006, "sourceType": 0, "assessName": "外科VTE风险评估", "assessId": 590, "dictionaryAttributeId": 212, "id": 220243383061450750, "progressId": 220243383061450750, "assessValue": "0", "assessResult": "低危", "objectId": 590, "recordId": 4490842, "assessValueType": 1, "assessValueUnit": "分", "profilePartType": 43, "customerId": 1001}, {"recordTypeId": 9006, "sourceType": 0, "assessName": "内科VTE风险评估", "assessId": 591, "dictionaryAttributeId": 212, "id": 220243383061450780, "progressId": 220243383061450780, "assessValue": "0", "assessResult": "低危", "objectId": 591, "recordId": 4490842, "assessValueType": 1, "assessValueUnit": "分", "profilePartType": 43, "customerId": 1001}], "customerId": 1001, "operationAdvices": [], "physicals": [{"recordTypeId": 1, "physicalId": 2618, "frequency": "", "dictionaryAttributeId": 3, "attributive": [], "id": 220243382960787460, "progressId": 18146534, "objectId": 2618, "rankId": 1, "recordId": 4490842, "nodeId": 28216, "physicalName": "神志清楚", "relieveFactor": "", "recordDate": "2020-06-30 17:59:20", "cause": "", "nodeType": 2, "sourceType": 0, "existState": 0, "discoveryDate": "2020-06-30 17:59:20", "customerId": 1001, "profilePartType": 10, "orderDate": "2020-06-30 17:59:20"}, {"recordTypeId": 1, "physicalId": 4947, "frequency": "", "dictionaryAttributeId": 3, "attributive": [], "id": 220243382960787460, "progressId": 18146534, "objectId": 4947, "rankId": 1, "recordId": 4490842, "nodeId": 28216, "physicalName": "意识模糊", "relieveFactor": "", "recordDate": "2020-06-30 17:59:20", "cause": "", "nodeType": 2, "sourceType": 0, "existState": 1, "discoveryDate": "2020-06-30 17:59:20", "customerId": 1001, "profilePartType": 10, "orderDate": "2020-06-30 17:59:20"}]}, "recordDatas": {"患者基本信息": {"入院途径": "0", "现在工作单位联系方式（电话）": "", "新生儿出生体重": "", "患者性别": "0", "户口地址邮编": "", "入院床号": "", "入院科室名称": "", "转科科室名称": "", "出院床号": "", "户口所在地（省直辖市）": "", "联系人关系": "", "现在工作邮编": "", "本人电话": "", "现工作单位名称": "", "联系人地址": "", "出生地（市）": "", "籍贯（市）": "", "id": "34757", "年龄": "20", "出生地（县/地区）": "", "籍贯（省直辖市）": "", "病人来源": "0", "联系人电话": "", "婚姻状况": "0", "出院科室名称": "", "实际住院天数": "", "联系人姓名": "", "出生地（省直辖市）": "", "社保卡号": "", "身份证号": "", "户口所在地（市）": "", "年龄单位": "岁", "民族": "", "现住址邮编": "", "现工作地址": "", "患者姓名": "stable_200430_1587545546834", "病案号": "", "医疗付费方式": "0", "国籍": "", "职业": "", "现住址": "", "新生儿入院体重": ""}, "患者诊断信息": [{"是否主诊断": "1", "诊断名称": "妊娠40+周G3P1LOT剖宫产", "诊断时间": "2020-04-217:25:49.0", "诊断编码": "Z34.901", "诊断ICD编码": "Z34.901", "id": "345496", "入院病情": "4", "诊断类型": "9"}]}, "recordId": 4490842, "ruleCodes": ["nh41", "nh25", "nh1", "nh7", "nh6", "nh9", "nh8"]}</msg>
+<status status="PASS" endtime="20201020 14:10:20.064" starttime="20201020 14:10:20.058"></status>
+</kw>
+<msg timestamp="20201020 14:10:20.066" level="INFO">${getRes} = {"recordId": 4490842, "result": [{"ruleCode": "nh1", "remark": "", "result": 3}, {"ruleCode": "nh6", "remark": "", "result": 1}, {"ruleCode": "nh7", "remark": "", "result": 1}, {"ruleCode": "nh8", "re...</msg>
+<status status="PASS" endtime="20201020 14:10:20.066" starttime="20201020 14:10:19.805"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<arguments>
+<arg>[aj['ruleCode'] for aj in $getRes['result']]</arg>
+</arguments>
+<assign>
+<var>${aj}</var>
+</assign>
+<msg timestamp="20201020 14:10:20.068" level="INFO">${aj} = ["nh1", "nh6", "nh7", "nh8", "nh9", "nh25", "nh41"]</msg>
+<status status="PASS" endtime="20201020 14:10:20.068" starttime="20201020 14:10:20.066"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${aj}</arg>
+<arg>nh41</arg>
+</arguments>
+<status status="PASS" endtime="20201020 14:10:20.069" starttime="20201020 14:10:20.068"></status>
+</kw>
+<status status="PASS" endtime="20201020 14:10:20.069" critical="yes" starttime="20201020 14:10:19.787"></status>
 </test>
 <kw type="teardown" name="Delete All Sessions" library="RequestsLibrary">
 <doc>Removes all the session objects</doc>
-<msg timestamp="20200904 10:26:10.182" level="INFO">Delete All Sessions</msg>
-<status status="PASS" endtime="20200904 10:26:10.183" starttime="20200904 10:26:10.182"></status>
+<msg timestamp="20201020 14:10:20.071" level="INFO">Delete All Sessions</msg>
+<status status="PASS" endtime="20201020 14:10:20.071" starttime="20201020 14:10:20.070"></status>
 </kw>
-<status status="PASS" endtime="20200904 10:26:10.183" starttime="20200904 10:26:08.269"></status>
+<status status="PASS" endtime="20201020 14:10:20.071" starttime="20201020 14:10:18.161"></status>
 </suite>
 <statistics>
 <total>
-<stat fail="0" pass="1">Critical Tests</stat>
-<stat fail="0" pass="1">All Tests</stat>
+<stat fail="0" pass="3">Critical Tests</stat>
+<stat fail="0" pass="3">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat fail="0" id="s1" name="添加反馈" pass="1">添加反馈</stat>
+<stat fail="0" id="s1" name="内涵质控" pass="3">内涵质控</stat>
 </suite>
 </statistics>
 <errors>

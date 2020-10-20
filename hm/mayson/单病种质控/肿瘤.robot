@@ -10,6 +10,7 @@ Library           DateTime
 
 *** Test Cases ***
 肿瘤规则:特异性化疗药物,推出:血常规,规则ID：chemo-1
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
     [Setup]    Run Keywords    获取随机数
     ...    AND    获取时间戳
     ...    AND    时间

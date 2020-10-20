@@ -12,6 +12,7 @@ Library           DateTime
 *** Test Cases ***
 
 问题分析列表
+    [Documentation]    :3021/mc/ruleProblemList
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    问题分析列表    order={"name": "count","sort": "desc"}

@@ -11,6 +11,7 @@ Library           DateTime
 
 *** Test Cases ***
 统计_工作台_出院病历质量统计
+    [Documentation]    :3021/work/workApprovalStatusTJ
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    统计_工作台_出院病历质量统计    type=1    time_start=2020-07-16    time_end=2020-10-16

@@ -6,10 +6,8 @@ Library           Collections
 Library           RequestsLibrary
 
 *** Test Cases ***
-1.2 查询:帕金森
-    [Documentation]    搜索词不为空
-    # 1.1 查询:搜索词为空
-    #    [Documentation]    搜索词为空
+查询:帕金森
+    [Documentation]    ame/search
     #    ${getRes}    ame查询    name=
     #    ${aj}    Evaluate    [aj['zhName'] for aj in $getRes['body']['xmlAliasList']]
     #    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
@@ -18,14 +16,14 @@ Library           RequestsLibrary
     ${aj}    Evaluate    [aj['zhName'] for aj in $getRes['body']['xmlAliasList']]
     Should Contain    ${aj}    帕金森病
 
-1.3 查询:搜索词为简拼
-    [Documentation]    搜索词为简拼
+查询:搜索词为简拼
+    [Documentation]    ame/search,搜索词为简拼
     ${getRes}    ame查询    name=pjs
     ${aj}    Evaluate    [aj['zhName'] for aj in $getRes['body']['xmlAliasList']]
     Should Contain    ${aj}    帕金森病
 
-1.4 查询:搜索词为英文
-    [Documentation]    搜索词为英文
+查询:搜索词为英文
+    [Documentation]    ame/search,搜索词为英文
     ${getRes}    ame查询    name=Parkinson
     ${aj}    Evaluate    [aj['enName'] for aj in $getRes['body']['xmlAliasList']]
     Should Contain    ${aj}    Parkinson disease

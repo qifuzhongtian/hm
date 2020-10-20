@@ -11,6 +11,7 @@ Library           DateTime
 
 *** Test Cases ***
 drgs用户管理列表
+    [Documentation]    :3027/manage/userList
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    drgs用户管理列表    order={"name": "name","sort": "desc"}    current_index=${1}    page_size=${20}

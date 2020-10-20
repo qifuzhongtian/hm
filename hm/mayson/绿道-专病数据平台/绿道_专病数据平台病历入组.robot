@@ -10,7 +10,8 @@ Library           DateTime
 *** Variables ***
 
 *** Test Cases ***
-病历入组
+绿道病历入组
+    [Documentation]        :3022patient/getcasesList
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    绿道入组    end=1581523200000    groupId=    index=1    joinWay=    needRecommend=

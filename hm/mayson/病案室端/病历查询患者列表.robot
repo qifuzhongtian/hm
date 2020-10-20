@@ -11,6 +11,7 @@ Library           DateTime
 
 *** Test Cases ***
 病历查询患者列表
+    [Documentation]    :3021/mc/mcRecordInfoList
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    病历查询患者列表    order={"name": "discharge_time","sort": "desc"}

@@ -2668,8 +2668,6 @@ cdr病历查询_高级搜索列表
 
 
 
-
-
 卡控合并
     [Arguments]    ${alertLevel}    ${assessDictName}    ${assessId}    ${assessName}    ${assessResult}    ${assessResultItemList}
     ...    ${assessResultStyle}    ${assessResultType}    ${assessValue}    ${assessValueUnit}    ${customerId}    ${displayResult}

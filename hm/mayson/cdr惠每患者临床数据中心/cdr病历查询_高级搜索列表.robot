@@ -11,6 +11,7 @@ Library           DateTime
 
 *** Test Cases ***
 cdr病历查询_高级搜索列表
+    [Documentation]    :3025/advancedSearch/list
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    cdr病历查询_高级搜索列表    collection=0

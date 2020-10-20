@@ -6,7 +6,7 @@ Library           RequestsLibrary
 
 *** Test Cases ***
 mayson默认推荐搜索
-    [Documentation]
+    [Documentation]    cdss/mayson/track/default_recommend
     ${getRes}    mayson默认推荐搜索    doctorGuid=1    department=
     # ${aj}    Evaluate    [aj['recommend'] for aj in $getRes['body'][0]['recommends']]
     # Should Contain    ${getRes['head']['error']}    0

@@ -12,6 +12,7 @@ Library           DateTime
 
 *** Test Cases ***
 账号管理医生组列表
+    [Documentation]    :3021/manage/doctorGroupList
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    账号管理医生组列表    content=    order={"name": "name","sort": "desc"}

@@ -11,6 +11,7 @@ Library           DateTime
 
 *** Test Cases ***
 绿道填报
+    [Documentation]        :3022/patient/getPatientList
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    绿道填报    end=1581523200000    from=    index=1    pageSize=20    seachBody=
@@ -18,7 +19,10 @@ Library           DateTime
     Should Contain    ${getRes['msg']}    success
 
 绿道全局
+    [Documentation]        3022/patient/groupAll
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${getRes}    绿道_全局
     Should Contain    ${getRes['msg']}    success
+
+

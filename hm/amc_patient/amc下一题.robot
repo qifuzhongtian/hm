@@ -9,12 +9,7 @@ Library           RequestsLibrary
 *** Variables ***
 
 *** Test Cases ***
-1.3 amc下一题
-    # 1.2 amc下一题
-    #    # [Documentation]    断言:"error=0 成功"
-    #    ${getRes}    amc下一题    incoming_ids=13    question={"NODE_ID": 292}    answers={"index": 1,"value": 1}
-    #    Should Be Equal As Strings    ${getRes['head']['error']}    0
-    # [Documentation]    断言:"error=0 成功"
-    # ${answer}    Create List    1
+amc下一题
+    [Documentation]    cdss/amc/next_question?_hms=OWVjNDkwZWUtMTY1Ny00NDE5LTkwMTktMzFhMmZlYmU0ZjRk
     ${getRes}    amc下一题    questionId=${292}    type=option    answer=1
     Should Be Equal As Strings    ${getRes['head']['error']}    0

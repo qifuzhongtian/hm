@@ -10,6 +10,7 @@ Library           DateTime
 
 *** Test Cases ***
 CABG围手术期,推出治疗:术前抗凝桥接
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch

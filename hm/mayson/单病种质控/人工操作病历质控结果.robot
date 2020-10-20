@@ -10,6 +10,7 @@ Library           DateTime
 
 *** Test Cases ***
 人工操作病历质控结果
+    [Documentation]    cdss/sentry/mc/project_operate
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ...    AND    智能推荐v2    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2    requestSource=    doctorGuid=0210497

@@ -7,10 +7,10 @@ Library           String
 Library           DateTime
 
 *** Variables ***
-# 1566805231782    Get Time    epoch
 
 *** Test Cases ***
 查询惠每评估表
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation,cdss/mayson/v_1_0/assess/query
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ...    AND    智能推荐v2    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2    requestSource=    doctorGuid=0210497
