@@ -7,11 +7,10 @@ ${mayson_url}     http://profile.huimeionline.com/cdss
 #演示环境
 # ${mayson_url}    http://172.16.4.178/cdss
 
-#{url}内部平台,惠每用户中心地址
-#预发
-${inside_url}     http://172.16.3.40
+#{url}内部平台,惠每用户中
+# ${inside_url}     http://172.16.3.40
 #测试
-# ${inside_url}    http://172.16.3.64
+${inside_url}    http://172.16.3.64
 #内部平台-demo环境
 # ${inside_url}    http://172.16.4.178
 #文献生产环境           修改成http://负载ip/cdss
@@ -2548,6 +2547,29 @@ drgs_homeDrgFeeTjTrend
     [Arguments]    ${time_start}    ${time_end}    ${type}
     ${data}    Create Dictionary    time_start=${time_start}    time_end=${time_end}    type=${type}
     ${addr}    Post Request    api    /tj/homeDrgFeeTjTrend    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+
+
+结算病例分析drgsRecordDict
+    [Arguments]
+    ${data}    Create Dictionary
+    ${addr}    Post Request    api    /drgs/drgsRecordDict    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+
+结算病例分析drgsRecordAnalysisOverAll
+    [Arguments]    ${time_start}    ${mdc_no}    ${department}    ${time_end}    ${drgs_no}    ${dead_risk}    ${query_num}    ${doctor_name}    ${order}
+    ${order}    Evaluate    dict(${order})
+    ${data}    Create Dictionary    time_start=${time_start}    mdc_no=${mdc_no}    department=${department}    drgs_no=${drgs_no}    dead_risk=${dead_risk}    query_num=${query_num}    doctor_name=${doctor_name}    order=${order}
+    ...    time_end=${time_end}
+    ${addr}    Post Request    api    /drgs/drgsRecordAnalysisOverAll    data=${data}
     ${responsedata}    To Json    ${addr.content}
     log    ${data}
     [Return]    ${responsedata}

@@ -42,7 +42,6 @@ Library           DateTime
 房颤,推出:差异对比
     [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
 
-    [Documentation]    现病史心房颤动推荐补充房颤诊断
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
