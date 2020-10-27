@@ -539,10 +539,6 @@ Library           BuiltIn
     #Should Contain    ${aj[:5]}    心率失常
 
 
-
-
-
-
 数据版本200930角膜损伤,推荐治疗方案:局部药物治疗
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
@@ -570,7 +566,3 @@ Library           BuiltIn
     #####疑似诊断
     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     #Should Contain    ${aj[:5]}    心率失常
-
-
-
-
