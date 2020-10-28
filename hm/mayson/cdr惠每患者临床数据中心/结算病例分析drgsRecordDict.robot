@@ -10,11 +10,10 @@ Library           DateTime
 *** Variables ***
 
 *** Test Cases ***
-
-drgs病案分组查询列表
-    [Documentation]    :3027/drgs/drgsRecordList
+结算病例分析drgsRecordDict
+    [Documentation]    :3027/tj/joinGroupRateTrend
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    drgs病案分组查询列表    current_index=${1}    page_size=${20}    time_type=${1}    time_start=2020-09-17    time_end=2020-09-17    doctor_name=    department=    query_num=    dead_risk=    drgs_no=    mdc_no=    situation=    order={"name":"display_id","sort":"asc"}
+    ${getRes}    结算病例分析drgsRecordDict
     Should Contain    ${getRes['msg']}    success
 

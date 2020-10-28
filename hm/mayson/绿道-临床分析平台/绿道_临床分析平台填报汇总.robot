@@ -12,6 +12,6 @@ Library           DateTime
 *** Test Cases ***
 填报汇总
     [Documentation]    :3023/fillSummary/list
-
-    ${getRes}    庄周_填报汇总    startDate=2020-03-24    endDate=2020-03-30    type=1
+# http://172.16.3.40:3023/fillSummary/list
+    ${getRes}    庄周_填报汇总    startDate=2020-03-24    endDate=2020-03-30    type=${1}
     Should Contain    ${getRes['msg']}    success

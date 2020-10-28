@@ -8,9 +8,9 @@ ${mayson_url}     http://profile.huimeionline.com/cdss
 # ${mayson_url}    http://172.16.4.178/cdss
 
 #{url}内部平台,惠每用户中
-# ${inside_url}     http://172.16.3.40
+${inside_url}     http://172.16.3.40
 #测试
-${inside_url}    http://172.16.3.64
+# ${inside_url}    http://172.16.3.64
 #内部平台-demo环境
 # ${inside_url}    http://172.16.4.178
 #文献生产环境           修改成http://负载ip/cdss
@@ -2436,7 +2436,7 @@ VTE2快速确认
 
 
 ######drgs######
-drgs登录
+drg登录
     [Arguments]    ${name}    ${password}
     # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -2450,7 +2450,7 @@ drgs登录
 
 
 
-drgs分组统计
+drg分组统计
     [Arguments]    ${time_start}    ${time_end}    ${drgs_sample_id}
     ${data}    Create Dictionary    time_start=${time_start}    time_end=${time_end}    drgs_sample_id=${drgs_sample_id}
     ${addr}    Post Request    api    /tj/drgsGroupCount    data=${data}
@@ -2461,7 +2461,7 @@ drgs分组统计
 
 
 
-drgs组数
+drg组数
     [Arguments]    ${time_start}    ${time_end}    ${drgs_sample_id}    ${time_type}
     ${data}    Create Dictionary    time_start=${time_start}    time_end=${time_end}    drgs_sample_id=${drgs_sample_id}    time_type=${time_type}
     ${addr}    Post Request    api    /tj/drgsGroupCount    data=${data}
@@ -2471,7 +2471,7 @@ drgs组数
 
 
 
-drgs入组率趋势
+drg入组率趋势
     [Arguments]    ${time_start}    ${time_end}    ${time_type}
     ${data}    Create Dictionary    time_start=${time_start}    time_end=${time_end}    time_type=${time_type}
     ${addr}    Post Request    api    /tj/joinGroupRateTrend    data=${data}
@@ -2481,7 +2481,7 @@ drgs入组率趋势
 
 
 
-drgs指标
+drg指标
     [Arguments]    ${time_start}    ${time_end}    ${drgs_sample_id}
     ${data}    Create Dictionary    time_start=${time_start}    time_end=${time_end}    drgs_sample_id=${drgs_sample_id}
     ${addr}    Post Request    api    /tj/drgPerformance    data=${data}
@@ -2490,7 +2490,7 @@ drgs指标
     [Return]    ${responsedata}
 
 
-drgs病案分组查询列表
+drg病案分组查询列表
     [Arguments]    ${time_type}    ${page_size}    ${current_index}    ${time_start}    ${time_end}    ${department}    ${doctor_name}    ${query_num}    ${dead_risk}    ${drgs_no}    ${mdc_no}    ${situation}    ${order}
     ${order}    Evaluate    dict(${order})
     ${data}    Create Dictionary    page_size=${page_size}    time_type=${time_type}    current_index=${current_index}    time_start=${time_start}    dead_risk=${dead_risk}    drgs_no=${drgs_no}    mdc_no=${mdc_no}    situation=${situation}    order=${order}
@@ -2501,7 +2501,7 @@ drgs病案分组查询列表
     [Return]    ${responsedata}
 
 
-drgs字典查询列表
+drg字典查询列表
     [Arguments]    ${time_start}    ${page_size}    ${current_index}    ${time_end}    ${content}    ${order}
     ${order}    Evaluate    dict(${order})
     ${data}    Create Dictionary    time_start=${time_start}    page_size=${page_size}    current_index=${current_index}    content=${content}    order=${order}
@@ -2512,7 +2512,7 @@ drgs字典查询列表
     [Return]    ${responsedata}
 
 
-drgs样本数据查看
+drg样本数据查看
     [Arguments]    ${sample_id}    ${page_size}    ${mdc_no}    ${current_index}    ${content}    ${order}
     ${order}    Evaluate    dict(${order})
     ${data}    Create Dictionary    sample_id=${sample_id}    page_size=${page_size}    mdc_no=${mdc_no}    content=${content}    order=${order}
@@ -2523,7 +2523,7 @@ drgs样本数据查看
     [Return]    ${responsedata}
 
 
-drgs用户管理列表
+drg用户管理列表
     [Arguments]    ${order}    ${current_index}    ${page_size}
     ${order}    Evaluate    dict(${order})
     ${data}    Create Dictionary    order=${order}    current_index=${current_index}    page_size=${page_size}
@@ -2533,7 +2533,7 @@ drgs用户管理列表
     [Return]    ${responsedata}
 
 
-drgs_homeDrgFeeTj
+drg_homeDrgFeeTj
     [Arguments]    ${time_start}    ${time_end}
     ${data}    Create Dictionary    time_start=${time_start}    time_end=${time_end}
     ${addr}    Post Request    api    /tj/homeDrgFeeTj    data=${data}
@@ -2543,7 +2543,7 @@ drgs_homeDrgFeeTj
 
 
 
-drgs_homeDrgFeeTjTrend
+drg_homeDrgFeeTjTrend
     [Arguments]    ${time_start}    ${time_end}    ${type}
     ${data}    Create Dictionary    time_start=${time_start}    time_end=${time_end}    type=${type}
     ${addr}    Post Request    api    /tj/homeDrgFeeTjTrend    data=${data}
@@ -2563,16 +2563,16 @@ drgs_homeDrgFeeTjTrend
     [Return]    ${responsedata}
 
 
-
 结算病例分析drgsRecordAnalysisOverAll
-    [Arguments]    ${time_start}    ${mdc_no}    ${department}    ${time_end}    ${drgs_no}    ${dead_risk}    ${query_num}    ${doctor_name}    ${order}
+    [Arguments]    ${time_start}    ${mdc_no}    ${department}    ${page_size}    ${current_index}    ${time_end}    ${drgs_no}    ${dead_risk}    ${query_num}    ${doctor_name}    ${order}
     ${order}    Evaluate    dict(${order})
-    ${data}    Create Dictionary    time_start=${time_start}    mdc_no=${mdc_no}    department=${department}    drgs_no=${drgs_no}    dead_risk=${dead_risk}    query_num=${query_num}    doctor_name=${doctor_name}    order=${order}
+    ${data}    Create Dictionary    time_start=${time_start}    mdc_no=${mdc_no}    department=${department}    page_size=${page_size}    current_index=${current_index}    drgs_no=${drgs_no}    dead_risk=${dead_risk}    query_num=${query_num}    doctor_name=${doctor_name}    order=${order}
     ...    time_end=${time_end}
     ${addr}    Post Request    api    /drgs/drgsRecordAnalysisOverAll    data=${data}
     ${responsedata}    To Json    ${addr.content}
     log    ${data}
     [Return]    ${responsedata}
+
 
 
 结算病例分析drgsRecordAnalysisList
@@ -2599,15 +2599,13 @@ drgs_homeDrgFeeTjTrend
 
 
 
-drgs字典查询drgTargetTrend
+drg字典查询drgTargetTrend
     [Arguments]    ${drgs_sample_id}    ${time_start}    ${time_end}    ${time_type}
     ${data}    Create Dictionary    drgs_sample_id=${drgs_sample_id}    time_start=${time_start}    time_end=${time_end}    time_type=${time_type}
     ${addr}    Post Request    api    /tj/drgTargetTrend    data=${data}
     ${responsedata}    To Json    ${addr.content}
     log    ${data}
     [Return]    ${responsedata}
-
-
 
 
 drg盈亏分析depProfitTj
@@ -2617,9 +2615,6 @@ drg盈亏分析depProfitTj
     ${responsedata}    To Json    ${addr.content}
     log    ${data}
     [Return]    ${responsedata}
-
-
-
 
 
 drg盈亏分析depProfitTable
@@ -2693,7 +2688,7 @@ drg医生组盈亏分析doctorGroupDetailOverAll
 
 
 
-drgs医生组盈亏tjDic
+drg医生组盈亏tjDic
     [Arguments]    ${time_start}    ${time_end}    ${type}
     ${data}    Create Dictionary    time_start=${time_start}    time_end=${time_end}    type=${type}
     ${addr}    Post Request    api    /profitTj/tjDic    data=${data}
@@ -2714,7 +2709,7 @@ drg盈亏分析doctorGroupDetailTrend
 
 
 
-drgs医生盈亏分析doctorProfitTj
+drg医生盈亏分析doctorProfitTj
     [Arguments]    ${time_start}    ${time_end}
     ${data}    Create Dictionary    time_start=${time_start}    time_end=${time_end}
     ${addr}    Post Request    api    /profitTj/doctorProfitTj    data=${data}
@@ -2804,11 +2799,6 @@ drg病组盈亏drgsDeficitItem
     [Return]    ${responsedata}
 
 
-
-
-
-
-
 drg医院费用分析hosFeeTJTable
     [Arguments]    ${time_start}    ${time_end}    ${current_index}    ${page_size}    ${order}
     ${order}    Evaluate    dict(${order})
@@ -2818,6 +2808,78 @@ drg医院费用分析hosFeeTJTable
     ${responsedata}    To Json    ${addr.content}
     log    ${data}
     [Return]    ${responsedata}
+
+
+
+
+
+drg结算管理statementResultList
+    [Arguments]    ${time_start}    ${time_end}    ${current_index}    ${page_size}    ${order}
+    ${order}    Evaluate    dict(${order})
+    ${data}    Create Dictionary    time_start=${time_start}    time_end=${time_end}    page_size=${page_size}    order=${order}
+    ...    current_index=${current_index}
+    ${addr}    Post Request    api    /st/statementResultList    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+
+drg查询配置
+    [Arguments]
+    ${data}    Create Dictionary
+    ${addr}    Post Request    api    /manage/queryConfigure    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+
+
+
+drg结算管理departmentProfit
+    [Arguments]    ${month}
+    ${data}    Create Dictionary    month=${month}
+    ${addr}    Post Request    api    /st/departmentProfit    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+
+
+drg结算管理proofRecordList
+    [Arguments]    ${discharge_department}    ${month}    ${profit_status}    ${proof_status}    ${current_index}    ${page_size}    ${order}
+    ${order}    Evaluate    dict(${order})
+    ${data}    Create Dictionary    discharge_department=${discharge_department}    profit_status=${profit_status}    month=${month}    proof_status=${proof_status}    page_size=${page_size}    order=${order}
+    ...    current_index=${current_index}
+    ${addr}    Post Request    api    /st/proofRecordList    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+
+drg结算管理proofRecordDetail
+    [Arguments]    ${record_id}
+    ${data}    Create Dictionary    record_id=${record_id}
+    ${addr}    Post Request    api    /st/proofRecordDetail    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+
+drg结算查询statementList
+    [Arguments]    ${time_start}    ${time_end}    ${current_index}    ${page_size}    ${serial_number}    ${order}
+    ${order}    Evaluate    dict(${order})
+    ${data}    Create Dictionary    time_start=${time_start}    time_end=${time_end}    page_size=${page_size}    serial_number=${serial_number}    order=${order}
+    ...    current_index=${current_index}
+    ${addr}    Post Request    api    /st/statementList    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
 
 ######cdr######
 cdr登录
