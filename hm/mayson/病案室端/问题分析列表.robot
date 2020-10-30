@@ -17,7 +17,7 @@ Library           DateTime
     ...    AND    获取随机数
     ${getRes}    问题分析列表    order={"name": "count","sort": "desc"}
     ...    name_id=    category_id=
-    ...    time_start=2018-09-17    time_end=2029-10-16
+    ...    time_start=2018-09-11    time_end=2029-09-11
     ...    inpatient_department=
     ...    display_type=
     ...    line_item_veto=    page_size=${20}
