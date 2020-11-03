@@ -1,15 +1,15 @@
-*** Settings ***
-Suite Setup       cdr登录    name=privateTesting    password=38ebcce4a466e04bf443d54ca52cd44f
-Suite Teardown    Delete All Sessions
-Resource          ../../cdss.robot
-Library           Collections
-Library           RequestsLibrary
-Library           String
-Library           DateTime
+# *** Settings ***
+# Suite Setup       cdr登录    name=privateTesting    password=38ebcce4a466e04bf443d54ca52cd44f
+# Suite Teardown    Delete All Sessions
+# Resource          ../../cdss.robot
+# Library           Collections
+# Library           RequestsLibrary
+# Library           String
+# Library           DateTime
 
-*** Variables ***
+# *** Variables ***
 
-*** Test Cases ***
+# *** Test Cases ***
 
 # cdr病历管理_高级搜索_搜索
 #     [Documentation]    :3025/advancedSearch/search
