@@ -1,9 +1,9 @@
 *** Variables ***
 #=======医院内网需要修改的==============#
 #mayson生产环境       修改成http://负载ip/cdss
-#${mayson_url}     http://profile.huimeionline.com/cdss
+${mayson_url}     http://profile.huimeionline.com/cdss
 #${mayson_url}     http://172.16.3.61:8080
-${mayson_url}    http://test-mayson.huimeionline.com/cdss
+# ${mayson_url}    http://test-mayson.huimeionline.com/cdss
 #演示环境
 # ${mayson_url}    http://172.16.4.178/cdss
 
@@ -3003,8 +3003,6 @@ cdr病历管理_高级搜索_搜索
 
 
 
-
-
 cdr病历查询_高级搜索列表
     [Arguments]    ${collection}
     ${data}    Create Dictionary    collection=${collection}
@@ -3033,3 +3031,4 @@ cdr病历查询_高级搜索列表
     ${responsedata}    To Json    ${addr.content}
     log    ${data}
     [Return]    ${responsedata}
+
