@@ -19,8 +19,10 @@ ${doc_url}       http://profile-doc.huimeionline.com/doc
 #演示环境
 # ${doc_url}      http://172.16.4.178/cdss
 #内涵质控
-${connotation_url}    http://172.16.3.68
+#${connotation_url}    http://172.16.3.68
 # ${connotation_url}    http://172.16.4.178
+#性能环境
+${connotation_url}  http://172.16.3.61
 #测试环境
 # ${mayson_url}    http://10.27.213.55
 #文献前端环境           修改成http://负载ip/wenxian
