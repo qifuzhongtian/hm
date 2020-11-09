@@ -10,8 +10,7 @@ Library           DateTime
 *** Variables ***
 
 *** Test Cases ***
-填报汇总
-    [Documentation]    :3023/fillSummary/list_v2
-# http://172.16.3.40:3023/fillSummary/list
-    ${getRes}    庄周_填报汇总    startDate=2020-03-24    endDate=2020-03-30    
-    Should Contain    ${getRes['msg']}    success
+卒中绿道质控指标达标分布
+    [Documentation]     :3023/fillSummary/qcRate
+    ${getRes}   庄周_卒中绿道质控指标达标分布  startDate=2020-03-24  endDate=2020-03-30     itemList=2
+    Should Contain  ${getRes['msg']}    success

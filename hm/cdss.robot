@@ -1,16 +1,16 @@
 *** Variables ***
 #=======医院内网需要修改的==============#
 #mayson生产环境       修改成http://负载ip/cdss
-#${mayson_url}     http://profile.huimeionline.com/cdss
-${mayson_url}     http://172.16.3.61:8080
-# ${mayson_url}    http://test-mayson.huimeionline.com/cdss
+${mayson_url}     http://profile.huimeionline.com/cdss
+#${mayson_url}     http://172.16.3.61:8080
+#${mayson_url}    http://test-mayson.huimeionline.com/cdss
 #演示环境
 # ${mayson_url}    http://172.16.4.178/cdss
 
 #{url}内部平台,惠每用户中
 ${inside_url}     http://172.16.3.40
 #测试
-# ${inside_url}    http://172.16.3.64
+#${inside_url}    http://172.16.3.64
 #内部平台-demo环境
 # ${inside_url}    http://172.16.4.178
 #文献生产环境           修改成http://负载ip/cdss
@@ -19,10 +19,10 @@ ${doc_url}       http://profile-doc.huimeionline.com/doc
 #演示环境
 # ${doc_url}      http://172.16.4.178/cdss
 #内涵质控
-#${connotation_url}    http://172.16.3.68
+${connotation_url}    http://172.16.3.68
 # ${connotation_url}    http://172.16.4.178
 #性能环境
-${connotation_url}  http://172.16.3.61
+#${connotation_url}  http://172.16.3.61
 #测试环境
 # ${mayson_url}    http://10.27.213.55
 #文献前端环境           修改成http://负载ip/wenxian
@@ -2065,13 +2065,13 @@ VTE2快速确认
     [Return]    ${responsedata}
 
 庄周_填报汇总
-    [Arguments]    ${startDate}    ${endDate}    ${type}
+    [Arguments]    ${startDate}    ${endDate}    
     #${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     #Create Session    api    ${zhuangzhou_url}    ${dict}
     #Create Session    api    http://172.16.3.64:3023    ${dict}
-    ${data}    Create Dictionary    startDate=${startDate}    endDate=${endDate}    type=${type}
+    ${data}    Create Dictionary    startDate=${startDate}    endDate=${endDate}    
     log    ${data}
-    ${addr}    Post Request    api    fillSummary/list    data=${data}
+    ${addr}    Post Request    api    fillSummary/list_v2    data=${data}
     ${responsedata}    To Json    ${addr.content}
     log    ${data}
     [Return]    ${responsedata}
@@ -3034,3 +3034,117 @@ cdr病历查询_高级搜索列表
     log    ${data}
     [Return]    ${responsedata}
 
+庄周_卒中趋势
+    [Arguments]    ${startDate}    ${endDate}   ${type}   
+    #${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    #Create Session    api    ${zhuangzhou_url}    ${dict}
+    #Create Session    api    http://172.16.3.64:3023    ${dict}
+    ${data}    Create Dictionary    startDate=${startDate}    endDate=${endDate}    type=${type}
+    log    ${data}
+    ${addr}    Post Request    api    fillSummary/trendList    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+庄周_静脉溶栓分析
+    [Arguments]    ${startDate}    ${endDate}   ${type}   
+    #${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    #Create Session    api    ${zhuangzhou_url}    ${dict}
+    #Create Session    api    http://172.16.3.64:3023    ${dict}
+    ${data}    Create Dictionary    startDate=${startDate}    endDate=${endDate}    type=${type}
+    log    ${data}
+    ${addr}    Post Request    api    fillSummary/analyse    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+庄周_桥接变化分析
+    [Arguments]    ${startDate}    ${endDate}   ${type}   
+    #${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    #Create Session    api    ${zhuangzhou_url}    ${dict}
+    #Create Session    api    http://172.16.3.64:3023    ${dict}
+    ${data}    Create Dictionary    startDate=${startDate}    endDate=${endDate}    type=${type}
+    log    ${data}
+    ${addr}    Post Request    api    fillSummary/drtAnalyse    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+庄周_质控指标达标配置
+    #[Arguments]    ${startDate}    ${endDate}   ${type}   
+    #${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    #Create Session    api    ${zhuangzhou_url}    ${dict}
+    #Create Session    api    http://172.16.3.64:3023    ${dict}
+    ${data}    Create Dictionary    
+    log    ${data}
+    ${addr}    Post Request    api    fillSummary/rateList    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+庄周_溶栓达标率
+    [Arguments]    ${startDate}    ${endDate}   ${dnt}
+    #${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    #Create Session    api    ${zhuangzhou_url}    ${dict}
+    #Create Session    api    http://172.16.3.64:3023    ${dict}
+    ${data}    Create Dictionary    startDate=${startDate}    endDate=${endDate}    dnt=${dnt}
+    log    ${data}
+    ${addr}    Post Request    api    fillSummary/dntPass    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+庄周_桥接达标率
+    [Arguments]    ${startDate}    ${endDate}   ${dpt}   ${drt}  
+    #${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    #Create Session    api    ${zhuangzhou_url}    ${dict}
+    #Create Session    api    http://172.16.3.64:3023    ${dict}
+    ${data}    Create Dictionary    startDate=${startDate}    endDate=${endDate}    dpt=${dpt}  drt=${drt}
+    log    ${data}
+    ${addr}    Post Request    api    fillSummary/drtdptPass    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+庄周_卒中绿道质控指标达标分布
+    [Arguments]    ${startDate}    ${endDate}    ${itemList}
+    #${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    #Create Session    api    ${zhuangzhou_url}    ${dict}
+    #Create Session    api    http://172.16.3.64:3023    ${dict}
+    ${itemList}  Evaluate    [${itemList}]
+    ${data}    Create Dictionary    startDate=${startDate}    endDate=${endDate}    itemList=${itemList}
+    log    ${data}
+    ${addr}    Post Request    api    fillSummary/qcRate    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+庄周_dnt排名
+    [Arguments]    ${startDate}    ${endDate}   ${type}   ${orderType}  
+    #${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    #Create Session    api    ${zhuangzhou_url}    ${dict}
+    #Create Session    api    http://172.16.3.64:3023    ${dict}
+    ${data}    Create Dictionary    startDate=${startDate}    endDate=${endDate}    type=${type}  orderType=${orderType}
+    log    ${data}
+    ${addr}    Post Request    api    fillSummary/topRanking    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+绿道_产品权限列表
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session      api     ${lvdao_url}    ${dict}
+    ${data}     Create Dictionary
+    log     ${data}
+    ${addr}     Post Request    api     manage/getProducts      data=${data}
+    ${responsedata}     To Json     ${addr.content}
+    log     ${data}
+    [Return]    ${responsedata}
+
+卒中绿道_患者信息
+    [Arguments]     ${id}    ${customEnv}
+    ${data}     Create Dictionary     id=${id}  customEnv=${customEnv}
+    ${addr}    Post Request    api    patient/getPatientInfo    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}   
