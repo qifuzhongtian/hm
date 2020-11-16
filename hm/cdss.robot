@@ -1,16 +1,16 @@
 *** Variables ***
 #=======医院内网需要修改的==============#
 #mayson生产环境       修改成http://负载ip/cdss
-#${mayson_url}     http://profile.huimeionline.com/cdss
-${mayson_url}     http://172.16.3.61:8080
-#${mayson_url}    http://test-mayson.huimeionline.com/cdss
+${mayson_url}     http://profile.huimeionline.com/cdss
+#${mayson_url}     http://172.16.3.61:8080
+# ${mayson_url}    http://test-mayson.huimeionline.com/cdss
 #演示环境
 # ${mayson_url}    http://172.16.4.178/cdss
 
 #{url}内部平台,惠每用户中
 ${inside_url}     http://172.16.3.40
 #测试
-#${inside_url}    http://172.16.3.64
+# ${inside_url}    http://172.16.3.64
 #内部平台-demo环境
 # ${inside_url}    http://172.16.4.178
 #文献生产环境           修改成http://负载ip/cdss
@@ -19,10 +19,8 @@ ${doc_url}       http://profile-doc.huimeionline.com/doc
 #演示环境
 # ${doc_url}      http://172.16.4.178/cdss
 #内涵质控
-#${connotation_url}    http://172.16.3.68
+${connotation_url}    http://172.16.3.68
 # ${connotation_url}    http://172.16.4.178
-#性能环境
-${connotation_url}  http://172.16.3.61
 #测试环境
 # ${mayson_url}    http://10.27.213.55
 #文献前端环境           修改成http://负载ip/wenxian
@@ -2065,11 +2063,11 @@ VTE2快速确认
     [Return]    ${responsedata}
 
 庄周_填报汇总
-    [Arguments]    ${startDate}    ${endDate}    
+    [Arguments]    ${startDate}    ${endDate}
     #${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     #Create Session    api    ${zhuangzhou_url}    ${dict}
     #Create Session    api    http://172.16.3.64:3023    ${dict}
-    ${data}    Create Dictionary    startDate=${startDate}    endDate=${endDate}    
+    ${data}    Create Dictionary    startDate=${startDate}    endDate=${endDate}
     log    ${data}
     ${addr}    Post Request    api    fillSummary/list_v2    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -3015,6 +3013,96 @@ cdr病历查询_高级搜索列表
 
 
 
+cdr患者统计
+    [Arguments]    ${type}    ${year}    ${month}    ${figureType}    ${id}
+    ${data}    Create Dictionary    type=${type}    month=${month}    year=${year}    figureType=${figureType}    id=${id}
+    ${addr}    Post Request    api    /patientsStatistics/figureHome    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+
+cdr患者统计singleDiseasesList
+    [Arguments]    ${type}    ${year}    ${month}    ${disease_code}
+    ${data}    Create Dictionary    type=${type}    month=${month}    year=${year}    disease_code=${disease_code}
+    ${addr}    Post Request    api    /patientsStatistics/singleDiseasesList    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+cdr标准数据集
+    [Arguments]    ${name}
+    ${data}    Create Dictionary    name=${name}
+    ${addr}    Post Request    api    /dataSet/home    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+
+
+cdr标准数据集详情
+    [Arguments]    ${dataset_id}    ${module_name}
+    ${data}    Create Dictionary    dataset_id=${dataset_id}    module_name=${module_name}
+    ${addr}    Post Request    api    /dataSet/dataSetDetails    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+
+
+
+cdr标准数据集元素
+    [Arguments]    ${name}    ${dataset_id}    ${dataset_module_id}
+    ${data}    Create Dictionary    name=${name}    dataset_module_id=${dataset_module_id}    dataset_id=${dataset_id}
+    ${addr}    Post Request    api    /dataSet/element    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+
+
+cdr数据集元素类型
+    [Arguments]    ${dataset_id}
+    ${data}    Create Dictionary    dataset_id=${dataset_id}
+    ${addr}    Post Request    api    /dataSet/elementType    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+
+
+cdr标准数据集module
+    [Arguments]    ${module_name}    ${dataset_id}
+    ${data}    Create Dictionary    module_name=${module_name}    dataset_id=${dataset_id}
+    ${addr}    Post Request    api    /dataSet/module    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+
+
+
+
+cdr标准数据集就诊次
+    [Arguments]    ${admissionDateStart}    ${admissionDateEnd}    ${visitDepartment}    ${diseaseName}    ${operationName}    ${datasetId}    ${pageSize}    ${currentPage}
+    ${data}    Create Dictionary    admissionDateStart=${admissionDateStart}    visitDepartment=${visitDepartment}    admissionDateEnd=${admissionDateEnd}   diseaseName=${diseaseName}    operationName=${operationName}    datasetId=${datasetId}    pageSize=${pageSize}    currentPage=${currentPage}
+    ${addr}    Post Request    api    /dataSet/patientDataSetList    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+
+
+##
+
 卡控合并
     [Arguments]    ${alertLevel}    ${assessDictName}    ${assessId}    ${assessName}    ${assessResult}    ${assessResultItemList}
     ...    ${assessResultStyle}    ${assessResultType}    ${assessValue}    ${assessValueUnit}    ${customerId}    ${displayResult}
@@ -3034,8 +3122,11 @@ cdr病历查询_高级搜索列表
     log    ${data}
     [Return]    ${responsedata}
 
+
+
+
 庄周_卒中趋势
-    [Arguments]    ${startDate}    ${endDate}   ${type}   
+    [Arguments]    ${startDate}    ${endDate}   ${type}
     #${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     #Create Session    api    ${zhuangzhou_url}    ${dict}
     #Create Session    api    http://172.16.3.64:3023    ${dict}
@@ -3047,7 +3138,7 @@ cdr病历查询_高级搜索列表
     [Return]    ${responsedata}
 
 庄周_静脉溶栓分析
-    [Arguments]    ${startDate}    ${endDate}   ${type}   
+    [Arguments]    ${startDate}    ${endDate}   ${type}
     #${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     #Create Session    api    ${zhuangzhou_url}    ${dict}
     #Create Session    api    http://172.16.3.64:3023    ${dict}
@@ -3059,7 +3150,7 @@ cdr病历查询_高级搜索列表
     [Return]    ${responsedata}
 
 庄周_桥接变化分析
-    [Arguments]    ${startDate}    ${endDate}   ${type}   
+    [Arguments]    ${startDate}    ${endDate}   ${type}
     #${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     #Create Session    api    ${zhuangzhou_url}    ${dict}
     #Create Session    api    http://172.16.3.64:3023    ${dict}
@@ -3071,11 +3162,11 @@ cdr病历查询_高级搜索列表
     [Return]    ${responsedata}
 
 庄周_质控指标达标配置
-    #[Arguments]    ${startDate}    ${endDate}   ${type}   
+    #[Arguments]    ${startDate}    ${endDate}   ${type}
     #${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     #Create Session    api    ${zhuangzhou_url}    ${dict}
     #Create Session    api    http://172.16.3.64:3023    ${dict}
-    ${data}    Create Dictionary    
+    ${data}    Create Dictionary
     log    ${data}
     ${addr}    Post Request    api    fillSummary/rateList    data=${data}
     ${responsedata}    To Json    ${addr.content}
@@ -3095,7 +3186,7 @@ cdr病历查询_高级搜索列表
     [Return]    ${responsedata}
 
 庄周_桥接达标率
-    [Arguments]    ${startDate}    ${endDate}   ${dpt}   ${drt}  
+    [Arguments]    ${startDate}    ${endDate}   ${dpt}   ${drt}
     #${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     #Create Session    api    ${zhuangzhou_url}    ${dict}
     #Create Session    api    http://172.16.3.64:3023    ${dict}
@@ -3120,7 +3211,7 @@ cdr病历查询_高级搜索列表
     [Return]    ${responsedata}
 
 庄周_dnt排名
-    [Arguments]    ${startDate}    ${endDate}   ${type}   ${orderType}  
+    [Arguments]    ${startDate}    ${endDate}   ${type}   ${orderType}
     #${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     #Create Session    api    ${zhuangzhou_url}    ${dict}
     #Create Session    api    http://172.16.3.64:3023    ${dict}
@@ -3147,4 +3238,6 @@ cdr病历查询_高级搜索列表
     ${addr}    Post Request    api    patient/getPatientInfo    data=${data}
     ${responsedata}    To Json    ${addr.content}
     log    ${data}
-    [Return]    ${responsedata}   
+    [Return]    ${responsedata}
+
+
