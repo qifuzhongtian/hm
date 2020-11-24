@@ -10,9 +10,9 @@ ${mayson_url}    http://172.16.4.178/cdss
 #{url}内部平台,惠每用户中
 # ${inside_url}     http://172.16.3.40
 #测试
-# ${inside_url}    http://172.16.3.64
+${inside_url}    http://172.16.3.64
 #内部平台-demo环境
-${inside_url}    http://172.16.4.178
+#${inside_url}    http://172.16.4.178
 #文献生产环境           修改成http://负载ip/cdss
 # ${doc_url}       http://profile-doc.huimeionline.com/doc
 # ${doc_url}      http://test-profile-doc.huimeionline.com/doc
@@ -1767,7 +1767,7 @@ VTE2快速确认
     log    ${data}
     [Return]    ${responsedata}
 
-绿道入组
+庄周_患者入组
     [Arguments]    ${end}    ${groupId}    ${index}    ${joinWay}    ${needRecommend}    ${pageSize}
     ...    ${reportId}    ${seachBody}    ${start}
     # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
@@ -1780,7 +1780,7 @@ VTE2快速确认
     log    ${data}
     [Return]    ${responsedata}
 
-绿道填报
+庄周_患者填报
     [Arguments]    ${end}    ${from}    ${index}    ${pageSize}    ${seachBody}    ${start}
     ...    ${status}
     # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
@@ -1790,6 +1790,24 @@ VTE2快速确认
     ...    start=${start}    status=${status}
     log    ${data}
     ${addr}    Post Request    api    patient/getPatientList    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+绿道_单病种患者状态
+    [Arguments]    ${baseGroupId}
+    #${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    #Create Session    api    ${lvdao_url}    ${dict}
+    ${data}    Create Dictionary    baseGroupId=${baseGroupId}
+    ${addr}    Post Request    api    patient/getDiseaseStatus    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+绿道_单病种入组
+    [Arguments]    
+    ${data}    Create Dictionary  
+    ${addr}    Post Request    api    patient/joinGroupList    data=${data}
     ${responsedata}    To Json    ${addr.content}
     log    ${data}
     [Return]    ${responsedata}
@@ -2152,6 +2170,14 @@ VTE2快速确认
     log    ${data}
     [Return]    ${responsedata}
 
+庄周_分组项目统计
+    [Arguments]
+    ${data}    Create Dictionary
+    ${addr}    Post Request    api    patientsStatistics/objectSelect    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
 临床质量管理平台_出院人次
     [Arguments]    ${dept_code}    ${dept_name}    ${dept_type}    ${disease_class}    ${disease_code}    ${end_time}
     ...    ${query_type}    ${start_time}    ${time_type}
@@ -2243,7 +2269,7 @@ VTE2快速确认
     log    ${data}
     [Return]    ${responsedata}
 
-绿道_全局
+庄周_全局
     # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
     # ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     # Create Session    api    ${tesla_url}    ${dict}
@@ -2350,10 +2376,10 @@ VTE2快速确认
     log    ${data}
     [Return]    ${responsedata}
 
-庄周_单病种上报统计
+绿道_单病种上报统计
     [Arguments]    ${startDate}    ${endDate}    ${type}
     #${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    #Create Session    api    ${zhuangzhou_url}    ${dict}
+    #Create Session    api    ${lvdao_url}    ${dict}
     #Create Session    api    http://172.16.3.64:3023    ${dict}
     ${data}    Create Dictionary    startDate=${startDate}    endDate=${endDate}    type=${type}
     log    ${data}
@@ -2362,10 +2388,10 @@ VTE2快速确认
     log    ${data}
     [Return]    ${responsedata}
 
-庄周_单病种科室统计
+绿道_单病种科室统计
     [Arguments]    ${startDate}    ${endDate}    ${type}
     #${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    #Create Session    api    ${zhuangzhou_url}    ${dict}
+    #Create Session    api    ${lvdao_url}    ${dict}
     #Create Session    api    http://172.16.3.64:3023    ${dict}
     ${data}    Create Dictionary    startDate=${startDate}    endDate=${endDate}    type=${type}
     log    ${data}
@@ -2374,14 +2400,26 @@ VTE2快速确认
     log    ${data}
     [Return]    ${responsedata}
 
-庄周_病种质控完成统计
+绿道_病种质控完成统计
     [Arguments]    ${startDate}    ${endDate}    ${type}
     #${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    #Create Session    api    ${zhuangzhou_url}    ${dict}
+    #Create Session    api    ${lvdao_url}    ${dict}
     #Create Session    api    http://172.16.3.64:3023    ${dict}
     ${data}    Create Dictionary    startDate=${startDate}    endDate=${endDate}    type=${type}
     log    ${data}
     ${addr}    Post Request    api    diseaseQuality/list    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+绿道_单病种质控管理
+    [Arguments]     ${end_time}      ${start_time}      ${disease}      ${doctor}       ${gender}       
+    ...     ${patient}      ${project}      ${specialDisease}       ${query_type}       ${sub_time_type}
+    ...     ${time_type}
+    ${data}     Create Dictionary   end_time=${end_time}    start_time=${start_time}    disease=${disease}
+    ...     doctor=${doctor}    gender=${gender}   patient=${patient}    project=${project} specialDisease=${specialDisease}
+    ...     query_type=${query_type}    sub_time_type=${sub_time_type}      time_type=${time_type}
+    ${addr}    Post Request    api     target/relationDic  data=${data}
     ${responsedata}    To Json    ${addr.content}
     log    ${data}
     [Return]    ${responsedata}
