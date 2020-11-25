@@ -3,9 +3,9 @@
 #mayson生产环境       修改成http://负载ip/cdss
 # ${mayson_url}     http://profile.huimeionline.com/cdss
 # ${mayson_url}     http://172.16.3.61:8080
-# ${mayson_url}    http://test-mayson.huimeionline.com/cdss
+${mayson_url}    http://test-mayson.huimeionline.com/cdss
 #演示环境
-${mayson_url}    http://172.16.4.178/cdss
+# ${mayson_url}    http://172.16.4.178/cdss
 
 #{url}内部平台,惠每用户中
 # ${inside_url}     http://172.16.3.40
@@ -1805,8 +1805,8 @@ VTE2快速确认
     [Return]    ${responsedata}
 
 绿道_单病种入组
-    [Arguments]    
-    ${data}    Create Dictionary  
+    [Arguments]
+    ${data}    Create Dictionary
     ${addr}    Post Request    api    patient/joinGroupList    data=${data}
     ${responsedata}    To Json    ${addr.content}
     log    ${data}
@@ -2413,7 +2413,7 @@ VTE2快速确认
     [Return]    ${responsedata}
 
 绿道_单病种质控管理
-    [Arguments]     ${end_time}      ${start_time}      ${disease}      ${doctor}       ${gender}       
+    [Arguments]     ${end_time}      ${start_time}      ${disease}      ${doctor}       ${gender}
     ...     ${patient}      ${project}      ${specialDisease}       ${query_type}       ${sub_time_type}
     ...     ${time_type}
     ${data}     Create Dictionary   end_time=${end_time}    start_time=${start_time}    disease=${disease}
