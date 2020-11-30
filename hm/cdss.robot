@@ -1,49 +1,49 @@
 *** Variables ***
 #=======医院内网需要修改的==============#
 #mayson生产环境       修改成http://负载ip/cdss
-# ${mayson_url}     http://profile.huimeionline.com/cdss
+${mayson_url}     http://profile.huimeionline.com/cdss
 # ${mayson_url}     http://172.16.3.61:8080
 # ${mayson_url}    http://test-mayson.huimeionline.com/cdss
 #演示环境
-${mayson_url}    http://172.16.4.178/cdss
+# ${mayson_url}    http://172.16.4.178/cdss
 
 #{url}内部平台,惠每用户中
-# ${inside_url}     http://172.16.3.40
+${inside_url}     http://172.16.3.40
 #测试
 # ${inside_url}    http://172.16.3.64
 #内部平台-demo环境
-${inside_url}    http://172.16.4.178
+# ${inside_url}    http://172.16.4.178
 #文献生产环境           修改成http://负载ip/cdss
-# ${doc_url}       http://profile-doc.huimeionline.com/doc
+${doc_url}       http://profile-doc.huimeionline.com/doc
 # ${doc_url}      http://test-profile-doc.huimeionline.com/doc
 #演示环境
-${doc_url}      http://172.16.4.178/cdss
+# ${doc_url}      http://172.16.4.178/cdss
 #内涵质控
-# ${connotation_url}    http://172.16.3.68
-${connotation_url}    http://172.16.4.178
+${connotation_url}    http://172.16.3.68
+# ${connotation_url}    http://172.16.4.178
 # ${connotation_url}    http://172.16.3.61
 #测试环境
 # ${mayson_url}    http://10.27.213.55
 #文献前端环境           修改成http://负载ip/wenxian
-# ${doc_fe}         http://doc.huimeionline.com
-${doc_fe}       http://172.16.4.178/wenxian
+${doc_fe}         http://doc.huimeionline.com
+# ${doc_fe}       http://172.16.4.178/wenxian
 #文献线上             修改成http://负载ip
-# ${doc_online}     http://120.26.223.139
-${doc_online}    http://172.16.4.178
+${doc_online}     http://120.26.223.139
+# ${doc_online}    http://172.16.4.178
 #ame生产环境          修改成http://负载ip
-# ${ame_url}        http://ame.huimeionline.com
-${ame_url}      http://172.16.4.178:8092
+${ame_url}        http://ame.huimeionline.com
+# ${ame_url}      http://172.16.4.178:8092
 #fuxi验证接口         修改成 http://负载ip/node/active
 ${fuxi_data}      ${inside_url}:3014
 #${fuxi_data}    http://172.16.4.178/node/active
 #adminse          修改成http://负载ip
-# ${adminse}        http://admin-se.huimeionline.com/
-${adminse}      http://172.16.4.178
+${adminse}        http://admin-se.huimeionline.com/
+# ${adminse}      http://172.16.4.178
 # ${adminse}      http://test-admin-se.huimeionline.com/
 #amcPc版           修改成http://负载ip/cdss
-# ${amc_url}    http://amc.huimeionline.com
+${amc_url}    http://amc.huimeionline.com
 # ${base_gdms}      http://gdms.huimeionline.com
-${amc_url}    http://172.16.4.178/cdss
+# ${amc_url}    http://172.16.4.178/cdss
 # ${base_gdms}    http://172.16.4.178/cdss
 
 
@@ -64,6 +64,9 @@ ${zhuangzhou_url}    ${inside_url}:3023
 #肿瘤
 ${zhongliu_url}    ${inside_url}:3026
 # ${zhongliu_url}    http://test-tumour.huimeionline.com/
+#神农
+${shennong_url}    ${inside_url}:3028
+# ${shennong_url}    http://test-shennong.huimeionline.com/
 #drgs
 ${drgs_url}    ${inside_url}:3027
 #cdr惠每患者临床数据中心
@@ -2440,6 +2443,75 @@ VTE2快速确认
     log    ${data}
     [Return]    ${responsedata}
 
+肿瘤_患者稽查得分项
+    [Arguments]    ${recordId}
+    ${data}    Create Dictionary    recordId=${recordId}
+    log    ${data}
+    ${addr}    Post Request    api    check/getPatientSocoreItem    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+肿瘤_稽查得分项
+    [Arguments]
+    ${data}    Create Dictionary
+    log    ${data}
+    ${addr}    Post Request    api    check/getScoreItems    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+肿瘤_患者科室列表
+    [Arguments]    ${dept_name}     ${dept_type}
+    ${data}    Create Dictionary    dept_name=${dept_name}  dept_type=${dept_type}
+    log    ${data}
+    ${addr}    Post Request    api    check/getDepartments    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+肿瘤_质控达标率
+    [Arguments]     ${dept_name}       ${dept_type}      ${doctor_name}     ${end_time}     ${query_type}
+    ...     ${start_time}       ${sub_time_type}        ${time_type}        ${rules}
+    ${rules}    Evaluate    [${rules}]
+    ${data}     Create Dictionary   dept_name=${dept_name}  dept_type=${dept_type}  doctor_name=${doctor_name}
+    ...     end_time=${end_time}    query_type=${query_type}    start_time=${start_time}    sub_time_type=${sub_time_type}
+    ...     time_type=${time_type}  rules=${rules}
+    ${addr}     Post Request    api     quality/getOverallChart     data=${data}
+    ${responsedata}     To Json     ${addr.content}
+    log     ${data}
+    [Return]    ${responsedata}
+
+肿瘤_整体统计列表
+    [Arguments]     ${dept_name}       ${dept_type}      ${doctor_name}     ${end_time}     ${query_type}
+    ...     ${start_time}       ${sub_time_type}        ${time_type}        ${rules}
+    ${rules}    Evaluate    [${rules}]
+    ${data}     Create Dictionary   dept_name=${dept_name}  dept_type=${dept_type}  doctor_name=${doctor_name}
+    ...     end_time=${end_time}    query_type=${query_type}    start_time=${start_time}    sub_time_type=${sub_time_type}
+    ...     time_type=${time_type}  rules=${rules}
+    ${addr}     Post Request    api     quality/getOverallList     data=${data}
+    ${responsedata}     To Json     ${addr.content}
+    log     ${data}
+    [Return]    ${responsedata}
+
+肿瘤_分项达标
+    [Arguments]     ${dept_name}       ${dept_type}      ${doctor_name}     ${end_time}     ${start_time}       ${sub_time_type}        ${time_type}
+    ${data}     Create Dictionary   dept_name=${dept_name}  dept_type=${dept_type}  doctor_name=${doctor_name}
+    ...     end_time=${end_time}    start_time=${start_time}    sub_time_type=${sub_time_type}  time_type=${time_type}
+    ${addr}     Post Request    api     quality/getItemChart     data=${data}
+    ${responsedata}     To Json     ${addr.content}
+    log     ${data}
+    [Return]    ${responsedata}
+
+肿瘤_分项患者列表
+    [Arguments]     ${dept_name}       ${dept_type}      ${doctor_name}     ${end_time}     ${start_time}       ${sub_time_type}
+    ...     ${time_type}    ${final_result}
+    ${data}     Create Dictionary   dept_name=${dept_name}  dept_type=${dept_type}  doctor_name=${doctor_name}
+    ...     end_time=${end_time}    start_time=${start_time}    sub_time_type=${sub_time_type}  time_type=${time_type}  final_result=${final_result}
+    ${addr}     Post Request    api     quality/getItemList     data=${data}
+    ${responsedata}     To Json     ${addr.content}
+    log     ${data}
+    [Return]    ${responsedata}
+
 肿瘤_患者列表
     [Arguments]    ${time_start}    ${time_end}
     #${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
@@ -3292,4 +3364,46 @@ cdr标准数据集就诊次
     [Return]    ${responsedata}
 
 
+######神农######
+神农登录
+    [Arguments]    ${name}    ${password}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${shennong_url}    ${dict}
+    ${data}    Create Dictionary    name=${name}    password=${password}
+    ${addr}    Post Request    api    user/login    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+查看表结构
+    [Arguments]    ${name}    ${table_id}
+    ${data}    Create Dictionary    name=${name}    table_id=${table_id}
+    ${addr}    Post Request    api    model/getDetail    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+查看数据质量
+    [Arguments]    ${class_code}    ${end_time}    ${project_code}    ${project_unit_name}    ${start_time}
+    ${data}    Create Dictionary    class_code=${class_code}    end_time=${end_time}    project_code=${project_code}    project_unit_name=${project_unit_name}    start_time=${start_time}
+    ${addr}    Post Request    api    quality/getDetail    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+规则知识库
+    [Arguments]    ${project_grade}    ${role}
+    ${data}    Create Dictionary    project_grade=${project_grade}    role=${role}
+    ${addr}    Post Request    api    review/getList    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+报告生成
+    [Arguments]    ${emr_grade}    ${end_time}    ${start_time}
+    ${data}    Create Dictionary    emr_grade=${emr_grade}    end_time=${end_time}    start_time=${start_time}
+    ${addr}    Post Request    api    review/getReport    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
 
