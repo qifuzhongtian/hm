@@ -1,51 +1,56 @@
 *** Variables ***
 #=======医院内网需要修改的==============#
 #mayson生产环境       修改成http://负载ip/cdss
-${mayson_url}     http://profile.huimeionline.com/cdss
+# ${mayson_url}     http://profile.huimeionline.com/cdss
 # ${mayson_url}     http://172.16.3.61:8080
 # ${mayson_url}    http://test-mayson.huimeionline.com/cdss
 #演示环境
-# ${mayson_url}    http://172.16.4.178/cdss
+${mayson_url}    http://172.16.4.178/cdss
 
 #{url}内部平台,惠每用户中
-${inside_url}     http://172.16.3.40
+# ${inside_url}     http://172.16.3.40
 #测试
 # ${inside_url}    http://172.16.3.64
 #内部平台-demo环境
-# ${inside_url}    http://172.16.4.178
+${inside_url}    http://172.16.4.178
 #文献生产环境           修改成http://负载ip/cdss
-${doc_url}       http://profile-doc.huimeionline.com/doc
+# ${doc_url}       http://profile-doc.huimeionline.com/doc
 # ${doc_url}      http://test-profile-doc.huimeionline.com/doc
 #演示环境
-# ${doc_url}      http://172.16.4.178/cdss
+${doc_url}      http://172.16.4.178/cdss
 #内涵质控
-${connotation_url}    http://172.16.3.68
-# ${connotation_url}    http://172.16.4.178
+# ${connotation_url}    http://172.16.3.68
+${connotation_url}    http://172.16.4.178
 # ${connotation_url}    http://172.16.3.61
 #测试环境
 # ${mayson_url}    http://10.27.213.55
 #文献前端环境           修改成http://负载ip/wenxian
-${doc_fe}         http://doc.huimeionline.com
-# ${doc_fe}       http://172.16.4.178/wenxian
+# ${doc_fe}         http://doc.huimeionline.com
+${doc_fe}       http://172.16.4.178/wenxian
 #文献线上             修改成http://负载ip
-${doc_online}     http://120.26.223.139
-# ${doc_online}    http://172.16.4.178
+# ${doc_online}     http://120.26.223.139
+${doc_online}    http://172.16.4.178
 #ame生产环境          修改成http://负载ip
-${ame_url}        http://ame.huimeionline.com
-# ${ame_url}      http://172.16.4.178:8092
+# ${ame_url}        http://ame.huimeionline.com
+${ame_url}      http://172.16.4.178:8092
 #fuxi验证接口         修改成 http://负载ip/node/active
-${fuxi_data}      ${inside_url}:3014
-#${fuxi_data}    http://172.16.4.178/node/active
+# ${fuxi_data}      ${inside_url}:3014
+${fuxi_data}    http://172.16.4.178/node/active
 #adminse          修改成http://负载ip
-${adminse}        http://admin-se.huimeionline.com/
-# ${adminse}      http://172.16.4.178
+# ${adminse}        http://admin-se.huimeionline.com/
+${adminse}      http://172.16.4.178
 # ${adminse}      http://test-admin-se.huimeionline.com/
 #amcPc版           修改成http://负载ip/cdss
-${amc_url}    http://amc.huimeionline.com
+# ${amc_url}    http://amc.huimeionline.com
 # ${base_gdms}      http://gdms.huimeionline.com
-# ${amc_url}    http://172.16.4.178/cdss
+${amc_url}    http://172.16.4.178/cdss
 # ${base_gdms}    http://172.16.4.178/cdss
 
+#后结构化
+#预发环境
+# ${houjiegouhua_url}    http://10.27.213.55:9991
+#演示环境
+${houjiegouhua_url}    http://172.16.4.178:9991
 
 #病历质控平台 3021
 ${songshan_url}    ${inside_url}:3021
@@ -84,8 +89,8 @@ ${mayson_url_sf}    http://10.27.213.55:9092
 # ${mayson_url}     http://192.168.1.13/cdss
 ${null}           null
 #测试号
-${Huimei_id}      7195F12825788F09375C2DB1E922F108
-# ${Huimei_id}    D7928B9182ABF6E0A6A6EBB71B353585
+# ${Huimei_id}      7195F12825788F09375C2DB1E922F108
+${Huimei_id}    D7928B9182ABF6E0A6A6EBB71B353585
 
 
 *** Keywords ***
@@ -3215,9 +3220,9 @@ cdr标准数据集就诊次
 
 
 
-##
+##卡控合并
 
-卡控合并
+卡控合并规则流转
     [Arguments]    ${alertLevel}    ${assessDictName}    ${assessId}    ${assessName}    ${assessResult}    ${assessResultItemList}
     ...    ${assessResultStyle}    ${assessResultType}    ${assessValue}    ${assessValueUnit}    ${customerId}    ${displayResult}
     ...    ${doctorGuid}    ${doctorName}    ${expressId}    ${groupCode}    ${isConfirmNurse}    ${nurseGuidId}
@@ -3232,6 +3237,17 @@ cdr标准数据集就诊次
     ...    nurseName=${nurseName}    pageSource=${pageSource}    patientName=${patientName}    productId=${productId}    projectId=${projectId}    recordId=${recordId}    ruleNumber=${ruleNumber}    serialNumber=${serialNumber}
     ...    userGuid=${userGuid}
     ${addr}    Post Request    api    sentry/assess/saveAndTurn    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+合并卡控大窗
+    [Arguments]    ${inpatientArea}    ${inpatientDepartment}    ${inpatientDepartmentId}    ${recordId}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${mayson_url}    ${dict}
+    ${data}    Create Dictionary    inpatientArea=${inpatientArea}    inpatientDepartment=${inpatientDepartment}    inpatientDepartmentId=${inpatientDepartmentId}    recordId=${recordId}
+    ${addr}    Post Request    api    mayson/v_2_0/block_recommend    data=${data}
     ${responsedata}    To Json    ${addr.content}
     log    ${data}
     [Return]    ${responsedata}
@@ -3406,4 +3422,20 @@ cdr标准数据集就诊次
     ${responsedata}    To Json    ${addr.content}
     log    ${data}
     [Return]    ${responsedata}
+
+
+
+#后结构化
+智能分析
+    [Arguments]    ${progress_text}    ${progress_type}
+    ${dict}    Create Dictionary    Content-Type=application/json
+    Create Session    api    ${houjiegouhua_url}    ${dict}
+    ${data}    Create Dictionary    progress_text=${progress_text}    progress_type=${progress_type}
+    ${addr}    Post Request    api    algorithm_mengqi    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+
 
