@@ -89,8 +89,8 @@ ${mayson_url_sf}    http://10.27.213.55:9092
 # ${mayson_url}     http://192.168.1.13/cdss
 ${null}           null
 #测试号
-# ${Huimei_id}      7195F12825788F09375C2DB1E922F108
-${Huimei_id}    D7928B9182ABF6E0A6A6EBB71B353585
+${Huimei_id}      7195F12825788F09375C2DB1E922F108
+# ${Huimei_id}    D7928B9182ABF6E0A6A6EBB71B353585
 
 
 *** Keywords ***
