@@ -5,12 +5,12 @@ Library           Collections
 Library           RequestsLibrary
 Library           String
 *** Test Cases ***
-疑似诊断,主诉:眩晕,推荐诊断:良性阵发性眩晕
+疑似诊断,主诉:眩晕,推荐诊断:支气管结核
     [Documentation]    cdss/v_5_0/diagnose_through_interrogation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${drugCommonNames}    Create List
-    ${getRes}    智能推荐门诊    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    doctorGuid=    hospitalGuid=    symptom=眩晕
+    ${getRes}    智能推荐门诊    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    doctorGuid=    hospitalGuid=    symptom=发热,咳嗽
     ...    drugCommonNames=${drugCommonNames}    examinationList=    newTestList=    labTestList=    previousHistory=    personalHistory=
     ...    allergyHistory=    familyHistory=    weight=    gender=0    bodyTempr=    lowBldPress=
     ...    highBldPress=    examInfo=    heartRate=    age=    ageType=岁    confirmDiagnosis=
@@ -25,7 +25,7 @@ Library           String
     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['maysonInfo']['illnessAssessList']]
     #检查解读
     # ${aj}    Evaluate    [aj['diagnosticPoint'] for aj in $getRes['body']['maysonInfo']['examinationInterpretList']]
-    Should Contain    ${aj}    良性阵发性眩晕
+    Should Contain    ${aj}    支气管结核
 
 推荐检查,推荐:尿常规
     [Documentation]    cdss/v_5_0/diagnose_through_interrogation
@@ -49,16 +49,17 @@ Library           String
     # ${aj}    Evaluate    [aj['diagnosticPoint'] for aj in $getRes['body']['maysonInfo']['examinationInterpretList']]
     Should Contain    ${aj}    尿常规
 
-检查解读,推荐:主要为变应性哮喘
+
+检查解读,推荐:贫血
     [Documentation]    cdss/v_5_0/diagnose_through_interrogation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${drugCommonNames}    Create List    阿立哌唑片    盐酸氟西汀分散片
-    ${getRes}    智能推荐门诊    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    doctorGuid=    hospitalGuid=    symptom=呼出气一氧化氮升高，男，年龄8岁，高热、流涕2天，流感病毒抗体滴度增高
-    ...    drugCommonNames=${drugCommonNames}    examinationList=    newTestList=    labTestList=    newTestList=    previousHistory=
+    ${drugCommonNames}    Create List
+    ${getRes}    智能推荐门诊    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    doctorGuid=    hospitalGuid=    symptom=
+    ...    drugCommonNames=${drugCommonNames}    examinationList=    newTestList=    labTestList={"labTestNumber":"${timestamp}${random}","labTestName":"血红蛋白(Hb)测定","labTestSample":"血液","recordTime":"","labTestItems":[{"labTestItemName":"血红蛋白(Hb)","labTestItemEnName":"","labTestResult":"110","labTestValueUnit":"g/L","labTestValueChange":"","labTestMethod":"","normalRange":""}]}    newTestList=    previousHistory=
     ...    personalHistory=    allergyHistory=    familyHistory=    weight=    gender=0    bodyTempr=
     ...    lowBldPress=    highBldPress=    examInfo=    heartRate=    age=6    ageType=岁
-    ...    confirmDiagnosis=    confirmDiagnosisMap={"icdCode": "L50.900","key": "34146","value": "荨麻疹"}    presentHistory=    hasDetail=    symptomClickDiseaseId=
+    ...    confirmDiagnosis=    confirmDiagnosisMap={"icdCode": "","key": "","value": ""}    presentHistory=    hasDetail=    symptomClickDiseaseId=
     #疑似诊断
     # ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['suspectedDiseases']]
     #检查解读
@@ -69,7 +70,7 @@ Library           String
     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['maysonInfo']['illnessAssessList']]
     #检查解读
     ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['maysonInfo']['examinationInterpretList']]
-    Should Contain    ${aj}    主要为变应性哮喘
+    Should Contain    ${aj}    贫血
 
 推荐评估表,推荐:荨麻疹病因分类与发病机制
     [Documentation]    cdss/v_5_0/diagnose_through_interrogation

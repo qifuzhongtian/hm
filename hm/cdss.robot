@@ -845,7 +845,7 @@ mayson默认推荐搜索
     ...    allergyHistory=${allergyHistory}    familyHistory=${familyHistory}    weight=${weight}    gender=${gender}    bodyTempr=${bodyTempr}    lowBldPress=${lowBldPress}
     ...    highBldPress=${highBldPress}    examInfo=${examInfo}    heartRate=${heartRate}    age=${age}    ageType=${ageType}    confirmDiagnosis=${confirmDiagnosis}
     ...    confirmDiagnosisMap=${confirmDiagnosisMap}    presentHistory=${presentHistory}    hasDetail=${hasDetail}    symptomClickDiseaseId=${symptomClickDiseaseId}
-    ${addr}    Post Request    api    v_5_0/diagnose_through_interrogation    data=${data}
+    ${addr}    Post Request    api    mayson/v_5_0/diagnose_through_interrogation    data=${data}
     ${responsedata}    To Json    ${addr.content}
     log    ${data}
     [Return]    ${responsedata}
@@ -1744,7 +1744,7 @@ VTE2快速确认
     ...    age=${age}    ageType=${ageType}    symptom=${symptom}    confirmDiagnosisMap=${confirmDiagnosisMap}    drugCommonNames=${drugCommonNames}    examinationList=${examinationList}
     ...    newTestList=${newTestList}    labTestList=${labTestList}    patientName=${patientName}    inpatientDepartment=${inpatientDepartment}    progressNoteList=${progressNoteList}    patientInfo=${patientInfo}
     ...    doctorName=${doctorName}    doctorGuid=${doctorGuid}
-    ${addr}    Post Request    api    v_5_0/diagnose_through_interrogation    data=${data}
+    ${addr}    Post Request    api    mayson/v_5_0/diagnose_through_interrogation    data=${data}
     ${responsedata}    To Json    ${addr.content}
     log    ${data}
     [Return]    ${responsedata}
