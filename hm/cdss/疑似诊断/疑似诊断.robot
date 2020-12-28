@@ -6,7 +6,7 @@ Library           RequestsLibrary
 Library           String
 *** Test Cases ***
 疑似诊断,主诉:发作性抽搐2年11+月,推荐诊断:癫痫
-    [Documentation]    cdss/v_5_0/diagnose_through_interrogation
+    [Documentation]    cdss/mayson/v_5_0/diagnose_through_interrogation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${drugCommonNames}    Create List
@@ -28,7 +28,7 @@ Library           String
     Should Contain    ${aj}    癫痫
 
 推荐检查,推荐:尿常规
-    [Documentation]    cdss/v_5_0/diagnose_through_interrogation
+    [Documentation]    cdss/mayson/v_5_0/diagnose_through_interrogation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${drugCommonNames}    Create List    阿立哌唑片    盐酸氟西汀分散片
@@ -51,7 +51,7 @@ Library           String
 
 
 检查解读,推荐:贫血
-    [Documentation]    cdss/v_5_0/diagnose_through_interrogation
+    [Documentation]    cdss/mayson/v_5_0/diagnose_through_interrogation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${drugCommonNames}    Create List
@@ -73,7 +73,7 @@ Library           String
     Should Contain    ${aj}    贫血
 
 推荐评估表,推荐:荨麻疹病因分类与发病机制
-    [Documentation]    cdss/v_5_0/diagnose_through_interrogation
+    [Documentation]    cdss/mayson/v_5_0/diagnose_through_interrogation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${drugCommonNames}    Create List    阿立哌唑片    盐酸氟西汀分散片
@@ -95,7 +95,7 @@ Library           String
     Should Contain    ${aj}    荨麻疹病因分类与发病机制
 
 推荐治疗方案,推荐:局部治疗
-    [Documentation]    cdss/v_5_0/diagnose_through_interrogation
+    [Documentation]    cdss/mayson/v_5_0/diagnose_through_interrogation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     ${drugCommonNames}    Create List    阿立哌唑片    盐酸氟西汀分散片
@@ -118,7 +118,7 @@ Library           String
     # Should Contain    ${aj}    荨麻疹病因分类与发病机制
 
 # 有确诊诊断,但没有推出疑似诊断,常见诊断中确诊诊断放到首位
-#     [Documentation]    cdss/v_5_0/diagnose_through_interrogation
+#     [Documentation]    cdss/mayson/v_5_0/diagnose_through_interrogation
 #     [Setup]    Run Keywords    获取时间戳
 #     ...    AND    获取随机数
 #     ${drugCommonNames}    Create List    阿立哌唑片    盐酸氟西汀分散片
