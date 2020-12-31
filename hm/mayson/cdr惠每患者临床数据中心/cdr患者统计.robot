@@ -14,6 +14,6 @@ cdr患者统计
     [Documentation]    :3025/patientsStatistics/figureHome
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    cdr患者统计    type=2020-09    year=${1}    month=${20}    figureType=${1}    id=1
+    ${getRes}    cdr患者统计    type=2   year=${2020}    month=${5}    figureType=${1}    id=1
     Should Contain    ${getRes['msg']}    success
 

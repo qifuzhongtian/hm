@@ -3042,9 +3042,9 @@ cdr登录
     [Return]    ${responsedata}
 
 
-cdr病历管理_患者统计列表
-    [Arguments]    ${type}    ${year}    ${month}
-    ${data}    Create Dictionary    type=${type}    month=${month}    year=${year}
+cdr患者统计list
+    [Arguments]    ${type}    ${year}    ${month}   ${id}
+    ${data}    Create Dictionary    type=${type}    month=${month}    year=${year}  id=${id}
     ${addr}    Post Request    api    /patientsStatistics/list    data=${data}
     ${responsedata}    To Json    ${addr.content}
     log    ${data}
@@ -3128,8 +3128,8 @@ cdr病历管理_高级搜索list
 
 
 cdr病历管理_高级搜索propertyDict
-    [Arguments]    ${id}
-    ${data}    Create Dictionary    id=${id}
+    [Arguments]    ${id}  ${part_type}
+    ${data}    Create Dictionary    id=${id}    part_type=${part_type}
     ${addr}    Post Request    api    /advancedSearch/propertyDict    data=${data}
     ${responsedata}    To Json    ${addr.content}
     log    ${data}
@@ -3151,6 +3151,23 @@ cdr病历管理_高级搜索_搜索
     [Return]    ${responsedata}
 
 
+cdr高级搜索ftDataset
+    [Arguments]
+    ${data}    Create Dictionary
+    ${addr}    Post Request    api    /advancedSearch/ftDataset    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+cdr高级搜索ftDatasetModule
+    [Arguments]     ${id}
+    ${data}    Create Dictionary        id=${id}
+    ${addr}    Post Request    api    /advancedSearch/ftDatasetModule    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
 
 cdr病历查询_高级搜索列表
     [Arguments]    ${collection}
@@ -3170,6 +3187,14 @@ cdr患者统计
     log    ${data}
     [Return]    ${responsedata}
 
+
+cdr患者统计singleDiseases
+    [Arguments]    ${month}     ${type}    ${year}
+    ${data}    Create Dictionary      month=${month}    type=${type}    year=${year}
+    ${addr}    Post Request    api    /patientsStatistics/singleDiseases    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
 
 
 cdr患者统计singleDiseasesList

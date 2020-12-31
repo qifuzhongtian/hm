@@ -10,11 +10,10 @@ Library           DateTime
 *** Variables ***
 
 *** Test Cases ***
-cdr病历查询_diseaseSug
-    [Documentation]    :3025/advancedSearch/diseaseSug
+cdr高级搜索ftDtaset
+    [Documentation]    :3025/advancedSearch/ftDataset
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    cdr病历查询_diseaseSug    word=
+    ${getRes}    cdr高级搜索ftDataset
     Should Contain    ${getRes['msg']}    success
-
 

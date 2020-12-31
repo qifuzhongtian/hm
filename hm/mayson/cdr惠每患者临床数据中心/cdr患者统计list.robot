@@ -10,11 +10,12 @@ Library           DateTime
 *** Variables ***
 
 *** Test Cases ***
-cdr病历查询_diseaseSug
-    [Documentation]    :3025/advancedSearch/diseaseSug
+cdr患者统计list
+    [Documentation]    :3025/patientsStatistics/list
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    cdr病历查询_diseaseSug    word=
+    ${getRes}    cdr患者统计list    type=2020-09    year=${1}    month=${20}  id=1
     Should Contain    ${getRes['msg']}    success
+
 
 
