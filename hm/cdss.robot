@@ -1,8 +1,8 @@
 *** Variables ***
 #=======医院内网需要修改的==============#
 #mayson生产环境       修改成http://负载ip/cdss
-#${mayson_url}     http://profile.huimeionline.com/cdss
-${mayson_url}     http://172.16.3.61:8080
+${mayson_url}     http://profile.huimeionline.com/cdss
+# ${mayson_url}     http://172.16.3.61:8080
 # ${mayson_url}    http://test-mayson.huimeionline.com/cdss
 #演示环境
 # ${mayson_url}    http://172.16.4.178/cdss
@@ -19,16 +19,17 @@ ${doc_url}       http://profile-doc.huimeionline.com/doc
 #演示环境
 # ${doc_url}      http://172.16.4.178/cdss
 #内涵质控
-#${connotation_url}    http://172.16.3.68
+${connotation_url}    http://172.16.3.68
 # ${connotation_url}    http://172.16.4.178
-${connotation_url}    http://172.16.3.61
+# ${connotation_url}    http://172.16.3.61
 #测试环境
 # ${mayson_url}    http://10.27.213.55
 #文献前端环境           修改成http://负载ip/wenxian
 ${doc_fe}         http://doc.huimeionline.com
 # ${doc_fe}       http://172.16.4.178/wenxian
 #文献线上             修改成http://负载ip
-${doc_online}     http://120.26.223.139
+# ${doc_online}     http://120.26.223.139
+${doc_online}     http://172.16.3.68:84
 # ${doc_online}    http://172.16.4.178
 #ame生产环境          修改成http://负载ip
 ${ame_url}        http://ame.huimeionline.com
@@ -76,9 +77,9 @@ ${drgs_url}    ${inside_url}:3027
 ${cdr_url}    ${inside_url}:3025
 
 
-##文献图片/文件差异接口,修改为http://athena_ip:8095形式
-${athenaDoc_url}    http://mayson.huimeionline.com:8095
-# ${athenaDoc_url}    http://172.16.4.178:8095
+##文献图片/文件差异接口,修改为http://athena_ip:8093形式
+${athenaDoc_url}    http://mayson.huimeionline.com:8093
+# ${athenaDoc_url}    http://172.16.4.178:8093
 #=======以下内容不需要修改==============#
 ######################apollo######################
 ${mayson_url_sf}    http://10.27.213.55:9092
@@ -89,6 +90,8 @@ ${null}           null
 #测试号
 ${Huimei_id}      7195F12825788F09375C2DB1E922F108
 # ${Huimei_id}    D7928B9182ABF6E0A6A6EBB71B353585
+
+
 
 
 *** Keywords ***
@@ -1085,6 +1088,36 @@ mayson默认推荐搜索
     ${responsedata}    To Json    ${addr.content}
     log    ${data}
     [Return]    ${responsedata}
+
+
+
+搜索肿瘤文献
+    [Arguments]    ${name}    ${diseaseId}    ${diseaseName}    ${contentType}    ${startDate}    ${endDate}
+    ...    ${departmentId}    ${countryId}    ${orgName}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${doc_url}    ${dict}
+    ${data}    Create Dictionary    name=${name}    diseaseId=${diseaseId}    diseaseName=${diseaseName}    contentType=${contentType}    startDate=${startDate}
+    ...    endDate=${endDate}    departmentId=${departmentId}    countryId=${countryId}    orgName=${orgName}
+    ${addr}    Post Request    api    /seer/document/searchForCancer    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+搜索肿瘤文献页
+    [Arguments]    ${name}    ${orgId}    ${pageSize}    ${contentType}    ${startDate}    ${endDate}
+    ...    ${currentPage}    ${countryId}    ${orgName}    ${departmentId}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${doc_url}    ${dict}
+    ${data}    Create Dictionary    name=${name}    orgId=${orgId}    pageSize=${pageSize}    contentType=${contentType}    startDate=${startDate}
+    ...    endDate=${endDate}    currentPage=${currentPage}    countryId=${countryId}    orgName=${orgName}    departmentId=${departmentId}
+    ${addr}    Post Request    api    /seer/document/searchForCancerPage    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+
 
 mayson默认推荐
     [Arguments]    ${doctorGuid}    ${department}
