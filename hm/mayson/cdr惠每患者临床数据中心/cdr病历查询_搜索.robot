@@ -10,11 +10,11 @@ Library           DateTime
 *** Variables ***
 
 *** Test Cases ***
-cdr病历查询_搜索
-    [Documentation]    :3025/advancedSearch/javaSearch
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    cdr病历查询_搜索    admissionDateStart=2020-09-01    admissionDateEnd=2020-09-18    pageSize=${20}    currentPage=${1}
-#     # Should Contain    ${getRes['msg']}    success
-    Should Be Equal As Strings    ${getRes['head']['error']}    0
+# cdr病历查询_搜索
+#     [Documentation]    :3025/advancedSearch/javaSearch
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    cdr病历查询_搜索    admissionDateStart=2020-09-01    admissionDateEnd=2020-09-18    pageSize=${20}    currentPage=${1}
+# #     # Should Contain    ${getRes['msg']}    success
+#     Should Be Equal As Strings    ${getRes['head']['error']}    0
 
