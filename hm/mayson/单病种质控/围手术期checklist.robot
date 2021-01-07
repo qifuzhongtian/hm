@@ -22,5 +22,6 @@ CABG围手术期checklist
     ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}        currentDiseaseName=
     ...    medicalOrders={"orderType": "6","orderId": "1562668327867","uuid": "1294-20778","frequency": "","orderContent": "主动脉-冠状动脉搭桥术","recordId": 20778,"incisionType": "","id": 438947,"timelinessFlag": 1,"level": "","operationType":"4","preoperativeDiagnose": "","orderCreateTime":"${time_now}","executeTime":"${time_now}","stopTime":"${time_now}","unit": "ml","dosageform": "","position": "","status": 1,"dosage": "50","description": "","orderClass": 1,"anesthesia": "","customerId": 1294,"doctorGuid": "0000012061","specification": "","sample": "","orderFlag": 1,"pathway": "","orderCode": "2136"}
     ${getRes}    围手术期checklist    operationId=${operationId}    recordId=${recordId}
-    ${aj}    Evaluate    [aj['checkTypeName'] for aj in $getRes['body']['checkListResp'][0]['checkListItem'][0]]
-    Should Contain    ${aj}    术前评估
+    # ${aj}    Evaluate    [aj['checkTypeName'] for aj in $getRes['body']['checkListResp'][0]['checkListItem'][0]]
+    # Should Contain    ${aj}    术前评估1
+    Should Be Equal As Strings    ${getRes['head']['error']}    0
