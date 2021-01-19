@@ -5,27 +5,27 @@ Library           Collections
 Library           RequestsLibrary
 Library           String
 *** Test Cases ***
-# 疑似诊断,主诉:发作性抽搐2年11+月,推荐诊断:癫痫
-#     [Documentation]    cdss/mayson/v_5_0/diagnose_through_interrogation
-#     [Setup]    Run Keywords    获取时间戳
-#     ...    AND    获取随机数
-#     ${drugCommonNames}    Create List
-#     ${getRes}    智能推荐门诊    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    doctorGuid=    hospitalGuid=    symptom=发作性抽搐2年11+月
-#     ...    drugCommonNames=${drugCommonNames}    examinationList=    newTestList=    labTestList=    previousHistory=    personalHistory=
-#     ...    allergyHistory=    familyHistory=    weight=    gender=0    bodyTempr=    lowBldPress=
-#     ...    highBldPress=    examInfo=    heartRate=    age=    ageType=岁    confirmDiagnosis=
-#     ...    confirmDiagnosisMap={"icdCode": "","key": "","value": ""}    presentHistory=    hasDetail=    symptomClickDiseaseId=
-#     #疑似诊断
-#     ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['suspectedDiseases']]
-#     #检查解读
-#     # ${aj}    Evaluate    [aj['examName'] for aj in $getRes['body']['regimenInfo']['examResponseList']]
-#     #治疗方案
-#     # ${aj}    Evaluate    [a['examName'] for aj in $getRes['body']['regimenInfo']['itemInfoResponseList']]
-#     #评估表
-#     # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['maysonInfo']['illnessAssessList']]
-#     #检查解读
-#     # ${aj}    Evaluate    [aj['diagnosticPoint'] for aj in $getRes['body']['maysonInfo']['examinationInterpretList']]
-#     Should Contain    ${aj}    癫痫
+疑似诊断,主诉:发作性抽搐2年11+月,推荐诊断:癫痫
+    [Documentation]    cdss/mayson/v_5_0/diagnose_through_interrogation
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    ${drugCommonNames}    Create List
+    ${getRes}    智能推荐门诊    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    doctorGuid=    hospitalGuid=    symptom=发作性抽搐2年11+月
+    ...    drugCommonNames=${drugCommonNames}    examinationList=    newTestList=    labTestList=    previousHistory=    personalHistory=
+    ...    allergyHistory=    familyHistory=    weight=    gender=0    bodyTempr=    lowBldPress=
+    ...    highBldPress=    examInfo=    heartRate=    age=    ageType=岁    confirmDiagnosis=
+    ...    confirmDiagnosisMap={"icdCode": "","key": "","value": ""}    presentHistory=    hasDetail=    symptomClickDiseaseId=
+    #疑似诊断
+    ${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['suspectedDiseases']]
+    #检查解读
+    # ${aj}    Evaluate    [aj['examName'] for aj in $getRes['body']['regimenInfo']['examResponseList']]
+    #治疗方案
+    # ${aj}    Evaluate    [a['examName'] for aj in $getRes['body']['regimenInfo']['itemInfoResponseList']]
+    #评估表
+    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['maysonInfo']['illnessAssessList']]
+    #检查解读
+    # ${aj}    Evaluate    [aj['diagnosticPoint'] for aj in $getRes['body']['maysonInfo']['examinationInterpretList']]
+    Should Contain    ${aj}    癫痫
 
 推荐检查,推荐:尿常规
     [Documentation]    cdss/mayson/v_5_0/diagnose_through_interrogation
