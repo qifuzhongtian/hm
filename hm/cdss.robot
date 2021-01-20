@@ -3494,6 +3494,14 @@ cdr标准数据集就诊次
     log    ${data}
     [Return]    ${responsedata}
 
+查看数据地图
+    [Arguments]    ${current_index}    ${name}    ${page_size}
+    ${data}    Create Dictionary    current_index=${current_index}    name=${name}    page_size=${page_size}
+    ${addr}    Post Request    api    model/getList    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
 规则知识库
     [Arguments]    ${project_grade}    ${role}
     ${data}    Create Dictionary    project_grade=${project_grade}    role=${role}
