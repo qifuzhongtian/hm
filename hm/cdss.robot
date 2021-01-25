@@ -1831,7 +1831,7 @@ VTE2快速确认
     log    ${data}
     [Return]    ${responsedata}
 
-绿道登录
+单病种登录
     [Arguments]    ${name}    ${password}    ${type}    ${time}
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${lvdao_url}    ${dict}
@@ -1868,7 +1868,7 @@ VTE2快速确认
     log    ${data}
     [Return]    ${responsedata}
 
-绿道_单病种患者状态
+单病种患者状态
     [Arguments]    ${baseGroupId}
     #${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     #Create Session    api    ${lvdao_url}    ${dict}
@@ -1878,7 +1878,7 @@ VTE2快速确认
     log    ${data}
     [Return]    ${responsedata}
 
-绿道_单病种入组
+单病种入组
     [Arguments]
     ${data}    Create Dictionary
     ${addr}    Post Request    api    patient/joinGroupList    data=${data}
@@ -2450,7 +2450,7 @@ VTE2快速确认
     log    ${data}
     [Return]    ${responsedata}
 
-绿道_单病种上报统计
+单病种上报统计
     [Arguments]    ${startDate}    ${endDate}    ${type}
     #${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     #Create Session    api    ${lvdao_url}    ${dict}
@@ -2462,7 +2462,7 @@ VTE2快速确认
     log    ${data}
     [Return]    ${responsedata}
 
-绿道_单病种科室统计
+单病种科室统计
     [Arguments]    ${startDate}    ${endDate}    ${type}
     #${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     #Create Session    api    ${lvdao_url}    ${dict}
@@ -2474,7 +2474,7 @@ VTE2快速确认
     log    ${data}
     [Return]    ${responsedata}
 
-绿道_病种质控完成统计
+单病种质控完成统计
     [Arguments]    ${startDate}    ${endDate}    ${type}
     #${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     #Create Session    api    ${lvdao_url}    ${dict}
@@ -2486,7 +2486,7 @@ VTE2快速确认
     log    ${data}
     [Return]    ${responsedata}
 
-绿道_单病种质控管理
+单病种质控管理
     [Arguments]     ${end_time}      ${start_time}      ${disease}      ${doctor}       ${gender}
     ...     ${patient}      ${project}      ${specialDisease}       ${query_type}       ${sub_time_type}
     ...     ${time_type}
@@ -3531,6 +3531,33 @@ cdr标准数据集就诊次
     log    ${data}
     [Return]    ${responsedata}
 
+单病种病种列表
+    [Arguments]      ${endVisitTime}  ${startVisitTime}   ${timeType}     ${userId}
+    #获取医院的auther_key
+    ${getRes}    单病种登录    name=privateTesting    password=38ebcce4a466e04bf443d54ca52cd44f    type=0    time=0
+    ${auther_key}   Evaluate    $getRes['data']['auther_key']
+    log     ${auther_key}
+    ${dict}    Create Dictionary    Content-Type=application/json   Huimei_id=${auther_key}
+    Create Session    api    ${mayson_url}    ${dict}
+    ${data}     Create Dictionary   endVisitTime=${endVisitTime}    startVisitTime=${startVisitTime}    timeType=${timeType}    userId=${userId}
+    ${addr}    Post Request    api    mayson/gc/baseGroup    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
 
+单病种填报保存
+    [Arguments]     ${baseGroupId}      ${branchGroupId}        ${code}     ${itemList}     ${recordId}     ${reportStatus}
+    #获取医院的auther_key
+    #${getRes}    单病种登录    name=privateTesting    password=38ebcce4a466e04bf443d54ca52cd44f    type=0    time=0
+    #${auther_key}   Evaluate    $getRes['data']['auther_key']
+    ${dict}    Create Dictionary    Content-Type=application/json   Huimei_id=${Huimei_id}
+    ${itemList}     Evaluate    [${itemList}]
+    Create Session    api    ${mayson_url}    ${dict}
+    ${data}     Create Dictionary     baseGroupId=${baseGroupId}  branchGroupId=${branchGroupId}  code=${code}    itemList=${itemList}
+    ...     recordId=${recordId}        reportStatus=${reportStatus}
+    ${addr}     Post Request    api     mayson/gc/report/save   data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
 
 
