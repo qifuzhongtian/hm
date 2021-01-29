@@ -3560,4 +3560,44 @@ cdr标准数据集就诊次
     log    ${data}
     [Return]    ${responsedata}
 
+卒中绿道入组
+    [Arguments]     ${items}
+    ${dict}    Create Dictionary    Content-Type=application/json   Huimei_id=${Huimei_id}
+    ${items}     Evaluate    [${items}]   
+    Create Session    api    ${mayson_url}    ${dict}   
+    ${data}     Create Dictionary   items=${items}
+    ${addr}     Post Request    api     mayson/green_channel/report/info/group/join     data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}    
 
+卒中绿道填报
+    [Arguments]     ${groupId}      ${recordId}     ${reportId}     ${reportProject}
+    ${dict}    Create Dictionary    Content-Type=application/json   Huimei_id=${Huimei_id}
+    Create Session    api    ${mayson_url}    ${dict}   
+    ${data}     Create Dictionary   groupId=${groupId}  recordId=${recordId}    reportId=${reportId}    reportProject=${reportProject}
+    ${addr}     Post Request    api  mayson/green_channel/report/show    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}  
+
+单病种事中提醒入组
+    [Arguments]     ${joinGroupData}
+    ${dict}    Create Dictionary    Content-Type=application/json   Huimei_id=${Huimei_id}
+    ${joinGroupData}     Evaluate    [${joinGroupData}]   
+    Create Session    api    ${mayson_url}    ${dict}   
+    ${data}     Create Dictionary   joinGroupData=${joinGroupData}
+    ${addr}     Post Request    api     mayson/gc/join     data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}    
+
+单病种事中填报
+    [Arguments]     ${gzip}     ${opetation}        ${recordId}     ${baseGroupId}      ${branchGroupId}
+    ${dict}     Create Dictionary   Content-Type=application/json   Huimei_id=${Huimei_id}
+    Create Session    api    ${mayson_url}    ${dict}   
+    ${data}     Create Dictionary     gzip=${gzip}  opetation=${opetation}  recordId=${recordId}    baseGroupId=${baseGroupId}  branchGroupId=${branchGroupId}
+    ${addr}     Post Request    api     /mayson/gc/report/operation     data=${data}
+    ${responsedata}    To Json    ${addr.content}   
+    log    ${data}
+    [Return]    ${responsedata}   
