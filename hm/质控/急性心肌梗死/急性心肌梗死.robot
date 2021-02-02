@@ -42,7 +42,7 @@ Library           DateTime
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
-    ${Assessment}    Set Variable    急性心肌梗死
+    ${Assessment}    Set Variable    急性ST段抬高型心肌梗死
     ${Subjective}    Set Variable
     ${getRes}    智能推荐v2    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2    requestSource=
     ...    doctorGuid=0210497    doctorName=测试医生    admissionTime=2018-12-12    inpatientDepartment=心脏科    patientInfo={"gender":"1","age":"19","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
