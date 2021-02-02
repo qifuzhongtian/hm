@@ -10,7 +10,7 @@ ${mayson_url}     http://profile.huimeionline.com/cdss
 #{url}内部平台,惠每用户中
 ${inside_url}     http://172.16.3.40
 #测试
- #${inside_url}    http://172.16.3.64
+#${inside_url}    http://172.16.3.64
 #内部平台-demo环境
 # ${inside_url}    http://172.16.4.178
 #文献生产环境           修改成http://负载ip/cdss
@@ -3541,7 +3541,7 @@ cdr标准数据集就诊次
     Create Session    api    ${mayson_url}    ${dict}
     ${data}     Create Dictionary   endVisitTime=${endVisitTime}    startVisitTime=${startVisitTime}    timeType=${timeType}    userId=${userId}
     ...     baseGroupType=${baseGroupType}  doctor=${doctor}    userName=${userName}
-    ${addr}    Post Request    api    mayson/gc/baseGroup    data=${data}   
+    ${addr}    Post Request    api    mayson/gc/baseGroup    data=${data}
     ${responsedata}    To Json    ${addr.content}
     log    ${data}
     [Return]    ${responsedata}
@@ -3598,51 +3598,51 @@ cdr标准数据集就诊次
 卒中绿道入组
     [Arguments]     ${items}
     ${dict}    Create Dictionary    Content-Type=application/json   Huimei_id=${Huimei_id}
-    ${items}     Evaluate    [${items}]   
-    Create Session    api    ${mayson_url}    ${dict}   
+    ${items}     Evaluate    [${items}]
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}     Create Dictionary   items=${items}
     ${addr}     Post Request    api     mayson/green_channel/report/info/group/join     data=${data}
     ${responsedata}    To Json    ${addr.content}
     log    ${data}
-    [Return]    ${responsedata}    
+    [Return]    ${responsedata}
 
 卒中绿道填报
     [Arguments]     ${groupId}      ${recordId}     ${reportId}     ${reportProject}
     ${dict}    Create Dictionary    Content-Type=application/json   Huimei_id=${Huimei_id}
-    Create Session    api    ${mayson_url}    ${dict}   
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}     Create Dictionary   groupId=${groupId}  recordId=${recordId}    reportId=${reportId}    reportProject=${reportProject}
     ${addr}     Post Request    api  mayson/green_channel/report/show    data=${data}
     ${responsedata}    To Json    ${addr.content}
     log    ${data}
-    [Return]    ${responsedata}  
+    [Return]    ${responsedata}
 
 单病种事中提醒入组
     [Arguments]     ${joinGroupData}
     ${dict}    Create Dictionary    Content-Type=application/json   Huimei_id=${Huimei_id}
-    ${joinGroupData}     Evaluate    [${joinGroupData}]   
-    Create Session    api    ${mayson_url}    ${dict}   
+    ${joinGroupData}     Evaluate    [${joinGroupData}]
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}     Create Dictionary   joinGroupData=${joinGroupData}
     ${addr}     Post Request    api     mayson/gc/join     data=${data}
     ${responsedata}    To Json    ${addr.content}
     log    ${data}
-    [Return]    ${responsedata}    
+    [Return]    ${responsedata}
 
 单病种事中填报
     [Arguments]     ${gzip}     ${opetation}        ${recordId}     ${baseGroupId}      ${branchGroupId}
     ${dict}     Create Dictionary   Content-Type=application/json   Huimei_id=${Huimei_id}
-    Create Session    api    ${mayson_url}    ${dict}   
+    Create Session    api    ${mayson_url}    ${dict}
     ${data}     Create Dictionary     gzip=${gzip}  opetation=${opetation}  recordId=${recordId}    baseGroupId=${baseGroupId}  branchGroupId=${branchGroupId}
     ${addr}     Post Request    api     /mayson/gc/report/operation     data=${data}
-    ${responsedata}    To Json    ${addr.content}   
+    ${responsedata}    To Json    ${addr.content}
     log    ${data}
-    [Return]    ${responsedata}   
+    [Return]    ${responsedata}
 
 单病种审核日志
-    [Arguments]     ${index}        ${pageSize}     ${recordId} 
-    #${dict}     Create Dictionary    Content-Type=application/json  
+    [Arguments]     ${index}        ${pageSize}     ${recordId}
+    #${dict}     Create Dictionary    Content-Type=application/json
     #Create Session      api     ${lvdao_url}    ${dict}
     ${data}     Create Dictionary   index=${index}  pageSize=${pageSize}    recordId=${recordId}
     ${addr}     Post Request    api     manage/getUserJournal   data=${data}
-    ${responsedata}    To Json    ${addr.content}   
+    ${responsedata}    To Json    ${addr.content}
     log    ${data}
-    [Return]    ${responsedata}      
+    [Return]    ${responsedata}
