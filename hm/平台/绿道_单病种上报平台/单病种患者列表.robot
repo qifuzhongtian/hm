@@ -13,7 +13,6 @@ Library           DateTime
 
 单病种患者列表
     [Documentation]     mayson/gc/query
- #获取用户登录ID   
     ${getRes}    单病种登录    name=privateTesting    password=38ebcce4a466e04bf443d54ca52cd44f    type=0    time=0
     ${userId}   Evaluate    $getRes['data']['id']
     ${userName}     Evaluate    $getRes['data']['login_name']
