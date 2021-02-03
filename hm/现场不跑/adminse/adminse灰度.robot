@@ -1,14 +1,14 @@
-*** Settings ***
-Suite Setup      adminse登录    name=privateTesting    password=38ebcce4a466e04bf443d54ca52cd44f
-Suite Teardown    Delete All Sessions
-Resource          ../cdss.robot
-Library           Collections
-Library           RequestsLibrary
-Library           String
+# *** Settings ***
+# Suite Setup      adminse登录    name=privateTesting    password=38ebcce4a466e04bf443d54ca52cd44f
+# Suite Teardown    Delete All Sessions
+# Resource          ../../cdss.robot
+# Library           Collections
+# Library           RequestsLibrary
+# Library           String
 
-*** Variables ***
+# *** Variables ***
 
-*** Test Cases ***
+# *** Test Cases ***
 
 
 # 开启灰度
@@ -185,28 +185,28 @@ Library           String
 
 
 
-# 规则模板配置
-#     ${index}    Set Variable    1
-#     ${getRes}    规则模板配置    index=${index}
-#     ...    pageSize=
-#     ...    customerId=
-#     ...    systemId=
-#     ...    progressType=
-#     ...    templateName=
-#     ...    modifyDateBegin=
-#     ...    modifyDateEnd=
-#     Should Be Equal As Strings    ${getRes['code']}    200
+# # 规则模板配置
+# #     ${index}    Set Variable    1
+# #     ${getRes}    规则模板配置    index=${index}
+# #     ...    pageSize=
+# #     ...    customerId=
+# #     ...    systemId=
+# #     ...    progressType=
+# #     ...    templateName=
+# #     ...    modifyDateBegin=
+# #     ...    modifyDateEnd=
+# #     Should Be Equal As Strings    ${getRes['code']}    200
 
 
 
 
-# 检查检验查看
-#     ${getRes}    检查检验查看    customerId=1001
-#     ...    index=${1}
-#     ...    pageSize=${20}
-#     ...    orderBy=${2}
-#     ...    sourceType=1,2,3
+# # 检查检验查看
+# #     ${getRes}    检查检验查看    customerId=1001
+# #     ...    index=${1}
+# #     ...    pageSize=${20}
+# #     ...    orderBy=${2}
+# #     ...    sourceType=1,2,3
 
-#     Should Be Equal As Strings    ${getRes['code']}    200
+# #     Should Be Equal As Strings    ${getRes['code']}    200
 
 
