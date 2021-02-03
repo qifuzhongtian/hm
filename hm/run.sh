@@ -1,1 +1,1 @@
-pybot -e skip 病历质控 单病种数据上报 临床风险预警 平台 质控 肿瘤化疗质控 AME mayson门诊版 Mayson问诊系统患者版 mayson住院版
+pybot -e skip 病历质控 单病种数据上报 临床风险预警 平台 质控 肿瘤化疗质控 AME mayson住院版
