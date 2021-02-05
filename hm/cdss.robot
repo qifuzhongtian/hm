@@ -5,7 +5,7 @@
 # ${mayson_url}     http://172.16.3.61:8080
 #${mayson_url}    http://test-mayson.huimeionline.com/cdss
 #演示环境
- ${mayson_url}    http://172.16.4.178/cdss
+${mayson_url}    http://172.16.4.178/cdss
 
 #{url}内部平台,惠每用户中
 # ${inside_url}     http://172.16.3.40
@@ -26,25 +26,25 @@ ${connotation_url}    http://172.16.4.178
 # ${mayson_url}    http://10.27.213.55
 #文献前端环境           修改成http://负载ip/wenxian
 #${doc_fe}         http://doc.huimeionline.com
- ${doc_fe}       http://172.16.4.178/wenxian
+${doc_fe}       http://172.16.4.178/wenxian
 #文献线上             修改成http://负载ip
 # ${doc_online}     http://120.26.223.139
 #${doc_online}     http://172.16.3.68:84
 ${doc_online}    http://172.16.4.178
 #ame生产环境          修改成http://负载ip
 #${ame_url}        http://ame.huimeionline.com
- ${ame_url}      http://172.16.4.178:8092
+${ame_url}      http://172.16.4.178:8092
 #fuxi验证接口         修改成 http://负载ip/node/active
 #${fuxi_data}      ${inside_url}:3014
- ${fuxi_data}    http://172.16.4.178/node/active
+${fuxi_data}    http://172.16.4.178/node/active
 #adminse          修改成http://负载ip
 #${adminse}        http://admin-se.huimeionline.com/
- ${adminse}      http://172.16.4.178
+${adminse}      http://172.16.4.178
 # ${adminse}      http://test-admin-se.huimeionline.com/
 #amcPc版           修改成http://负载ip/cdss
 #${amc_url}    http://amc.huimeionline.com
 # ${base_gdms}      http://gdms.huimeionline.com
- ${amc_url}    http://172.16.4.178/cdss
+${amc_url}    http://172.16.4.178/cdss
 # ${base_gdms}    http://172.16.4.178/cdss
 
 #后结构化
