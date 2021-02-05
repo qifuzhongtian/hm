@@ -42,9 +42,9 @@ ${fuxi_data}    http://172.16.4.178/node/active
 ${adminse}      http://172.16.4.178
 # ${adminse}      http://test-admin-se.huimeionline.com/
 #amcPc版           修改成http://负载ip/cdss
-#${amc_url}    http://amc.huimeionline.com
+${amc_url}    http://amc.huimeionline.com
 # ${base_gdms}      http://gdms.huimeionline.com
-${amc_url}    http://172.16.4.178/cdss
+#${amc_url}    http://172.16.4.178/cdss
 # ${base_gdms}    http://172.16.4.178/cdss
 
 #后结构化
