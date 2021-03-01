@@ -1,6 +1,6 @@
 *** Settings ***
 Suite Teardown    Delete All Sessions    # Suite Setup    获取时间戳
-Resource          ../../cdss.robot
+Resource          ../../../cdss.robot
 Library           Collections
 Library           RequestsLibrary
 Library           String
