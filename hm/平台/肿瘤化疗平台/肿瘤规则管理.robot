@@ -13,6 +13,6 @@ Library           DateTime
 肿瘤规则管理-修改规则提醒级别
     # [Documentation]    cdss/sentry/assess/save
     [Setup]    Run Keywords    获取时间戳
-    ${getRes}    肿瘤规则管理    remindLevel=1    remindType=1    status=0    tcRuleBlackLists={"ruleNumber":"chemo-1","ruleSource":"1"}
-    Should Contain    ${getRes['data']}    批量修改肿瘤配置成功
+    ${getRes}    肿瘤规则管理    remindLevel=1    remindType=1    status=0    tcRuleBlackLists={"ruleNumber":"chemo-1","ruleNode":"","ruleSource":1,"projectId":"","id":6,"ruleExtend":0,"ruleExtendId":"","blackId":""}
+    Should Contain  ${getRes['msg']}    success
 
