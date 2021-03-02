@@ -28,8 +28,8 @@ ${connotation_url}    http://172.16.3.68
 ${doc_fe}         http://doc.huimeionline.com
 #${doc_fe}       http://172.16.4.178/wenxian
 #文献线上             修改成http://负载ip
-${doc_online}     http://120.26.223.139
-#${doc_online}     http://172.16.3.68:84
+# ${doc_online}     http://120.26.223.139
+${doc_online}     http://172.16.3.68:84
 # ${doc_online}    http://172.16.4.178
 #ame生产环境          修改成http://负载ip
 ${ame_url}        http://ame.huimeionline.com
