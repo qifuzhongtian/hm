@@ -578,3 +578,87 @@ Library           String
     # ${aj}    Evaluate    [aj['cnTitle'] for aj in $getRes['body']['documentExpress']['docExpress']]
     # Should Contain    ${aj}    新生儿脑梗死39例病例分析
     Should not Contain    $getRes['body']['documentExpress']['docExpress']    cnTitle
+
+
+
+推荐用药合理性-相互作用
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    # ${timestamp}    Get Time    epoch
+    ${Assessment}    Set Variable    肾病
+    ${Subjective}    Set Variable
+    ${getRes}    智能推荐v2    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=4    requestSource=    doctorGuid=0210497
+    ...    doctorName=测试医生    admissionTime=2020-12-12    inpatientDepartment=儿科    patientInfo={"gender":"0","age":"20","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+    ...    openInterdict=${1}    definiteDiagnosis=
+    ...    progressNoteList=    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+    ...    labTestList={"labTestNumber":2026911,"labTestName":"","labTestSample":"","sampleCollectTime":"2020-03-1018:38:37","recordTime":"2020-03-1018:37:37","labTestItems":[{"labTestItemName":"","labTestResult":"1","labTestValueUnit":"个/hpf","labTestValueChange":"","labTestMethod":"","normalRange":"0-5"},{"labTestItemName":"","labTestResult":"28","labTestValueUnit":"/HPF","labTestValueChange":"","labTestMethod":"","normalRange":"0-6"},{"labTestItemName":"","labTestResult":"","labTestValueUnit":"","labTestValueChange":"","labTestMethod":"","normalRange":""}]}    examinationList=    newTestList=    operationRecord=
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}    currentDiseaseName=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "4552","orderContent": "洛伐他汀片","dosage":"null","unit": "mg","frequency": "null","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 1,"createTime":"2021-03-02 18:48:32","executeTime":""},{"orderId": "${timestamp}${random}","orderCode": "4891","orderContent": "烟酸片","dosage":"null","unit": "mg","frequency": "null","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 1,"createTime":"2021-03-02 10:48:32","executeTime":""}
+    #####推荐检查评估表
+    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+    #####推荐检查
+    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    ######检查解读
+    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+    #####推荐治疗方案
+    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+    #####疑似诊断
+    ${aj}    Evaluate    [aj['description'] for aj in $getRes['body']['logicalDrugInfo']['interactionList'][0]]
+    Should Contain    ${aj}    洛伐他汀片与烟酸片合用可增加横纹肌溶解和急性肾衰竭发生的危险
+
+
+
+推荐用药合理性-药物禁忌
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    # ${timestamp}    Get Time    epoch
+    ${Assessment}    Set Variable    肾病
+    ${Subjective}    Set Variable
+    ${getRes}    智能推荐v2    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2    requestSource=    doctorGuid=0210497
+    ...    doctorName=测试医生    admissionTime=2018-12-12    inpatientDepartment=儿科    patientInfo={"gender":"0","age":"20","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+    ...    openInterdict=${1}    definiteDiagnosis=
+    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+    ...    labTestList={"labTestNumber":2026911,"labTestName":"尿常规","labTestSample":"尿液","sampleCollectTime":"2020-03-1018:38:37","recordTime":"2020-03-1018:37:37","labTestItems":[{"labTestItemName":"白细胞","labTestResult":"1","labTestValueUnit":"个/hpf","labTestValueChange":"","labTestMethod":"","normalRange":"0-5"},{"labTestItemName":"红细胞","labTestResult":"28","labTestValueUnit":"/HPF","labTestValueChange":"","labTestMethod":"","normalRange":"0-6"},{"labTestItemName":"尿妊娠试验","labTestResult":"阳性","labTestValueUnit":"","labTestValueChange":"","labTestMethod":"","normalRange":""}]}    examinationList=    newTestList=    operationRecord=
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}    currentDiseaseName=
+    ...    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "5663","orderContent": "盐酸文拉法辛缓释片","dosage":"null","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2,"createTime":"2021-03-0210:48:32","executeTime":""}
+    #####推荐检查评估表
+    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+    #####推荐检查
+    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    ######检查解读
+    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+    #####推荐治疗方案
+    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+    #####疑似诊断
+    ${aj}    Evaluate    [aj['crowd'] for aj in $getRes['body']['logicalDrugInfo']['tabooList'][0]]
+    Should Contain    ${aj}    肾病
+
+
+推荐危急值
+    [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation
+    [Setup]    Run Keywords    获取时间戳
+    ...    AND    获取随机数
+    # ${timestamp}    Get Time    epoch
+    ${Assessment}    Set Variable
+    ${Subjective}    Set Variable
+    ${getRes}    智能推荐v2    userGuid=${timestamp}${random}    serialNumber=${timestamp}${random}    patientName=tester    pageSource=2    requestSource=    doctorGuid=0210497
+    ...    doctorName=测试医生    admissionTime=2018-12-12    inpatientDepartment=儿科    patientInfo={"gender":"1","age":"60","ageType":"岁","maritalStatus":"1","pregnancyStatus":"0"}    physicalSign={"bodyTempr": "","heartRate": "","lowBldPress": "","highBldPress": ""}
+    ...    openInterdict=${1}    definiteDiagnosis=
+    ...    progressNoteList={"doctorGuid":"2222","msgType":"2","messageList":[{"key":"主诉","value":"${Subjective}"},{"key":"现病史","value":""},{"key":"既往史","value":""},{"key":"初步诊断","value":"${Assessment}"},{"key":"辅助检查","value":""}],"progressType":"2","progressGuid":"22222","recordTime":""}    deleteProgressNoteList={"progressGuid":"","progressType":"","doctorGuid":"","recordTime":""}
+    ...    labTestList={"labTestNumber":"${timestamp}${random}","labTestName":"血常规","labTestSample":"血清","sampleCollectTime":"2021-03-01 14:00:39","recordTime":"2021-03-02 11:31:31","labTestItems":[{"labTestItemName":"红细胞压积","labTestResult":"0.6","labTestValueUnit":"","labTestValueChange":"","labTestMethod":"","normalRange":""},{"labTestItemName":"红细胞","labTestResult":"28","labTestValueUnit":"/HPF","labTestValueChange":"","labTestMethod":"","normalRange":"0-6"},{"labTestItemName":"尿妊娠试验","labTestResult":"阳性","labTestValueUnit":"","labTestValueChange":"","labTestMethod":"","normalRange":""}]}    examinationList=    newTestList=    operationRecord=
+    ...    prescriptions={"prescriptionNumber":"","recordTime":"","drugList":[{"drugId":"","drugName":"","dosage":"","unit":"","frequency":"","pathway":"","specification":""}]}    currentDiseaseName=    medicalOrders={"orderId": "${timestamp}${random}","orderCode": "316275","orderContent": "阿托伐他汀钙片","dosage": "41","unit": "mg","frequency": "ONCE","pathway": "口服","specification": "","orderFlag": 1,"orderType": 3,"timelinessFlag": 2}
+    #####推荐检查评估表
+    # ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['illnessAssessList']]
+    #####推荐检查
+    # ${aj}    Evaluate    [aj['examination'] for aj in $getRes['body']['examinationRecommendList']]
+    ######检查解读
+    # ${aj}    Evaluate    [aj['diagnosticSuggest'] for aj in $getRes['body']['examinationInterpretList']]
+    #####推荐治疗方案
+    # ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['therapeuticPlanList']]
+    #####断言
+    ${aj}    Evaluate    [aj['testItemName'] for aj in $getRes['body']['urgentValueList']]
+    Should Contain    ${aj}    血液血细胞压积(hct)
+
+

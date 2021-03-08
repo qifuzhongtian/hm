@@ -8,9 +8,9 @@ ${mayson_url}     http://profile.huimeionline.com/cdss
 #${mayson_url}    http://172.16.4.178/cdss
 
 #{url}内部平台,惠每用户中
-${inside_url}     http://172.16.3.40
+# ${inside_url}     http://172.16.3.40
 #测试
-#${inside_url}    http://172.16.3.64
+${inside_url}    http://172.16.3.64
 #内部平台-demo环境
 #${inside_url}    http://172.16.4.178
 #文献生产环境           修改成http://负载ip/cdss
@@ -2106,6 +2106,45 @@ VTE2快速确认
     ${responsedata}    To Json    ${addr.content}
     log    ${data}
     [Return]    ${responsedata}
+
+
+
+
+
+编码问题分析mcQueryDict
+    [Arguments]    ${dep}    ${chapter}    ${project}    ${special}
+    ${data}    Create Dictionary    dep=${dep}    chapter=${chapter}    project=${project}    special=${special}
+    ${addr}    Post Request    api    /mc/mcQueryDict    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+
+
+编码问题分析codeRuleProblemList
+    [Arguments]    ${time_start}    ${time_end}    ${inpatient_department}    ${patient_area}    ${type}    ${project_id}    ${chapter_dict_id}    ${major_type}    ${order}    ${current_index}    ${page_size}
+    ${order}    Evaluate    dict(${order})
+    ${data}    Create Dictionary    time_start=${time_start}    time_end=${time_end}    inpatient_department=${inpatient_department}    patient_area=${patient_area}    type=${type}    project_id=${project_id}    chapter_dict_id=${chapter_dict_id}    major_type=${major_type}    order=${order}    current_index=${current_index}    page_size=${page_size}
+    ${addr}    Post Request    api    mc/codeRuleProblemList    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+
+
+
+编码问题分析recordInfoCount
+    [Arguments]    ${time_start}    ${inpatient_department}    ${time_end}    ${patient_area}    ${type}
+    ${data}    Create Dictionary    time_start=${time_start}    inpatient_department=${inpatient_department}    time_end=${time_end}    patient_area=${patient_area}    type=${type}
+    ${addr}    Post Request    api    /manage/userList    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+
 
 账号管理医生组列表
     [Arguments]    ${content}    ${order}    ${current_index}    ${page_size}
