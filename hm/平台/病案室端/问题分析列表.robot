@@ -15,7 +15,7 @@ Library           DateTime
     [Documentation]    :3021/mc/ruleProblemList
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    问题分析列表    order={"name": "count","sort": "desc"}
+    ${getRes}    问题分析列表    order={"name": "project_cnt","sort": "desc"}
     ...    name_id=    category_id=
     ...    time_start=3019-09-10    time_end=3019-09-10
     ...    inpatient_department=
