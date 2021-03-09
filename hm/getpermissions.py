@@ -93,13 +93,22 @@ def write_command(permission_dict):
         if permission_dict["riskWarning"]["AI"] == 0:
 
             for item in permission_dict["riskWarning"]["diseaseType"]:
+                if item == "APACHE II评分":
+                    risk_warning = risk_warning + "临床风险预警/" + "APACHEII评分 "
+                else:
+                    risk_warning = risk_warning + "临床风险预警/" + item + " "
 
-                risk_warning = risk_warning + "临床风险预警/" + item + " "
+
         else:
 
             for item in permission_dict["riskWarning"]["diseaseType"]:
 
-                risk_warning_ai = risk_warning_ai + "临床风险预警/AI/" + "AI" + item + " "
+                if item == "APACHE II评分":
+                    risk_warning_ai = risk_warning_ai + "临床风险预警/AI/" + "AI" + "APACHEII评分 "
+                else:
+                    risk_warning_ai = risk_warning_ai + "临床风险预警/AI/" + "AI" + item + " "
+
+
 
 
 
