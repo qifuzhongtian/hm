@@ -3,14 +3,14 @@
 #mayson生产环境       修改成http://负载ip/cdss
 ${mayson_url}     http://profile.huimeionline.com/cdss
 # ${mayson_url}     http://172.16.3.61:8080
-# ${mayson_url}    http://test-mayson.huimeionline.com/cdss
+#${mayson_url}    http://test-mayson.huimeionline.com/cdss
 #演示环境
 #${mayson_url}    http://172.16.4.178/cdss
 
 #{url}内部平台,惠每用户中
-# ${inside_url}     http://172.16.3.40
+${inside_url}     http://172.16.3.40
 #测试
-${inside_url}    http://172.16.3.64
+#${inside_url}    http://172.16.3.64
 #内部平台-demo环境
 #${inside_url}    http://172.16.4.178
 #文献生产环境           修改成http://负载ip/cdss
@@ -3577,7 +3577,7 @@ cdr标准数据集就诊次
     [Return]    ${responsedata}
 
 单病种病种列表
-    [Arguments]      ${endVisitTime}  ${startVisitTime}   ${timeType}     ${userId}     ${baseGroupType}        ${doctor}       ${userName}
+    [Arguments]      ${endVisitTime}  ${startVisitTime}   ${timeType}     ${userId}     ${baseGroupType}        ${doctor}       ${type}      ${userName}
     #获取医院的auther_key
     ${getRes}    单病种登录    name=privateTesting    password=38ebcce4a466e04bf443d54ca52cd44f    type=0    time=0
     ${auther_key}   Evaluate    $getRes['data']['auther_key']
@@ -3585,7 +3585,7 @@ cdr标准数据集就诊次
     ${dict}    Create Dictionary    Content-Type=application/json   Huimei_id=${auther_key}
     Create Session    api    ${mayson_url}    ${dict}
     ${data}     Create Dictionary   endVisitTime=${endVisitTime}    startVisitTime=${startVisitTime}    timeType=${timeType}    userId=${userId}
-    ...     baseGroupType=${baseGroupType}  doctor=${doctor}    userName=${userName}
+    ...     baseGroupType=${baseGroupType}  doctor=${doctor}    userName=${userName}    type=${type}
     ${addr}    Post Request    api    mayson/gc/baseGroup    data=${data}
     ${responsedata}    To Json    ${addr.content}
     log    ${data}
