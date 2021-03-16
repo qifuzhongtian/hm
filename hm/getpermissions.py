@@ -11,10 +11,10 @@ def get_customer_id():
     # url = "http://test-mayson.huimeionline.com/cdss/sentry/customerAuth/getCustomerId"
 
     #预发环境
-    # url = "http://profile.huimeionline.com/cdss/sentry/customerAuth/getCustomerId"
+    url = "http://profile.huimeionline.com/cdss/sentry/customerAuth/getCustomerId"
 
     #医院现场
-    url = "http://hmservice/cdss/sentry/customerAuth/getCustomerId"
+    # url = "http://hmservice/cdss/sentry/customerAuth/getCustomerId"
 
     headers = {
 
@@ -37,10 +37,10 @@ def get_permission():
     # url = "http://test-mayson.huimeionline.com/cdss/sentry/customerAuth/getProductNames"
 
     #预发环境
-    # url = "http://profile.huimeionline.com/cdss/sentry/customerAuth/getProductNames"
+    url = "http://profile.huimeionline.com/cdss/sentry/customerAuth/getProductNames"
 
     #医院现场
-    url = "http://hmservice/cdss/sentry/customerAuth/getProductNames"
+    # url = "http://hmservice/cdss/sentry/customerAuth/getProductNames"
 
     headers = {
 
@@ -110,8 +110,10 @@ def write_command(permission_dict):
 
             if item == 'None' or item == None:
                 continue
-
-            quality_control_str = quality_control_str + "质控/" + item + " "
+            if item == '哮喘（儿童，住院）':
+                quality_control_str = quality_control_str + "质控/" + "哮喘儿童住院 "
+            else:
+                quality_control_str = quality_control_str + "质控/" + item + " "
 
     #临床风险预警
     if "riskWarning" in permission_dict.keys():
