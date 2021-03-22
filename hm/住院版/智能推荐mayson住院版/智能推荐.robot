@@ -12,7 +12,7 @@ Library           String
 推荐疑似诊断:晕厥
     [Documentation]    cdss/mayson/v_2_0/intelligent_recommendation,断言:晕厥
     [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数inpatientDepartment
+    ...    AND    获取随机数
     # ${timestamp}    Get Time    epoch
     ${Assessment}    Set Variable
     ${Subjective}    Set Variable    男，年龄60岁，反复发作晕厥4年，心电图显示窦性心律，心率100次／分，QT 间期0.56秒，偶发室性期前收缩
