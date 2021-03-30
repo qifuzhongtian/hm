@@ -15,11 +15,12 @@ Library           DateTime
     [Documentation]    :3021/mc/ruleProblemList
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    问题分析列表    order={"name": "project_cnt","sort": "desc"}
+    ${getRes}    问题分析列表    order={"name": "project_cnt","sort": ""}
     ...    name_id=    category_id=
-    ...    time_start=3019-09-10    time_end=3019-09-10
+    ...    time_start=${time_now[0:10]}    time_end=${time_now[0:10]}
     ...    inpatient_department=
     ...    display_type=
     ...    line_item_veto=    page_size=${20}
     ...    current_index=${1}
+    ...    type=${1}
     Should Contain    ${getRes['msg']}    success

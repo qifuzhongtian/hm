@@ -28,8 +28,8 @@ ${connotation_url}    http://172.16.3.68
 ${doc_fe}         http://doc.huimeionline.com
 # ${doc_fe}       http://172.16.4.178/wenxian
 #文献线上             修改成http://负载ip
-${doc_online}     http://120.26.223.139
-# ${doc_online}     http://172.16.3.68:84
+# ${doc_online}     http://120.26.223.139
+${doc_online}     http://172.16.3.68:84
 # ${doc_online}    http://172.16.4.178
 #ame生产环境          修改成http://负载ip
 ${ame_url}        http://ame.huimeionline.com
@@ -99,6 +99,8 @@ ${Huimei_id}      7195F12825788F09375C2DB1E922F108
     ${time_now}    Get Time    timestamp
     Set Global Variable    ${timestamp}
     Set Global Variable    ${time_now}
+    ${time_}    Get Time    timestamp
+
 
 获取随机数
     ${random}    Generate Random String    3    1234567890
@@ -1720,10 +1722,10 @@ VTE2快速确认
 
 问题分析列表
     [Arguments]    ${order}    ${name_id}    ${category_id}    ${time_start}    ${time_end}    ${inpatient_department}
-    ...    ${display_type}    ${line_item_veto}    ${page_size}    ${current_index}
+    ...    ${display_type}    ${line_item_veto}    ${page_size}    ${current_index}    ${type}
     ${order}    Evaluate    dict(${order})
     ${data}    Create Dictionary    order=${order}    name_id=${name_id}    category_id=${category_id}    time_start=${time_start}    time_end=${time_end}
-    ...    inpatient_department=${inpatient_department}    display_type=${display_type}    line_item_veto=${line_item_veto}    page_size=${page_size}    current_index=${current_index}
+    ...    inpatient_department=${inpatient_department}    display_type=${display_type}    line_item_veto=${line_item_veto}    page_size=${page_size}    current_index=${current_index}    type=${type}
     ${addr}    Post Request    api    /mc/ruleProblemList    data=${data}
     ${responsedata}    To Json    ${addr.content}
     log    ${data}
