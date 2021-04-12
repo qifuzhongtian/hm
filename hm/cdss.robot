@@ -2498,13 +2498,14 @@ VTE2快速确认
     [Return]    ${responsedata}
 
 单病种上报统计
-    [Arguments]    ${startDate}    ${endDate}    ${type}
+    [Arguments]    ${daseClassify}    ${daseName}    ${dep}     ${flag}     ${flag1}        ${flag2}      ${month}     ${year}   
     #${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     #Create Session    api    ${lvdao_url}    ${dict}
     #Create Session    api    http://172.16.3.64:3023    ${dict}
-    ${data}    Create Dictionary    startDate=${startDate}    endDate=${endDate}    type=${type}
+    ${data}    Create Dictionary    daseClassify=${daseClassify}    daseName=${daseName}    dep=${dep}      flag=${flag}    flag1=${flag1}  flag2=${flag2}
+    ...     month=${month}  year=${year}
     log    ${data}
-    ${addr}    Post Request    api    diseaseUp/list    data=${data}
+    ${addr}    Post Request    api    diseaseUp/upload_info_v2    data=${data}
     ${responsedata}    To Json    ${addr.content}
     log    ${data}
     [Return]    ${responsedata}

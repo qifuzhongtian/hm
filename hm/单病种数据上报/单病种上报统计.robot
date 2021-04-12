@@ -12,5 +12,5 @@ Library           DateTime
 *** Test Cases ***
 单病种上报统计
     [Documentation]    :3022/diseaseUp/list
-    ${getRes}    单病种上报统计    startDate=2020-03-24    endDate=2020-03-30    type=2
+    ${getRes}    单病种上报统计    daseClassify=    daseName=    dep=   flag=1  flag1=1     flag2=1     month=  year=
     Should Contain    ${getRes['msg']}    success
