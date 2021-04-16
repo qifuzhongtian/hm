@@ -3,7 +3,7 @@
 #mayson生产环境       修改成http://负载ip/cdss
 ${mayson_url}     http://profile.huimeionline.com/cdss
 # ${mayson_url}     http://172.16.3.61:8080
-#${mayson_url}    http://test-mayson.huimeionline.com/cdss
+# ${mayson_url}    http://test-mayson.huimeionline.com/cdss
 #演示环境
 # ${mayson_url}    http://172.16.4.178/cdss
 
@@ -2498,7 +2498,7 @@ VTE2快速确认
     [Return]    ${responsedata}
 
 单病种上报统计
-    [Arguments]    ${daseClassify}    ${daseName}    ${dep}     ${flag}     ${flag1}        ${flag2}      ${month}     ${year}   
+    [Arguments]    ${daseClassify}    ${daseName}    ${dep}     ${flag}     ${flag1}        ${flag2}      ${month}     ${year}
     #${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     #Create Session    api    ${lvdao_url}    ${dict}
     #Create Session    api    http://172.16.3.64:3023    ${dict}
