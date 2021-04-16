@@ -10,7 +10,7 @@ ${mayson_url}     http://profile.huimeionline.com/cdss
 #{url}内部平台,惠每用户中
 ${inside_url}     http://172.16.3.40
 #测试
-#${inside_url}    http://172.16.3.64
+# ${inside_url}    http://172.16.3.64
 #内部平台-demo环境
 # ${inside_url}    http://172.16.4.178
 #文献生产环境           修改成http://负载ip/cdss
@@ -3387,6 +3387,15 @@ cdr标准数据集就诊次
     log    ${data}
     [Return]    ${responsedata}
 
+合并卡控暂不提醒
+    [Arguments]    ${recordId}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${mayson_url}    ${dict}
+    ${data}    Create Dictionary    recordId=${recordId}
+    ${addr}    Post Request    api    mayson/operate/closeBlockRemind    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
 
 
 
