@@ -1,16 +1,16 @@
 *** Variables ***
 #=======医院内网需要修改的==============#
 #mayson生产环境       修改成http://负载ip/cdss
-${mayson_url}     http://profile.huimeionline.com/cdss
+# ${mayson_url}     http://profile.huimeionline.com/cdss
 # ${mayson_url}     http://172.16.3.61:8080
-# ${mayson_url}    http://test-mayson.huimeionline.com/cdss
+${mayson_url}    http://test-mayson.huimeionline.com/cdss
 #演示环境
 # ${mayson_url}    http://172.16.4.178/cdss
 
 #{url}内部平台,惠每用户中
 ${inside_url}     http://172.16.3.40
 #测试
-# ${inside_url}    http://172.16.3.64
+#${inside_url}    http://172.16.3.64
 #内部平台-demo环境
 # ${inside_url}    http://172.16.4.178
 #文献生产环境           修改成http://负载ip/cdss
@@ -2498,14 +2498,13 @@ VTE2快速确认
     [Return]    ${responsedata}
 
 单病种上报统计
-    [Arguments]    ${daseClassify}    ${daseName}    ${dep}     ${flag}     ${flag1}        ${flag2}      ${month}     ${year}
+    [Arguments]    ${startDate}    ${endDate}    ${type}
     #${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     #Create Session    api    ${lvdao_url}    ${dict}
     #Create Session    api    http://172.16.3.64:3023    ${dict}
-    ${data}    Create Dictionary    daseClassify=${daseClassify}    daseName=${daseName}    dep=${dep}      flag=${flag}    flag1=${flag1}  flag2=${flag2}
-    ...     month=${month}  year=${year}
+    ${data}    Create Dictionary    startDate=${startDate}    endDate=${endDate}    type=${type}
     log    ${data}
-    ${addr}    Post Request    api    diseaseUp/upload_info_v2    data=${data}
+    ${addr}    Post Request    api    diseaseUp/list    data=${data}
     ${responsedata}    To Json    ${addr.content}
     log    ${data}
     [Return]    ${responsedata}
@@ -3387,15 +3386,6 @@ cdr标准数据集就诊次
     log    ${data}
     [Return]    ${responsedata}
 
-合并卡控暂不提醒
-    [Arguments]    ${recordId}
-    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
-    Create Session    api    ${mayson_url}    ${dict}
-    ${data}    Create Dictionary    recordId=${recordId}
-    ${addr}    Post Request    api    mayson/operate/closeBlockRemind    data=${data}
-    ${responsedata}    To Json    ${addr.content}
-    log    ${data}
-    [Return]    ${responsedata}
 
 
 
