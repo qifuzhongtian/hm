@@ -10,7 +10,7 @@ Library           DateTime
 
 *** Test Cases ***
 
-推出房颤申请会诊,点击申请会诊,质控项消失
+推出房颤申请会诊,点击申请会诊,质控项消失 规则ID AF-6
     [Documentation]    cdss/sentry/v_2_0/qc/applyForConsultation
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
