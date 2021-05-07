@@ -2180,6 +2180,19 @@ VTE2快速确认
 
 
 
+倒计时记录countdown_records
+    [Arguments]    ${admissionArea}    ${attendingDoctor}    ${currentPage}    ${endAdmissionDate}    ${pageSize}    ${startAdmissionDate}    ${admissionDepartment}    ${order}
+    ${order}    Evaluate    dict(${order})
+    ${data}    Create Dictionary    admissionArea=${admissionArea}    attendingDoctor=${attendingDoctor}    currentPage=${currentPage}    endAdmissionDate=${endAdmissionDate}    pageSize=${pageSize}    startAdmissionDate=${startAdmissionDate}    admissionDepartment=${admissionDepartment}    order=${order}
+    ${addr}    Post Request    api    java/sentry/mc/countdown_records    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+
+
+
 账号管理医生组列表
     [Arguments]    ${content}    ${order}    ${current_index}    ${page_size}
     ${order}    Evaluate    dict(${order})
