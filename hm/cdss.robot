@@ -3411,7 +3411,7 @@ cdr标准数据集就诊次
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${mayson_url}    ${dict}
     ${assessResultItemList}    Evaluate    [${assessResultItemList}]
-    ${data}    Create Dictionary    alertLevel={alertLevel}    assessDictName=${assessDictName}    assessId=${assessId}    assessName=${assessName}    assessResult=${assessResult}    assessResultItemList=${assessResultItemList}
+    ${data}    Create Dictionary    alertLevel=${alertLevel}    assessDictName=${assessDictName}    assessId=${assessId}    assessName=${assessName}    assessResult=${assessResult}    assessResultItemList=${assessResultItemList}
     ...    assessResultStyle=${assessResultStyle}    assessResultType=${assessResultType}    assessValue=${assessValue}    assessValueUnit=${assessValueUnit}    customerId=${customerId}    displayResult=${displayResult}
     ...    doctorGuid=${doctorGuid}    doctorName=${doctorName}    expressId=${expressId}    groupCode=${groupCode}    isConfirmNurse=${isConfirmNurse}    nurseGuidId=${nurseGuidId}
     ...    nurseName=${nurseName}    pageSource=${pageSource}    patientName=${patientName}    productId=${productId}    projectId=${projectId}    recordId=${recordId}    ruleNumber=${ruleNumber}    serialNumber=${serialNumber}
