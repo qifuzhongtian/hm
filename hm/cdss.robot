@@ -3568,6 +3568,16 @@ cdr标准数据集就诊次
     log    ${data}
     [Return]    ${responsedata}
 
+肿瘤规则查询
+    [Arguments]    ${diseaseId}        ${remindLevel}    ${remindType}    ${ruleName}        ${status}         ${ruleSource}        ${pageNumber}       ${pageSize}   
+    ${remindLevel}    Evaluate    [${remindLevel}]
+    ${data}    Create Dictionary    diseaseId=${diseaseId}    remindLevel=${remindLevel}    remindType=${remindType}    ruleName=${ruleName}    status=${status}
+    ...        ruleSource=${ruleSource}    pageNumber=${pageNumber}    pageSize=${pageSize}
+    ${addr}    Post Request    api    rule/findRuleListByParams    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
 
 ######神农######
 神农登录
