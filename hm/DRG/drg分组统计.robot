@@ -10,12 +10,12 @@ Library           DateTime
 *** Variables ***
 
 *** Test Cases ***
-drg分组统计
-    [Documentation]    :3027/tj/drgsGroupCount
-    [Setup]    Run Keywords    获取时间戳
-    ...    AND    获取随机数
-    ${getRes}    drg分组统计    time_start=2020-07-04    time_end=2020-08-30    drgs_sample_id=21
-    Should Contain    ${getRes['msg']}    success
+# drg分组统计
+#     [Documentation]    :3027/tj/drgsGroupCount
+#     [Setup]    Run Keywords    获取时间戳
+#     ...    AND    获取随机数
+#     ${getRes}    drg分组统计    time_start=2020-07-04    time_end=2020-08-30    drgs_sample_id=21
+#     Should Contain    ${getRes['msg']}    success
 
 
 
