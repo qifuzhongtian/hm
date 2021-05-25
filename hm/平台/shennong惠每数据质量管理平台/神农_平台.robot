@@ -64,6 +64,6 @@ Library           DateTime
     [Documentation]        :3028/review/getReport
     [Setup]    Run Keywords    获取时间戳
     ...    AND    获取随机数
-    ${getRes}    报告生成    emr_grade=${1}    end_time=2020-11-29    start_time=2020-10-30
+    ${getRes}    报告生成    emr_grade=${1}    end_time=2020-11-29    start_time=2020-10-30    report_flag=1@@2020-10-30@@2020-11-29
     Should Contain    ${getRes['msg']}    success
 

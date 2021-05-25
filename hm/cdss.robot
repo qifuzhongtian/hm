@@ -3623,8 +3623,8 @@ cdr标准数据集就诊次
     [Return]    ${responsedata}
 
 报告生成
-    [Arguments]    ${emr_grade}    ${end_time}    ${start_time}
-    ${data}    Create Dictionary    emr_grade=${emr_grade}    end_time=${end_time}    start_time=${start_time}
+    [Arguments]    ${emr_grade}    ${end_time}    ${start_time}    ${report_flag}
+    ${data}    Create Dictionary    emr_grade=${emr_grade}    end_time=${end_time}    start_time=${start_time}    report_flag=${report_flag}
     ${addr}    Post Request    api    review/getReport    data=${data}
     ${responsedata}    To Json    ${addr.content}
     log    ${data}
