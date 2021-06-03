@@ -59,6 +59,118 @@ def get_permission():
     return permission_dict
 
 
+def file_name(customizedProduct_path,hospitalization_path,outpatient_path,riskWarning_path):
+
+    customizedProduct_list = []
+    hospitalization_list = []
+    outpatient_list = []
+    riskWarning_list = []
+
+    #单独产品
+    for root, dirs, files in os.walk(customizedProduct_path):
+
+        for dir in dirs:
+            customizedProduct_list.append(dir)
+
+    #住院版
+    for root, dirs, files in os.walk(hospitalization_path):
+
+        for dir in dirs:
+            hospitalization_list.append(dir)
+
+    #门诊版
+    for root, dirs, files in os.walk(outpatient_path):
+
+        for dir in dirs:
+            outpatient_list.append(dir)
+
+    #临床风险预警
+    for root, dirs, files in os.walk(riskWarning_path):
+
+        for dir in dirs:
+            riskWarning_list.append(dir)
+
+    return customizedProduct_list, hospitalization_list, outpatient_list, riskWarning_list
+
+
+def create_file(permission_dict,customizedProduct_path,hospitalization_path,outpatient_path,riskWarning_path):
+
+    customizedProduct_list, hospitalization_list, outpatient_list, riskWarning_list = file_name(customizedProduct_path,hospitalization_path,outpatient_path,riskWarning_path)
+
+    # permission_dict = get_permission()
+
+    #外面的一坨
+    if 'customizedProduct' in permission_dict.keys():
+        for customizedProduct in permission_dict["customizedProduct"]:
+
+            if customizedProduct not in customizedProduct_list:
+
+                if os.path.exists(customizedProduct_path+"/"+customizedProduct):
+
+                    continue
+                else:
+                    os.mkdir(customizedProduct_path+"/"+customizedProduct)
+                    print("创建了文件夹 %s" %customizedProduct)
+                    open(customizedProduct_path+"/"+customizedProduct+"/__init__.robot","w")
+
+    #住院版
+    if 'hospitalization' in permission_dict.keys():
+        for hospitalization in permission_dict["hospitalization"]:
+
+            if hospitalization not in hospitalization_list:
+
+                if os.path.exists(hospitalization_path+"/"+hospitalization):
+
+                    continue
+                else:
+                    os.mkdir(hospitalization_path+"/"+hospitalization)
+                    print("创建了文件夹 %s" %hospitalization)
+                    open(hospitalization_path+"/"+hospitalization+"/__init__.robot","w")
+
+    #门诊版
+    if 'outpatient' in permission_dict.keys():
+        for outpatient in permission_dict["outpatient"]:
+
+            if outpatient not in outpatient_list:
+
+                if os.path.exists(outpatient_path+"/"+outpatient):
+
+                    continue
+                else:
+                    os.mkdir(outpatient_path+"/"+outpatient)
+                    print("创建了文件夹 %s" %outpatient)
+                    open(outpatient_path+"/"+outpatient+"/__init__.robot","w")
+
+    #临床风险预警
+    if 'riskWarning' in permission_dict.keys():
+        for riskWarning in permission_dict["riskWarning"]["diseaseType"]:
+
+            if riskWarning not in riskWarning_list:
+
+                if riskWarning == "APACHE II评分":
+                    if os.path.exists(riskWarning_path+"/APACHEII评分"):
+
+                        continue
+                    else:
+                        os.mkdir(riskWarning_path+"/APACHEII评分")
+                        print("创建了文件夹 APACHEII评分")
+                        open(riskWarning_path+"/APACHEII评分"+"/__init__.robot","w")
+                        os.mkdir(riskWarning_path+"/AI/AIAPACHEII评分")
+                        print("创建了文件夹 AIAPACHEII评分")
+                        open(riskWarning_path+"/AI/AIAPACHEII评分"+"/__init__.robot","w")
+                else:
+                    if os.path.exists(riskWarning_path+"/"+riskWarning):
+
+                        continue
+                    else:
+                        os.mkdir(riskWarning_path+"/"+riskWarning)
+                        print("创建了文件夹 %s" %riskWarning)
+                        open(riskWarning_path+"/"+riskWarning+"/__init__.robot","w")
+                        os.mkdir(riskWarning_path+"/AI/AI"+riskWarning)
+                        print("创建了文件夹 AI%s" %riskWarning)
+                        open(riskWarning_path+"/AI/AI"+riskWarning+"/__init__.robot","w")
+
+
 def write_command(permission_dict):
 
     qualityControl_list = ['CABG手术', '心力衰竭', '心绞痛', '膝关节置换术', '房颤', '脑梗死', '慢性阻塞性肺疾病急性加重', '癫痫', '短暂性脑缺血发作', '急性心肌梗死', '髋关节置换术', '剖宫产手术', '成人社区获得性肺炎']
@@ -98,6 +210,15 @@ def write_command(permission_dict):
             customized_product_str = customized_product_str + "病历质控/" + item + " "
 
         customized_product_str = customized_product_str + "病历质控/病案室端 "
+
+    #DRG
+    if "drg" in permission_dict.keys():
+        for item in permission_dict["drg"]:
+
+            if item == 'None' or item == None:
+                continue
+
+            customized_product_str = customized_product_str + "DRG/" + item + " "
 
     #其他的一坨
     if "customizedProduct" in permission_dict.keys():
@@ -166,6 +287,7 @@ if __name__ == "__main__":
 
     get_customer_id()
     permission_dict = get_permission()
+    create_file(permission_dict=permission_dict,customizedProduct_path="./",hospitalization_path="./住院版",outpatient_path="./门诊版",riskWarning_path="./临床风险预警")
     print(write_command(permission_dict))
     # print(permission_dict)
     os.system(write_command(permission_dict))

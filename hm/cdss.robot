@@ -1,16 +1,17 @@
 *** Variables ***
 #=======医院内网需要修改的==============#
 #mayson生产环境       修改成http://负载ip/cdss
-# ${mayson_url}     http://profile.huimeionline.com/cdss
-${mayson_url}     http://172.16.3.61:8080
+${mayson_url}     http://profile.huimeionline.com/cdss
+# ${mayson_url}     http://172.16.0.111/cdss
+# ${mayson_url}     http://172.16.3.61:8080
 # ${mayson_url}    http://test-mayson.huimeionline.com/cdss
 #演示环境
 # ${mayson_url}    http://172.16.4.178/cdss
 
 #{url}内部平台,惠每用户中
-# ${inside_url}     http://172.16.3.40
+${inside_url}     http://172.16.3.40
 #测试
-${inside_url}    http://172.16.3.64
+# ${inside_url}    http://172.16.3.64
 #内部平台-demo环境
 # ${inside_url}    http://172.16.4.178
 #文献生产环境           修改成http://负载ip/cdss
@@ -19,9 +20,9 @@ ${doc_url}       http://profile-doc.huimeionline.com/doc
 #演示环境
 # ${doc_url}      http://172.16.4.178/cdss
 #内涵质控
-# ${connotation_url}    http://172.16.3.68
+${connotation_url}    http://172.16.3.68
 # ${connotation_url}    http://172.16.4.178
-${connotation_url}    http://172.16.3.61
+# ${connotation_url}    http://172.16.3.61
 #测试环境
 # ${mayson_url}    http://10.27.213.55
 #文献前端环境           修改成http://负载ip/wenxian
@@ -71,8 +72,14 @@ ${zhongliu_url}    ${inside_url}:3026
 #神农
 ${shennong_url}    ${inside_url}:3028
 # ${shennong_url}    http://test-shennong.huimeionline.com/
-#drgs
+#drg费用
 ${drgs_url}    ${inside_url}:3027
+
+#drgs绩效
+${drgsp_url}    ${inside_url}:3034
+
+
+
 #cdr惠每患者临床数据中心
 ${cdr_url}    ${inside_url}:3025
 
@@ -90,6 +97,7 @@ ${null}           null
 #测试号
 ${Huimei_id}      7195F12825788F09375C2DB1E922F108
 # ${Huimei_id}    D7928B9182ABF6E0A6A6EBB71B353585
+# ${Huimei_id}      8C946583A4EE9174D7B2D1697066BFA2
 
 
 
@@ -3153,6 +3161,93 @@ drg结算查询statementList
     ${responsedata}    To Json    ${addr.content}
     log    ${data}
     [Return]    ${responsedata}
+
+
+
+drgsRecordInHisOverAll
+    [Arguments]
+    ${data}    Create Dictionary
+    ${addr}    Post Request    api    /drgs/drgsRecordInHisOverAll    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+
+
+######drg绩效####
+drg绩效登录
+    [Arguments]    ${name}    ${password}
+    # ${Cookie_value}    Set_variable    hmdocMaysonInfo=%7B%221%22%3A%7B%22status%22%3A2%7D%2C%221507520888%22%3A%7B%22status%22%3A2%7D%2C%220210497%22%3A%7B%22status%22%3A2%7D%7D
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    Create Session    api    ${drgsp_url}    ${dict}
+    ${data}    Create Dictionary    name=${name}    password=${password}
+    ${addr}    Post Request    api    manage/userLogin    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+
+
+
+drgs列表导出
+    [Arguments]    ${param}
+    ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
+    # Create Session    api    ${doc_url}    ${dict}
+    ${params}    Create Dictionary    param=${param}
+    ${addr}    Get Request    api    /drgs/drgsRecordListDown    params=${params}
+    # ${responsedata}    To Json    ${addr.content}
+    [Return]    ${addr}
+
+
+
+
+drgsRecordDict
+    [Arguments]
+    ${data}    Create Dictionary
+    ${addr}    Post Request    api    /drgs/drgsRecordDict    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+drgQueryDict
+    [Arguments]    ${doctor_group}    ${drgs_no}    ${doctor}    ${dep}
+    ${data}    Create Dictionary    doctor_group=${doctor_group}    drgs_no=${drgs_no}    dep=${dep}    doctor=${doctor}
+    ${addr}    Post Request    api    /drgs/drgQueryDict    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+sampleItemList
+    [Arguments]    ${sample_id}    ${mdc_no}    ${content}    ${current_index}    ${page_size}    ${order}
+    ${order}    Evaluate    dict(${order})
+    ${data}    Create Dictionary    sample_id=${sample_id}    mdc_no=${mdc_no}    current_index=${current_index}    page_size=${page_size}    order=${order}
+    ...    content=${content}
+    ${addr}    Post Request    api    /sample/sampleItemList    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+
+
+drg绩效用户管理列表
+    [Arguments]    ${order}    ${current_index}    ${page_size}
+    ${order}    Evaluate    dict(${order})
+    ${data}    Create Dictionary    order=${order}    current_index=${current_index}    page_size=${page_size}
+    ${addr}    Post Request    api    /manage/userList    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+
+
+
+
+
+
 
 
 ######cdr######
