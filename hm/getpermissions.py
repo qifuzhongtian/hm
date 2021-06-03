@@ -211,6 +211,15 @@ def write_command(permission_dict):
 
         customized_product_str = customized_product_str + "病历质控/病案室端 "
 
+    #DRG
+    if "drg" in permission_dict.keys():
+        for item in permission_dict["drg"]:
+
+            if item == 'None' or item == None:
+                continue
+
+            customized_product_str = customized_product_str + "DRG/" + item + " "
+
     #其他的一坨
     if "customizedProduct" in permission_dict.keys():
         for item in permission_dict["customizedProduct"]:
