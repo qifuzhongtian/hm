@@ -1,8 +1,8 @@
 *** Variables ***
 #=======医院内网需要修改的==============#
 #mayson生产环境       修改成http://负载ip/cdss
-#${mayson_url}     http://profile.huimeionline.com/cdss
-${mayson_url}     http://172.16.2.218:8080
+${mayson_url}     http://profile.huimeionline.com/cdss
+# ${mayson_url}     http://172.16.2.218:8080
 # ${mayson_url}     http://172.16.3.61:8080
 # ${mayson_url}    http://test-mayson.huimeionline.com/cdss
 #演示环境
@@ -3851,6 +3851,33 @@ cdr标准数据集就诊次
     #Create Session      api     ${lvdao_url}    ${dict}
     ${data}     Create Dictionary   index=${index}  pageSize=${pageSize}    recordId=${recordId}
     ${addr}     Post Request    api     manage/getUserJournal   data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+单病种回收站
+    [Arguments]        ${userId}        ${userName}        ${type}        ${doctor}        ${diseaseName}        ${timeType}        ${startVisitTime}    
+    ...        ${endVisitTime}        ${baseGroupType}
+    #获取医院的auther_key
+    ${getRes}    单病种登录    name=privateTesting    password=38ebcce4a466e04bf443d54ca52cd44f    type=0    time=0
+    ${auther_key}   Evaluate    $getRes['data']['auther_key']
+    log     ${auther_key}
+    ${dict}    Create Dictionary    Content-Type=application/json   Huimei_id=${auther_key}
+    Create Session    api    ${mayson_url}    ${dict}
+  userId=${userId}    userName=${userName}    type=${type}    doctor=${doctor}    diseaseName=${diseaseName}
+    ...        timeType=${timeType}    startVisitTime=${startVisitTime}    endVisitTime=${endVisitTime}    baseGroupType=${baseGroupType}
+    ${addr}     Post Request    api        mayson/gc/recycleGroup    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+
+单病种恢复入组
+    [Arguments]        ${baseGroupId}        ${branchGroupId}        ${recordIds}        
+    ${dict}    Create Dictionary    Content-Type=application/json   Huimei_id=${Huimei_id}
+    ${recordIds}    Evaluate    [${recordIds}]
+    Create Session    api    ${mayson_url}    ${dict}  
+    ${data}     Create Dictionary       baseGroupId=${baseGroupId}    branchGroupId=${branchGroupId}    recordIds=${recordIds}
+    ${addr}     Post Request    api        mayson/gc/report/restore    data=${data}
     ${responsedata}    To Json    ${addr.content}
     log    ${data}
     [Return]    ${responsedata}
