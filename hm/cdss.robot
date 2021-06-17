@@ -3898,3 +3898,13 @@ cdr标准数据集就诊次
     ${responsedata}    To Json    ${addr.content}
     log    ${data}
     [Return]    ${responsedata}
+
+单病种删除入组
+    [Arguments]        ${baseGroupId}        ${branchGroupId}
+    ${dict}    Create Dictionary    Content-Type=application/json   Huimei_id=${Huimei_id}
+    Create Session    api    ${mayson_url}    ${dict}
+    ${data}    Create Dictionary    baseGroupId=${baseGroupId}    branchGroupId=${branchGroupId}
+    ${addr}    Post Request    api     /mayson/gc/report/delete    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data} 
+    [Return]    ${responsedata}
