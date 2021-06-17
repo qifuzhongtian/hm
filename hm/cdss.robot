@@ -4,7 +4,7 @@
 ${mayson_url}     http://profile.huimeionline.com/cdss
 # ${mayson_url}     http://172.16.2.218:8080
 # ${mayson_url}     http://172.16.3.61:8080
-# ${mayson_url}    http://test-mayson.huimeionline.com/cdss
+#${mayson_url}    http://test-mayson.huimeionline.com/cdss
 #演示环境
 # ${mayson_url}    http://172.16.4.178/cdss
 
@@ -3863,14 +3863,31 @@ cdr标准数据集就诊次
     ${auther_key}   Evaluate    $getRes['data']['auther_key']
     log     ${auther_key}
     ${dict}    Create Dictionary    Content-Type=application/json   Huimei_id=${auther_key}
-    Create Session    api    ${mayson_url}    ${dict}
-  userId=${userId}    userName=${userName}    type=${type}    doctor=${doctor}    diseaseName=${diseaseName}
+    Create Session    api    ${mayson_url}    ${dict}    
+    ${data}    Create Dictionary     userId=${userId}    userName=${userName}    type=${type}        doctor=${doctor}    diseaseName=${diseaseName}
     ...        timeType=${timeType}    startVisitTime=${startVisitTime}    endVisitTime=${endVisitTime}    baseGroupType=${baseGroupType}
     ${addr}     Post Request    api        mayson/gc/recycleGroup    data=${data}
     ${responsedata}    To Json    ${addr.content}
     log    ${data}
     [Return]    ${responsedata}
 
+单病种回收站患者列表
+    [Arguments]        ${timeType}        ${baseGroupId}        ${branchGroupId}        ${currentPage}        ${pageSize}        ${userId}        ${userName}
+    ...            ${doctor}        ${reportedSwitch}        ${startVisitTime}        ${endVisitTime}
+     #获取医院的auther_key
+    ${getRes}    单病种登录    name=privateTesting    password=38ebcce4a466e04bf443d54ca52cd44f    type=0    time=0
+    ${auther_key}   Evaluate    $getRes['data']['auther_key']
+    log     ${auther_key}
+    ${dict}    Create Dictionary    Content-Type=application/json   Huimei_id=${auther_key}
+    Create Session    api    ${mayson_url}    ${dict}       
+    ${data}    Create Dictionary    timeType=${timeType}        baseGroupId=${baseGroupId}    branchGroupId=${branchGroupId}    currentPage=${currentPage}
+    ...        pageSize=${pageSize}    userId=${userId}    userName=${userName}    doctor=${doctor}    reportedSwitch=${reportedSwitch}    startVisitTime=${startVisitTime}
+    ...    endVisitTime=${endVisitTime}
+     ${addr}     Post Request    api        mayson/gc/getRecycleInfo    data=${data}
+    ${responsedata}    To Json    ${addr.content}
+    log    ${data}
+    [Return]    ${responsedata}
+   
 单病种恢复入组
     [Arguments]        ${baseGroupId}        ${branchGroupId}        ${recordIds}        
     ${dict}    Create Dictionary    Content-Type=application/json   Huimei_id=${Huimei_id}
