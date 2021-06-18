@@ -13,5 +13,5 @@ Library           DateTime
     [Documentation]         /mayson/gc/report/restore
      [Setup]    Run Keywords    获取时间戳
      ...    AND    获取随机数
-     ${getRes}    单病种恢复入组    baseGroupId=5    branchGroupId=201    recordIds=${random}
+     ${getRes}    单病种恢复入组    baseGroupId=5    branchGroupId=201    recordIds=${timestamp}${random}
     Should Be Equal As Strings   ${getRes['head']['error']}     0
