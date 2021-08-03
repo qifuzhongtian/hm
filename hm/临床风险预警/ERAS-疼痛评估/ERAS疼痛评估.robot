@@ -33,8 +33,8 @@ PAIN-1:入院推荐疼痛评分 规则ID PAIN-1
     #####疑似诊断
     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     #####质控推荐检查
-    ${aj}    Evaluate    [aj['assessItem'] for aj in $getRes['body']['qualityControlResponse']['illnessAssessList']]
-    Should Contain    ${aj}    面部表情疼痛评分量表（Wong-Banker）
+    ${aj}    Evaluate    [aj['ruleNumber'] for aj in $getRes['body']['qualityControlResponse']['illnessAssessList']]
+    Should Contain    ${aj}    PAIN-1
 
 
 PAIN-2:疼痛评分≥4分 推荐治疗方案 中重度疼痛镇痛治疗 规则ID PAIN-2
@@ -64,8 +64,8 @@ PAIN-2:疼痛评分≥4分 推荐治疗方案 中重度疼痛镇痛治疗 规则
     #####疑似诊断
     #${aj}    Evaluate    [aj['diseaseName'] for aj in $getRes['body']['diseaseHospitalList']]
     #####质控推荐检查
-    ${aj}    Evaluate    [aj['planName'] for aj in $getRes['body']['qualityControlResponse']['therapeuticPlanList']]
-    Should Contain    ${aj}    中重度疼痛镇痛治疗
+    ${aj}    Evaluate    [aj['ruleNumber'] for aj in $getRes['body']['qualityControlResponse']['therapeuticPlanList']]
+    Should Contain    ${aj}    PAIN-2
 
 
 
