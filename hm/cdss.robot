@@ -1952,7 +1952,7 @@ VTE2快速确认
     ${dict}    Create Dictionary    Content-Type=application/json    Huimei_id=${Huimei_id}
     Create Session    api    ${mayson_url}    ${dict}
     ${params}    Create Dictionary    pdfName=${pdfName}    pdfPath=${pdfPath}
-    ${addr}    Get Request    api    /mayson/api/assess_pdf_download?_hm={"Huimei_id":"D7928B9182ABF6E0A6A6EBB71B353585"}    params=${params}
+    ${addr}    Get Request    api    /mayson/api/assess_pdf_download?    params=${params}
     # ${responsedata}    To Json    ${addr.content}
     [Return]    ${addr}
 
